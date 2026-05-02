@@ -42,10 +42,11 @@ Triggered on demand or on a schedule.
 
 1. Scan `raw/` for sources not yet reflected in `wiki/`.
 2. Run Ingest for each unprocessed source.
-3. Identify concept pages that reference the same entity — merge into a canonical article.
-4. **Consolidate**: claims reinforced across 3+ sources get stronger confidence; unreinforced claims get demoted.
-5. **Resolve contradictions** when detected: pick the more-likely claim based on (a) source recency, (b) source authority, (c) supporting count. Mark the loser as superseded with reasoning. Do not just flag — resolve.
-6. Rebuild `wiki/indexes/` from current wiki state.
+3. **Crystallize from `output/`**: scan `output/` for `query-*.md` results not yet reflected in `wiki/`. For each one that is well-structured, well-cited, and surfaces durable new facts (not just an in-the-moment answer), treat it as an exploration source — distill those facts into first-class `wiki/` content. Strengthen or challenge existing claims as warranted. Skip outputs that are conversational, redundant, or low-quality.
+4. Identify concept pages that reference the same entity — merge into a canonical article.
+5. **Consolidate**: claims reinforced across 3+ sources get stronger confidence; unreinforced claims get demoted.
+6. **Resolve contradictions** when detected: pick the more-likely claim based on (a) source recency, (b) source authority, (c) supporting count. Mark the loser as superseded with reasoning. Do not just flag — resolve.
+7. Rebuild `wiki/indexes/` from current wiki state.
 
 ### Query
 
@@ -78,7 +79,7 @@ This CLAUDE.md **is** the product. It encodes what entities exist in the HoneyDr
 The v1 build is flat files plus the four operations above. Reach for the following only when the wiki passes ~100 pages or the minimal layer stops scaling:
 
 - **Knowledge graph layer** — typed-entity extraction into `wiki/graph/entities.json` and `wiki/graph/edges.json`, with typed relationships (`uses`, `depends-on`, `caused`, `fixed`, `supersedes`). Enables traversal queries that keyword search misses.
-- **Hybrid search** — BM25 + vector embeddings + graph traversal, fused with reciprocal rank fusion. `index.md` stays as the human-readable catalog.
+- **Hybrid search** — BM25 + vector embeddings + graph traversal, fused with reciprocal rank fusion. `wiki/indexes/` stays as the human-readable catalog surface.
 - **Consolidation tiers** — working memory (recent observations) → episodic (session digests) → semantic (cross-session facts) → procedural (workflows). Each tier is more compressed, more confident, longer-lived.
 - **Event hooks** — auto-ingest on new `raw/` file, context injection on session start, crystallize on session end, contradiction check on every write, scheduled consolidation and retention decay.
 - **Quality scoring** — every LLM-generated page gets a score (structure, citations, consistency); below threshold triggers a rewrite.
