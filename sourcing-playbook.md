@@ -6,7 +6,7 @@ This document defines what content belongs in Lore, where to find it, and how to
 
 ## How to use this playbook
 
-**OpenClaw — automated sourcing (every 1–2 days):** OpenClaw runs a scheduled job that walks every source listed below. For RSS-friendly sources it fetches feeds directly; for login-walled sources (X, Discord) it uses its managed Chromium browser tool with persistent cookies. Items matching the relevance criteria below land in `HoneyDrunk.Lore/raw/` as markdown.
+**OpenClaw — automated sourcing (every 1–2 days):** OpenClaw runs a scheduled job that walks every source listed below. For RSS-friendly sources it fetches feeds directly; for login-walled sources (X, Discord) it uses its managed Chromium browser tool with persistent cookies. Items matching the relevance criteria below land in `raw/` as markdown.
 
 **Web Clipper — serendipitous human capture (anytime):** When you find an article worth keeping during normal reading, hit Quick Clip (Alt+Shift+O). Output lands in `raw/` same as OpenClaw output. The downstream ingestion skill doesn't care which path produced a file.
 
@@ -310,7 +310,7 @@ This document defines what content belongs in Lore, where to find it, and how to
 
 These sources can't be fetched as simple RSS, but OpenClaw still automates them — the mechanisms differ from cats 1–12.
 
-- **Login-walled** (X, Discord) → OpenClaw managed Chromium profile (`browser.defaultProfile = "openclaw"`). One-time login per source persists in the cookie jar; the daily job then scrapes without further auth.
+- **Login-walled** (X, Discord) → OpenClaw uses a managed Chromium profile with persistent login state. One-time login per source persists in the cookie jar; the daily job then scrapes without further auth.
 - **Audio** (podcasts) → OpenClaw fetches the RSS feed, downloads new episodes, transcribes via Whisper (or equivalent), drops the transcript in `raw/` with `source: podcast` and the original audio URL in frontmatter.
 
 Implementation specifics for both mechanisms (browser profile setup, login flows, transcription worker) live in the OpenClaw bringup packet, not here. This playbook only defines *what* gets sourced; the mechanism is OpenClaw's concern.
