@@ -1,0 +1,9 @@
+{
+  "userIgnoreFilters": [
+    "output/",
+    "tools/"
+  ],
+  "newFileLocation": "folder",
+  "newFileFolderPath": "raw",
+  "newLinkFormat": "relative"
+}

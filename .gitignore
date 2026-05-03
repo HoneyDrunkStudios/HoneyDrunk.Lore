@@ -416,3 +416,7 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Obsidian workspace noise (vault config is committed; per-machine state is not)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
