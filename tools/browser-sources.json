@@ -1,0 +1,82 @@
+{
+  "browserProfile": "openclaw",
+  "x": {
+    "enabled": true,
+    "listUrl": "https://x.com/i/lists/2050930841488904671"
+  },
+  "discord": {
+    "enabled": true,
+    "communities": [
+      {
+        "name": "Aspire",
+        "focus": ".NET Aspire announcements, integrations, deployment/runtime patterns",
+        "channelUrls": [
+          "https://discord.com/channels/1361488941836140614/1397978154454224978"
+        ]
+      },
+      {
+        "name": "Microsoft Community",
+        "focus": "broad Microsoft developer/platform announcements",
+        "channelUrls": [
+          "https://discord.com/channels/150662382874525696/316600283503394817"
+        ]
+      },
+      {
+        "name": ".NET / C#",
+        "focus": "language and runtime announcements",
+        "channelUrls": [
+          "https://discord.com/channels/143867839282020352/276100951591616512"
+        ]
+      },
+      {
+        "name": "OpenAI Developer",
+        "focus": "API changes, model releases",
+        "channelUrls": [
+          "https://discord.com/channels/974519864045756446/977259063052234752"
+        ]
+      },
+      {
+        "name": "Microsoft Foundry",
+        "focus": "Azure AI Foundry/model/platform announcements",
+        "channelUrls": [
+          "https://discord.com/channels/1113626258182504448/1117954711774056549"
+        ]
+      },
+      {
+        "name": "Anthropic / Claude",
+        "focus": "Claude, MCP, Claude Code announcements",
+        "channelUrls": [
+          "https://discord.com/channels/1072196207201501266/1072197729276657744"
+        ]
+      },
+      {
+        "name": "Google Gemini",
+        "focus": "Gemini API/model and AI Studio announcements",
+        "channelUrls": [
+          "https://discord.com/channels/1081121447960915989/1081121448468418603"
+        ]
+      },
+      {
+        "name": "Hugging Face",
+        "focus": "OSS model ecosystem",
+        "channelUrls": [
+          "https://discord.com/channels/879548962464493619/897387888663232554"
+        ]
+      },
+      {
+        "name": "Official Unity",
+        "focus": "Unity engine, tooling, runtime/platform announcements",
+        "channelUrls": [
+          "https://discord.com/channels/489222168727519232/497866477903413250"
+        ]
+      },
+      {
+        "name": "Blender Community",
+        "focus": "Blender ecosystem, tooling, creator/platform patterns",
+        "channelUrls": [
+          "https://discord.com/channels/185590609631903755/869955928177406083"
+        ]
+      }
+    ]
+  }
+}

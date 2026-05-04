@@ -50,6 +50,7 @@ This document defines what content belongs in Lore, where to find it, and how to
 - Simon Willison (simonwillison.net)
 - Andrej Karpathy (karpathy.ai, github.com/karpathy)
 - The Batch — DeepLearning.AI (deeplearning.ai/the-batch)
+- TLDR AI (tldr.tech/api/rss/ai) — daily scan for model/tooling items only
 
 **Sources — research firehose:**
 - ArXiv cs.AI (arxiv.org/list/cs.AI/recent) — applied agent work only
@@ -78,6 +79,8 @@ This document defines what content belongs in Lore, where to find it, and how to
 - High Scalability (highscalability.com)
 - InfoQ Architecture (infoq.com/architecture-design)
 - The Architecture Notes (architecturenotes.co)
+- System Design Newsletter (newsletter.systemdesign.one)
+- Thoughtworks Insights (thoughtworks.com/insights)
 
 ---
 
@@ -168,6 +171,7 @@ This document defines what content belongs in Lore, where to find it, and how to
 - Claude Code documentation and changelog (docs.claude.com/en/docs/claude-code)
 - VS Code updates (code.visualstudio.com/updates)
 - GitHub Blog (github.blog)
+- TLDR Web Dev (tldr.tech/api/rss/webdev) — daily scan for durable web/devtool items
 - Changelog podcast (changelog.com)
 - The Pragmatic Engineer — Gergely Orosz (pragmaticengineer.com)
 
@@ -191,13 +195,41 @@ This document defines what content belongs in Lore, where to find it, and how to
 **Sources:**
 - Unity Blog (unity.com/blog)
 - Game Developer (gamedeveloper.com)
+- Godot Engine blog (godotengine.org)
+- 80 Level (80.lv) — tools, engine, production, and technical-art items only
+- DEV.to gamedev + Unity feeds — architecture/systems posts only
 - r/gamedev (reddit.com/r/gamedev) — architecture and systems posts only
 - Game Programming Patterns (gameprogrammingpatterns.com)
 - GDC Vault (gdcvault.com) — free talks
 
 ---
 
-### 8. DevOps & CI/CD
+### 8. Technical Art & Creator Tools
+*Graphics and asset-creation systems for making games: Blender, Photoshop/Adobe tooling, shaders, VFX, pipelines, procedural art, and production workflows.*
+
+**What to clip:**
+- Blender release notes, pipeline changes, geometry nodes, Grease Pencil, rendering, asset workflows
+- Photoshop/Adobe developer tooling: APIs, UXP/plugins, Creative Cloud automation, Firefly workflows
+- Shader/VFX techniques that are practical for Unity/Godot/game pipelines
+- Technical-art pipeline writeups: rigging, animation, materials, texture generation, optimization
+- Production workflows that connect art tools to game engines or automation
+
+**What to skip:**
+- Pure portfolio/showcase posts with no reusable technique
+- Beginner art tutorials unless they reveal a pipeline pattern
+- Marketplace asset promotions without technical substance
+
+**Sources:**
+- Blender News + release feeds (blender.org)
+- Adobe Developer Blog — Photoshop/Creative Cloud/UXP/API items only
+- RealtimeVFX (realtimevfx.com) — shader/VFX techniques only
+- Tech-Artists.org (tech-artists.org) — pipeline/tools discussions only
+- Polycount (polycount.com) — technical art, shaders, production workflow threads only
+- 80 Level (80.lv) — also scanned under game-dev; keep only technical-art/production items
+
+---
+
+### 9. DevOps & CI/CD
 *Ops sector — shipping reliably, observability, deployment patterns.*
 
 **What to clip:**
@@ -215,12 +247,13 @@ This document defines what content belongs in Lore, where to find it, and how to
 - GitHub Actions changelog (github.blog/changelog/label/actions)
 - Docker blog (docker.com/blog)
 - OpenTelemetry blog (opentelemetry.io/blog)
+- TLDR DevOps (tldr.tech/api/rss/devops) — daily scan for CI/CD, platform, and observability items
 - DevOps.com (devops.com) — CI/CD and observability only
 - Charity Majors (charity.wtf)
 
 ---
 
-### 9. Workflow Automation
+### 10. Workflow Automation
 *Automating the solo dev operating rhythm — agents, triggers, integrations.*
 
 **What to clip:**
@@ -241,7 +274,7 @@ This document defines what content belongs in Lore, where to find it, and how to
 
 ---
 
-### 10. Emerging Technology
+### 11. Emerging Technology
 *Signals from adjacent fields that may influence the Grid long-term direction.*
 
 **What to clip:**
@@ -259,11 +292,12 @@ This document defines what content belongs in Lore, where to find it, and how to
 - IEEE Spectrum (spectrum.ieee.org)
 - Ars Technica (arstechnica.com) — deep technical dives only
 - The New Stack (thenewstack.io)
+- TLDR Tech (tldr.tech/api/rss/tech) — daily scan for durable technical items
 - Hacker News (news.ycombinator.com) — emerging tech high-signal posts
 
 ---
 
-### 11. Security & Ethical Hacking
+### 12. Security & Ethical Hacking
 *HoneyNet sector — resilience testing, digital hygiene, threat modeling.*
 
 **What to clip:**
@@ -281,12 +315,13 @@ This document defines what content belongs in Lore, where to find it, and how to
 - OWASP (owasp.org)
 - Troy Hunt (troyhunt.com)
 - Scott Brady (scottbrady91.com) — .NET identity and security
+- TLDR InfoSec (tldr.tech/api/rss/infosec) — daily scan for identity, appsec, supply-chain, and cloud security items
 - HackerOne Hacktivity (hackerone.com/hacktivity) — public disclosures
 - Security Weekly (securityweekly.com)
 
 ---
 
-### 12. Creator Economy & Marketplace
+### 13. Creator Economy & Marketplace
 *Market sector — XP systems, gigs, payouts, marketplace dynamics.*
 
 **What to clip:**
@@ -311,9 +346,9 @@ This document defines what content belongs in Lore, where to find it, and how to
 These sources can't be fetched as simple RSS, but OpenClaw still automates them — the mechanisms differ from cats 1–12.
 
 - **Login-walled** (X, Discord) → OpenClaw uses a managed Chromium profile with persistent login state. One-time login per source persists in the cookie jar; the daily job then scrapes without further auth.
-- **Audio** (podcasts) → OpenClaw fetches the RSS feed, downloads new episodes, transcribes via Whisper (or equivalent), drops the transcript in `raw/` with `source: podcast` and the original audio URL in frontmatter.
+- **Audio/video feeds** (podcasts, YouTube) → OpenClaw polls public feeds and saves high-signal metadata/show notes into `raw/` as `source_type: podcast|youtube`. Full audio/video transcription is a later upgrade, not required for the daily pass.
 
-Implementation specifics for both mechanisms (browser profile setup, login flows, transcription worker) live in the OpenClaw bringup packet, not here. This playbook only defines *what* gets sourced; the mechanism is OpenClaw's concern.
+Implementation specifics for these mechanisms live in the OpenClaw bringup packet, not here. This playbook only defines *what* gets sourced; the mechanism is OpenClaw's concern.
 
 ### X / Twitter
 
@@ -323,20 +358,32 @@ OpenClaw scrapes `x.com/i/lists/2050930841488904671` daily — a private list cu
 
 OpenClaw navigates Discord web with the managed profile and snapshots the **announcement channels only** in each server below. Help/chat noise is excluded.
 
-- Anthropic Discord (joinable from anthropic.com) — Claude, MCP, Claude Code announcements
-- OpenAI Developer Discord — API changes, model releases
-- Hugging Face Discord — OSS model ecosystem
-- LangChain Discord — agent framework patterns
+- Aspire Discord — .NET Aspire announcements, integrations, deployment/runtime patterns
+- Microsoft Community Discord — broad Microsoft developer/platform announcements
 - .NET / C# Discord (discord.gg/csharp) — language and runtime announcements
+- OpenAI Developer Discord — API changes, model releases
+- Microsoft Foundry Discord — Azure AI Foundry/model/platform announcements
+- Anthropic Discord (joinable from anthropic.com) — Claude, MCP, Claude Code announcements
+- Google Gemini Discord — Gemini API/model and AI Studio announcements
+- Hugging Face Discord — OSS model ecosystem
+- Official Unity Discord — Unity engine, tooling, runtime/platform announcements
+- Blender Community Discord — Blender ecosystem, tooling, creator/platform patterns
 
 ### Podcasts
 
-OpenClaw polls the RSS feed, downloads new episodes, transcribes, and drops the transcript in `raw/` tagged `source: podcast`. The ingestion skill treats transcripts the same as articles.
+OpenClaw polls podcast/public feeds and clips high-signal episode metadata/show notes into `raw/` tagged `source_type: podcast`. Transcription can be added later when we want deeper harvesting.
 
 - Latent Space (latent.space) — AI engineering deep dives, swyx + alessio
 - Practical AI (changelog.com/practicalai) — applied AI cases
-- The Pragmatic Engineer podcast (pragmaticengineer.com/podcast) — engineering leadership, dev productivity
-- Acquired (acquired.fm) — strategy and business of tech, occasional infra deep dives
+- The Pragmatic Engineer (newsletter.pragmaticengineer.com/feed) — engineering leadership, dev productivity
+- Acquired (feeds.transistor.fm/acquired) — strategy and business of tech, occasional infra deep dives
+
+### YouTube
+
+OpenClaw polls official channel RSS feeds and clips high-signal video metadata/descriptions into `raw/` tagged `source_type: youtube`. Prefer release notes, demos, architecture talks, toolchain updates, and production workflows; skip hype trailers and beginner content.
+
+- Blender Official YouTube — Blender releases, demos, production workflows
+- Microsoft Developer YouTube — .NET/Azure/devtool talks and demos
 
 ### What to skip
 

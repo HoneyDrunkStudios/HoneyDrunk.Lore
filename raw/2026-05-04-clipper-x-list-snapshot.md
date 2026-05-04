@@ -1,0 +1,248 @@
+---
+source: "https://x.com/i/lists/2050930841488904671#snapshot-2026-05-04"
+title: "X list snapshot — 2026-05-04"
+author: "OpenClaw browser"
+date_published: "unknown"
+date_clipped: "2026-05-04"
+category: "AI / LLM Research & Tooling"
+source_type: "clipper"
+---
+
+# X list snapshot — 2026-05-04
+
+Source: https://x.com/i/lists/2050930841488904671#snapshot-2026-05-04
+
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic:
+      - generic:
+        - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+          - generic [ref=e4]: To view keyboard shortcuts, press question mark
+          - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+            - /url: /i/keyboard_shortcuts
+        - generic [ref=e6]:
+          - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+          - button "Skip to trending" [ref=e9] [cursor=pointer]
+          - banner [ref=e11]:
+            - generic [ref=e13]:
+              - generic [ref=e14]:
+                - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                  - link "X" [ref=e17]:
+                    - /url: /home
+                    - img [ref=e19]
+                - navigation "Primary" [ref=e23]:
+                  - link "Home" [ref=e24] [cursor=pointer]:
+                    - /url: /home
+                    - img [ref=e27]
+                  - link "Search and explore" [ref=e30] [cursor=pointer]:
+                    - /url: /explore
+                    - img [ref=e33]
+                  - link "Notifications" [ref=e36] [cursor=pointer]:
+                    - /url: /notifications
+                    - img [ref=e39]
+                  - link "Direct Messages" [ref=e42] [cursor=pointer]:
+                    - /url: /i/chat
+                    - img [ref=e45]
+                  - link "Grok" [ref=e48] [cursor=pointer]:
+                    - /url: /i/grok
+                    - generic [ref=e50]:
+                      - img [ref=e51]
+                      - generic "undefined unread items" [ref=e54]
+                  - link "Premium" [ref=e55] [cursor=pointer]:
+                    - /url: /i/premium
+                    - img [ref=e58]
+                  - link "Bookmarks" [ref=e61] [cursor=pointer]:
+                    - /url: /i/bookmarks
+                    - img [ref=e64]
+                  - link "Creator Studio" [ref=e67] [cursor=pointer]:
+                    - /url: /i/jf/creators/studio
+                    - img [ref=e70]
+                  - link "Articles" [ref=e73] [cursor=pointer]:
+                    - /url: /compose/articles
+                    - img [ref=e76]
+                  - link "Profile" [ref=e81] [cursor=pointer]:
+                    - /url: /tatteddev
+                    - img [ref=e84]
+                  - button "More menu items" [ref=e87] [cursor=pointer]:
+                    - img [ref=e90]
+                - link "Post" [ref=e94] [cursor=pointer]:
+                  - /url: /compose/post
+                  - img [ref=e96]
+              - button "Account menu" [ref=e101] [cursor=pointer]:
+                - generic [ref=e109]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic "Tatted Dev":
+                          - img "Tatted Dev"
+          - main [ref=e112]:
+            - generic "Home timeline" [ref=e117]:
+              - generic [ref=e118]:
+                - generic [ref=e124] [cursor=pointer]:
+                  - button "Back" [ref=e126]:
+                    - img [ref=e128]
+                  - generic [ref=e132]:
+                    - heading "HoneyDrunk Lore Sources Private List" [level=2] [ref=e133]:
+                      - generic [ref=e134]:
+                        - generic [ref=e135]: HoneyDrunk Lore Sources
+                        - img "Private List" [ref=e136]
+                    - generic [ref=e139]: "@tatteddev"
+                  - generic [ref=e141]:
+                    - button "Share Menu" [ref=e142]:
+                      - img [ref=e144]
+                    - button "More" [ref=e147]:
+                      - img [ref=e149]
+                - generic:
+                  - generic:
+                    - status:
+                      - button:
+                        - generic:
+                          - img
+                          - generic: See new posts
+              - region "List" [ref=e153]:
+                - heading "List" [level=1] [ref=e154]
+                - 'generic "Timeline: List" [ref=e155]':
+                  - generic [ref=e156]:
+                    - generic [ref=e164]:
+                      - generic [ref=e165]:
+                        - generic [ref=e166]: HoneyDrunk Lore Sources
+                        - img "Private List" [ref=e167]
+                      - generic [ref=e171]:
+                        - link "Tatted Dev Verified account" [ref=e172] [cursor=pointer]:
+                          - /url: /tatteddev
+                          - generic [ref=e173]:
+                            - generic [ref=e185]: Tatted Dev
+                            - img "Verified account" [ref=e188]
+                        - link "@tatteddev" [ref=e192] [cursor=pointer]:
+                          - /url: /tatteddev
+                          - generic [ref=e194]: "@tatteddev"
+                      - generic [ref=e195]:
+                        - link "80 Members" [ref=e197] [cursor=pointer]:
+                          - /url: /i/lists/2050930841488904671/members
+                          - generic [ref=e198]: "80"
+                          - generic [ref=e199]: Members
+                        - link "0 Followers" [ref=e201] [cursor=pointer]:
+                          - /url: /i/lists/2050930841488904671/followers
+                          - generic [ref=e202]: "0"
+                          - generic [ref=e203]: Followers
+                      - link "Edit List" [ref=e204] [cursor=pointer]:
+                        - /url: /i/lists/2050930841488904671/info
+                        - generic [ref=e207]: Edit List
+                    - 'article "Cloudflare Verified account @Cloudflare 8 minutes ago We have completed a massive engineering effort to make our infrastructure more resilient. Through new tools like Snapstone and the Engineering Codex, we''ve implemented safer configuration changes and automated best practices to prevent future incidents. blog.cloudflare.com Code Orange: Fail Small is complete. The result is a stronger Cloudflare network From blog.cloudflare.com 1 repost, 9 likes, 1 bookmark, 405 views" [ref=e211] [cursor=pointer]':
+                      - generic [ref=e217]:
+                        - link "Square profile picture" [ref=e229]:
+                          - /url: /Cloudflare
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic "Square profile picture":
+                                  - img "Square profile picture"
+                        - generic [ref=e232]:
+                          - generic [ref=e234]:
+                            - generic [ref=e237]:
+                              - link "Cloudflare Verified account" [ref=e240]:
+                                - /url: /Cloudflare
+                                - generic [ref=e241]:
+                                  - generic [ref=e243]: Cloudflare
+                                  - img "Verified account" [ref=e246]
+                              - generic [ref=e253]:
+                                - link "@Cloudflare" [ref=e255]:
+                                  - /url: /Cloudflare
+                                  - generic [ref=e256]: "@Cloudflare"
+                                - generic [ref=e257]: 
+                                - link "8 minutes ago" [ref=e259]:
+                                  - /url: /Cloudflare/status/2051193586964677001
+                                  - time [ref=e260]: 8m
+                            - generic [ref=e262]:
+                              - button "Grok actions" [ref=e264]:
+                                - img [ref=e269]
+                              - button "More" [ref=e275]:
+                                - img [ref=e279]
+                          - generic [ref=e283]: We have completed a massive engineering effort to make our infrastructure more resilient. Through new tools like Snapstone and the Engineering Codex, we've implemented safer configuration changes and automated best practices to prevent future incidents.
+                          - 'generic "blog.cloudflare.com Code Orange: Fail Small is complete. The result is a stronger Cloudflare network" [ref=e284]':
+                            - 'generic "blog.cloudflare.com Code Orange: Fail Small is complete. The result is a stronger Cloudflare network" [ref=e285]':
+                              - 'link "blog.cloudflare.com Code Orange: Fail Small is complete. The result is a stronger Cloudflare network" [ref=e287]':
+                                - /url: https://t.co/Vk1syjY6jz
+                                - generic [ref=e293]:
+                                  - generic:
+                                    - generic: "Code Orange: Fail Small is complete. The result is a stronger Cloudflare network"
+                            - link "From blog.cloudflare.com" [ref=e296]:
+                              - /url: https://t.co/Vk1syjY6jz
+                          - group "1 repost, 9 likes, 1 bookmark, 405 views" [ref=e299]:
+                            - button "0 Replies. Reply" [ref=e301]:
+                              - img [ref=e305]
+                            - button "1 repost. Repost" [ref=e312]:
+                              - generic [ref=e313]:
+                                - img [ref=e316]
+                                - generic [ref=e321]: "1"
+                            - button "9 Likes. Like" [ref=e323]:
+                              - generic [ref=e324]:
+                                - img [ref=e327]
+                                - generic [ref=e332]: "9"
+                            - link "405 views. View post analytics" [ref=e334]:
+                              - /url: /Cloudflare/status/2051193586964677001/analytics
+                              - generic [ref=e335]:
+                                - img [ref=e338]
+                                - generic [ref=e343]: "405"
+                            - button "Bookmark" [ref=e345]:
+                              - img [ref=e349]
+                            - button "Share post" [ref=e354]:
+                              - img [ref=e358]
+                    - 'article "Milan Jovanovi Verified account @mjovanovictech 31 minutes ago Everyone wants to build a modular monolith these days. But what''s the value of a modular monolith? Here are a few advantages: - Fast development velocity - Lower operational complexity - Simplified deployment process - Easier transition to microservices Have you ever Image 1 reply, 1 repost, 9 likes, 6 bookmarks, 259 views" [ref=e364] [cursor=pointer]':
+                      - generic [ref=e370]:
+                        - link [ref=e382]:
+                          - /url: /mjovanovictech
+                        - generic [ref=e385]:
+                          - generic [ref=e387]:
+                            - generic [ref=e390]:
+                              - link "Milan Jovanovi Verified account" [ref=e393]:
+                                - /url: /mjovanovictech
+                                - generic [ref=e394]:
+                                  - generic [ref=e396]: Milan Jovanovi
+                                  - img "Verified account" [ref=e399]
+                              - generic [ref=e403]:
+                                - link "@mjovanovictech" [ref=e405]:
+                                  - /url: /mjovanovictech
+                                  - generic [ref=e406]: "@mjovanovictech"
+                                - generic [ref=e407]: 
+                                - link "31 minutes ago" [ref=e409]:
+                                  - /url: /mjovanovictech/status/2051187828868980961
+                                  - time [ref=e410]: 31m
+                            - generic [ref=e412]:
+                              - button "Grok actions" [ref=e414]:
+                                - img [ref=e419]
+                              - button "More" [ref=e425]:
+                                - img [ref=e429]
+                          - generic [ref=e432]:
+                            - generic [ref=e433]: "Everyone wants to build a modular monolith these days. But what's the value of a modular monolith? Here are a few advantages: - Fast development velocity - Lower operational complexity - Simplified deployment process - Easier transition to microservices Have you ever"
+                            - button "Show more" [ref=e434]
+                          - link "Image" [ref=e442]:
+                            - /url: /mjovanovictech/status/2051187828868980961/photo/1
+                            - generic "Image" [ref=e446]:
+                              - img "Image" [ref=e448]
+                          - group "1 reply, 1 repost, 9 likes, 6 bookmarks, 259 views" [ref=e451]:
+                            - button "1 Reply. Reply" [ref=e453]:
+                              - generic [ref=e454]:
+                                - img [ref=e457]
+                                - generic [ref=e462]: "1"
+                            - button "1 repost. Repost" [ref=e464]:
+                              - generic [ref=e465]:
+                                - img [ref=e468]
+                                - generic [ref=e473]: "1"
+                            - button "9 Likes. Like" [ref=e475]:
+                              - generic [ref=e476]:
+                                - img [ref=e479]
+                                - generic [ref=e484]: "9"
+                            - link "259 views. View post analytics" [ref=e486]:
+                              - /url: /mjovanovictech/status/2051187828868980961/analytics
+                              - generic [ref=e487]:
+                                - img [ref=e490]
+                                - generic [ref=e495]: "259"
+                            - button "Bookmark" [ref=e497]:
+                              - img [ref=e501]
+                            - button "Share post" [ref=e506]:
+                              - img [ref=e510]
+  - generic:
+    - img
+  - generic:
+    - img

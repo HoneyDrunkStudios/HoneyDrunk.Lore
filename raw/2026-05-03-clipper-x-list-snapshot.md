@@ -1,0 +1,554 @@
+---
+source: "https://x.com/i/lists/2050930841488904671#snapshot-2026-05-03"
+title: "X list snapshot — 2026-05-03"
+author: "OpenClaw browser"
+date_published: "unknown"
+date_clipped: "2026-05-03"
+category: "AI / LLM Research & Tooling"
+source_type: "clipper"
+---
+
+# X list snapshot — 2026-05-03
+
+Source: https://x.com/i/lists/2050930841488904671#snapshot-2026-05-03
+
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic:
+      - generic:
+        - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+          - generic [ref=e4]: To view keyboard shortcuts, press question mark
+          - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+            - /url: /i/keyboard_shortcuts
+        - generic [ref=e6]:
+          - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+          - button "Skip to trending" [ref=e9] [cursor=pointer]
+          - banner [ref=e11]:
+            - generic [ref=e13]:
+              - generic [ref=e14]:
+                - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                  - link "X" [ref=e17]:
+                    - /url: /home
+                    - img [ref=e19]
+                - navigation "Primary" [ref=e23]:
+                  - link "Home" [ref=e24] [cursor=pointer]:
+                    - /url: /home
+                    - img [ref=e27]
+                  - link "Search and explore" [ref=e30] [cursor=pointer]:
+                    - /url: /explore
+                    - img [ref=e33]
+                  - link "Notifications (1 unread notification)" [ref=e36] [cursor=pointer]:
+                    - /url: /notifications
+                    - generic [ref=e38]:
+                      - img [ref=e39]
+                      - generic "1 unread items" [ref=e42]:
+                        - generic [ref=e43]: "1"
+                  - link "Direct Messages" [ref=e44] [cursor=pointer]:
+                    - /url: /i/chat
+                    - img [ref=e47]
+                  - link "Grok" [ref=e50] [cursor=pointer]:
+                    - /url: /i/grok
+                    - generic [ref=e52]:
+                      - img [ref=e53]
+                      - generic "undefined unread items" [ref=e56]
+                  - link "Premium" [ref=e57] [cursor=pointer]:
+                    - /url: /i/premium
+                    - img [ref=e60]
+                  - link "Bookmarks" [ref=e63] [cursor=pointer]:
+                    - /url: /i/bookmarks
+                    - img [ref=e66]
+                  - link "Creator Studio" [ref=e69] [cursor=pointer]:
+                    - /url: /i/jf/creators/studio
+                    - img [ref=e72]
+                  - link "Articles" [ref=e75] [cursor=pointer]:
+                    - /url: /compose/articles
+                    - img [ref=e78]
+                  - link "Profile" [ref=e83] [cursor=pointer]:
+                    - /url: /tatteddev
+                    - img [ref=e86]
+                  - button "More menu items" [ref=e89] [cursor=pointer]:
+                    - img [ref=e92]
+                - link "Post" [ref=e96] [cursor=pointer]:
+                  - /url: /compose/post
+                  - img [ref=e98]
+              - button "Account menu" [ref=e103] [cursor=pointer]:
+                - generic [ref=e111]:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic "Tatted Dev":
+                          - img "Tatted Dev"
+          - main [ref=e114]:
+            - generic "Home timeline" [ref=e119]:
+              - generic [ref=e120]:
+                - generic [ref=e126] [cursor=pointer]:
+                  - button "Back" [ref=e128]:
+                    - img [ref=e130]
+                  - generic [ref=e134]:
+                    - heading "HoneyDrunk Lore Sources Private List" [level=2] [ref=e135]:
+                      - generic [ref=e136]:
+                        - generic [ref=e137]: HoneyDrunk Lore Sources
+                        - img "Private List" [ref=e138]
+                    - generic [ref=e141]: "@tatteddev"
+                  - generic [ref=e143]:
+                    - button "Share Menu" [ref=e144]:
+                      - img [ref=e146]
+                    - button "More" [ref=e149]:
+                      - img [ref=e151]
+                - generic:
+                  - generic:
+                    - status:
+                      - button:
+                        - generic:
+                          - img
+                          - generic: See new posts
+              - region "List" [ref=e155]:
+                - heading "List" [level=1] [ref=e156]
+                - 'generic "Timeline: List" [ref=e157]':
+                  - generic [ref=e158]:
+                    - generic [ref=e166]:
+                      - generic [ref=e167]:
+                        - generic [ref=e168]: HoneyDrunk Lore Sources
+                        - img "Private List" [ref=e169]
+                      - generic [ref=e173]:
+                        - link "Tatted Dev Verified account" [ref=e174] [cursor=pointer]:
+                          - /url: /tatteddev
+                          - generic [ref=e175]:
+                            - generic [ref=e187]: Tatted Dev
+                            - img "Verified account" [ref=e190]
+                        - link "@tatteddev" [ref=e194] [cursor=pointer]:
+                          - /url: /tatteddev
+                          - generic [ref=e196]: "@tatteddev"
+                      - generic [ref=e197]:
+                        - link "80 Members" [ref=e199] [cursor=pointer]:
+                          - /url: /i/lists/2050930841488904671/members
+                          - generic [ref=e200]: "80"
+                          - generic [ref=e201]: Members
+                        - link "0 Followers" [ref=e203] [cursor=pointer]:
+                          - /url: /i/lists/2050930841488904671/followers
+                          - generic [ref=e204]: "0"
+                          - generic [ref=e205]: Followers
+                      - link "Edit List" [ref=e206] [cursor=pointer]:
+                        - /url: /i/lists/2050930841488904671/info
+                        - generic [ref=e209]: Edit List
+                    - article "Greg Brockman Verified account @gdb 10 minutes ago codex for startup ideas Quote Kappaemme Verified account @Kappaemme1926 4 hours ago CODEX SKILL TO BRUTALLY TEST ANY STARTUP IDEA! Most startup ideas sound good. This Codex skill tells you why they probably wonâ€™t work. Just give Codex your idea and it pressure-tests it for you -> finds the core assumption -> exposes fatal flaws -> checks if the problem is Embedded video 0:41 19 replies, 3 reposts, 82 likes, 63 bookmarks, 6812 views" [ref=e213] [cursor=pointer]:
+                      - generic [ref=e219]:
+                        - link [ref=e231]:
+                          - /url: /gdb
+                        - generic [ref=e234]:
+                          - generic [ref=e236]:
+                            - generic [ref=e239]:
+                              - link "Greg Brockman Verified account" [ref=e242]:
+                                - /url: /gdb
+                                - generic [ref=e243]:
+                                  - generic [ref=e245]: Greg Brockman
+                                  - generic [ref=e247]:
+                                    - img "Verified account" [ref=e248]
+                                    - link [ref=e251]
+                              - generic [ref=e259]:
+                                - link "@gdb" [ref=e261]:
+                                  - /url: /gdb
+                                  - generic [ref=e262]: "@gdb"
+                                - generic [ref=e263]: Â·
+                                - link "10 minutes ago" [ref=e265]:
+                                  - /url: /gdb/status/2050972114077843772
+                                  - time [ref=e266]: 10m
+                            - generic [ref=e268]:
+                              - button "Grok actions" [ref=e270]:
+                                - img [ref=e275]
+                              - button "More" [ref=e281]:
+                                - img [ref=e285]
+                          - generic [ref=e289]: codex for startup ideas
+                          - generic "Quote Kappaemme Verified account @Kappaemme1926 4 hours ago CODEX SKILL TO BRUTALLY TEST ANY STARTUP IDEA! Most startup ideas sound good. This Codex skill tells you why they probably wonâ€™t work. Just give Codex your idea and it pressure-tests it for you -> finds the core assumption -> exposes fatal flaws -> checks if the problem is Embedded video 0:41" [ref=e290]:
+                            - generic [ref=e291]:
+                              - generic [ref=e292]: Quote
+                              - link "Kappaemme Verified account @Kappaemme1926 4 hours ago CODEX SKILL TO BRUTALLY TEST ANY STARTUP IDEA! Most startup ideas sound good. This Codex skill tells you why they probably wonâ€™t work. Just give Codex your idea and it pressure-tests it for you -> finds the core assumption -> exposes fatal flaws -> checks if the problem is Embedded video 0:41" [ref=e293]:
+                                - generic [ref=e294]:
+                                  - generic [ref=e312]:
+                                    - generic [ref=e316]:
+                                      - generic [ref=e318]: Kappaemme
+                                      - img "Verified account" [ref=e321]
+                                    - generic [ref=e325]:
+                                      - generic [ref=e328]: "@Kappaemme1926"
+                                      - generic [ref=e329]: Â·
+                                      - generic "4 hours ago" [ref=e332]:
+                                        - time [ref=e333]: 4h
+                                  - generic [ref=e335]: CODEX SKILL TO BRUTALLY TEST ANY STARTUP IDEA! Most startup ideas sound good. This Codex skill tells you why they probably wonâ€™t work. Just give Codex your idea and it pressure-tests it for you -> finds the core assumption -> exposes fatal flaws -> checks if the problem is
+                                  - generic [ref=e350]:
+                                    - generic "Embedded video" [ref=e353]
+                                    - generic [ref=e355]:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - generic:
+                                                - generic: 0:41
+                          - group "19 replies, 3 reposts, 82 likes, 63 bookmarks, 6812 views" [ref=e362]:
+                            - button "19 Replies. Reply" [ref=e364]:
+                              - generic [ref=e365]:
+                                - img [ref=e368]
+                                - generic [ref=e373]: "19"
+                            - button "3 reposts. Repost" [ref=e375]:
+                              - generic [ref=e376]:
+                                - img [ref=e379]
+                                - generic [ref=e384]: "3"
+                            - button "82 Likes. Like" [ref=e386]:
+                              - generic [ref=e387]:
+                                - img [ref=e390]
+                                - generic [ref=e395]: "82"
+                            - link "6812 views. View post analytics" [ref=e397]:
+                              - /url: /gdb/status/2050972114077843772/analytics
+                              - generic [ref=e398]:
+                                - img [ref=e401]
+                                - generic [ref=e406]: 6.8K
+                            - button "Bookmark" [ref=e408]:
+                              - img [ref=e412]
+                            - button "Share post" [ref=e417]:
+                              - img [ref=e421]
+                    - article "daily.dev Verified account @dailydotdev 23 minutes ago vibe coding is just copy-paste-driven development, except the paste explains its reasoning and the copy charges you $20/month 1 like, 66 views" [ref=e427] [cursor=pointer]:
+                      - generic [ref=e433]:
+                        - link "Square profile picture" [ref=e445]:
+                          - /url: /dailydotdev
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic "Square profile picture":
+                                  - img "Square profile picture"
+                        - generic [ref=e448]:
+                          - generic [ref=e450]:
+                            - generic [ref=e453]:
+                              - link "daily.dev Verified account" [ref=e456]:
+                                - /url: /dailydotdev
+                                - generic [ref=e457]:
+                                  - generic [ref=e459]: daily.dev
+                                  - img "Verified account" [ref=e462]
+                              - generic [ref=e469]:
+                                - link "@dailydotdev" [ref=e471]:
+                                  - /url: /dailydotdev
+                                  - generic [ref=e472]: "@dailydotdev"
+                                - generic [ref=e473]: Â·
+                                - link "23 minutes ago" [ref=e475]:
+                                  - /url: /dailydotdev/status/2050968834153050167
+                                  - time [ref=e476]: 23m
+                            - generic [ref=e478]:
+                              - button "Grok actions" [ref=e480]:
+                                - img [ref=e485]
+                              - button "More" [ref=e491]:
+                                - img [ref=e495]
+                          - generic [ref=e499]: vibe coding is just copy-paste-driven development, except the paste explains its reasoning and the copy charges you $20/month
+                          - group "1 like, 66 views" [ref=e502]:
+                            - button "0 Replies. Reply" [ref=e504]:
+                              - img [ref=e508]
+                            - button "0 reposts. Repost" [ref=e515]:
+                              - img [ref=e519]
+                            - button "1 Like. Like" [ref=e526]:
+                              - generic [ref=e527]:
+                                - img [ref=e530]
+                                - generic [ref=e535]: "1"
+                            - link "66 views. View post analytics" [ref=e537]:
+                              - /url: /dailydotdev/status/2050968834153050167/analytics
+                              - generic [ref=e538]:
+                                - img [ref=e541]
+                                - generic [ref=e546]: "66"
+                            - button "Bookmark" [ref=e548]:
+                              - img [ref=e552]
+                            - button "Share post" [ref=e557]:
+                              - img [ref=e561]
+                    - 'article "daily.dev Verified account @dailydotdev 30 minutes ago Goodbye Tim Apple - daily.dev show (S1E1) Watch the full video daily.dev channel ðŸ”— youtube.com/watch?v=XKO67n #AI #Anthropic #OpenAI #Python #Microsoft #Cybersecurity #Linux #Git #Jujutsu #TechNews Embedded video Play Video 2 likes, 71 views" [ref=e567] [cursor=pointer]':
+                      - generic [ref=e573]:
+                        - link "Square profile picture" [ref=e585]:
+                          - /url: /dailydotdev
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic "Square profile picture":
+                                  - img "Square profile picture"
+                        - generic [ref=e588]:
+                          - generic [ref=e590]:
+                            - generic [ref=e593]:
+                              - link "daily.dev Verified account" [ref=e596]:
+                                - /url: /dailydotdev
+                                - generic [ref=e597]:
+                                  - generic [ref=e599]: daily.dev
+                                  - img "Verified account" [ref=e602]
+                              - generic [ref=e609]:
+                                - link "@dailydotdev" [ref=e611]:
+                                  - /url: /dailydotdev
+                                  - generic [ref=e612]: "@dailydotdev"
+                                - generic [ref=e613]: Â·
+                                - link "30 minutes ago" [ref=e615]:
+                                  - /url: /dailydotdev/status/2050967171535106443
+                                  - time [ref=e616]: 30m
+                            - generic [ref=e618]:
+                              - button "Grok actions" [ref=e620]:
+                                - img [ref=e625]
+                              - button "More" [ref=e631]:
+                                - img [ref=e635]
+                          - generic [ref=e639]:
+                            - text: Goodbye Tim Apple -
+                            - link "daily.dev" [ref=e640]:
+                              - /url: https://t.co/nw4kTag2WJ
+                            - text: show (S1E1) Watch the full video
+                            - link "daily.dev" [ref=e641]:
+                              - /url: https://t.co/nw4kTag2WJ
+                            - text: channel
+                            - img "ðŸ”—" [ref=e642]
+                            - link "youtube.com/watch?v=XKO67n" [ref=e643]:
+                              - /url: https://t.co/qWZyJJtpyQ
+                              - text: youtube.com/watch?v=XKO67n â€¦
+                            - link "#AI" [ref=e645]:
+                              - /url: /hashtag/AI?src=hashtag_click
+                            - link "#Anthropic" [ref=e647]:
+                              - /url: /hashtag/Anthropic?src=hashtag_click
+                            - link "#OpenAI" [ref=e649]:
+                              - /url: /hashtag/OpenAI?src=hashtag_click
+                            - link "#Python" [ref=e651]:
+                              - /url: /hashtag/Python?src=hashtag_click
+                            - link "#Microsoft" [ref=e653]:
+                              - /url: /hashtag/Microsoft?src=hashtag_click
+                            - link "#Cybersecurity" [ref=e655]:
+                              - /url: /hashtag/Cybersecurity?src=hashtag_click
+                            - link "#Linux" [ref=e657]:
+                              - /url: /hashtag/Linux?src=hashtag_click
+                            - link "#Git" [ref=e659]:
+                              - /url: /hashtag/Git?src=hashtag_click
+                            - link "#Jujutsu" [ref=e661]:
+                              - /url: /hashtag/Jujutsu?src=hashtag_click
+                            - link "#TechNews" [ref=e663]:
+                              - /url: /hashtag/TechNews?src=hashtag_click
+                          - generic [ref=e680]:
+                            - generic "Embedded video" [ref=e683]
+                            - button "Play Video" [ref=e690]:
+                              - img [ref=e691]
+                          - group "2 likes, 71 views" [ref=e697]:
+                            - button "0 Replies. Reply" [ref=e699]:
+                              - img [ref=e703]
+                            - button "0 reposts. Repost" [ref=e710]:
+                              - img [ref=e714]
+                            - button "2 Likes. Like" [ref=e721]:
+                              - generic [ref=e722]:
+                                - img [ref=e725]
+                                - generic [ref=e730]: "2"
+                            - link "71 views. View post analytics" [ref=e732]:
+                              - /url: /dailydotdev/status/2050967171535106443/analytics
+                              - generic [ref=e733]:
+                                - img [ref=e736]
+                                - generic [ref=e741]: "71"
+                            - button "Bookmark" [ref=e743]:
+                              - img [ref=e747]
+                            - button "Share post" [ref=e752]:
+                              - img [ref=e756]
+                    - 'article "Sam Altman Verified account @sama 43 minutes ago it has been a real pleasure to work with Greg over the past decade. i feel very lucky. this post held up pretty well, but not did not sufficiently highlight his technical brilliance and sheer determination. blog.samaltman.com Greg A lot of people ask me what the ideal cofounder looks like. I now have an answer: Greg Brockman. Every successful startup I know has at least one person who provides the force of will to make... 193 replies, 55 reposts, 1030 likes, 152 bookmarks, 73277 views" [ref=e762] [cursor=pointer]':
+                      - generic [ref=e768]:
+                        - link [ref=e780]:
+                          - /url: /sama
+                        - generic [ref=e784]:
+                          - generic [ref=e786]:
+                            - generic [ref=e789]:
+                              - link "Sam Altman Verified account" [ref=e792]:
+                                - /url: /sama
+                                - generic [ref=e793]:
+                                  - generic [ref=e795]: Sam Altman
+                                  - generic [ref=e797]:
+                                    - img "Verified account" [ref=e798]
+                                    - link [ref=e801]
+                              - generic [ref=e809]:
+                                - link "@sama" [ref=e811]:
+                                  - /url: /sama
+                                  - generic [ref=e812]: "@sama"
+                                - generic [ref=e813]: Â·
+                                - link "43 minutes ago" [ref=e815]:
+                                  - /url: /sama/status/2050964008480723059
+                                  - time [ref=e816]: 43m
+                            - generic [ref=e818]:
+                              - button "Grok actions" [ref=e820]:
+                                - img [ref=e825]
+                              - button "More" [ref=e831]:
+                                - img [ref=e835]
+                          - generic [ref=e839]: it has been a real pleasure to work with Greg over the past decade. i feel very lucky. this post held up pretty well, but not did not sufficiently highlight his technical brilliance and sheer determination.
+                          - 'generic "blog.samaltman.com Greg A lot of people ask me what the ideal cofounder looks like. I now have an answer: Greg Brockman. Every successful startup I know has at least one person who provides the force of will to make..." [ref=e840]':
+                            - 'generic "blog.samaltman.com Greg A lot of people ask me what the ideal cofounder looks like. I now have an answer: Greg Brockman. Every successful startup I know has at least one person who provides the force of will to make..." [ref=e841]':
+                              - link [ref=e843]:
+                                - /url: https://t.co/wi03SGDLjU
+                                - img [ref=e848]
+                              - 'link "blog.samaltman.com Greg A lot of people ask me what the ideal cofounder looks like. I now have an answer: Greg Brockman. Every successful startup I know has at least one person who provides the force of will to make..." [ref=e852]':
+                                - /url: https://t.co/wi03SGDLjU
+                                - generic [ref=e853]:
+                                  - generic [ref=e855]: blog.samaltman.com
+                                  - generic [ref=e857]: Greg
+                                  - generic [ref=e859]: "A lot of people ask me what the ideal cofounder looks like. I now have an answer: Greg Brockman. Every successful startup I know has at least one person who provides the force of will to make..."
+                          - group "193 replies, 55 reposts, 1030 likes, 152 bookmarks, 73277 views" [ref=e862]:
+                            - button "193 Replies. Reply" [ref=e864]:
+                              - generic [ref=e865]:
+                                - img [ref=e868]
+                                - generic [ref=e873]: "193"
+                            - button "55 reposts. Repost" [ref=e875]:
+                              - generic [ref=e876]:
+                                - img [ref=e879]
+                                - generic [ref=e884]: "55"
+                            - button "1030 Likes. Like" [ref=e886]:
+                              - generic [ref=e887]:
+                                - img [ref=e890]
+                                - generic [ref=e895]: 1K
+                            - link "73277 views. View post analytics" [ref=e897]:
+                              - /url: /sama/status/2050964008480723059/analytics
+                              - generic [ref=e898]:
+                                - img [ref=e901]
+                                - generic [ref=e906]: 73K
+                            - button "Bookmark" [ref=e908]:
+                              - img [ref=e912]
+                            - button "Share post" [ref=e917]:
+                              - img [ref=e921]
+                    - article "Sam Altman Verified account @sama 43 minutes ago Replying to @sama impossible to imagine openai succeeding without greg! 82 replies, 8 reposts, 342 likes, 11 bookmarks, 45465 views" [ref=e927] [cursor=pointer]:
+                      - generic [ref=e935]:
+                        - link [ref=e947]:
+                          - /url: /sama
+                        - generic [ref=e950]:
+                          - generic [ref=e952]:
+                            - generic [ref=e955]:
+                              - link "Sam Altman Verified account" [ref=e958]:
+                                - /url: /sama
+                                - generic [ref=e959]:
+                                  - generic [ref=e961]: Sam Altman
+                                  - generic [ref=e963]:
+                                    - img "Verified account" [ref=e964]
+                                    - link [ref=e967]
+                              - generic [ref=e975]:
+                                - link "@sama" [ref=e977]:
+                                  - /url: /sama
+                                  - generic [ref=e978]: "@sama"
+                                - generic [ref=e979]: Â·
+                                - link "43 minutes ago" [ref=e981]:
+                                  - /url: /sama/status/2050964040026050727
+                                  - time [ref=e982]: 43m
+                            - generic [ref=e984]:
+                              - button "Grok actions" [ref=e986]:
+                                - img [ref=e991]
+                              - button "More" [ref=e997]:
+                                - img [ref=e1001]
+                          - generic [ref=e1005]:
+                            - text: Replying to
+                            - link "@sama" [ref=e1007]:
+                              - /url: /sama
+                          - generic [ref=e1009]: impossible to imagine openai succeeding without greg!
+                          - group "82 replies, 8 reposts, 342 likes, 11 bookmarks, 45465 views" [ref=e1012]:
+                            - button "82 Replies. Reply" [ref=e1014]:
+                              - generic [ref=e1015]:
+                                - img [ref=e1018]
+                                - generic [ref=e1023]: "82"
+                            - button "8 reposts. Repost" [ref=e1025]:
+                              - generic [ref=e1026]:
+                                - img [ref=e1029]
+                                - generic [ref=e1034]: "8"
+                            - button "342 Likes. Like" [ref=e1036]:
+                              - generic [ref=e1037]:
+                                - img [ref=e1040]
+                                - generic [ref=e1045]: "342"
+                            - link "45465 views. View post analytics" [ref=e1047]:
+                              - /url: /sama/status/2050964040026050727/analytics
+                              - generic [ref=e1048]:
+                                - img [ref=e1051]
+                                - generic [ref=e1056]: 45K
+                            - button "Bookmark" [ref=e1058]:
+                              - img [ref=e1062]
+                            - button "Share post" [ref=e1067]:
+                              - img [ref=e1071]
+                    - article "Sam Altman reposted Tibo Verified account @thsottiaux 10 hours ago Replying to @gao_zibo All of this and more is coming 139 replies, 68 reposts, 1831 likes, 82 bookmarks, 91767 views" [ref=e1077] [cursor=pointer]:
+                      - generic [ref=e1079]:
+                        - generic [ref=e1084]:
+                          - img [ref=e1086]
+                          - link "Sam Altman reposted" [ref=e1093]:
+                            - /url: /sama
+                            - generic [ref=e1094]:
+                              - generic [ref=e1095]: Sam Altman
+                              - text: reposted
+                        - generic [ref=e1096]:
+                          - link [ref=e1108]:
+                            - /url: /thsottiaux
+                          - generic [ref=e1111]:
+                            - generic [ref=e1113]:
+                              - generic [ref=e1116]:
+                                - link "Tibo Verified account" [ref=e1119]:
+                                  - /url: /thsottiaux
+                                  - generic [ref=e1120]:
+                                    - generic [ref=e1122]: Tibo
+                                    - img "Verified account" [ref=e1125]
+                                - generic [ref=e1129]:
+                                  - link "@thsottiaux" [ref=e1131]:
+                                    - /url: /thsottiaux
+                                    - generic [ref=e1132]: "@thsottiaux"
+                                  - generic [ref=e1133]: Â·
+                                  - link "10 hours ago" [ref=e1135]:
+                                    - /url: /thsottiaux/status/2050812533091807335
+                                    - time [ref=e1136]: 10h
+                              - generic [ref=e1138]:
+                                - button "Grok actions" [ref=e1140]:
+                                  - img [ref=e1145]
+                                - button "More" [ref=e1151]:
+                                  - img [ref=e1155]
+                            - generic [ref=e1159]:
+                              - text: Replying to
+                              - link "@gao_zibo" [ref=e1161]:
+                                - /url: /gao_zibo
+                            - generic [ref=e1163]: All of this and more is coming
+                            - group "139 replies, 68 reposts, 1831 likes, 82 bookmarks, 91767 views" [ref=e1166]:
+                              - button "139 Replies. Reply" [ref=e1168]:
+                                - generic [ref=e1169]:
+                                  - img [ref=e1172]
+                                  - generic [ref=e1177]: "139"
+                              - button "68 reposts. Repost" [ref=e1179]:
+                                - generic [ref=e1180]:
+                                  - img [ref=e1183]
+                                  - generic [ref=e1188]: "68"
+                              - button "1831 Likes. Like" [ref=e1190]:
+                                - generic [ref=e1191]:
+                                  - img [ref=e1194]
+                                  - generic [ref=e1199]: 1.8K
+                              - link "91767 views. View post analytics" [ref=e1201]:
+                                - /url: /thsottiaux/status/2050812533091807335/analytics
+                                - generic [ref=e1202]:
+                                  - img [ref=e1205]
+                                  - generic [ref=e1210]: 91K
+                              - button "Bookmark" [ref=e1212]:
+                                - img [ref=e1216]
+                              - button "Share post" [ref=e1221]:
+                                - img [ref=e1225]
+                    - article "jack friks Verified account @jackfriks 1 hour ago \"Understand that ethical wealth creation is possible. If you secretly despise wealth, it will elude you.\" - @naval Image 5 replies, 1 repost, 43 likes, 6 bookmarks, 2179 views" [ref=e1231] [cursor=pointer]:
+                      - generic [ref=e1237]:
+                        - link [ref=e1249]:
+                          - /url: /jackfriks
+                        - generic [ref=e1253]:
+                          - generic [ref=e1255]:
+                            - generic [ref=e1258]:
+                              - link "jack friks Verified account" [ref=e1261]:
+                                - /url: /jackfriks
+                                - generic [ref=e1262]:
+                                  - generic [ref=e1264]: jack friks
+                                  - img "Verified account" [ref=e1267]
+                              - generic [ref=e1271]:
+                                - link "@jackfriks" [ref=e1273]:
+                                  - /url: /jackfriks
+                                  - generic [ref=e1274]: "@jackfriks"
+                                - generic [ref=e1275]: Â·
+                                - link "1 hour ago" [ref=e1277]:
+                                  - /url: /jackfriks/status/2050958744750551354
+                                  - time [ref=e1278]: 1h
+                            - generic [ref=e1280]:
+                              - button "Grok actions" [ref=e1282]:
+                                - img [ref=e1287]
+                              - button "More" [ref=e1293]:
+                                - img [ref=e1297]
+                          - generic [ref=e1301]:
+                            - text: "\"Understand that ethical wealth creation is possible. If you secretly despise wealth, it will elude you.\" -"
+                            - link "@naval" [ref=e1304]:
+                              - /url: /naval
+                          - link "Image" [ref=e1312]:
+                            - /url: /jackfriks/status/2050958744750551354/photo/1
+                            - generic "Image" [ref=e1316]:
+                              - img "Image" [ref=e1318]
+                          - group "5 replies, 1 repost, 43 likes, 6 bookmarks, 2179 views" [ref=e1321]:
+                            - button "5 Replies. Reply" [ref=e1323]:
+                              - generic [ref=e1324]:
+                                - img [ref=e1327]
+                                - generic [ref=e1332]: "5"
+                            - button
