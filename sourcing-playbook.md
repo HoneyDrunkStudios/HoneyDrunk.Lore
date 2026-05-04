@@ -12,7 +12,7 @@ This document defines what content belongs in Lore, where to find it, and how to
 
 **Your own explorations are sources too.** When a query session, debug investigation, or research thread yields something worth keeping, crystallize it — write it to `output/` and let the next compile pass pull it into `wiki/`. Treat it exactly like an external article: same relevance criteria, same compile path. This is how the wiki compounds from your own work, not just from the outside world.
 
-> **Out of scope for this playbook:** the weekly Claude Code ingestion skill that reads `raw/` and compiles into `wiki/` is governed separately. This document only defines what gets *into* `raw/`.
+> **Out of scope for this playbook:** the daily OpenClaw/Honeyclaw ingest job that reads `raw/` and compiles into `wiki/` is governed separately by `AGENTS.md` and `tools/openclaw-lore-ingest-prompt.md`. This document only defines what gets *into* `raw/`.
 
 ---
 
@@ -411,5 +411,5 @@ When in doubt: clip it. It is easier to lint duplicates out than to recover from
 | Frequency | Actor | Activity |
 |-----------|-------|----------|
 | Every 1–2 days | OpenClaw (automated) | Walk every source in this playbook; drop qualifying items in `raw/` |
-| Weekly | Claude Code ingestion skill (automated) | Compile `raw/` into `wiki/` — out of scope here, governed separately |
+| Daily at 10:00 AM America/New_York | OpenClaw/Honeyclaw ingest job (automated) | Compile unprocessed `raw/` entries into `wiki/` — out of scope here, governed separately |
 | Monthly, ~10 min | You | Review this playbook — add new sources, remove dead ones, refine relevance criteria |

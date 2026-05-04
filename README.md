@@ -4,11 +4,11 @@ The compiled research knowledge surface for HoneyDrunk Studios — a flat-file w
 
 ## How to use
 
-The wiki has four operations. All of them are LLM-driven; see [`CLAUDE.md`](./CLAUDE.md) for the full schema.
+The wiki has four operations. All of them are OpenClaw/Honeyclaw-driven; see [`AGENTS.md`](./AGENTS.md) for the full schema.
 
 ### Ingest a new source
 1. Drop the source file into `raw/` (markdown, PDF, transcript, repo dump — whatever).
-2. Open this repo in Claude Code and say *"ingest the new source in `raw/`"*.
+2. Ask Honeyclaw/OpenClaw to *"ingest the new source in `raw/`"*, or let the daily scheduled ingest run.
 3. The agent reads the source, updates or creates `wiki/` pages, and adds an entry to `wiki/indexes/sources.md`.
 
 ### Compile the wiki
@@ -28,6 +28,6 @@ The `wiki/` directory is an Obsidian vault. Open it as a vault to get graph view
 
 - Node overview: `HoneyDrunk.Architecture/repos/HoneyDrunk.Lore/overview.md`
 - Boundaries: `HoneyDrunk.Architecture/repos/HoneyDrunk.Lore/boundaries.md`
-- Schema and operations: [`CLAUDE.md`](./CLAUDE.md)
+- Schema and operations: [`AGENTS.md`](./AGENTS.md)
 
-The flat-file implementation is the v1. When `HoneyDrunk.Knowledge` and `HoneyDrunk.Agents` exist, the operations delegate to those Nodes — the wiki content stays where it is. See the *Conversion note* at the bottom of [`CLAUDE.md`](./CLAUDE.md).
+The flat-file implementation is the v1. When `HoneyDrunk.Knowledge` and `HoneyDrunk.Agents` exist, the operations delegate to those Nodes — the wiki content stays where it is. See the *Conversion note* at the bottom of [`AGENTS.md`](./AGENTS.md).
