@@ -1,0 +1,711 @@
+---
+source: "https://discord.com/channels/489222168727519232/497866477903413250#snapshot-2026-05-05"
+title: "Discord Official Unity announcements snapshot — 2026-05-05"
+author: "OpenClaw browser"
+date_published: "unknown"
+date_clipped: "2026-05-05"
+category: "Community / Announcements"
+source_type: "clipper"
+---
+
+# Discord Official Unity announcements snapshot — 2026-05-05
+
+Source: https://discord.com/channels/489222168727519232/497866477903413250#snapshot-2026-05-05
+
+Configured focus: Unity engine, tooling, runtime/platform announcements
+
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - img
+    - img
+    - generic [ref=e11]:
+      - generic [ref=e12]:
+        - generic [ref=e16]: Official Unity Discord
+        - generic [ref=e17]:
+          - button "Inbox" [ref=e18] [cursor=pointer]:
+            - img [ref=e19]
+          - link "Help" [ref=e21] [cursor=pointer]:
+            - /url: https://support.discord.com
+            - button "Help" [ref=e22]:
+              - img [ref=e23]
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - navigation "Servers sidebar" [ref=e28]:
+            - tree [ref=e29]:
+              - generic [ref=e31]:
+                - treeitem "Direct Messages" [level=1] [ref=e39] [cursor=pointer]:
+                  - generic [ref=e40]: Direct Messages
+                  - img [ref=e42]
+                - group "Servers" [ref=e46]:
+                  - treeitem "Dev, folder , 20 unread mentions Dev" [expanded] [level=1] [ref=e52] [cursor=pointer]:
+                    - generic [ref=e53]: Dev, folder , 20 unread mentions
+                    - img [ref=e60]
+                    - group "Dev" [ref=e68]:
+                      - generic [ref=e69]:
+                        - treeitem "Unread messages, Aspire " [level=2] [ref=e79]:
+                          - generic [ref=e80]: Unread messages, Aspire 
+                          - img
+                        - generic [ref=e81]:
+                          - generic:
+                            - generic:
+                              - button:
+                                - generic:
+                                  - img
+                                  - generic:
+                                    - img
+                              - generic: Aspire 
+                      - generic [ref=e82]:
+                        - treeitem "Unread messages, Microsoft Community [Unofficial]" [level=2] [ref=e92]:
+                          - generic [ref=e93]: Unread messages, Microsoft Community [Unofficial]
+                          - img
+                        - generic [ref=e94]:
+                          - generic:
+                            - generic:
+                              - button:
+                                - generic:
+                                  - img
+                                  - generic:
+                                    - img
+                              - generic: Microsoft Community [Unofficial]
+                      - generic [ref=e95]:
+                        - treeitem "Unread messages, C#" [level=2] [ref=e105]:
+                          - generic [ref=e106]: Unread messages, C#
+                          - img
+                        - generic [ref=e107]:
+                          - generic:
+                            - generic:
+                              - button:
+                                - generic:
+                                  - img
+                                  - generic:
+                                    - img
+                              - generic: C#
+                      - generic [ref=e108]:
+                        - treeitem "HoneyDrunk Studios" [level=2] [ref=e117]:
+                          - generic [ref=e118]: HoneyDrunk Studios
+                          - img
+                        - generic [ref=e119]:
+                          - generic:
+                            - generic:
+                              - generic: HoneyDrunk Studios
+                      - generic [ref=e120]:
+                        - generic [ref=e125]:
+                          - treeitem "10 mentions, OpenAI" [level=2] [ref=e130]:
+                            - generic [ref=e131]: 10 mentions, OpenAI
+                            - img
+                          - generic:
+                            - generic: "10"
+                        - generic [ref=e132]:
+                          - generic:
+                            - generic:
+                              - button:
+                                - generic:
+                                  - img
+                                  - generic:
+                                    - img
+                              - generic: OpenAI
+                      - generic [ref=e133]:
+                        - generic [ref=e138]:
+                          - treeitem "7 mentions, Microsoft Foundry" [level=2] [ref=e143]:
+                            - generic [ref=e144]: 7 mentions, Microsoft Foundry
+                            - img
+                          - generic:
+                            - generic: "7"
+                        - generic [ref=e145]:
+                          - generic:
+                            - generic:
+                              - button:
+                                - generic:
+                                  - img
+                                  - generic:
+                                    - img
+                              - generic: Microsoft Foundry
+                      - generic [ref=e146]:
+                        - treeitem "Unread messages, Claude" [level=2] [ref=e156]:
+                          - generic [ref=e157]: Unread messages, Claude
+                          - img
+                        - generic [ref=e158]:
+                          - generic:
+                            - generic:
+                              - button:
+                                - generic:
+                                  - img
+                                  - generic:
+                                    - img
+                              - generic: Claude
+                      - generic [ref=e159]:
+                        - generic [ref=e164]:
+                          - treeitem "3 mentions, Google Gemini" [level=2] [ref=e169]:
+                            - generic [ref=e170]: 3 mentions, Google Gemini
+                            - img
+                          - generic:
+                            - generic: "3"
+                        - generic [ref=e171]:
+                          - generic:
+                            - generic:
+                              - button:
+                                - generic:
+                                  - img
+                                  - generic:
+                                    - img
+                              - generic: Google Gemini
+                      - generic [ref=e172]:
+                        - treeitem "Unread messages, The Programmer's Hangout" [level=2] [ref=e182]:
+                          - generic [ref=e183]: Unread messages, The Programmer's Hangout
+                          - img
+                        - generic [ref=e184]:
+                          - generic:
+                            - generic:
+                              - button:
+                                - generic:
+                                  - img
+                                  - generic:
+                                    - img
+                              - generic: The Programmer's Hangout
+                      - generic [ref=e185]:
+                        - treeitem "Unread messages, The Coding Den" [level=2] [ref=e195]:
+                          - generic [ref=e196]: Unread messages, The Coding Den
+                          - img
+                        - generic [ref=e197]:
+                          - generic:
+                            - generic:
+                              - button:
+                                - generic:
+                                  - img
+                                  - generic:
+                                    - img
+                              - generic: The Coding Den
+                      - generic [ref=e198]:
+                        - treeitem "Unread messages, Hugging Face" [level=2] [ref=e208]:
+                          - generic [ref=e209]: Unread messages, Hugging Face
+                          - img
+                        - generic [ref=e210]:
+                          - generic:
+                            - generic:
+                              - button:
+                                - generic:
+                                  - img
+                                  - generic:
+                                    - img
+                              - generic: Hugging Face
+                  - treeitem "GameDev, folder , 4 unread mentions GameDev" [expanded] [level=1] [ref=e216] [cursor=pointer]:
+                    - generic [ref=e217]: GameDev, folder , 4 unread mentions
+                    - img [ref=e224]
+                    - group "GameDev" [ref=e231]:
+                      - generic [ref=e232]:
+                        - treeitem "Unread messages, Game Dev Network" [level=2] [ref=e242]:
+                          - generic [ref=e243]: Unread messages, Game Dev Network
+                          - img
+                        - generic [ref=e244]:
+                          - generic:
+                            - generic:
+                              - button:
+                                - generic:
+                                  - img
+                                  - generic:
+                                    - img
+                              - generic: Game Dev Network
+                      - generic [ref=e245]:
+                        - treeitem "Unread messages, Official Unity Discord" [level=2] [selected] [ref=e255]:
+                          - generic [ref=e256]: Unread messages, Official Unity Discord
+                          - img
+                        - generic [ref=e257]:
+                          - generic:
+                            - generic:
+                              - button:
+                                - generic:
+                                  - img
+                                  - generic:
+                                    - img
+                              - generic: Official Unity Discord
+                      - generic [ref=e258]:
+                        - generic [ref=e263]:
+                          - treeitem "4 mentions, GameDev.tv Official Community" [level=2] [ref=e268]:
+                            - generic [ref=e269]: 4 mentions, GameDev.tv Official Community
+                            - img
+                          - generic:
+                            - generic: "4"
+                        - generic [ref=e270]:
+                          - generic:
+                            - generic:
+                              - button:
+                                - generic:
+                                  - img
+                                  - generic:
+                                    - img
+                              - generic: GameDev.tv Official Community
+                  - treeitem "Art, folder , 5 unread mentions Art" [expanded] [level=1] [ref=e276] [cursor=pointer]:
+                    - generic [ref=e277]: Art, folder , 5 unread mentions
+                    - img [ref=e284]
+                    - group "Art" [ref=e291]:
+                      - generic [ref=e292]:
+                        - generic [ref=e297]:
+                          - treeitem "Unread messages, NSFW Blender" [level=2] [ref=e302]:
+                            - generic [ref=e303]: Unread messages, NSFW Blender
+                            - img
+                          - generic:
+                            - generic:
+                              - img
+                        - generic [ref=e304]:
+                          - generic:
+                            - generic:
+                              - button:
+                                - generic:
+                                  - img
+                                  - generic:
+                                    - img
+                              - generic: NSFW Blender
+                            - generic:
+                              - img
+                              - generic:
+                                - img:
+                                  - generic:
+                                    - generic:
+                                      - img "akuma_04"
+                                - generic:
+                                  - generic:
+                                    - img "clutego"
+                            - generic:
+                              - img
+                              - generic:
+                                - img:
+                                  - generic:
+                                    - generic:
+                                      - img "tncstudio"
+                                - generic:
+                                  - generic:
+                                    - img "luncheon.meat"
+                      - generic [ref=e305]:
+                        - generic [ref=e310]:
+                          - treeitem "Unread messages, Blender Community" [level=2] [ref=e315]:
+                            - generic [ref=e316]: Unread messages, Blender Community
+                            - img
+                          - generic:
+                            - generic:
+                              - img
+                        - generic [ref=e317]:
+                          - generic:
+                            - generic:
+                              - button:
+                                - generic:
+                                  - img
+                                  - generic:
+                                    - img
+                              - generic: Blender Community
+                            - generic:
+                              - img
+                              - generic:
+                                - img:
+                                  - generic:
+                                    - generic:
+                                      - img "moonmitten"
+                                - img:
+                                  - generic:
+                                    - generic:
+                                      - img "whitehairdeath"
+                                - img:
+                                  - generic:
+                                    - generic:
+                                      - img "walterremixedyoshi"
+                                - img:
+                                  - generic:
+                                    - generic:
+                                      - img "lauren_art"
+                                - img:
+                                  - generic:
+                                    - generic:
+                                      - img "mightygud"
+                                - generic: "+3"
+                            - generic:
+                              - img
+                              - generic:
+                                - img:
+                                  - generic:
+                                    - generic:
+                                      - img "thegnuaddict"
+                                - img:
+                                  - generic:
+                                    - generic:
+                                      - img "bro.ly2"
+                                - img:
+                                  - generic:
+                                    - generic:
+                                      - img "okopchi"
+                                - img:
+                                  - generic:
+                                    - generic:
+                                      - img "fahadali786"
+                                - img:
+                                  - generic:
+                                    - generic:
+                                      - img "mielman"
+                                - generic: "+3"
+                      - generic [ref=e318]:
+                        - generic [ref=e323]:
+                          - treeitem "5 mentions, ARTSCHOOL" [level=2] [ref=e328]:
+                            - generic [ref=e329]: 5 mentions, ARTSCHOOL
+                            - img
+                          - generic:
+                            - generic: "5"
+                          - generic:
+                            - generic:
+                              - img
+                        - generic [ref=e330]:
+                          - generic:
+                            - generic:
+                              - button:
+                                - generic:
+                                  - img
+                                  - generic:
+                                    - img
+                              - generic: ARTSCHOOL
+                            - generic:
+                              - img
+                              - generic:
+                                - img:
+                                  - generic:
+                                    - generic:
+                                      - img "animegod0830"
+                                - img:
+                                  - generic:
+                                    - generic:
+                                      - img "kutluhan"
+                                - img:
+                                  - generic:
+                                    - generic:
+                                      - img "sahilrathi77"
+                                - generic:
+                                  - generic:
+                                    - img "vjnny"
+                            - generic:
+                              - img
+                              - generic:
+                                - img:
+                                  - generic:
+                                    - generic:
+                                      - img "jinnymonn"
+                                - img:
+                                  - generic:
+                                    - generic:
+                                      - img "fazed_with_phase"
+                                - generic:
+                                  - generic:
+                                    - img "swishi_chan"
+                  - treeitem "WoW, folder , 357 unread mentions" [level=1] [ref=e336] [cursor=pointer]:
+                    - generic [ref=e337]: WoW, folder , 357 unread mentions
+                    - generic [ref=e338]:
+                      - img [ref=e344]
+                      - generic:
+                        - generic: "357"
+                - treeitem "Add a Server" [level=1] [ref=e358] [cursor=pointer]:
+                  - img [ref=e359]
+                - treeitem "Discover" [level=1] [ref=e368] [cursor=pointer]:
+                  - img [ref=e369]
+                - treeitem "Download Apps" [level=1] [ref=e378] [cursor=pointer]:
+                  - img [ref=e379]
+            - generic [ref=e382] [cursor=pointer]: new
+          - navigation "Official Unity Discord (server)" [ref=e384]:
+            - generic [ref=e385]:
+              - generic [ref=e387]:
+                - button "Official Unity Discord, server actions" [ref=e388] [cursor=pointer]:
+                  - generic [ref=e389]:
+                    - button [ref=e391]:
+                      - generic [ref=e392]:
+                        - img [ref=e393]
+                        - generic:
+                          - img
+                    - heading "Official Unity Discord" [level=2] [ref=e395]
+                  - img [ref=e397]
+                - button [ref=e400] [cursor=pointer]:
+                  - img [ref=e401]
+                - generic [ref=e404]: Invite to Server
+              - img [ref=e407]
+            - heading "Channels" [level=2] [ref=e412]
+            - list "Channels" [ref=e416]:
+              - button "Boost Goal 27/33 Boosts" [ref=e419] [cursor=pointer]:
+                - generic [ref=e423]:
+                  - generic [ref=e425]: Boost Goal
+                  - generic [ref=e426]:
+                    - generic [ref=e427]: 27/33 Boosts
+                    - img [ref=e428]
+              - listitem [ref=e430]:
+                - generic [ref=e431]:
+                  - button "Channels & Roles"
+                  - generic [ref=e433] [cursor=pointer]:
+                    - img [ref=e435]
+                    - generic [ref=e438]: Channels & Roles
+                    - generic [ref=e439]: new
+              - listitem [ref=e442]:
+                - link "code-of-conduct (text channel)" [ref=e445] [cursor=pointer]:
+                  - /url: /channels/489222168727519232/497867528488484864
+                  - generic [ref=e446]:
+                    - img "Rules icon" [ref=e447]:
+                      - img [ref=e448]
+                    - generic [ref=e450]: Rules
+                    - generic [ref=e451]: code-of-conduct
+                    - generic [ref=e452]: Invite to Channel
+              - listitem [ref=e453]:
+                - button "Bulletin Board (category)" [expanded] [ref=e455] [cursor=pointer]:
+                  - heading "Bulletin Board" [level=3] [ref=e456]:
+                    - generic [ref=e457]: Bulletin Board
+                  - img [ref=e458]
+              - listitem [ref=e460]:
+                - link "unread, announcements (announcement channel)" [ref=e464] [cursor=pointer]:
+                  - /url: /channels/489222168727519232/497866477903413250
+                  - generic [ref=e465]:
+                    - img "Announcements icon" [ref=e466]:
+                      - img [ref=e467]
+                    - generic [ref=e470]: Announcements
+                    - generic [ref=e471]: announcements
+                    - generic [ref=e472]:
+                      - button "Invite to Channel" [ref=e474]:
+                        - img [ref=e475]
+                      - generic [ref=e478]: Invite to Channel
+              - listitem [ref=e479]:
+                - link "unread, insiders (announcement channel)" [ref=e483] [cursor=pointer]:
+                  - /url: /channels/489222168727519232/1390347181541822545
+                  - generic [ref=e484]:
+                    - img "Announcements icon" [ref=e485]:
+                      - img [ref=e486]
+                    - generic [ref=e489]: Announcements
+                    - generic [ref=e490]: insiders
+                    - generic [ref=e491]: Invite to Channel
+              - listitem [ref=e492]:
+                - link "unread, unity-feed (announcement channel)" [ref=e496] [cursor=pointer]:
+                  - /url: /channels/489222168727519232/1391735067440582737
+                  - generic [ref=e497]:
+                    - img "Announcements icon" [ref=e498]:
+                      - img [ref=e499]
+                    - generic [ref=e502]: Announcements
+                    - generic [ref=e503]: unity-feed
+                    - generic [ref=e504]: Invite to Channel
+              - listitem [ref=e505]:
+                - button "unity-stage (stage channel)" [ref=e508] [cursor=pointer]:
+                  - generic [ref=e509]:
+                    - img "Stage icon" [ref=e510]:
+                      - img [ref=e511]
+                    - generic [ref=e515]: Stage
+                    - generic [ref=e516]: unity-stage
+                    - generic:
+                      - generic [ref=e517]: Open Chat
+                      - generic [ref=e518]: Invite to Channel
+              - listitem [ref=e519]:
+                - button "Getting Started (category)" [expanded] [ref=e521] [cursor=pointer]:
+                  - heading "Getting Started" [level=3] [ref=e522]:
+                    - generic [ref=e523]: Getting Started
+                  - img [ref=e524]
+              - listitem [ref=e526]:
+                - link "start-here (text channel)" [ref=e529] [cursor=pointer]:
+                  - /url: /channels/489222168727519232/1067045012619137054
+                  - generic [ref=e530]:
+                    - img "Text icon" [ref=e531]:
+                      - img [ref=e532]
+                    - generic [ref=e534]: Text
+                    - generic [ref=e535]: start-here
+                    - generic [ref=e536]: Invite to Channel
+              - listitem [ref=e537]:
+                - link "unread, channel-directory (text channel)" [ref=e541] [cursor=pointer]:
+                  - /url: /channels/489222168727519232/1398291575834017887
+                  - generic [ref=e542]:
+                    - img "Text icon" [ref=e543]:
+                      - img [ref=e544]
+                    - generic [ref=e546]: Text
+                    - generic [ref=e547]: channel-directory
+                    - generic [ref=e548]: Invite to Channel
+              - listitem [ref=e549]:
+                - link "unread, introductions (text channel)" [ref=e553] [cursor=pointer]:
+                  - /url: /channels/489222168727519232/497875120556081172
+                  - generic [ref=e554]:
+                    - img "Text icon" [ref=e555]:
+                      - img [ref=e556]
+                    - generic [ref=e558]: Text
+                    - generic [ref=e559]: introductions
+                    - generic [ref=e560]: Invite to Channel
+              - listitem [ref=e561]:
+                - link "user-groups (text channel)" [ref=e564] [cursor=pointer]:
+                  - /url: /channels/489222168727519232/1397946812865708202
+                  - generic [ref=e565]:
+                    - img "Text icon" [ref=e566]:
+                      - img [ref=e567]
+                    - generic [ref=e569]: Text
+                    - generic [ref=e570]: user-groups
+                    - generic [ref=e571]: Invite to Channel
+              - listitem [ref=e572]:
+                - link "find-a-channel (text channel)" [ref=e575] [cursor=pointer]:
+                  - /url: /channels/489222168727519232/531961806646935564
+                  - generic [ref=e576]:
+                    - img "Text icon" [ref=e577]:
+                      - img [ref=e578]
+                    - generic [ref=e580]: Text
+                    - generic [ref=e581]: find-a-channel
+                    - generic [ref=e582]: Invite to Channel
+              - listitem [ref=e583]:
+                - button "Unity Learn (category)" [expanded] [ref=e585] [cursor=pointer]:
+                  - heading "Unity Learn" [level=3] [ref=e586]:
+                    - generic [ref=e587]: Unity Learn
+                  - img [ref=e588]
+              - listitem [ref=e590]:
+                - link "unread, learn-forum (text channel)" [ref=e594] [cursor=pointer]:
+                  - /url: /channels/489222168727519232/1463844230341464211
+                  - generic [ref=e595]:
+                    - img "Forum icon" [ref=e596]:
+                      - img [ref=e597]
+                    - generic [ref=e600]: Forum
+                    - generic [ref=e601]: learn-forum
+                    - generic [ref=e602]:
+                      - generic [ref=e604]: 2 New
+                      - generic [ref=e605]: Invite to Channel
+              - listitem [ref=e606]:
+                - button "General (category)" [expanded] [ref=e608] [cursor=pointer]:
+                  - heading "General" [level=3] [ref=e609]:
+                    - generic [ref=e610]: General
+                  - img [ref=e611]
+              - listitem [ref=e613]:
+                - link "unread, unity-talk (text channel)" [ref=e617] [cursor=pointer]:
+                  - /url: /channels/489222168727519232/497872424281440267
+                  - generic [ref=e618]:
+                    - img "Text (Active Threads) icon" [ref=e619]:
+                      - img [ref=e620]
+                    - generic [ref=e622]: Text (Active Threads)
+                    - generic [ref=e623]: unity-talk
+                    - generic [ref=e624]: Invite to Channel
+          - button "Resize Sidebar" [ref=e627]
+          - region "User status and settings" [ref=e628]:
+            - generic [ref=e633]:
+              - generic:
+                - generic:
+                  - button:
+                    - img
+                    - generic:
+                      - paragraph: Learn
+                      - paragraph: More
+                - generic:
+                  - generic:
+                    - button:
+                      - generic:
+                        - img
+                  - generic:
+                    - generic: Get Reward!
+                - generic:
+                  - button:
+                    - generic: Promoted
+                    - img
+                  - generic:
+                    - button:
+                      - img
+              - generic [ref=e636]:
+                - generic [ref=e637]:
+                  - heading [level=2] [ref=e638]: "Genshin Impact: Song of the Welkin Moon \"Luna VI\" Quest"
+                  - generic [ref=e640]:
+                    - text: Play
+                    - link [ref=e641] [cursor=pointer]: Genshin Impact
+                    - text: for 15 minutes and win 700 Orbs.
+                - generic:
+                  - generic:
+                    - button:
+                      - generic:
+                        - generic:
+                          - generic: Accept Quest
+            - generic [ref=e646]:
+              - generic [ref=e647] [cursor=pointer]:
+                - button "Manage profile and status"
+                - img [ref=e648]:
+                  - img:
+                    - generic:
+                      - generic:
+                        - img
+                - generic [ref=e650]:
+                  - generic [ref=e652]: Tatteddev
+                  - generic [ref=e655]:
+                    - generic: tatteddev
+                    - generic:
+                      - generic:
+                        - generic: Online
+              - generic [ref=e656]:
+                - generic [ref=e657]:
+                  - switch "Mute" [checked] [ref=e658] [cursor=pointer]:
+                    - img [ref=e661]
+                  - generic [ref=e679]: Unmute
+                  - button "Input Options" [ref=e680] [cursor=pointer]:
+                    - img [ref=e682]
+                - generic [ref=e684]:
+                  - switch "Deafen" [ref=e685] [cursor=pointer]:
+                    - img [ref=e688]
+                  - button "Output Options" [ref=e697] [cursor=pointer]:
+                    - img [ref=e699]
+                - button "User Settings" [ref=e701] [cursor=pointer]:
+                  - img [ref=e704]
+        - generic [ref=e712]:
+          - region "Channel header" [ref=e714]:
+            - generic [ref=e715]:
+              - generic [ref=e716]:
+                - img [ref=e718]
+                - generic [ref=e721]: Announcement Channel
+                - 'heading "Official Unity Discord: announcements" [level=1] [ref=e723]':
+                  - generic [ref=e724]: "Official Unity Discord:"
+                  - text: announcements
+                - button "Follow" [ref=e726] [cursor=pointer]:
+                  - generic [ref=e729]: Follow
+                - generic:
+                  - button "Open Channel Topic"
+                  - text: Updates from Unity staff related to this server or major Unity news.
+              - generic [ref=e731]:
+                - button "Threads" [ref=e732] [cursor=pointer]:
+                  - img [ref=e733]
+                - button "Notification Settings" [ref=e735] [cursor=pointer]:
+                  - img [ref=e736]
+                - button "Pinned Messages" [ref=e738] [cursor=pointer]:
+                  - img [ref=e739]
+                - button "Show Member List" [ref=e741] [cursor=pointer]:
+                  - img [ref=e742]
+                - generic [ref=e746]:
+                  - generic [ref=e747]:
+                    - generic [ref=e749]: Search Official Unity Discord
+                    - combobox "Search" [ref=e751]
+                  - button [ref=e755]:
+                    - generic [ref=e756]:
+                      - img [ref=e757]
+                      - img [ref=e759]
+          - main "announcements (channel)" [ref=e762]:
+            - heading "announcements chat" [level=2] [ref=e764]
+            - generic [ref=e765]:
+              - generic [ref=e766]:
+                - button "Jump to last unread message" [ref=e767] [cursor=pointer]: 1 new message since 10:51 AM on May 4, 2026
+                - button "Mark As Read" [ref=e769] [cursor=pointer]:
+                  - generic [ref=e770]: Mark As Read
+                  - img [ref=e771]
+              - group [ref=e774]:
+                - list "Messages in announcements" [ref=e776]:
+                  - generic [ref=e777]:
+                    - heading [level=3] [ref=e781]
+                    - heading [level=3] [ref=e795]
+                    - heading [level=3] [ref=e816]
+                    - heading [level=3] [ref=e834]
+                    - heading [level=3] [ref=e870]
+                    - heading [level=3] [ref=e899]
+                    - heading [level=3] [ref=e909]
+                    - heading [level=3] [ref=e930]
+                    - heading [level=3] [ref=e940]
+                  - separator "February 25, 2026":
+                    - generic: February 25, 2026
+                  - listitem [ref=e971]:
+                    - 'article "Treyrannosaurus Rex | Unity Role icon, Unity Admin Unity Admin , Shape the Future of Unity for Fortnite , Our product team is actively exploring what a bridge between Unity and Fortnite could actually look like, and we need your input. :UnityChanClever: The team posted a quick survey over on Discussions. We want to hear from everyone on this. , Filling out the survey gives you a chance to be considered for: , Exclusive Demo: Get an early look at the Unity x Fortnite integration before the public. , Product Council: Join a select group of studios to stay connected with our development team and help shape our roadmap. , Insiders Program: Get regular development updates and priority for early access. , Taking a few minutes to fill this out gives the team the data they need to prioritize the right tools and workflows for you.  Survey link  , 2/25/26, 4:06 PM" [ref=e972]':
+                      - generic [ref=e973]:
+                        - img [ref=e974] [cursor=pointer]
+                        - heading "Treyrannosaurus Rex | Unity Role icon, Unity Admin Unity Admin 2/25/26, 4:06 PM" [level=3] [ref=e975]:
+                          - generic [ref=e976]:
+                            - button "Treyrannosaurus Rex | Unity" [ref=e977]
+                            - button "Role icon, Unity Admin" [ref=e979]:
+                              - img "Role icon, Unity Admin" [ref=e980] [cursor=pointer]
+                            - generic [ref=e981]: Unity Admin
+                          - generic:
+                            - generic:
+                              - time:
+                                - generic: 
+                                - text: 2/25/26, 4:06 PM
+                            - generic: Wednesday, February 25, 2026 at 4:06 PM
+                        - generic [ref=e982]:
+                          - heading "Shape the Future of Unity for Fortnite ," [level=2] [ref=e983]:
+                            - generic [ref=e984]: Shape the Future of Unity for Fortnite
+                            - generic [ref=e985]: ","
+                          - text: Our

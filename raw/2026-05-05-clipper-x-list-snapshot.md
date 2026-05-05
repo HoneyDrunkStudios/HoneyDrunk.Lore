@@ -1,0 +1,254 @@
+---
+source: "https://x.com/i/lists/2050930841488904671#snapshot-2026-05-05"
+title: "X list snapshot — 2026-05-05"
+author: "OpenClaw browser"
+date_published: "unknown"
+date_clipped: "2026-05-05"
+category: "AI / LLM Research & Tooling"
+source_type: "clipper"
+---
+
+# X list snapshot — 2026-05-05
+
+Source: https://x.com/i/lists/2050930841488904671#snapshot-2026-05-05
+
+- generic [ref=e2]:
+  - generic:
+    - generic:
+      - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+        - generic [ref=e4]: To view keyboard shortcuts, press question mark
+        - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+          - /url: /i/keyboard_shortcuts
+      - generic [ref=e6]:
+        - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+        - button "Skip to trending" [ref=e9] [cursor=pointer]
+        - banner [ref=e11]:
+          - generic [ref=e13]:
+            - generic [ref=e14]:
+              - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                - link "X" [ref=e17]:
+                  - /url: /home
+                  - img [ref=e19]
+              - navigation "Primary" [ref=e23]:
+                - link "Home" [ref=e24] [cursor=pointer]:
+                  - /url: /home
+                  - img [ref=e27]
+                - link "Search and explore" [ref=e30] [cursor=pointer]:
+                  - /url: /explore
+                  - img [ref=e33]
+                - link "Notifications" [ref=e36] [cursor=pointer]:
+                  - /url: /notifications
+                  - img [ref=e39]
+                - link "Direct Messages" [ref=e42] [cursor=pointer]:
+                  - /url: /i/chat
+                  - img [ref=e45]
+                - link "Grok" [ref=e48] [cursor=pointer]:
+                  - /url: /i/grok
+                  - generic [ref=e50]:
+                    - img [ref=e51]
+                    - generic "undefined unread items" [ref=e54]
+                - link "Articles" [ref=e55] [cursor=pointer]:
+                  - /url: /compose/articles
+                  - img [ref=e58]
+                - link "Profile" [ref=e63] [cursor=pointer]:
+                  - /url: /tatteddev
+                  - img [ref=e66]
+                - button "More menu items" [ref=e69] [cursor=pointer]:
+                  - img [ref=e72]
+              - link "Post" [ref=e76] [cursor=pointer]:
+                - /url: /compose/post
+                - img [ref=e78]
+            - button "Account menu" [ref=e84] [cursor=pointer]:
+              - generic [ref=e92]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic "Tatted Dev":
+                        - img "Tatted Dev"
+        - main [ref=e95]:
+          - generic "Home timeline" [ref=e100]:
+            - generic [ref=e101]:
+              - generic [ref=e107] [cursor=pointer]:
+                - button "Back" [ref=e109]:
+                  - img [ref=e111]
+                - generic [ref=e115]:
+                  - heading "HoneyDrunk Lore Sources Private List" [level=2] [ref=e116]:
+                    - generic [ref=e117]:
+                      - generic [ref=e118]: HoneyDrunk Lore Sources
+                      - img "Private List" [ref=e119]
+                  - generic [ref=e122]: "@tatteddev"
+                - generic [ref=e124]:
+                  - button "Share Menu" [ref=e125]:
+                    - img [ref=e127]
+                  - button "More" [ref=e130]:
+                    - img [ref=e132]
+              - generic:
+                - generic:
+                  - status:
+                    - button:
+                      - generic:
+                        - img
+                        - generic: See new posts
+            - region "List" [ref=e136]:
+              - heading "List" [level=1] [ref=e137]
+              - 'generic "Timeline: List" [ref=e138]':
+                - generic [ref=e139]:
+                  - generic [ref=e147]:
+                    - generic [ref=e148]:
+                      - generic [ref=e149]: HoneyDrunk Lore Sources
+                      - img "Private List" [ref=e150]
+                    - generic [ref=e154]:
+                      - link "Tatted Dev Verified account" [ref=e155] [cursor=pointer]:
+                        - /url: /tatteddev
+                        - generic [ref=e156]:
+                          - generic [ref=e168]: Tatted Dev
+                          - img "Verified account" [ref=e171]
+                      - link "@tatteddev" [ref=e175] [cursor=pointer]:
+                        - /url: /tatteddev
+                        - generic [ref=e177]: "@tatteddev"
+                    - generic [ref=e178]:
+                      - link "80 Members" [ref=e180] [cursor=pointer]:
+                        - /url: /i/lists/2050930841488904671/members
+                        - generic [ref=e181]: "80"
+                        - generic [ref=e182]: Members
+                      - link "0 Followers" [ref=e184] [cursor=pointer]:
+                        - /url: /i/lists/2050930841488904671/followers
+                        - generic [ref=e185]: "0"
+                        - generic [ref=e186]: Followers
+                    - link "Edit List" [ref=e187] [cursor=pointer]:
+                      - /url: /i/lists/2050930841488904671/info
+                      - generic [ref=e190]: Edit List
+                  - article "Peter Steinberger  reposted Manan  Verified account @manan 1 hour ago I actually didnt fully understand how effective this was till I submitted a bug. Clawsweeper looked at it, validated it, said needs human review, then looked at that, and validated the fix from the contributor Quote Peter Steinberger  Verified account @steipete May 3 This is the most useful tooling I built for OpenClaw to date. It's open source, runs on codex and you can fork and use it for any repo. For all the hard working oss folks that drown in issues and PRs, this is for you. x.com/openclaw/statu 1 repost, 1 like, 34 views" [ref=e194] [cursor=pointer]:
+                    - generic [ref=e196]:
+                      - generic [ref=e201]:
+                        - img [ref=e203]
+                        - link "Peter Steinberger  reposted" [ref=e210]:
+                          - /url: /steipete
+                          - generic [ref=e211]:
+                            - generic [ref=e212]:
+                              - text: Peter Steinberger
+                              - img "" [ref=e213]
+                            - text: reposted
+                      - generic [ref=e214]:
+                        - link [ref=e226]:
+                          - /url: /manan
+                        - generic [ref=e229]:
+                          - generic [ref=e231]:
+                            - generic [ref=e234]:
+                              - link "Manan  Verified account" [ref=e237]:
+                                - /url: /manan
+                                - generic [ref=e238]:
+                                  - generic [ref=e240]:
+                                    - text: Manan
+                                    - img "" [ref=e241]
+                                  - img "Verified account" [ref=e244]
+                              - generic [ref=e248]:
+                                - link "@manan" [ref=e250]:
+                                  - /url: /manan
+                                  - generic [ref=e251]: "@manan"
+                                - generic [ref=e252]: 
+                                - link "1 hour ago" [ref=e254]:
+                                  - /url: /manan/status/2051528770411282712
+                                  - time [ref=e255]: 1h
+                            - generic [ref=e257]:
+                              - button "Grok actions" [ref=e259]:
+                                - img [ref=e264]
+                              - button "More" [ref=e270]:
+                                - img [ref=e274]
+                          - generic [ref=e278]: I actually didnt fully understand how effective this was till I submitted a bug. Clawsweeper looked at it, validated it, said needs human review, then looked at that, and validated the fix from the contributor
+                          - generic "Quote Peter Steinberger  Verified account @steipete May 3 This is the most useful tooling I built for OpenClaw to date. It's open source, runs on codex and you can fork and use it for any repo. For all the hard working oss folks that drown in issues and PRs, this is for you. x.com/openclaw/statu" [ref=e279]:
+                            - generic [ref=e280]:
+                              - generic [ref=e281]: Quote
+                              - link "Peter Steinberger  Verified account @steipete May 3 This is the most useful tooling I built for OpenClaw to date. It's open source, runs on codex and you can fork and use it for any repo. For all the hard working oss folks that drown in issues and PRs, this is for you. x.com/openclaw/statu" [ref=e282]:
+                                - generic [ref=e283]:
+                                  - generic [ref=e301]:
+                                    - generic [ref=e305]:
+                                      - generic [ref=e307]:
+                                        - text: Peter Steinberger
+                                        - img "" [ref=e308]
+                                      - generic [ref=e310]:
+                                        - img "Verified account" [ref=e311]
+                                        - link [ref=e314]
+                                    - generic [ref=e322]:
+                                      - generic [ref=e325]: "@steipete"
+                                      - generic [ref=e326]: 
+                                      - generic "May 3" [ref=e329]:
+                                        - time [ref=e330]: May 3
+                                  - generic [ref=e332]: This is the most useful tooling I built for OpenClaw to date. It's open source, runs on codex and you can fork and use it for any repo. For all the hard working oss folks that drown in issues and PRs, this is for you. x.com/openclaw/statu
+                          - group "1 repost, 1 like, 34 views" [ref=e335]:
+                            - button "0 Replies. Reply" [ref=e337]:
+                              - img [ref=e341]
+                            - button "1 repost. Repost" [ref=e348]:
+                              - generic [ref=e349]:
+                                - img [ref=e352]
+                                - generic [ref=e357]: "1"
+                            - button "1 Like. Like" [ref=e359]:
+                              - generic [ref=e360]:
+                                - img [ref=e363]
+                                - generic [ref=e368]: "1"
+                            - link "34 views. View post analytics" [ref=e370]:
+                              - /url: /manan/status/2051528770411282712/analytics
+                              - generic [ref=e371]:
+                                - img [ref=e374]
+                                - generic [ref=e379]: "34"
+                            - button "Bookmark" [ref=e381]:
+                              - img [ref=e385]
+                            - button "Share post" [ref=e390]:
+                              - img [ref=e394]
+                  - article "Peter Steinberger  Verified account @steipete 4 minutes ago We can now reproduce issues directly in empheral crabboxes with WebVNC (Linux/Windows/macOS). Agents set up the exact state to test + fix and post videos on the PR. Working hard to level up our QA. crabbox.sh Image 5 replies, 13 likes, 3 bookmarks, 683 views" [ref=e400] [cursor=pointer]:
+                    - generic [ref=e406]:
+                      - link [ref=e418]:
+                        - /url: /steipete
+                      - generic [ref=e421]:
+                        - generic [ref=e423]:
+                          - generic [ref=e426]:
+                            - link "Peter Steinberger  Verified account" [ref=e429]:
+                              - /url: /steipete
+                              - generic [ref=e430]:
+                                - generic [ref=e432]:
+                                  - text: Peter Steinberger
+                                  - img "" [ref=e433]
+                                - generic [ref=e435]:
+                                  - img "Verified account" [ref=e436]
+                                  - link [ref=e439]
+                            - generic [ref=e447]:
+                              - link "@steipete" [ref=e449]:
+                                - /url: /steipete
+                                - generic [ref=e450]: "@steipete"
+                              - generic [ref=e451]: 
+                              - link "4 minutes ago" [ref=e454]:
+                                - /url: /steipete/status/2051557150040711425
+                                - time [ref=e455]: 4m
+                          - generic [ref=e457]:
+                            - button "Grok actions" [ref=e459]:
+                              - img [ref=e464]
+                            - button "More" [ref=e470]:
+                              - img [ref=e474]
+                        - generic [ref=e478]:
+                          - text: We can now reproduce issues directly in empheral crabboxes with WebVNC (Linux/Windows/macOS). Agents set up the exact state to test + fix and post videos on the PR. Working hard to level up our QA.
+                          - link "crabbox.sh" [ref=e479]:
+                            - /url: https://t.co/SEj2XRpaD1
+                        - link "Image" [ref=e487]:
+                          - /url: /steipete/status/2051557150040711425/photo/1
+                          - generic "Image" [ref=e491]:
+                            - img "Image" [ref=e493]
+                        - group "5 replies, 13 likes, 3 bookmarks, 683 views" [ref=e496]:
+                          - button "5 Replies. Reply" [ref=e498]:
+                            - generic [ref=e499]:
+                              - img [ref=e502]
+                              - generic [ref=e507]: "5"
+                          - button "0 reposts. Repost" [ref=e509]:
+                            - img [ref=e513]
+                          - button "13 Likes. Like" [ref=e520]:
+                            - generic [ref=e521]:
+                              - img [ref=e524]
+                              - generic [ref=e529]: "13"
+                          - link "683 views. View post analytics" [ref=e531]:
+                            - /url: /steipete/status/2051557150040711425/analytics
+                            - generic [ref=e532]:
+                              - img [ref=e535]
+                              - generic [ref=e540]: "683"
+                          - button "Bookmark" [ref=e542]:
+                            - img [ref=e546]
+                          - button "Share post" [ref=e551]:
+                            - img [ref=e555]
