@@ -1,106 +1,75 @@
-# OpenClaw Lore Ingest Last Run
+# OpenClaw Ingest Last Run
 
 ## Timestamp
-2026-05-05 14:00 UTC / 2026-05-05 10:00 America/New_York
-
-## Operator/runtime
-Honeyclaw via OpenClaw scheduled ingest (lore-scheduled-ingest).
+2026-05-06 09:00 UTC / 2026-05-06 05:00 America/New_York
 
 ## Raw sources ingested
-Count: 52
-
-- raw/2026-05-03-clipper-x-list-snapshot.md
-- raw/2026-05-03-rss-azure-blog-announcing-azure-mcp-server-2-0-stable-release-for-self-hos.md
-- raw/2026-05-03-rss-dotnet-ai-conference-app-composable-stack.md
-- raw/2026-05-03-rss-github-app-installation-token-format.md
-- raw/2026-05-03-rss-github-copilot-cloud-agent-custom-images.md
-- raw/2026-05-03-rss-github-copilot-code-review-actions-minutes.md
-- raw/2026-05-03-rss-martin-fowler-fragments-april-14.md
-- raw/2026-05-03-rss-martin-fowler-fragments-april-21.md
-- raw/2026-05-03-rss-martin-fowler-fragments-april-29.md
-- raw/2026-05-03-rss-martin-fowler-fragments-april-9.md
-- raw/2026-05-03-rss-simonwillison-codex-cli-goal.md
-- raw/2026-05-03-rss-simonwillison-zig-ai-contribution-policy.md
-- raw/2026-05-03-web-langchain-agent-harness.md
-- raw/2026-05-03-web-langchain-async-subagents.md
-- raw/2026-05-04-clipper-discord-anthropic-claude.md
-- raw/2026-05-04-clipper-discord-aspire.md
-- raw/2026-05-04-clipper-discord-blender-community.md
-- raw/2026-05-04-clipper-discord-google-gemini.md
-- raw/2026-05-04-clipper-discord-hugging-face.md
-- raw/2026-05-04-clipper-discord-microsoft-community.md
-- raw/2026-05-04-clipper-discord-microsoft-foundry.md
-- raw/2026-05-04-clipper-discord-net-c.md
-- raw/2026-05-04-clipper-discord-official-unity.md
-- raw/2026-05-04-clipper-discord-openai-developer.md
-- raw/2026-05-04-clipper-x-list-snapshot.md
-- raw/2026-05-04-rss-dev-to-unity-game-dev-digest-issue-329-game-design-tools-ai-programmin.md
-- raw/2026-05-04-rss-dev-to-unity-our-4-phase-game-development-process-from-concept-to-laun.md
-- raw/2026-05-04-rss-godot-engine-dev-snapshot-godot-4-7-beta-1.md
-- raw/2026-05-04-rss-godot-engine-dev-snapshot-godot-4-7-dev-3.md
-- raw/2026-05-04-rss-godot-engine-godot-showcase-xogot-godot-for-ipad-iphone.md
-- raw/2026-05-04-rss-tech-artists-org-lighting-td-atlantis-animation-santa-cruz-de-tenerife.md
-- raw/2026-05-04-rss-unity-blog-making-fire-feel-alive-real-time-fluid-simulation-in-ignite.md
-- raw/2026-05-04-rss-unity-blog-the-hidden-costs-of-traditional-3d-tools-and-the-smarter-wa.md
-- raw/2026-05-05-clipper-discord-anthropic-claude.md
-- raw/2026-05-05-clipper-discord-aspire.md
-- raw/2026-05-05-clipper-discord-blender-community.md
-- raw/2026-05-05-clipper-discord-google-gemini.md
-- raw/2026-05-05-clipper-discord-hugging-face.md
-- raw/2026-05-05-clipper-discord-microsoft-community.md
-- raw/2026-05-05-clipper-discord-microsoft-foundry.md
-- raw/2026-05-05-clipper-discord-net-c.md
-- raw/2026-05-05-clipper-discord-official-unity.md
-- raw/2026-05-05-clipper-discord-openai-developer.md
-- raw/2026-05-05-clipper-x-list-snapshot.md
-- raw/2026-05-05-rss-dev-to-gamedev-first-release-of-ldl-0-1-a-small-library-with-a-big-sou.md
-- raw/2026-05-05-rss-dev-to-gamedev-i-built-a-minecraft-mod-where-every-sword-is-an-aws-ser.md
-- raw/2026-05-05-rss-godot-engine-dev-snapshot-godot-4-7-dev-5.md
-- raw/2026-05-05-rss-godot-engine-godot-mobile-update-april-2026.md
-- raw/2026-05-05-rss-godot-engine-maintenance-release-godot-4-6-2.md
-- raw/2026-05-05-rss-realtimevfx-master-material-vfx-free-use-unity.md
-- raw/2026-05-05-rss-unity-blog-10-questions-to-ask-before-starting-your-first-3d-project.md
-- raw/2026-05-05-rss-unity-blog-rendering-at-500-km-h-in-gear-club-unlimited-3.md
+28 raw sources ingested:
+- `raw/2026-05-06-clipper-discord-anthropic-claude-2.md`
+- `raw/2026-05-06-clipper-discord-anthropic-claude.md`
+- `raw/2026-05-06-clipper-discord-aspire-2.md`
+- `raw/2026-05-06-clipper-discord-aspire.md`
+- `raw/2026-05-06-clipper-discord-blender-community.md`
+- `raw/2026-05-06-clipper-discord-google-gemini-2.md`
+- `raw/2026-05-06-clipper-discord-google-gemini.md`
+- `raw/2026-05-06-clipper-discord-hugging-face-2.md`
+- `raw/2026-05-06-clipper-discord-hugging-face.md`
+- `raw/2026-05-06-clipper-discord-microsoft-community-2.md`
+- `raw/2026-05-06-clipper-discord-microsoft-community.md`
+- `raw/2026-05-06-clipper-discord-microsoft-foundry-2.md`
+- `raw/2026-05-06-clipper-discord-microsoft-foundry.md`
+- `raw/2026-05-06-clipper-discord-net-c-2.md`
+- `raw/2026-05-06-clipper-discord-net-c.md`
+- `raw/2026-05-06-clipper-discord-official-unity.md`
+- `raw/2026-05-06-clipper-discord-openai-developer-2.md`
+- `raw/2026-05-06-clipper-discord-openai-developer.md`
+- `raw/2026-05-06-clipper-x-list-snapshot-2.md`
+- `raw/2026-05-06-clipper-x-list-snapshot.md`
+- `raw/2026-05-06-podcast-acquired-the-nfl.md`
+- `raw/2026-05-06-rss-dev-to-gamedev-legacy-flash-to-modern-html5-a-developer-s-migration-gu.md`
+- `raw/2026-05-06-rss-dev-to-gamedev-when-a-digital-horse-runs-the-fairness-problem-behind-a.md`
+- `raw/2026-05-06-rss-dev-to-unity-after-genie-3-38-alternatives-for-ai-scene-generation.md`
+- `raw/2026-05-06-rss-dev-to-unity-benchmark-webxr-2-0-vs-unity-webgl-vs-unreal-engine-html5.md`
+- `raw/2026-05-06-rss-godot-engine-dev-snapshot-godot-4-7-dev-4.md`
+- `raw/2026-05-06-rss-martin-fowler-fragments-may-5.md`
+- `raw/2026-05-06-rss-unity-blog-games-made-with-unity-march-2026-in-review.md`
 
 ## Wiki pages created/updated
-- wiki/ai-agent-harnesses.md — created
-- wiki/microsoft-dotnet-ai-stack.md — created
-- wiki/github-copilot-and-app-token-changes.md — created
-- wiki/ai-assisted-software-practice.md — created
-- wiki/godot-2026-mobile-and-4-7-cycle.md — created
-- wiki/unity-3d-and-realtime-vfx-patterns.md — created
-- wiki/gamedev-production-and-community-signals.md — created
-- wiki/browser-snapshot-source-quality.md — created
-- wiki/indexes/sources.md — rebuilt with all 52 ingested raw sources
-- wiki/indexes/topics.md — rebuilt
-- wiki/indexes/gaps.md — updated with five actionable gaps
+- Updated `wiki/browser-snapshot-source-quality.md`
+- Updated `wiki/godot-2026-mobile-and-4-7-cycle.md`
+- Updated `wiki/gamedev-production-and-community-signals.md`
+- Updated `wiki/ai-assisted-software-practice.md`
+- Updated `wiki/unity-3d-and-realtime-vfx-patterns.md`
+- Created `wiki/web-3d-runtime-tradeoffs.md`
+- Created `wiki/creator-business-models.md`
+- Updated `wiki/indexes/sources.md`
+- Updated `wiki/indexes/topics.md`
+- Updated `wiki/indexes/gaps.md`
+- Updated `wiki/indexes/audit.md`
 
-## Crystallization
-- Created output/query-2026-05-05-daily-compiled-signal.md with durable, cited daily signal for future Compile passes.
-- No pre-existing output/query-*.md files were present to crystallize.
+## Crystallization from `output/query-*.md`
+- Reviewed `output/query-2026-05-05-daily-compiled-signal.md`; its durable facts were already represented in existing wiki pages, so no new crystallized `output/query-*` fact file was needed.
 
-## Contradictions resolved / supersession handling
-- GitHub App installation-token fixed-length assumptions were marked superseded by the 2026 variable-length ghs_APPID_JWT rollout in wiki/github-copilot-and-app-token-changes.md.
-- Godot 4.7 beta 1 was treated as superseding earlier 4.7 dev snapshots for release-stage posture while preserving dev-snapshot feature detail.
-- Discord/X source quality contradicts the intended announcement-ingest value; resolved by quarantining these sources as low-yield source-quality evidence rather than using them as substantive announcement evidence.
+## Contradictions resolved / supersession
+- No substantive contradictions required supersession.
+- Godot 4.7 beta 1 remains the release-readiness superseding posture for earlier dev snapshots; dev 4 was preserved as feature-detail evidence.
+- 2026-05-06 duplicate Discord/X captures reinforce the low-yield source-quality diagnosis rather than superseding prior claims.
 
 ## Gaps logged
-- Improve Discord announcement extraction beyond UI/accessibility scaffolding.
-- Improve X-list extraction of actual post text/URLs.
-- Audit HoneyDrunk GitHub App token fixed-length assumptions.
-- Estimate HoneyDrunk impact of Copilot code review Actions-minute billing after 2026-06-01.
-- Decide Unity vs Godot vs hybrid criteria for mobile/interactive-3D prototypes.
+- Discord announcement body extraction remains unresolved and was reinforced by 18 additional low-yield captures.
+- X list post extraction remains unresolved and was reinforced by two additional low-yield captures.
+- New idempotency gap: 2026-05-06 sourcing created duplicate `-2` captures for several monitored surfaces.
+- New evaluation gaps: reproduce WebXR/Babylon.js vs Unity WebGL vs Unreal HTML5 benchmark on HoneyDrunk target devices; validate AI scene-generation tools for availability/licensing/cost/workflow fit.
 
 ## Privacy redactions / filtering
-- No secrets, credentials, tokens, or private PII were copied into wiki pages.
-- Discord and X browser snapshots were summarized at source-quality/focus level only; individual user/chat details were not reproduced.
-- Real token examples were avoided; only public token-format prefixes/patterns from GitHub's changelog were recorded.
+- Did not copy Discord user/chat bodies, unread-count specifics, account labels, or X account/UI profile details into wiki pages.
+- Fowler fragment included a defamatory-AI-overview example; wiki retained only high-level AI-responsibility signal, not allegations as facts about the individual.
+- No credentials, tokens, or secrets were found in source material written to wiki.
 
 ## Quality posture
-- RSS/web sources yielded decision-usable pages with typed entities, explicit relationships, source citations, and confidence notes.
-- Discord/X clipper sources were ingested but flagged as low-yield because they mostly contain browser UI scaffolding.
-- Vendor-authored claims from Microsoft/Azure/Unity/GitHub are useful but should be verified against docs/pricing before implementation or spend decisions.
-- No raw files were edited or deleted.
+- Decision-usable: Godot dev 4, Flash migration methodology, AI/Web3 trust-boundary pattern, AI-assisted software-practice additions, browser 3D runtime tradeoff framing.
+- Scout-only / weak authority: DEV.to WebXR benchmark until reproduced; AI scene-generation alternatives list until validated; Unity release roundup as ecosystem breadth not engine-selection evidence; Acquired NFL metadata as strategic analogy not full transcript-backed operating model.
+- Low-quality sources: 20 new browser clipper raw files were ingested only as source-quality/capture-coverage evidence.
 
 ## Blockers
-- None for commit/push quality, assuming repository validation passes.
+- None blocking safe wiki commit. Existing worktree contains sourcing/raw/.obsidian changes outside this ingest pass; commit should include only safe Lore ingest additions/updates, preserving raw immutability.

@@ -1,0 +1,176 @@
+---
+source: "https://x.com/i/lists/2050930841488904671#snapshot-2026-05-06"
+title: "X list snapshot — 2026-05-06"
+author: "OpenClaw browser"
+date_published: "unknown"
+date_clipped: "2026-05-06"
+category: "AI / LLM Research & Tooling"
+source_type: "clipper"
+---
+
+# X list snapshot — 2026-05-06
+
+Source: https://x.com/i/lists/2050930841488904671#snapshot-2026-05-06
+
+- generic [ref=e2]:
+  - generic:
+    - generic:
+      - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+        - generic [ref=e4]: To view keyboard shortcuts, press question mark
+        - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+          - /url: /i/keyboard_shortcuts
+      - generic [ref=e6]:
+        - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+        - button "Skip to trending" [ref=e9] [cursor=pointer]
+        - banner [ref=e11]:
+          - generic [ref=e13]:
+            - generic [ref=e14]:
+              - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                - link "X" [ref=e17]:
+                  - /url: /home
+                  - img [ref=e19]
+              - navigation "Primary" [ref=e23]:
+                - link "Home" [ref=e24] [cursor=pointer]:
+                  - /url: /home
+                  - img [ref=e27]
+                - link "Search and explore" [ref=e30] [cursor=pointer]:
+                  - /url: /explore
+                  - img [ref=e33]
+                - link "Notifications" [ref=e36] [cursor=pointer]:
+                  - /url: /notifications
+                  - img [ref=e39]
+                - link "Direct Messages" [ref=e42] [cursor=pointer]:
+                  - /url: /i/chat
+                  - img [ref=e45]
+                - link "Grok" [ref=e48] [cursor=pointer]:
+                  - /url: /i/grok
+                  - generic [ref=e50]:
+                    - img [ref=e51]
+                    - generic "undefined unread items" [ref=e54]
+                - link "Articles" [ref=e55] [cursor=pointer]:
+                  - /url: /compose/articles
+                  - img [ref=e58]
+                - link "Profile" [ref=e63] [cursor=pointer]:
+                  - /url: /tatteddev
+                  - img [ref=e66]
+                - button "More menu items" [ref=e69] [cursor=pointer]:
+                  - img [ref=e72]
+              - link "Post" [ref=e76] [cursor=pointer]:
+                - /url: /compose/post
+                - img [ref=e78]
+            - button "Account menu" [ref=e84] [cursor=pointer]:
+              - generic [ref=e92]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic "Tatted Dev":
+                        - img "Tatted Dev"
+        - main [ref=e95]:
+          - generic "Home timeline" [ref=e100]:
+            - generic [ref=e101]:
+              - generic [ref=e107] [cursor=pointer]:
+                - button "Back" [ref=e109]:
+                  - img [ref=e111]
+                - generic [ref=e115]:
+                  - heading "HoneyDrunk Lore Sources Private List" [level=2] [ref=e116]:
+                    - generic [ref=e117]:
+                      - generic [ref=e118]: HoneyDrunk Lore Sources
+                      - img "Private List" [ref=e119]
+                  - generic [ref=e122]: "@tatteddev"
+                - generic [ref=e124]:
+                  - button "Share Menu" [ref=e125]:
+                    - img [ref=e127]
+                  - button "More" [ref=e130]:
+                    - img [ref=e132]
+              - generic:
+                - generic:
+                  - status:
+                    - button:
+                      - generic:
+                        - img
+                        - generic: See new posts
+            - region "List" [ref=e136]:
+              - heading "List" [level=1] [ref=e137]
+              - 'generic "Timeline: List" [ref=e138]':
+                - generic [ref=e139]:
+                  - generic [ref=e147]:
+                    - generic [ref=e148]:
+                      - generic [ref=e149]: HoneyDrunk Lore Sources
+                      - img "Private List" [ref=e150]
+                    - generic [ref=e154]:
+                      - link "Tatted Dev Verified account" [ref=e155] [cursor=pointer]:
+                        - /url: /tatteddev
+                        - generic [ref=e156]:
+                          - generic [ref=e168]: Tatted Dev
+                          - img "Verified account" [ref=e171]
+                      - link "@tatteddev" [ref=e175] [cursor=pointer]:
+                        - /url: /tatteddev
+                        - generic [ref=e177]: "@tatteddev"
+                    - generic [ref=e178]:
+                      - link "80 Members" [ref=e180] [cursor=pointer]:
+                        - /url: /i/lists/2050930841488904671/members
+                        - generic [ref=e181]: "80"
+                        - generic [ref=e182]: Members
+                      - link "0 Followers" [ref=e184] [cursor=pointer]:
+                        - /url: /i/lists/2050930841488904671/followers
+                        - generic [ref=e185]: "0"
+                        - generic [ref=e186]: Followers
+                    - link "Edit List" [ref=e187] [cursor=pointer]:
+                      - /url: /i/lists/2050930841488904671/info
+                      - generic [ref=e190]: Edit List
+                  - article "God of Prompt Verified account @godofprompt 32 minutes ago AI already turned everyone into a writer, designer, editor, and coder. Now its coming for games. And most people are sleeping through it like this isnt the next creator gold rush. Meet @playastrocade . Embedded video Play Video 6 replies, 6 reposts, 15 likes, 4 bookmarks, 1036 views" [ref=e194] [cursor=pointer]:
+                    - generic [ref=e200]:
+                      - link [ref=e212]:
+                        - /url: /godofprompt
+                      - generic [ref=e216]:
+                        - generic [ref=e218]:
+                          - generic [ref=e221]:
+                            - link "God of Prompt Verified account" [ref=e224]:
+                              - /url: /godofprompt
+                              - generic [ref=e225]:
+                                - generic [ref=e227]: God of Prompt
+                                - img "Verified account" [ref=e230]
+                            - generic [ref=e234]:
+                              - link "@godofprompt" [ref=e236]:
+                                - /url: /godofprompt
+                                - generic [ref=e237]: "@godofprompt"
+                              - generic [ref=e238]: 
+                              - link "32 minutes ago" [ref=e240]:
+                                - /url: /godofprompt/status/2051912595494567940
+                                - time [ref=e241]: 32m
+                          - generic [ref=e243]:
+                            - button "Grok actions" [ref=e245]:
+                              - img [ref=e250]
+                            - button "More" [ref=e256]:
+                              - img [ref=e260]
+                        - generic [ref=e264]:
+                          - text: AI already turned everyone into a writer, designer, editor, and coder. Now its coming for games. And most people are sleeping through it like this isnt the next creator gold rush. Meet
+                          - link "@playastrocade" [ref=e267]:
+                            - /url: /PlayAstrocade
+                          - text: .
+                        - generic [ref=e284]:
+                          - generic "Embedded video" [ref=e287]
+                          - button "Play Video" [ref=e294]:
+                            - img [ref=e295]
+                        - group "6 replies, 6 reposts, 15 likes, 4 bookmarks, 1036 views" [ref=e301]:
+                          - button "6 Replies. Reply" [ref=e303]:
+                            - generic [ref=e304]:
+                              - img [ref=e307]
+                              - generic [ref=e312]: "6"
+                          - button "6 reposts. Repost" [ref=e314]:
+                            - generic [ref=e315]:
+                              - img [ref=e318]
+                              - generic [ref=e323]: "6"
+                          - button "15 Likes. Like" [ref=e325]:
+                            - generic [ref=e326]:
+                              - img [ref=e329]
+                              - generic [ref=e334]: "15"
+                          - link "1036 views. View post analytics" [ref=e336]:
+                            - /url: /godofprompt/status/2051912595494567940/analytics
+                            - generic [ref=e337]:
+                              - img [ref=e340]
+                              - generic [ref=e345]: 1K
+                          - button "Bookmark" [ref=e347]:
+                            - img [ref=e351]
+                          - button "Share post" [ref=e356]:
+                            - img [ref=e360]

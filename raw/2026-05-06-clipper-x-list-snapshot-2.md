@@ -1,0 +1,331 @@
+---
+source: "https://x.com/i/lists/2050930841488904671#snapshot-2026-05-06"
+title: "X list snapshot — 2026-05-06"
+author: "OpenClaw browser"
+date_published: "unknown"
+date_clipped: "2026-05-06"
+category: "AI / LLM Research & Tooling"
+source_type: "clipper"
+---
+
+# X list snapshot — 2026-05-06
+
+Source: https://x.com/i/lists/2050930841488904671#snapshot-2026-05-06
+
+- generic [ref=e2]:
+  - generic:
+    - generic:
+      - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+        - generic [ref=e4]: To view keyboard shortcuts, press question mark
+        - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+          - /url: /i/keyboard_shortcuts
+      - generic [ref=e6]:
+        - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+        - button "Skip to trending" [ref=e9] [cursor=pointer]
+        - banner [ref=e11]:
+          - generic [ref=e13]:
+            - generic [ref=e14]:
+              - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                - link "X" [ref=e17]:
+                  - /url: /home
+                  - img [ref=e19]
+              - navigation "Primary" [ref=e23]:
+                - link "Home" [ref=e24] [cursor=pointer]:
+                  - /url: /home
+                  - img [ref=e27]
+                - link "Search and explore" [ref=e30] [cursor=pointer]:
+                  - /url: /explore
+                  - img [ref=e33]
+                - link "Notifications" [ref=e36] [cursor=pointer]:
+                  - /url: /notifications
+                  - img [ref=e39]
+                - link "Direct Messages" [ref=e42] [cursor=pointer]:
+                  - /url: /i/chat
+                  - img [ref=e45]
+                - link "Grok" [ref=e48] [cursor=pointer]:
+                  - /url: /i/grok
+                  - generic [ref=e50]:
+                    - img [ref=e51]
+                    - generic "undefined unread items" [ref=e54]
+                - link "Articles" [ref=e55] [cursor=pointer]:
+                  - /url: /compose/articles
+                  - img [ref=e58]
+                - link "Profile" [ref=e63] [cursor=pointer]:
+                  - /url: /tatteddev
+                  - img [ref=e66]
+                - button "More menu items" [ref=e69] [cursor=pointer]:
+                  - img [ref=e72]
+              - link "Post" [ref=e76] [cursor=pointer]:
+                - /url: /compose/post
+                - img [ref=e78]
+            - button "Account menu" [ref=e84] [cursor=pointer]:
+              - generic [ref=e92]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic "Tatted Dev":
+                        - img "Tatted Dev"
+        - main [ref=e95]:
+          - generic "Home timeline" [ref=e100]:
+            - generic [ref=e101]:
+              - generic [ref=e107] [cursor=pointer]:
+                - button "Back" [ref=e109]:
+                  - img [ref=e111]
+                - generic [ref=e115]:
+                  - heading "HoneyDrunk Lore Sources Private List" [level=2] [ref=e116]:
+                    - generic [ref=e117]:
+                      - generic [ref=e118]: HoneyDrunk Lore Sources
+                      - img "Private List" [ref=e119]
+                  - generic [ref=e122]: "@tatteddev"
+                - generic [ref=e124]:
+                  - button "Share Menu" [ref=e125]:
+                    - img [ref=e127]
+                  - button "More" [ref=e130]:
+                    - img [ref=e132]
+              - generic:
+                - generic:
+                  - status:
+                    - button:
+                      - generic:
+                        - img
+                        - generic: See new posts
+            - region "List" [ref=e136]:
+              - heading "List" [level=1] [ref=e137]
+              - 'generic "Timeline: List" [ref=e138]':
+                - generic [ref=e139]:
+                  - generic [ref=e147]:
+                    - generic [ref=e148]:
+                      - generic [ref=e149]: HoneyDrunk Lore Sources
+                      - img "Private List" [ref=e150]
+                    - generic [ref=e154]:
+                      - link "Tatted Dev Verified account" [ref=e155] [cursor=pointer]:
+                        - /url: /tatteddev
+                        - generic [ref=e156]:
+                          - generic [ref=e168]: Tatted Dev
+                          - img "Verified account" [ref=e171]
+                      - link "@tatteddev" [ref=e175] [cursor=pointer]:
+                        - /url: /tatteddev
+                        - generic [ref=e177]: "@tatteddev"
+                    - generic [ref=e178]:
+                      - link "80 Members" [ref=e180] [cursor=pointer]:
+                        - /url: /i/lists/2050930841488904671/members
+                        - generic [ref=e181]: "80"
+                        - generic [ref=e182]: Members
+                      - link "0 Followers" [ref=e184] [cursor=pointer]:
+                        - /url: /i/lists/2050930841488904671/followers
+                        - generic [ref=e185]: "0"
+                        - generic [ref=e186]: Followers
+                    - link "Edit List" [ref=e187] [cursor=pointer]:
+                      - /url: /i/lists/2050930841488904671/info
+                      - generic [ref=e190]: Edit List
+                  - article "God of Prompt Verified account @godofprompt 41 minutes ago AI already turned everyone into a writer, designer, editor, and coder. Now its coming for games. And most people are sleeping through it like this isnt the next creator gold rush. Meet @playastrocade . Embedded video Play Video 6 replies, 6 reposts, 16 likes, 5 bookmarks, 1212 views" [ref=e194] [cursor=pointer]:
+                    - generic [ref=e200]:
+                      - link [ref=e212]:
+                        - /url: /godofprompt
+                      - generic [ref=e216]:
+                        - generic [ref=e218]:
+                          - generic [ref=e221]:
+                            - link "God of Prompt Verified account" [ref=e224]:
+                              - /url: /godofprompt
+                              - generic [ref=e225]:
+                                - generic [ref=e227]: God of Prompt
+                                - img "Verified account" [ref=e230]
+                            - generic [ref=e234]:
+                              - link "@godofprompt" [ref=e236]:
+                                - /url: /godofprompt
+                                - generic [ref=e237]: "@godofprompt"
+                              - generic [ref=e238]: 
+                              - link "41 minutes ago" [ref=e240]:
+                                - /url: /godofprompt/status/2051912595494567940
+                                - time [ref=e241]: 41m
+                          - generic [ref=e243]:
+                            - button "Grok actions" [ref=e245]:
+                              - img [ref=e250]
+                            - button "More" [ref=e256]:
+                              - img [ref=e260]
+                        - generic [ref=e264]:
+                          - text: AI already turned everyone into a writer, designer, editor, and coder. Now its coming for games. And most people are sleeping through it like this isnt the next creator gold rush. Meet
+                          - link "@playastrocade" [ref=e267]:
+                            - /url: /PlayAstrocade
+                          - text: .
+                        - generic [ref=e284]:
+                          - generic "Embedded video" [ref=e287]
+                          - button "Play Video" [ref=e294]:
+                            - img [ref=e295]
+                        - group "6 replies, 6 reposts, 16 likes, 5 bookmarks, 1212 views" [ref=e301]:
+                          - button "6 Replies. Reply" [ref=e303]:
+                            - generic [ref=e304]:
+                              - img [ref=e307]
+                              - generic [ref=e312]: "6"
+                          - button "6 reposts. Repost" [ref=e314]:
+                            - generic [ref=e315]:
+                              - img [ref=e318]
+                              - generic [ref=e323]: "6"
+                          - button "16 Likes. Like" [ref=e325]:
+                            - generic [ref=e326]:
+                              - img [ref=e329]
+                              - generic [ref=e334]: "16"
+                          - link "1212 views. View post analytics" [ref=e336]:
+                            - /url: /godofprompt/status/2051912595494567940/analytics
+                            - generic [ref=e337]:
+                              - img [ref=e340]
+                              - generic [ref=e345]: 1.2K
+                          - button "Bookmark" [ref=e347]:
+                            - img [ref=e351]
+                          - button "Share post" [ref=e356]:
+                            - img [ref=e360]
+                  - link "Show more replies" [ref=e367] [cursor=pointer]:
+                    - /url: /i/status/2051912595494567940
+                    - generic [ref=e375]: Show more replies
+                  - article "God of Prompt Verified account @godofprompt 41 minutes ago Replying to @godofprompt Astrocade just raised $56M led by Sequoia. They also announced a $10M Creator Fund to pay creators whose games take off. Thats not a random gaming app. Thats infrastructure for a new creator category 1 reply, 1 like, 527 views" [ref=e379] [cursor=pointer]:
+                    - generic [ref=e387]:
+                      - link [ref=e399]:
+                        - /url: /godofprompt
+                      - generic [ref=e403]:
+                        - generic [ref=e405]:
+                          - generic [ref=e408]:
+                            - link "God of Prompt Verified account" [ref=e411]:
+                              - /url: /godofprompt
+                              - generic [ref=e412]:
+                                - generic [ref=e414]: God of Prompt
+                                - img "Verified account" [ref=e417]
+                            - generic [ref=e421]:
+                              - link "@godofprompt" [ref=e423]:
+                                - /url: /godofprompt
+                                - generic [ref=e424]: "@godofprompt"
+                              - generic [ref=e425]: 
+                              - link "41 minutes ago" [ref=e427]:
+                                - /url: /godofprompt/status/2051912631431438712
+                                - time [ref=e428]: 41m
+                          - generic [ref=e430]:
+                            - button "Grok actions" [ref=e432]:
+                              - img [ref=e437]
+                            - button "More" [ref=e443]:
+                              - img [ref=e447]
+                        - generic [ref=e451]:
+                          - text: Replying to
+                          - link "@godofprompt" [ref=e453]:
+                            - /url: /godofprompt
+                        - generic [ref=e455]: Astrocade just raised $56M led by Sequoia. They also announced a $10M Creator Fund to pay creators whose games take off. Thats not a random gaming app. Thats infrastructure for a new creator category
+                        - group "1 reply, 1 like, 527 views" [ref=e458]:
+                          - button "1 Reply. Reply" [ref=e460]:
+                            - generic [ref=e461]:
+                              - img [ref=e464]
+                              - generic [ref=e469]: "1"
+                          - button "0 reposts. Repost" [ref=e471]:
+                            - img [ref=e475]
+                          - button "1 Like. Like" [ref=e482]:
+                            - generic [ref=e483]:
+                              - img [ref=e486]
+                              - generic [ref=e491]: "1"
+                          - link "527 views. View post analytics" [ref=e493]:
+                            - /url: /godofprompt/status/2051912631431438712/analytics
+                            - generic [ref=e494]:
+                              - img [ref=e497]
+                              - generic [ref=e502]: "527"
+                          - button "Bookmark" [ref=e504]:
+                            - img [ref=e508]
+                          - button "Share post" [ref=e513]:
+                            - img [ref=e517]
+                  - article "God of Prompt Verified account @godofprompt 41 minutes ago Replying to @godofprompt The people who ignored TikTok early called it cringe. Then watched teenagers build media empires from their bedrooms. Same energy here. Except now the content is playable. 1 like, 502 views" [ref=e523] [cursor=pointer]:
+                    - generic [ref=e531]:
+                      - link [ref=e543]:
+                        - /url: /godofprompt
+                      - generic [ref=e546]:
+                        - generic [ref=e548]:
+                          - generic [ref=e551]:
+                            - link "God of Prompt Verified account" [ref=e554]:
+                              - /url: /godofprompt
+                              - generic [ref=e555]:
+                                - generic [ref=e557]: God of Prompt
+                                - img "Verified account" [ref=e560]
+                            - generic [ref=e564]:
+                              - link "@godofprompt" [ref=e566]:
+                                - /url: /godofprompt
+                                - generic [ref=e567]: "@godofprompt"
+                              - generic [ref=e568]: 
+                              - link "41 minutes ago" [ref=e570]:
+                                - /url: /godofprompt/status/2051912643112497210
+                                - time [ref=e571]: 41m
+                          - generic [ref=e573]:
+                            - button "Grok actions" [ref=e575]:
+                              - img [ref=e580]
+                            - button "More" [ref=e586]:
+                              - img [ref=e590]
+                        - generic [ref=e594]:
+                          - text: Replying to
+                          - link "@godofprompt" [ref=e596]:
+                            - /url: /godofprompt
+                        - generic [ref=e598]: The people who ignored TikTok early called it cringe. Then watched teenagers build media empires from their bedrooms. Same energy here. Except now the content is playable.
+                        - group "1 like, 502 views" [ref=e601]:
+                          - button "0 Replies. Reply" [ref=e603]:
+                            - img [ref=e607]
+                          - button "0 reposts. Repost" [ref=e614]:
+                            - img [ref=e618]
+                          - button "1 Like. Like" [ref=e625]:
+                            - generic [ref=e626]:
+                              - img [ref=e629]
+                              - generic [ref=e634]: "1"
+                          - link "502 views. View post analytics" [ref=e636]:
+                            - /url: /godofprompt/status/2051912643112497210/analytics
+                            - generic [ref=e637]:
+                              - img [ref=e640]
+                              - generic [ref=e645]: "502"
+                          - button "Bookmark" [ref=e647]:
+                            - img [ref=e651]
+                          - button "Share post" [ref=e656]:
+                            - img [ref=e660]
+                  - article "Milan Jovanovi Verified account @mjovanovictech 41 minutes ago I wrote two almost identical SQL queries. One of them was 451 times faster. I was implementing cursor pagination. And I thought... Why don't I add an index to make my query faster? This is where things went terribly wrong. We have an Index Scan using the composite index. Image 1 reply, 3 reposts, 15 likes, 7 bookmarks, 589 views" [ref=e666] [cursor=pointer]:
+                    - generic [ref=e672]:
+                      - link [ref=e684]:
+                        - /url: /mjovanovictech
+                      - generic [ref=e687]:
+                        - generic [ref=e689]:
+                          - generic [ref=e692]:
+                            - link "Milan Jovanovi Verified account" [ref=e695]:
+                              - /url: /mjovanovictech
+                              - generic [ref=e696]:
+                                - generic [ref=e698]: Milan Jovanovi
+                                - img "Verified account" [ref=e701]
+                            - generic [ref=e705]:
+                              - link "@mjovanovictech" [ref=e707]:
+                                - /url: /mjovanovictech
+                                - generic [ref=e708]: "@mjovanovictech"
+                              - generic [ref=e709]: 
+                              - link "41 minutes ago" [ref=e711]:
+                                - /url: /mjovanovictech/status/2051912605749444608
+                                - time [ref=e712]: 41m
+                          - generic [ref=e714]:
+                            - button "Grok actions" [ref=e716]:
+                              - img [ref=e721]
+                            - button "More" [ref=e727]:
+                              - img [ref=e731]
+                        - generic [ref=e734]:
+                          - generic [ref=e735]: I wrote two almost identical SQL queries. One of them was 451 times faster. I was implementing cursor pagination. And I thought... Why don't I add an index to make my query faster? This is where things went terribly wrong. We have an Index Scan using the composite index.
+                          - button "Show more" [ref=e736]
+                        - link "Image" [ref=e744]:
+                          - /url: /mjovanovictech/status/2051912605749444608/photo/1
+                          - generic "Image" [ref=e748]:
+                            - img "Image" [ref=e750]
+                        - group "1 reply, 3 reposts, 15 likes, 7 bookmarks, 589 views" [ref=e753]:
+                          - button "1 Reply. Reply" [ref=e755]:
+                            - generic [ref=e756]:
+                              - img [ref=e759]
+                              - generic [ref=e764]: "1"
+                          - button "3 reposts. Repost" [ref=e766]:
+                            - generic [ref=e767]:
+                              - img [ref=e770]
+                              - generic [ref=e775]: "3"
+                          - button "15 Likes. Like" [ref=e777]:
+                            - generic [ref=e778]:
+                              - img [ref=e781]
+                              - generic [ref=e786]: "15"
+                          - link "589 views. View post analytics" [ref=e788]:
+                            - /url: /mjovanovictech/status/2051912605749444608/analytics
+                            - generic [ref=e789]:
+                              - img [ref=e792]
+                              - generic [ref=e797]: "589"
+                          - button "Bookmark" [ref=e799]:
+                            - img [ref=e803]
+                          - button "Share post" [ref=e808]:
+                            - img [ref=e812]
