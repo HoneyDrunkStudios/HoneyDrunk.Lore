@@ -1,0 +1,347 @@
+---
+source: "https://x.com/i/lists/2050930841488904671#snapshot-2026-05-07"
+title: "X list snapshot — 2026-05-07"
+author: "OpenClaw browser"
+date_published: "unknown"
+date_clipped: "2026-05-07"
+category: "AI / LLM Research & Tooling"
+source_type: "clipper"
+---
+
+# X list snapshot — 2026-05-07
+
+Source: https://x.com/i/lists/2050930841488904671#snapshot-2026-05-07
+
+- generic [ref=e2]:
+  - generic:
+    - generic:
+      - heading "To view keyboard shortcuts, press question mark View keyboard shortcuts" [level=2] [ref=e3]:
+        - generic [ref=e4]: To view keyboard shortcuts, press question mark
+        - link "View keyboard shortcuts" [ref=e5] [cursor=pointer]:
+          - /url: /i/keyboard_shortcuts
+      - generic [ref=e6]:
+        - button "Skip to home timeline" [ref=e7] [cursor=pointer]
+        - button "Skip to trending" [ref=e9] [cursor=pointer]
+        - banner [ref=e11]:
+          - generic [ref=e13]:
+            - generic [ref=e14]:
+              - heading "X" [level=1] [ref=e16] [cursor=pointer]:
+                - link "X" [ref=e17]:
+                  - /url: /home
+                  - img [ref=e19]
+              - navigation "Primary" [ref=e23]:
+                - link "Home" [ref=e24] [cursor=pointer]:
+                  - /url: /home
+                  - img [ref=e27]
+                - link "Search and explore" [ref=e30] [cursor=pointer]:
+                  - /url: /explore
+                  - img [ref=e33]
+                - link "Notifications" [ref=e36] [cursor=pointer]:
+                  - /url: /notifications
+                  - img [ref=e39]
+                - link "Direct Messages" [ref=e42] [cursor=pointer]:
+                  - /url: /i/chat
+                  - img [ref=e45]
+                - link "Grok" [ref=e48] [cursor=pointer]:
+                  - /url: /i/grok
+                  - generic [ref=e50]:
+                    - img [ref=e51]
+                    - generic "undefined unread items" [ref=e54]
+                - link "Articles" [ref=e55] [cursor=pointer]:
+                  - /url: /compose/articles
+                  - img [ref=e58]
+                - link "Profile" [ref=e63] [cursor=pointer]:
+                  - /url: /tatteddev
+                  - img [ref=e66]
+                - button "More menu items" [ref=e69] [cursor=pointer]:
+                  - img [ref=e72]
+              - link "Post" [ref=e76] [cursor=pointer]:
+                - /url: /compose/post
+                - img [ref=e78]
+            - button "Account menu" [ref=e84] [cursor=pointer]:
+              - generic [ref=e92]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic "Tatted Dev":
+                        - img "Tatted Dev"
+        - main [ref=e95]:
+          - generic "Home timeline" [ref=e100]:
+            - generic [ref=e101]:
+              - generic [ref=e107] [cursor=pointer]:
+                - button "Back" [ref=e109]:
+                  - img [ref=e111]
+                - generic [ref=e115]:
+                  - heading "HoneyDrunk Lore Sources Private List" [level=2] [ref=e116]:
+                    - generic [ref=e117]:
+                      - generic [ref=e118]: HoneyDrunk Lore Sources
+                      - img "Private List" [ref=e119]
+                  - generic [ref=e122]: "@tatteddev"
+                - generic [ref=e124]:
+                  - button "Share Menu" [ref=e125]:
+                    - img [ref=e127]
+                  - button "More" [ref=e130]:
+                    - img [ref=e132]
+              - generic:
+                - generic:
+                  - status:
+                    - button:
+                      - generic:
+                        - img
+                        - generic: See new posts
+            - region "List" [ref=e136]:
+              - heading "List" [level=1] [ref=e137]
+              - 'generic "Timeline: List" [ref=e138]':
+                - generic [ref=e139]:
+                  - generic [ref=e147]:
+                    - generic [ref=e148]:
+                      - generic [ref=e149]: HoneyDrunk Lore Sources
+                      - img "Private List" [ref=e150]
+                    - generic [ref=e154]:
+                      - link "Tatted Dev Verified account" [ref=e155] [cursor=pointer]:
+                        - /url: /tatteddev
+                        - generic [ref=e156]:
+                          - generic [ref=e168]: Tatted Dev
+                          - img "Verified account" [ref=e171]
+                      - link "@tatteddev" [ref=e175] [cursor=pointer]:
+                        - /url: /tatteddev
+                        - generic [ref=e177]: "@tatteddev"
+                    - generic [ref=e178]:
+                      - link "80 Members" [ref=e180] [cursor=pointer]:
+                        - /url: /i/lists/2050930841488904671/members
+                        - generic [ref=e181]: "80"
+                        - generic [ref=e182]: Members
+                      - link "0 Followers" [ref=e184] [cursor=pointer]:
+                        - /url: /i/lists/2050930841488904671/followers
+                        - generic [ref=e185]: "0"
+                        - generic [ref=e186]: Followers
+                    - link "Edit List" [ref=e187] [cursor=pointer]:
+                      - /url: /i/lists/2050930841488904671/info
+                      - generic [ref=e190]: Edit List
+                  - 'article "Theo - t3.gg Verified account @theo 19 minutes ago I have historically defended Chrome for pushing web standards forward. This is them doing the opposite. I dislike this. Quote Jake Archibald @jaffathecake 21 hours ago So, Chrome''s \"web standard\" Prompt API: Mozilla: Opposed WebKit: Opposed Microsoft: Several concerns W3C TAG: Several concerns Developers: Mostly negative Chrome: Ships anyway. A sad time for web standards. But, I guess someone at Google will get promoted, so ''every cloud'' 3 replies, 61 likes, 6 bookmarks, 4170 views" [ref=e194] [cursor=pointer]':
+                    - generic [ref=e200]:
+                      - link [ref=e212]:
+                        - /url: /theo
+                      - generic [ref=e215]:
+                        - generic [ref=e217]:
+                          - generic [ref=e220]:
+                            - link "Theo - t3.gg Verified account" [ref=e223]:
+                              - /url: /theo
+                              - generic [ref=e224]:
+                                - generic [ref=e226]: Theo - t3.gg
+                                - img "Verified account" [ref=e229]
+                            - generic [ref=e233]:
+                              - link "@theo" [ref=e235]:
+                                - /url: /theo
+                                - generic [ref=e236]: "@theo"
+                              - generic [ref=e237]: 
+                              - link "19 minutes ago" [ref=e239]:
+                                - /url: /theo/status/2052277935768551609
+                                - time [ref=e240]: 19m
+                          - generic [ref=e242]:
+                            - button "Grok actions" [ref=e244]:
+                              - img [ref=e249]
+                            - button "More" [ref=e255]:
+                              - img [ref=e259]
+                        - generic [ref=e263]: I have historically defended Chrome for pushing web standards forward. This is them doing the opposite. I dislike this.
+                        - 'generic "Quote Jake Archibald @jaffathecake 21 hours ago So, Chrome''s \"web standard\" Prompt API: Mozilla: Opposed WebKit: Opposed Microsoft: Several concerns W3C TAG: Several concerns Developers: Mostly negative Chrome: Ships anyway. A sad time for web standards. But, I guess someone at Google will get promoted, so ''every cloud''" [ref=e264]':
+                          - generic [ref=e265]:
+                            - generic [ref=e266]: Quote
+                            - 'link "Jake Archibald @jaffathecake 21 hours ago So, Chrome''s \"web standard\" Prompt API: Mozilla: Opposed WebKit: Opposed Microsoft: Several concerns W3C TAG: Several concerns Developers: Mostly negative Chrome: Ships anyway. A sad time for web standards. But, I guess someone at Google will get promoted, so ''every cloud''" [ref=e267]':
+                              - generic [ref=e268]:
+                                - generic [ref=e286]:
+                                  - generic [ref=e292]: Jake Archibald
+                                  - generic [ref=e294]:
+                                    - generic [ref=e297]: "@jaffathecake"
+                                    - generic [ref=e298]: 
+                                    - generic "21 hours ago" [ref=e301]:
+                                      - time [ref=e302]: 21h
+                                - generic [ref=e304]: "So, Chrome's \"web standard\" Prompt API: Mozilla: Opposed WebKit: Opposed Microsoft: Several concerns W3C TAG: Several concerns Developers: Mostly negative Chrome: Ships anyway. A sad time for web standards. But, I guess someone at Google will get promoted, so 'every cloud'"
+                        - group "3 replies, 61 likes, 6 bookmarks, 4170 views" [ref=e307]:
+                          - button "3 Replies. Reply" [ref=e309]:
+                            - generic [ref=e310]:
+                              - img [ref=e313]
+                              - generic [ref=e318]: "3"
+                          - button "0 reposts. Repost" [ref=e320]:
+                            - img [ref=e324]
+                          - button "61 Likes. Like" [ref=e331]:
+                            - generic [ref=e332]:
+                              - img [ref=e335]
+                              - generic [ref=e340]: "61"
+                          - link "4170 views. View post analytics" [ref=e342]:
+                            - /url: /theo/status/2052277935768551609/analytics
+                            - generic [ref=e343]:
+                              - img [ref=e346]
+                              - generic [ref=e351]: 4.1K
+                          - button "Bookmark" [ref=e353]:
+                            - img [ref=e357]
+                          - button "Share post" [ref=e362]:
+                            - img [ref=e366]
+                  - 'article "Milan Jovanovi Verified account @mjovanovictech 31 minutes ago How to design a terrible API: - Return 200 OK with \"{ success: false }\" in the response A better solution? Return Problem Details for API errors. At the very least, agree on a standard error response as a team. I''ve seen APIs returning 200 OK with an error in the envelope Image 2 replies, 2 reposts, 8 likes, 3 bookmarks, 278 views" [ref=e372] [cursor=pointer]':
+                    - generic [ref=e378]:
+                      - link [ref=e390]:
+                        - /url: /mjovanovictech
+                      - generic [ref=e393]:
+                        - generic [ref=e395]:
+                          - generic [ref=e398]:
+                            - link "Milan Jovanovi Verified account" [ref=e401]:
+                              - /url: /mjovanovictech
+                              - generic [ref=e402]:
+                                - generic [ref=e404]: Milan Jovanovi
+                                - img "Verified account" [ref=e407]
+                            - generic [ref=e411]:
+                              - link "@mjovanovictech" [ref=e413]:
+                                - /url: /mjovanovictech
+                                - generic [ref=e414]: "@mjovanovictech"
+                              - generic [ref=e415]: 
+                              - link "31 minutes ago" [ref=e417]:
+                                - /url: /mjovanovictech/status/2052274992579023336
+                                - time [ref=e418]: 31m
+                          - generic [ref=e420]:
+                            - button "Grok actions" [ref=e422]:
+                              - img [ref=e427]
+                            - button "More" [ref=e433]:
+                              - img [ref=e437]
+                        - generic [ref=e440]:
+                          - generic [ref=e441]: "How to design a terrible API: - Return 200 OK with \"{ success: false }\" in the response A better solution? Return Problem Details for API errors. At the very least, agree on a standard error response as a team. I've seen APIs returning 200 OK with an error in the envelope"
+                          - button "Show more" [ref=e442]
+                        - link "Image" [ref=e450]:
+                          - /url: /mjovanovictech/status/2052274992579023336/photo/1
+                          - generic "Image" [ref=e454]:
+                            - img "Image" [ref=e456]
+                        - group "2 replies, 2 reposts, 8 likes, 3 bookmarks, 278 views" [ref=e459]:
+                          - button "2 Replies. Reply" [ref=e461]:
+                            - generic [ref=e462]:
+                              - img [ref=e465]
+                              - generic [ref=e470]: "2"
+                          - button "2 reposts. Repost" [ref=e472]:
+                            - generic [ref=e473]:
+                              - img [ref=e476]
+                              - generic [ref=e481]: "2"
+                          - button "8 Likes. Like" [ref=e483]:
+                            - generic [ref=e484]:
+                              - img [ref=e487]
+                              - generic [ref=e492]: "8"
+                          - link "278 views. View post analytics" [ref=e494]:
+                            - /url: /mjovanovictech/status/2052274992579023336/analytics
+                            - generic [ref=e495]:
+                              - img [ref=e498]
+                              - generic [ref=e503]: "278"
+                          - button "Bookmark" [ref=e505]:
+                            - img [ref=e509]
+                          - button "Share post" [ref=e514]:
+                            - img [ref=e518]
+                  - article "David Fowler reposted Andrea Verified account @acolombiadev 17 hours ago Imagine a lifetime award for open source contributions, who do you nominate? 24 replies, 4 reposts, 40 likes, 3 bookmarks, 6194 views" [ref=e524] [cursor=pointer]:
+                    - generic [ref=e526]:
+                      - generic [ref=e531]:
+                        - img [ref=e533]
+                        - link "David Fowler reposted" [ref=e540]:
+                          - /url: /davidfowl
+                          - generic [ref=e541]:
+                            - generic [ref=e542]: David Fowler
+                            - text: reposted
+                      - generic [ref=e543]:
+                        - link [ref=e555]:
+                          - /url: /acolombiadev
+                        - generic [ref=e558]:
+                          - generic [ref=e560]:
+                            - generic [ref=e563]:
+                              - link "Andrea Verified account" [ref=e566]:
+                                - /url: /acolombiadev
+                                - generic [ref=e567]:
+                                  - generic [ref=e569]: Andrea
+                                  - generic [ref=e571]:
+                                    - img "Verified account" [ref=e572]
+                                    - link [ref=e575]
+                              - generic [ref=e583]:
+                                - link "@acolombiadev" [ref=e585]:
+                                  - /url: /acolombiadev
+                                  - generic [ref=e586]: "@acolombiadev"
+                                - generic [ref=e587]: 
+                                - link "17 hours ago" [ref=e589]:
+                                  - /url: /acolombiadev/status/2052018351556223086
+                                  - time [ref=e590]: 17h
+                            - generic [ref=e592]:
+                              - button "Grok actions" [ref=e594]:
+                                - img [ref=e599]
+                              - button "More" [ref=e605]:
+                                - img [ref=e609]
+                          - generic [ref=e613]: Imagine a lifetime award for open source contributions, who do you nominate?
+                          - group "24 replies, 4 reposts, 40 likes, 3 bookmarks, 6194 views" [ref=e616]:
+                            - button "24 Replies. Reply" [ref=e618]:
+                              - generic [ref=e619]:
+                                - img [ref=e622]
+                                - generic [ref=e627]: "24"
+                            - button "4 reposts. Repost" [ref=e629]:
+                              - generic [ref=e630]:
+                                - img [ref=e633]
+                                - generic [ref=e638]: "4"
+                            - button "40 Likes. Like" [ref=e640]:
+                              - generic [ref=e641]:
+                                - img [ref=e644]
+                                - generic [ref=e649]: "40"
+                            - link "6194 views. View post analytics" [ref=e651]:
+                              - /url: /acolombiadev/status/2052018351556223086/analytics
+                              - generic [ref=e652]:
+                                - img [ref=e655]
+                                - generic [ref=e660]: 6.1K
+                            - button "Bookmark" [ref=e662]:
+                              - img [ref=e666]
+                            - button "Share post" [ref=e671]:
+                              - img [ref=e675]
+                  - article "David Fowler reposted Lucas Meijer Verified account @lucasmeijer 14 hours ago I like my webapps server side rendered. like Ruby on Rails. with htmx/hotwire on the frontend. If I need my server to be typescript, what frameworks should I consider? 17 replies, 1 repost, 16 likes, 2 bookmarks, 4797 views" [ref=e681] [cursor=pointer]:
+                    - generic [ref=e683]:
+                      - generic [ref=e688]:
+                        - img [ref=e690]
+                        - link "David Fowler reposted" [ref=e697]:
+                          - /url: /davidfowl
+                          - generic [ref=e698]:
+                            - generic [ref=e699]: David Fowler
+                            - text: reposted
+                      - generic [ref=e700]:
+                        - link [ref=e712]:
+                          - /url: /lucasmeijer
+                        - generic [ref=e715]:
+                          - generic [ref=e717]:
+                            - generic [ref=e720]:
+                              - link "Lucas Meijer Verified account" [ref=e723]:
+                                - /url: /lucasmeijer
+                                - generic [ref=e724]:
+                                  - generic [ref=e726]: Lucas Meijer
+                                  - img "Verified account" [ref=e729]
+                              - generic [ref=e733]:
+                                - link "@lucasmeijer" [ref=e735]:
+                                  - /url: /lucasmeijer
+                                  - generic [ref=e736]: "@lucasmeijer"
+                                - generic [ref=e737]: 
+                                - link "14 hours ago" [ref=e739]:
+                                  - /url: /lucasmeijer/status/2052057360261124256
+                                  - time [ref=e740]: 14h
+                            - generic [ref=e742]:
+                              - button "Grok actions" [ref=e744]:
+                                - img [ref=e749]
+                              - button "More" [ref=e755]:
+                                - img [ref=e759]
+                          - generic [ref=e763]: I like my webapps server side rendered. like Ruby on Rails. with htmx/hotwire on the frontend. If I need my server to be typescript, what frameworks should I consider?
+                          - group "17 replies, 1 repost, 16 likes, 2 bookmarks, 4797 views" [ref=e766]:
+                            - button "17 Replies. Reply" [ref=e768]:
+                              - generic [ref=e769]:
+                                - img [ref=e772]
+                                - generic [ref=e777]: "17"
+                            - button "1 repost. Repost" [ref=e779]:
+                              - generic [ref=e780]:
+                                - img [ref=e783]
+                                - generic [ref=e788]: "1"
+                            - button "16 Likes. Like" [ref=e790]:
+                              - generic [ref=e791]:
+                                - img [ref=e794]
+                                - generic [ref=e799]: "16"
+                            - link "4797 views. View post analytics" [ref=e801]:
+                              - /url: /lucasmeijer/status/2052057360261124256/analytics
+                              - generic [ref=e802]:
+                                - img [ref=e805]
+                                - generic [ref=e810]: 4.7K
+                            - button "Bookmark" [ref=e812]:
+                              - img [ref=e816]
+                            - button "Share post" [ref=e821]:
+                              - img [ref=e825]

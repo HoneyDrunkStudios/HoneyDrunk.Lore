@@ -1,7 +1,7 @@
 # Gamedev Production and Community Signals
 
 ## Decision-useful summary
-The game-development community feed produced a mix of process advice, tooling experiments, migration methodology, Web3 fairness architecture, job-market signal, and novelty projects. Durable points: structured phased production reduces drift; Flash-to-HTML5 migrations should reverse-engineer behavior and rewrite cleanly rather than port decompiled ActionScript; dynamic blockchain games need explicit trust boundaries; small cross-platform libraries and AI-assisted experiments are discovery signals, not adoption proof. [sources: raw/2026-05-04-rss-dev-to-unity-our-4-phase-game-development-process-from-concept-to-laun.md; raw/2026-05-06-rss-dev-to-gamedev-legacy-flash-to-modern-html5-a-developer-s-migration-gu.md; raw/2026-05-06-rss-dev-to-gamedev-when-a-digital-horse-runs-the-fairness-problem-behind-a.md; raw/2026-05-05-rss-dev-to-gamedev-first-release-of-ldl-0-1-a-small-library-with-a-big-sou.md; raw/2026-05-05-rss-dev-to-gamedev-i-built-a-minecraft-mod-where-every-sword-is-an-aws-ser.md; raw/2026-05-04-rss-tech-artists-org-lighting-td-atlantis-animation-santa-cruz-de-tenerife.md]
+The game-development community feed produced a mix of process advice, tooling experiments, migration methodology, Web3 fairness architecture, job-market signal, AI-assisted production case studies, and novelty projects. Durable points: structured phased production reduces drift; Flash-to-HTML5 migrations should reverse-engineer behavior and rewrite cleanly rather than port decompiled ActionScript; dynamic blockchain games need explicit trust boundaries; small cross-platform libraries and AI-assisted experiments are discovery signals, not adoption proof. [sources: raw/2026-05-04-rss-dev-to-unity-our-4-phase-game-development-process-from-concept-to-laun.md; raw/2026-05-06-rss-dev-to-gamedev-legacy-flash-to-modern-html5-a-developer-s-migration-gu.md; raw/2026-05-06-rss-dev-to-gamedev-when-a-digital-horse-runs-the-fairness-problem-behind-a.md; raw/2026-05-05-rss-dev-to-gamedev-first-release-of-ldl-0-1-a-small-library-with-a-big-sou.md; raw/2026-05-05-rss-dev-to-gamedev-i-built-a-minecraft-mod-where-every-sword-is-an-aws-ser.md; raw/2026-05-04-rss-tech-artists-org-lighting-td-atlantis-animation-santa-cruz-de-tenerife.md; raw/2026-05-07-rss-dev-to-gamedev-how-i-knowing-only-if-vibecoded-civicsurvival-a-158k-li.md]
 
 ## Claims
 - Ocean View Games describes a four-phase game-development process from concept to launch intended to reduce drift, missed deadlines, and budget overruns in messy creative/technical work. confidence: 1 source, last-confirmed 2026-05-05. [source: raw/2026-05-04-rss-dev-to-unity-our-4-phase-game-development-process-from-concept-to-laun.md]
@@ -12,8 +12,9 @@ The game-development community feed produced a mix of process advice, tooling ex
 - The Web3 horse-racing article frames game uncertainty as structured uncertainty: outcomes should not be fully predictable or fully random, and auditability should constrain excitement tuning. confidence: 1 source, last-confirmed 2026-05-06. [source: raw/2026-05-06-rss-dev-to-gamedev-when-a-digital-horse-runs-the-fairness-problem-behind-a.md]
 - LDL 0.1 (Little Directmedia Layer) is presented as a small cross-platform C-oriented library/API intended to run across roughly 30 years of computer history. confidence: 1 source, last-confirmed 2026-05-05. [source: raw/2026-05-05-rss-dev-to-gamedev-first-release-of-ldl-0-1-a-small-library-with-a-big-sou.md]
 - A Minecraft mod article demonstrates a novelty AI-assisted build where swords represent AWS services such as Lambda, S3, and EC2-like scaling concepts. confidence: 1 source, last-confirmed 2026-05-05. [source: raw/2026-05-05-rss-dev-to-gamedev-i-built-a-minecraft-mod-where-every-sword-is-an-aws-ser.md]
-- Atlantis Animation posted a Lighting TD role in Santa Cruz de Tenerife, indicating ongoing demand for technical art / lighting specialists in animation production. confidence: 1 source, last-confirmed 2026-05-05. [source: raw/2026-05-04-rss-tech-artists-org-lighting-td-atlantis-animation-santa-cruz-de-tenerife.md]
+- Atlantis Animation posted a Lighting TD role in Santa Cruz de Tenerife, indicating ongoing demand for technical art / lighting specialists in animation production. confidence: 1 source, last-confirmed 2026-05-05. [source: raw/2026-05-04-rss-tech-artists-org-lighting-td-atlantis-animation-santa-cruz-de-tenerife.md; raw/2026-05-07-rss-dev-to-gamedev-how-i-knowing-only-if-vibecoded-civicsurvival-a-158k-li.md]
 - Game Dev Digest issue #329 is a broad newsletter aggregation across game design, tools, AI, programming, and Unity/C# news; it is useful for discovery but weaker as primary evidence. confidence: 1 source, last-confirmed 2026-05-05. [source: raw/2026-05-04-rss-dev-to-unity-game-dev-digest-issue-329-game-design-tools-ai-programmin.md]
+- The CivicSurvival case study shows a large AI-assisted Cities: Skylines II mod using Unity DOTS/ECS, custom RAG/MCP navigation, Roslyn analyzers, logs, and audits; it is useful as process evidence but self-reported and not an independent benchmark. confidence: 1 source, last-confirmed 2026-05-07. [source: raw/2026-05-07-rss-dev-to-gamedev-how-i-knowing-only-if-vibecoded-civicsurvival-a-158k-li.md]
 
 ## Typed entities
 - organization: Ocean View Games
@@ -38,6 +39,9 @@ The game-development community feed produced a mix of process advice, tooling ex
 - organization: Atlantis Animation
 - role: Lighting TD
 - source/series: Game Dev Digest
+- project/mod: CivicSurvival
+- game: Cities: Skylines II
+- concept: AI-assisted gamedev process
 
 ## Explicit relationships
 - Flash-to-HTML5 migration depends-on source-code availability, asset extraction, behavior documentation, target technology choice, responsive UI work, performance optimization, and parity testing.
@@ -50,6 +54,7 @@ The game-development community feed produced a mix of process advice, tooling ex
 - Minecraft AWS sword mod uses AI-assisted development as an implementation accelerator and maps AWS services to game mechanics.
 - Lighting TD role depends-on technical art and production-lighting skills.
 - Game Dev Digest reinforces discovery coverage but depends-on linked sources for primary evidence.
+- CivicSurvival uses AI-assisted implementation with RAG/analyzers/logs to constrain large gamedev system changes.
 
 ## HoneyDrunk implications
 - For internal game prototypes, start with a lightweight phase gate: concept, prototype, production, launch/learn.
@@ -57,6 +62,7 @@ The game-development community feed produced a mix of process advice, tooling ex
 - For any AI+blockchain/game experiment, write the trust-boundary contract before the economy: what is recorded, replayable, independently checkable, and operator-dependent.
 - Novel AI/game demos are good marketing and learning artifacts; do not mistake them for product-market validation.
 - Track technical-art talent and reusable shader/VFX resources if Lore/Grid visual production ramps up.
+- Treat AI-assisted gamedev case studies as process patterns; validate with HoneyDrunk-specific builds and playtests before adopting wholesale.
 
 ## Confidence and quality notes
 - Quality posture: mixed; process/migration/trust-boundary claims are decision-useful, Web3 article is architectural opinion, newsletter aggregation is low-authority.

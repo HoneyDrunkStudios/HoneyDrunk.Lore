@@ -1,75 +1,65 @@
-# OpenClaw Ingest Last Run
+# OpenClaw Lore Ingest Last Run
 
 ## Timestamp
-2026-05-06 09:00 UTC / 2026-05-06 05:00 America/New_York
+- 2026-05-07 05:00 America/New_York / 2026-05-07 09:00 UTC
 
 ## Raw sources ingested
-28 raw sources ingested:
-- `raw/2026-05-06-clipper-discord-anthropic-claude-2.md`
-- `raw/2026-05-06-clipper-discord-anthropic-claude.md`
-- `raw/2026-05-06-clipper-discord-aspire-2.md`
-- `raw/2026-05-06-clipper-discord-aspire.md`
-- `raw/2026-05-06-clipper-discord-blender-community.md`
-- `raw/2026-05-06-clipper-discord-google-gemini-2.md`
-- `raw/2026-05-06-clipper-discord-google-gemini.md`
-- `raw/2026-05-06-clipper-discord-hugging-face-2.md`
-- `raw/2026-05-06-clipper-discord-hugging-face.md`
-- `raw/2026-05-06-clipper-discord-microsoft-community-2.md`
-- `raw/2026-05-06-clipper-discord-microsoft-community.md`
-- `raw/2026-05-06-clipper-discord-microsoft-foundry-2.md`
-- `raw/2026-05-06-clipper-discord-microsoft-foundry.md`
-- `raw/2026-05-06-clipper-discord-net-c-2.md`
-- `raw/2026-05-06-clipper-discord-net-c.md`
-- `raw/2026-05-06-clipper-discord-official-unity.md`
-- `raw/2026-05-06-clipper-discord-openai-developer-2.md`
-- `raw/2026-05-06-clipper-discord-openai-developer.md`
-- `raw/2026-05-06-clipper-x-list-snapshot-2.md`
-- `raw/2026-05-06-clipper-x-list-snapshot.md`
-- `raw/2026-05-06-podcast-acquired-the-nfl.md`
-- `raw/2026-05-06-rss-dev-to-gamedev-legacy-flash-to-modern-html5-a-developer-s-migration-gu.md`
-- `raw/2026-05-06-rss-dev-to-gamedev-when-a-digital-horse-runs-the-fairness-problem-behind-a.md`
-- `raw/2026-05-06-rss-dev-to-unity-after-genie-3-38-alternatives-for-ai-scene-generation.md`
-- `raw/2026-05-06-rss-dev-to-unity-benchmark-webxr-2-0-vs-unity-webgl-vs-unreal-engine-html5.md`
-- `raw/2026-05-06-rss-godot-engine-dev-snapshot-godot-4-7-dev-4.md`
-- `raw/2026-05-06-rss-martin-fowler-fragments-may-5.md`
-- `raw/2026-05-06-rss-unity-blog-games-made-with-unity-march-2026-in-review.md`
+- Count: 19
+- `raw/2026-05-07-clipper-discord-anthropic-claude.md`
+- `raw/2026-05-07-clipper-discord-aspire.md`
+- `raw/2026-05-07-clipper-discord-blender-community.md`
+- `raw/2026-05-07-clipper-discord-google-gemini.md`
+- `raw/2026-05-07-clipper-discord-hugging-face.md`
+- `raw/2026-05-07-clipper-discord-microsoft-community.md`
+- `raw/2026-05-07-clipper-discord-microsoft-foundry.md`
+- `raw/2026-05-07-clipper-discord-net-c.md`
+- `raw/2026-05-07-clipper-discord-official-unity.md`
+- `raw/2026-05-07-clipper-discord-openai-developer.md`
+- `raw/2026-05-07-clipper-x-list-snapshot.md`
+- `raw/2026-05-07-rss-dev-to-gamedev-building-an-ai-assisted-animation-pipeline-in-ue5-with-.md`
+- `raw/2026-05-07-rss-dev-to-gamedev-how-i-knowing-only-if-vibecoded-civicsurvival-a-158k-li.md`
+- `raw/2026-05-07-rss-godot-engine-hdr-output-arrives-in-godot-4-7.md`
+- `raw/2026-05-07-rss-polycount-3d-artist-graphic-designer-fashion-designer.md`
+- `raw/2026-05-07-rss-polycount-paid-fps-weapon-animator-rigger-needed.md`
+- `raw/2026-05-07-rss-polycount-the-bi-monthly-environment-art-challenge-march-april-101.md`
+- `raw/2026-05-07-rss-simon-willison-vibe-coding-and-agentic-engineering-are-getting-closer-.md`
+- `raw/2026-05-07-youtube-microsoft-developer-youtube-foundry-toolkit-series-3-building-an-agent.md`
 
-## Wiki pages created/updated
-- Updated `wiki/browser-snapshot-source-quality.md`
-- Updated `wiki/godot-2026-mobile-and-4-7-cycle.md`
-- Updated `wiki/gamedev-production-and-community-signals.md`
-- Updated `wiki/ai-assisted-software-practice.md`
-- Updated `wiki/unity-3d-and-realtime-vfx-patterns.md`
-- Created `wiki/web-3d-runtime-tradeoffs.md`
-- Created `wiki/creator-business-models.md`
-- Updated `wiki/indexes/sources.md`
-- Updated `wiki/indexes/topics.md`
-- Updated `wiki/indexes/gaps.md`
-- Updated `wiki/indexes/audit.md`
+## Wiki pages created
+- `wiki/ai-assisted-game-development-pipelines.md` - AI-assisted animation/modding/game-dev workflow patterns, with typed entities and explicit relationships.
+- `wiki/technical-art-community-and-talent-signals.md` - Polycount public technical-art/talent/community signals, with forum-source quality notes.
 
-## Crystallization from `output/query-*.md`
-- Reviewed `output/query-2026-05-05-daily-compiled-signal.md`; its durable facts were already represented in existing wiki pages, so no new crystallized `output/query-*` fact file was needed.
+## Wiki pages updated
+- `wiki/browser-snapshot-source-quality.md` - reinforced Discord/X extraction-quality gap with 2026-05-07 captures; updated counts and confidence.
+- `wiki/ai-assisted-software-practice.md` - added Simon Willison's agentic-engineering/vibe-coding convergence and CivicSurvival guardrail/analyzer/RAG lessons.
+- `wiki/godot-2026-mobile-and-4-7-cycle.md` - added Godot 4.7 HDR output support, platform/renderer requirements, and limitations.
+- `wiki/microsoft-dotnet-ai-stack.md` - added Microsoft Foundry Toolkit Agent Builder metadata/source.
+- `wiki/gamedev-production-and-community-signals.md` - added CivicSurvival as AI-assisted gamedev process evidence.
+- `wiki/indexes/sources.md` - added all 19 source entries.
+- `wiki/indexes/topics.md` - rebuilt topic backlinks/counts for updated and new pages.
+- `wiki/indexes/gaps.md` - reinforced Discord/X gaps and added extraction/analyzer/animation-validation gaps.
+- `wiki/indexes/audit.md` - appended this ingest audit entry.
 
-## Contradictions resolved / supersession
-- No substantive contradictions required supersession.
-- Godot 4.7 beta 1 remains the release-readiness superseding posture for earlier dev snapshots; dev 4 was preserved as feature-detail evidence.
-- 2026-05-06 duplicate Discord/X captures reinforce the low-yield source-quality diagnosis rather than superseding prior claims.
+## Output crystallization
+- Reviewed `output/query-2026-05-05-daily-compiled-signal.md`; its durable facts were already represented in existing wiki pages, so no new `output/query-*` crystallization artifact was needed.
+
+## Contradictions and supersession
+- No substantive contradictions were resolved.
+- 2026-05-07 Discord/X captures reinforce prior low-yield source-quality claims rather than superseding any technology claims.
+- Godot 4.7 HDR output adds feature/platform details but does not supersede the existing “4.7 is pre-release until final/patch release” posture.
 
 ## Gaps logged
-- Discord announcement body extraction remains unresolved and was reinforced by 18 additional low-yield captures.
-- X list post extraction remains unresolved and was reinforced by two additional low-yield captures.
-- New idempotency gap: 2026-05-06 sourcing created duplicate `-2` captures for several monitored surfaces.
-- New evaluation gaps: reproduce WebXR/Babylon.js vs Unity WebGL vs Unreal HTML5 benchmark on HoneyDrunk target devices; validate AI scene-generation tools for availability/licensing/cost/workflow fit.
-
-## Privacy redactions / filtering
-- Did not copy Discord user/chat bodies, unread-count specifics, account labels, or X account/UI profile details into wiki pages.
-- Fowler fragment included a defamatory-AI-overview example; wiki retained only high-level AI-responsibility signal, not allegations as facts about the individual.
-- No credentials, tokens, or secrets were found in source material written to wiki.
+- Discord extraction still fails to capture announcement bodies reliably.
+- X-list extraction still captures mostly navigation/UI scaffolding.
+- Polycount RSS/forum extraction should strip JavaScript/theme scaffolding and preserve schema/authored post content.
+- HoneyDrunk should decide which recurring AI-review findings deserve analyzer/lint/build-gate promotion.
+- HoneyDrunk should validate AI-assisted animation pipelines on representative rigs before production reliance.
 
 ## Quality posture
-- Decision-usable: Godot dev 4, Flash migration methodology, AI/Web3 trust-boundary pattern, AI-assisted software-practice additions, browser 3D runtime tradeoff framing.
-- Scout-only / weak authority: DEV.to WebXR benchmark until reproduced; AI scene-generation alternatives list until validated; Unity release roundup as ecosystem breadth not engine-selection evidence; Acquired NFL metadata as strategic analogy not full transcript-backed operating model.
-- Low-quality sources: 20 new browser clipper raw files were ingested only as source-quality/capture-coverage evidence.
+- Decision-useful: Simon Willison agentic-engineering/vibe-coding convergence; CivicSurvival guardrails/analyzers/RAG pattern; Godot HDR platform constraints; Foundry Agent Builder shape.
+- Weak/single-source: CivicSurvival metrics and audit yields, MagicknessT animation-pipeline benefits, Polycount talent/job snippets.
+- Low-yield: all 10 Discord captures and the X list capture for 2026-05-07 remain browser UI/accessibility scaffolding, not substantive announcement/social evidence.
+- Privacy filter: no credentials/tokens copied; Discord/X private UI details summarized only at high level; Polycount public snippets retained without contact details.
 
 ## Blockers
-- None blocking safe wiki commit. Existing worktree contains sourcing/raw/.obsidian changes outside this ingest pass; commit should include only safe Lore ingest additions/updates, preserving raw immutability.
+- None for wiki/content quality. Proceeded to commit/push safe Lore changes only, leaving unrelated pre-existing working-tree changes unstaged.
