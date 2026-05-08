@@ -1,65 +1,70 @@
 # OpenClaw Lore Ingest Last Run
 
 ## Timestamp
-- 2026-05-07 05:00 America/New_York / 2026-05-07 09:00 UTC
+- 2026-05-08 09:00 UTC / 2026-05-08 05:00 America/New_York
+
+## Operator/runtime
+- OpenClaw/Honeyclaw scheduled ingest (`lore-scheduled-ingest`)
 
 ## Raw sources ingested
-- Count: 19
-- `raw/2026-05-07-clipper-discord-anthropic-claude.md`
-- `raw/2026-05-07-clipper-discord-aspire.md`
-- `raw/2026-05-07-clipper-discord-blender-community.md`
-- `raw/2026-05-07-clipper-discord-google-gemini.md`
-- `raw/2026-05-07-clipper-discord-hugging-face.md`
-- `raw/2026-05-07-clipper-discord-microsoft-community.md`
-- `raw/2026-05-07-clipper-discord-microsoft-foundry.md`
-- `raw/2026-05-07-clipper-discord-net-c.md`
-- `raw/2026-05-07-clipper-discord-official-unity.md`
-- `raw/2026-05-07-clipper-discord-openai-developer.md`
-- `raw/2026-05-07-clipper-x-list-snapshot.md`
-- `raw/2026-05-07-rss-dev-to-gamedev-building-an-ai-assisted-animation-pipeline-in-ue5-with-.md`
-- `raw/2026-05-07-rss-dev-to-gamedev-how-i-knowing-only-if-vibecoded-civicsurvival-a-158k-li.md`
-- `raw/2026-05-07-rss-godot-engine-hdr-output-arrives-in-godot-4-7.md`
-- `raw/2026-05-07-rss-polycount-3d-artist-graphic-designer-fashion-designer.md`
-- `raw/2026-05-07-rss-polycount-paid-fps-weapon-animator-rigger-needed.md`
-- `raw/2026-05-07-rss-polycount-the-bi-monthly-environment-art-challenge-march-april-101.md`
-- `raw/2026-05-07-rss-simon-willison-vibe-coding-and-agentic-engineering-are-getting-closer-.md`
-- `raw/2026-05-07-youtube-microsoft-developer-youtube-foundry-toolkit-series-3-building-an-agent.md`
+Count: 16
+
+- raw/2026-05-07-rss-google-developers-blog-building-real-world-on-device-ai-with-litert-an.md
+- raw/2026-05-07-web-anthropic-news-agents-for-financial-services.md
+- raw/2026-05-07-web-anthropic-news-anthropic-sydney-office.md
+- raw/2026-05-07-web-anthropic-news-building-a-new-enterprise-ai-services-company-with-blac.md
+- raw/2026-05-07-web-anthropic-news-claude-for-creative-work.md
+- raw/2026-05-07-web-anthropic-news-claude-is-a-space-to-think-anthropic.md
+- raw/2026-05-07-web-anthropic-news-higher-usage-limits-for-claude-and-a-compute-deal-with-.md
+- raw/2026-05-07-web-anthropic-news-introducing-claude-opus-4-7.md
+- raw/2026-05-08-rss-google-ai-blog-join-the-new-ai-agents-vibe-coding-course-from-google-a.md
+- raw/2026-05-08-rss-google-ai-blog-reduce-friction-and-latency-for-long-running-jobs-with-.md
+- raw/2026-05-08-rss-google-developers-blog-a2ui-v0-9-the-new-standard-for-portable-framewo.md
+- raw/2026-05-08-rss-google-developers-blog-agents-cli-in-agent-platform-create-to-producti.md
+- raw/2026-05-08-rss-google-developers-blog-building-with-gemini-embedding-2-agentic-multim.md
+- raw/2026-05-08-rss-google-developers-blog-maxtext-expands-post-training-capabilities-intr.md
+- raw/2026-05-08-rss-google-developers-blog-production-ready-ai-agents-5-lessons-from-refac.md
+- raw/2026-05-08-rss-google-developers-blog-speeding-up-ai-bringing-google-colossus-to-pyto.md
 
 ## Wiki pages created
-- `wiki/ai-assisted-game-development-pipelines.md` - AI-assisted animation/modding/game-dev workflow patterns, with typed entities and explicit relationships.
-- `wiki/technical-art-community-and-talent-signals.md` - Polycount public technical-art/talent/community signals, with forum-source quality notes.
+- wiki/claude-platform-2026.md
+- wiki/google-agent-platform-and-gemini-api-2026.md
+- wiki/generative-ui-and-a2ui.md
+- wiki/edge-ai-and-ai-infrastructure-2026.md
 
 ## Wiki pages updated
-- `wiki/browser-snapshot-source-quality.md` - reinforced Discord/X extraction-quality gap with 2026-05-07 captures; updated counts and confidence.
-- `wiki/ai-assisted-software-practice.md` - added Simon Willison's agentic-engineering/vibe-coding convergence and CivicSurvival guardrail/analyzer/RAG lessons.
-- `wiki/godot-2026-mobile-and-4-7-cycle.md` - added Godot 4.7 HDR output support, platform/renderer requirements, and limitations.
-- `wiki/microsoft-dotnet-ai-stack.md` - added Microsoft Foundry Toolkit Agent Builder metadata/source.
-- `wiki/gamedev-production-and-community-signals.md` - added CivicSurvival as AI-assisted gamedev process evidence.
-- `wiki/indexes/sources.md` - added all 19 source entries.
-- `wiki/indexes/topics.md` - rebuilt topic backlinks/counts for updated and new pages.
-- `wiki/indexes/gaps.md` - reinforced Discord/X gaps and added extraction/analyzer/animation-validation gaps.
-- `wiki/indexes/audit.md` - appended this ingest audit entry.
+- wiki/ai-agent-harnesses.md
+- wiki/ai-assisted-software-practice.md
+- wiki/indexes/sources.md
+- wiki/indexes/topics.md
+- wiki/indexes/gaps.md
+- wiki/indexes/audit.md
 
-## Output crystallization
-- Reviewed `output/query-2026-05-05-daily-compiled-signal.md`; its durable facts were already represented in existing wiki pages, so no new `output/query-*` crystallization artifact was needed.
+## Output created/updated
+- output/query-2026-05-08-daily-agent-platform-signal.md
+- output/openclaw-ingest-last-run.md
 
-## Contradictions and supersession
-- No substantive contradictions were resolved.
-- 2026-05-07 Discord/X captures reinforce prior low-yield source-quality claims rather than superseding any technology claims.
-- Godot 4.7 HDR output adds feature/platform details but does not supersede the existing “4.7 is pre-release until final/patch release” posture.
+## Contradictions resolved / supersession handling
+- No direct contradictions requiring resolution.
+- Supersession noted: Claude Opus 4.7 supersedes Opus 4.6 as Anthropic's current Opus upgrade path, but migration requires harness/prompt/token validation.
+- A2UI/generative-UI sources do not supersede existing UI decisions; they add a candidate schema/catalog direction.
 
 ## Gaps logged
-- Discord extraction still fails to capture announcement bodies reliably.
-- X-list extraction still captures mostly navigation/UI scaffolding.
-- Polycount RSS/forum extraction should strip JavaScript/theme scaffolding and preserve schema/authored post content.
-- HoneyDrunk should decide which recurring AI-review findings deserve analyzer/lint/build-gate promotion.
-- HoneyDrunk should validate AI-assisted animation pipelines on representative rigs before production reliance.
+- Benchmark candidates and acceptable token/effort budget for Claude Opus 4.7.
+- Whether HoneyDrunk should define an internal generative-UI schema/catalog before A2UI/AG-UI adoption.
+- Whether Gemini Embedding 2 or equivalent multimodal embeddings should be evaluated on Lore/assets.
+- Which long-running HoneyDrunk jobs should move from polling to signed push/webhook completion semantics.
+
+## Privacy redactions
+- No secrets, credentials, tokens, or unsafe private PII found in the ingested raw sources.
+- Public names from vendor posts were retained only where decision-useful.
 
 ## Quality posture
-- Decision-useful: Simon Willison agentic-engineering/vibe-coding convergence; CivicSurvival guardrails/analyzers/RAG pattern; Godot HDR platform constraints; Foundry Agent Builder shape.
-- Weak/single-source: CivicSurvival metrics and audit yields, MagicknessT animation-pipeline benefits, Polycount talent/job snippets.
-- Low-yield: all 10 Discord captures and the X list capture for 2026-05-07 remain browser UI/accessibility scaffolding, not substantive announcement/social evidence.
-- Privacy filter: no credentials/tokens copied; Discord/X private UI details summarized only at high level; Polycount public snippets retained without contact details.
+- Decision-useful pages were created with typed entities, explicit relationships, source citations, confidence notes, and HoneyDrunk implications.
+- Most new claims are vendor-authored announcements/blogs; product claims, benchmarks, and customer quotes are marked as directional and need local validation before procurement/default-routing decisions.
+- No raw files were edited or deleted by this ingest pass.
+- Existing worktree had unrelated pre-existing sourcing/Obsidian changes; only safe ingest/wiki/output/index changes were staged for commit.
 
 ## Blockers
-- None for wiki/content quality. Proceeded to commit/push safe Lore changes only, leaving unrelated pre-existing working-tree changes unstaged.
+- None for the ingest/compile quality gate.
+- Commit/push may still be blocked by remote auth/network or pre-existing unrelated working-tree changes if they interfere with Git operations.

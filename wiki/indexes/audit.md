@@ -26,3 +26,10 @@ This keeps Lore decision-usable for Honeyclaw, Claude, and future agents.
 - Created pages: ai-assisted-game-development-pipelines, technical-art-community-and-talent-signals.
 - Rebuilt source/topic/gap indexes and wrote output/openclaw-ingest-last-run.md.
 - Quality posture: Discord/X captures remain low-yield; Polycount captures are noisy but schema snippets were usable; CivicSurvival and MagicknessT claims are single-source/self-reported.
+
+## 2026-05-08 OpenClaw ingest
+- Ingested 16 raw sources from 2026-05-07 and 2026-05-08.
+- Created pages: claude-platform-2026, google-agent-platform-and-gemini-api-2026, generative-ui-and-a2ui, edge-ai-and-ai-infrastructure-2026.
+- Updated pages: ai-agent-harnesses, ai-assisted-software-practice.
+- Rebuilt source/topic/gap indexes, created output/query-2026-05-08-daily-agent-platform-signal.md, and wrote output/openclaw-ingest-last-run.md.
+- Quality posture: vendor-authored announcements are decision-useful for architecture scouting, but benchmarks/customer quotes need local validation before routing/procurement decisions.

@@ -15,6 +15,8 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 - The CivicSurvival case study says large AI-assisted codebases need externalized memory and guardrails: project rules, RAG/navigation, custom analyzers, detailed logs, build gates, and structured audits. confidence: 1 source, last-confirmed 2026-05-07. [source: raw/2026-05-07-rss-dev-to-gamedev-how-i-knowing-only-if-vibecoded-civicsurvival-a-158k-li.md]
 - CivicSurvival reports 158,583 C# lines, 31,219 TypeScript/React lines, 542 ECS systems, 369 UI components, 300+ custom Roslyn analyzers, 2,503 commits, and a custom MCP/RAG server over about three net months; treat as a self-reported case study, not an audited benchmark. confidence: 1 source, last-confirmed 2026-05-07. [source: raw/2026-05-07-rss-dev-to-gamedev-how-i-knowing-only-if-vibecoded-civicsurvival-a-158k-li.md]
 - CivicSurvival's audit lesson is that “free prompt + narrow scope + correct context” found higher-yield bugs than repeated checklist prompts after known categories were exhausted, while repeated waves degraded into false positives and still could not replace live playtesting. confidence: 1 source, last-confirmed 2026-05-07. [source: raw/2026-05-07-rss-dev-to-gamedev-how-i-knowing-only-if-vibecoded-civicsurvival-a-158k-li.md]
+- Google's production-agent refactor case study reinforces the same software-practice lesson from a different angle: monolithic scripts and prompt-enforced JSON should be replaced with orchestrated narrow agents, runtime schemas, dynamic RAG, traces, and framework-level retry/timeout controls. confidence: 1 source, last-confirmed 2026-05-08. [source: raw/2026-05-08-rss-google-developers-blog-production-ready-ai-agents-5-lessons-from-refac.md]
+- Anthropic's Opus 4.7 release claims better instruction following and literalness, which means older prompts/harnesses may need re-tuning rather than blind model substitution. confidence: 1 source, last-confirmed 2026-05-08. [source: raw/2026-05-07-web-anthropic-news-introducing-claude-opus-4-7.md]
 
 ## Typed entities
 - person: Martin Fowler
@@ -32,6 +34,10 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 - tool/protocol: MCP
 - tool/system: CivicRAG
 - analyzer type: Roslyn analyzer
+- framework: Google Agent Development Kit (ADK)
+- model: Claude Opus 4.7
+- feature: structured outputs/Pydantic schemas
+- standard/tooling: OpenTelemetry
 - concept: AI-assisted coding
 - concept: vibe coding
 - concept: agentic engineering
@@ -54,6 +60,8 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 - CivicSurvival uses MCP/RAG, Roslyn analyzers, logs, and build gates to constrain AI-generated code.
 - custom analyzers supersede recurring one-shot review findings by converting them into enforced build-time rules.
 - AI audits depend-on narrow scope and evidence, but live gameplay/product testing supersedes static agent audits for experience quality.
+- Prompt-only structure enforcement is superseded by runtime schemas where strict machine-readable outputs are needed.
+- Model upgrades depend-on harness/prompt revalidation because stronger instruction following can change behavior.
 
 ## HoneyDrunk implications
 - Keep AI coding workflows test-first and diff-small; the faster the agent, the more important the gate.
@@ -62,6 +70,7 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 - Treat “has this been used hard for days/weeks?” as a stronger trust signal than repo polish when evaluating AI-built tools.
 - Explore local/open model paths for privacy-sensitive or cost-sensitive workflows, but keep sandbox/zero-trust controls regardless of model location.
 - When contributing upstream, check project AI policies before using LLM-generated text or code.
+- Treat model upgrades like dependency upgrades: run representative tasks, measure token/cost shifts, and adjust prompts before changing defaults.
 
 ## Confidence and quality notes
 - Quality posture: decision-usable for team practice; source set is commentary-heavy and case-study-heavy, not controlled empirical measurement.

@@ -8,6 +8,9 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 - Long-horizon agents need durable storage, context management, sandboxed execution, verification, memory/search, and countermeasures for context rot. confidence: 1 source, last-confirmed 2026-05-05. [source: raw/2026-05-03-web-langchain-agent-harness.md]
 - Background/async subagents address supervisor deadlock and coordination problems by allowing delegated work to continue while the parent agent remains responsive to new information. confidence: 1 source, last-confirmed 2026-05-05. [source: raw/2026-05-03-web-langchain-async-subagents.md]
 - OpenAI Codex CLI 0.128.0 added `/goal`, a continuation loop that keeps working until goal completion or token-budget exhaustion, apparently driven mainly by continuation and budget-limit prompt templates. confidence: 1 source, last-confirmed 2026-05-05. [source: raw/2026-05-03-rss-simonwillison-codex-cli-goal.md]
+- Google Agents CLI reinforces that agent harnesses now include machine-readable scaffolding, evaluation, infrastructure provisioning, deployment, and publishing commands for coding assistants, not just chat prompts. confidence: 1 source, last-confirmed 2026-05-08. [source: raw/2026-05-08-rss-google-developers-blog-agents-cli-in-agent-platform-create-to-producti.md]
+- Gemini API webhooks reinforce push-based completion as a harness primitive for long-running agent jobs, with signed events, idempotency headers, at-least-once delivery, and retries instead of repeated polling. confidence: 1 source, last-confirmed 2026-05-08. [source: raw/2026-05-08-rss-google-ai-blog-reduce-friction-and-latency-for-long-running-jobs-with-.md]
+- Google's ADK refactor case study reinforces production-agent harness needs: specialized subagents, executable schemas/structured outputs, dynamic retrieval, traces, retries, timeouts, and cost circuit breakers. confidence: 1 source, last-confirmed 2026-05-08. [source: raw/2026-05-08-rss-google-developers-blog-production-ready-ai-agents-5-lessons-from-refac.md]
 
 ## Typed entities
 - concept: [[AI Agent Harnesses]]
@@ -15,7 +18,12 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 - library/platform: LangChain Deep Agents
 - library/tool: OpenAI Codex CLI
 - feature: `/goal`
+- feature/tool: Google Agents CLI
+- feature/API: Gemini API webhooks
+- framework: Google Agent Development Kit (ADK)
+- standard/tooling: OpenTelemetry
 - pattern: async subagents
+- pattern: structured outputs
 - file: raw/2026-05-03-web-langchain-agent-harness.md
 - file: raw/2026-05-03-web-langchain-async-subagents.md
 - file: raw/2026-05-03-rss-simonwillison-codex-cli-goal.md
@@ -25,10 +33,14 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 - async subagents fixed supervisor deadlock and parent-agent context coordination problems described for traditional subagents.
 - OpenAI Codex CLI `/goal` uses continuation prompts and budget-limit prompts to implement a Ralph-style loop.
 - [[Azure MCP Server 2.0]] depends-on Model Context Protocol as one harness/tool-integration surface.
+- Google Agents CLI uses eval, infrastructure, deploy, and publish commands as an agent-consumable harness surface.
+- Gemini API webhooks supersede polling for supported long-running jobs.
+- Production agent harnesses depend-on structured outputs, observability, and bounded retries/cost controls.
 
 ## HoneyDrunk implications
 - Prefer investing in runtime affordances (state, validation, background workers, resumability, audit logs) before model-specific prompt churn.
 - Treat every long-running agent workflow as a harness design problem: define storage, tools, permissions, verification gate, and what happens when budget runs out.
+- Prefer push/completion-event contracts for long jobs where possible; polling is a fallback, not the ideal orchestration shape.
 
 ## Confidence and quality notes
 - Quality posture: decision-usable; claims are source-cited and non-private.

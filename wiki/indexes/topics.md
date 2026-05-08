@@ -12,16 +12,33 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 ## Topics
 
 ### AI agents and harnesses
-- [[ai-agent-harnesses]] - 3 sources - last-confirmed 2026-05-05
+- [[ai-agent-harnesses]] - 6 sources - last-confirmed 2026-05-08
+- [[google-agent-platform-and-gemini-api-2026]] - 6 sources - last-confirmed 2026-05-08
 - [[microsoft-dotnet-ai-stack]] - 11 sources - last-confirmed 2026-05-07
 
 ### AI-assisted software engineering
-- [[ai-assisted-software-practice]] - 8 sources - last-confirmed 2026-05-07
+- [[ai-assisted-software-practice]] - 10 sources - last-confirmed 2026-05-08
 - [[github-copilot-and-app-token-changes]] - 3 sources - last-confirmed 2026-05-05
+- [[google-agent-platform-and-gemini-api-2026]] - 6 sources - last-confirmed 2026-05-08
+- [[claude-platform-2026]] - 8 sources - last-confirmed 2026-05-08
+
+### AI platforms and model providers
+- [[claude-platform-2026]] - 8 sources - last-confirmed 2026-05-08
+- [[google-agent-platform-and-gemini-api-2026]] - 6 sources - last-confirmed 2026-05-08
+- [[edge-ai-and-ai-infrastructure-2026]] - 3 sources - last-confirmed 2026-05-08
+
+### Generative UI and product surfaces
+- [[generative-ui-and-a2ui]] - 1 source - last-confirmed 2026-05-08
+- [[claude-platform-2026]] - 8 sources - last-confirmed 2026-05-08
+
+### Edge AI, embeddings, and infrastructure
+- [[edge-ai-and-ai-infrastructure-2026]] - 3 sources - last-confirmed 2026-05-08
+- [[google-agent-platform-and-gemini-api-2026]] - 6 sources - last-confirmed 2026-05-08
 
 ### AI-assisted game development
 - [[ai-assisted-game-development-pipelines]] - 3 sources - last-confirmed 2026-05-07
 - [[gamedev-production-and-community-signals]] - 9 sources - last-confirmed 2026-05-07
+- [[edge-ai-and-ai-infrastructure-2026]] - 3 sources - last-confirmed 2026-05-08
 
 ### Creator economy and business models
 - [[creator-business-models]] - 1 source - last-confirmed 2026-05-06
@@ -35,10 +52,12 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 - [[gamedev-production-and-community-signals]] - 9 sources - last-confirmed 2026-05-07
 - [[web-3d-runtime-tradeoffs]] - 1 source - last-confirmed 2026-05-06
 - [[ai-assisted-game-development-pipelines]] - 3 sources - last-confirmed 2026-05-07
+- [[generative-ui-and-a2ui]] - 1 source - last-confirmed 2026-05-08
 
 ### Technical art and talent
 - [[technical-art-community-and-talent-signals]] - 3 sources - last-confirmed 2026-05-07
 - [[unity-3d-and-realtime-vfx-patterns]] - 10 sources - last-confirmed 2026-05-06
+- [[claude-platform-2026]] - 8 sources - last-confirmed 2026-05-08
 
 ### Source quality and monitoring
 - [[browser-snapshot-source-quality]] - 54 sources - last-confirmed 2026-05-07
