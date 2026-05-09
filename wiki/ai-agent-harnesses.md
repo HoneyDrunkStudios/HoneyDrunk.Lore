@@ -11,6 +11,8 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 - Google Agents CLI reinforces that agent harnesses now include machine-readable scaffolding, evaluation, infrastructure provisioning, deployment, and publishing commands for coding assistants, not just chat prompts. confidence: 1 source, last-confirmed 2026-05-08. [source: raw/2026-05-08-rss-google-developers-blog-agents-cli-in-agent-platform-create-to-producti.md]
 - Gemini API webhooks reinforce push-based completion as a harness primitive for long-running agent jobs, with signed events, idempotency headers, at-least-once delivery, and retries instead of repeated polling. confidence: 1 source, last-confirmed 2026-05-08. [source: raw/2026-05-08-rss-google-ai-blog-reduce-friction-and-latency-for-long-running-jobs-with-.md]
 - Google's ADK refactor case study reinforces production-agent harness needs: specialized subagents, executable schemas/structured outputs, dynamic retrieval, traces, retries, timeouts, and cost circuit breakers. confidence: 1 source, last-confirmed 2026-05-08. [source: raw/2026-05-08-rss-google-developers-blog-production-ready-ai-agents-5-lessons-from-refac.md]
+- Microsoft Agent Framework durable workflows reinforce that reliable agent harnesses need checkpointing, restart survival, distributed execution, external observability, generated HTTP/MCP entrypoints, and human-in-the-loop wait states. confidence: 1 source, last-confirmed 2026-05-09. [source: raw/2026-05-09-rss-net-blog-durable-workflows-in-the-microsoft-agent-framework.md]
+- The Curity/Microsoft least-privilege template reinforces that production agent harnesses should push authorization into short-lived tokens, API filters, gateways, and audit logs rather than relying on model behavior or prompt compliance. confidence: 1 source, last-confirmed 2026-05-09. [source: raw/2026-05-09-rss-azure-blog-least-privilege-ai-agents-a-new-azd-template-from-curity-an.md]
 
 ## Typed entities
 - concept: [[AI Agent Harnesses]]
@@ -21,6 +23,8 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 - feature/tool: Google Agents CLI
 - feature/API: Gemini API webhooks
 - framework: Google Agent Development Kit (ADK)
+- framework: Microsoft Agent Framework
+- protocol/security pattern: OAuth 2.0 token exchange
 - standard/tooling: OpenTelemetry
 - pattern: async subagents
 - pattern: structured outputs
@@ -36,11 +40,14 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 - Google Agents CLI uses eval, infrastructure, deploy, and publish commands as an agent-consumable harness surface.
 - Gemini API webhooks supersede polling for supported long-running jobs.
 - Production agent harnesses depend-on structured outputs, observability, and bounded retries/cost controls.
+- Durable Microsoft Agent Framework workflows use checkpointing and Durable Task Scheduler to survive process restarts and coordinate distributed executors.
+- Least-privilege AI agents use OAuth 2.0 token exchange, gateways, and API-side filters to constrain nondeterministic tool calls.
 
 ## HoneyDrunk implications
 - Prefer investing in runtime affordances (state, validation, background workers, resumability, audit logs) before model-specific prompt churn.
 - Treat every long-running agent workflow as a harness design problem: define storage, tools, permissions, verification gate, and what happens when budget runs out.
 - Prefer push/completion-event contracts for long jobs where possible; polling is a fallback, not the ideal orchestration shape.
+- Treat authorization as harness infrastructure: short-lived scoped tokens, gateway audit logs, and API filters should constrain agents before prompts do.
 
 ## Confidence and quality notes
 - Quality posture: decision-usable; claims are source-cited and non-private.

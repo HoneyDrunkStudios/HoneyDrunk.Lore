@@ -12,20 +12,23 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 ## Topics
 
 ### AI agents and harnesses
-- [[ai-agent-harnesses]] - 6 sources - last-confirmed 2026-05-08
+- [[ai-agent-harnesses]] - 8 sources - last-confirmed 2026-05-09
+- [[azure-agent-automation-and-identity]] - 2 sources - last-confirmed 2026-05-09
 - [[google-agent-platform-and-gemini-api-2026]] - 6 sources - last-confirmed 2026-05-08
-- [[microsoft-dotnet-ai-stack]] - 11 sources - last-confirmed 2026-05-07
+- [[microsoft-dotnet-ai-stack]] - 13 sources - last-confirmed 2026-05-09
 
 ### AI-assisted software engineering
 - [[ai-assisted-software-practice]] - 10 sources - last-confirmed 2026-05-08
 - [[github-copilot-and-app-token-changes]] - 3 sources - last-confirmed 2026-05-05
 - [[google-agent-platform-and-gemini-api-2026]] - 6 sources - last-confirmed 2026-05-08
 - [[claude-platform-2026]] - 8 sources - last-confirmed 2026-05-08
+- [[azure-agent-automation-and-identity]] - 2 sources - last-confirmed 2026-05-09
 
 ### AI platforms and model providers
 - [[claude-platform-2026]] - 8 sources - last-confirmed 2026-05-08
 - [[google-agent-platform-and-gemini-api-2026]] - 6 sources - last-confirmed 2026-05-08
 - [[edge-ai-and-ai-infrastructure-2026]] - 3 sources - last-confirmed 2026-05-08
+- [[azure-agent-automation-and-identity]] - 2 sources - last-confirmed 2026-05-09
 
 ### Generative UI and product surfaces
 - [[generative-ui-and-a2ui]] - 1 source - last-confirmed 2026-05-08
@@ -34,6 +37,10 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 ### Edge AI, embeddings, and infrastructure
 - [[edge-ai-and-ai-infrastructure-2026]] - 3 sources - last-confirmed 2026-05-08
 - [[google-agent-platform-and-gemini-api-2026]] - 6 sources - last-confirmed 2026-05-08
+
+### Cloud automation and identity
+- [[azure-agent-automation-and-identity]] - 2 sources - last-confirmed 2026-05-09
+- [[microsoft-dotnet-ai-stack]] - 13 sources - last-confirmed 2026-05-09
 
 ### AI-assisted game development
 - [[ai-assisted-game-development-pipelines]] - 3 sources - last-confirmed 2026-05-07
@@ -60,5 +67,5 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 - [[claude-platform-2026]] - 8 sources - last-confirmed 2026-05-08
 
 ### Source quality and monitoring
-- [[browser-snapshot-source-quality]] - 54 sources - last-confirmed 2026-05-07
+- [[browser-snapshot-source-quality]] - 56 sources - last-confirmed 2026-05-09
 - [[technical-art-community-and-talent-signals]] - 3 sources - last-confirmed 2026-05-07

@@ -33,3 +33,10 @@ This keeps Lore decision-usable for Honeyclaw, Claude, and future agents.
 - Updated pages: ai-agent-harnesses, ai-assisted-software-practice.
 - Rebuilt source/topic/gap indexes, created output/query-2026-05-08-daily-agent-platform-signal.md, and wrote output/openclaw-ingest-last-run.md.
 - Quality posture: vendor-authored announcements are decision-useful for architecture scouting, but benchmarks/customer quotes need local validation before routing/procurement decisions.
+
+## 2026-05-09 OpenClaw ingest
+- Ingested 6 raw sources from 2026-05-09.
+- Created page: azure-agent-automation-and-identity.
+- Updated pages: microsoft-dotnet-ai-stack, ai-agent-harnesses, browser-snapshot-source-quality.
+- Rebuilt source/topic/gap indexes, created output/query-2026-05-09-daily-agent-automation-signal.md, and wrote output/openclaw-ingest-last-run.md.
+- Quality posture: Microsoft/Azure sources are decision-useful but vendor-authored; two TLDR AI captures were low-yield sponsor-copy captures and were only recorded as source-quality evidence.

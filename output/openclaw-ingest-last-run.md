@@ -1,70 +1,65 @@
 # OpenClaw Lore Ingest Last Run
 
-## Timestamp
-- 2026-05-08 09:00 UTC / 2026-05-08 05:00 America/New_York
+- timestamp: 2026-05-09 09:00 UTC
+- operator/runtime: OpenClaw / Honeyclaw
+- operation: scheduled ingest + compile + crystallization
 
-## Operator/runtime
-- OpenClaw/Honeyclaw scheduled ingest (`lore-scheduled-ingest`)
+## Raw sources ingested: 6
 
-## Raw sources ingested
-Count: 16
+- raw/2026-05-09-rss-azure-blog-azure-developer-cli-azd-april-2026.md
+- raw/2026-05-09-rss-azure-blog-least-privilege-ai-agents-a-new-azd-template-from-curity-an.md
+- raw/2026-05-09-rss-net-blog-durable-workflows-in-the-microsoft-agent-framework.md
+- raw/2026-05-09-rss-net-blog-microsoft-agent-framework-building-blocks-for-ai-part-3.md
+- raw/2026-05-09-rss-tldr-ai-claude-self-improving-agents-anthropic-spacex-deal-programbenc.md
+- raw/2026-05-09-rss-tldr-ai-gpt-5-5-instant-subq-12m-context-gemini-flash-upgrades.md
 
-- raw/2026-05-07-rss-google-developers-blog-building-real-world-on-device-ai-with-litert-an.md
-- raw/2026-05-07-web-anthropic-news-agents-for-financial-services.md
-- raw/2026-05-07-web-anthropic-news-anthropic-sydney-office.md
-- raw/2026-05-07-web-anthropic-news-building-a-new-enterprise-ai-services-company-with-blac.md
-- raw/2026-05-07-web-anthropic-news-claude-for-creative-work.md
-- raw/2026-05-07-web-anthropic-news-claude-is-a-space-to-think-anthropic.md
-- raw/2026-05-07-web-anthropic-news-higher-usage-limits-for-claude-and-a-compute-deal-with-.md
-- raw/2026-05-07-web-anthropic-news-introducing-claude-opus-4-7.md
-- raw/2026-05-08-rss-google-ai-blog-join-the-new-ai-agents-vibe-coding-course-from-google-a.md
-- raw/2026-05-08-rss-google-ai-blog-reduce-friction-and-latency-for-long-running-jobs-with-.md
-- raw/2026-05-08-rss-google-developers-blog-a2ui-v0-9-the-new-standard-for-portable-framewo.md
-- raw/2026-05-08-rss-google-developers-blog-agents-cli-in-agent-platform-create-to-producti.md
-- raw/2026-05-08-rss-google-developers-blog-building-with-gemini-embedding-2-agentic-multim.md
-- raw/2026-05-08-rss-google-developers-blog-maxtext-expands-post-training-capabilities-intr.md
-- raw/2026-05-08-rss-google-developers-blog-production-ready-ai-agents-5-lessons-from-refac.md
-- raw/2026-05-08-rss-google-developers-blog-speeding-up-ai-bringing-google-colossus-to-pyto.md
+## Wiki pages created/updated
 
-## Wiki pages created
-- wiki/claude-platform-2026.md
-- wiki/google-agent-platform-and-gemini-api-2026.md
-- wiki/generative-ui-and-a2ui.md
-- wiki/edge-ai-and-ai-infrastructure-2026.md
+Created:
+- wiki/azure-agent-automation-and-identity.md
 
-## Wiki pages updated
+Updated:
+- wiki/microsoft-dotnet-ai-stack.md
 - wiki/ai-agent-harnesses.md
-- wiki/ai-assisted-software-practice.md
+- wiki/browser-snapshot-source-quality.md
 - wiki/indexes/sources.md
 - wiki/indexes/topics.md
 - wiki/indexes/gaps.md
 - wiki/indexes/audit.md
 
-## Output created/updated
-- output/query-2026-05-08-daily-agent-platform-signal.md
-- output/openclaw-ingest-last-run.md
+## Crystallization
 
-## Contradictions resolved / supersession handling
-- No direct contradictions requiring resolution.
-- Supersession noted: Claude Opus 4.7 supersedes Opus 4.6 as Anthropic's current Opus upgrade path, but migration requires harness/prompt/token validation.
-- A2UI/generative-UI sources do not supersede existing UI decisions; they add a candidate schema/catalog direction.
+- Created output/query-2026-05-09-daily-agent-automation-signal.md as a durable daily fact digest.
+- Reviewed existing `output/query-*.md` files; prior durable facts were already reflected in wiki pages, so no additional crystallization was needed from older query outputs.
+
+## Contradictions resolved / supersession
+
+- No substantive technology claim supersessions were required.
+- Two TLDR AI captures contradicted their title-level promise because the captured body only contained sponsor/ad copy; they were ingested as source-quality evidence and explicitly not used for model/platform claims.
 
 ## Gaps logged
-- Benchmark candidates and acceptable token/effort budget for Claude Opus 4.7.
-- Whether HoneyDrunk should define an internal generative-UI schema/catalog before A2UI/AG-UI adoption.
-- Whether Gemini Embedding 2 or equivalent multimodal embeddings should be evaluated on Lore/assets.
-- Which long-running HoneyDrunk jobs should move from polling to signed push/webhook completion semantics.
+
+- Audit HoneyDrunk `azd` workflows for safe `AZD_NON_INTERACTIVE` operation.
+- Identify agent/API paths that need short-lived delegated tokens with customer/region/scope/agent identity claims.
+- Identify multi-step agent jobs that should become Microsoft Agent Framework durable workflows or Azure Functions-hosted MCP tools.
+- Fix TLDR/newsletter RSS extraction so primary item summaries are captured instead of sponsor blocks.
 
 ## Privacy redactions
-- No secrets, credentials, tokens, or unsafe private PII found in the ingested raw sources.
-- Public names from vendor posts were retained only where decision-useful.
+
+- No secrets, credentials, private PII, or private message content were copied into wiki pages.
+- Public example token content from the Curity/Microsoft article was summarized by field/purpose rather than copied as a reusable token blob.
 
 ## Quality posture
-- Decision-useful pages were created with typed entities, explicit relationships, source citations, confidence notes, and HoneyDrunk implications.
-- Most new claims are vendor-authored announcements/blogs; product claims, benchmarks, and customer quotes are marked as directional and need local validation before procurement/default-routing decisions.
-- No raw files were edited or deleted by this ingest pass.
-- Existing worktree had unrelated pre-existing sourcing/Obsidian changes; only safe ingest/wiki/output/index changes were staged for commit.
+
+- Decision-useful pages were updated with typed entities, explicit relationships, source citations, confidence notes, and HoneyDrunk implications.
+- Microsoft/Azure sources are vendor-authored; product facts are useful for scouting, but adoption/cost/security decisions need local validation.
+- TLDR AI RSS captures are low-quality for title-level news claims and were flagged under source quality.
+- No raw files were edited or deleted.
 
 ## Blockers
-- None for the ingest/compile quality gate.
-- Commit/push may still be blocked by remote auth/network or pre-existing unrelated working-tree changes if they interfere with Git operations.
+
+- None for this ingest pass.
+
+## Commit
+
+- pending at time of summary write; see final executive brief for pushed commit hash or blocker.
