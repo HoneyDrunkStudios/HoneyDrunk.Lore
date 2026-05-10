@@ -1,24 +1,22 @@
 # OpenClaw Lore Ingest Last Run
 
-- timestamp: 2026-05-09 09:00 UTC
+- timestamp: 2026-05-10 09:00 UTC
 - operator/runtime: OpenClaw / Honeyclaw
-- operation: scheduled ingest + compile + crystallization
+- operation: scheduled ingest + compile
 
 ## Raw sources ingested: 6
+- raw/2026-05-10-rss-azure-blog-the-problem-all-or-nothing-batch-processing-in-azure-servic.md
+- raw/2026-05-10-rss-net-blog-copilot-studio-gets-faster-with-net-10-on-webassembly.md
+- raw/2026-05-10-rss-tldr-ai-codex-in-chrome-inside-chinese-labs-improving-token-efficiency.md
+- raw/2026-05-10-rss-tldr-infosec-whatsapp-file-spoofing-stripe-webhook-bypasses-white-hous.md
+- raw/2026-05-10-web-the-rundown-ai-openai-closes-reasoning-gap-in-voice-agents.md
+- raw/2026-05-10-youtube-microsoft-developer-youtube-dataverse-and-the-agentic-shift.md
 
-- raw/2026-05-09-rss-azure-blog-azure-developer-cli-azd-april-2026.md
-- raw/2026-05-09-rss-azure-blog-least-privilege-ai-agents-a-new-azd-template-from-curity-an.md
-- raw/2026-05-09-rss-net-blog-durable-workflows-in-the-microsoft-agent-framework.md
-- raw/2026-05-09-rss-net-blog-microsoft-agent-framework-building-blocks-for-ai-part-3.md
-- raw/2026-05-09-rss-tldr-ai-claude-self-improving-agents-anthropic-spacex-deal-programbenc.md
-- raw/2026-05-09-rss-tldr-ai-gpt-5-5-instant-subq-12m-context-gemini-flash-upgrades.md
+## Wiki pages created
+- wiki/azure-service-bus-and-functions-messaging.md
+- wiki/voice-agent-platforms-2026.md
 
-## Wiki pages created/updated
-
-Created:
-- wiki/azure-agent-automation-and-identity.md
-
-Updated:
+## Wiki pages updated
 - wiki/microsoft-dotnet-ai-stack.md
 - wiki/ai-agent-harnesses.md
 - wiki/browser-snapshot-source-quality.md
@@ -28,38 +26,26 @@ Updated:
 - wiki/indexes/audit.md
 
 ## Crystallization
+- Created output/query-2026-05-10-daily-runtime-and-voice-signal.md as a durable daily signal summary.
+- Existing query outputs for 2026-05-05, 2026-05-08, and 2026-05-09 were already reflected in wiki pages; no duplicate crystallization needed.
 
-- Created output/query-2026-05-09-daily-agent-automation-signal.md as a durable daily fact digest.
-- Reviewed existing `output/query-*.md` files; prior durable facts were already reflected in wiki pages, so no additional crystallization was needed from older query outputs.
-
-## Contradictions resolved / supersession
-
-- No substantive technology claim supersessions were required.
-- Two TLDR AI captures contradicted their title-level promise because the captured body only contained sponsor/ad copy; they were ingested as source-quality evidence and explicitly not used for model/platform claims.
+## Contradictions resolved / supersession handling
+- No substantive technology contradictions required supersession.
+- TLDR AI/InfoSec title-level claims were explicitly not accepted as evidence because captured bodies contained sponsor copy instead of the named newsletter items.
+- Rundown AI raw page scaffolding/public client configuration was excluded from semantic claims under the privacy filter.
 
 ## Gaps logged
-
-- Audit HoneyDrunk `azd` workflows for safe `AZD_NON_INTERACTIVE` operation.
-- Identify agent/API paths that need short-lived delegated tokens with customer/region/scope/agent identity claims.
-- Identify multi-step agent jobs that should become Microsoft Agent Framework durable workflows or Azure Functions-hosted MCP tools.
-- Fix TLDR/newsletter RSS extraction so primary item summaries are captured instead of sponsor blocks.
-
-## Privacy redactions
-
-- No secrets, credentials, private PII, or private message content were copied into wiki pages.
-- Public example token content from the Curity/Microsoft article was summarized by field/purpose rather than copied as a reusable token blob.
+- Newsletter/RSS sponsor-vs-content extraction for TLDR AI/InfoSec.
+- Web ingestion privacy filtering for secrets-like public client config and site JavaScript.
+- HoneyDrunk workload fit for Service Bus per-message settlement.
+- Voice-agent prototype harness requirements and local validation.
 
 ## Quality posture
-
-- Decision-useful pages were updated with typed entities, explicit relationships, source citations, confidence notes, and HoneyDrunk implications.
-- Microsoft/Azure sources are vendor-authored; product facts are useful for scouting, but adoption/cost/security decisions need local validation.
-- TLDR AI RSS captures are low-quality for title-level news claims and were flagged under source quality.
-- No raw files were edited or deleted.
+- Decision-useful: Azure Service Bus per-message settlement; .NET 10 WASM migration tradeoffs; Dataverse business-context framing.
+- Scouting-only: OpenAI voice-agent claims from newsletter/refetch until checked against OpenAI docs/local tests.
+- Low-yield: TLDR AI/InfoSec captures containing sponsor copy.
+- Privacy redactions: did not copy Sentry DSNs, Stripe publishable key, VAPID public key, or client/site config from raw Rundown capture into wiki pages.
+- Raw files were not edited or deleted.
 
 ## Blockers
-
-- None for this ingest pass.
-
-## Commit
-
-- pending at time of summary write; see final executive brief for pushed commit hash or blocker.
+- None for committing the safe wiki/output changes.

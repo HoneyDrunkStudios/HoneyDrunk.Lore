@@ -13,6 +13,8 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 - Google's ADK refactor case study reinforces production-agent harness needs: specialized subagents, executable schemas/structured outputs, dynamic retrieval, traces, retries, timeouts, and cost circuit breakers. confidence: 1 source, last-confirmed 2026-05-08. [source: raw/2026-05-08-rss-google-developers-blog-production-ready-ai-agents-5-lessons-from-refac.md]
 - Microsoft Agent Framework durable workflows reinforce that reliable agent harnesses need checkpointing, restart survival, distributed execution, external observability, generated HTTP/MCP entrypoints, and human-in-the-loop wait states. confidence: 1 source, last-confirmed 2026-05-09. [source: raw/2026-05-09-rss-net-blog-durable-workflows-in-the-microsoft-agent-framework.md]
 - The Curity/Microsoft least-privilege template reinforces that production agent harnesses should push authorization into short-lived tokens, API filters, gateways, and audit logs rather than relying on model behavior or prompt compliance. confidence: 1 source, last-confirmed 2026-05-09. [source: raw/2026-05-09-rss-azure-blog-least-privilege-ai-agents-a-new-azd-template-from-curity-an.md]
+- Voice-agent platforms reinforce that the harness must handle low-latency tool orchestration, partial/interrupted speech, permissions, recovery, and logging; stronger real-time models do not remove those responsibilities. confidence: 1 source, last-confirmed 2026-05-10. [source: raw/2026-05-10-web-the-rundown-ai-openai-closes-reasoning-gap-in-voice-agents.md]
+- Dataverse's agentic-shift framing reinforces that agents need business context, relationships, rules, and process skills in addition to raw data access. confidence: 1 source, last-confirmed 2026-05-10. [source: raw/2026-05-10-youtube-microsoft-developer-youtube-dataverse-and-the-agentic-shift.md]
 
 ## Typed entities
 - concept: [[AI Agent Harnesses]]
@@ -25,6 +27,9 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 - framework: Google Agent Development Kit (ADK)
 - framework: Microsoft Agent Framework
 - protocol/security pattern: OAuth 2.0 token exchange
+- model/product: GPT-Realtime-2
+- platform/service: Microsoft Dataverse
+- concept: Business Skills
 - standard/tooling: OpenTelemetry
 - pattern: async subagents
 - pattern: structured outputs
@@ -42,12 +47,15 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 - Production agent harnesses depend-on structured outputs, observability, and bounded retries/cost controls.
 - Durable Microsoft Agent Framework workflows use checkpointing and Durable Task Scheduler to survive process restarts and coordinate distributed executors.
 - Least-privilege AI agents use OAuth 2.0 token exchange, gateways, and API-side filters to constrain nondeterministic tool calls.
+- Voice agents depend-on the same harness controls as text agents, plus speech-specific latency, interruption, and recovery handling.
+- Business-context agents depend-on semantic relationships and process/rule descriptions, not just record retrieval.
 
 ## HoneyDrunk implications
 - Prefer investing in runtime affordances (state, validation, background workers, resumability, audit logs) before model-specific prompt churn.
 - Treat every long-running agent workflow as a harness design problem: define storage, tools, permissions, verification gate, and what happens when budget runs out.
 - Prefer push/completion-event contracts for long jobs where possible; polling is a fallback, not the ideal orchestration shape.
 - Treat authorization as harness infrastructure: short-lived scoped tokens, gateway audit logs, and API filters should constrain agents before prompts do.
+- For voice or business-process agents, define approval/recovery paths and domain rules before exposing high-impact tools.
 
 ## Confidence and quality notes
 - Quality posture: decision-usable; claims are source-cited and non-private.

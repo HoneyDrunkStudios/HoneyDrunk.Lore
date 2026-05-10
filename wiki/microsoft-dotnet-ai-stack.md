@@ -1,7 +1,7 @@
 # Microsoft .NET AI Stack
 
 ## Decision-useful summary
-Microsoft's .NET AI story is converging around composable abstractions: `Microsoft.Extensions.AI` for provider-agnostic chat/model access, `Microsoft.Extensions.DataIngestion` and `Microsoft.Extensions.VectorData` for knowledge/RAG layers, MCP for external context/tool exposure, and Microsoft Agent Framework / Foundry agent tooling for agent orchestration. The May 2026 additions make the stack more production-shaped: Microsoft Agent Framework 1.0 supports sessions, tools, context providers, graph workflows, human approvals, and durable execution through Durable Task/Azure Functions hosting. The pattern is attractive for HoneyDrunk .NET services because it reduces direct provider lock-in and makes app-level AI features feel like normal dependency-injected infrastructure. [sources: raw/2026-05-03-rss-dotnet-ai-conference-app-composable-stack.md; raw/2026-05-07-youtube-microsoft-developer-youtube-foundry-toolkit-series-3-building-an-agent.md; raw/2026-05-09-rss-net-blog-microsoft-agent-framework-building-blocks-for-ai-part-3.md; raw/2026-05-09-rss-net-blog-durable-workflows-in-the-microsoft-agent-framework.md]
+Microsoft's .NET AI story is converging around composable abstractions: `Microsoft.Extensions.AI` for provider-agnostic chat/model access, `Microsoft.Extensions.DataIngestion` and `Microsoft.Extensions.VectorData` for knowledge/RAG layers, MCP for external context/tool exposure, and Microsoft Agent Framework / Foundry agent tooling for agent orchestration. The May 2026 additions make the stack more production-shaped: Microsoft Agent Framework 1.0 supports sessions, tools, context providers, graph workflows, human approvals, and durable execution through Durable Task/Azure Functions hosting. Copilot Studio's .NET 10 WebAssembly migration adds a second signal: .NET is also viable as a browser-side agent/runtime substrate when deployment packaging and AOT/JIT tradeoffs are explicit. The pattern is attractive for HoneyDrunk .NET services because it reduces direct provider lock-in and makes app-level AI features feel like normal dependency-injected infrastructure. [sources: raw/2026-05-03-rss-dotnet-ai-conference-app-composable-stack.md; raw/2026-05-07-youtube-microsoft-developer-youtube-foundry-toolkit-series-3-building-an-agent.md; raw/2026-05-09-rss-net-blog-microsoft-agent-framework-building-blocks-for-ai-part-3.md; raw/2026-05-09-rss-net-blog-durable-workflows-in-the-microsoft-agent-framework.md; raw/2026-05-10-rss-net-blog-copilot-studio-gets-faster-with-net-10-on-webassembly.md; raw/2026-05-10-youtube-microsoft-developer-youtube-dataverse-and-the-agentic-shift.md]
 
 ## Claims
 - ConferencePulse, a Blazor Server conference assistant, used `Microsoft.Extensions.AI`, `Microsoft.Extensions.DataIngestion`, `Microsoft.Extensions.VectorData`, MCP, and Microsoft Agent Framework together for polls, Q&A, insights, and summaries. confidence: 1 source, last-confirmed 2026-05-05. [source: raw/2026-05-03-rss-dotnet-ai-conference-app-composable-stack.md]
@@ -14,6 +14,9 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 - Microsoft Agent Framework workflows use typed executors and `WorkflowBuilder` graphs for sequential chains, fan-out/fan-in, conditional routing, feedback loops, sub-workflows, and human-in-the-loop approvals. confidence: 2 sources, last-confirmed 2026-05-09. [sources: raw/2026-05-09-rss-net-blog-microsoft-agent-framework-building-blocks-for-ai-part-3.md; raw/2026-05-09-rss-net-blog-durable-workflows-in-the-microsoft-agent-framework.md]
 - `Microsoft.Agents.AI.DurableTask` can run the same Microsoft Agent Framework workflow definition durably with checkpointing, restart survival, distributed execution, and Durable Task Scheduler dashboard observability. confidence: 1 source, last-confirmed 2026-05-09. [source: raw/2026-05-09-rss-net-blog-durable-workflows-in-the-microsoft-agent-framework.md]
 - `Microsoft.Agents.AI.Hosting.AzureFunctions` can expose registered workflows as generated HTTP triggers and optionally as MCP tools at the Functions MCP webhook endpoint. confidence: 1 source, last-confirmed 2026-05-09. [source: raw/2026-05-09-rss-net-blog-durable-workflows-in-the-microsoft-agent-framework.md]
+- Copilot Studio migrated a production .NET WebAssembly engine from .NET 8 to .NET 10 mainly by retargeting and dependency compatibility work; .NET 10 automatic WASM asset fingerprinting let the team remove custom SHA256 renaming/integrity loader plumbing. confidence: 1 source, last-confirmed 2026-05-10. [source: raw/2026-05-10-rss-net-blog-copilot-studio-gets-faster-with-net-10-on-webassembly.md]
+- .NET 10 enables `WasmStripILAfterAOT` by default for AOT builds; Copilot Studio saw fewer deduplicated files between JIT and AOT packages, about a 15% package-size increase, but reported ~20% faster first-call execution and ~5% faster warm execution for large agent workloads. confidence: 1 source, last-confirmed 2026-05-10. [source: raw/2026-05-10-rss-net-blog-copilot-studio-gets-faster-with-net-10-on-webassembly.md]
+- Microsoft Developer YouTube describes Dataverse's agentic shift as business-context grounding: Microsoft 365 Copilot access to Dataverse business data, Business Skills that encode processes/rules, Dataverse MCP server discovery, and an open-source Dataverse plugin for coding agents such as Claude Code and GitHub Copilot. confidence: 1 source, last-confirmed 2026-05-10. [source: raw/2026-05-10-youtube-microsoft-developer-youtube-dataverse-and-the-agentic-shift.md]
 
 ## Typed entities
 - project/library: Microsoft.Extensions.AI
@@ -25,6 +28,12 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 - project/service: Durable Task Scheduler
 - project/service: Azure MCP Server 2.0
 - product/tool: Microsoft Foundry Toolkit Agent Builder
+- product/platform: Microsoft Copilot Studio
+- platform/runtime: .NET 10 WebAssembly
+- platform/service: Microsoft Dataverse
+- feature/tool: Dataverse MCP server
+- feature/tool: Dataverse plugin for coding agents
+- concept: Business Skills
 - protocol: Model Context Protocol
 - project/framework: Blazor Server
 - concept: RAG
@@ -41,6 +50,10 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 - Microsoft Agent Framework workflows depend-on typed executor contracts and graph edges for orchestration.
 - Microsoft.Agents.AI.DurableTask uses Durable Task Scheduler to persist workflow checkpoints and coordinate distributed execution.
 - Microsoft.Agents.AI.Hosting.AzureFunctions exposes Microsoft Agent Framework workflows as HTTP triggers and optionally MCP tools.
+- .NET 10 WebAssembly uses automatic asset fingerprinting to simplify browser deployment integrity/cache-busting.
+- Copilot Studio uses JIT plus AOT WebAssembly packaging to trade initial interactivity against steady-state execution speed.
+- Dataverse MCP server and Business Skills use business data, relationships, and process rules to ground agents in organizational context.
+- Dataverse plugin uses natural-language coding agents to build and manage Dataverse solutions.
 - [[AI Agent Harnesses]] uses MCP servers as a tool/context integration layer.
 - [[Azure Agent Automation and Identity]] uses Microsoft Foundry, MCP, and Azure infrastructure as deployment context for C# agents.
 
@@ -50,8 +63,10 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 - Azure Functions hosting is promising when a workflow should be callable by HTTP or MCP without hand-written controller/orchestrator glue.
 - Azure MCP Server is a candidate for controlled cloud-automation agents, but it should be permission-scoped and audited before production use.
 - Foundry Toolkit may be useful for prototype-to-code agent scaffolding if generated code can be inspected and brought under normal HoneyDrunk gates.
+- For browser-resident .NET/agent experiences, benchmark .NET 10 WASM package-size tradeoffs against actual startup/interactivity needs before enabling heavy AOT strategies.
+- Treat Dataverse as a useful reference architecture for business-context grounding even if HoneyDrunk does not adopt Dataverse directly: agents need data semantics, process skills, and rules, not just table access.
 
 ## Confidence and quality notes
 - Quality posture: decision-usable for directional stack choices; implementation details should be verified against package docs before coding.
-- Weak spots: Microsoft/Azure blog sources are vendor-authored and optimistic.
+- Weak spots: Microsoft/Azure blog and YouTube sources are vendor-authored and optimistic.
 - Privacy filter: Discord captures were summarized only at high level; no private chat/user details were copied.
