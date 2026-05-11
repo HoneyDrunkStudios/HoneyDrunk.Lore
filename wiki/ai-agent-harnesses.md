@@ -15,6 +15,7 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 - The Curity/Microsoft least-privilege template reinforces that production agent harnesses should push authorization into short-lived tokens, API filters, gateways, and audit logs rather than relying on model behavior or prompt compliance. confidence: 1 source, last-confirmed 2026-05-09. [source: raw/2026-05-09-rss-azure-blog-least-privilege-ai-agents-a-new-azd-template-from-curity-an.md]
 - Voice-agent platforms reinforce that the harness must handle low-latency tool orchestration, partial/interrupted speech, permissions, recovery, and logging; stronger real-time models do not remove those responsibilities. confidence: 1 source, last-confirmed 2026-05-10. [source: raw/2026-05-10-web-the-rundown-ai-openai-closes-reasoning-gap-in-voice-agents.md]
 - Dataverse's agentic-shift framing reinforces that agents need business context, relationships, rules, and process skills in addition to raw data access. confidence: 1 source, last-confirmed 2026-05-10. [source: raw/2026-05-10-youtube-microsoft-developer-youtube-dataverse-and-the-agentic-shift.md]
+- Microsoft MCP app samples reinforce that app/client harness surfaces increasingly include reusable UI widgets, manifests/docs, previews, and cross-assistant compatibility rather than only raw tool schemas. confidence: 1 source, last-confirmed 2026-05-11. [source: raw/2026-05-11-youtube-microsoft-developer-youtube-don-t-build-mcp-apps-from-scratch-use-this.md]
 
 ## Typed entities
 - concept: [[AI Agent Harnesses]]
@@ -29,6 +30,7 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 - protocol/security pattern: OAuth 2.0 token exchange
 - model/product: GPT-Realtime-2
 - platform/service: Microsoft Dataverse
+- resource: MCP app samples
 - concept: Business Skills
 - standard/tooling: OpenTelemetry
 - pattern: async subagents
@@ -49,6 +51,7 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 - Least-privilege AI agents use OAuth 2.0 token exchange, gateways, and API-side filters to constrain nondeterministic tool calls.
 - Voice agents depend-on the same harness controls as text agents, plus speech-specific latency, interruption, and recovery handling.
 - Business-context agents depend-on semantic relationships and process/rule descriptions, not just record retrieval.
+- MCP app surfaces depend-on reusable sample patterns, UI widgets, docs, and compatibility testing across assistant clients.
 
 ## HoneyDrunk implications
 - Prefer investing in runtime affordances (state, validation, background workers, resumability, audit logs) before model-specific prompt churn.
@@ -56,6 +59,7 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 - Prefer push/completion-event contracts for long jobs where possible; polling is a fallback, not the ideal orchestration shape.
 - Treat authorization as harness infrastructure: short-lived scoped tokens, gateway audit logs, and API filters should constrain agents before prompts do.
 - For voice or business-process agents, define approval/recovery paths and domain rules before exposing high-impact tools.
+- Reuse sample MCP app/client patterns before custom implementation; spend custom effort on permissions, state, and verification rather than protocol boilerplate.
 
 ## Confidence and quality notes
 - Quality posture: decision-usable; claims are source-cited and non-private.

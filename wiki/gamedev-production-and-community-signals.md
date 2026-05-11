@@ -1,7 +1,7 @@
 # Gamedev Production and Community Signals
 
 ## Decision-useful summary
-The game-development community feed produced a mix of process advice, tooling experiments, migration methodology, Web3 fairness architecture, job-market signal, AI-assisted production case studies, and novelty projects. Durable points: structured phased production reduces drift; Flash-to-HTML5 migrations should reverse-engineer behavior and rewrite cleanly rather than port decompiled ActionScript; dynamic blockchain games need explicit trust boundaries; small cross-platform libraries and AI-assisted experiments are discovery signals, not adoption proof. [sources: raw/2026-05-04-rss-dev-to-unity-our-4-phase-game-development-process-from-concept-to-laun.md; raw/2026-05-06-rss-dev-to-gamedev-legacy-flash-to-modern-html5-a-developer-s-migration-gu.md; raw/2026-05-06-rss-dev-to-gamedev-when-a-digital-horse-runs-the-fairness-problem-behind-a.md; raw/2026-05-05-rss-dev-to-gamedev-first-release-of-ldl-0-1-a-small-library-with-a-big-sou.md; raw/2026-05-05-rss-dev-to-gamedev-i-built-a-minecraft-mod-where-every-sword-is-an-aws-ser.md; raw/2026-05-04-rss-tech-artists-org-lighting-td-atlantis-animation-santa-cruz-de-tenerife.md; raw/2026-05-07-rss-dev-to-gamedev-how-i-knowing-only-if-vibecoded-civicsurvival-a-158k-li.md]
+The game-development community feed produced a mix of process advice, tooling experiments, migration methodology, Web3 fairness architecture, job-market signal, AI-assisted production case studies, hybrid app/engine case studies, and novelty projects. Durable points: structured phased production reduces drift; Flash-to-HTML5 migrations should reverse-engineer behavior and rewrite cleanly rather than port decompiled ActionScript; dynamic blockchain games need explicit trust boundaries; small cross-platform libraries, newsletters, and AI-assisted experiments are discovery signals, not adoption proof. [sources: raw/2026-05-04-rss-dev-to-unity-our-4-phase-game-development-process-from-concept-to-laun.md; raw/2026-05-06-rss-dev-to-gamedev-legacy-flash-to-modern-html5-a-developer-s-migration-gu.md; raw/2026-05-06-rss-dev-to-gamedev-when-a-digital-horse-runs-the-fairness-problem-behind-a.md; raw/2026-05-05-rss-dev-to-gamedev-first-release-of-ldl-0-1-a-small-library-with-a-big-sou.md; raw/2026-05-05-rss-dev-to-gamedev-i-built-a-minecraft-mod-where-every-sword-is-an-aws-ser.md; raw/2026-05-04-rss-tech-artists-org-lighting-td-atlantis-animation-santa-cruz-de-tenerife.md; raw/2026-05-07-rss-dev-to-gamedev-how-i-knowing-only-if-vibecoded-civicsurvival-a-158k-li.md; raw/2026-05-11-rss-dev-to-unity-building-coach-ivy-embedding-a-unity-avatar-inside-a-flut.md; raw/2026-05-11-rss-dev-to-unity-game-dev-digest-issue-330-unity-ai-game-art-and-more.md]
 
 ## Claims
 - Ocean View Games describes a four-phase game-development process from concept to launch intended to reduce drift, missed deadlines, and budget overruns in messy creative/technical work. confidence: 1 source, last-confirmed 2026-05-05. [source: raw/2026-05-04-rss-dev-to-unity-our-4-phase-game-development-process-from-concept-to-laun.md]
@@ -15,6 +15,8 @@ The game-development community feed produced a mix of process advice, tooling ex
 - Atlantis Animation posted a Lighting TD role in Santa Cruz de Tenerife, indicating ongoing demand for technical art / lighting specialists in animation production. confidence: 1 source, last-confirmed 2026-05-05. [source: raw/2026-05-04-rss-tech-artists-org-lighting-td-atlantis-animation-santa-cruz-de-tenerife.md; raw/2026-05-07-rss-dev-to-gamedev-how-i-knowing-only-if-vibecoded-civicsurvival-a-158k-li.md]
 - Game Dev Digest issue #329 is a broad newsletter aggregation across game design, tools, AI, programming, and Unity/C# news; it is useful for discovery but weaker as primary evidence. confidence: 1 source, last-confirmed 2026-05-05. [source: raw/2026-05-04-rss-dev-to-unity-game-dev-digest-issue-329-game-design-tools-ai-programmin.md]
 - The CivicSurvival case study shows a large AI-assisted Cities: Skylines II mod using Unity DOTS/ECS, custom RAG/MCP navigation, Roslyn analyzers, logs, and audits; it is useful as process evidence but self-reported and not an independent benchmark. confidence: 1 source, last-confirmed 2026-05-07. [source: raw/2026-05-07-rss-dev-to-gamedev-how-i-knowing-only-if-vibecoded-civicsurvival-a-158k-li.md]
+- Coach Ivy shows a product-led architecture decision for mobile game-like UX: use Flutter for normal app/product surfaces and embed Unity only for the reactive 3D avatar layer. confidence: 1 source, last-confirmed 2026-05-11. [source: raw/2026-05-11-rss-dev-to-unity-building-coach-ivy-embedding-a-unity-avatar-inside-a-flut.md]
+- Game Dev Digest issue #330 reinforces that Unity AI, GPU-driven art/VFX, localization, tagging, virtual file systems, and asset bundles are active Unity discovery topics, but the Digest itself is an aggregator. confidence: 1 source, last-confirmed 2026-05-11. [source: raw/2026-05-11-rss-dev-to-unity-game-dev-digest-issue-330-unity-ai-game-art-and-more.md]
 
 ## Typed entities
 - organization: Ocean View Games
@@ -42,6 +44,9 @@ The game-development community feed produced a mix of process advice, tooling ex
 - project/mod: CivicSurvival
 - game: Cities: Skylines II
 - concept: AI-assisted gamedev process
+- framework/runtime: Flutter
+- concept: hybrid mobile app/engine architecture
+- source/series: Game Dev Digest issue #330
 
 ## Explicit relationships
 - Flash-to-HTML5 migration depends-on source-code availability, asset extraction, behavior documentation, target technology choice, responsive UI work, performance optimization, and parity testing.
@@ -55,6 +60,8 @@ The game-development community feed produced a mix of process advice, tooling ex
 - Lighting TD role depends-on technical art and production-lighting skills.
 - Game Dev Digest reinforces discovery coverage but depends-on linked sources for primary evidence.
 - CivicSurvival uses AI-assisted implementation with RAG/analyzers/logs to constrain large gamedev system changes.
+- Coach Ivy uses a Flutter app shell plus embedded Unity avatar layer to separate product state from character/3D rendering.
+- Game Dev Digest uses newsletter aggregation to surface discovery queues, but depends-on primary links for evidence.
 
 ## HoneyDrunk implications
 - For internal game prototypes, start with a lightweight phase gate: concept, prototype, production, launch/learn.
@@ -63,8 +70,9 @@ The game-development community feed produced a mix of process advice, tooling ex
 - Novel AI/game demos are good marketing and learning artifacts; do not mistake them for product-market validation.
 - Track technical-art talent and reusable shader/VFX resources if Lore/Grid visual production ramps up.
 - Treat AI-assisted gamedev case studies as process patterns; validate with HoneyDrunk-specific builds and playtests before adopting wholesale.
+- For character-led app concepts, decide early whether Unity is the whole app or a bounded embedded scene; bounded is usually easier to maintain when commerce/navigation/content flows dominate.
 
 ## Confidence and quality notes
-- Quality posture: mixed; process/migration/trust-boundary claims are decision-useful, Web3 article is architectural opinion, newsletter aggregation is low-authority.
+- Quality posture: mixed; process/migration/trust-boundary claims are decision-useful, Web3 article is architectural opinion, newsletter aggregation is low-authority, and self-reported case studies need local validation.
 - Weak claims: AWS Minecraft mod and LDL need repo/docs inspection before technical adoption; Polkadot/Substrate claim is source-author interest, not an independent recommendation.
 - Privacy filter: no private person details copied beyond public author/org/role names.

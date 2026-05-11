@@ -1,51 +1,51 @@
 # OpenClaw Lore Ingest Last Run
 
-- timestamp: 2026-05-10 09:00 UTC
-- operator/runtime: OpenClaw / Honeyclaw
-- operation: scheduled ingest + compile
+## Run
+- Timestamp: 2026-05-11 09:00 UTC
+- Runtime: OpenClaw / Honeyclaw
+- Operation: daily ingest/compile pass
 
-## Raw sources ingested: 6
-- raw/2026-05-10-rss-azure-blog-the-problem-all-or-nothing-batch-processing-in-azure-servic.md
-- raw/2026-05-10-rss-net-blog-copilot-studio-gets-faster-with-net-10-on-webassembly.md
-- raw/2026-05-10-rss-tldr-ai-codex-in-chrome-inside-chinese-labs-improving-token-efficiency.md
-- raw/2026-05-10-rss-tldr-infosec-whatsapp-file-spoofing-stripe-webhook-bypasses-white-hous.md
-- raw/2026-05-10-web-the-rundown-ai-openai-closes-reasoning-gap-in-voice-agents.md
-- raw/2026-05-10-youtube-microsoft-developer-youtube-dataverse-and-the-agentic-shift.md
+## Raw sources ingested
+- raw/2026-05-11-rss-dev-to-unity-building-coach-ivy-embedding-a-unity-avatar-inside-a-flut.md
+- raw/2026-05-11-rss-dev-to-unity-game-dev-digest-issue-330-unity-ai-game-art-and-more.md
+- raw/2026-05-11-rss-tldr-infosec-daemon-tools-backdoored-robot-mower-hijacked-38-openemr-c.md
+- raw/2026-05-11-web-the-rundown-ai-anthropic-spacex-ai-become-unlikely-compute-partners.md
+- raw/2026-05-11-web-the-rundown-ai-openai-s-ai-phone-just-jumped-the-line.md
+- raw/2026-05-11-youtube-microsoft-developer-youtube-don-t-build-mcp-apps-from-scratch-use-this.md
 
-## Wiki pages created
-- wiki/azure-service-bus-and-functions-messaging.md
-- wiki/voice-agent-platforms-2026.md
+## Wiki pages changed
+- Created: wiki/ai-hardware-and-companion-devices-2026.md
+- Updated: wiki/unity-3d-and-realtime-vfx-patterns.md
+- Updated: wiki/gamedev-production-and-community-signals.md
+- Updated: wiki/microsoft-dotnet-ai-stack.md
+- Updated: wiki/ai-agent-harnesses.md
+- Updated: wiki/claude-platform-2026.md
+- Updated: wiki/edge-ai-and-ai-infrastructure-2026.md
+- Updated: wiki/browser-snapshot-source-quality.md
+- Updated indexes: wiki/indexes/sources.md, wiki/indexes/topics.md, wiki/indexes/gaps.md, wiki/indexes/audit.md
 
-## Wiki pages updated
-- wiki/microsoft-dotnet-ai-stack.md
-- wiki/ai-agent-harnesses.md
-- wiki/browser-snapshot-source-quality.md
-- wiki/indexes/sources.md
-- wiki/indexes/topics.md
-- wiki/indexes/gaps.md
-- wiki/indexes/audit.md
+## Durable query crystallized
+- output/query-2026-05-11-daily-ai-surface-and-compute-signal.md
 
-## Crystallization
-- Created output/query-2026-05-10-daily-runtime-and-voice-signal.md as a durable daily signal summary.
-- Existing query outputs for 2026-05-05, 2026-05-08, and 2026-05-09 were already reflected in wiki pages; no duplicate crystallization needed.
+## Supersession / contradictions
+- TLDR InfoSec title-level claims were not treated as evidence because the captured body contained sponsor copy only; this reinforces and extends the existing TLDR RSS extraction-quality gap.
+- Rundown web captures were treated as article-level evidence only after readable extraction; public client configuration/site scaffolding from raw captures was not propagated.
+- OpenAI AI hardware claims are marked early/low-confidence and do not supersede any primary product documentation.
 
-## Contradictions resolved / supersession handling
-- No substantive technology contradictions required supersession.
-- TLDR AI/InfoSec title-level claims were explicitly not accepted as evidence because captured bodies contained sponsor copy instead of the named newsletter items.
-- Rundown AI raw page scaffolding/public client configuration was excluded from semantic claims under the privacy filter.
-
-## Gaps logged
-- Newsletter/RSS sponsor-vs-content extraction for TLDR AI/InfoSec.
-- Web ingestion privacy filtering for secrets-like public client config and site JavaScript.
-- HoneyDrunk workload fit for Service Bus per-message settlement.
-- Voice-agent prototype harness requirements and local validation.
+## Privacy filtering
+- Did not copy raw Rundown embedded app globals, public telemetry/client configuration strings, or site JavaScript into wiki pages.
+- No private user/chat data copied.
 
 ## Quality posture
-- Decision-useful: Azure Service Bus per-message settlement; .NET 10 WASM migration tradeoffs; Dataverse business-context framing.
-- Scouting-only: OpenAI voice-agent claims from newsletter/refetch until checked against OpenAI docs/local tests.
-- Low-yield: TLDR AI/InfoSec captures containing sponsor copy.
-- Privacy redactions: did not copy Sentry DSNs, Stripe publishable key, VAPID public key, or client/site config from raw Rundown capture into wiki pages.
-- Raw files were not edited or deleted.
+- Decision-usable for scouting and architecture awareness.
+- Coach Ivy is a self-reported case study; useful as a pattern, not benchmark evidence.
+- Game Dev Digest is an aggregator; linked primary sources should be inspected before adoption.
+- Anthropic/SpaceX compute and OpenAI hardware items are newsletter/analyst-sourced and should be confirmed with primary sources before major decisions.
 
-## Blockers
-- None for committing the safe wiki/output changes.
+## Gaps added
+- TLDR InfoSec item extraction without sponsor-copy substitution.
+- OpenAI/Jony Ive/io AI hardware developer/runtime/privacy surface.
+- HoneyDrunk MCP app sample standardization before custom MCP UI/app work.
+
+## Commit / push
+- Safe to commit by staging only the 2026-05-11 raw sources and this run's wiki/output/index files; unrelated pre-existing workspace changes intentionally left unstaged.

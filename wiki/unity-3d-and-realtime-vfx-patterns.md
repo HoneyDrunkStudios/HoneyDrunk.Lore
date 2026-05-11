@@ -1,7 +1,7 @@
 # Unity 3D and Realtime VFX Patterns
 
 ## Decision-useful summary
-Unity-related sources clustered around practical production patterns: planning no-code/interactive 3D projects, reducing 3D-tool adoption friction through Unity Studio, real-time fire/fluid-like VFX in Ignitement, GPU-driven rendering for high-speed racing, reusable/free educational VFX shader resources, AI-scene-generation scouting, web runtime tradeoffs, and shipped-game ecosystem signal. These are useful as inspiration and evaluation inputs, but many are vendor/community posts rather than neutral benchmarks. [sources: raw/2026-05-04-rss-unity-blog-making-fire-feel-alive-real-time-fluid-simulation-in-ignite.md; raw/2026-05-04-rss-unity-blog-the-hidden-costs-of-traditional-3d-tools-and-the-smarter-wa.md; raw/2026-05-05-rss-unity-blog-10-questions-to-ask-before-starting-your-first-3d-project.md; raw/2026-05-05-rss-unity-blog-rendering-at-500-km-h-in-gear-club-unlimited-3.md; raw/2026-05-05-rss-realtimevfx-master-material-vfx-free-use-unity.md; raw/2026-05-06-rss-dev-to-unity-after-genie-3-38-alternatives-for-ai-scene-generation.md; raw/2026-05-06-rss-dev-to-unity-benchmark-webxr-2-0-vs-unity-webgl-vs-unreal-engine-html5.md; raw/2026-05-06-rss-unity-blog-games-made-with-unity-march-2026-in-review.md]
+Unity-related sources clustered around practical production patterns: planning no-code/interactive 3D projects, reducing 3D-tool adoption friction through Unity Studio, real-time fire/fluid-like VFX in Ignitement, GPU-driven rendering for high-speed racing, reusable/free educational VFX shader resources, AI-scene-generation scouting, web runtime tradeoffs, shipped-game ecosystem signal, and hybrid mobile architecture where Unity owns an embedded 3D/avatar layer inside a conventional app shell. These are useful as inspiration and evaluation inputs, but many are vendor/community posts rather than neutral benchmarks. [sources: raw/2026-05-04-rss-unity-blog-making-fire-feel-alive-real-time-fluid-simulation-in-ignite.md; raw/2026-05-04-rss-unity-blog-the-hidden-costs-of-traditional-3d-tools-and-the-smarter-wa.md; raw/2026-05-05-rss-unity-blog-10-questions-to-ask-before-starting-your-first-3d-project.md; raw/2026-05-05-rss-unity-blog-rendering-at-500-km-h-in-gear-club-unlimited-3.md; raw/2026-05-05-rss-realtimevfx-master-material-vfx-free-use-unity.md; raw/2026-05-06-rss-dev-to-unity-after-genie-3-38-alternatives-for-ai-scene-generation.md; raw/2026-05-06-rss-dev-to-unity-benchmark-webxr-2-0-vs-unity-webgl-vs-unreal-engine-html5.md; raw/2026-05-06-rss-unity-blog-games-made-with-unity-march-2026-in-review.md; raw/2026-05-11-rss-dev-to-unity-building-coach-ivy-embedding-a-unity-avatar-inside-a-flut.md; raw/2026-05-11-rss-dev-to-unity-game-dev-digest-issue-330-unity-ai-game-art-and-more.md]
 
 ## Claims
 - Ignitement uses real-time fluid-simulation-inspired fire/lava VFX to make fire feel reactive and integrated, trading against the cost of full 3D simulations and the limitations of traditional particles. confidence: 1 source, last-confirmed 2026-05-05. [source: raw/2026-05-04-rss-unity-blog-making-fire-feel-alive-real-time-fluid-simulation-in-ignite.md]
@@ -13,6 +13,8 @@ Unity-related sources clustered around practical production patterns: planning n
 - A DEV.to benchmark claims WebXR/Babylon.js had smaller payloads and faster startup than Unity WebGL and Unreal HTML5 in tested metaverse workloads, while Unity WebGL traded higher payload/memory for familiar tooling and built-in physics/networking. confidence: 1 source, last-confirmed 2026-05-06. [source: raw/2026-05-06-rss-dev-to-unity-benchmark-webxr-2-0-vs-unity-webgl-vs-unreal-engine-html5.md]
 - Unity's March 2026 “Games made with Unity” roundup lists many shipped/early-access Unity titles and IGF-recognized projects, indicating broad indie/commercial ecosystem activity but not engine suitability by itself. confidence: 1 source, last-confirmed 2026-05-06. [source: raw/2026-05-06-rss-unity-blog-games-made-with-unity-march-2026-in-review.md]
 - Unity official Discord snapshots for 2026-05-04 through 2026-05-06 were ingested but mostly captured Discord UI scaffolding, not decision-grade announcement content. confidence: 3 sources, last-confirmed 2026-05-06. [sources: raw/2026-05-04-clipper-discord-official-unity.md; raw/2026-05-05-clipper-discord-official-unity.md; raw/2026-05-06-clipper-discord-official-unity.md]
+- Coach Ivy's DEV.to case study describes a hybrid Flutter + Unity mobile architecture: Flutter owns onboarding, food logging, subscriptions, analytics, navigation, and app state, while an embedded Unity view owns a reactive 3D avatar, animations, facial expressions, BlendShapes, camera/lighting, and mood reactions. confidence: 1 source, last-confirmed 2026-05-11. [source: raw/2026-05-11-rss-dev-to-unity-building-coach-ivy-embedding-a-unity-avatar-inside-a-flut.md]
+- Game Dev Digest issue #330 is a newsletter aggregation that points to Unity AI/Open Beta, game-art/VFX/Jobs/shader workflows, GPU mesh particles via compute shaders/Render Graph, and Unity asset/tool links; useful for discovery, not primary evidence. confidence: 1 source, last-confirmed 2026-05-11. [source: raw/2026-05-11-rss-dev-to-unity-game-dev-digest-issue-330-unity-ai-game-art-and-more.md]
 
 ## Typed entities
 - project/engine: Unity
@@ -36,6 +38,15 @@ Unity-related sources clustered around practical production patterns: planning n
 - asset: free Unity master material VFX shader
 - event/award: IGF awards 2026
 - platform: Nintendo Switch 2
+- framework/runtime: Flutter
+- project/app: Coach Ivy
+- platform/service: Ready Player Me
+- tool/library: SALSA LipSync
+- concept: embedded Unity mobile view
+- concept: Flutter-to-Unity message bridge
+- product/tool: Unity AI
+- concept: GPU mesh particles
+- technology: Unity Render Graph
 
 ## Explicit relationships
 - Ignitement uses real-time fluid-simulation-inspired VFX to improve fire/lava responsiveness.
@@ -45,6 +56,8 @@ Unity-related sources clustered around practical production patterns: planning n
 - WebXR/Babylon.js contradicts Unity WebGL on startup/payload efficiency in the cited benchmark, while Unity WebGL depends-on engine tooling familiarity to justify overhead.
 - AI-scene-generation scouting depends-on validating availability, licensing, cost, and quality before adoption.
 - Unity release roundup reinforces Unity ecosystem breadth but does not supersede project-specific engine evaluation.
+- Flutter + Unity hybrid apps depend-on a clear ownership boundary: native/cross-platform app shell for product flow, Unity for the real-time character/3D layer, and a message bridge for event/state synchronization.
+- Unity AI and GPU/VFX items from newsletter aggregations depend-on linked primary sources before adoption decisions.
 
 ## HoneyDrunk implications
 - Use Unity Studio/no-code claims as a discovery prompt, not as proof of lower total cost; test with a small project before committing.
@@ -52,7 +65,9 @@ Unity-related sources clustered around practical production patterns: planning n
 - Treat free VFX shader resources as learning/reference material unless profiled and optimized.
 - For browser-first 3D/XR prototypes, compare WebXR/Babylon.js against Unity WebGL early; payload and mobile startup may dominate toolchain comfort.
 - AI scene-generation lists are useful sourcing queues, not vendor selections; verify licenses and actual workflow fit.
+- If HoneyDrunk wants character-led mobile experiences, use the Coach Ivy split as a reference pattern: keep commerce/navigation/app state outside Unity unless the 3D layer truly needs ownership.
+- For Unity AI/GPU-particle tooling, follow the Digest links only as a queue; validate Unity version, package maturity, profiling, and licensing before bringing anything into production.
 
 ## Confidence and quality notes
-- Quality posture: decision-usable as scouting notes; vendor bias likely in Unity blog claims, and DEV.to benchmark methodology should be independently reproduced before major decisions.
+- Quality posture: decision-usable as scouting notes; vendor bias likely in Unity blog claims, DEV.to case studies are self-reported, and newsletter/link-roundup items need primary-source follow-up before major decisions.
 - Privacy filter: Discord UI dumps summarized without copying user/chat details.
