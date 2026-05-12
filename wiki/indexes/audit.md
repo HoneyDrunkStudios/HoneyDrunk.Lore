@@ -54,3 +54,10 @@ This keeps Lore decision-usable for Honeyclaw, Claude, and future agents.
 - Updated pages: unity-3d-and-realtime-vfx-patterns, gamedev-production-and-community-signals, microsoft-dotnet-ai-stack, ai-agent-harnesses, claude-platform-2026, edge-ai-and-ai-infrastructure-2026, browser-snapshot-source-quality.
 - Rebuilt source/topic/gap indexes, created output/query-2026-05-11-daily-ai-surface-and-compute-signal.md, and wrote output/openclaw-ingest-last-run.md.
 - Quality posture: Coach Ivy and Unity Digest are self-reported/aggregated scouting signals; TLDR InfoSec remains low-yield sponsor-copy extraction; Rundown web pages required privacy redaction of public client config/site scaffolding; OpenAI hardware claim is early analyst/newsletter signal only.
+
+## 2026-05-12 OpenClaw ingest
+- Ingested 6 raw sources: NormalMap AI browser PBR tooling, Godot 4.7 beta 2, System Design Newsletter multi-agent architecture excerpt, TLDR AI low-yield sponsor capture, TLDR DevOps low-yield sponsor capture, and Rundown AI low-yield/noisy co-mathematician capture.
+- Created [[browser-native-gpu-creative-tools]] and [[multi-agent-architectures]].
+- Updated Godot, agent harness, browser source-quality pages and indexes.
+- Privacy filtering: Rundown public client config/secrets-like scaffolding was not copied into wiki facts.
+- Quality note: TLDR and Rundown captures were marked low-yield where body facts were missing; no title-level claims promoted without support.

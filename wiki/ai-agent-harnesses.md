@@ -16,6 +16,7 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 - Voice-agent platforms reinforce that the harness must handle low-latency tool orchestration, partial/interrupted speech, permissions, recovery, and logging; stronger real-time models do not remove those responsibilities. confidence: 1 source, last-confirmed 2026-05-10. [source: raw/2026-05-10-web-the-rundown-ai-openai-closes-reasoning-gap-in-voice-agents.md]
 - Dataverse's agentic-shift framing reinforces that agents need business context, relationships, rules, and process skills in addition to raw data access. confidence: 1 source, last-confirmed 2026-05-10. [source: raw/2026-05-10-youtube-microsoft-developer-youtube-dataverse-and-the-agentic-shift.md]
 - Microsoft MCP app samples reinforce that app/client harness surfaces increasingly include reusable UI widgets, manifests/docs, previews, and cross-assistant compatibility rather than only raw tool schemas. confidence: 1 source, last-confirmed 2026-05-11. [source: raw/2026-05-11-youtube-microsoft-developer-youtube-don-t-build-mcp-apps-from-scratch-use-this.md]
+- Multi-agent architecture should be chosen only when a single agent hits context, parallelism, or specialization/permission limits; otherwise extra agents add coordination, latency, token, verification, and security overhead. confidence: 1 source, last-confirmed 2026-05-12. [source: raw/2026-05-12-rss-system-design-newsletter-multi-agent-architectures-clearly-explained.md; page: [[multi-agent-architectures]]]
 
 ## Typed entities
 - concept: [[AI Agent Harnesses]]

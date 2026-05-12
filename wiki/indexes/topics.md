@@ -12,7 +12,8 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 ## Topics
 
 ### AI agents and harnesses
-- [[ai-agent-harnesses]] - 11 sources - last-confirmed 2026-05-11
+- [[ai-agent-harnesses]] - 12 sources - last-confirmed 2026-05-12
+- [[multi-agent-architectures]] - 1 source - last-confirmed 2026-05-12
 - [[azure-agent-automation-and-identity]] - 2 sources - last-confirmed 2026-05-09
 - [[google-agent-platform-and-gemini-api-2026]] - 6 sources - last-confirmed 2026-05-08
 - [[microsoft-dotnet-ai-stack]] - 16 sources - last-confirmed 2026-05-11
@@ -20,6 +21,7 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 
 ### AI-assisted software engineering
 - [[ai-assisted-software-practice]] - 10 sources - last-confirmed 2026-05-08
+- [[multi-agent-architectures]] - 1 source - last-confirmed 2026-05-12
 - [[github-copilot-and-app-token-changes]] - 3 sources - last-confirmed 2026-05-05
 - [[google-agent-platform-and-gemini-api-2026]] - 6 sources - last-confirmed 2026-05-08
 - [[claude-platform-2026]] - 9 sources - last-confirmed 2026-05-11
@@ -63,8 +65,9 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 - [[github-copilot-and-app-token-changes]] - 3 sources - last-confirmed 2026-05-05
 
 ### Game engines and tooling
-- [[godot-2026-mobile-and-4-7-cycle]] - 8 sources - last-confirmed 2026-05-07
+- [[godot-2026-mobile-and-4-7-cycle]] - 9 sources - last-confirmed 2026-05-12
 - [[unity-3d-and-realtime-vfx-patterns]] - 12 sources - last-confirmed 2026-05-11
+- [[browser-native-gpu-creative-tools]] - 1 source - last-confirmed 2026-05-12
 - [[gamedev-production-and-community-signals]] - 11 sources - last-confirmed 2026-05-11
 - [[web-3d-runtime-tradeoffs]] - 1 source - last-confirmed 2026-05-06
 - [[ai-assisted-game-development-pipelines]] - 3 sources - last-confirmed 2026-05-07
@@ -72,9 +75,10 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 
 ### Technical art and talent
 - [[technical-art-community-and-talent-signals]] - 3 sources - last-confirmed 2026-05-07
+- [[browser-native-gpu-creative-tools]] - 1 source - last-confirmed 2026-05-12
 - [[unity-3d-and-realtime-vfx-patterns]] - 12 sources - last-confirmed 2026-05-11
 - [[claude-platform-2026]] - 9 sources - last-confirmed 2026-05-11
 
 ### Source quality and monitoring
-- [[browser-snapshot-source-quality]] - 63 sources - last-confirmed 2026-05-11
+- [[browser-snapshot-source-quality]] - 66 sources - last-confirmed 2026-05-12
 - [[technical-art-community-and-talent-signals]] - 3 sources - last-confirmed 2026-05-07
