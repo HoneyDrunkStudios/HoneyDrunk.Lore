@@ -1,20 +1,31 @@
 # OpenClaw Lore Sourcing — Last Run
 
-Timestamp: 2026-05-05T03:00:52
+Timestamp: 2026-05-16T08:11:19
 Mode: write
-Candidates scanned: 278
-Skipped duplicates: 19
+Candidates scanned: 129
+Skipped duplicates: 11
+Selected: 8
 Saved: 8
 
+## Selected candidates
+- [AI / LLM Research & Tooling] TLDR AI: Claude small business 💼, Anthropic CFO interview 💰, AI adoption data 📊
+- [AI / LLM Research & Tooling] TLDR AI: Opus 4.7 Fast ⚡, Qwen Image 2.0 🖼️, serverless GPUs ✨
+- [.NET Ecosystem] .NET Blog: Process API Improvements in .NET 11
+- [.NET Ecosystem] .NET Blog: .NET MAUI Moves to CoreCLR in .NET 11
+- [Azure & Cloud] Azure Blog: Exponential backoff and circuit breaker for Service Bus-triggered Azure Functions
+- [Azure & Cloud] Azure Blog: From beta to stable: Announcing the Azure SDK for Rust 🎉🦀
+- [DevOps & CI/CD] GitHub Changelog Actions: GitHub Actions concurrency groups now allow larger queues
+- [DevOps & CI/CD] GitHub Changelog Actions: GitHub Actions: Upcoming image migrations
+
 ## Files written
-- raw/2026-05-05-rss-dev-to-gamedev-i-built-a-minecraft-mod-where-every-sword-is-an-aws-ser.md
-- raw/2026-05-05-rss-godot-engine-godot-mobile-update-april-2026.md
-- raw/2026-05-05-rss-dev-to-gamedev-first-release-of-ldl-0-1-a-small-library-with-a-big-sou.md
-- raw/2026-05-05-rss-godot-engine-dev-snapshot-godot-4-7-dev-5.md
-- raw/2026-05-05-rss-unity-blog-rendering-at-500-km-h-in-gear-club-unlimited-3.md
-- raw/2026-05-05-rss-realtimevfx-master-material-vfx-free-use-unity.md
-- raw/2026-05-05-rss-unity-blog-10-questions-to-ask-before-starting-your-first-3d-project.md
-- raw/2026-05-05-rss-godot-engine-maintenance-release-godot-4-6-2.md
+- raw/2026-05-16-rss-tldr-ai-claude-small-business-anthropic-cfo-interview-ai-adoption-data.md
+- raw/2026-05-16-rss-tldr-ai-opus-4-7-fast-qwen-image-2-0-serverless-gpus.md
+- raw/2026-05-16-rss-net-blog-process-api-improvements-in-net-11.md
+- raw/2026-05-16-rss-net-blog-net-maui-moves-to-coreclr-in-net-11.md
+- raw/2026-05-16-rss-azure-blog-exponential-backoff-and-circuit-breaker-for-service-bus-tri.md
+- raw/2026-05-16-rss-azure-blog-from-beta-to-stable-announcing-the-azure-sdk-for-rust.md
+- raw/2026-05-16-rss-github-changelog-actions-github-actions-concurrency-groups-now-allow-l.md
+- raw/2026-05-16-rss-github-changelog-actions-github-actions-upcoming-image-migrations.md
 
 ## Failures / skips
 _None_

@@ -1,11 +1,11 @@
 {
   "browserProfile": "openclaw",
   "x": {
-    "enabled": true,
+    "enabled": false,
     "listUrl": "https://x.com/i/lists/2050930841488904671"
   },
   "discord": {
-    "enabled": true,
+    "enabled": false,
     "communities": [
       {
         "name": "Aspire",

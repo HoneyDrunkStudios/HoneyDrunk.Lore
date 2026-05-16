@@ -43,6 +43,8 @@ This document defines what content belongs in Lore, where to find it, and how to
 - Google Research (research.google/blog)
 - Meta AI (ai.meta.com/blog)
 - Mistral AI (mistral.ai/news)
+- Anthropic News + Engineering (anthropic.com/news, anthropic.com/engineering) — official public announcements; prefer over Discord mirrors
+- Google AI / Gemini / Developers blogs (blog.google AI/Gemini RSS, developers.googleblog.com RSS) — official public announcements; prefer over Discord mirrors
 
 **Sources — applied + tooling:**
 - Hugging Face blog (huggingface.co/blog)
@@ -51,6 +53,10 @@ This document defines what content belongs in Lore, where to find it, and how to
 - Andrej Karpathy (karpathy.ai, github.com/karpathy)
 - The Batch — DeepLearning.AI (deeplearning.ai/the-batch)
 - TLDR AI (tldr.tech/api/rss/ai) — daily scan for model/tooling items only
+- Google Developers Blog (developers.googleblog.com/feeds/posts/default) — Gemini API, AI Studio, and developer-platform announcements
+- Google AI Blog (blog.google/technology/ai/rss/) — broad AI/model announcements
+- Google Gemini Blog (blog.google/products/gemini/rss/) — Gemini product/API announcements
+- Anthropic News index (anthropic.com/news) — Claude/model/product announcements via public web index
 
 **Sources — research firehose:**
 - ArXiv cs.AI (arxiv.org/list/cs.AI/recent) — applied agent work only

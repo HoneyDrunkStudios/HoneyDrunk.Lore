@@ -41,11 +41,15 @@ FEEDS = [
     ("Thoughtworks Insights", "https://www.thoughtworks.com/rss/insights.xml", "Software Architecture"),
     ("Simon Willison", "https://simonwillison.net/atom/everything/", "AI / LLM Research & Tooling"),
     ("Hugging Face Blog", "https://huggingface.co/blog/feed.xml", "AI / LLM Research & Tooling"),
+    ("Google Developers Blog", "https://developers.googleblog.com/feeds/posts/default", "AI / LLM Research & Tooling"),
+    ("Google AI Blog", "https://blog.google/technology/ai/rss/", "AI / LLM Research & Tooling"),
+    ("Google Gemini Blog", "https://blog.google/products/gemini/rss/", "AI / LLM Research & Tooling"),
     ("TLDR Tech", "https://tldr.tech/api/rss/tech", "Emerging Technology"),
     ("TLDR AI", "https://tldr.tech/api/rss/ai", "AI / LLM Research & Tooling"),
     ("TLDR Web Dev", "https://tldr.tech/api/rss/webdev", "Developer Tooling & AI Coding"),
     ("TLDR DevOps", "https://tldr.tech/api/rss/devops", "DevOps & CI/CD"),
     ("TLDR InfoSec", "https://tldr.tech/api/rss/infosec", "Security & Ethical Hacking"),
+    ("AINews / smol.ai", "https://news.smol.ai/rss.xml", "AI / LLM Research & Tooling"),
     ("n8n Blog", "https://blog.n8n.io/rss/", "Workflow Automation"),
     ("Unity Blog", "https://blog.unity.com/feed", "Game Development / Unity"),
     ("Game Developer", "https://www.gamedeveloper.com/rss.xml", "Game Development / Unity"),
@@ -62,6 +66,11 @@ FEEDS = [
 
 JSON_SOURCES = [
     ("Adobe Developer Blog", "https://blog.developer.adobe.com/en/query-index.json", "Technical Art & Creator Tools"),
+]
+
+WEB_INDEX_SOURCES = [
+    ("Anthropic News", "https://www.anthropic.com/news", "AI / LLM Research & Tooling", r"/(?:news|engineering)/[a-z0-9-]+"),
+    ("The Rundown AI", "https://www.therundown.ai", "AI / LLM Research & Tooling", r"/p/[a-z0-9-]+"),
 ]
 
 PODCAST_FEEDS = [
@@ -96,7 +105,48 @@ ADOBE_CREATOR_TERMS = [
     "premiere", "after effects", "plugin", "image", "3d", "graphics",
 ]
 
+SOURCE_PRIORITY = {
+    ".NET Blog": 90,
+    "Azure Blog": 88,
+    "GitHub Changelog Actions": 86,
+    "TLDR AI": 82,
+    "TLDR Tech": 80,
+    "TLDR Web Dev": 78,
+    "TLDR DevOps": 78,
+    "TLDR InfoSec": 78,
+    "The Rundown AI": 74,
+    "AINews / smol.ai": 72,
+    "Anthropic News": 68,
+    "Google Developers Blog": 55,
+    "Google AI Blog": 55,
+    "Google Gemini Blog": 55,
+    "OpenTelemetry Blog": 50,
+    "Simon Willison": 50,
+    "Hugging Face Blog": 50,
+}
+
+FOCUS_CATEGORIES = [
+    "AI / LLM Research & Tooling",
+    ".NET Ecosystem",
+    "Azure & Cloud",
+    "DevOps & CI/CD",
+    "Security & Ethical Hacking",
+    "Game Development / Unity",
+    "Software Architecture",
+    "Technical Art & Creator Tools",
+]
+
+MIN_PER_FOCUS_CATEGORY = 2
+
 USER_AGENT = "Honeyclaw-Lore-Sourcing/0.1 (+https://honeydrunkstudios.com)"
+
+
+def source_priority(item: dict) -> int:
+    return SOURCE_PRIORITY.get(item.get("feed", ""), 10)
+
+
+def sort_key(item: dict) -> tuple:
+    return (source_priority(item), item.get("score", 0), item.get("published", ""))
 
 
 def fetch(url: str, timeout: int = 25) -> str:
@@ -160,6 +210,44 @@ def parse_json_source(text: str, source_name: str, source_url: str, category: st
     if source_name == "Adobe Developer Blog":
         return parse_adobe_developer_index(text, source_name, source_url, category)
     return []
+
+
+def parse_web_index(text: str, source_name: str, source_url: str, category: str, href_pattern: str) -> list[dict]:
+    urls = []
+    for href in re.findall(r"href=[\"']([^\"']+)", text):
+        if not re.fullmatch(href_pattern, href):
+            continue
+        url = urllib.parse.urljoin(source_url, href)
+        if url not in urls:
+            urls.append(url)
+
+    items = []
+    for url in urls[:3]:
+        try:
+            page = fetch(url)
+        except Exception:
+            continue
+        title = meta_value(page, "og:title") or html_title(page) or url.rsplit("/", 1)[-1].replace("-", " ").title()
+        summary = meta_value(page, "description") or meta_value(page, "og:description") or strip_html(page)[:1000]
+        published = json_ld_value(page, "datePublished") or json_ld_value(page, "dateModified") or "unknown"
+        items.append({"feed": source_name, "title": title, "url": url, "summary": summary, "published": published, "category": category, "source_type": "web"})
+    return items
+
+
+def meta_value(page: str, name: str) -> str:
+    pattern = rf"<meta[^>]+(?:name|property)=[\"']{re.escape(name)}[\"'][^>]+content=[\"']([^\"']+)[\"']"
+    m = re.search(pattern, page, re.I)
+    return html.unescape(m.group(1)).strip() if m else ""
+
+
+def html_title(page: str) -> str:
+    m = re.search(r"(?is)<title[^>]*>(.*?)</title>", page)
+    return strip_html(m.group(1)) if m else ""
+
+
+def json_ld_value(page: str, key: str) -> str:
+    m = re.search(rf"[\"']{re.escape(key)}[\"']\s*:\s*[\"']([^\"']+)", page)
+    return html.unescape(m.group(1)).strip() if m else ""
 
 
 def parse_adobe_developer_index(text: str, source_name: str, source_url: str, category: str) -> list[dict]:
@@ -246,9 +334,38 @@ def yaml_escape(value: str) -> str:
     return value.replace("\\", "\\\\").replace('"', '\\"').strip()
 
 
+def select_diverse(items: list[dict], max_items: int) -> list[dict]:
+    """Prefer priority sources while guaranteeing breadth across focus categories when possible."""
+    selected = []
+    selected_urls = set()
+
+    for category in FOCUS_CATEGORIES:
+        if len(selected) >= max_items:
+            break
+        category_items = [item for item in items if item.get("category") == category and item["url"] not in selected_urls]
+        category_items.sort(key=sort_key, reverse=True)
+        for item in category_items[:MIN_PER_FOCUS_CATEGORY]:
+            if len(selected) >= max_items:
+                break
+            selected.append(item)
+            selected_urls.add(item["url"])
+
+    for item in items:
+        if len(selected) >= max_items:
+            break
+        if item["url"] in selected_urls:
+            continue
+        selected.append(item)
+        selected_urls.add(item["url"])
+
+    return selected
+
+
 def main() -> int:
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     parser = argparse.ArgumentParser()
-    parser.add_argument("--max-items", type=int, default=8)
+    parser.add_argument("--max-items", type=int, default=15)
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
@@ -259,7 +376,7 @@ def main() -> int:
 
     for name, url, category in FEEDS:
         try:
-            items = parse_feed(fetch(url), name, category)[:8]
+            items = parse_feed(fetch(url), name, category)[:3]
             for item in items:
                 item["source_type"] = "rss"
             candidates.extend(items)
@@ -268,17 +385,23 @@ def main() -> int:
 
     for name, url, category in JSON_SOURCES:
         try:
-            items = parse_json_source(fetch(url), name, url, category)[:8]
+            items = parse_json_source(fetch(url), name, url, category)[:3]
             for item in items:
                 item["source_type"] = "rss"
             candidates.extend(items)
         except Exception as e:
             failures.append(f"{name}: {type(e).__name__}: {e}")
 
+    for name, url, category, href_pattern in WEB_INDEX_SOURCES:
+        try:
+            candidates.extend(parse_web_index(fetch(url), name, url, category, href_pattern)[:3])
+        except Exception as e:
+            failures.append(f"{name}: {type(e).__name__}: {e}")
+
     for source_type, feeds in (("podcast", PODCAST_FEEDS), ("youtube", YOUTUBE_FEEDS)):
         for name, url, category in feeds:
             try:
-                items = parse_feed(fetch(url), name, category)[:5]
+                items = parse_feed(fetch(url), name, category)[:3]
                 for item in items:
                     item["source_type"] = source_type
                 candidates.extend(items)
@@ -298,8 +421,8 @@ def main() -> int:
         if item["score"] >= 1:
             fresh.append(item)
 
-    fresh.sort(key=lambda i: (i["score"], i.get("published", "")), reverse=True)
-    selected = fresh[: args.max_items]
+    fresh.sort(key=sort_key, reverse=True)
+    selected = select_diverse(fresh, args.max_items)
 
     written = []
     if not args.dry_run:
@@ -334,10 +457,13 @@ def main() -> int:
         f"Mode: {'dry-run' if args.dry_run else 'write'}",
         f"Candidates scanned: {len(candidates)}",
         f"Skipped duplicates: {skipped_dupes}",
+        f"Selected: {len(selected)}",
         f"Saved: {len(written)}",
         "",
-        "## Files written",
+        "## Selected candidates",
     ]
+    summary.extend((f"- [{item.get('category')}] {item.get('feed')}: {item.get('title')}" for item in selected) if selected else ["_None_"])
+    summary.extend(["", "## Files written"])
     summary.extend((f"- raw/{name}" for name in written) if written else ["_None_"])
     summary.extend(["", "## Failures / skips"])
     summary.extend((f"- {failure}" for failure in failures) if failures else ["_None_"])
