@@ -16,7 +16,7 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 - [[multi-agent-architectures]] - 1 source - last-confirmed 2026-05-12
 - [[azure-agent-automation-and-identity]] - 2 sources - last-confirmed 2026-05-09
 - [[google-agent-platform-and-gemini-api-2026]] - 6 sources - last-confirmed 2026-05-08
-- [[microsoft-dotnet-ai-stack]] - 16 sources - last-confirmed 2026-05-11
+- [[microsoft-dotnet-ai-stack]] - 18 sources - last-confirmed 2026-05-16
 - [[voice-agent-platforms-2026]] - 1 source - last-confirmed 2026-05-10
 
 ### AI-assisted software engineering
@@ -26,7 +26,7 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 - [[google-agent-platform-and-gemini-api-2026]] - 6 sources - last-confirmed 2026-05-08
 - [[claude-platform-2026]] - 9 sources - last-confirmed 2026-05-11
 - [[azure-agent-automation-and-identity]] - 2 sources - last-confirmed 2026-05-09
-- [[microsoft-dotnet-ai-stack]] - 16 sources - last-confirmed 2026-05-11
+- [[microsoft-dotnet-ai-stack]] - 18 sources - last-confirmed 2026-05-16
 
 ### AI platforms and model providers
 - [[claude-platform-2026]] - 9 sources - last-confirmed 2026-05-11
@@ -41,17 +41,17 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 ### Generative UI and product surfaces
 - [[generative-ui-and-a2ui]] - 1 source - last-confirmed 2026-05-08
 - [[claude-platform-2026]] - 9 sources - last-confirmed 2026-05-11
-- [[microsoft-dotnet-ai-stack]] - 16 sources - last-confirmed 2026-05-11
+- [[microsoft-dotnet-ai-stack]] - 18 sources - last-confirmed 2026-05-16
 
 ### Edge AI, embeddings, and infrastructure
 - [[edge-ai-and-ai-infrastructure-2026]] - 4 sources - last-confirmed 2026-05-11
 - [[google-agent-platform-and-gemini-api-2026]] - 6 sources - last-confirmed 2026-05-08
-- [[microsoft-dotnet-ai-stack]] - 16 sources - last-confirmed 2026-05-11
+- [[microsoft-dotnet-ai-stack]] - 18 sources - last-confirmed 2026-05-16
 
 ### Cloud automation, identity, and messaging
 - [[azure-agent-automation-and-identity]] - 2 sources - last-confirmed 2026-05-09
 - [[azure-service-bus-and-functions-messaging]] - 1 source - last-confirmed 2026-05-10
-- [[microsoft-dotnet-ai-stack]] - 16 sources - last-confirmed 2026-05-11
+- [[microsoft-dotnet-ai-stack]] - 18 sources - last-confirmed 2026-05-16
 
 ### AI-assisted game development
 - [[ai-assisted-game-development-pipelines]] - 3 sources - last-confirmed 2026-05-07
@@ -80,5 +80,5 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 - [[claude-platform-2026]] - 9 sources - last-confirmed 2026-05-11
 
 ### Source quality and monitoring
-- [[browser-snapshot-source-quality]] - 66 sources - last-confirmed 2026-05-12
+- [[browser-snapshot-source-quality]] - 69 sources - last-confirmed 2026-05-16
 - [[technical-art-community-and-talent-signals]] - 3 sources - last-confirmed 2026-05-07

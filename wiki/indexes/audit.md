@@ -61,3 +61,10 @@ This keeps Lore decision-usable for Honeyclaw, Claude, and future agents.
 - Updated Godot, agent harness, browser source-quality pages and indexes.
 - Privacy filtering: Rundown public client config/secrets-like scaffolding was not copied into wiki facts.
 - Quality note: TLDR and Rundown captures were marked low-yield where body facts were missing; no title-level claims promoted without support.
+
+## 2026-05-16 OpenClaw ingest
+- Ingested 5 raw sources from 2026-05-13 during the 2026-05-16 scheduled pass.
+- Updated pages: microsoft-dotnet-ai-stack, browser-snapshot-source-quality.
+- Rebuilt source/topic/gap indexes and wrote output/openclaw-ingest-last-run.md.
+- Privacy filtering: Rundown public client config/secrets-like scaffolding was not copied into wiki facts.
+- Quality note: .NET Blog sources are decision-usable vendor release/servicing evidence; TLDR/Rundown captures were marked low-yield where body facts were missing.

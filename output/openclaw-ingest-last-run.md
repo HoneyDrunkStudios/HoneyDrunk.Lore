@@ -1,49 +1,42 @@
 # OpenClaw Lore Ingest Last Run
 
-## Timestamp
-2026-05-12 09:00 UTC / 2026-05-12 05:00 America/New_York
+- timestamp: 2026-05-16 11:59 UTC / 2026-05-16 07:59 America/New_York
+- operator/runtime: OpenClaw / Honeyclaw scheduled ingest
 
-## Raw sources ingested
-Count: 6
+## Raw sources ingested: 5
+- raw/2026-05-13-rss-net-blog-net-11-preview-4-is-now-available.md
+- raw/2026-05-13-rss-net-blog-net-and-net-framework-may-2026-servicing-releases-updates.md
+- raw/2026-05-13-rss-tldr-ai-interaction-models-gemini-omni-surfaces-spacexai.md
+- raw/2026-05-13-rss-tldr-infosec-scarcruft-supply-chain-attack-ollama-0-day-heap-leak-197k.md
+- raw/2026-05-13-web-the-rundown-ai-mira-murati-s-tml-upends-how-humans-work-with-ai.md
 
-- raw/2026-05-12-rss-dev-to-gamedev-building-a-free-browser-based-pbr-texture-generator-no-.md
-- raw/2026-05-12-rss-godot-engine-dev-snapshot-godot-4-7-beta-2.md
-- raw/2026-05-12-rss-system-design-newsletter-multi-agent-architectures-clearly-explained.md
-- raw/2026-05-12-rss-tldr-ai-nvidia-invests-40b-anthropic-acquires-compute-mistral-s-growth.md
-- raw/2026-05-12-rss-tldr-devops-maintaining-ai-code-idempotency-in-distrubted-systems-agen.md
-- raw/2026-05-12-web-the-rundown-ai-google-deepmind-s-powerful-ai-co-mathematician.md
+## Wiki pages created/updated
+- updated: wiki/microsoft-dotnet-ai-stack.md
+- updated: wiki/browser-snapshot-source-quality.md
+- updated: wiki/indexes/sources.md
+- updated: wiki/indexes/topics.md
+- updated: wiki/indexes/gaps.md
+- updated: wiki/indexes/audit.md
 
-## Wiki pages created
-- wiki/browser-native-gpu-creative-tools.md
-- wiki/multi-agent-architectures.md
+## Query/output crystallization
+- created: output/query-2026-05-16-daily-dotnet-and-source-quality-signal.md
+- refreshed: output/openclaw-ingest-last-run.md
 
-## Wiki pages updated
-- wiki/ai-agent-harnesses.md
-- wiki/browser-snapshot-source-quality.md
-- wiki/godot-2026-mobile-and-4-7-cycle.md
-- wiki/indexes/gaps.md
-- wiki/indexes/sources.md
-- wiki/indexes/topics.md
-
-## Query/output facts crystallized
-- Created output/query-2026-05-12-daily-agent-and-creative-tooling-signal.md for durable daily synthesis.
-- Earlier query outputs were already reflected in existing wiki pages; no additional backfill crystallization was needed this pass.
-
-## Contradictions resolved
+## Contradictions resolved / supersession
 - No substantive technology contradictions resolved.
-- Source-quality contradiction reinforced: TLDR AI/DevOps titles promised news items, but captured bodies contained sponsor copy. These sources were explicitly marked low-yield and excluded from supporting title-level claims.
+- TLDR/Rundown title-level claims were not promoted because captured body evidence was sponsor/scaffolding rather than decision-grade content; this reinforces existing source-quality findings rather than superseding them.
 
 ## Gaps logged
-- TLDR AI/DevOps extraction captures sponsor blocks instead of item bodies.
-- Rundown AI browser extraction needs article-body retention plus privacy/public-config stripping.
-- Browser-native PBR tooling needs local device/asset/license validation before adoption.
-- HoneyDrunk needs criteria for when workflows actually need multi-agent architecture versus a better single-agent harness.
+- TLDR AI/InfoSec 2026-05-13 sponsor/event-copy extraction gap.
+- Rundown AI Mira Murati/TML body extraction + public-client-config filtering gap.
 
-## Blockers
-None for safe wiki compilation. Push may still be blocked by remote/auth or pre-existing unrelated working-tree changes.
+## Privacy filtering
+- Rundown public client configuration / secrets-like scaffolding was not copied into semantic wiki facts.
+- No private personal data, tokens, or credentials were written to wiki pages.
 
 ## Quality posture
-- Decision-usefulness: New pages include typed entities, explicit relationships, citations, confidence notes, and HoneyDrunk implications.
-- Privacy filter: Did not copy Rundown app globals, DSNs, Stripe/VAPID/public client keys, or large site scaffolding into wiki pages; recorded only a high-level redaction/source-quality note.
-- Weak claims: NormalMap AI performance/business claims are self-reported; multi-agent source is newsletter excerpt/paywalled; TLDR/Rundown noisy captures were not used as substantive evidence.
-- Supersession: Godot 4.7 beta 2 strengthens/supersedes beta 1 release-stage posture but older dev/beta claims remain preserved for feature history.
+- .NET Blog release/servicing sources are decision-usable vendor evidence for scouting and patch urgency, with implementation details requiring docs/package verification.
+- TLDR AI/InfoSec and Rundown AI captures are low-yield for substantive claims and are used only as capture-quality evidence.
+
+## Blockers
+- Existing unstaged/non-ingest repo changes predated this run; commit staging was limited to safe ingest files.
