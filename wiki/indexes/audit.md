@@ -68,3 +68,11 @@ This keeps Lore decision-usable for Honeyclaw, Claude, and future agents.
 - Rebuilt source/topic/gap indexes and wrote output/openclaw-ingest-last-run.md.
 - Privacy filtering: Rundown public client config/secrets-like scaffolding was not copied into wiki facts.
 - Quality note: .NET Blog sources are decision-usable vendor release/servicing evidence; TLDR/Rundown captures were marked low-yield where body facts were missing.
+
+## 2026-05-17 OpenClaw ingest/compile
+- operator: Honeyclaw/OpenClaw scheduled ingest
+- raw sources ingested: 16
+- pages created: [[github-actions-platform-operations]], [[azure-sdk-for-rust]], [[dotnet-runtime-and-mobile-2026]]
+- pages updated: [[azure-service-bus-and-functions-messaging]], [[gamedev-production-and-community-signals]], [[browser-snapshot-source-quality]], [[microsoft-dotnet-ai-stack]], indexes, run/query outputs
+- privacy filtering: redacted/no-copy handling for Rundown AI public client config/secrets-like strings; TLDR sponsor blocks not promoted as title-level facts
+- quality posture: decision-usable platform/runtime facts compiled; low-yield newsletter/web captures explicitly fenced as source-quality evidence

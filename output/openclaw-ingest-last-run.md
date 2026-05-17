@@ -1,42 +1,65 @@
 # OpenClaw Lore Ingest Last Run
 
-- timestamp: 2026-05-16 11:59 UTC / 2026-05-16 07:59 America/New_York
-- operator/runtime: OpenClaw / Honeyclaw scheduled ingest
+## Timestamp
+2026-05-17 09:00 UTC / 2026-05-17 05:00 America/New_York
 
-## Raw sources ingested: 5
-- raw/2026-05-13-rss-net-blog-net-11-preview-4-is-now-available.md
-- raw/2026-05-13-rss-net-blog-net-and-net-framework-may-2026-servicing-releases-updates.md
-- raw/2026-05-13-rss-tldr-ai-interaction-models-gemini-omni-surfaces-spacexai.md
-- raw/2026-05-13-rss-tldr-infosec-scarcruft-supply-chain-attack-ollama-0-day-heap-leak-197k.md
-- raw/2026-05-13-web-the-rundown-ai-mira-murati-s-tml-upends-how-humans-work-with-ai.md
+## Raw sources ingested (16)
+- raw/2026-05-16-rss-azure-blog-exponential-backoff-and-circuit-breaker-for-service-bus-tri.md
+- raw/2026-05-16-rss-azure-blog-from-beta-to-stable-announcing-the-azure-sdk-for-rust.md
+- raw/2026-05-16-rss-github-changelog-actions-github-actions-concurrency-groups-now-allow-l.md
+- raw/2026-05-16-rss-github-changelog-actions-github-actions-upcoming-image-migrations.md
+- raw/2026-05-16-rss-net-blog-net-maui-moves-to-coreclr-in-net-11.md
+- raw/2026-05-16-rss-net-blog-process-api-improvements-in-net-11.md
+- raw/2026-05-16-rss-tldr-ai-claude-small-business-anthropic-cfo-interview-ai-adoption-data.md
+- raw/2026-05-16-rss-tldr-ai-opus-4-7-fast-qwen-image-2-0-serverless-gpus.md
+- raw/2026-05-17-rss-dev-to-unity-game-dev-digest-issue-331-ai-opinions-grass-system-how-to.md
+- raw/2026-05-17-rss-tldr-ai-grok-build-codex-customizations-xai-exodus.md
+- raw/2026-05-17-rss-tldr-devops-ai-assisted-testing-data-ingestion-at-scale-cloudflare-s-a.md
+- raw/2026-05-17-rss-tldr-devops-secure-coding-agents-gemini-devops-extension-aws-sre-agent.md
+- raw/2026-05-17-rss-tldr-infosec-checkmarx-jenkins-hit-openai-daybreak-best-western-breach.md
+- raw/2026-05-17-rss-tldr-infosec-openai-confirms-breach-18-year-nginx-rift-rce-two-new-win.md
+- raw/2026-05-17-web-the-rundown-ai-openai-takes-codex-mobile.md
+- raw/2026-05-17-youtube-microsoft-developer-youtube-fun-with-ai-make-your-chat-into-a-professi.md
 
-## Wiki pages created/updated
-- updated: wiki/microsoft-dotnet-ai-stack.md
-- updated: wiki/browser-snapshot-source-quality.md
-- updated: wiki/indexes/sources.md
-- updated: wiki/indexes/topics.md
-- updated: wiki/indexes/gaps.md
-- updated: wiki/indexes/audit.md
+## Wiki pages created
+- wiki/github-actions-platform-operations.md
+- wiki/azure-sdk-for-rust.md
+- wiki/dotnet-runtime-and-mobile-2026.md
+
+## Wiki pages updated
+- wiki/azure-service-bus-and-functions-messaging.md
+- wiki/gamedev-production-and-community-signals.md
+- wiki/browser-snapshot-source-quality.md
+- wiki/microsoft-dotnet-ai-stack.md
+- wiki/indexes/sources.md
+- wiki/indexes/topics.md
+- wiki/indexes/gaps.md
+- wiki/indexes/audit.md
 
 ## Query/output crystallization
-- created: output/query-2026-05-16-daily-dotnet-and-source-quality-signal.md
-- refreshed: output/openclaw-ingest-last-run.md
+- Created output/query-2026-05-17-daily-platform-runtime-source-quality-signal.md with durable facts already reflected in wiki pages.
 
 ## Contradictions resolved / supersession
-- No substantive technology contradictions resolved.
-- TLDR/Rundown title-level claims were not promoted because captured body evidence was sponsor/scaffolding rather than decision-grade content; this reinforces existing source-quality findings rather than superseding them.
+- No substantive technology contradictions required resolution.
+- Supersession captured: GitHub Actions `queue: max` supersedes previous one-pending-run concurrency behavior for workflows that opt in; .NET MAUI CoreCLR default supersedes Mono default assumptions for .NET 11 MAUI targets; GitHub runner label migrations supersede implicit VS2022/macOS15 assumptions after migration windows.
+- Low-yield TLDR/Rundown captures were fenced so title-level claims do not contradict source-body evidence.
 
 ## Gaps logged
-- TLDR AI/InfoSec 2026-05-13 sponsor/event-copy extraction gap.
-- Rundown AI Mira Murati/TML body extraction + public-client-config filtering gap.
-
-## Privacy filtering
-- Rundown public client configuration / secrets-like scaffolding was not copied into semantic wiki facts.
-- No private personal data, tokens, or credentials were written to wiki pages.
-
-## Quality posture
-- .NET Blog release/servicing sources are decision-usable vendor evidence for scouting and patch urgency, with implementation details requiring docs/package verification.
-- TLDR AI/InfoSec and Rundown AI captures are low-yield for substantive claims and are used only as capture-quality evidence.
+- GitHub Actions concurrency queue candidates.
+- GitHub hosted-runner migration audit.
+- Azure SDK for Rust workload fit.
+- Service Bus shared breaker/retry/DLQ readiness.
+- TLDR AI/DevOps/InfoSec sponsor-block extraction.
+- Rundown AI article-body extraction/privacy filtering.
+- .NET 11 Process API harness adoption.
+- .NET MAUI CoreCLR mobile validation.
 
 ## Blockers
-- Existing unstaged/non-ingest repo changes predated this run; commit staging was limited to safe ingest files.
+- None for compile/commit quality.
+- Content-quality blocker remains upstream extraction: TLDR RSS and Rundown web captures are repeatedly low-yield/noisy.
+
+## Quality posture
+- Decision-usable pages created for GitHub Actions operations, Azure SDK for Rust, .NET runtime/mobile/process APIs, and Azure Service Bus resilience.
+- Weak/low-yield claims: TLDR title-level items and Rundown OpenAI/Codex article body were not promoted because raw bodies lacked decision-grade item/article text.
+- Privacy filtering: Rundown public client config/secrets-like strings were not copied into wiki semantic content; only the class of redaction was recorded.
+- Raw files were not edited or deleted.

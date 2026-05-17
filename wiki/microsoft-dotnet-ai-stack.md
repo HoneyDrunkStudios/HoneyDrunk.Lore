@@ -21,6 +21,7 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 
 - .NET 11 Preview 4 includes an MCP Server template in the .NET SDK, plus runtime/library/SDK/ASP.NET Core/MAUI/C#/EF Core improvements including process API expansion, span-based compression APIs, runtime-async-compiled runtime libraries, `dotnet watch` device selection for MAUI/mobile, OpenTelemetry CLI telemetry, HTTP QUERY in OpenAPI output, Blazor circuit pause, SQL Server 2025 approximate vector search, and deeper EF Core JSON mapping. confidence: 1 source, last-confirmed 2026-05-16. [source: raw/2026-05-13-rss-net-blog-net-11-preview-4-is-now-available.md]
 - The May 2026 .NET servicing updates ship .NET 10.0.8, .NET 9.0.16, and .NET 8.0.27 plus .NET Framework updates, fixing CVE-2026-32177, CVE-2026-35433, CVE-2026-32175, and CVE-2026-42899 across the affected supported versions. confidence: 1 source, last-confirmed 2026-05-16. [source: raw/2026-05-13-rss-net-blog-net-and-net-framework-may-2026-servicing-releases-updates.md]
+- A Microsoft Developer YouTube short demonstrates a consumer prompt pattern for turning face/beauty inputs into a structured salon-style visual counseling sheet; useful only as weak prompt/UI-brief evidence, not as .NET or agent-platform evidence. confidence: 1 source, last-confirmed 2026-05-17. [source: raw/2026-05-17-youtube-microsoft-developer-youtube-fun-with-ai-make-your-chat-into-a-professi.md]
 
 ## Typed entities
 - project/library: Microsoft.Extensions.AI
@@ -49,6 +50,7 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 - vulnerability: CVE-2026-42899
 - SDK: OpenAI SDK
 - concept: Business Skills
+- concept: structured prompt-to-infographic brief
 - protocol: Model Context Protocol
 - project/framework: Blazor Server
 - concept: RAG
@@ -72,6 +74,7 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 - Microsoft MCP app samples package ready-to-run MCP/OpenAI app patterns for cross-assistant surfaces.
 - .NET 11 SDK uses an MCP Server template to make MCP server creation a first-class ASP.NET/.NET developer workflow.
 - May 2026 .NET servicing releases supersede earlier supported patch levels for .NET 10, 9, and 8 when security posture matters.
+- [[dotnet-runtime-and-mobile-2026]] supersedes this page for detailed .NET 11 MAUI/CoreCLR and Process API tracking.
 - [[AI Agent Harnesses]] uses MCP servers as a tool/context integration layer.
 - [[Azure Agent Automation and Identity]] uses Microsoft Foundry, MCP, and Azure infrastructure as deployment context for C# agents.
 

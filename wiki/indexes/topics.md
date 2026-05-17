@@ -82,3 +82,22 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 ### Source quality and monitoring
 - [[browser-snapshot-source-quality]] - 69 sources - last-confirmed 2026-05-16
 - [[technical-art-community-and-talent-signals]] - 3 sources - last-confirmed 2026-05-07
+
+## 2026-05-17 topic additions
+
+### Cloud automation, identity, and messaging
+- [[azure-service-bus-and-functions-messaging]] - 2 sources - last-confirmed 2026-05-17
+- [[azure-sdk-for-rust]] - 1 source - last-confirmed 2026-05-17
+
+### DevOps and CI/CD
+- [[github-actions-platform-operations]] - 2 sources - last-confirmed 2026-05-17
+
+### .NET runtime and mobile
+- [[dotnet-runtime-and-mobile-2026]] - 2 sources - last-confirmed 2026-05-17
+- [[microsoft-dotnet-ai-stack]] - 19 sources - last-confirmed 2026-05-17
+
+### Game engines and tooling
+- [[gamedev-production-and-community-signals]] - 12 sources - last-confirmed 2026-05-17
+
+### Source quality and monitoring
+- [[browser-snapshot-source-quality]] - 75 sources - last-confirmed 2026-05-17

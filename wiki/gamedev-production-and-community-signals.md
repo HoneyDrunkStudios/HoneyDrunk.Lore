@@ -17,6 +17,7 @@ The game-development community feed produced a mix of process advice, tooling ex
 - The CivicSurvival case study shows a large AI-assisted Cities: Skylines II mod using Unity DOTS/ECS, custom RAG/MCP navigation, Roslyn analyzers, logs, and audits; it is useful as process evidence but self-reported and not an independent benchmark. confidence: 1 source, last-confirmed 2026-05-07. [source: raw/2026-05-07-rss-dev-to-gamedev-how-i-knowing-only-if-vibecoded-civicsurvival-a-158k-li.md]
 - Coach Ivy shows a product-led architecture decision for mobile game-like UX: use Flutter for normal app/product surfaces and embed Unity only for the reactive 3D avatar layer. confidence: 1 source, last-confirmed 2026-05-11. [source: raw/2026-05-11-rss-dev-to-unity-building-coach-ivy-embedding-a-unity-avatar-inside-a-flut.md]
 - Game Dev Digest issue #330 reinforces that Unity AI, GPU-driven art/VFX, localization, tagging, virtual file systems, and asset bundles are active Unity discovery topics, but the Digest itself is an aggregator. confidence: 1 source, last-confirmed 2026-05-11. [source: raw/2026-05-11-rss-dev-to-unity-game-dev-digest-issue-330-unity-ai-game-art-and-more.md]
+- Game Dev Digest issue #331 surfaces Unity discovery topics around Unity AI Assistant quality, Unity MCP, AI UI generation/prototyping, grass systems, GC-spike avoidance with Native Collections/Burst, logging pipeline customization, behavior-tree/editor tools, deterministic voxel grids, floating-origin multiplayer worlds, mesh fracture, runtime sprite baking, prefab thumbnails, and Unity path tracing; treat it as a link queue, not primary evidence. confidence: 1 source, last-confirmed 2026-05-17. [source: raw/2026-05-17-rss-dev-to-unity-game-dev-digest-issue-331-ai-opinions-grass-system-how-to.md]
 
 ## Typed entities
 - organization: Ocean View Games
@@ -47,6 +48,14 @@ The game-development community feed produced a mix of process advice, tooling ex
 - framework/runtime: Flutter
 - concept: hybrid mobile app/engine architecture
 - source/series: Game Dev Digest issue #330
+- source/series: Game Dev Digest issue #331
+- tool: Unity AI Assistant
+- protocol/tooling: Unity Model Context Protocol / Unity MCP
+- library: Native Collections
+- compiler/runtime feature: Burst
+- library/tool: FishNet floating origin
+- concept: deterministic voxel grid
+- concept: runtime sprite baking
 
 ## Explicit relationships
 - Flash-to-HTML5 migration depends-on source-code availability, asset extraction, behavior documentation, target technology choice, responsive UI work, performance optimization, and parity testing.
@@ -62,6 +71,7 @@ The game-development community feed produced a mix of process advice, tooling ex
 - CivicSurvival uses AI-assisted implementation with RAG/analyzers/logs to constrain large gamedev system changes.
 - Coach Ivy uses a Flutter app shell plus embedded Unity avatar layer to separate product state from character/3D rendering.
 - Game Dev Digest uses newsletter aggregation to surface discovery queues, but depends-on primary links for evidence.
+- Unity AI Assistant/MCP discovery depends-on direct Unity docs and local editor tests before adoption.
 
 ## HoneyDrunk implications
 - For internal game prototypes, start with a lightweight phase gate: concept, prototype, production, launch/learn.
@@ -70,6 +80,7 @@ The game-development community feed produced a mix of process advice, tooling ex
 - Novel AI/game demos are good marketing and learning artifacts; do not mistake them for product-market validation.
 - Track technical-art talent and reusable shader/VFX resources if Lore/Grid visual production ramps up.
 - Treat AI-assisted gamedev case studies as process patterns; validate with HoneyDrunk-specific builds and playtests before adopting wholesale.
+- Use Game Dev Digest #331 as a scouting queue for Unity MCP/editor-agent experiments and performance tooling, but inspect the linked primary sources before committing time.
 - For character-led app concepts, decide early whether Unity is the whole app or a bounded embedded scene; bounded is usually easier to maintain when commerce/navigation/content flows dominate.
 
 ## Confidence and quality notes
