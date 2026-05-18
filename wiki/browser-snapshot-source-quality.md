@@ -64,3 +64,16 @@ The 2026-05-03 through 2026-05-07 X-list and Discord clipper snapshots are low-y
 - Quality posture: high confidence about source-quality problem; low confidence for any substantive claims inside these snapshots.
 - Supersession: no substantive announcement claims were superseded; low-yield newsletter/social sources are explicitly excluded from supporting title-level claims.
 - Privacy filter: no individual user names, unread counts beyond generic source-quality description, private messages, or chat bodies copied.
+
+## 2026-05-18 compile additions
+
+### Claims
+- The Rundown AI 2026-05-13 and 2026-05-14 web captures for Android/Gemini and OpenAI enterprise shift contained article schema plus large site CSS/JavaScript/public client configuration, but no decision-grade body facts in the inspected raw; wiki compilation redacted public config and treated them as source-quality evidence only. confidence: 2 sources, last-confirmed 2026-05-18. [sources: raw/2026-05-18-web-the-rundown-ai-android-enters-its-gemini-intelligence-era.md; raw/2026-05-18-web-the-rundown-ai-the-enterprise-shift-openai-saw-coming.md]
+
+### Typed entities
+- article topic mentioned but not promoted: Android Gemini intelligence era
+- article topic mentioned but not promoted: OpenAI enterprise shift
+
+### Explicit relationships
+- 2026-05-18 Rundown captures reinforce, not supersede, the browser extraction gap because schema survived but article-body facts did not.
+- Rundown raw web captures depend-on privacy filtering before any semantic wiki write.

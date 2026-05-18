@@ -71,3 +71,37 @@ Unity-related sources clustered around practical production patterns: planning n
 ## Confidence and quality notes
 - Quality posture: decision-usable as scouting notes; vendor bias likely in Unity blog claims, DEV.to case studies are self-reported, and newsletter/link-roundup items need primary-source follow-up before major decisions.
 - Privacy filter: Discord UI dumps summarized without copying user/chat details.
+
+## 2026-05-18 compile additions
+
+### Claims
+- Albion Online operates from a single Unity project across PC, Mac, Linux, iOS, Android, and Xbox Series X|S, with platform-specific UI profiles, abstracted input, and identical gameplay logic while visual fidelity scales by platform. confidence: 1 source, last-confirmed 2026-05-18. [source: raw/2026-05-18-rss-unity-blog-architecting-albion-online-how-sandbox-interactive-built-a-.md]
+- Sandbox Interactive separates Albion Online's client into input, simulation prediction/authoritative-server synchronization, and visualization layers; the core simulation is independent of Unity and rendering should not bottleneck game logic. confidence: 1 source, last-confirmed 2026-05-18. [source: raw/2026-05-18-rss-unity-blog-architecting-albion-online-how-sandbox-interactive-built-a-.md]
+- Albion Online uses Jenkins daily builds for every platform plus validation for missing references, mesh limits, and game-data errors; every developer can run the full server-client stack locally. confidence: 1 source, last-confirmed 2026-05-18. [source: raw/2026-05-18-rss-unity-blog-architecting-albion-online-how-sandbox-interactive-built-a-.md]
+- Unity for Humanity 2026 awarded 10 winners and 3 honorable mentions from 515+ applications with a $600,000 prize pool, showing real-time 3D use across health, climate, education, accessibility, rehabilitation, and cultural preservation. confidence: 1 source, last-confirmed 2026-05-18. [source: raw/2026-05-18-rss-unity-blog-unity-for-humanity-2026-winner-announcement.md]
+
+### Typed entities
+- game: Albion Online
+- studio: Sandbox Interactive
+- engine: Unity Built-In Render Pipeline
+- engine: Unity Scriptable Render Pipeline / SRP
+- tool: Jenkins
+- pattern: decoupled simulation and visualization
+- pattern: single-project cross-platform Unity build
+- event/program: Unity for Humanity 2026 Grant
+- fund: Unity Charitable Fund
+- project: Project Ember
+- project: HandSolo
+- project: Reclaim! Azhe-giiwewining
+- project: Amaru Reimagined
+
+### Explicit relationships
+- Albion Online uses one Unity project with platform-specific UI/input/visual profiles to support cross-platform PvP.
+- Decoupled simulation depends-on authoritative server logic and client prediction, and prevents rendering from constraining game-state rules.
+- Android/mobile performance baseline constrains cross-platform feature work for Albion Online.
+- Unity for Humanity uses grant funding to support real-time-3D social-impact prototypes and distribution.
+
+### HoneyDrunk implications
+- For any multiplayer/cross-platform Unity prototype, separate simulation rules from Unity visualization early; do not let scene/render concerns become the game-state authority.
+- Pick the weakest target device as the performance baseline if cross-play fairness matters.
+- Treat Unity for Humanity projects as sourcing for impact/AR/VR/rehab patterns, not direct technical benchmarks.

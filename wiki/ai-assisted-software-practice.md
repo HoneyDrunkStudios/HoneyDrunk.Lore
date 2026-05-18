@@ -77,3 +77,35 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 - Contradictions: Zig policy is captured as a differing governance stance, not a universal rule; local-model “good enough” is one practitioner report, not a broad benchmark.
 - Weak claims: CivicSurvival metrics and audit yields are self-reported and should be treated as pattern evidence, not performance guarantees.
 - Privacy filter: no private details copied; public author names and project/tool names retained.
+
+## 2026-05-18 compile additions
+
+### Claims
+- Unmesh Joshi argues that in the LLM era the durable value of code shifts toward code as shared conceptual model and vocabulary: types, interfaces, invariants, workflows, and naming encode domain understanding for humans and LLMs. confidence: 1 source, last-confirmed 2026-05-18. [source: raw/2026-05-18-rss-martin-fowler-what-is-code.md]
+- Joshi names “cognitive debt” as the risk that LLMs introduce plausible vocabulary, abstractions, and structures faster than a team builds shared understanding. confidence: 1 source, last-confirmed 2026-05-18. [source: raw/2026-05-18-rss-martin-fowler-what-is-code.md]
+- Fowler's May 14 fragment says LLM-assisted legacy lift-and-shift may now be cheaper as a first migration step, but should not be the endpoint; teams still need user/business-outcome review after the mechanical port. confidence: 1 source, last-confirmed 2026-05-18. [source: raw/2026-05-18-rss-martin-fowler-fragments-may-14.md]
+- Fowler's May 14 fragment reinforces that junior-developer judgment transfer needs pairing and human review; fully automated spec/code review can block the learning that SPDD is meant to preserve. confidence: 1 source, last-confirmed 2026-05-18. [source: raw/2026-05-18-rss-martin-fowler-fragments-may-14.md]
+- James Pritchard's quoted position is that many product “agents” should instead be deterministic workflows with LLM function calls because known execution paths are easier to compose, debug, fail, and cost-control than autonomous conversations. confidence: 1 source, last-confirmed 2026-05-18. [source: raw/2026-05-18-rss-martin-fowler-fragments-may-14.md]
+- Pritchard also warns that markdown skills are often overused where architecture, clean code patterns, tests, hooks, and computational harness pieces would be more reliable. confidence: 1 source, last-confirmed 2026-05-18. [source: raw/2026-05-18-rss-martin-fowler-fragments-may-14.md]
+
+### Typed entities
+- person: Unmesh Joshi
+- person: James Pritchard
+- person: Martin Fowler
+- concept: code as shared conceptual model
+- concept: cognitive debt
+- concept: bounded context
+- concept: ubiquitous language
+- concept: lift-and-shift legacy migration
+- concept: interrogatory LLM
+- concept: Structured-Prompt-Driven Development / SPDD
+- concept: skills overuse
+- decision: prefer deterministic LLM function/workflow over runtime agent when path is known
+
+### Explicit relationships
+- Code vocabulary uses domain concepts, technical framework concepts, types, interfaces, invariants, and tests as LLM-readable harness/context.
+- Cognitive debt is caused when LLM-generated abstractions outpace team understanding.
+- Strong code structure supersedes prompt-only context as the primary harness for reliable coding agents.
+- LLM-assisted lift-and-shift supersedes prior cost assumptions for some legacy migrations, but depends-on post-port simplification and business-outcome review.
+- Deterministic workflows supersede autonomous agents when the workflow path is known.
+- Pair programming uses expert/junior collaboration to transfer agentic-programming judgment.

@@ -66,3 +66,18 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 - Quality posture: decision-usable; claims are source-cited and non-private.
 - Weak spots: LangChain source is vendor-authored; validate operational patterns against local OpenClaw behavior before architecture commitments.
 - Privacy filter: no credentials or unsafe PII copied from raw sources.
+
+## 2026-05-18 compile additions
+
+### Claims
+- OpenTelemetry GenAI semantic conventions give agent harnesses standard traces, metrics, and events for model calls, token use, tool calls, retries, and optionally prompt/tool content. confidence: 1 source, last-confirmed 2026-05-18. [source: raw/2026-05-18-rss-opentelemetry-blog-inside-the-llm-call-genai-observability-with-opente.md; page: [[opentelemetry-genai-observability-and-ecosystem]]]
+- Fowler/Pritchard's workflow-vs-agent point reinforces that harness design should not default to autonomy: if the steps are known, compose deterministic code with bounded LLM function calls. confidence: 1 source, last-confirmed 2026-05-18. [source: raw/2026-05-18-rss-martin-fowler-fragments-may-14.md]
+
+### Typed entities
+- standard: OpenTelemetry GenAI semantic conventions
+- tool: Aspire Dashboard
+- concept: deterministic workflow with LLM function call
+
+### Explicit relationships
+- Agent harnesses depend-on observability for debugging latency, cost, tool behavior, and retry loops.
+- Deterministic LLM workflows contradict unnecessary runtime autonomy when orchestration is knowable in code.

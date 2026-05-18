@@ -87,3 +87,23 @@ The game-development community feed produced a mix of process advice, tooling ex
 - Quality posture: mixed; process/migration/trust-boundary claims are decision-useful, Web3 article is architectural opinion, newsletter aggregation is low-authority, and self-reported case studies need local validation.
 - Weak claims: AWS Minecraft mod and LDL need repo/docs inspection before technical adoption; Polkadot/Substrate claim is source-author interest, not an independent recommendation.
 - Privacy filter: no private person details copied beyond public author/org/role names.
+
+## 2026-05-18 compile additions
+
+### Claims
+- Albion Online is a long-running Unity MMO architecture case study: a small team sustained cross-platform PvP by using a single Unity project, strict simulation/visualization separation, platform-specific controls/UI, CI validation, local full-stack dev loops, and community-informed platform/server decisions. confidence: 1 source, last-confirmed 2026-05-18. [source: raw/2026-05-18-rss-unity-blog-architecting-albion-online-how-sandbox-interactive-built-a-.md]
+- Sandbox Interactive reports that splitting Albion Online from one US global server to Asia and Europe servers improved latency, made combat more reactive, and boosted player numbers, while fragmenting the community somewhat. confidence: 1 source, last-confirmed 2026-05-18. [source: raw/2026-05-18-rss-unity-blog-architecting-albion-online-how-sandbox-interactive-built-a-.md]
+- Unity for Humanity 2026 is a real-time-3D/social-impact funding signal, with projects spanning self-care games, climate/AR education, VR rehab, MR burn training, language preservation, adaptive sports, and care-worker empathy training. confidence: 1 source, last-confirmed 2026-05-18. [source: raw/2026-05-18-rss-unity-blog-unity-for-humanity-2026-winner-announcement.md]
+
+### Typed entities
+- game: Albion Online
+- studio: Sandbox Interactive
+- pattern: community-informed live operations
+- pattern: regional server split
+- program: Unity for Humanity
+- concept: real-time 3D for social impact
+
+### Explicit relationships
+- Cross-platform live games depend-on CI validation, input-specific control design, and weakest-device performance baselines.
+- Community feedback caused Albion Online server-region expansion, but final product decisions remained with the studio.
+- Impact-game funding depends-on measurable audience/problem fit, prototype/distribution plans, and social-good alignment.

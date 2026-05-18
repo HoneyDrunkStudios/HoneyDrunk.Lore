@@ -101,3 +101,20 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 
 ### Source quality and monitoring
 - [[browser-snapshot-source-quality]] - 75 sources - last-confirmed 2026-05-17
+
+## 2026-05-18 topic additions
+
+### AI-assisted software engineering
+- [[ai-assisted-software-practice]] - 12 sources - last-confirmed 2026-05-18
+- [[ai-agent-harnesses]] - 14 sources - last-confirmed 2026-05-18
+
+### Observability and agent operations
+- [[opentelemetry-genai-observability-and-ecosystem]] - 2 sources - last-confirmed 2026-05-18
+- [[ai-agent-harnesses]] - 14 sources - last-confirmed 2026-05-18
+
+### Game engines and tooling
+- [[unity-3d-and-realtime-vfx-patterns]] - 14 sources - last-confirmed 2026-05-18
+- [[gamedev-production-and-community-signals]] - 14 sources - last-confirmed 2026-05-18
+
+### Source quality and monitoring
+- [[browser-snapshot-source-quality]] - 77 sources - last-confirmed 2026-05-18
