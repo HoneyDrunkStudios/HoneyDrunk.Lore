@@ -84,3 +84,11 @@ This keeps Lore decision-usable for Honeyclaw, Claude, and future agents.
 - pages updated: [[ai-assisted-software-practice]], [[ai-agent-harnesses]], [[unity-3d-and-realtime-vfx-patterns]], [[gamedev-production-and-community-signals]], [[browser-snapshot-source-quality]], indexes, run/query outputs
 - privacy filtering: Rundown AI public client config/secrets-like strings and site scaffolding were not copied into semantic facts
 - quality posture: OpenTelemetry, Fowler/Thoughtworks, and Unity sources are decision-usable; Rundown captures were fenced as low-yield source-quality evidence only.
+
+## 2026-05-19 OpenClaw ingest/compile
+- operator: Honeyclaw/OpenClaw scheduled ingest
+- raw sources ingested: 8
+- pages created: [[dotnet-dependency-security-and-nuget]]
+- pages updated: [[godot-2026-mobile-and-4-7-cycle]], [[unity-3d-and-realtime-vfx-patterns]], [[opentelemetry-genai-observability-and-ecosystem]], [[browser-snapshot-source-quality]], indexes, run/query outputs
+- privacy filtering: Rundown AI public client config/secrets-like strings and site scaffolding were not copied into semantic facts
+- quality posture: .NET, Godot, Unity, and OTel sources are decision-usable with vendor/community-source caveats; TLDR and Rundown captures were fenced as low-yield source-quality evidence only.

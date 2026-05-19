@@ -118,3 +118,20 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 
 ### Source quality and monitoring
 - [[browser-snapshot-source-quality]] - 77 sources - last-confirmed 2026-05-18
+
+## 2026-05-19 topic additions
+
+### .NET dependency security
+- [[dotnet-dependency-security-and-nuget]] - 1 source - last-confirmed 2026-05-19
+- [[microsoft-dotnet-ai-stack]] - 20 sources - last-confirmed 2026-05-19
+
+### Observability and agent operations
+- [[opentelemetry-genai-observability-and-ecosystem]] - 3 sources - last-confirmed 2026-05-19
+- [[ai-agent-harnesses]] - 15 sources - last-confirmed 2026-05-19
+
+### Game engines and tooling
+- [[godot-2026-mobile-and-4-7-cycle]] - 10 sources - last-confirmed 2026-05-19
+- [[unity-3d-and-realtime-vfx-patterns]] - 15 sources - last-confirmed 2026-05-19
+
+### Source quality and monitoring
+- [[browser-snapshot-source-quality]] - 81 sources - last-confirmed 2026-05-19

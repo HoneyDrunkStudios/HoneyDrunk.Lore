@@ -77,3 +77,22 @@ The 2026-05-03 through 2026-05-07 X-list and Discord clipper snapshots are low-y
 ### Explicit relationships
 - 2026-05-18 Rundown captures reinforce, not supersede, the browser extraction gap because schema survived but article-body facts did not.
 - Rundown raw web captures depend-on privacy filtering before any semantic wiki write.
+
+## 2026-05-19 compile additions
+
+### Claims
+- TLDR AI, TLDR DevOps, and TLDR InfoSec RSS captures for 2026-05-18 again contained sponsor/adoption-copy excerpts rather than the named newsletter items, so they should not be used as evidence for Gemini Extended Thinking, ChatGPT finance, Claude Code at scale, Bun's Rust rewrite, remote-cache CDC, AWS Security Agent, OpenClaw 4-bug chain, Mythos pentest eval, or JobStealer claims. confidence: 3 sources, last-confirmed 2026-05-19. [sources: raw/2026-05-19-rss-tldr-ai-gemini-extended-thinking-chatgpt-finance-claude-code-at-scale.md; raw/2026-05-19-rss-tldr-devops-bun-s-rust-rewrite-remote-cache-cdc-aws-security-agent.md; raw/2026-05-19-rss-tldr-infosec-openclaw-4-bug-chain-mythos-pentest-eval-fake-interview-j.md]
+- The Rundown AI 2026-05-18 web capture for “AI anger comes for Claude (Monet)” contained article schema plus large site CSS/JavaScript/public client configuration, but no decision-grade body facts in inspected raw; wiki compilation redacted public config and treated it as source-quality evidence only. confidence: 1 source, last-confirmed 2026-05-19. [source: raw/2026-05-19-web-the-rundown-ai-ai-anger-comes-for-claude-monet.md]
+
+### Typed entities
+- article topic mentioned but not promoted: Gemini Extended Thinking
+- article topic mentioned but not promoted: ChatGPT finance
+- article topic mentioned but not promoted: Claude Code at scale
+- article topic mentioned but not promoted: Bun Rust rewrite
+- article topic mentioned but not promoted: OpenClaw 4-bug chain
+- article topic mentioned but not promoted: Mythos pentest eval
+- article topic mentioned but not promoted: AI anger / Claude Monet
+
+### Explicit relationships
+- 2026-05-19 TLDR captures reinforce, not supersede, the sponsor-copy RSS extraction failure across AI, DevOps, and InfoSec categories.
+- 2026-05-19 Rundown capture reinforces, not supersedes, the browser extraction/privacy-filter gap.

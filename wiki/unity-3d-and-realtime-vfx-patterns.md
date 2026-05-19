@@ -105,3 +105,24 @@ Unity-related sources clustered around practical production patterns: planning n
 - For any multiplayer/cross-platform Unity prototype, separate simulation rules from Unity visualization early; do not let scene/render concerns become the game-state authority.
 - Pick the weakest target device as the performance baseline if cross-play fairness matters.
 - Treat Unity for Humanity projects as sourcing for impact/AR/VR/rehab patterns, not direct technical benchmarks.
+
+## 2026-05-19 compile additions
+
+### Claims
+- A DEV.to Unity comparison frames Unity as stronger for fast prototyping, mobile-first development, 2D/stylized 3D, AR/VR, cross-platform deployment, and small-team flexibility; it frames Unreal as stronger for AAA visuals, high-performance 3D, cinematic rendering, complex simulations, structured pipelines, and engine-level control. confidence: 1 source, last-confirmed 2026-05-19. [source: raw/2026-05-19-rss-dev-to-unity-unity-vs-unreal-comparison-pros-cons-key-differences.md]
+- The same source says engine choice should be driven by target platform, visual direction, team expertise, production timeline/budget, long-term maintenance, monetization, and live-update requirements rather than a generic “best engine” answer. confidence: 1 source, last-confirmed 2026-05-19. [source: raw/2026-05-19-rss-dev-to-unity-unity-vs-unreal-comparison-pros-cons-key-differences.md]
+
+### Typed entities
+- engine: Unity
+- engine: Unreal Engine
+- concept: engine selection criteria
+- concept: mobile-first development
+- concept: AAA visual fidelity
+- concept: live updates
+
+### Explicit relationships
+- Unity and Unreal Engine contradict one-size-fits-all engine selection; suitability depends-on platform, visuals, team skills, budget, maintenance, and live-ops needs.
+- Unity is positioned as supporting fast/mobile/stylized workflows; Unreal is positioned as supporting cinematic/high-end simulation workflows.
+
+### HoneyDrunk implications
+- Keep the existing HoneyDrunk engine-selection gap open: this source reinforces evaluation criteria but is not procurement-grade evidence or a benchmark.

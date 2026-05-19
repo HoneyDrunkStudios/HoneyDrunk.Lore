@@ -62,3 +62,25 @@ Godot's 2026 signal is mobile maturity plus active 4.7 stabilization and renderi
 - Quality posture: decision-usable for tracking engine direction; not enough to pick Godot over Unity without project-specific constraints.
 - Supersession: 4.7 beta 1 supersedes dev snapshots for release-stage signal, but dev snapshots preserve feature detail.
 - Privacy filter: no private data copied.
+
+## 2026-05-19 compile additions
+
+### Claims
+- Godot 4.6.3 RC 2 is a maintenance-release candidate focused largely on regressions since RC 1, with 21 improvements from 14 contributors and build commit `e880d6bbf`; fixes cover GridMap editing, compressed Pos3D track interpolation, editor/resource-gather issues, GDScript LSP/warnings, GUI/RichTextLabel/TextEdit, Wayland clipboard, and rendering/volumetric-fog/LightmapGI behavior. confidence: 1 source, last-confirmed 2026-05-19. [source: raw/2026-05-19-rss-godot-engine-release-candidate-godot-4-6-3-rc-2.md]
+- Godot release-candidate guidance explicitly treats preview/RC builds as pre-release software and recommends backups or version control before testing on projects. confidence: 1 source, last-confirmed 2026-05-19. [source: raw/2026-05-19-rss-godot-engine-release-candidate-godot-4-6-3-rc-2.md]
+
+### Typed entities
+- version: Godot 4.6.3 RC 2
+- commit: `e880d6bbf`
+- subsystem: GridMap editor
+- subsystem: GDScript LSP
+- subsystem: Wayland clipboard
+- subsystem: Volumetric fog
+- subsystem: LightmapGI
+
+### Explicit relationships
+- Godot 4.6.3 RC 2 supersedes Godot 4.6.2 as the latest 4.6-line release-candidate signal, but does not supersede 4.6.2 as stable production guidance until final release.
+- Godot 4.6.3 RC 2 depends-on community regression testing before final maintenance release.
+
+### HoneyDrunk implications
+- Use 4.6.3 RC 2 only for validating whether specific 4.6.2 regressions are fixed; keep stable production baselines on released builds until 4.6.3 final.

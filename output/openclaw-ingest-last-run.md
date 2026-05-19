@@ -1,51 +1,51 @@
-# OpenClaw Lore Ingest Last Run
+# OpenClaw Lore Ingest — Last Run
 
-## Timestamp
-2026-05-18 09:00 UTC / 2026-05-18 05:00 America/New_York
+Timestamp: 2026-05-19T09:00:00Z
+Operator/runtime: Honeyclaw / OpenClaw scheduled ingest
 
-## Raw sources ingested (8)
-- raw/2026-05-18-rss-martin-fowler-fragments-may-14.md
-- raw/2026-05-18-rss-martin-fowler-what-is-code.md
-- raw/2026-05-18-rss-opentelemetry-blog-inside-the-llm-call-genai-observability-with-opente.md
-- raw/2026-05-18-rss-opentelemetry-blog-introducing-the-ecosystem-explorer-project.md
-- raw/2026-05-18-rss-unity-blog-architecting-albion-online-how-sandbox-interactive-built-a-.md
-- raw/2026-05-18-rss-unity-blog-unity-for-humanity-2026-winner-announcement.md
-- raw/2026-05-18-web-the-rundown-ai-android-enters-its-gemini-intelligence-era.md
-- raw/2026-05-18-web-the-rundown-ai-the-enterprise-shift-openai-saw-coming.md
+## Raw sources ingested: 8
+- raw/2026-05-19-rss-dev-to-unity-unity-vs-unreal-comparison-pros-cons-key-differences.md
+- raw/2026-05-19-rss-godot-engine-release-candidate-godot-4-6-3-rc-2.md
+- raw/2026-05-19-rss-net-blog-nuget-package-pruning-cleaner-dependencies-and-actionable-vul.md
+- raw/2026-05-19-rss-opentelemetry-blog-introducing-otel-blueprints-and-reference-implement.md
+- raw/2026-05-19-rss-tldr-ai-gemini-extended-thinking-chatgpt-finance-claude-code-at-scale.md
+- raw/2026-05-19-rss-tldr-devops-bun-s-rust-rewrite-remote-cache-cdc-aws-security-agent.md
+- raw/2026-05-19-rss-tldr-infosec-openclaw-4-bug-chain-mythos-pentest-eval-fake-interview-j.md
+- raw/2026-05-19-web-the-rundown-ai-ai-anger-comes-for-claude-monet.md
 
 ## Wiki pages created
-- wiki/opentelemetry-genai-observability-and-ecosystem.md
+- wiki/dotnet-dependency-security-and-nuget.md
 
 ## Wiki pages updated
-- wiki/ai-assisted-software-practice.md
-- wiki/ai-agent-harnesses.md
+- wiki/godot-2026-mobile-and-4-7-cycle.md
 - wiki/unity-3d-and-realtime-vfx-patterns.md
-- wiki/gamedev-production-and-community-signals.md
+- wiki/opentelemetry-genai-observability-and-ecosystem.md
 - wiki/browser-snapshot-source-quality.md
 - wiki/indexes/sources.md
 - wiki/indexes/topics.md
 - wiki/indexes/gaps.md
 - wiki/indexes/audit.md
 
-## Query/output crystallization
-- Created output/query-2026-05-18-daily-agent-observability-and-unity-signal.md with durable facts already reflected in wiki pages.
+## Output files updated/created
+- output/query-2026-05-19-daily-platform-observability-and-engine-signal.md
+- output/openclaw-ingest-last-run.md
 
-## Contradictions resolved / supersession
-- No substantive contradictions required resolution.
-- Supersession/decision posture captured: deterministic LLM workflows supersede autonomous agents when execution steps are known; code-as-vocabulary/context supersedes prompt-only harnessing for reliable AI coding; Rundown title-level claims were not promoted because body facts were unavailable in raw.
+## Contradictions / supersession
+- No high-confidence factual contradictions resolved.
+- Godot 4.6.3 RC 2 supersedes 4.6.2 only as latest 4.6-line candidate signal; it does not supersede stable-production guidance until final release.
+- 2026-05-19 TLDR/Rundown captures reinforce existing extraction-quality failures and do not support title-level claims.
 
 ## Gaps logged
-- OTel GenAI telemetry/redaction policy for HoneyDrunk agent runtimes.
-- Rundown AI body extraction without public client config/site scaffolding.
-- Unity simulation/visualization boundary validation for cross-platform prototypes.
-- Audit of recurring AI-coding workflows that should be deterministic workflow code rather than runtime agents.
+- TLDR RSS/newsletter extraction still captures sponsor/adoption blocks instead of item bodies.
+- Rundown AI extraction still captures schema/public app config/site scaffolding without decision-grade body facts.
+- HoneyDrunk .NET 10 package pruning adoption needs local package inventory/multi-targeting review.
+- HoneyDrunk/OpenClaw OTel usage needs an internal deployment blueprint before agent-added config spreads.
 
-## Blockers
-- None for compile/commit quality.
-- Upstream extraction blocker remains: Rundown AI browser captures continue to retain schema/public config but not decision-grade article bodies.
+## Privacy filtering
+- Rundown AI public client configuration/secrets-like strings and site scaffolding were not copied into wiki semantic facts.
+- TLDR sponsor blocks were summarized as source-quality evidence only; no title-level claims promoted.
 
 ## Quality posture
-- Decision-usable pages updated for AI-assisted software practice, agent harness observability, OpenTelemetry GenAI telemetry, Unity cross-platform MMO architecture, and real-time-3D impact-project signals.
-- Weak/low-yield claims: Rundown Android/Gemini and OpenAI enterprise articles were fenced as source-quality evidence only; no title-level claims promoted.
-- Privacy filtering: Rundown public client config/secrets-like strings, CSS, and JavaScript scaffolding were not copied into semantic wiki content; only the redaction class was recorded.
+- Decision-usable: .NET NuGet pruning, OTel Blueprints, Godot RC, and Unity/Unreal criteria, with vendor/community-source caveats.
+- Weak/low-yield: TLDR AI/DevOps/InfoSec RSS and Rundown AI web capture; fenced to source-quality page only.
 - Raw files were not edited or deleted.

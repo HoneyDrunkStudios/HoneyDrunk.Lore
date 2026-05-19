@@ -51,3 +51,35 @@ OpenTelemetry is becoming the practical neutral observability layer for LLM/agen
 ## Confidence and quality notes
 - Quality posture: decision-usable for observability architecture. Sources are official OpenTelemetry blog posts; still validate exact tool flags and schema versions against current docs before implementation.
 - Privacy filter: raw command examples retained only as public local-dev guidance; no prompts, tokens, DSNs, or private telemetry copied.
+
+## 2026-05-19 compile additions
+
+### Claims
+- OpenTelemetry Blueprints and Reference Implementations are an End User SIG + Developer Experience SIG initiative to provide prescriptive, opinionated adoption guidance without replacing component-level docs. confidence: 1 source, last-confirmed 2026-05-19. [source: raw/2026-05-19-rss-opentelemetry-blog-introducing-otel-blueprints-and-reference-implement.md]
+- The OTel blueprint structure is intended to include Summary, Common Challenges, General Guidelines, and Implementation sections, scoping only the observability problems in scope and pointing to existing docs for component-level steps. confidence: 1 source, last-confirmed 2026-05-19. [source: raw/2026-05-19-rss-opentelemetry-blog-introducing-otel-blueprints-and-reference-implement.md]
+- Initial blueprint focus areas include non-Kubernetes infrastructure/process instrumentation, Kubernetes observability, and centralized telemetry platforms; blueprints can relate, overlap, or extend each other. confidence: 1 source, last-confirmed 2026-05-19. [source: raw/2026-05-19-rss-opentelemetry-blog-introducing-otel-blueprints-and-reference-implement.md]
+- Reference implementations are snapshots of real-world OpenTelemetry adoption that implement one or more blueprints; Adobe, Mastodon, and Skyscanner are cited as already-published examples. confidence: 1 source, last-confirmed 2026-05-19. [source: raw/2026-05-19-rss-opentelemetry-blog-introducing-otel-blueprints-and-reference-implement.md]
+- The source explicitly warns that AI-assisted development can increase accidental OTel complexity by adding duplicated or inconsistent configuration/deployment patterns unless teams share a strategy. confidence: 1 source, last-confirmed 2026-05-19. [source: raw/2026-05-19-rss-opentelemetry-blog-introducing-otel-blueprints-and-reference-implement.md]
+
+### Typed entities
+- project: OpenTelemetry Blueprints
+- project: OpenTelemetry Reference Implementations
+- SIG: OpenTelemetry End User SIG
+- SIG: OpenTelemetry Developer Experience SIG
+- organization/reference implementer: Adobe
+- organization/reference implementer: Mastodon
+- organization/reference implementer: Skyscanner
+- concept: essential complexity
+- concept: accidental complexity
+- pattern: centralized telemetry platform
+- pattern: Kubernetes observability
+- pattern: non-Kubernetes infrastructure instrumentation
+
+### Explicit relationships
+- OTel Blueprints complement, not supersede, existing OpenTelemetry component documentation.
+- Reference Implementations implement one or more Blueprints and ground prescriptive guidance in real deployments.
+- AI-assisted configuration can cause accidental OTel complexity unless observability strategy is shared and enforced.
+
+### HoneyDrunk implications
+- For OpenClaw/Grid observability, write an internal “HoneyDrunk OTel blueprint” before allowing agents to add telemetry config piecemeal.
+- Prefer one shared collector/exporter/context-propagation pattern per environment; duplicated agent-added variants should be linted out.
