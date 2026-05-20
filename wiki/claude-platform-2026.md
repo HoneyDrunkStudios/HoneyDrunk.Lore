@@ -59,3 +59,19 @@ Anthropic's 2026 platform direction is enterprise/workflow-heavy: Claude Opus 4.
 - Quality posture: decision-usable but vendor-authored; treat customer benchmark quotes as directional, not independently audited.
 - Supersession: Opus 4.7 supersedes Opus 4.6 for Anthropic's own model recommendation, but existing Opus 4.6 prompts/harnesses should be re-tested rather than blindly migrated.
 - Privacy filter: no secrets or private data copied; public customer/person names retained only where decision-useful.
+
+## 2026-05-20 compile additions
+
+### Claims
+- Docker's security writeup cites Claude Code and Claude Cowork among agent tools involved in public filesystem/permission-boundary incidents; treat the incidents as security-design signals rather than vendor-specific proof until primary sources are checked. confidence: 1 vendor roundup source, last-confirmed 2026-05-20. [source: raw/2026-05-20-rss-docker-blog-coding-agent-horror-stories-the-security-crisis-threatenin.md; page: [[ai-coding-agent-security]]]
+- Microsoft Developer's Cowork video metadata positions Cowork skills as automations for repeatable manual workflows, such as converting a GitHub contribution link into a formatted PowerPoint slide. confidence: 1 YouTube metadata source, last-confirmed 2026-05-20. [source: raw/2026-05-20-youtube-microsoft-developer-youtube-using-cowork-i-automated-my-prompt-of-the-.md]
+
+### Typed entities
+- product: Claude Cowork
+- product: Claude Code
+- product: Microsoft Cowork
+- concept: agent skill automation
+
+### Explicit relationships
+- Claude/Cowork-style agent products depend-on filesystem and tool permission boundaries when operating beyond chat.
+- Cowork skills complement agent harnesses by packaging repeatable workflow automation.

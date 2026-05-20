@@ -62,3 +62,34 @@ Google's May 2026 infrastructure sources point in two complementary directions: 
 - Quality posture: decision-usable for scouting; all quantitative performance claims are vendor/partner-authored and need workload-specific validation.
 - Weak claims: production examples are persuasive but not transferable without target device and workload testing.
 - Privacy filter: no private data or credentials copied.
+
+## 2026-05-20 compile additions
+
+### Claims
+- Azure Blob Storage plus Run:AI Model Streamer can stream SafeTensors model weights through CPU memory into GPU memory for vLLM and SGLang, skipping the conventional object-storage-to-local-disk staging step. confidence: 1 vendor benchmark source, last-confirmed 2026-05-20. [source: raw/2026-05-20-rss-azure-blog-eliminate-llm-cold-starts-load-models-up-to-6x-faster-with-.md]
+- Azure's benchmark reports vLLM load-time improvements from about 4.3x for a 14.99 GiB Llama 3.1 8B model to about 6.1x for a 232.8 GiB Qwen model on an 8x H100 ND96isr_H100_v5 VM using same-region Premium Blob Storage; validate on HoneyDrunk workloads before relying on the numbers. confidence: 1 vendor benchmark source, last-confirmed 2026-05-20. [source: raw/2026-05-20-rss-azure-blog-eliminate-llm-cold-starts-load-models-up-to-6x-faster-with-.md]
+- Streaming large model weights can move cold starts from multi-minute windows into a single autoscaler polling cycle, reducing queue buildup, timeout/retry cascades, and over-provisioning during scale-out/rollouts. confidence: 1 vendor source, last-confirmed 2026-05-20. [source: raw/2026-05-20-rss-azure-blog-eliminate-llm-cold-starts-load-models-up-to-6x-faster-with-.md]
+
+### Typed entities
+- service: Azure Blob Storage
+- product/library: Run:AI Model Streamer
+- inference engine: vLLM
+- inference engine: SGLang
+- model-weight format: SafeTensors
+- URI scheme: `az://`
+- hardware: Standard_ND96isr_H100_v5
+- hardware: NVIDIA H100 80 GB
+- model: Meta-Llama-3.1-8B-Instruct
+- model: GPT-OSS-120B
+- model: Qwen3.5-122B-A10B
+- concept: LLM cold start
+- concept: autoscaler polling cycle
+
+### Explicit relationships
+- Run:AI Model Streamer uses Azure Blob Storage and `az://` URIs to stream model weights directly into GPU memory for vLLM/SGLang.
+- LLM serving cold starts depend-on model-weight I/O path, not only GPU availability.
+- Local-disk staging contradicts fast autoscaling for very large model replicas when the load window exceeds autoscaler cadence.
+
+### HoneyDrunk implications
+- If HoneyDrunk hosts large open-weight models on Azure, test model streaming early; cold-start I/O can dominate GPU utilization and perceived reliability.
+- Require workload-specific validation: model size, region/storage tier, NIC saturation, concurrency settings, managed identity auth, and autoscaler cadence all affect the decision.

@@ -1,31 +1,31 @@
 # OpenClaw Lore Sourcing — Last Run
 
-Timestamp: 2026-05-19T03:01:09
+Timestamp: 2026-05-20T03:01:17
 Mode: write
 Candidates scanned: 129
-Skipped duplicates: 28
+Skipped duplicates: 30
 Selected: 8
 Saved: 8
 
 ## Selected candidates
-- [AI / LLM Research & Tooling] TLDR AI: Gemini Extended Thinking ✨, ChatGPT finance 📱, Claude Code at scale 👨‍💻
-- [AI / LLM Research & Tooling] The Rundown AI: AI anger comes for Claude (Monet)
-- [.NET Ecosystem] .NET Blog: NuGet Package Pruning: Cleaner Dependencies and Actionable Vulnerability Reports
-- [DevOps & CI/CD] TLDR DevOps: Bun’s Rust Rewrite 🦀, Remote Cache CDC 📦, AWS Security Agent 🥷
-- [DevOps & CI/CD] OpenTelemetry Blog: Introducing OTel Blueprints and Reference Implementations
-- [Security & Ethical Hacking] TLDR InfoSec: OpenClaw 4-Bug Chain 🦞, Mythos Pentest Eval ⚔️, Fake Interview JobStealer Malware 🧑‍💼
-- [Game Development / Unity] DEV.to Unity: Unity vs Unreal Comparison: Pros, Cons & Key Differences
-- [Game Development / Unity] Godot Engine: Release candidate: Godot 4.6.3 RC 2
+- [AI / LLM Research & Tooling] TLDR AI: Qwen 3.7 🤖, Cursor Composer 2.5 👨‍💻, Anthropic acquires Stainless 🛠️
+- [AI / LLM Research & Tooling] The Rundown AI: Musk's OpenAI case runs out of time
+- [.NET Ecosystem] Microsoft Developer YouTube: Using Cowork I automated my Prompt of the Week slide generation
+- [Azure & Cloud] Azure Blog: Eliminate LLM Cold starts: Load models up to 6x Faster with Azure Blob Storage and Run:AI Model Streamer
+- [DevOps & CI/CD] OpenTelemetry Blog: Applying OpenTelemetry Security Practices in Legacy Environments
+- [DevOps & CI/CD] Docker Blog: Coding Agent Horror Stories: The Security Crisis Threatening Developer Infrastructure
+- [Security & Ethical Hacking] TLDR InfoSec: 1.8M NYC Patients Hit 🗽, Pixel 10 0-Click Exploit 📱, Ledger Mail Phishing ✉️
+- [Game Development / Unity] DEV.to Unity: Unity vs Godot vs Unreal for Mobile Games: A Practical Comparison
 
 ## Files written
-- raw/2026-05-19-rss-tldr-ai-gemini-extended-thinking-chatgpt-finance-claude-code-at-scale.md
-- raw/2026-05-19-web-the-rundown-ai-ai-anger-comes-for-claude-monet.md
-- raw/2026-05-19-rss-net-blog-nuget-package-pruning-cleaner-dependencies-and-actionable-vul.md
-- raw/2026-05-19-rss-tldr-devops-bun-s-rust-rewrite-remote-cache-cdc-aws-security-agent.md
-- raw/2026-05-19-rss-opentelemetry-blog-introducing-otel-blueprints-and-reference-implement.md
-- raw/2026-05-19-rss-tldr-infosec-openclaw-4-bug-chain-mythos-pentest-eval-fake-interview-j.md
-- raw/2026-05-19-rss-dev-to-unity-unity-vs-unreal-comparison-pros-cons-key-differences.md
-- raw/2026-05-19-rss-godot-engine-release-candidate-godot-4-6-3-rc-2.md
+- raw/2026-05-20-rss-tldr-ai-qwen-3-7-cursor-composer-2-5-anthropic-acquires-stainless.md
+- raw/2026-05-20-web-the-rundown-ai-musk-s-openai-case-runs-out-of-time.md
+- raw/2026-05-20-youtube-microsoft-developer-youtube-using-cowork-i-automated-my-prompt-of-the-.md
+- raw/2026-05-20-rss-azure-blog-eliminate-llm-cold-starts-load-models-up-to-6x-faster-with-.md
+- raw/2026-05-20-rss-opentelemetry-blog-applying-opentelemetry-security-practices-in-legacy.md
+- raw/2026-05-20-rss-docker-blog-coding-agent-horror-stories-the-security-crisis-threatenin.md
+- raw/2026-05-20-rss-tldr-infosec-1-8m-nyc-patients-hit-pixel-10-0-click-exploit-ledger-mai.md
+- raw/2026-05-20-rss-dev-to-unity-unity-vs-godot-vs-unreal-for-mobile-games-a-practical-com.md
 
 ## Failures / skips
 _None_

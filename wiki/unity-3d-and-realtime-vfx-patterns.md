@@ -126,3 +126,35 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### HoneyDrunk implications
 - Keep the existing HoneyDrunk engine-selection gap open: this source reinforces evaluation criteria but is not procurement-grade evidence or a benchmark.
+
+## 2026-05-20 compile additions
+
+### Claims
+- A DEV.to/Ocean View Games mobile-engine comparison argues Unity is the pragmatic choice for most commercial mobile projects because of mature mobile rendering/URP, smaller baseline build sizes than Unreal, faster iteration than Unreal, C# talent availability, and first-party/vendor monetization and analytics SDK maturity. confidence: 1 biased/self-disclosed Unity-specialist source, last-confirmed 2026-05-20. [source: raw/2026-05-20-rss-dev-to-unity-unity-vs-godot-vs-unreal-for-mobile-games-a-practical-com.md]
+- The same source recommends Godot mainly for indie/solo 2D mobile games where zero license cost, small exports, and rapid iteration matter more than first-party ad/IAP/analytics tooling. confidence: 1 biased/self-disclosed source, last-confirmed 2026-05-20. [source: raw/2026-05-20-rss-dev-to-unity-unity-vs-godot-vs-unreal-for-mobile-games-a-practical-com.md]
+- The same source recommends Unreal for projects prioritizing visual fidelity, PC/console-first production, or teams with strong C++ depth; it flags Unreal mobile tradeoffs around baseline app size, desktop-first workflow, build times, and lack of Lumen/Nanite on mobile. confidence: 1 biased/self-disclosed source, last-confirmed 2026-05-20. [source: raw/2026-05-20-rss-dev-to-unity-unity-vs-godot-vs-unreal-for-mobile-games-a-practical-com.md]
+
+### Typed entities
+- engine: Unity
+- renderer: Unity Universal Render Pipeline / URP
+- engine: Godot
+- engine: Unreal Engine
+- feature: Lumen
+- feature: Nanite
+- language: C#
+- language: C++
+- language: GDScript
+- product/service category: mobile ad mediation SDK
+- product/service category: in-app purchase SDK
+- product/service category: analytics SDK
+
+### Explicit relationships
+- Unity uses mature mobile SDK/tooling ecosystems to reduce commercial mobile integration risk.
+- Godot depends-on lighter/community-maintained mobile monetization integrations for many commercial free-to-play needs.
+- Unreal's Lumen and Nanite advantages contradict mobile-first assumptions because those headline features do not run on mobile in the cited comparison.
+- Engine choice depends-on target hardware, monetization model, team language depth, build-size constraints, and visual goals.
+
+### HoneyDrunk implications
+- This strengthens Unity as the default commercial-mobile candidate, but it is not neutral evidence; require a HoneyDrunk prototype benchmark before closing the engine-selection gap.
+- For lightweight 2D/mobile experiments with minimal monetization, Godot remains worth testing.
+- Avoid Unreal for mobile-first prototypes unless high-end visuals or PC/console-first production is the real target.

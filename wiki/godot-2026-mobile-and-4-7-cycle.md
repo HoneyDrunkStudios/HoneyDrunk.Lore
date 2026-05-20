@@ -84,3 +84,26 @@ Godot's 2026 signal is mobile maturity plus active 4.7 stabilization and renderi
 
 ### HoneyDrunk implications
 - Use 4.6.3 RC 2 only for validating whether specific 4.6.2 regressions are fixed; keep stable production baselines on released builds until 4.6.3 final.
+
+## 2026-05-20 compile additions
+
+### Claims
+- A DEV.to/Ocean View Games comparison says Godot's purpose-built 2D renderer and interpreted GDScript give it a strong rapid-iteration story for 2D mobile projects, with export sizes roughly comparable to Unity in minimal projects. confidence: 1 biased/self-disclosed Unity-specialist source, last-confirmed 2026-05-20. [source: raw/2026-05-20-rss-dev-to-unity-unity-vs-godot-vs-unreal-for-mobile-games-a-practical-com.md]
+- The same comparison says Godot's mobile gaps are mostly ecosystem/tooling gaps: ad mediation, IAP, analytics, remote config, and store integrations are lighter or community-maintained compared with Unity. confidence: 1 biased/self-disclosed source, last-confirmed 2026-05-20. [source: raw/2026-05-20-rss-dev-to-unity-unity-vs-godot-vs-unreal-for-mobile-games-a-practical-com.md]
+
+### Typed entities
+- renderer: Godot 2D renderer
+- renderer: Godot Compatibility renderer
+- renderer: Godot Forward+ renderer
+- language: GDScript
+- language/runtime: Godot C#
+- concept: mobile ad mediation
+- concept: mobile IAP
+- concept: mobile analytics
+
+### Explicit relationships
+- Godot 2D mobile suitability depends-on project scope and monetization/tooling needs.
+- Godot's no-royalty/open-source licensing supports indie/solo economics but does not supersede commercial SDK maturity concerns.
+
+### HoneyDrunk implications
+- Godot should remain in the evaluation set for 2D/mobile prototypes and iPad-first tooling; for F2P/mobile commerce, Unity still has lower integration risk until Godot plugin maturity is verified.

@@ -81,3 +81,24 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 ### Explicit relationships
 - Agent harnesses depend-on observability for debugging latency, cost, tool behavior, and retry loops.
 - Deterministic LLM workflows contradict unnecessary runtime autonomy when orchestration is knowable in code.
+
+## 2026-05-20 compile additions
+
+### Claims
+- Docker's coding-agent security writeup reinforces that the harness, not the model prompt, must enforce filesystem scope, credential reachability, network egress, and irreversible-action approvals. confidence: 1 vendor security source, last-confirmed 2026-05-20. [source: raw/2026-05-20-rss-docker-blog-coding-agent-horror-stories-the-security-crisis-threatenin.md; page: [[ai-coding-agent-security]]]
+- Microsoft Developer's Cowork YouTube metadata shows a narrow skill pattern: a Cowork skill accepts one GitHub contribution link, fetches metadata, and generates a formatted PowerPoint slide for a weekly “Prompt of the Week” workflow. confidence: 1 YouTube metadata source, last-confirmed 2026-05-20. [source: raw/2026-05-20-youtube-microsoft-developer-youtube-using-cowork-i-automated-my-prompt-of-the-.md]
+
+### Typed entities
+- product: Docker Sandboxes / sbx
+- concept: workspace-scoped agent execution
+- product: Microsoft Cowork
+- artifact: PowerPoint slide
+- source platform: GitHub
+- pattern: single-input skill automation
+
+### Explicit relationships
+- Agent harnesses depend-on execution-layer security boundaries for destructive or external actions.
+- Cowork skills use narrow inputs and tool access to automate repeatable office/content workflows.
+
+### HoneyDrunk implications
+- Prefer small, typed, single-purpose agent skills for repeatable studio operations; they are easier to permission, test, and audit than broad autonomous agents.

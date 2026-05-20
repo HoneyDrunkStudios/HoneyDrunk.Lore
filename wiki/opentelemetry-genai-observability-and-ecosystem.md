@@ -83,3 +83,29 @@ OpenTelemetry is becoming the practical neutral observability layer for LLM/agen
 ### HoneyDrunk implications
 - For OpenClaw/Grid observability, write an internal “HoneyDrunk OTel blueprint” before allowing agents to add telemetry config piecemeal.
 - Prefer one shared collector/exporter/context-propagation pattern per environment; duplicated agent-added variants should be linted out.
+
+## 2026-05-20 compile additions
+
+### Claims
+- In legacy/industrial environments, OpenTelemetry security controls often shift from source instrumentation to Collector/intermediary placement because source systems may not support modern agents, TLS/auth, or regular patching. confidence: 1 official OTel blog source, last-confirmed 2026-05-20. [source: raw/2026-05-20-rss-opentelemetry-blog-applying-opentelemetry-security-practices-in-legacy.md]
+- The OTel legacy-environment guidance prefers running the Collector as an external bridge where possible, so the telemetry boundary can be patched independently of long-lived or change-restricted systems. confidence: 1 official OTel blog source, last-confirmed 2026-05-20. [source: raw/2026-05-20-rss-opentelemetry-blog-applying-opentelemetry-security-practices-in-legacy.md]
+- Sensitive operational telemetry in manufacturing/legacy environments can include production processes, machine configuration, asset identifiers, operational states, and plant-level performance data; it is not limited to typical PII. confidence: 1 official OTel blog source, last-confirmed 2026-05-20. [source: raw/2026-05-20-rss-opentelemetry-blog-applying-opentelemetry-security-practices-in-legacy.md]
+
+### Typed entities
+- component: OpenTelemetry Collector
+- pattern: external Collector bridge
+- environment type: legacy industrial system
+- concept: telemetry pipeline as control boundary
+- control: bind Collector endpoints narrowly
+- control: data minimization
+- control: redaction/filter/transform processors
+- concept: sensitive operational data
+
+### Explicit relationships
+- OpenTelemetry Collector placement depends-on legacy system modifiability, network segmentation, and patching constraints.
+- External Collector bridge supersedes embedded Collector deployment as the preferred pattern when legacy systems cannot be patched quickly.
+- Sensitive operational data contradicts a PII-only privacy model for telemetry.
+
+### HoneyDrunk implications
+- For any agent/device/industrial-adjacent telemetry, classify operational sensitivity explicitly before exporting traces/logs.
+- Treat Collector placement and endpoint binding as architecture decisions, not default config; weak segmentation makes Collector exposure more important.

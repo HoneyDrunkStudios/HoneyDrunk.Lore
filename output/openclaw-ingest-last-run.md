@@ -1,51 +1,55 @@
-# OpenClaw Lore Ingest — Last Run
+# OpenClaw Lore ingest last run
 
-Timestamp: 2026-05-19T09:00:00Z
-Operator/runtime: Honeyclaw / OpenClaw scheduled ingest
+- timestamp: 2026-05-20 09:00 UTC / 2026-05-20 05:00 America/New_York
+- operator/runtime: Honeyclaw / OpenClaw scheduled ingest
 
 ## Raw sources ingested: 8
-- raw/2026-05-19-rss-dev-to-unity-unity-vs-unreal-comparison-pros-cons-key-differences.md
-- raw/2026-05-19-rss-godot-engine-release-candidate-godot-4-6-3-rc-2.md
-- raw/2026-05-19-rss-net-blog-nuget-package-pruning-cleaner-dependencies-and-actionable-vul.md
-- raw/2026-05-19-rss-opentelemetry-blog-introducing-otel-blueprints-and-reference-implement.md
-- raw/2026-05-19-rss-tldr-ai-gemini-extended-thinking-chatgpt-finance-claude-code-at-scale.md
-- raw/2026-05-19-rss-tldr-devops-bun-s-rust-rewrite-remote-cache-cdc-aws-security-agent.md
-- raw/2026-05-19-rss-tldr-infosec-openclaw-4-bug-chain-mythos-pentest-eval-fake-interview-j.md
-- raw/2026-05-19-web-the-rundown-ai-ai-anger-comes-for-claude-monet.md
+- raw/2026-05-20-rss-azure-blog-eliminate-llm-cold-starts-load-models-up-to-6x-faster-with-.md
+- raw/2026-05-20-rss-dev-to-unity-unity-vs-godot-vs-unreal-for-mobile-games-a-practical-com.md
+- raw/2026-05-20-rss-docker-blog-coding-agent-horror-stories-the-security-crisis-threatenin.md
+- raw/2026-05-20-rss-opentelemetry-blog-applying-opentelemetry-security-practices-in-legacy.md
+- raw/2026-05-20-rss-tldr-ai-qwen-3-7-cursor-composer-2-5-anthropic-acquires-stainless.md
+- raw/2026-05-20-rss-tldr-infosec-1-8m-nyc-patients-hit-pixel-10-0-click-exploit-ledger-mai.md
+- raw/2026-05-20-web-the-rundown-ai-musk-s-openai-case-runs-out-of-time.md
+- raw/2026-05-20-youtube-microsoft-developer-youtube-using-cowork-i-automated-my-prompt-of-the-.md
 
 ## Wiki pages created
-- wiki/dotnet-dependency-security-and-nuget.md
+- wiki/ai-coding-agent-security.md
 
 ## Wiki pages updated
-- wiki/godot-2026-mobile-and-4-7-cycle.md
+- wiki/edge-ai-and-ai-infrastructure-2026.md
 - wiki/unity-3d-and-realtime-vfx-patterns.md
+- wiki/godot-2026-mobile-and-4-7-cycle.md
 - wiki/opentelemetry-genai-observability-and-ecosystem.md
+- wiki/ai-agent-harnesses.md
+- wiki/claude-platform-2026.md
 - wiki/browser-snapshot-source-quality.md
 - wiki/indexes/sources.md
 - wiki/indexes/topics.md
 - wiki/indexes/gaps.md
 - wiki/indexes/audit.md
+- output/query-2026-05-20-daily-agent-security-mobile-otel-infra-signal.md
 
-## Output files updated/created
-- output/query-2026-05-19-daily-platform-observability-and-engine-signal.md
-- output/openclaw-ingest-last-run.md
-
-## Contradictions / supersession
-- No high-confidence factual contradictions resolved.
-- Godot 4.6.3 RC 2 supersedes 4.6.2 only as latest 4.6-line candidate signal; it does not supersede stable-production guidance until final release.
-- 2026-05-19 TLDR/Rundown captures reinforce existing extraction-quality failures and do not support title-level claims.
+## Contradictions resolved / supersession
+- No direct claim contradictions required supersession.
+- TLDR 2026-05-19 title-level AI/InfoSec claims were explicitly not promoted because raw bodies contained sponsor copy; this reinforces the existing extraction-quality diagnosis.
+- Rundown AI 2026-05-19 body claims were not promoted because inspected raw lacked decision-grade article body facts and included public app configuration/site scaffolding.
 
 ## Gaps logged
-- TLDR RSS/newsletter extraction still captures sponsor/adoption blocks instead of item bodies.
-- Rundown AI extraction still captures schema/public app config/site scaffolding without decision-grade body facts.
-- HoneyDrunk .NET 10 package pruning adoption needs local package inventory/multi-targeting review.
-- HoneyDrunk/OpenClaw OTel usage needs an internal deployment blueprint before agent-added config spreads.
+- Agent sandbox/microVM evaluation for OpenClaw/Grid.
+- Azure Blob + Run:AI model streaming benchmark only if a real Azure open-weight workload exists.
+- TLDR and Rundown extraction failures for 2026-05-19 captures.
+- Operational-data classification beyond ordinary PII for OTel/legacy telemetry.
+- Local mobile-engine spike for Unity/Godot/Unreal target-device behavior.
 
 ## Privacy filtering
-- Rundown AI public client configuration/secrets-like strings and site scaffolding were not copied into wiki semantic facts.
-- TLDR sponsor blocks were summarized as source-quality evidence only; no title-level claims promoted.
+- Did not copy Rundown AI public client config, Sentry/Stripe/VAPID-like public keys, CSS, or app scaffolding into wiki facts.
+- Docker incident examples were summarized at the security-control level; no secrets, exploit payloads, or unsafe operational details were promoted.
 
 ## Quality posture
-- Decision-usable: .NET NuGet pruning, OTel Blueprints, Godot RC, and Unity/Unreal criteria, with vendor/community-source caveats.
-- Weak/low-yield: TLDR AI/DevOps/InfoSec RSS and Rundown AI web capture; fenced to source-quality page only.
-- Raw files were not edited or deleted.
+- Decision-usable additions: OTel legacy security guidance; coding-agent risk taxonomy and guardrail checklist; Azure model-streaming concept; mobile engine selection criteria.
+- Weak/vendor-biased claims: Docker Sandboxes mitigation claims and Azure performance numbers are vendor-authored; Ocean View Games source is explicitly Unity-specialist and biased toward Unity.
+- Low-yield sources: TLDR AI/InfoSec and Rundown AI captures were recorded as source-quality evidence only.
+
+## Blockers
+- None for this compile pass.

@@ -135,3 +135,29 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 
 ### Source quality and monitoring
 - [[browser-snapshot-source-quality]] - 81 sources - last-confirmed 2026-05-19
+
+## 2026-05-20 topic additions
+
+### AI agents and harnesses
+- [[ai-agent-harnesses]] - 17 sources - last-confirmed 2026-05-20
+- [[ai-coding-agent-security]] - 1 source - last-confirmed 2026-05-20
+- [[claude-platform-2026]] - 11 sources - last-confirmed 2026-05-20
+
+### AI-assisted software engineering
+- [[ai-coding-agent-security]] - 1 source - last-confirmed 2026-05-20
+- [[ai-agent-harnesses]] - 17 sources - last-confirmed 2026-05-20
+- [[claude-platform-2026]] - 11 sources - last-confirmed 2026-05-20
+
+### Edge AI, embeddings, and infrastructure
+- [[edge-ai-and-ai-infrastructure-2026]] - 5 sources - last-confirmed 2026-05-20
+
+### Game engines and tooling
+- [[unity-3d-and-realtime-vfx-patterns]] - 16 sources - last-confirmed 2026-05-20
+- [[godot-2026-mobile-and-4-7-cycle]] - 11 sources - last-confirmed 2026-05-20
+
+### Observability and agent operations
+- [[opentelemetry-genai-observability-and-ecosystem]] - 4 sources - last-confirmed 2026-05-20
+- [[ai-coding-agent-security]] - 1 source - last-confirmed 2026-05-20
+
+### Source quality and monitoring
+- [[browser-snapshot-source-quality]] - 84 sources - last-confirmed 2026-05-20

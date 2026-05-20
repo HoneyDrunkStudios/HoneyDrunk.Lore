@@ -96,3 +96,22 @@ The 2026-05-03 through 2026-05-07 X-list and Discord clipper snapshots are low-y
 ### Explicit relationships
 - 2026-05-19 TLDR captures reinforce, not supersede, the sponsor-copy RSS extraction failure across AI, DevOps, and InfoSec categories.
 - 2026-05-19 Rundown capture reinforces, not supersedes, the browser extraction/privacy-filter gap.
+
+## 2026-05-20 compile additions
+
+### Claims
+- TLDR AI and TLDR InfoSec RSS captures for 2026-05-19 again contained sponsor-copy excerpts rather than the named newsletter items, so they should not be used as evidence for Qwen 3.7, Cursor Composer 2.5, Anthropic acquiring Stainless, NYC patient breach, Pixel 10 exploit, or Ledger mail phishing claims. confidence: 2 sources, last-confirmed 2026-05-20. [sources: raw/2026-05-20-rss-tldr-ai-qwen-3-7-cursor-composer-2-5-anthropic-acquires-stainless.md; raw/2026-05-20-rss-tldr-infosec-1-8m-nyc-patients-hit-pixel-10-0-click-exploit-ledger-mai.md]
+- The Rundown AI 2026-05-19 web capture for “Musk's OpenAI case runs out of time” contained article schema and large site JavaScript/public client configuration, but no decision-grade body facts in inspected raw; wiki compilation redacted public config and treated it as source-quality evidence only. confidence: 1 source, last-confirmed 2026-05-20. [source: raw/2026-05-20-web-the-rundown-ai-musk-s-openai-case-runs-out-of-time.md]
+
+### Typed entities
+- article topic mentioned but not promoted: Qwen 3.7
+- article topic mentioned but not promoted: Cursor Composer 2.5
+- article topic mentioned but not promoted: Anthropic acquiring Stainless
+- article topic mentioned but not promoted: Musk/OpenAI legal case
+- publisher: TLDR AI
+- publisher: TLDR InfoSec
+- publisher: The Rundown AI
+
+### Explicit relationships
+- 2026-05-20 TLDR captures reinforce, not supersede, the sponsor-copy RSS extraction failure.
+- 2026-05-20 Rundown capture reinforces, not supersedes, the browser extraction/privacy-filter gap.
