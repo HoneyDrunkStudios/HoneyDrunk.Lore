@@ -102,3 +102,37 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### HoneyDrunk implications
 - Prefer small, typed, single-purpose agent skills for repeatable studio operations; they are easier to permission, test, and audit than broad autonomous agents.
+
+## 2026-05-21 compile additions
+
+### Claims
+- Docker Custom MCP Catalogs let organizations curate approved MCP servers, including Docker catalog entries, community servers, and internally built servers, then distribute them as immutable OCI artifacts through a container registry. confidence: 1 vendor source, last-confirmed 2026-05-21. [source: raw/2026-05-21-rss-docker-blog-custom-mcp-catalogs-and-profiles-advancing-enterprise-mcp-.md; page: [[mcp-tool-governance-and-app-surfaces]]]
+- Docker MCP Profiles define portable named groupings of MCP servers and configuration for different work modes such as coding, planning, or research; profiles can persist server options, disable unneeded tools to reduce context, connect to agent clients such as Claude Code, and be pushed/pulled as OCI artifacts. confidence: 1 vendor source, last-confirmed 2026-05-21. [source: raw/2026-05-21-rss-docker-blog-custom-mcp-catalogs-and-profiles-advancing-enterprise-mcp-.md; page: [[mcp-tool-governance-and-app-surfaces]]]
+- Martin Fowler/Thoughtworks maintainability-sensor guidance frames sensors as harness feedback loops for coding agents: type checks, linters, SAST, dependency rules, tests, mutation testing, secrets scans, dependency freshness, data-handling review, security review, and modularity/coupling review can run during coding, CI, scheduled review, or production. confidence: 1 source, last-confirmed 2026-05-21. [source: raw/2026-05-21-rss-martin-fowler-maintainability-sensors-for-coding-agents.md; page: [[ai-assisted-software-practice]]]
+- Microsoft Developer's MCP Inspector short reinforces local app-surface testing as a harness primitive: developers can launch `npx @modelcontextprotocol/inspector`, connect a local or hosted MCP server, validate raw tool calls, and interact with a React Fluent UI app widget before relying on a client integration. confidence: 1 YouTube metadata source, last-confirmed 2026-05-21. [source: raw/2026-05-21-youtube-microsoft-developer-youtube-test-your-mcp-app-ui-locally-react-fluent-.md; page: [[mcp-tool-governance-and-app-surfaces]]]
+
+### Typed entities
+- product: Docker MCP Catalog
+- feature: Custom MCP Catalogs
+- feature: Docker MCP Profiles
+- artifact format: OCI artifact
+- protocol: Model Context Protocol
+- tool: MCP Inspector
+- UI framework: React Fluent UI
+- concept: maintainability sensor
+- tool: dependency-cruiser
+- tool: Semgrep
+- tool: GitLeaks
+- tool: mutation testing
+
+### Explicit relationships
+- MCP governance uses Custom Catalogs to separate organization-approved tool supply from individual profile composition.
+- MCP Profiles depend-on cataloged servers and saved configuration to reduce context-window/tool-surface noise.
+- MCP Inspector uses local server connection and widget loading to test MCP apps before client deployment.
+- Coding-agent harnesses use computational and inferential sensors to provide self-correction feedback before human review.
+- Maintainability sensors complement execution security: sandboxing constrains blast radius, while lint/dependency/modularity sensors constrain technical-debt drift.
+
+### HoneyDrunk implications
+- Model OpenClaw/Grid tool modes as named, minimal profiles rather than one giant always-on MCP/tool surface.
+- Treat approved MCP servers as a governed catalog concern; profile-level experimentation should not bypass server provenance, secrets, and network policy.
+- Add self-correction guidance to lint/dependency-rule messages where possible; raw errors are less useful to agents than errors plus the intended architectural rule.

@@ -158,3 +158,28 @@ Unity-related sources clustered around practical production patterns: planning n
 - This strengthens Unity as the default commercial-mobile candidate, but it is not neutral evidence; require a HoneyDrunk prototype benchmark before closing the engine-selection gap.
 - For lightweight 2D/mobile experiments with minimal monetization, Godot remains worth testing.
 - Avoid Unreal for mobile-first prototypes unless high-end visuals or PC/console-first production is the real target.
+
+## 2026-05-21 compile additions
+
+### Claims
+- Unity Studio added collaboration features for direct 3D annotations and real-time multi-user editing so stakeholders, designers, and technical reviewers can give feedback in the actual interactive scene rather than static renders, PDFs, or screen recordings. confidence: 1 vendor source, last-confirmed 2026-05-21. [source: raw/2026-05-21-rss-unity-blog-accelerate-3d-workflows-new-collaboration-and-export-tools-.md]
+- Unity Studio-to-Editor Export lets teams move no-code/web-created Studio projects into the Unity Editor while preserving hierarchies, materials, lighting setups, and basic logic, positioning Studio as an on-ramp rather than a throwaway prototype tool. confidence: 1 vendor source, last-confirmed 2026-05-21. [source: raw/2026-05-21-rss-unity-blog-accelerate-3d-workflows-new-collaboration-and-export-tools-.md]
+- Unity frames the addressed 3D scaling bottlenecks as fragmented feedback loops, developer bottlenecks for simple content changes, and disconnected prototype-to-production toolchains. confidence: 1 vendor source, last-confirmed 2026-05-21. [source: raw/2026-05-21-rss-unity-blog-accelerate-3d-workflows-new-collaboration-and-export-tools-.md]
+
+### Typed entities
+- product: Unity Studio
+- feature: direct 3D annotations
+- feature: real-time multi-user editing
+- feature: Studio-to-Editor Export
+- engine/tool: Unity Editor
+- concept: no-code 3D creation
+- concept: prototype-to-production handoff
+
+### Explicit relationships
+- Unity Studio uses collaboration features to reduce fragmented 3D review loops.
+- Studio-to-Editor Export connects no-code ideation to advanced Unity Editor production work.
+- Unity Studio depends-on Unity Editor handoff when projects need custom C# logic, backend integration, or performance optimization.
+
+### HoneyDrunk implications
+- Unity Studio is worth a small spike for collaborative 3D review/prototyping, but vendor claims need validation on HoneyDrunk assets and target devices.
+- Treat Studio-to-Editor Export as the key adoption test: if exported hierarchy/materials/logic are clean enough for developers, Studio can reduce throwaway prototype cost; if not, it becomes another conversion layer.

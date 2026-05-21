@@ -161,3 +161,26 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 
 ### Source quality and monitoring
 - [[browser-snapshot-source-quality]] - 84 sources - last-confirmed 2026-05-20
+
+## 2026-05-21 topic additions
+
+### AI agents and harnesses
+- [[ai-agent-harnesses]] - 20 sources - last-confirmed 2026-05-21
+- [[mcp-tool-governance-and-app-surfaces]] - 2 sources - last-confirmed 2026-05-21
+- [[microsoft-dotnet-ai-stack]] - 22 sources - last-confirmed 2026-05-21
+
+### AI-assisted software engineering
+- [[ai-assisted-software-practice]] - 13 sources - last-confirmed 2026-05-21
+- [[ai-agent-harnesses]] - 20 sources - last-confirmed 2026-05-21
+
+### MCP and agent app surfaces
+- [[mcp-tool-governance-and-app-surfaces]] - 2 sources - last-confirmed 2026-05-21
+- [[microsoft-dotnet-ai-stack]] - 22 sources - last-confirmed 2026-05-21
+- [[ai-agent-harnesses]] - 20 sources - last-confirmed 2026-05-21
+
+### Game engines and tooling
+- [[godot-2026-mobile-and-4-7-cycle]] - 12 sources - last-confirmed 2026-05-21
+- [[unity-3d-and-realtime-vfx-patterns]] - 17 sources - last-confirmed 2026-05-21
+
+### Source quality and monitoring
+- [[browser-snapshot-source-quality]] - 87 sources - last-confirmed 2026-05-21

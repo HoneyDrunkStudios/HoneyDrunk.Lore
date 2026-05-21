@@ -115,3 +115,22 @@ The 2026-05-03 through 2026-05-07 X-list and Discord clipper snapshots are low-y
 ### Explicit relationships
 - 2026-05-20 TLDR captures reinforce, not supersede, the sponsor-copy RSS extraction failure.
 - 2026-05-20 Rundown capture reinforces, not supersedes, the browser extraction/privacy-filter gap.
+
+## 2026-05-21 compile additions
+
+### Claims
+- TLDR AI and TLDR DevOps RSS captures for 2026-05-20 again contained sponsor-copy excerpts rather than the named newsletter items, so they should not be used as evidence for Gemini 3.5 Flash, Karpathy joining Anthropic, OpenAI Guaranteed Capacity, Claude Agents, EKS Backups, or AI CI Costs. confidence: 2 sources, last-confirmed 2026-05-21. [sources: raw/2026-05-21-rss-tldr-ai-gemini-3-5-flash-karpathy-joins-anthropic-openai-guaranteed-ca.md; raw/2026-05-21-rss-tldr-devops-claude-agents-eks-backups-ai-ci-costs.md]
+- The Rundown AI 2026-05-20 web capture for “Gemini's busy agentic day at Google I/O” contained article schema plus large CSS/JavaScript/public client configuration, but no decision-grade article body facts in inspected raw; wiki compilation redacted public config and treated it as source-quality evidence only. confidence: 1 source, last-confirmed 2026-05-21. [source: raw/2026-05-21-web-the-rundown-ai-gemini-s-busy-agentic-day-at-google-i-o.md]
+
+### Typed entities
+- article topic mentioned but not promoted: Gemini 3.5 Flash
+- article topic mentioned but not promoted: Karpathy joining Anthropic
+- article topic mentioned but not promoted: OpenAI Guaranteed Capacity
+- article topic mentioned but not promoted: Claude Agents
+- article topic mentioned but not promoted: EKS Backups
+- article topic mentioned but not promoted: AI CI Costs
+- article topic mentioned but not promoted: Google I/O Gemini agentic announcements
+
+### Explicit relationships
+- 2026-05-21 TLDR captures reinforce, not supersede, the sponsor-copy RSS extraction failure across AI and DevOps categories.
+- 2026-05-21 Rundown capture reinforces, not supersedes, the browser extraction/privacy-filter gap.

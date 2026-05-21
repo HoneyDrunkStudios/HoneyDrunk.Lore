@@ -109,3 +109,39 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 - LLM-assisted lift-and-shift supersedes prior cost assumptions for some legacy migrations, but depends-on post-port simplification and business-outcome review.
 - Deterministic workflows supersede autonomous agents when the workflow path is known.
 - Pair programming uses expert/junior collaboration to transfer agentic-programming judgment.
+
+## 2026-05-21 compile additions
+
+### Claims
+- Thoughtworks' maintainability-sensor experiment defines maintainability as making code easy and low-risk to change over time, and identifies early AI-codebase warning signs such as small adjustments touching too many files or breaking previously working behavior. confidence: 1 source, last-confirmed 2026-05-21. [source: raw/2026-05-21-rss-martin-fowler-maintainability-sensors-for-coding-agents.md]
+- Basic lint rules that target common AI shortcomings include maximum argument count, file length, function length, and cyclomatic complexity; the author notes these often require explicit configuration rather than relying on default ESLint presets. confidence: 1 source, last-confirmed 2026-05-21. [source: raw/2026-05-21-rss-martin-fowler-maintainability-sensors-for-coding-agents.md]
+- Custom lint/dependency messages can act as self-correction guidance: the sensor should explain the architectural intent and when exceptions are acceptable, not merely report a violation. confidence: 1 source, last-confirmed 2026-05-21. [source: raw/2026-05-21-rss-martin-fowler-maintainability-sensors-for-coding-agents.md]
+- Dependency-cruiser-style rules can enforce layer boundaries and folder structure, but import/path rules cannot fully evaluate semantic modularity. confidence: 1 source, last-confirmed 2026-05-21. [source: raw/2026-05-21-rss-martin-fowler-maintainability-sensors-for-coding-agents.md]
+- Raw coupling metrics alone produced noisy AI conclusions because legitimate hubs such as factories or shared schema contracts can look like high-coupling problems without domain context; coupling data is more useful for review risk triage than as standalone design authority. confidence: 1 source, last-confirmed 2026-05-21. [source: raw/2026-05-21-rss-martin-fowler-maintainability-sensors-for-coding-agents.md]
+- Inferential modularity reviews using strong design prompts surfaced semantic issues missed by computational sensors, including duplicate route logic, inconsistent backend-calling patterns, repeated request parameters across layers, and responsibilities hidden in surprising places. confidence: 1 source, last-confirmed 2026-05-21. [source: raw/2026-05-21-rss-martin-fowler-maintainability-sensors-for-coding-agents.md]
+
+### Typed entities
+- person: Birgitta Böckeler
+- organization: Thoughtworks
+- tool: ESLint
+- tool: Semgrep
+- tool: dependency-cruiser
+- tool: GitLeaks
+- tool: coupling-analyser
+- concept: maintainability sensor
+- concept: AI modularity review
+- concept: computational sensor
+- concept: inferential sensor
+- concept: self-correction guidance
+
+### Explicit relationships
+- Maintainability sensors use automated and inferential feedback to reduce AI-generated technical debt before human review.
+- Custom lint guidance supersedes generic tool output when the goal is agent self-correction.
+- Dependency rules depend-on expressible import/folder boundaries and cannot supersede semantic modularity review.
+- Coupling metrics depend-on domain interpretation; legitimate architectural hubs can contradict naive “god module” findings.
+- AI modularity reviews complement computational sensors by reading code semantics and tradeoffs.
+
+### HoneyDrunk implications
+- Promote recurring AI-review findings into analyzers, lint rules, dependency rules, or focused modularity-review prompts.
+- Start with cheap computational gates for known AI failure modes, but reserve semantic LLM review for changed-file modularity and responsibility placement.
+- Treat agent-created suppressions and threshold increases as review hotspots, not hidden debt.

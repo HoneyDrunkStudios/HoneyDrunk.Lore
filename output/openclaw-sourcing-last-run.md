@@ -1,31 +1,31 @@
 # OpenClaw Lore Sourcing — Last Run
 
-Timestamp: 2026-05-20T03:01:17
+Timestamp: 2026-05-21T03:01:01
 Mode: write
 Candidates scanned: 129
-Skipped duplicates: 30
+Skipped duplicates: 31
 Selected: 8
 Saved: 8
 
 ## Selected candidates
-- [AI / LLM Research & Tooling] TLDR AI: Qwen 3.7 🤖, Cursor Composer 2.5 👨‍💻, Anthropic acquires Stainless 🛠️
-- [AI / LLM Research & Tooling] The Rundown AI: Musk's OpenAI case runs out of time
-- [.NET Ecosystem] Microsoft Developer YouTube: Using Cowork I automated my Prompt of the Week slide generation
-- [Azure & Cloud] Azure Blog: Eliminate LLM Cold starts: Load models up to 6x Faster with Azure Blob Storage and Run:AI Model Streamer
-- [DevOps & CI/CD] OpenTelemetry Blog: Applying OpenTelemetry Security Practices in Legacy Environments
-- [DevOps & CI/CD] Docker Blog: Coding Agent Horror Stories: The Security Crisis Threatening Developer Infrastructure
-- [Security & Ethical Hacking] TLDR InfoSec: 1.8M NYC Patients Hit 🗽, Pixel 10 0-Click Exploit 📱, Ledger Mail Phishing ✉️
-- [Game Development / Unity] DEV.to Unity: Unity vs Godot vs Unreal for Mobile Games: A Practical Comparison
+- [AI / LLM Research & Tooling] TLDR AI: Gemini 3.5 Flash ⚡️, Karpathy joins Anthropic 🧑‍💻, OpenAI Guaranteed Capacity ⚡
+- [AI / LLM Research & Tooling] The Rundown AI: Gemini's busy agentic day at Google I/O
+- [.NET Ecosystem] Microsoft Developer YouTube: Test Your MCP App UI Locally — React Fluent UI + MCP Inspector
+- [DevOps & CI/CD] TLDR DevOps: Claude Agents ☁️, EKS Backups 💾, AI CI Costs 🧪
+- [DevOps & CI/CD] Docker Blog: Custom MCP Catalogs and Profiles: Advancing Enterprise MCP Adoption
+- [Game Development / Unity] Unity Blog: Accelerate 3D workflows: New collaboration and export tools in Unity Studio
+- [Game Development / Unity] Godot Engine: Maintenance release: Godot 4.6.3
+- [Software Architecture] Martin Fowler: Maintainability sensors for coding agents
 
 ## Files written
-- raw/2026-05-20-rss-tldr-ai-qwen-3-7-cursor-composer-2-5-anthropic-acquires-stainless.md
-- raw/2026-05-20-web-the-rundown-ai-musk-s-openai-case-runs-out-of-time.md
-- raw/2026-05-20-youtube-microsoft-developer-youtube-using-cowork-i-automated-my-prompt-of-the-.md
-- raw/2026-05-20-rss-azure-blog-eliminate-llm-cold-starts-load-models-up-to-6x-faster-with-.md
-- raw/2026-05-20-rss-opentelemetry-blog-applying-opentelemetry-security-practices-in-legacy.md
-- raw/2026-05-20-rss-docker-blog-coding-agent-horror-stories-the-security-crisis-threatenin.md
-- raw/2026-05-20-rss-tldr-infosec-1-8m-nyc-patients-hit-pixel-10-0-click-exploit-ledger-mai.md
-- raw/2026-05-20-rss-dev-to-unity-unity-vs-godot-vs-unreal-for-mobile-games-a-practical-com.md
+- raw/2026-05-21-rss-tldr-ai-gemini-3-5-flash-karpathy-joins-anthropic-openai-guaranteed-ca.md
+- raw/2026-05-21-web-the-rundown-ai-gemini-s-busy-agentic-day-at-google-i-o.md
+- raw/2026-05-21-youtube-microsoft-developer-youtube-test-your-mcp-app-ui-locally-react-fluent-.md
+- raw/2026-05-21-rss-tldr-devops-claude-agents-eks-backups-ai-ci-costs.md
+- raw/2026-05-21-rss-docker-blog-custom-mcp-catalogs-and-profiles-advancing-enterprise-mcp-.md
+- raw/2026-05-21-rss-unity-blog-accelerate-3d-workflows-new-collaboration-and-export-tools-.md
+- raw/2026-05-21-rss-godot-engine-maintenance-release-godot-4-6-3.md
+- raw/2026-05-21-rss-martin-fowler-maintainability-sensors-for-coding-agents.md
 
 ## Failures / skips
 _None_

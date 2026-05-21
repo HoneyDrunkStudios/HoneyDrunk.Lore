@@ -1,55 +1,61 @@
-# OpenClaw Lore ingest last run
+# OpenClaw Lore Ingest — Last Run
 
-- timestamp: 2026-05-20 09:00 UTC / 2026-05-20 05:00 America/New_York
-- operator/runtime: Honeyclaw / OpenClaw scheduled ingest
+Timestamp: 2026-05-21T09:00:00Z
+Operator: Honeyclaw / OpenClaw scheduled ingest
 
 ## Raw sources ingested: 8
-- raw/2026-05-20-rss-azure-blog-eliminate-llm-cold-starts-load-models-up-to-6x-faster-with-.md
-- raw/2026-05-20-rss-dev-to-unity-unity-vs-godot-vs-unreal-for-mobile-games-a-practical-com.md
-- raw/2026-05-20-rss-docker-blog-coding-agent-horror-stories-the-security-crisis-threatenin.md
-- raw/2026-05-20-rss-opentelemetry-blog-applying-opentelemetry-security-practices-in-legacy.md
-- raw/2026-05-20-rss-tldr-ai-qwen-3-7-cursor-composer-2-5-anthropic-acquires-stainless.md
-- raw/2026-05-20-rss-tldr-infosec-1-8m-nyc-patients-hit-pixel-10-0-click-exploit-ledger-mai.md
-- raw/2026-05-20-web-the-rundown-ai-musk-s-openai-case-runs-out-of-time.md
-- raw/2026-05-20-youtube-microsoft-developer-youtube-using-cowork-i-automated-my-prompt-of-the-.md
 
-## Wiki pages created
-- wiki/ai-coding-agent-security.md
+- raw/2026-05-21-rss-docker-blog-custom-mcp-catalogs-and-profiles-advancing-enterprise-mcp-.md
+- raw/2026-05-21-rss-godot-engine-maintenance-release-godot-4-6-3.md
+- raw/2026-05-21-rss-martin-fowler-maintainability-sensors-for-coding-agents.md
+- raw/2026-05-21-rss-tldr-ai-gemini-3-5-flash-karpathy-joins-anthropic-openai-guaranteed-ca.md
+- raw/2026-05-21-rss-tldr-devops-claude-agents-eks-backups-ai-ci-costs.md
+- raw/2026-05-21-rss-unity-blog-accelerate-3d-workflows-new-collaboration-and-export-tools-.md
+- raw/2026-05-21-web-the-rundown-ai-gemini-s-busy-agentic-day-at-google-i-o.md
+- raw/2026-05-21-youtube-microsoft-developer-youtube-test-your-mcp-app-ui-locally-react-fluent-.md
 
-## Wiki pages updated
-- wiki/edge-ai-and-ai-infrastructure-2026.md
-- wiki/unity-3d-and-realtime-vfx-patterns.md
-- wiki/godot-2026-mobile-and-4-7-cycle.md
-- wiki/opentelemetry-genai-observability-and-ecosystem.md
+## Wiki pages created/updated
+
+Created:
+- wiki/mcp-tool-governance-and-app-surfaces.md
+
+Updated:
 - wiki/ai-agent-harnesses.md
-- wiki/claude-platform-2026.md
+- wiki/ai-assisted-software-practice.md
 - wiki/browser-snapshot-source-quality.md
+- wiki/godot-2026-mobile-and-4-7-cycle.md
+- wiki/microsoft-dotnet-ai-stack.md
+- wiki/unity-3d-and-realtime-vfx-patterns.md
 - wiki/indexes/sources.md
 - wiki/indexes/topics.md
 - wiki/indexes/gaps.md
-- wiki/indexes/audit.md
-- output/query-2026-05-20-daily-agent-security-mobile-otel-infra-signal.md
 
-## Contradictions resolved / supersession
-- No direct claim contradictions required supersession.
-- TLDR 2026-05-19 title-level AI/InfoSec claims were explicitly not promoted because raw bodies contained sponsor copy; this reinforces the existing extraction-quality diagnosis.
-- Rundown AI 2026-05-19 body claims were not promoted because inspected raw lacked decision-grade article body facts and included public app configuration/site scaffolding.
+## Crystallization from output/query-*.md
+
+- No new durable query output needed crystallization beyond facts already represented by prior compile passes. Latest uncrystallized signal for this run came from new raw sources.
+
+## Contradictions / supersession
+
+- Godot 4.6.3 stable supersedes Godot 4.6.3 RC 2 and Godot 4.6.2 for stable 4.6-line upgrade guidance. Prior RC detail remains preserved as historical release-candidate signal.
+- TLDR AI/DevOps title-level claims were not promoted because raw bodies contained sponsor copy; source-quality entries explicitly contradict using those titles as evidence.
+- Rundown AI Google I/O/Gemini title/body claims were not promoted because inspected raw lacked decision-grade body text and contained public client config/site scaffolding.
 
 ## Gaps logged
-- Agent sandbox/microVM evaluation for OpenClaw/Grid.
-- Azure Blob + Run:AI model streaming benchmark only if a real Azure open-weight workload exists.
-- TLDR and Rundown extraction failures for 2026-05-19 captures.
-- Operational-data classification beyond ordinary PII for OTel/legacy telemetry.
-- Local mobile-engine spike for Unity/Godot/Unreal target-device behavior.
+
+- TLDR AI/DevOps extraction still needs body/sponsor separation.
+- Rundown AI extraction still needs article-body recovery plus public config stripping.
+- HoneyDrunk should decide whether to define approved MCP catalogs and task-specific MCP profiles.
+- HoneyDrunk should choose first repositories/rules for coding-agent maintainability sensors.
+- HoneyDrunk should validate Unity Studio-to-Editor Export on representative scenes before relying on it.
 
 ## Privacy filtering
-- Did not copy Rundown AI public client config, Sentry/Stripe/VAPID-like public keys, CSS, or app scaffolding into wiki facts.
-- Docker incident examples were summarized at the security-control level; no secrets, exploit payloads, or unsafe operational details were promoted.
+
+- Redacted/omitted Rundown AI public client configuration values (Sentry DSNs, Stripe publishable key, VAPID key, Turnstile/site app config) from wiki pages.
+- Omitted non-decision-relevant personal Docker Hub namespace/example identity from Docker MCP examples.
+- Raw files were not edited or deleted.
 
 ## Quality posture
-- Decision-usable additions: OTel legacy security guidance; coding-agent risk taxonomy and guardrail checklist; Azure model-streaming concept; mobile engine selection criteria.
-- Weak/vendor-biased claims: Docker Sandboxes mitigation claims and Azure performance numbers are vendor-authored; Ocean View Games source is explicitly Unity-specialist and biased toward Unity.
-- Low-yield sources: TLDR AI/InfoSec and Rundown AI captures were recorded as source-quality evidence only.
 
-## Blockers
-- None for this compile pass.
+- Decision-useful pages updated with typed entities, explicit relationships, source citations, confidence notes, and HoneyDrunk implications.
+- Weak/vendor claims flagged: Docker and Unity sources are vendor-authored; Microsoft item is YouTube metadata; local validation is required before standardization.
+- No blockers. Safe to commit/push.

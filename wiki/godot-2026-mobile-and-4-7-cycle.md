@@ -107,3 +107,31 @@ Godot's 2026 signal is mobile maturity plus active 4.7 stabilization and renderi
 
 ### HoneyDrunk implications
 - Godot should remain in the evaluation set for 2D/mobile prototypes and iPad-first tooling; for F2P/mobile commerce, Unity still has lower integration risk until Godot plugin maturity is verified.
+
+## 2026-05-21 compile additions
+
+### Claims
+- Godot 4.6.3 final is the latest 4.6 maintenance release, built from commit `35e80b3a8`, with 86 fixes from 41 contributors and no known incompatibilities with 4.6.2. confidence: 1 source, last-confirmed 2026-05-21. [source: raw/2026-05-21-rss-godot-engine-maintenance-release-godot-4-6-3.md]
+- Godot 4.6.3 fixes include editor/GridMap/TileMap improvements, SplineIK crash cases, Android export/template fixes, source-generator transitive dependency prevention for C#, debugger read-error handling, RefCounted race mitigation, Object-signal thread-safety improvement, iOS one-click deploy with Xcode 26, TextEdit/IME and RTL GUI fixes, Jolt overlap removal, GLES3 batching/light selection, and Compatibility LightmapGI behavior. confidence: 1 source, last-confirmed 2026-05-21. [source: raw/2026-05-21-rss-godot-engine-maintenance-release-godot-4-6-3.md]
+
+### Typed entities
+- version: Godot 4.6.3 stable
+- commit: `35e80b3a8`
+- subsystem: TileMap inspector
+- subsystem: GridMap editor
+- subsystem: SplineIK
+- subsystem: C# SourceGenerators
+- subsystem: RefCounted
+- subsystem: Object signals
+- platform/tool: Xcode 26
+- physics engine: Jolt
+- renderer: GLES3
+- subsystem: LightmapGI
+
+### Explicit relationships
+- Godot 4.6.3 stable supersedes Godot 4.6.3 RC 2 and Godot 4.6.2 for stable 4.6-line upgrade guidance.
+- Godot 4.6.3 depends-on backups/version control before upgrade despite reporting no known 4.6.2 incompatibilities.
+
+### HoneyDrunk implications
+- If evaluating the 4.6 stable line, use 4.6.3 rather than 4.6.2/RC builds unless a plugin requires otherwise.
+- Specific fixes make 4.6.3 relevant for Android/iOS export tests, C# projects, Jolt physics, and Compatibility/GLES3 rendering validation.

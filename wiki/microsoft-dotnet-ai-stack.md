@@ -94,3 +94,21 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 - Quality posture: decision-usable for directional stack choices and servicing urgency; implementation details should be verified against package docs/release notes before coding.
 - Weak spots: Microsoft/Azure blog and YouTube sources are vendor-authored and optimistic.
 - Privacy filter: Discord captures were summarized only at high level; no private chat/user details were copied.
+
+## 2026-05-21 compile additions
+
+### Claims
+- Microsoft Developer's MCP Inspector short says MCP app developers can locally test React Fluent UI app widgets by launching `npx @modelcontextprotocol/inspector`, connecting a local or hosted MCP server, validating raw tool calls in the Tools tab, and interacting with the widget in the Apps tab. confidence: 1 YouTube metadata source, last-confirmed 2026-05-21. [source: raw/2026-05-21-youtube-microsoft-developer-youtube-test-your-mcp-app-ui-locally-react-fluent-.md; page: [[mcp-tool-governance-and-app-surfaces]]]
+
+### Typed entities
+- tool: MCP Inspector
+- UI framework: React Fluent UI
+- concept: MCP app widget
+- command: `npx @modelcontextprotocol/inspector`
+
+### Explicit relationships
+- MCP Inspector uses local or hosted MCP server connections to test tool calls and app widgets before client integration.
+- MCP app samples and MCP Inspector together reduce the need to hand-roll untested MCP app/client protocol glue.
+
+### HoneyDrunk implications
+- For any HoneyDrunk MCP app UI, require local Inspector validation of tool round trips and widget behavior before wiring into Copilot/Claude/ChatGPT-style clients.
