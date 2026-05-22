@@ -199,9 +199,8 @@ This document defines what content belongs in Lore, where to find it, and how to
 - AAA studio news with no applicable patterns
 
 **Sources:**
-- Unity Blog (unity.com/blog)
+- Unity Blog (unity.com/blog; RSS: unity.com/blog/rss) — preferred engine/game-dev signal
 - Game Developer (gamedeveloper.com)
-- Godot Engine blog (godotengine.org)
 - 80 Level (80.lv) — tools, engine, production, and technical-art items only
 - DEV.to gamedev + Unity feeds — architecture/systems posts only
 - r/gamedev (reddit.com/r/gamedev) — architecture and systems posts only
