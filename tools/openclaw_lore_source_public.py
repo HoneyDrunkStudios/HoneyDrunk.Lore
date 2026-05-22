@@ -86,8 +86,9 @@ YOUTUBE_FEEDS = [
 
 KEYWORDS = [
     "agent", "agents", "ai", "llm", "model", "prompt", "eval", "mcp", "tool",
+    "anthropic", "claude", "openai", "codex", "gemini", "karpathy", "cursor",
     "dotnet", ".net", "asp.net", "c#", "nuget", "azure", "container app", "key vault",
-    "github actions", "ci/cd", "workflow", "opentelemetry", "observability", "distributed",
+    "github", "github actions", "breach", "source code", "ci/cd", "workflow", "opentelemetry", "observability", "distributed",
     "architecture", "event", "outbox", "saga", "ddd", "api", "contract", "saas",
     "pricing", "solo", "indie", "automation", "webhook", "developer tool",
     "unity", "godot", "unreal", "game dev", "gamedev", "rendering", "simulation",
@@ -102,6 +103,12 @@ KEYWORDS = [
 ADOBE_CREATOR_TERMS = [
     "photoshop", "creative cloud", "uxp", "firefly", "illustrator", "substance",
     "premiere", "after effects", "plugin", "image", "3d", "graphics",
+]
+
+HIGH_SIGNAL_TERMS = [
+    "codex", "claude code", "karpathy", "anthropic", "openai", "github breach",
+    "github breached", "internal repos", "exfiltration", "source code breach",
+    "mcp", "agent governance", "supply chain", "rampart",
 ]
 
 SOURCE_PRIORITY = {
@@ -201,6 +208,58 @@ def parse_feed(xml_text: str, feed_name: str, category: str) -> list[dict]:
     return [i for i in items if i.get("title") and i.get("url")]
 
 
+SPONSOR_RE = re.compile(r"\(\s*sponsor\s*\)|\bsponsored\b", re.I)
+TLDR_STORY_RE = re.compile(
+    r'<a class="font-bold" href="([^"#]+)"[^>]*><h3>(.*?)</h3></a><div class="newsletter-html">(.*?)</div>',
+    re.S,
+)
+
+
+def canonical_url(url: str) -> str:
+    url = html.unescape(html.unescape(url)).strip()
+    parsed = urllib.parse.urlsplit(url)
+    query = urllib.parse.parse_qsl(parsed.query, keep_blank_values=True)
+    query = [(k, v) for k, v in query if not k.lower().startswith("utm_")]
+    return urllib.parse.urlunsplit((parsed.scheme, parsed.netloc, parsed.path, urllib.parse.urlencode(query), ""))
+
+
+def parse_tldr_issue(issue_html: str, feed_name: str, category: str, published: str, issue_url: str) -> list[dict]:
+    items: list[dict] = []
+    for href, title_html, body_html in TLDR_STORY_RE.findall(issue_html):
+        title = strip_html(title_html)
+        if SPONSOR_RE.search(title):
+            continue
+        summary = strip_html(body_html)
+        if not title or not summary:
+            continue
+        items.append({
+            "feed": feed_name,
+            "title": title,
+            "url": canonical_url(href),
+            "summary": summary,
+            "published": published,
+            "category": category,
+            "source_type": "rss",
+            "discovered_via": issue_url,
+            "source_role": "primary-via-tldr",
+        })
+    return items
+
+
+def parse_tldr_feed(xml_text: str, feed_name: str, category: str, issue_limit: int = 2, story_limit: int = 8) -> list[dict]:
+    issues = parse_feed(xml_text, feed_name, category)[:issue_limit]
+    items: list[dict] = []
+    for issue in issues:
+        try:
+            stories = parse_tldr_issue(fetch(issue["url"]), feed_name, category, issue.get("published", "unknown"), issue["url"])
+        except Exception:
+            issue["source_type"] = "rss"
+            items.append(issue)
+            continue
+        items.extend(stories[:story_limit])
+    return items
+
+
 def text_of(node: ET.Element, name: str) -> str:
     child = node.find(name)
     if child is None or child.text is None:
@@ -278,7 +337,9 @@ def parse_adobe_developer_index(text: str, source_name: str, source_url: str, ca
 
 def score(item: dict) -> int:
     hay = f"{item.get('feed','')} {item.get('title','')} {item.get('summary','')}".lower()
-    return sum(1 for kw in KEYWORDS if kw in hay)
+    base = sum(1 for kw in KEYWORDS if kw in hay)
+    boost = 3 * sum(1 for term in HIGH_SIGNAL_TERMS if term in hay)
+    return base + boost
 
 
 def slugify(text: str) -> str:
@@ -300,6 +361,9 @@ def known_urls() -> set[str]:
 
 
 def article_body(url: str, fallback: str) -> str:
+    parsed = urllib.parse.urlsplit(url)
+    if parsed.netloc.lower() in {"x.com", "twitter.com", "www.x.com", "www.twitter.com"}:
+        return fallback.strip()
     try:
         page = fetch(url)
     except Exception:
@@ -307,6 +371,9 @@ def article_body(url: str, fallback: str) -> str:
     # crude readable extraction: prefer article/main, otherwise body text
     m = re.search(r"(?is)<article[^>]*>(.*?)</article>", page) or re.search(r"(?is)<main[^>]*>(.*?)</main>", page)
     body = strip_html(m.group(1) if m else page)
+    noisy_markers = ["stylesheet-group", "window.__appglobals__", "cloudflare_turnstile", "html,body{height"]
+    if any(marker in body.lower() for marker in noisy_markers):
+        return fallback.strip()
     # Drop very short/noisy pages back to feed summary.
     if len(body) < max(500, len(fallback)):
         return fallback.strip()
@@ -378,9 +445,12 @@ def main() -> int:
 
     for name, url, category in FEEDS:
         try:
-            items = parse_feed(fetch(url), name, category)[:3]
-            for item in items:
-                item["source_type"] = "rss"
+            if name.startswith("TLDR "):
+                items = parse_tldr_feed(fetch(url), name, category)
+            else:
+                items = parse_feed(fetch(url), name, category)[:3]
+                for item in items:
+                    item["source_type"] = "rss"
             candidates.extend(items)
         except Exception as e:
             failures.append(f"{name}: {type(e).__name__}: {e}")
@@ -448,7 +518,12 @@ def main() -> int:
                 path = RAW / f"{today}-{source_type}-{slugify(item['feed'] + '-' + item['title'])}-{n}.md"
                 n += 1
             published = item.get("published") or "unknown"
-            content = f'''---\nsource: "{yaml_escape(item['url'])}"\ntitle: "{yaml_escape(item['title'])}"\nauthor: "{yaml_escape(item['feed'])}"\ndate_published: "{yaml_escape(published)}"\ndate_clipped: "{today}"\ncategory: "{yaml_escape(item['category'])}"\nsource_type: "{source_type}"\n---\n\n# {item['title']}\n\nSource: {item['url']}\n\n{body}\n'''
+            extra_meta = ""
+            if item.get("discovered_via"):
+                extra_meta += f'discovered_via: "{yaml_escape(item["discovered_via"])}"\n'
+            if item.get("source_role"):
+                extra_meta += f'source_role: "{yaml_escape(item["source_role"])}"\n'
+            content = f'''---\nsource: "{yaml_escape(item['url'])}"\ntitle: "{yaml_escape(item['title'])}"\nauthor: "{yaml_escape(item['feed'])}"\ndate_published: "{yaml_escape(published)}"\ndate_clipped: "{today}"\ncategory: "{yaml_escape(item['category'])}"\nsource_type: "{source_type}"\n{extra_meta}---\n\n# {item['title']}\n\nSource: {item['url']}\n\n{body}\n'''
             path.write_text(content, encoding="utf-8")
             written.append(path.name)
 
