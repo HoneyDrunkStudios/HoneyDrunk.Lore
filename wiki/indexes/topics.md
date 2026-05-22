@@ -184,3 +184,28 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 
 ### Source quality and monitoring
 - [[browser-snapshot-source-quality]] - 87 sources - last-confirmed 2026-05-21
+
+## 2026-05-22 topic additions
+
+### AI agents and harnesses
+- [[ai-agent-harnesses]] - 23 sources - last-confirmed 2026-05-22
+- [[ai-coding-agent-security]] - 3 sources - last-confirmed 2026-05-22
+- [[mcp-tool-governance-and-app-surfaces]] - 3 sources - last-confirmed 2026-05-22
+
+### MCP and agent app surfaces
+- [[mcp-tool-governance-and-app-surfaces]] - 3 sources - last-confirmed 2026-05-22
+- [[microsoft-dotnet-ai-stack]] - 23 sources - last-confirmed 2026-05-22
+
+### .NET runtime, safety, and mobile
+- [[dotnet-runtime-and-mobile-2026]] - 3 sources - last-confirmed 2026-05-22
+- [[csharp-memory-safety-and-unsafe-code]] - 1 source - last-confirmed 2026-05-22
+
+### Game engines and tooling
+- [[godot-2026-mobile-and-4-7-cycle]] - 13 sources - last-confirmed 2026-05-22
+
+### Observability and agent operations
+- [[opentelemetry-genai-observability-and-ecosystem]] - 5 sources - last-confirmed 2026-05-22
+- [[ai-agent-harnesses]] - 23 sources - last-confirmed 2026-05-22
+
+### Source quality and monitoring
+- [[browser-snapshot-source-quality]] - 90 sources - last-confirmed 2026-05-22

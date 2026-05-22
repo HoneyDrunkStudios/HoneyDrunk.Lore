@@ -52,3 +52,24 @@
 - Quality posture: decision-usable for scouting and codebase audits; implementation should wait on current docs/GA state for production.
 - Weak spots: vendor-authored preview posts; performance claims require local measurement.
 - Privacy filter: no private app metrics or process arguments copied.
+
+## 2026-05-22 compile additions
+
+### Claims
+- The C# memory-safety redesign is planned as a C# 16 feature, previewing with .NET 11 and targeted for production in .NET 12; it changes unsafe from a pointer-context marker into a caller-facing safety contract. confidence: 1 source, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-net-blog-improving-c-memory-safety.md; page: [[csharp-memory-safety-and-unsafe-code]]]
+- Under the new model, unsafe member calls and pointer dereferences must be wrapped in inner `unsafe { }` blocks, while unsafe signatures propagate caller obligations unless boundary methods discharge them. confidence: 1 source, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-net-blog-improving-c-memory-safety.md]
+- .NET projects can combine the new safety model with `<AllowUnsafeBlocks>false</AllowUnsafeBlocks>` to prevent unsafe code and unsafe API calls at compile time. confidence: 1 source, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-net-blog-improving-c-memory-safety.md]
+
+### Typed entities
+- language: C# 16
+- runtime: .NET 11 preview
+- runtime: .NET 12 planned production
+- project property: `<AllowUnsafeBlocks>`
+- page: [[csharp-memory-safety-and-unsafe-code]]
+
+### Explicit relationships
+- .NET 11 preview includes runtime/mobile changes and is also the preview vehicle for stricter C# memory-safety semantics.
+- C# caller-unsafe support depends-on compiler and library metadata adoption across producer and consumer assemblies.
+
+### HoneyDrunk implications
+- Track .NET 11 previews not only for MAUI/process APIs, but also for unsafe-code policy gates in tool/agent repos.

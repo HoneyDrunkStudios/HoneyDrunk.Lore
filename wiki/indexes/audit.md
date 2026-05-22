@@ -100,3 +100,11 @@ This keeps Lore decision-usable for Honeyclaw, Claude, and future agents.
 - pages updated: [[edge-ai-and-ai-infrastructure-2026]], [[unity-3d-and-realtime-vfx-patterns]], [[godot-2026-mobile-and-4-7-cycle]], [[opentelemetry-genai-observability-and-ecosystem]], [[ai-agent-harnesses]], [[claude-platform-2026]], [[browser-snapshot-source-quality]], indexes, run/query outputs
 - privacy filtering: Rundown AI public client config/secrets-like strings and site scaffolding were not copied into semantic facts; Docker raw incident/payload details were summarized rather than copied verbatim where not decision-useful
 - quality posture: Azure/Docker/mobile-engine sources are useful but vendor/biased and need local validation; OTel source is decision-usable official guidance; TLDR/Rundown captures were fenced as low-yield source-quality evidence only.
+
+## 2026-05-22 OpenClaw ingest/compile
+- operator: Honeyclaw/OpenClaw scheduled ingest
+- raw sources ingested: 8
+- pages created: [[csharp-memory-safety-and-unsafe-code]]
+- pages updated: [[ai-agent-harnesses]], [[ai-coding-agent-security]], [[mcp-tool-governance-and-app-surfaces]], [[dotnet-runtime-and-mobile-2026]], [[godot-2026-mobile-and-4-7-cycle]], [[opentelemetry-genai-observability-and-ecosystem]], [[browser-snapshot-source-quality]], indexes, run/query outputs
+- privacy filtering: Rundown AI public client config/secrets-like strings and site scaffolding were not copied into semantic facts; TLDR sponsor blocks not promoted as title-level facts
+- quality posture: Docker/Microsoft/Godot sources are vendor-authored but decision-usable with validation caveats; OTel graduation is official ecosystem-maturity signal; TLDR/Rundown captures were fenced as low-yield source-quality evidence only.

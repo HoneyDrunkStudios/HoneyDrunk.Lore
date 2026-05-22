@@ -134,3 +134,22 @@ The 2026-05-03 through 2026-05-07 X-list and Discord clipper snapshots are low-y
 ### Explicit relationships
 - 2026-05-21 TLDR captures reinforce, not supersede, the sponsor-copy RSS extraction failure across AI and DevOps categories.
 - 2026-05-21 Rundown capture reinforces, not supersedes, the browser extraction/privacy-filter gap.
+
+## 2026-05-22 compile additions
+
+### Claims
+- TLDR AI and TLDR InfoSec RSS captures for 2026-05-21 again contained sponsor-copy excerpts rather than the named newsletter items, so they should not be used as evidence for Anthropic/SpaceX deal claims, Google Agent Executor, OpenAI IPO rumors, GitHub source breach, Microsoft RAMPART AI Toolkit, or Discord E2EE call claims. confidence: 2 sources, last-confirmed 2026-05-22. [sources: raw/2026-05-22-rss-tldr-ai-anthropic-spacex-45b-deal-google-agent-executor-openai-races-t.md; raw/2026-05-22-rss-tldr-infosec-github-source-breached-ms-rampart-ai-toolkit-discord-call.md]
+- The Rundown AI 2026-05-21 web capture for “OpenAI cracks an 80-year math belief” contained article schema plus large CSS/JavaScript/public client configuration, including secrets-like public keys/config values, but no decision-grade article body facts in inspected raw; wiki compilation redacted public config and treated it as source-quality evidence only. confidence: 1 source, last-confirmed 2026-05-22. [source: raw/2026-05-22-web-the-rundown-ai-openai-cracks-an-80-year-math-belief.md]
+
+### Typed entities
+- article topic mentioned but not promoted: Anthropic/SpaceX deal
+- article topic mentioned but not promoted: Google Agent Executor
+- article topic mentioned but not promoted: OpenAI IPO
+- article topic mentioned but not promoted: GitHub source breach
+- article topic mentioned but not promoted: Microsoft RAMPART AI Toolkit
+- article topic mentioned but not promoted: Discord E2EE calls
+- article topic mentioned but not promoted: OpenAI math result
+
+### Explicit relationships
+- 2026-05-22 TLDR captures reinforce, not supersede, the sponsor-copy RSS extraction failure across AI and InfoSec categories.
+- 2026-05-22 Rundown capture reinforces, not supersedes, the browser extraction/privacy-filter gap.

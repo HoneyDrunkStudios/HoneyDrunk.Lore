@@ -136,3 +136,30 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 - Model OpenClaw/Grid tool modes as named, minimal profiles rather than one giant always-on MCP/tool surface.
 - Treat approved MCP servers as a governed catalog concern; profile-level experimentation should not bypass server provenance, secrets, and network policy.
 - Add self-correction guidance to lint/dependency-rule messages where possible; raw errors are less useful to agents than errors plus the intended architectural rule.
+
+## 2026-05-22 compile additions
+
+### Claims
+- Docker Gordon is generally available in Docker Desktop 4.74+ and the `docker ai` CLI, with access to container logs, images, Compose files, working directory context, shell/filesystem operations, Docker CLI, Docker docs/best-practices knowledge, and web access. confidence: 1 vendor source, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-docker-blog-meet-gordon-docker-s-ai-agent-for-your-entire-container-wo.md]
+- Gordon requires explicit user approval for shell commands, file modifications, and Docker operations, and permissions reset when the session closes; Docker also supports configurable auto-approve for trusted workflows. confidence: 1 vendor source, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-docker-blog-meet-gordon-docker-s-ai-agent-for-your-entire-container-wo.md]
+- Gordon's product positioning reinforces a harness split: coding assistants help with application logic while environment-aware agents handle build/run/debug/ship tasks across containers and local infrastructure. confidence: 1 vendor source, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-docker-blog-meet-gordon-docker-s-ai-agent-for-your-entire-container-wo.md]
+- C# caller-unsafe changes reinforce compiler-enforced harness guardrails: agent-generated .NET code can be prevented from calling unsafe APIs when the new model is enabled and `AllowUnsafeBlocks=false`. confidence: 1 source, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-net-blog-improving-c-memory-safety.md; page: [[csharp-memory-safety-and-unsafe-code]]]
+
+### Typed entities
+- product: Docker Gordon
+- command: `docker ai`
+- product: Docker Desktop 4.74+
+- capability: container log inspection
+- capability: Compose/workdir inspection
+- capability: approval-gated shell execution
+- language feature: C# caller unsafe
+- project property: `AllowUnsafeBlocks`
+
+### Explicit relationships
+- Gordon depends-on Docker-local runtime context to diagnose container failures without manual context pasting.
+- Approval-gated command execution complements sandbox/network/secret controls but does not supersede them.
+- C# compiler unsafe gates constrain AI-generated .NET code before code review.
+
+### HoneyDrunk implications
+- Evaluate Gordon as a Docker-specific operator for container debugging, but keep broad OpenClaw actions under separate approval/sandbox policy.
+- For .NET agent tooling, compiler properties are a better safety boundary than prompt instructions about avoiding unsafe APIs.

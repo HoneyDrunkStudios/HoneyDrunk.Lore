@@ -109,3 +109,25 @@ OpenTelemetry is becoming the practical neutral observability layer for LLM/agen
 ### HoneyDrunk implications
 - For any agent/device/industrial-adjacent telemetry, classify operational sensitivity explicitly before exporting traces/logs.
 - Treat Collector placement and endpoint binding as architecture decisions, not default config; weak segmentation makes Collector exposure more important.
+
+## 2026-05-22 compile additions
+
+### Claims
+- OpenTelemetry graduated from CNCF incubation to a CNCF Graduated Project on 2026-05-21. confidence: 1 official source, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-opentelemetry-blog-opentelemetry-is-a-cncf-graduated-project.md]
+- The graduation announcement frames OpenTelemetry as an open, vendor-neutral observability framework created from OpenTracing/OpenCensus and supported by thousands of contributors, maintainers, end users, and organizations. confidence: 1 official source, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-opentelemetry-blog-opentelemetry-is-a-cncf-graduated-project.md]
+- Graduation is a governance/ecosystem maturity signal, not a claim that GenAI semantic conventions or every instrumentation package are final/stable. confidence: 1 official source plus compile judgment, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-opentelemetry-blog-opentelemetry-is-a-cncf-graduated-project.md]
+
+### Typed entities
+- project: OpenTelemetry
+- foundation: CNCF
+- lifecycle state: CNCF Graduated Project
+- predecessor project: OpenTracing
+- predecessor project: OpenCensus
+
+### Explicit relationships
+- OpenTelemetry graduation reinforces vendor-neutral observability as a strategic dependency for agent/runtime telemetry.
+- CNCF graduation strengthens ecosystem-confidence posture but does not supersede schema/version validation for specific GenAI instrumentation.
+
+### HoneyDrunk implications
+- Treat OTel as the default neutral observability vocabulary for OpenClaw/Grid agents unless a concrete constraint says otherwise.
+- Continue pinning semantic-convention and SDK versions; project graduation is not a license for unversioned telemetry assumptions.

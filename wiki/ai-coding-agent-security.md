@@ -49,3 +49,28 @@ AI coding agents should be treated as high-capability execution principals, not 
 ## Confidence and quality notes
 - Quality posture: decision-usable as a threat model and mitigation checklist, but vendor-authored and framed around Docker Sandboxes; validate tooling claims and incident details independently before buying/building around `sbx`.
 - Privacy filter: raw contained public incident/person references; wiki retained only decision-relevant public names/tool names and did not copy secrets-like payloads beyond generic control descriptions.
+
+## 2026-05-22 compile additions
+
+### Claims
+- Docker Gordon is a local-container workflow agent with broad shell, filesystem, Docker CLI, docs, and web capabilities, but every command/file/Docker operation is shown for explicit approval before running and permissions reset at session close. confidence: 1 vendor source, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-docker-blog-meet-gordon-docker-s-ai-agent-for-your-entire-container-wo.md]
+- Docker states Gordon does not store code or personal information and says its AI providers do not retain user data, with processing running on SOC 2 Type 2 and ISO 27001 certified infrastructure; this is vendor assurance and should be validated against current terms before sensitive use. confidence: 1 vendor source, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-docker-blog-meet-gordon-docker-s-ai-agent-for-your-entire-container-wo.md]
+- C#'s planned caller-unsafe model turns memory-unsafety into an explicit compile-time/API-contract surface, which is useful for detecting AI-generated unsafe API calls and dependency surfaces before runtime. confidence: 1 source, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-net-blog-improving-c-memory-safety.md; page: [[csharp-memory-safety-and-unsafe-code]]]
+
+### Typed entities
+- product: Docker Gordon
+- control: explicit approval gate
+- control: session-scoped permission
+- assurance: SOC 2 Type 2
+- assurance: ISO 27001
+- language/runtime: C# / .NET
+- control: compiler-enforced unsafe blocking
+
+### Explicit relationships
+- Docker Gordon's approval model mitigates surprise actions but depends-on user judgment and clear command previews.
+- Vendor privacy assurances do not supersede HoneyDrunk's need for data-classification and local secrecy rules.
+- Compiler unsafe enforcement complements agent sandboxing by blocking a class of unsafe generated code at build time.
+
+### HoneyDrunk implications
+- Do not enable auto-approve for Gordon or similar agents on repos with production credentials, broad filesystem access, or destructive Docker commands until sandbox/network/secret policies are proven.
+- Add .NET unsafe policy checks to coding-agent review gates when C# 16/.NET 11 tooling becomes available.

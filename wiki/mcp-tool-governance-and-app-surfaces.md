@@ -54,3 +54,40 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 - Quality posture: decision-usable as an MCP governance pattern; Docker claims are vendor-authored and should be validated in the local Windows/OpenClaw environment before standardization.
 - Weak spots: Microsoft source is YouTube metadata for a short, not detailed documentation; use it as a pointer to Inspector workflow, then verify against official MCP docs/labs.
 - Privacy filter: no secrets or private server names copied; example Docker Hub namespace from raw omitted because it is not decision-relevant.
+
+## 2026-05-22 compile additions
+
+### Claims
+- Microsoft.AgentGovernance.Extensions.ModelContextProtocol is a Public Preview .NET 8+ package for the official MCP C# SDK that adds `WithGovernance(...)` to `IMcpServerBuilder` for startup scanning, policy enforcement, runtime tool-call governance, response sanitization, audit, and metrics. confidence: 1 vendor source, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-net-blog-announcing-agent-governance-toolkit-mcp-extensions-for-net.md]
+- The MCP governance extension is designed to fail closed by default: startup tool scanning, unsafe-tool failure, response sanitization, fallback-handler governance, audit, and metrics are enabled by default in the described options. confidence: 1 vendor source, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-net-blog-announcing-agent-governance-toolkit-mcp-extensions-for-net.md]
+- The built-in scanner targets MCP tool-definition risks including tool poisoning, typosquatting, hidden instructions, rug pulls, schema abuse, cross-server attacks, and description injection; detection still depends on threshold tuning and threat model. confidence: 1 vendor source, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-net-blog-announcing-agent-governance-toolkit-mcp-extensions-for-net.md]
+- Runtime MCP policy can allow, deny, or rate-limit tool calls using YAML-backed Agent Governance policies and authenticated/default agent identities. confidence: 1 vendor source, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-net-blog-announcing-agent-governance-toolkit-mcp-extensions-for-net.md]
+- The response sanitizer scans tool output for prompt-injection tags, override phrasing, credential leakage patterns, and exfiltration-oriented URLs before model return, but sanitizer effectiveness depends on local pattern tuning. confidence: 1 vendor source, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-net-blog-announcing-agent-governance-toolkit-mcp-extensions-for-net.md]
+
+### Typed entities
+- package: `Microsoft.AgentGovernance.Extensions.ModelContextProtocol`
+- SDK: official MCP C# SDK
+- API: `IMcpServerBuilder.WithGovernance(...)`
+- config: `McpGovernanceOptions`
+- policy format: YAML Agent Governance policy
+- identity: agent DID
+- control: startup tool-definition scanning
+- control: runtime policy enforcement
+- control: response sanitization
+- control: audit and metrics
+- threat: tool poisoning
+- threat: typosquatting
+- threat: description injection
+- threat: schema abuse
+
+### Explicit relationships
+- `WithGovernance(...)` extends MCP C# SDK builder pipelines without requiring a forked SDK or proxy process.
+- Startup scanning supersedes exposing unvetted MCP tool metadata to clients when unsafe definitions are detected.
+- Runtime policy enforcement depends-on agent identity and YAML policy rules.
+- Response sanitization complements, but does not replace, execution-layer sandboxing and least-privilege tool design.
+- [[microsoft-dotnet-ai-stack]] uses MCP governance extensions as .NET-specific production-hardening signal.
+
+### HoneyDrunk implications
+- If HoneyDrunk builds .NET MCP servers, governance should be a default builder-layer concern, not ad hoc per-tool checks.
+- Keep policy files outside application code so agent/tool authorization can change without redeploying binaries.
+- Treat Microsoft defaults as a baseline; tune risk thresholds and sanitizer patterns with HoneyDrunk-specific false-positive/false-negative tests.

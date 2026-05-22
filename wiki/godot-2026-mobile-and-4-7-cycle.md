@@ -135,3 +135,27 @@ Godot's 2026 signal is mobile maturity plus active 4.7 stabilization and renderi
 ### HoneyDrunk implications
 - If evaluating the 4.6 stable line, use 4.6.3 rather than 4.6.2/RC builds unless a plugin requires otherwise.
 - Specific fixes make 4.6.3 relevant for Android/iOS export tests, C# projects, Jolt physics, and Compatibility/GLES3 rendering validation.
+
+## 2026-05-22 compile additions
+
+### Claims
+- Godot 4.7 beta 3 is a pre-release stabilization snapshot built from commit `860821708`, with 85 fixes from 47 contributors since beta 2. confidence: 1 source, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-godot-engine-dev-snapshot-godot-4-7-beta-3.md]
+- Beta 3 highlights include fixes for a CSG auto-smoothing performance regression, Android Play Store crash reports, TRES UTF-8 BOM loading, debugger/inspector NAN display, PopupMenu accessibility, multi-input BaseButton Alt-click, Jolt body-test-motion filtering, Intel Iris Xe compute barriers, and an option to disable new volumetric-fog blending behavior. confidence: 1 source, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-godot-engine-dev-snapshot-godot-4-7-beta-3.md]
+- Godot maintainers say release blockers have decreased but still ask testers to report regressions before 4.7 final; beta snapshots remain pre-release and require backups/version control. confidence: 1 source, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-godot-engine-dev-snapshot-godot-4-7-beta-3.md]
+
+### Typed entities
+- version: Godot 4.7 beta 3
+- commit: `860821708`
+- subsystem: CSG
+- subsystem: Android exports/crashes
+- subsystem: PopupMenu accessibility
+- subsystem: Jolt physics
+- hardware/GPU: Intel Iris Xe Graphics
+- subsystem: volumetric fog
+
+### Explicit relationships
+- Godot 4.7 beta 3 supersedes beta 2 as the latest 4.7 pre-release stabilization signal, but does not supersede stable 4.6.3 for production guidance.
+- Beta 3 depends-on community regression testing before final release.
+
+### HoneyDrunk implications
+- If testing Godot 4.7, use beta 3 rather than beta 2 for regression validation; keep production baselines on 4.6.3 stable until 4.7 final/patch maturity.

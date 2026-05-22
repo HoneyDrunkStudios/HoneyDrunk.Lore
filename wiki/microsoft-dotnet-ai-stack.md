@@ -112,3 +112,26 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 
 ### HoneyDrunk implications
 - For any HoneyDrunk MCP app UI, require local Inspector validation of tool round trips and widget behavior before wiring into Copilot/Claude/ChatGPT-style clients.
+## 2026-05-22 compile additions
+
+### Claims
+- Microsoft.AgentGovernance.Extensions.ModelContextProtocol is a Public Preview companion package for official MCP C# SDK servers that adds `WithGovernance(...)` to apply policy enforcement, startup tool scanning, runtime governance, response sanitization, audit, and metrics. confidence: 1 source, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-net-blog-announcing-agent-governance-toolkit-mcp-extensions-for-net.md; page: [[mcp-tool-governance-and-app-surfaces]]]
+- The package wraps the final MCP `ToolCollection` and is intended to govern tools registered before or after the extension is added, avoiding a forked SDK/proxy architecture. confidence: 1 source, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-net-blog-announcing-agent-governance-toolkit-mcp-extensions-for-net.md]
+- The C# caller-unsafe redesign is relevant to .NET AI/tool servers because compiler-enforced unsafe boundaries can prevent agent-generated .NET code from calling unsafe APIs when the new safety model is enabled and `AllowUnsafeBlocks=false`. confidence: 1 source, last-confirmed 2026-05-22. [source: raw/2026-05-22-rss-net-blog-improving-c-memory-safety.md; page: [[csharp-memory-safety-and-unsafe-code]]]
+
+### Typed entities
+- package: `Microsoft.AgentGovernance.Extensions.ModelContextProtocol`
+- API: `IMcpServerBuilder.WithGovernance(...)`
+- collection: `ToolCollection`
+- policy: Agent Governance Toolkit policy YAML
+- language feature: C# caller unsafe
+- page: [[csharp-memory-safety-and-unsafe-code]]
+
+### Explicit relationships
+- .NET MCP servers use Agent Governance Toolkit extensions to apply policy and sanitization at the builder/tool-collection layer.
+- MCP governance complements Microsoft Agent Framework and .NET MCP Server templates by hardening the exposed tool surface.
+- C# memory-safety compiler gates complement .NET AI server governance by constraining unsafe code paths at build time.
+
+### HoneyDrunk implications
+- Use the .NET MCP governance package as the default starting point for any internal C# MCP server rather than hand-written filters.
+- Keep .NET AI/MCP repositories on safe-code defaults; require explicit review for any `AllowUnsafeBlocks=true` exception.
