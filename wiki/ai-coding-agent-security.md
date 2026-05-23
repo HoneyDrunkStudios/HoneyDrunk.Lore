@@ -74,3 +74,49 @@ AI coding agents should be treated as high-capability execution principals, not 
 ### HoneyDrunk implications
 - Do not enable auto-approve for Gordon or similar agents on repos with production credentials, broad filesystem access, or destructive Docker commands until sandbox/network/secret policies are proven.
 - Add .NET unsafe policy checks to coding-agent review gates when C# 16/.NET 11 tooling becomes available.
+
+## 2026-05-23 compile additions
+
+### Claims
+- Microsoft open-sourced RAMPART and Clarity for AI-agent security during development: RAMPART is a Pytest-native adversarial/benign test framework built on PyRIT with an agent adapter, while Clarity pressure-tests design assumptions before implementation. confidence: 1 source, last-confirmed 2026-05-23. [source: raw/2026-05-22-rss-tldr-infosec-microsoft-open-sources-rampart-and-clarity-to-secure-ai-a.md]
+- A Hacker News summary reports GitHub investigated TeamPCP claims that a compromised employee device and poisoned VS Code extension exposed ~3,800 internal repositories, and that the same group trojanized Microsoft's `durabletask` PyPI package to steal cloud/vault/SSH/Kubernetes credentials; treat as security-news evidence requiring primary verification before procurement-grade claims. confidence: 1 secondary source, last-confirmed 2026-05-23. [source: raw/2026-05-22-rss-tldr-infosec-github-breached-employee-device-hack-led-to-exfiltration-.md]
+- A GitHub Actions cache-poisoning analysis says recurring open-source supply-chain attacks chain unsafe `pull_request_target`, untrusted input interpolation, cache poisoning, third-party actions pinned to mutable tags, broad publish credentials, and weak package-manager/npm protections. confidence: 1 practitioner source, last-confirmed 2026-05-23. [source: raw/2026-05-23-rss-tldr-infosec-github-actions-cache-poisoning-is-eating-open-source-18-m.md]
+- The same cache-poisoning source recommends removing `pull_request_target` workflows that check out PR code, isolating caches in release-capable workflows, pinning third-party actions by commit SHA, treating AI-agent config files as source code, adding `zizmor`/`actionlint`, CODEOWNERS on `.github/`, OIDC trusted publishing, non-SMS 2FA, and package-manager install cooldowns. confidence: 1 practitioner source, last-confirmed 2026-05-23. [source: raw/2026-05-23-rss-tldr-infosec-github-actions-cache-poisoning-is-eating-open-source-18-m.md]
+- Kaspersky GReAT disclosed ExifTool CVE-2026-3102 affecting macOS users on ExifTool 13.49 and earlier when `-n`/`-printConv` is used; unsanitized metadata could reach a `system()` sink and execute commands with the invoking user's privileges. confidence: 1 security-research source, last-confirmed 2026-05-23. [source: raw/2026-05-23-rss-tldr-infosec-how-an-image-could-compromise-your-mac-understanding-an-e.md]
+
+### Typed entities
+- tool/framework: RAMPART
+- tool/framework: Clarity
+- framework: PyRIT
+- test framework: Pytest
+- platform: GitHub Actions
+- threat: cache poisoning
+- threat: poisoned VS Code extension
+- package: durabletask PyPI package
+- tool: ExifTool
+- vulnerability: CVE-2026-3102
+- tool: zizmor
+- tool: actionlint
+- control: OIDC trusted publishing
+- control: CODEOWNERS on `.github/`
+- control: commit-SHA action pinning
+
+### Explicit relationships
+- RAMPART uses PyRIT and Pytest to move agent red-team testing into development-time CI.
+- Clarity complements RAMPART by testing design assumptions before code exists.
+- GitHub Actions cache poisoning depends-on writable caches and release-capable credentials crossing trust boundaries.
+- Commit-SHA pinning, cache isolation, OIDC trusted publishing, CODEOWNERS, and linting mitigate CI supply-chain compromise.
+- ExifTool CVE-2026-3102 is caused by unsanitized metadata reaching a shell-command sink on macOS when machine-readable conversion is used.
+
+### HoneyDrunk implications
+- Add RAMPART/Clarity-style agent abuse tests to any agent that can read secrets, call tools, or emit external actions.
+- Audit HoneyDrunk GitHub Actions for `pull_request_target`, mutable action tags, release-workflow caches, `.github/` ownership, npm/package publish credentials, and AI-agent config files.
+- Treat image/media metadata parsing as an execution risk in asset pipelines; pin/patch ExifTool and sandbox media-processing tools.
+
+### Confidential-container platform controls
+- CNCF's CoCo/Kyverno article says Confidential Containers treat the Kubernetes control plane as untrusted and require workload bootstrap data such as runtimeClass, initdata, image policy, attestation server details, and optional sealed secrets/sidecars to be verified by the runtime environment. confidence: 1 CNCF source, last-confirmed 2026-05-23. [source: raw/2026-05-22-rss-tldr-devops-automating-confidential-containers-coco-infrastructure-wit.md]
+- Kyverno can mutate and validate Kubernetes resources at admission time to inject/validate CoCo infrastructure requirements, reducing developer friction and catching malformed confidential-workload inputs earlier; this does not remove the trust paradox that Kyverno itself runs in the untrusted control plane. confidence: 1 CNCF source, last-confirmed 2026-05-23. [source: raw/2026-05-22-rss-tldr-devops-automating-confidential-containers-coco-infrastructure-wit.md]
+
+Typed entities added: project: Confidential Containers / CoCo; tool: Kyverno; concept: remote attestation; concept: initdata; control: sealed secrets; control: admission-time mutation/validation.
+
+Relationships added: CoCo workloads depend-on remote attestation and runtime-side verification because the Kubernetes control plane is untrusted; Kyverno policy-as-code complements CoCo by automating required configuration but does not supersede runtime attestation.

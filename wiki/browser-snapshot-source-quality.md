@@ -153,3 +153,21 @@ The 2026-05-03 through 2026-05-07 X-list and Discord clipper snapshots are low-y
 ### Explicit relationships
 - 2026-05-22 TLDR captures reinforce, not supersede, the sponsor-copy RSS extraction failure across AI and InfoSec categories.
 - 2026-05-22 Rundown capture reinforces, not supersedes, the browser extraction/privacy-filter gap.
+
+## 2026-05-23 compile additions
+
+### Claims
+- The Qwen3.7 source capture retained only CSR JavaScript/scaffolding and title metadata, so Lore did not promote capability claims despite the promising title. confidence: 1 low-yield capture, last-confirmed 2026-05-23. [source: raw/2026-05-23-rss-tldr-ai-qwen3-7-the-agent-frontier-15-minute-read.md]
+- The CNBC/OpenAI Guaranteed Capacity capture was dominated by CSS/site scaffolding; Lore retained only the title-level compute-reservation signal and flagged details as unavailable from raw. confidence: 1 noisy capture, last-confirmed 2026-05-23. [source: raw/2026-05-22-rss-tldr-ai-openai-announces-new-guaranteed-capacity-offering-for-customer.md]
+- Game Developer captures included large site navigation/sidebar boilerplate before article text; body facts were still recoverable for Take-Two/GTA VI and Patch Notes #53, but extraction should prioritize article body boundaries. confidence: 2 sources, last-confirmed 2026-05-23. [sources: raw/2026-05-23-rss-game-developer-layoffs-imminent-at-bungie-former-bioware-devs-launch-n.md; raw/2026-05-23-rss-game-developer-take-two-expects-to-earn-8b-in-fy27-thanks-to-grand-the.md]
+
+### Typed entities
+- source family: Qwen.ai CSR pages
+- source family: CNBC pages
+- source family: Game Developer pages
+- concept: CSR scaffolding capture
+- concept: article-body boundary extraction
+
+### Explicit relationships
+- CSR-only captures prevent decision-grade model comparison until rendered article content is fetched.
+- Site boilerplate extraction reduces confidence and increases privacy/filtering work even when article text remains recoverable.

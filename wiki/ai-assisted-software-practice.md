@@ -145,3 +145,29 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 - Promote recurring AI-review findings into analyzers, lint rules, dependency rules, or focused modularity-review prompts.
 - Start with cheap computational gates for known AI failure modes, but reserve semantic LLM review for changed-file modularity and responsibility placement.
 - Treat agent-created suppressions and threshold increases as review hotspots, not hidden debt.
+
+## 2026-05-23 compile additions
+
+### Claims
+- Fowler's formal definition keeps “vibe coding” narrow: prompting an LLM to build/change an application while deliberately not reading the generated code; he distinguishes this from agentic programming, where developers still care about and review internal code structure. confidence: 1 source, last-confirmed 2026-05-23. [source: raw/2026-05-22-rss-martin-fowler-bliki-vibe-coding.md]
+- Fowler says vibe coding is best suited to disposable software, personal tools, prototypes, or limited-audience apps; broader or sensitive use raises maintainability, correctness, and security risks because the code is not inspected. confidence: 1 source, last-confirmed 2026-05-23. [source: raw/2026-05-22-rss-martin-fowler-bliki-vibe-coding.md]
+- Architecture Notes' “Enforce” roundup reinforces a verification gap: LLM-generated code can compile and pass tests while missing performance-critical invariants, citing a reported SQLite-vs-LLM Rust rewrite lookup gap of 0.09 ms versus 1,815.43 ms. Treat as secondary roundup evidence until the benchmark source is checked. confidence: 1 roundup source, last-confirmed 2026-05-23. [source: raw/2026-05-22-rss-architecture-notes-arc-notes-weekly-105-enforce.md]
+
+### Typed entities
+- person: Martin Fowler
+- person: Andrej Karpathy
+- concept: vibe coding
+- concept: agentic programming
+- concept: verification gap
+- concept: disposable software
+- database: SQLite
+- language: Rust
+
+### Explicit relationships
+- vibe coding contradicts agentic programming when the human stops inspecting code structure.
+- Vibe-coded software depends-on limited scope and low blast radius because maintainability/correctness/security evidence is weak.
+- Verification gates supersede “passes tests” as trust evidence when generated code might miss system invariants.
+
+### HoneyDrunk implications
+- Use vibe coding freely for throwaway internal prototypes, but require agentic-programming discipline for anything connected to credentials, users, data, revenue, or production workflows.
+- Add performance and invariant checks to AI-code review where correctness tests alone can pass.

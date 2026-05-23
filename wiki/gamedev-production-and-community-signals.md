@@ -107,3 +107,27 @@ The game-development community feed produced a mix of process advice, tooling ex
 - Cross-platform live games depend-on CI validation, input-specific control design, and weakest-device performance baselines.
 - Community feedback caused Albion Online server-region expansion, but final product decisions remained with the studio.
 - Impact-game funding depends-on measurable audience/problem fit, prototype/distribution plans, and social-good alignment.
+
+## 2026-05-23 compile additions
+
+### Claims
+- Game Developer's Patch Notes #53 reports imminent Bungie layoff concerns, a new studio by former BioWare developers, GTA VI still targeting November, Xbox leadership changes, and Nex Playground expansion; the captured article is noisy but useful as industry-market signal. confidence: 1 trade-press source, last-confirmed 2026-05-23. [source: raw/2026-05-23-rss-game-developer-layoffs-imminent-at-bungie-former-bioware-devs-launch-n.md]
+- Game Developer reports Take-Two expects approximately $8B in FY27 revenue, driven by Grand Theft Auto VI, and notes Grand Theft Auto V is nearing 230M lifetime sales. confidence: 1 trade-press source, last-confirmed 2026-05-23. [source: raw/2026-05-23-rss-game-developer-take-two-expects-to-earn-8b-in-fy27-thanks-to-grand-the.md]
+
+### Typed entities
+- company: Bungie
+- company: BioWare
+- company: Take-Two Interactive
+- franchise/game: Grand Theft Auto VI
+- franchise/game: Grand Theft Auto V
+- product/company: Nex Playground
+- concept: game industry layoffs
+- concept: AAA launch revenue concentration
+
+### Explicit relationships
+- Take-Two FY27 outlook depends-on Grand Theft Auto VI launch performance.
+- AAA market expectations can distort game-industry revenue signals because one franchise launch dominates annual projections.
+
+### HoneyDrunk implications
+- Treat AAA financial headlines as market climate/context, not directly transferable indie revenue evidence.
+- Layoff/new-studio signals may matter for talent availability and partner scouting, but need primary/local follow-up before action.

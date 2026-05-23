@@ -47,3 +47,29 @@ Google's 2026 agent developer surface is converging on production plumbing: Agen
 - Quality posture: decision-usable for platform scouting; vendor-authored benchmarks and claims should be validated before procurement.
 - Weak claims: course value and customer metric improvements are directional, not independently audited.
 - Privacy filter: no credentials or personal private data copied.
+
+## 2026-05-23 compile additions
+
+### Claims
+- Google announced Gemini 3.5 Flash as the first Gemini 3.5 model, positioning it for complex agentic workflows, coding, multimodal understanding, and broad availability through Gemini app/Search AI Mode, Google Antigravity, Gemini API/AI Studio/Android Studio, Gemini Enterprise Agent Platform, and Gemini Enterprise. confidence: 1 vendor source, last-confirmed 2026-05-23. [source: raw/2026-05-22-rss-tldr-ai-gemini-3-5-flash-5-minute-read.md]
+- Google says Gemini 3.5 Flash outperforms Gemini 3.1 Pro on named coding/agentic benchmarks and is four times faster by output tokens/sec than the prior Pro comparison; treat benchmark claims as vendor-authored until independently validated. confidence: 1 vendor source, last-confirmed 2026-05-23. [source: raw/2026-05-22-rss-tldr-ai-gemini-3-5-flash-5-minute-read.md]
+- Sundar Pichai's I/O 2026 remarks frame Google's AI strategy as a full-stack “agentic Gemini era” across custom silicon, models, products, and platforms, with emphasis on product value rather than raw demos. confidence: 1 vendor keynote transcript, last-confirmed 2026-05-23. [source: raw/2026-05-22-rss-tldr-ai-google-detailed-the-shift-toward-agentic-gemini-products-19-mi.md]
+- The Qwen3.7 raw capture contained only page scaffolding/title-level metadata and no decision-grade article body facts; no Qwen3.7 capability claims were promoted. confidence: 1 low-yield capture, last-confirmed 2026-05-23. [source: raw/2026-05-23-rss-tldr-ai-qwen3-7-the-agent-frontier-15-minute-read.md]
+
+### Typed entities
+- model: Gemini 3.5 Flash
+- model: Gemini 3.5 Pro
+- model: Gemini 3.1 Pro
+- product/platform: Google Antigravity
+- product/platform: Gemini Enterprise Agent Platform
+- person: Sundar Pichai
+- model family: Qwen3.7
+- concept: agentic Gemini era
+
+### Explicit relationships
+- Gemini 3.5 Flash supersedes Gemini 3.1 Pro in Google's stated agent/coding positioning, pending local validation.
+- Google Antigravity and Gemini API use Gemini 3.5 Flash as a developer-facing agent runtime surface.
+- Low-yield Qwen3.7 capture depends-on improved extraction before Lore can compare Qwen3.7 against Gemini/Claude/OpenAI models.
+
+### HoneyDrunk implications
+- Put Gemini 3.5 Flash on the benchmark shortlist for cheap/fast coding-agent and multimodal-routing tasks, but do not trust vendor benchmark deltas without representative HoneyDrunk runs.

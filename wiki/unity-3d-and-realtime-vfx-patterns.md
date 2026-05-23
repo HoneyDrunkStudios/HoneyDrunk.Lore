@@ -183,3 +183,30 @@ Unity-related sources clustered around practical production patterns: planning n
 ### HoneyDrunk implications
 - Unity Studio is worth a small spike for collaborative 3D review/prototyping, but vendor claims need validation on HoneyDrunk assets and target devices.
 - Treat Studio-to-Editor Export as the key adoption test: if exported hierarchy/materials/logic are clean enough for developers, Studio can reduce throwaway prototype cost; if not, it becomes another conversion layer.
+
+## 2026-05-23 compile additions
+
+### Claims
+- Unity and Attain's mobile-gaming ad partnership combines Unity mobile inventory with Attain's permissioned real-time purchase data from 14M+ consumers to target purchase-based audiences and measure incremental sales outcomes; Unity cites approximately 256M unique monthly active U.S. devices running Made with Unity mobile apps. confidence: 1 vendor source, last-confirmed 2026-05-23. [source: raw/2026-05-22-rss-unity-blog-turning-purchase-data-into-outcomes-in-mobile-gaming-unity-.md]
+- Unity Vector now supports D28 Ad Revenue ROAS and D28 Hybrid ROAS campaigns, completing Unity's D28 ROAS suite across IAP, ad-revenue, and hybrid monetization models; beta uplift numbers are vendor/internal and should be treated as directional. confidence: 1 vendor source, last-confirmed 2026-05-23. [source: raw/2026-05-22-rss-unity-blog-unity-vector-expands-to-d28-roas-ad-revenue-and-hybrid-mone.md]
+- A RealtimeVFX boat-wake forum post captures a common realtime-water production problem: mesh-trail wake approaches can conflict with distance-field water-outline/fade controls and force tradeoffs between edge fading and wake density. confidence: 1 forum source, last-confirmed 2026-05-23. [source: raw/2026-05-22-rss-realtimevfx-looking-for-help-on-my-boat-wake.md]
+
+### Typed entities
+- product: Unity Vector
+- company: Attain
+- concept: D28 ROAS
+- concept: D28 Ad Revenue ROAS
+- concept: D28 Hybrid ROAS
+- concept: purchase-based audience targeting
+- concept: boat wake VFX
+- technique: mesh trail
+- technique: distance-field water shader
+
+### Explicit relationships
+- Unity Vector uses 28-day revenue prediction to optimize user acquisition for IAP, ad-revenue, and hybrid mobile-game monetization.
+- Attain purchase data complements Unity mobile inventory for sales-outcome measurement.
+- Mesh-trail wakes can conflict with distance-field water effects when they share shader/field resources.
+
+### HoneyDrunk implications
+- Unity's ad stack is increasingly outcome/ROAS-oriented; useful if HoneyDrunk evaluates mobile UA, irrelevant for prototype engine choice unless monetization is in scope.
+- For stylized water, avoid overcommitting to mesh trails until shader resource conflicts with outlines/distance fields are tested.

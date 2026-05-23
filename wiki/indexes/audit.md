@@ -108,3 +108,11 @@ This keeps Lore decision-usable for Honeyclaw, Claude, and future agents.
 - pages updated: [[ai-agent-harnesses]], [[ai-coding-agent-security]], [[mcp-tool-governance-and-app-surfaces]], [[dotnet-runtime-and-mobile-2026]], [[godot-2026-mobile-and-4-7-cycle]], [[opentelemetry-genai-observability-and-ecosystem]], [[browser-snapshot-source-quality]], indexes, run/query outputs
 - privacy filtering: Rundown AI public client config/secrets-like strings and site scaffolding were not copied into semantic facts; TLDR sponsor blocks not promoted as title-level facts
 - quality posture: Docker/Microsoft/Godot sources are vendor-authored but decision-usable with validation caveats; OTel graduation is official ecosystem-maturity signal; TLDR/Rundown captures were fenced as low-yield source-quality evidence only.
+
+## 2026-05-23 OpenClaw ingest/compile
+- operator: Honeyclaw/OpenClaw scheduled ingest
+- raw sources ingested: 23
+- pages created: none
+- pages updated: [[ai-agent-harnesses]], [[ai-assisted-software-practice]], [[ai-coding-agent-security]], [[browser-snapshot-source-quality]], [[claude-platform-2026]], [[edge-ai-and-ai-infrastructure-2026]], [[gamedev-production-and-community-signals]], [[google-agent-platform-and-gemini-api-2026]], [[technical-art-community-and-talent-signals]], [[unity-3d-and-realtime-vfx-patterns]], indexes, run/query outputs
+- privacy filtering: security exploit and breach reports summarized at risk/control level; no exploit payloads, credentials, tokens, or private personal data copied into wiki facts
+- quality posture: decision-useful agent/security/platform facts compiled; vendor benchmarks and secondary reports marked validation-required; Qwen/CNBC captures flagged as low-yield/noisy extraction; no contradictions required supersession

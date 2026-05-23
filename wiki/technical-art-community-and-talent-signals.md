@@ -39,3 +39,24 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 - Quality posture: low-to-medium; useful as public market signal, not direct action evidence.
 - Weak claims: candidate/job details are public snippets only and may be stale quickly.
 - Privacy filter: no contact details copied; public usernames omitted unless needed for a later explicit sourcing query.
+
+## 2026-05-23 compile additions
+
+### Claims
+- Anthropic's Blender Development Fund support is earmarked for Blender core development and foundational extensibility such as the Blender Python API; this is a creator-tool ecosystem signal rather than a direct product feature. confidence: 1 Blender Foundation source, last-confirmed 2026-05-23. [source: raw/2026-05-22-rss-blender-releases-anthropic-joins-the-blender-development-fund-as-corpo.md]
+- A RealtimeVFX boat-wake help thread shows continued practitioner demand for better real-time water-interaction approaches beyond simple mesh trails, especially when distance-field shader effects are already in use. confidence: 1 community source, last-confirmed 2026-05-23. [source: raw/2026-05-22-rss-realtimevfx-looking-for-help-on-my-boat-wake.md]
+
+### Typed entities
+- organization: Blender Foundation
+- company: Anthropic
+- tool/API: Blender Python API
+- community: RealtimeVFX
+- concept: realtime water interaction
+- concept: technical-art community signal
+
+### Explicit relationships
+- Blender Python API enables custom workflows for artists and developers.
+- AI-lab funding of Blender supports the creative-tool substrate that LLM/MCP automation depends-on.
+
+### HoneyDrunk implications
+- Keep Blender automation on the technical-art roadmap; vendor ecosystem money is moving toward extensible creative tools.

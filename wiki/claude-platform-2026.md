@@ -75,3 +75,31 @@ Anthropic's 2026 platform direction is enterprise/workflow-heavy: Claude Opus 4.
 ### Explicit relationships
 - Claude/Cowork-style agent products depend-on filesystem and tool permission boundaries when operating beyond chat.
 - Cowork skills complement agent harnesses by packaging repeatable workflow automation.
+
+## 2026-05-23 compile additions
+
+### Claims
+- Cloudflare and Anthropic integrated Claude Managed Agents with Cloudflare Sandboxes, allowing the Claude agent loop to run on Anthropic while code execution, browser sessions, private-service connectivity, proxies, custom tools, logs, and sandbox control run on Cloudflare. confidence: 1 vendor integration source, last-confirmed 2026-05-23. [source: raw/2026-05-22-rss-tldr-devops-announcing-claude-managed-agents-on-cloudflare-8-minute-re.md]
+- Cloudflare describes this as “decoupling the brain from the hands”: model/orchestration can be provider-managed while execution infrastructure remains self-managed for security, compliance, performance, and observability. confidence: 1 vendor source, last-confirmed 2026-05-23. [source: raw/2026-05-22-rss-tldr-devops-announcing-claude-managed-agents-on-cloudflare-8-minute-re.md]
+- Andrej Karpathy announced he joined Anthropic for frontier LLM R&D while stating he remains interested in education and may resume that work later. confidence: 1 title/body summary source, last-confirmed 2026-05-23. [source: raw/2026-05-22-rss-tldr-ai-karpathy-joins-anthropic-1-minute-read.md]
+- Anthropic joined the Blender Development Fund as a Corporate Patron, with support dedicated to Blender core development and foundational features such as the Blender Python API; Blender later noted the membership shifted to a singular donation. confidence: 1 Blender Foundation source, last-confirmed 2026-05-23. [source: raw/2026-05-22-rss-blender-releases-anthropic-joins-the-blender-development-fund-as-corpo.md]
+
+### Typed entities
+- product: Claude Managed Agents
+- platform: Cloudflare Sandboxes
+- platform: Cloudflare Developer Platform
+- feature/control: customizable proxy
+- feature/control: private-service connectivity
+- feature/control: browser session recording
+- person: Andrej Karpathy
+- organization: Blender Foundation
+- project/tool: Blender Python API
+
+### Explicit relationships
+- Claude Managed Agents can use Cloudflare Sandboxes as execution hands while Anthropic supplies the agent brain.
+- Self-managed agent environments depend-on proxy, logging, sandbox-image, browser, email, and private-network controls.
+- Anthropic's Blender funding complements its Claude creative-tool connector strategy by supporting the host creative platform's extensibility surface.
+
+### HoneyDrunk implications
+- Treat “brain/hands” separation as the preferred architecture for high-trust agents: model provider can reason, but execution should remain sandboxed, logged, and policy-controlled by HoneyDrunk.
+- Blender Python API investment is a small but relevant signal that LLM vendors see Blender automation as strategic for creative workflows.

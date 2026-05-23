@@ -163,3 +163,31 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 ### HoneyDrunk implications
 - Evaluate Gordon as a Docker-specific operator for container debugging, but keep broad OpenClaw actions under separate approval/sandbox policy.
 - For .NET agent tooling, compiler properties are a better safety boundary than prompt instructions about avoiding unsafe APIs.
+
+## 2026-05-23 compile additions
+
+### Claims
+- AWS's Strands Agent “CLI Creator” pattern lets a CLI create and load new commands at runtime from natural-language requests, using Amazon Bedrock/Claude Opus 4.6 for code generation, Strands Agents SDK for tool creation/loading/execution, and MCP for discovering API servers that can provide generated tools additional context. confidence: 1 vendor source, last-confirmed 2026-05-23. [source: raw/2026-05-23-rss-tldr-devops-building-self-extending-cli-tools-with-strands-agent-9-min.md]
+- The self-extending CLI pattern is useful for internal platform tools with growing one-off operational needs, but it raises the same generated-code review, sandbox, provenance, and permission questions as coding agents because the application writes and executes new capabilities. confidence: 1 vendor source plus existing agent-security posture, last-confirmed 2026-05-23. [source: raw/2026-05-23-rss-tldr-devops-building-self-extending-cli-tools-with-strands-agent-9-min.md; page: [[ai-coding-agent-security]]]
+- CNCF's kubectl-debug evidence-gap article says Kubernetes ephemeral container status does not preserve `lastState` or `restartCount`; a debug session's exit code/duration/target context can disappear after later pod updates, so incident workflows need external capture if debug findings matter. confidence: 1 CNCF community source, last-confirmed 2026-05-23. [source: raw/2026-05-23-rss-tldr-devops-what-kubectl-debug-doesn-t-tell-you-the-silent-evidence-ga.md]
+
+### Typed entities
+- SDK/framework: Strands Agents SDK
+- service: Amazon Bedrock
+- model: Claude Opus 4.6
+- protocol: Model Context Protocol (MCP)
+- tool: CLI Creator
+- tool: kubectl debug
+- Kubernetes type: EphemeralContainerStatus
+- concept: self-extending CLI
+- concept: debug evidence gap
+
+### Explicit relationships
+- Self-extending CLIs use agent-generated code to create new operational tools at runtime.
+- MCP discovery can expand a generated tool's context and dependency surface.
+- Self-extending tools depend-on sandboxing, code review, provenance logging, and scoped credentials before production use.
+- `kubectl debug` depends-on external logging/audit capture for durable incident evidence because Kubernetes ephemeral containers do not retain full termination history.
+
+### HoneyDrunk implications
+- A self-extending Grid/OpenClaw CLI is attractive, but generated commands should land as reviewed code or quarantined plugins before trusted execution.
+- For Kubernetes incidents, capture debug-session findings outside the pod API immediately: logs, command transcript, target container, exit code, timestamps, and operator.

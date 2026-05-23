@@ -93,3 +93,30 @@ Google's May 2026 infrastructure sources point in two complementary directions: 
 ### HoneyDrunk implications
 - If HoneyDrunk hosts large open-weight models on Azure, test model streaming early; cold-start I/O can dominate GPU utilization and perceived reliability.
 - Require workload-specific validation: model size, region/storage tier, NIC saturation, concurrency settings, managed identity auth, and autoscaler cadence all affect the decision.
+
+## 2026-05-23 compile additions
+
+### Claims
+- CNBC/TechCrunch reporting says OpenAI launched or announced a Guaranteed Capacity offering for customers to reserve compute; the raw CNBC capture was mostly CSS/scaffolding, so no detailed terms were promoted. confidence: 1 noisy secondary capture, last-confirmed 2026-05-23. [source: raw/2026-05-22-rss-tldr-ai-openai-announces-new-guaranteed-capacity-offering-for-customer.md]
+- TechCrunch reports OpenAI may be preparing a September IPO and may file confidential paperwork soon, with Goldman Sachs and Morgan Stanley involved; OpenAI did not comment in the captured article. confidence: 1 secondary source, last-confirmed 2026-05-23. [source: raw/2026-05-23-rss-tldr-ai-openai-reportedly-moves-toward-ipo-2-minute-read.md]
+- OpenAI says an internal general-purpose reasoning model autonomously found a proof disproving a longstanding belief about the planar unit-distance problem, checked by external mathematicians; this is a frontier-research milestone claim, not a deployable product capability. confidence: 1 primary vendor/research source, last-confirmed 2026-05-23. [source: raw/2026-05-22-rss-tldr-ai-ai-solves-a-longstanding-geometry-conjecture-14-minute-read.md]
+
+### Typed entities
+- company: OpenAI
+- offering: OpenAI Guaranteed Capacity
+- event: OpenAI potential IPO
+- bank: Goldman Sachs
+- bank: Morgan Stanley
+- problem: planar unit-distance problem
+- person: Paul Erdős
+- concept: AI-discovered mathematics proof
+- concept: frontier compute reservation
+
+### Explicit relationships
+- OpenAI Guaranteed Capacity depends-on scarce frontier compute becoming a reserved enterprise resource.
+- OpenAI IPO readiness depends-on corporate-structure/legal/finance constraints per secondary reporting.
+- AI-discovered math proof strengthens evidence that frontier reasoning models can contribute to formal research when proofs are externally checkable.
+
+### HoneyDrunk implications
+- Watch guaranteed-capacity offerings as an enterprise pricing/availability pattern, not a near-term need unless HoneyDrunk has predictable high-volume model demand.
+- Treat AI-math breakthroughs as model capability signal but keep application decisions grounded in local benchmark tasks.
