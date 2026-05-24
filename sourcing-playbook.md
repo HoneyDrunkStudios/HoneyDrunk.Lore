@@ -6,7 +6,7 @@ This document defines what content belongs in Lore, where to find it, and how to
 
 ## How to use this playbook
 
-**OpenClaw — automated sourcing (every 1–2 days):** OpenClaw runs a scheduled job that walks every source listed below. For RSS-friendly sources it fetches feeds directly; for login-walled sources (X, Discord) it uses its managed Chromium browser tool with persistent cookies. Items matching the relevance criteria below land in `raw/` as markdown.
+**OpenClaw — automated sourcing (every 1–2 days):** OpenClaw runs a scheduled job against website/RSS sources listed below. It does not use X, Discord, podcast feeds, or YouTube feeds by default. Items matching the relevance criteria below land in `raw/` as markdown.
 
 **Web Clipper — serendipitous human capture (anytime):** When you find an article worth keeping during normal reading, hit Quick Clip (Alt+Shift+O). Output lands in `raw/` same as OpenClaw output. The downstream ingestion skill doesn't care which path produced a file.
 
@@ -175,6 +175,7 @@ This document defines what content belongs in Lore, where to find it, and how to
 
 **Sources:**
 - Claude Code documentation and changelog (docs.claude.com/en/docs/claude-code)
+- Claude Support / help center (support.claude.com) — Claude Code, Agent SDK, plan, billing, and usage-limit articles only
 - VS Code updates (code.visualstudio.com/updates)
 - GitHub Blog (github.blog)
 - TLDR Web Dev (tldr.tech/api/rss/webdev) — daily scan for durable web/devtool items
@@ -346,55 +347,21 @@ This document defines what content belongs in Lore, where to find it, and how to
 
 ---
 
-## Sources requiring browser or audio tooling
+## Disabled / intentionally skipped non-website channels
 
-These sources can't be fetched as simple RSS, but OpenClaw still automates them — the mechanisms differ from cats 1–12.
+Lore automated sourcing now stays strictly on website/RSS sources that fetch and extract cleanly. The goal is fewer noisy captures and more reliable compiled knowledge.
 
-- **Login-walled** (X, Discord) → OpenClaw uses a managed Chromium profile with persistent login state. One-time login per source persists in the cookie jar; the daily job then scrapes without further auth.
-- **Audio/video feeds** (podcasts, YouTube) → OpenClaw polls public feeds and saves high-signal metadata/show notes into `raw/` as `source_type: podcast|youtube`. Full audio/video transcription is a later upgrade, not required for the daily pass.
+Do **not** source these by default:
 
-Implementation specifics for these mechanisms live in the OpenClaw bringup packet, not here. This playbook only defines *what* gets sourced; the mechanism is OpenClaw's concern.
+- X / Twitter — too noisy and browser-dependent.
+- Discord — announcement snapshots were low-yield and often missed substantive announcement bodies.
+- Podcasts — metadata without transcript/body is usually too shallow for Lore.
+- YouTube — metadata/descriptions are usually too shallow for Lore.
+- LinkedIn — low signal for automated harvesting.
+- TikTok / Instagram — no relevant durable technical signal.
+- Real-time event streams / live conferences — wait for official writeups, release notes, docs, or recordings with useful written summaries.
 
-### X / Twitter
-
-OpenClaw scrapes `x.com/i/lists/2050930841488904671` daily — a private list curated in the X UI. Add or remove sources directly in the list; OpenClaw picks up the change on the next run. List membership is the source of truth; this playbook does not enumerate handles.
-
-### Discord communities
-
-OpenClaw navigates Discord web with the managed profile and snapshots the **announcement channels only** in each server below. Help/chat noise is excluded.
-
-- Aspire Discord — .NET Aspire announcements, integrations, deployment/runtime patterns
-- Microsoft Community Discord — broad Microsoft developer/platform announcements
-- .NET / C# Discord (discord.gg/csharp) — language and runtime announcements
-- OpenAI Developer Discord — API changes, model releases
-- Microsoft Foundry Discord — Azure AI Foundry/model/platform announcements
-- Anthropic Discord (joinable from anthropic.com) — Claude, MCP, Claude Code announcements
-- Google Gemini Discord — Gemini API/model and AI Studio announcements
-- Hugging Face Discord — OSS model ecosystem
-- Official Unity Discord — Unity engine, tooling, runtime/platform announcements
-- Blender Community Discord — Blender ecosystem, tooling, creator/platform patterns
-
-### Podcasts
-
-OpenClaw polls podcast/public feeds and clips high-signal episode metadata/show notes into `raw/` tagged `source_type: podcast`. Transcription can be added later when we want deeper harvesting.
-
-- Latent Space (latent.space) — AI engineering deep dives, swyx + alessio
-- Practical AI (changelog.com/practicalai) — applied AI cases
-- The Pragmatic Engineer (newsletter.pragmaticengineer.com/feed) — engineering leadership, dev productivity
-- Acquired (feeds.transistor.fm/acquired) — strategy and business of tech, occasional infra deep dives
-
-### YouTube
-
-OpenClaw polls official channel RSS feeds and clips high-signal video metadata/descriptions into `raw/` tagged `source_type: youtube`. Prefer release notes, demos, architecture talks, toolchain updates, and production workflows; skip hype trailers and beginner content.
-
-- Blender Official YouTube — Blender releases, demos, production workflows
-- Microsoft Developer YouTube — .NET/Azure/devtool talks and demos
-
-### What to skip
-
-- LinkedIn — most signal here gets reposted to X or blogs; not worth automating
-- TikTok / Instagram — no relevant signal for HoneyDrunk
-- Real-time event streams (live conferences) — wait for the recording
+If one of these surfaces reveals something important, prefer finding the canonical website source: official blog, docs page, changelog, support article, transcript, or written release notes.
 
 ---
 
@@ -415,6 +382,6 @@ When in doubt: clip it. It is easier to lint duplicates out than to recover from
 
 | Frequency | Actor | Activity |
 |-----------|-------|----------|
-| Every 1–2 days | OpenClaw (automated) | Walk every source in this playbook; drop qualifying items in `raw/` |
+| Every 1–2 days | OpenClaw (automated) | Walk website/RSS sources in this playbook; drop qualifying items in `raw/` |
 | Daily at 10:00 AM America/New_York | OpenClaw/Honeyclaw ingest job (automated) | Compile unprocessed `raw/` entries into `wiki/` — out of scope here, governed separately |
 | Monthly, ~10 min | You | Review this playbook — add new sources, remove dead ones, refine relevance criteria |

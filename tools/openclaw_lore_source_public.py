@@ -72,17 +72,8 @@ WEB_INDEX_SOURCES = [
     ("The Rundown AI", "https://www.therundown.ai", "AI / LLM Research & Tooling", r"/p/[a-z0-9-]+"),
 ]
 
-PODCAST_FEEDS = [
-    ("Latent Space", "https://www.latent.space/feed", "AI / LLM Research & Tooling"),
-    ("Practical AI", "https://changelog.com/practicalai/feed", "AI / LLM Research & Tooling"),
-    ("The Pragmatic Engineer", "https://newsletter.pragmaticengineer.com/feed", "Software Architecture"),
-    ("Acquired", "https://feeds.transistor.fm/acquired", "Creator Economy & Marketplace"),
-]
-
-YOUTUBE_FEEDS = [
-    ("Blender Official YouTube", "https://www.youtube.com/feeds/videos.xml?channel_id=UCAsj9iReHzLEYv9QawGzIOg", "Technical Art & Creator Tools"),
-    ("Microsoft Developer YouTube", "https://www.youtube.com/feeds/videos.xml?channel_id=UCV_6HOhwxYLXAGd-JOqKPoQ", ".NET Ecosystem"),
-]
+# Podcasts, YouTube, X, and Discord are intentionally excluded from scheduled sourcing.
+# Prefer canonical written websites/docs/changelogs/support pages instead.
 
 KEYWORDS = [
     "agent", "agents", "ai", "llm", "model", "prompt", "eval", "mcp", "tool",
@@ -97,7 +88,6 @@ KEYWORDS = [
     "substance", "premiere", "after effects", "shader", "shaders", "vfx",
     "technical art", "tech art", "art pipeline", "asset", "assets", "material",
     "texture", "textures", "rigging", "animation", "compositing",
-    "podcast", "episode", "interview", "youtube", "video", "demo",
 ]
 
 ADOBE_CREATOR_TERMS = [
@@ -380,24 +370,6 @@ def article_body(url: str, fallback: str) -> str:
     return body[:50000]
 
 
-def media_body(item: dict) -> str:
-    summary = (item.get("summary") or "").strip()
-    feed = item.get("feed", "unknown")
-    url = item.get("url", "")
-    source_type = item.get("source_type", "media")
-    kind = "Podcast episode" if source_type == "podcast" else "YouTube video"
-    parts = [
-        f"{kind} metadata snapshot from {feed}.",
-        "",
-        f"Source: {url}",
-        "",
-    ]
-    if summary:
-        parts.extend(["## Description", "", summary[:30000]])
-    else:
-        parts.append("No description was available in the feed; clipped as metadata-only signal.")
-    return "\n".join(parts).strip()
-
 
 def yaml_escape(value: str) -> str:
     return value.replace("\\", "\\\\").replace('"', '\\"').strip()
@@ -470,15 +442,6 @@ def main() -> int:
         except Exception as e:
             failures.append(f"{name}: {type(e).__name__}: {e}")
 
-    for source_type, feeds in (("podcast", PODCAST_FEEDS), ("youtube", YOUTUBE_FEEDS)):
-        for name, url, category in feeds:
-            try:
-                items = parse_feed(fetch(url), name, category)[:3]
-                for item in items:
-                    item["source_type"] = source_type
-                candidates.extend(items)
-            except Exception as e:
-                failures.append(f"{name}: {type(e).__name__}: {e}")
 
     seen = set()
     fresh = []
@@ -502,12 +465,8 @@ def main() -> int:
         OUTPUT.mkdir(parents=True, exist_ok=True)
         for item in selected:
             source_type = item.get("source_type", "rss")
-            if source_type in {"podcast", "youtube"}:
-                body = media_body(item)
-                min_len = 120
-            else:
-                body = article_body(item["url"], item.get("summary", ""))
-                min_len = 300
+            body = article_body(item["url"], item.get("summary", ""))
+            min_len = 300
             if len(body) < min_len:
                 failures.append(f"{item['feed']}: skipped short content: {item['url']}")
                 continue
