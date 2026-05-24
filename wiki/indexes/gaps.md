@@ -100,3 +100,10 @@ Questions the wiki cannot currently answer. Populated by the Query operation whe
 - Do HoneyDrunk asset/media pipelines call ExifTool or similar metadata parsers on untrusted files, and are they patched/sandboxed? - surfaced 2026-05-23 - context: ExifTool CVE-2026-3102 can execute commands on macOS under vulnerable conditions.
 - Can Lore extraction recover Qwen.ai article content instead of CSR scaffolding for the Qwen3.7 source? - surfaced 2026-05-23 - context: raw capture contained only JavaScript/page scaffolding and no decision-grade model facts.
 - Which Kubernetes incident workflows need durable `kubectl debug` transcript/log capture outside the pod API? - surfaced 2026-05-23 - context: Kubernetes ephemeral containers do not retain `lastState`/restart history for debug-session evidence.
+
+## 2026-05-24 gaps
+
+- Can Lore extraction recover full DigitalOcean article body text for the Inference Router architecture source instead of CSS/site scaffolding? - surfaced 2026-05-24 - context: raw/2026-05-24-rss-tldr-devops-how-we-built-digitalocean-inference-router-12-minute-read.md was too scaffold-heavy for detailed architecture facts.
+- Which HoneyDrunk package ecosystems should use a package-registry cooldown/proxy, and what exception policy is acceptable for urgent security updates? - surfaced 2026-05-24 - context: git-pkgs/proxy shows configurable version cooldown across npm/NuGet/PyPI/etc., but local developer workflow impact is unknown.
+- Are any HoneyDrunk GitHub repositories vulnerable to Megalodon-style workflow backdooring, dormant `workflow_dispatch` payloads, broad `id-token: write`, or publish-from-poisoned-source-chain risk? - surfaced 2026-05-24 - context: SafeDep Megalodon campaign report gives concrete CI workflow backdoor indicators and downstream npm propagation risk.
+- Can the sourcing pipeline strip tokenized/gift/access-token URL query strings before writing raw frontmatter or downstream indexes? - surfaced 2026-05-24 - context: Bloomberg Anthropic/SpaceX raw source included a tokenized `accessToken` query parameter that required privacy filtering during wiki compile.

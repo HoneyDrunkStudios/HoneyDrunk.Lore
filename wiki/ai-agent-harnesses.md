@@ -191,3 +191,28 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 ### HoneyDrunk implications
 - A self-extending Grid/OpenClaw CLI is attractive, but generated commands should land as reviewed code or quarantined plugins before trusted execution.
 - For Kubernetes incidents, capture debug-session findings outside the pod API immediately: logs, command transcript, target container, exit code, timestamps, and operator.
+
+## 2026-05-24 compile additions
+
+### Claims
+- Mishra's first-principles agent-training note frames agent training as a loop of prompt, model action, environment transition, reward, and gradient update; the toy example is a tldraw-style text-to-diagram agent emitting JSON `create_shape` and `connect` actions against a validating canvas. confidence: 1 source, last-confirmed 2026-05-24. [source: raw/2026-05-24-rss-tldr-ai-on-building-agents-from-first-principles-15-minute-read.md]
+- The example reward combines JSON validity, schema compliance, layout quality, and semantic coverage of prompt keywords, reinforcing that agent harnesses need explicit environment validators and reward/feedback design rather than vague “make it better” prompting. confidence: 1 source, last-confirmed 2026-05-24. [source: raw/2026-05-24-rss-tldr-ai-on-building-agents-from-first-principles-15-minute-read.md]
+
+### Typed entities
+- person: Mishra
+- concept: agent-training loop
+- environment: tldraw-style validating canvas
+- action schema: `create_shape`
+- action schema: `connect`
+- artifact format: JSON tool/action output
+- concept: reward function
+- concept: schema compliance
+
+### Explicit relationships
+- Agent training uses environment feedback and reward functions to turn model actions into learnable behavior.
+- Structured JSON actions depend-on validators before reward scoring can be trusted.
+- Reward design complements harness evaluation because both define what counts as successful agent behavior.
+
+### HoneyDrunk implications
+- For Grid/Lore agent evals, define small executable environments with typed actions, validators, and scoring before attempting broader autonomous training or self-improvement.
+- Treat reward functions as product/design artifacts: validity, safety, task coverage, and aesthetics may need separate weighted checks.

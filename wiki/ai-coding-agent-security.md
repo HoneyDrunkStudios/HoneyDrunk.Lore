@@ -120,3 +120,41 @@ AI coding agents should be treated as high-capability execution principals, not 
 Typed entities added: project: Confidential Containers / CoCo; tool: Kyverno; concept: remote attestation; concept: initdata; control: sealed secrets; control: admission-time mutation/validation.
 
 Relationships added: CoCo workloads depend-on remote attestation and runtime-side verification because the Kubernetes control plane is untrusted; Kyverno policy-as-code complements CoCo by automating required configuration but does not supersede runtime attestation.
+
+## 2026-05-24 compile additions
+
+### Claims
+- git-pkgs/proxy is a package-registry caching proxy with a configurable version-cooldown feature that hides newly published versions from package-manager metadata until they age past a global/ecosystem/package threshold, reducing exposure to fast-moving supply-chain attacks. confidence: 1 GitHub repo source, last-confirmed 2026-05-24. [source: raw/2026-05-24-rss-tldr-infosec-git-pkgs-proxy-github-repo.md]
+- git-pkgs/proxy currently documents cooldown support for npm, Cargo, RubyGems, Hex, pub.dev, PyPI, NuGet, Composer, and Conda; several other ecosystems are listed as incomplete or without timestamp support. confidence: 1 GitHub repo source, last-confirmed 2026-05-24. [source: raw/2026-05-24-rss-tldr-infosec-git-pkgs-proxy-github-repo.md]
+- SafeDep reports the Megalodon campaign pushed 5,718 malicious commits to 5,561 GitHub repositories in roughly six hours on 2026-05-18, injecting GitHub Actions workflows with base64-encoded bash payloads that exfiltrate CI secrets, cloud credentials, SSH keys, OIDC tokens, and source-code secrets to a C2 endpoint. confidence: 1 security-research source, last-confirmed 2026-05-24. [source: raw/2026-05-24-rss-tldr-infosec-megalodon-mass-github-repo-backdooring-via-ci-workflows-1.md]
+- SafeDep identifies two Megalodon workflow variants: a mass `SysDiag` workflow triggered on push and pull requests, and a targeted `Optimize-Build` workflow using `workflow_dispatch` to create dormant on-demand backdoors. confidence: 1 security-research source, last-confirmed 2026-05-24. [source: raw/2026-05-24-rss-tldr-infosec-megalodon-mass-github-repo-backdooring-via-ci-workflows-1.md]
+- SafeDep reports `@tiledesk/tiledesk-server` npm versions 2.18.6 through 2.18.12 carried the targeted Megalodon variant after a compromised GitHub repository was published by a legitimate maintainer; the npm account itself was not described as directly compromised. confidence: 1 security-research source, last-confirmed 2026-05-24. [source: raw/2026-05-24-rss-tldr-infosec-megalodon-mass-github-repo-backdooring-via-ci-workflows-1.md]
+
+### Typed entities
+- project/tool: git-pkgs/proxy
+- control: package version cooldown
+- package ecosystems: npm, Cargo, RubyGems, Hex, pub.dev, PyPI, NuGet, Composer, Conda
+- campaign: Megalodon
+- platform: GitHub Actions
+- malicious workflow: SysDiag
+- malicious workflow: Optimize-Build
+- npm package: `@tiledesk/tiledesk-server`
+- compromised versions: 2.18.6 through 2.18.12
+- threat: CI secret exfiltration
+- credential type: GitHub Actions OIDC token
+- credential type: cloud credentials
+- credential type: SSH private keys
+
+### Explicit relationships
+- Package cooldown proxies mitigate fast supply-chain attacks by delaying newly published versions before automated consumers can resolve them.
+- Version-cooldown controls depend-on registries exposing trustworthy publish timestamps.
+- Megalodon used compromised repository write access to inject CI workflows, which caused downstream npm package compromise when legitimate publishes included poisoned workflow files.
+- `pull_request_target`, broad `id-token: write`, workflow write access, and CI secret exposure amplify malicious-workflow blast radius.
+
+### HoneyDrunk implications
+- Add package-install cooldown/proxying to the dependency-security option list for high-risk repos, especially npm/NuGet/PyPI automation; validate developer-friction and lockfile behavior before enforcing globally.
+- Audit HoneyDrunk repos for unexpected workflow additions/renames, `workflow_dispatch`-only dormant workflows, broad `id-token: write`, and commits that look like generic CI maintenance from bot-like authors.
+- Treat package publishing from GitHub source as a trust chain: repository compromise can produce legitimate package releases even when registry credentials remain intact.
+
+### Privacy and quality notes
+- Privacy filter: campaign indicators are summarized at control/checklist level; the raw C2 IP and redacted/garbled email addresses were not copied into the wiki.

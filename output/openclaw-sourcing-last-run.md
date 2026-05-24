@@ -1,31 +1,31 @@
 # OpenClaw Lore Sourcing — Last Run
 
-Timestamp: 2026-05-23T03:01:07
+Timestamp: 2026-05-24T03:01:23
 Mode: write
 Candidates scanned: 191
-Skipped duplicates: 41
+Skipped duplicates: 48
 Selected: 8
 Saved: 8
 
 ## Selected candidates
-- [AI / LLM Research & Tooling] TLDR AI: Qwen3.7: The Agent Frontier (15 minute read)
-- [AI / LLM Research & Tooling] TLDR AI: OpenAI Reportedly Moves Toward IPO (2 minute read)
-- [DevOps & CI/CD] TLDR DevOps: Building Self-Extending CLI Tools with Strands Agent (9 minute read)
-- [DevOps & CI/CD] TLDR DevOps: What kubectl debug doesn't tell you: The silent evidence gap (5 minute read)
-- [Security & Ethical Hacking] TLDR InfoSec: How an image could compromise your Mac: understanding an ExifTool vulnerability (CVE-2026-3102) (7 minute read)
-- [Security & Ethical Hacking] TLDR InfoSec: GitHub Actions Cache Poisoning is eating open source (18 minute read)
-- [Game Development / Unity] Game Developer: Take-Two expects to earn $8B in FY27 thanks to Grand Theft Auto VI
-- [Game Development / Unity] Game Developer: Layoffs imminent at Bungie, former BioWare devs launch new studio, and GTA VI still on for November - Patch Notes #53
+- [AI / LLM Research & Tooling] TLDR AI: Anthropic to Pay SpaceX Nearly $45 Billion for Computing Deal (2 minute read)
+- [AI / LLM Research & Tooling] TLDR AI: On Building Agents From First Principles (15 minute read)
+- [DevOps & CI/CD] TLDR DevOps: How We Built DigitalOcean Inference Router (12 minute read)
+- [DevOps & CI/CD] TLDR DevOps: From latency to instant: Modernizing GitHub Issues navigation performance (15 minute read)
+- [Security & Ethical Hacking] TLDR InfoSec: git-pkgs proxy (GitHub Repo)
+- [Security & Ethical Hacking] TLDR InfoSec: Megalodon: Mass GitHub Repo Backdooring via CI Workflows (11 minute read)
+- [Game Development / Unity] Game Developer: Subnautica 2 hits four million sales
+- [Game Development / Unity] 80 Level: This Stunning 3D Persian Warrior Character Was Rendered in Real-Time Using UE5
 
 ## Files written
-- raw/2026-05-23-rss-tldr-ai-qwen3-7-the-agent-frontier-15-minute-read.md
-- raw/2026-05-23-rss-tldr-ai-openai-reportedly-moves-toward-ipo-2-minute-read.md
-- raw/2026-05-23-rss-tldr-devops-building-self-extending-cli-tools-with-strands-agent-9-min.md
-- raw/2026-05-23-rss-tldr-devops-what-kubectl-debug-doesn-t-tell-you-the-silent-evidence-ga.md
-- raw/2026-05-23-rss-tldr-infosec-how-an-image-could-compromise-your-mac-understanding-an-e.md
-- raw/2026-05-23-rss-tldr-infosec-github-actions-cache-poisoning-is-eating-open-source-18-m.md
-- raw/2026-05-23-rss-game-developer-take-two-expects-to-earn-8b-in-fy27-thanks-to-grand-the.md
-- raw/2026-05-23-rss-game-developer-layoffs-imminent-at-bungie-former-bioware-devs-launch-n.md
+- raw/2026-05-24-rss-tldr-ai-anthropic-to-pay-spacex-nearly-45-billion-for-computing-deal-2.md
+- raw/2026-05-24-rss-tldr-ai-on-building-agents-from-first-principles-15-minute-read.md
+- raw/2026-05-24-rss-tldr-devops-how-we-built-digitalocean-inference-router-12-minute-read.md
+- raw/2026-05-24-rss-tldr-devops-from-latency-to-instant-modernizing-github-issues-navigati.md
+- raw/2026-05-24-rss-tldr-infosec-git-pkgs-proxy-github-repo.md
+- raw/2026-05-24-rss-tldr-infosec-megalodon-mass-github-repo-backdooring-via-ci-workflows-1.md
+- raw/2026-05-24-rss-game-developer-subnautica-2-hits-four-million-sales.md
+- raw/2026-05-24-rss-80-level-this-stunning-3d-persian-warrior-character-was-rendered-in-re.md
 
 ## Failures / skips
 _None_

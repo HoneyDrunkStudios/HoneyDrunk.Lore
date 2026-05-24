@@ -131,3 +131,24 @@ The game-development community feed produced a mix of process advice, tooling ex
 ### HoneyDrunk implications
 - Treat AAA financial headlines as market climate/context, not directly transferable indie revenue evidence.
 - Layoff/new-studio signals may matter for talent availability and partner scouting, but need primary/local follow-up before action.
+
+## 2026-05-24 compile additions
+
+### Claims
+- Game Developer reports Subnautica 2 sold four million copies within a week of its 2026-05-14 Early Access launch, including two million copies in the first 12 hours per Gematsu/press-release reporting. confidence: 1 trade-press source, last-confirmed 2026-05-24. [source: raw/2026-05-24-rss-game-developer-subnautica-2-hits-four-million-sales.md]
+- The same source notes Subnautica 2 had “very positive” Steam reviews and launched successfully despite a high-profile legal dispute between ousted Unknown Worlds leadership and Krafton. confidence: 1 trade-press source, last-confirmed 2026-05-24. [source: raw/2026-05-24-rss-game-developer-subnautica-2-hits-four-million-sales.md]
+
+### Typed entities
+- game: Subnautica 2
+- studio: Unknown Worlds
+- company: Krafton
+- platform: Steam
+- launch model: Early Access
+- concept: community-feedback-driven development
+
+### Explicit relationships
+- Subnautica 2 Early Access performance reinforces that established IP plus community feedback can produce strong early sales despite corporate/legal turbulence.
+- Early Access success depends-on ongoing community feedback, but initial sales also depends-on franchise reputation and launch visibility.
+
+### HoneyDrunk implications
+- Treat Subnautica 2 as AAA/established-IP market signal, not indie baseline; the durable lesson is that Early Access must be paired with credible community-feedback loops.

@@ -235,3 +235,24 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 ### Security and CI/CD supply chain
 - [[ai-coding-agent-security]] - 8 sources - last-confirmed 2026-05-23
 - [[ai-agent-harnesses]] - 27 sources - last-confirmed 2026-05-23
+
+## 2026-05-24 topic additions
+
+### AI agents and harnesses
+- [[ai-agent-harnesses]] - 28 sources - last-confirmed 2026-05-24
+- [[edge-ai-and-ai-infrastructure-2026]] - 10 sources - last-confirmed 2026-05-24
+
+### AI platforms and infrastructure
+- [[edge-ai-and-ai-infrastructure-2026]] - 10 sources - last-confirmed 2026-05-24
+
+### DevOps, CI/CD, and source quality
+- [[github-actions-platform-operations]] - 3 sources - last-confirmed 2026-05-24
+- [[browser-snapshot-source-quality]] - 94 sources - last-confirmed 2026-05-24
+
+### Security and CI/CD supply chain
+- [[ai-coding-agent-security]] - 10 sources - last-confirmed 2026-05-24
+- [[github-actions-platform-operations]] - 3 sources - last-confirmed 2026-05-24
+
+### Game engines, gamedev, and technical art
+- [[gamedev-production-and-community-signals]] - 17 sources - last-confirmed 2026-05-24
+- [[technical-art-community-and-talent-signals]] - 6 sources - last-confirmed 2026-05-24

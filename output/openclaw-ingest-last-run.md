@@ -1,84 +1,59 @@
-# OpenClaw Lore ingest last run
+# OpenClaw Lore ingest run — 2026-05-24
 
-- timestamp: 2026-05-23 09:00 UTC / 2026-05-23 05:00 America/New_York
-- operator/runtime: Honeyclaw / OpenClaw scheduled ingest
-- repo: C:\Users\tatte\source\repos\HoneyDrunkStudios\HoneyDrunk.Lore
+- Timestamp: 2026-05-24 05:00 America/New_York / 2026-05-24 09:00 UTC
+- Operator: Honeyclaw / OpenClaw scheduled ingest
 
-## Raw sources ingested
+## Raw sources ingested: 8
 
-Count: 23
+1. `raw/2026-05-24-rss-80-level-this-stunning-3d-persian-warrior-character-was-rendered-in-re.md` — UE5 real-time Persian Female Warrior character-art/toolchain reference.
+2. `raw/2026-05-24-rss-game-developer-subnautica-2-hits-four-million-sales.md` — Subnautica 2 Early Access sales and launch signal.
+3. `raw/2026-05-24-rss-tldr-ai-anthropic-to-pay-spacex-nearly-45-billion-for-computing-deal-2.md` — Anthropic/SpaceX Claude compute deal; tokenized source URL privacy-filtered in wiki citations.
+4. `raw/2026-05-24-rss-tldr-ai-on-building-agents-from-first-principles-15-minute-read.md` — first-principles agent-training loop and reward-function example.
+5. `raw/2026-05-24-rss-tldr-devops-from-latency-to-instant-modernizing-github-issues-navigati.md` — GitHub Issues local-first navigation performance case study.
+6. `raw/2026-05-24-rss-tldr-devops-how-we-built-digitalocean-inference-router-12-minute-read.md` — DigitalOcean inference-router source; noisy scaffold capture limited promotion.
+7. `raw/2026-05-24-rss-tldr-infosec-git-pkgs-proxy-github-repo.md` — package-registry caching proxy with version-cooldown supply-chain control.
+8. `raw/2026-05-24-rss-tldr-infosec-megalodon-mass-github-repo-backdooring-via-ci-workflows-1.md` — SafeDep Megalodon GitHub Actions backdooring campaign report.
 
-- raw/2026-05-22-rss-architecture-notes-arc-notes-weekly-105-enforce.md
-- raw/2026-05-22-rss-blender-releases-anthropic-joins-the-blender-development-fund-as-corpo.md
-- raw/2026-05-22-rss-martin-fowler-bliki-vibe-coding.md
-- raw/2026-05-22-rss-realtimevfx-looking-for-help-on-my-boat-wake.md
-- raw/2026-05-22-rss-tldr-ai-ai-solves-a-longstanding-geometry-conjecture-14-minute-read.md
-- raw/2026-05-22-rss-tldr-ai-gemini-3-5-flash-5-minute-read.md
-- raw/2026-05-22-rss-tldr-ai-google-detailed-the-shift-toward-agentic-gemini-products-19-mi.md
-- raw/2026-05-22-rss-tldr-ai-karpathy-joins-anthropic-1-minute-read.md
-- raw/2026-05-22-rss-tldr-ai-openai-announces-new-guaranteed-capacity-offering-for-customer.md
-- raw/2026-05-22-rss-tldr-devops-announcing-claude-managed-agents-on-cloudflare-8-minute-re.md
-- raw/2026-05-22-rss-tldr-devops-automating-confidential-containers-coco-infrastructure-wit.md
-- raw/2026-05-22-rss-tldr-infosec-github-breached-employee-device-hack-led-to-exfiltration-.md
-- raw/2026-05-22-rss-tldr-infosec-microsoft-open-sources-rampart-and-clarity-to-secure-ai-a.md
-- raw/2026-05-22-rss-unity-blog-turning-purchase-data-into-outcomes-in-mobile-gaming-unity-.md
-- raw/2026-05-22-rss-unity-blog-unity-vector-expands-to-d28-roas-ad-revenue-and-hybrid-mone.md
-- raw/2026-05-23-rss-game-developer-layoffs-imminent-at-bungie-former-bioware-devs-launch-n.md
-- raw/2026-05-23-rss-game-developer-take-two-expects-to-earn-8b-in-fy27-thanks-to-grand-the.md
-- raw/2026-05-23-rss-tldr-ai-openai-reportedly-moves-toward-ipo-2-minute-read.md
-- raw/2026-05-23-rss-tldr-ai-qwen3-7-the-agent-frontier-15-minute-read.md
-- raw/2026-05-23-rss-tldr-devops-building-self-extending-cli-tools-with-strands-agent-9-min.md
-- raw/2026-05-23-rss-tldr-devops-what-kubectl-debug-doesn-t-tell-you-the-silent-evidence-ga.md
-- raw/2026-05-23-rss-tldr-infosec-github-actions-cache-poisoning-is-eating-open-source-18-m.md
-- raw/2026-05-23-rss-tldr-infosec-how-an-image-could-compromise-your-mac-understanding-an-e.md
+## Wiki pages updated
 
-## Wiki pages created/updated
+- `wiki/edge-ai-and-ai-infrastructure-2026.md` — Anthropic/SpaceX compute-contract reinforcement; DigitalOcean inference-router source-quality-limited signal.
+- `wiki/ai-agent-harnesses.md` — agent-training loop, typed JSON actions, validation, and reward-function harness implications.
+- `wiki/ai-coding-agent-security.md` — package cooldown proxy controls; Megalodon GitHub Actions workflow backdoor claims, entities, relationships, and HoneyDrunk audit implications.
+- `wiki/github-actions-platform-operations.md` — GitHub Issues local-first navigation/perceived-latency engineering case study.
+- `wiki/gamedev-production-and-community-signals.md` — Subnautica 2 Early Access sales/community-feedback market signal.
+- `wiki/technical-art-community-and-talent-signals.md` — UE5 real-time character art reference/toolchain signal.
+- `wiki/browser-snapshot-source-quality.md` — DigitalOcean scaffold-heavy capture, tokenized Bloomberg URL privacy finding, and article-boundary extraction notes.
+- `wiki/indexes/sources.md` — added 8 2026-05-24 source entries.
+- `wiki/indexes/topics.md` — appended 2026-05-24 topic additions.
+- `wiki/indexes/gaps.md` — appended 4 gaps.
 
-Created:
-- none
+## Crystallization from `output/query-*.md`
 
-Updated:
-- wiki/ai-agent-harnesses.md
-- wiki/ai-assisted-software-practice.md
-- wiki/ai-coding-agent-security.md
-- wiki/browser-snapshot-source-quality.md
-- wiki/claude-platform-2026.md
-- wiki/edge-ai-and-ai-infrastructure-2026.md
-- wiki/gamedev-production-and-community-signals.md
-- wiki/google-agent-platform-and-gemini-api-2026.md
-- wiki/technical-art-community-and-talent-signals.md
-- wiki/unity-3d-and-realtime-vfx-patterns.md
-- wiki/indexes/sources.md
-- wiki/indexes/topics.md
-- wiki/indexes/gaps.md
-- wiki/indexes/audit.md
+- Reviewed latest query output posture. No new durable facts required crystallization beyond prior 2026-05-23 wiki updates; today’s durable facts came directly from new raw sources.
 
-Outputs:
-- output/query-2026-05-23-daily-agent-security-platform-signal.md
-- output/openclaw-ingest-last-run.md
+## Contradictions / supersession
 
-## Contradictions and supersession
-
-- No direct contradictions required supersession.
-- Fowler's narrow definition of vibe coding was reconciled with earlier Simon Willison notes: the wiki now explicitly separates true vibe coding (not reading generated code) from agentic programming (using agents while preserving code ownership/review).
+- No direct contradictions resolved.
+- Reinforced prior frontier-compute-scarcity claim with Bloomberg Anthropic/SpaceX compute-contract reporting.
+- Reinforced CI/CD supply-chain risk posture with Megalodon and package-cooldown sources.
 
 ## Gaps logged
 
-- Benchmark Gemini 3.5 Flash / Claude / OpenAI / Qwen3.7 on representative HoneyDrunk tasks before routing changes.
-- Decide generated-command trust/quarantine model before adopting a self-extending CLI pattern.
-- Audit HoneyDrunk GitHub Actions for cache-poisoning/release-token risks.
-- Check whether HoneyDrunk asset/media pipelines invoke ExifTool or similar metadata parsers on untrusted files.
-- Improve extraction for Qwen.ai CSR pages and noisy CNBC/Game Developer pages.
-- Capture durable `kubectl debug` evidence outside Kubernetes ephemeral-container status.
+- DigitalOcean Inference Router article-body extraction needs recovery beyond CSS/site scaffolding.
+- HoneyDrunk package-cooldown/proxy adoption needs local ecosystem/exception-policy decision.
+- HoneyDrunk repos need Megalodon-style workflow-backdoor and OIDC/publish-chain audit.
+- Sourcing pipeline should strip tokenized/gift/access-token query strings before raw frontmatter or downstream indexes.
 
 ## Quality posture
 
-- Decision-useful pages were updated with typed entities, explicit relationships, source citations, and confidence notes.
-- Vendor-authored benchmark/performance claims were marked as validation-required.
-- Secondary security/news reports were treated as control/checklist evidence, not procurement-grade truth.
-- Low-yield/noisy captures: Qwen3.7 raw contained only CSR scaffolding/title; CNBC Guaranteed Capacity raw was CSS/scaffolding-heavy; Game Developer raws included large navigation/sidebar boilerplate but article facts were recoverable.
-- Privacy filter: no credentials/tokens/private PII copied into wiki. Security exploit details were summarized at risk/control level; no operational exploit payloads were promoted.
+- Decision-usefulness: good for Megalodon/package-cooldown/GitHub navigation/agent-training/Subnautica/UE5-character signals; limited for DigitalOcean architecture due scaffold-heavy capture.
+- Weak claims: DigitalOcean Inference Router was kept as title-level architecture signal only; no detailed architecture facts promoted.
+- Privacy filter: did not copy Bloomberg `accessToken` query value into wiki pages or source index summaries; raw remains immutable per contract. Security IoCs were summarized only where public and decision-relevant.
+- Source citations: all promoted claims cite raw filenames.
+- Raw immutability: no `raw/` files edited or deleted.
 
 ## Blockers
 
-- None blocking commit, assuming validation passes.
+- Push/commit blocked by privacy validation: `raw/2026-05-24-rss-tldr-ai-anthropic-to-pay-spacex-nearly-45-billion-for-computing-deal-2.md` contains a tokenized Bloomberg `accessToken` URL in raw frontmatter/body. Raw is immutable by Lore rules, so I did not edit/redact it or push it. Human/sourcing-pipeline decision needed: sanitize before raw write, approve raw redaction, or mark this source private/excluded from git.
+- Existing repo had pre-run modified files from sourcing/Obsidian/user state: `.obsidian/graph.json`, `output/openclaw-browser-sourcing-last-run.md`, `output/openclaw-sourcing-last-run.md`, and `wiki/ai-assisted-software-practice.md`. These were not part of this ingest mutation and should not be bundled without review.
+

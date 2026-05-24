@@ -44,3 +44,26 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 - Quality posture: decision-usable for CI/CD scheduling and runner-image migration planning.
 - Weak spots: vendor changelog source; verify exact YAML syntax against GitHub docs before bulk migration.
 - Privacy filter: no private repository or runner details copied.
+
+## 2026-05-24 compile additions
+
+### Claims
+- GitHub's Issues navigation modernization used a local-first architecture with IndexedDB caching, preheating, in-memory layers, and service workers to reduce perceived latency and make repeated issue views feel instant. confidence: 1 GitHub engineering source, last-confirmed 2026-05-24. [source: raw/2026-05-24-rss-tldr-devops-from-latency-to-instant-modernizing-github-issues-navigati.md]
+- The GitHub source reports many React navigation paths loading under 200 ms after the modernization, while remaining hard navigation bottlenecks are tied to JavaScript boot and server rendering. confidence: 1 GitHub engineering source, last-confirmed 2026-05-24. [source: raw/2026-05-24-rss-tldr-devops-from-latency-to-instant-modernizing-github-issues-navigati.md]
+
+### Typed entities
+- product: GitHub Issues
+- browser storage: IndexedDB
+- browser feature: service worker
+- architecture pattern: local-first navigation
+- concept: preheating
+- concept: perceived latency
+- framework: React
+
+### Explicit relationships
+- Local-first navigation uses IndexedDB, memory caches, preheating, and service workers to reduce repeated-view latency.
+- JavaScript boot and server rendering remain bottlenecks even after client-side cache layers improve navigation.
+
+### HoneyDrunk implications
+- For issue/task-heavy internal tools, cache issue/task shells and recently visited data locally before optimizing server endpoints.
+- Measure perceived navigation latency separately from backend latency; users feel route transitions, boot cost, and hydration, not only API timings.

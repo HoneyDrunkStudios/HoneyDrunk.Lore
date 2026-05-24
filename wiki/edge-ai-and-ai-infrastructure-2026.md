@@ -120,3 +120,33 @@ Google's May 2026 infrastructure sources point in two complementary directions: 
 ### HoneyDrunk implications
 - Watch guaranteed-capacity offerings as an enterprise pricing/availability pattern, not a near-term need unless HoneyDrunk has predictable high-volume model demand.
 - Treat AI-math breakthroughs as model capability signal but keep application decisions grounded in local benchmark tasks.
+
+## 2026-05-24 compile additions
+
+### Claims
+- Bloomberg reports that Anthropic agreed to pay SpaceX nearly $45B over three years for compute supporting Claude, with SpaceX disclosing an expected $1.25B/month through May 2029 and a 90-day termination option for either party; this strengthens the frontier-compute-scarcity claim with a primary business-reporting source. confidence: 1 source, last-confirmed 2026-05-24. [source: raw/2026-05-24-rss-tldr-ai-anthropic-to-pay-spacex-nearly-45-billion-for-computing-deal-2.md]
+- The raw Bloomberg URL contained an access-token query string; wiki citations intentionally cite only the immutable raw filename and not the tokenized URL. confidence: 1 source, last-confirmed 2026-05-24. [source: raw/2026-05-24-rss-tldr-ai-anthropic-to-pay-spacex-nearly-45-billion-for-computing-deal-2.md]
+
+### Typed entities
+- company: Anthropic
+- company: SpaceX
+- product/model family: Claude
+- concept: frontier compute supply chain
+- contract term: 90-day termination option
+- privacy artifact: tokenized article URL
+
+### Explicit relationships
+- Anthropic depends-on external SpaceX compute capacity to support Claude scale under the reported agreement.
+- Frontier-model availability depends-on long-horizon compute contracts, not just model/runtime engineering.
+- Privacy filtering supersedes raw URL copying when source links contain access-token query strings.
+
+### HoneyDrunk implications
+- Keep model-provider abstraction and rate-limit/fallback planning: frontier compute can become a contractual supply-chain dependency.
+- Do not copy tokenized article URLs from raw into wiki, issue trackers, or public notes; cite raw files or clean canonical URLs instead.
+
+### Inference routing note
+- DigitalOcean describes its Inference Router architecture as a model-serving routing layer; the captured raw was too scaffold-heavy for detailed architecture extraction, but the title-level/TLDR summary is enough to track inference routing as an infrastructure pattern needing cleaner sourcing before design reuse. confidence: 1 noisy capture, last-confirmed 2026-05-24. [source: raw/2026-05-24-rss-tldr-devops-how-we-built-digitalocean-inference-router-12-minute-read.md]
+
+Typed entities added: company: DigitalOcean; concept: inference router; concept: model-serving routing layer.
+
+Relationships added: inference-routing decisions depend-on clean article/body extraction before architecture details can be reused.

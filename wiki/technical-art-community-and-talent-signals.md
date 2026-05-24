@@ -60,3 +60,29 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### HoneyDrunk implications
 - Keep Blender automation on the technical-art roadmap; vendor ecosystem money is moving toward extensible creative tools.
+
+## 2026-05-24 compile additions
+
+### Claims
+- 80 Level highlighted Ju Hwan Jeon's Persian Female Warrior character as a high-detail real-time Unreal Engine 5 render using 3ds Max, ZBrush, Substance 3D Painter, Marmoset Toolbag, Marvelous Designer, and Photoshop in the production stack. confidence: 1 art/trade source, last-confirmed 2026-05-24. [source: raw/2026-05-24-rss-80-level-this-stunning-3d-persian-warrior-character-was-rendered-in-re.md]
+- The source frames the artist goal as reimagining ancient Persian attire with modern ornaments while preserving a strong/elegant character silhouette; use this as art-direction reference signal, not as production-performance evidence. confidence: 1 art/trade source, last-confirmed 2026-05-24. [source: raw/2026-05-24-rss-80-level-this-stunning-3d-persian-warrior-character-was-rendered-in-re.md]
+
+### Typed entities
+- artist: Ju Hwan Jeon
+- project/artwork: Persian Female Warrior
+- engine: Unreal Engine 5
+- tool: 3ds Max
+- tool: ZBrush
+- tool: Substance 3D Painter
+- tool: Marmoset Toolbag
+- tool: Marvelous Designer
+- tool: Photoshop
+- concept: real-time character art
+- concept: historically inspired character design
+
+### Explicit relationships
+- Real-time character art uses sculpting, modeling, texturing, garment, lookdev, and engine-rendering tools in combination.
+- Art-direction reference signals do not supersede technical performance benchmarks for target scenes/devices.
+
+### HoneyDrunk implications
+- Preserve this as a character-art reference/toolchain signal for UE5-real-time character work; benchmark separately before assuming similar fidelity is viable in interactive scenes.

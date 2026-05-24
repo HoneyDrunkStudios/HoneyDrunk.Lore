@@ -171,3 +171,22 @@ The 2026-05-03 through 2026-05-07 X-list and Discord clipper snapshots are low-y
 ### Explicit relationships
 - CSR-only captures prevent decision-grade model comparison until rendered article content is fetched.
 - Site boilerplate extraction reduces confidence and increases privacy/filtering work even when article text remains recoverable.
+
+## 2026-05-24 compile additions
+
+### Claims
+- The DigitalOcean Inference Router raw capture was dominated by CSS/site scaffolding after the article heading; Lore promoted only the TLDR-level architecture summary and flagged missing article-body details. confidence: 1 noisy capture, last-confirmed 2026-05-24. [source: raw/2026-05-24-rss-tldr-devops-how-we-built-digitalocean-inference-router-12-minute-read.md]
+- The Bloomberg Anthropic/SpaceX raw capture included a tokenized `accessToken` query string in the source URL; downstream wiki content should cite the raw filename or clean canonical URL, not the token-bearing URL. confidence: 1 source-quality/privacy finding, last-confirmed 2026-05-24. [source: raw/2026-05-24-rss-tldr-ai-anthropic-to-pay-spacex-nearly-45-billion-for-computing-deal-2.md]
+- Game Developer and 80 Level RSS captures again contained substantial navigation/marketing boilerplate around recoverable article facts; extraction should prioritize article-body boundaries. confidence: 2 sources, last-confirmed 2026-05-24. [sources: raw/2026-05-24-rss-game-developer-subnautica-2-hits-four-million-sales.md; raw/2026-05-24-rss-80-level-this-stunning-3d-persian-warrior-character-was-rendered-in-re.md]
+
+### Typed entities
+- source family: DigitalOcean blog pages
+- source family: Bloomberg tokenized article links
+- source family: Game Developer pages
+- source family: 80 Level pages
+- privacy artifact: URL access token
+- concept: article-body boundary extraction
+
+### Explicit relationships
+- Tokenized article URLs require privacy filtering before semantic wiki citation.
+- CSS/site-scaffolding captures weaken decision-grade extraction and create gaps even when title-level summaries are available.
