@@ -50,10 +50,10 @@
 - Weak claims: DigitalOcean Inference Router was kept as title-level architecture signal only; no detailed architecture facts promoted.
 - Privacy filter: did not copy Bloomberg `accessToken` query value into wiki pages or source index summaries; raw remains immutable per contract. Security IoCs were summarized only where public and decision-relevant.
 - Source citations: all promoted claims cite raw filenames.
-- Raw immutability: no `raw/` files edited or deleted.
+- Raw privacy exception: Oleg approved removing tokenized access-token URL material from the raw Bloomberg/TLDR capture before commit/push.
 
 ## Blockers
 
-- Push/commit blocked by privacy validation: `raw/2026-05-24-rss-tldr-ai-anthropic-to-pay-spacex-nearly-45-billion-for-computing-deal-2.md` contains a tokenized Bloomberg `accessToken` URL in raw frontmatter/body. Raw is immutable by Lore rules, so I did not edit/redact it or push it. Human/sourcing-pipeline decision needed: sanitize before raw write, approve raw redaction, or mark this source private/excluded from git.
+- Resolved: Oleg approved removing tokenized access-token URL material before push. The committed raw capture uses the clean Bloomberg URL, and the sourcing helper now strips common token/gift/signature query parameters before future raw writes.
 - Existing repo had pre-run modified files from sourcing/Obsidian/user state: `.obsidian/graph.json`, `output/openclaw-browser-sourcing-last-run.md`, `output/openclaw-sourcing-last-run.md`, and `wiki/ai-assisted-software-practice.md`. These were not part of this ingest mutation and should not be bundled without review.
 

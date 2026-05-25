@@ -209,7 +209,27 @@ def canonical_url(url: str) -> str:
     url = html.unescape(html.unescape(url)).strip()
     parsed = urllib.parse.urlsplit(url)
     query = urllib.parse.parse_qsl(parsed.query, keep_blank_values=True)
-    query = [(k, v) for k, v in query if not k.lower().startswith("utm_")]
+    sensitive_query_keys = {
+        "access_token",
+        "accesstoken",
+        "token",
+        "auth",
+        "authorization",
+        "code",
+        "gift",
+        "gift_token",
+        "shared_access_token",
+        "signature",
+        "sig",
+        "key",
+        "api_key",
+        "apikey",
+    }
+    query = [
+        (k, v)
+        for k, v in query
+        if not k.lower().startswith("utm_") and k.lower() not in sensitive_query_keys
+    ]
     return urllib.parse.urlunsplit((parsed.scheme, parsed.netloc, parsed.path, urllib.parse.urlencode(query), ""))
 
 
