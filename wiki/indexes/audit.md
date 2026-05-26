@@ -116,3 +116,11 @@ This keeps Lore decision-usable for Honeyclaw, Claude, and future agents.
 - pages updated: [[ai-agent-harnesses]], [[ai-assisted-software-practice]], [[ai-coding-agent-security]], [[browser-snapshot-source-quality]], [[claude-platform-2026]], [[edge-ai-and-ai-infrastructure-2026]], [[gamedev-production-and-community-signals]], [[google-agent-platform-and-gemini-api-2026]], [[technical-art-community-and-talent-signals]], [[unity-3d-and-realtime-vfx-patterns]], indexes, run/query outputs
 - privacy filtering: security exploit and breach reports summarized at risk/control level; no exploit payloads, credentials, tokens, or private personal data copied into wiki facts
 - quality posture: decision-useful agent/security/platform facts compiled; vendor benchmarks and secondary reports marked validation-required; Qwen/CNBC captures flagged as low-yield/noisy extraction; no contradictions required supersession
+
+## 2026-05-26 OpenClaw ingest/compile
+- operator: Honeyclaw/OpenClaw scheduled ingest
+- raw sources ingested: 8
+- pages created: [[apple-platform-security-and-memory-safety]]
+- pages updated: [[browser-native-gpu-creative-tools]], [[godot-2026-mobile-and-4-7-cycle]], [[claude-platform-2026]], [[edge-ai-and-ai-infrastructure-2026]], [[opentelemetry-genai-observability-and-ecosystem]], [[ai-coding-agent-security]], [[dotnet-dependency-security-and-nuget]], indexes, run output
+- privacy/safety filtering: Apple MIE exploit source summarized for defensive architecture only; no exploit procedure/payload copied. GitHub breach and npm controls summarized without copying personal/customer data. No credentials/tokens copied.
+- quality posture: CNCF/GitHub/npm sources are decision-usable; 80 Level and TestingCatalog are scouting/early-warning sources; Contrary financial claims are market-watch only until stronger verification.

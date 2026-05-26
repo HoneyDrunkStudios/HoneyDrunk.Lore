@@ -256,3 +256,21 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 ### Game engines, gamedev, and technical art
 - [[gamedev-production-and-community-signals]] - 17 sources - last-confirmed 2026-05-24
 - [[technical-art-community-and-talent-signals]] - 6 sources - last-confirmed 2026-05-24
+
+## 2026-05-26 topic additions
+
+### AI platforms and infrastructure
+- [[claude-platform-2026]] - 18 sources - last-confirmed 2026-05-26
+- [[edge-ai-and-ai-infrastructure-2026]] - 11 sources - last-confirmed 2026-05-26
+
+### Observability and agent operations
+- [[opentelemetry-genai-observability-and-ecosystem]] - 6 sources - last-confirmed 2026-05-26
+
+### Game engines, gamedev, and technical art
+- [[browser-native-gpu-creative-tools]] - 2 sources - last-confirmed 2026-05-26
+- [[godot-2026-mobile-and-4-7-cycle]] - 14 sources - last-confirmed 2026-05-26
+
+### Security and CI/CD supply chain
+- [[ai-coding-agent-security]] - 12 sources - last-confirmed 2026-05-26
+- [[apple-platform-security-and-memory-safety]] - 1 source - last-confirmed 2026-05-26
+- [[dotnet-dependency-security-and-nuget]] - 2 sources - last-confirmed 2026-05-26

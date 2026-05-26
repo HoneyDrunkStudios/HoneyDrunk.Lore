@@ -159,3 +159,31 @@ Godot's 2026 signal is mobile maturity plus active 4.7 stabilization and renderi
 
 ### HoneyDrunk implications
 - If testing Godot 4.7, use beta 3 rather than beta 2 for regression validation; keep production baselines on 4.6.3 stable until 4.7 final/patch maturity.
+
+## 2026-05-26 compile additions
+
+### Claims
+- ZeroAllocPool is described as a native C++ GDExtension for Godot 4.6+ that reserves contiguous memory at level load and exposes GDScript-friendly index management for high-performance object pooling. confidence: 1 80 Level source, last-confirmed 2026-05-26. [source: raw/2026-05-26-rss-80-level-native-c-gdextension-for-high-performance-object-pooling.md]
+- The developer positions ZeroAllocPool for object-heavy indie games where frequent `instantiate()`/`queue_free()` calls and GDScript-managed thousands-of-entity pools can produce heap/GC-related stutter. confidence: 1 80 Level/source-developer report, last-confirmed 2026-05-26. [source: raw/2026-05-26-rss-80-level-native-c-gdextension-for-high-performance-object-pooling.md]
+- A reported stress test claims 15,000 active nodes improved from about 20 FPS under standard high-frequency allocation to locked 60 FPS with the C++ pool; treat as vendor/developer benchmark requiring local reproduction. confidence: 1 self-reported benchmark via 80 Level, last-confirmed 2026-05-26. [source: raw/2026-05-26-rss-80-level-native-c-gdextension-for-high-performance-object-pooling.md]
+
+### Typed entities
+- addon/library: ZeroAllocPool
+- developer: ElBranda
+- extension type: Godot GDExtension
+- language: C++
+- language: GDScript
+- version: Godot 4.6+
+- license: MIT
+- concept: object pooling
+- concept: zero-allocation runtime path
+- concept: CPU cache locality
+
+### Explicit relationships
+- ZeroAllocPool uses native C++ GDExtension code to expose object-pool slot management to GDScript.
+- Object-heavy Godot gameplay depends-on allocation discipline when frame-time stability matters.
+- Developer benchmark claims do not supersede local profiling on HoneyDrunk scenes/entities.
+
+### HoneyDrunk implications
+- If Godot prototypes need bullets, particles, crowds, projectiles, pooled enemies, or VFX emitters, profile allocation churn before reaching for C++ pooling.
+- Prefer engine-native/simple pooling first; consider ZeroAllocPool or a custom GDExtension only when GDScript pooling is proven hot.

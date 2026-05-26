@@ -1,59 +1,52 @@
-# OpenClaw Lore ingest run — 2026-05-24
+# OpenClaw Lore ingest run — 2026-05-26
 
-- Timestamp: 2026-05-24 05:00 America/New_York / 2026-05-24 09:00 UTC
+- Timestamp: 2026-05-26 05:00 America/New_York / 2026-05-26 09:00 UTC
 - Operator: Honeyclaw / OpenClaw scheduled ingest
 
 ## Raw sources ingested: 8
 
-1. `raw/2026-05-24-rss-80-level-this-stunning-3d-persian-warrior-character-was-rendered-in-re.md` — UE5 real-time Persian Female Warrior character-art/toolchain reference.
-2. `raw/2026-05-24-rss-game-developer-subnautica-2-hits-four-million-sales.md` — Subnautica 2 Early Access sales and launch signal.
-3. `raw/2026-05-24-rss-tldr-ai-anthropic-to-pay-spacex-nearly-45-billion-for-computing-deal-2.md` — Anthropic/SpaceX Claude compute deal; tokenized source URL privacy-filtered in wiki citations.
-4. `raw/2026-05-24-rss-tldr-ai-on-building-agents-from-first-principles-15-minute-read.md` — first-principles agent-training loop and reward-function example.
-5. `raw/2026-05-24-rss-tldr-devops-from-latency-to-instant-modernizing-github-issues-navigati.md` — GitHub Issues local-first navigation performance case study.
-6. `raw/2026-05-24-rss-tldr-devops-how-we-built-digitalocean-inference-router-12-minute-read.md` — DigitalOcean inference-router source; noisy scaffold capture limited promotion.
-7. `raw/2026-05-24-rss-tldr-infosec-git-pkgs-proxy-github-repo.md` — package-registry caching proxy with version-cooldown supply-chain control.
-8. `raw/2026-05-24-rss-tldr-infosec-megalodon-mass-github-repo-backdooring-via-ci-workflows-1.md` — SafeDep Megalodon GitHub Actions backdooring campaign report.
+1. `raw/2026-05-26-rss-80-level-browser-based-tool-for-creating-alpha-textures.md` — Levels browser-based alpha/height/roughness texture-prep utility.
+2. `raw/2026-05-26-rss-80-level-native-c-gdextension-for-high-performance-object-pooling.md` — ZeroAllocPool Godot C++ GDExtension object-pooling performance signal.
+3. `raw/2026-05-26-rss-tldr-ai-anthropic-prepares-mythos-1-for-claude-code-and-claude-securit.md` — Claude Mythos/Mythos 1 and Claude Security early-warning/leak-reporting signal.
+4. `raw/2026-05-26-rss-tldr-ai-anthropic-s-march-to-profitability-3-minute-read.md` — Anthropic profitability/IPO/compute-economics market-watch signal.
+5. `raw/2026-05-26-rss-tldr-devops-designing-end-to-end-ingress-request-tracing-for-multi-ten.md` — CNCF ingress request tracing framework for multi-tenant SaaS.
+6. `raw/2026-05-26-rss-tldr-devops-github-internal-repositories-exfiltrated-via-malicious-vs-.md` — GitHub internal repo exfiltration via malicious VS Code extension.
+7. `raw/2026-05-26-rss-tldr-infosec-pardon-mie-4-minute-read.md` — Apple MIE/CVE-2026-28952 defensive analysis.
+8. `raw/2026-05-26-rss-tldr-infosec-staged-publishing-and-new-install-time-controls-for-npm-2.md` — npm staged publishing GA and install-source allowlist flags.
 
-## Wiki pages updated
+## Wiki pages created/updated
 
-- `wiki/edge-ai-and-ai-infrastructure-2026.md` — Anthropic/SpaceX compute-contract reinforcement; DigitalOcean inference-router source-quality-limited signal.
-- `wiki/ai-agent-harnesses.md` — agent-training loop, typed JSON actions, validation, and reward-function harness implications.
-- `wiki/ai-coding-agent-security.md` — package cooldown proxy controls; Megalodon GitHub Actions workflow backdoor claims, entities, relationships, and HoneyDrunk audit implications.
-- `wiki/github-actions-platform-operations.md` — GitHub Issues local-first navigation/perceived-latency engineering case study.
-- `wiki/gamedev-production-and-community-signals.md` — Subnautica 2 Early Access sales/community-feedback market signal.
-- `wiki/technical-art-community-and-talent-signals.md` — UE5 real-time character art reference/toolchain signal.
-- `wiki/browser-snapshot-source-quality.md` — DigitalOcean scaffold-heavy capture, tokenized Bloomberg URL privacy finding, and article-boundary extraction notes.
-- `wiki/indexes/sources.md` — added 8 2026-05-24 source entries.
-- `wiki/indexes/topics.md` — appended 2026-05-24 topic additions.
-- `wiki/indexes/gaps.md` — appended 4 gaps.
+- Created: `wiki/apple-platform-security-and-memory-safety.md`.
+- Updated: `wiki/browser-native-gpu-creative-tools.md`, `wiki/godot-2026-mobile-and-4-7-cycle.md`, `wiki/claude-platform-2026.md`, `wiki/edge-ai-and-ai-infrastructure-2026.md`, `wiki/opentelemetry-genai-observability-and-ecosystem.md`, `wiki/ai-coding-agent-security.md`, `wiki/dotnet-dependency-security-and-nuget.md`.
+- Updated indexes: `wiki/indexes/sources.md`, `wiki/indexes/topics.md`, `wiki/indexes/gaps.md`, `wiki/indexes/audit.md`.
 
 ## Crystallization from `output/query-*.md`
 
-- Reviewed latest query output posture. No new durable facts required crystallization beyond prior 2026-05-23 wiki updates; today’s durable facts came directly from new raw sources.
+- Reviewed latest query-output posture by filename/timing. No new durable `output/query-*.md` facts required crystallization in this pass; today’s durable additions came from new raw sources.
 
 ## Contradictions / supersession
 
 - No direct contradictions resolved.
-- Reinforced prior frontier-compute-scarcity claim with Bloomberg Anthropic/SpaceX compute-contract reporting.
-- Reinforced CI/CD supply-chain risk posture with Megalodon and package-cooldown sources.
+- Reinforced existing coding-agent/security posture with malicious IDE-extension breach and npm staged publishing controls.
+- Reinforced existing OTel/observability posture with SaaS ingress tracing acceptance criteria.
+- Added a new Apple platform-security page rather than merging exploit-defense concepts into C# memory-safety content.
 
 ## Gaps logged
 
-- DigitalOcean Inference Router article-body extraction needs recovery beyond CSS/site scaffolding.
-- HoneyDrunk package-cooldown/proxy adoption needs local ecosystem/exception-policy decision.
-- HoneyDrunk repos need Megalodon-style workflow-backdoor and OIDC/publish-chain audit.
-- Sourcing pipeline should strip tokenized/gift/access-token query strings before raw frontmatter or downstream indexes.
+- Godot native object-pooling benchmark validation.
+- npm staged publishing ownership/migration decision.
+- npm nonregistry install-source default-deny/exception policy.
+- HoneyDrunk W3C Trace Context/OpenTelemetry ingress contract.
+- Apple fleet patch/Lockdown Mode verification after CVE-2026-28952.
+- Primary verification for Contrary Anthropic profitability/IPO/compute-economics claims.
 
 ## Quality posture
 
-- Decision-usefulness: good for Megalodon/package-cooldown/GitHub navigation/agent-training/Subnautica/UE5-character signals; limited for DigitalOcean architecture due scaffold-heavy capture.
-- Weak claims: DigitalOcean Inference Router was kept as title-level architecture signal only; no detailed architecture facts promoted.
-- Privacy filter: did not copy Bloomberg `accessToken` query value into wiki pages or source index summaries; raw remains immutable per contract. Security IoCs were summarized only where public and decision-relevant.
-- Source citations: all promoted claims cite raw filenames.
-- Raw privacy exception: Oleg approved removing tokenized access-token URL material from the raw Bloomberg/TLDR capture before commit/push.
+- Decision-usefulness: strong for CNCF tracing and GitHub/npm supply-chain controls; useful scouting for browser-native texture tools and Godot pooling; defensive/security-architecture useful for Apple MIE.
+- Weak claims: TestingCatalog Mythos/Mythos 1 report is early/leak-based; Contrary financial/IPO claims are market-watch only until primary support exists; ZeroAllocPool performance is developer-reported.
+- Privacy/safety filtering: no secrets, credentials, customer support excerpts, or private data copied. Apple exploit source was summarized at defensive architecture/control level; no step-by-step exploit chain, payload, or offensive procedure promoted.
+- Source citations: all promoted claims cite immutable raw filenames.
 
 ## Blockers
 
-- Resolved: Oleg approved removing tokenized access-token URL material before push. The committed raw capture uses the clean Bloomberg URL, and the sourcing helper now strips common token/gift/signature query parameters before future raw writes.
-- Existing repo had pre-run modified files from sourcing/Obsidian/user state: `.obsidian/graph.json`, `output/openclaw-browser-sourcing-last-run.md`, `output/openclaw-sourcing-last-run.md`, and `wiki/ai-assisted-software-practice.md`. These were not part of this ingest mutation and should not be bundled without review.
-
+- None for content quality or validation. Safe to commit/push ingest changes.

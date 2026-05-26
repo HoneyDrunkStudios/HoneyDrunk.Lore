@@ -158,3 +158,40 @@ Relationships added: CoCo workloads depend-on remote attestation and runtime-sid
 
 ### Privacy and quality notes
 - Privacy filter: campaign indicators are summarized at control/checklist level; the raw C2 IP and redacted/garbled email addresses were not copied into the wiki.
+
+## 2026-05-26 compile additions
+
+### Claims
+- ITPro reports GitHub confirmed roughly 3,800 internal repositories were exfiltrated after a developer installed a malicious VS Code extension; GitHub said customer repositories were not impacted outside internal repositories, while some internal repos may contain customer-support excerpts. confidence: 1 trade-press source quoting GitHub, last-confirmed 2026-05-26. [source: raw/2026-05-26-rss-tldr-devops-github-internal-repositories-exfiltrated-via-malicious-vs-.md]
+- GitHub reportedly began rotating critical secrets, prioritizing highest-impact credentials, and continued log analysis/monitoring after the breach. confidence: 1 trade-press source quoting GitHub, last-confirmed 2026-05-26. [source: raw/2026-05-26-rss-tldr-devops-github-internal-repositories-exfiltrated-via-malicious-vs-.md]
+- GitHub's npm staged publishing is generally available in npm CLI 11.15.0+: CI can upload a package to a stage queue, but a maintainer must approve with a 2FA challenge before the package version becomes installable. confidence: 1 GitHub changelog source, last-confirmed 2026-05-26. [source: raw/2026-05-26-rss-tldr-infosec-staged-publishing-and-new-install-time-controls-for-npm-2.md]
+- npm CLI 11.15.0 adds install source allowlist flags `--allow-file`, `--allow-remote`, and `--allow-directory`, complementing `--allow-git`; each can be set to `all` or `none`, with stricter defaults planned for `--allow-git` in npm v12. confidence: 1 GitHub changelog source, last-confirmed 2026-05-26. [source: raw/2026-05-26-rss-tldr-infosec-staged-publishing-and-new-install-time-controls-for-npm-2.md]
+
+### Typed entities
+- platform: GitHub
+- threat actor: TeamPCP
+- threat: malicious VS Code extension
+- platform/tool: VS Code Marketplace
+- package manager: npm CLI 11.15.0
+- control: npm staged publishing
+- control: trusted publishing with OIDC
+- control: 2FA maintainer approval
+- flag: `--allow-file`
+- flag: `--allow-remote`
+- flag: `--allow-directory`
+- flag: `--allow-git`
+- control: install source allowlist
+
+### Explicit relationships
+- Malicious developer extensions can cause internal source exfiltration by abusing trusted IDE/dev-tool access.
+- Secret rotation, log analysis, and infrastructure monitoring mitigate post-exfiltration credential blast radius.
+- npm staged publishing uses human 2FA approval to add proof-of-presence before registry release, including non-interactive CI/OIDC publishing flows.
+- npm install source allowlists reduce nonregistry dependency-source risk by rejecting local, remote URL, directory, or Git installs unless explicitly allowed.
+
+### HoneyDrunk implications
+- Treat IDE extensions as supply-chain code with repo/credential blast radius; pin/approve extension sets for sensitive development environments.
+- For any HoneyDrunk npm package publishing, prefer trusted publishing plus staged publishing from CI, with maintainer approval from a trusted device.
+- Add `.npmrc`/policy checks for nonregistry install sources in high-risk repos; default-deny remote URL/Git/local sources where lockfiles do not require them.
+
+### Quality notes
+- The GitHub breach report is trade-press and should be backed by GitHub's final incident report before procurement-grade claims. GitHub npm changelog is primary source.

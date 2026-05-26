@@ -150,3 +150,27 @@ Google's May 2026 infrastructure sources point in two complementary directions: 
 Typed entities added: company: DigitalOcean; concept: inference router; concept: model-serving routing layer.
 
 Relationships added: inference-routing decisions depend-on clean article/body extraction before architecture details can be reused.
+
+## 2026-05-26 compile additions
+
+### Claims
+- Contrary Research reports Anthropic revenue/profitability projections and improved compute-cost ratio; if accurate, this reinforces frontier compute economics as a board-level/platform constraint rather than a back-office infra detail. confidence: 1 business-newsletter source, last-confirmed 2026-05-26. [source: raw/2026-05-26-rss-tldr-ai-anthropic-s-march-to-profitability-3-minute-read.md]
+- Contrary's roundup also reports Blackstone committing $5B equity to a Google TPU compute-as-a-service joint venture targeting 500 MW capacity in 2027; this is a secondary market signal that AI compute is moving into specialized infrastructure finance. confidence: 1 business-newsletter source, last-confirmed 2026-05-26. [source: raw/2026-05-26-rss-tldr-ai-anthropic-s-march-to-profitability-3-minute-read.md]
+
+### Typed entities
+- company: Blackstone
+- company: Google
+- infrastructure: TPU compute-as-a-service joint venture
+- capacity target: 500 MW
+- concept: AI infrastructure finance
+- concept: model-lab compute unit economics
+
+### Explicit relationships
+- Frontier-model profitability depends-on compute cost per revenue dollar and access to scarce capacity.
+- AI compute capacity increasingly depends-on capital-intensive infrastructure partnerships outside ordinary cloud procurement.
+
+### HoneyDrunk implications
+- Keep cost telemetry, provider fallback, and workload portability in agent/model infrastructure; frontier compute availability and economics can shift quickly.
+
+### Quality notes
+- Business/market claims from Contrary were not treated as canonical financial facts; use them as watchlist signals until primary filings or stronger reporting exist.

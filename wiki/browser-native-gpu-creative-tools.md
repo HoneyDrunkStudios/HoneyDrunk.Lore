@@ -48,3 +48,27 @@ Browser-native creative tooling is credible for lightweight indie/artist workflo
 - Quality posture: useful as a product/architecture pattern; not enough to choose NormalMap AI or browser GPU tools without local quality/performance tests.
 - Weak claims: performance, conversion, and “90% of use cases” are self-reported by the tool author.
 - Privacy filter: no user-upload details copied; no credentials or unsafe PII present.
+
+## 2026-05-26 compile additions
+
+### Claims
+- Thomas "Pilgrim" Butters released Levels, a browser-based tool for generating alpha masks, height maps, roughness maps, and stylized monochrome plates from photo references with black/white channel mixing, brightness/contrast, levels curve, crop/perspective crop, real-time preview, and PNG copy/download. confidence: 1 80 Level source, last-confirmed 2026-05-26. [source: raw/2026-05-26-rss-80-level-browser-based-tool-for-creating-alpha-textures.md]
+- Levels automatically downsizes inputs larger than 4096 px on the long edge and supports a hold-Spacebar original/result comparison workflow, making it a lightweight reference-to-mask tool rather than a full DCC replacement. confidence: 1 80 Level source, last-confirmed 2026-05-26. [source: raw/2026-05-26-rss-80-level-browser-based-tool-for-creating-alpha-textures.md]
+
+### Typed entities
+- tool: Levels
+- person: Thomas "Pilgrim" Butters
+- organization: Facepunch
+- education provider: Gnomon
+- concept: alpha texture generation
+- concept: height map
+- concept: roughness map
+- workflow: browser-native reference-to-mask editing
+
+### Explicit relationships
+- Levels uses browser-local image adjustments and crop/perspective tools to produce alpha/height/roughness-style texture maps.
+- Levels complements NormalMap AI as a narrow browser-native texture-prep utility; it does not supersede full material-authoring tools.
+
+### HoneyDrunk implications
+- Keep browser-native alpha/texture utilities in the quick-prototyping toolbox, especially for fast VFX masks, decals, UI plates, and rough material studies.
+- Validate output bit depth, alpha handling, color-management assumptions, license, and offline/privacy posture before production asset use.

@@ -103,3 +103,32 @@ Anthropic's 2026 platform direction is enterprise/workflow-heavy: Claude Opus 4.
 ### HoneyDrunk implications
 - Treat “brain/hands” separation as the preferred architecture for high-trust agents: model provider can reason, but execution should remain sandboxed, logged, and policy-controlled by HoneyDrunk.
 - Blender Python API investment is a small but relevant signal that LLM vendors see Blender automation as strategic for creative workflows.
+
+## 2026-05-26 compile additions
+
+### Claims
+- TestingCatalog reports leaked/product-surface evidence that Anthropic is preparing a `claude-mythos-1-preview`/Mythos 1 model for Claude Code and Claude Security, with strings referencing "Access to the Claude Mythos model in Claude Code and Claude Security." confidence: 1 secondary leak/reporting source, last-confirmed 2026-05-26. [source: raw/2026-05-26-rss-tldr-ai-anthropic-prepares-mythos-1-for-claude-code-and-claude-securit.md]
+- The same source reports Claude Security dashboard work for discovered vulnerabilities, seven-day/thirty-day history, and deeper triage views; current evidence points toward enterprise customers, not broad consumer release. confidence: 1 secondary leak/reporting source, last-confirmed 2026-05-26. [source: raw/2026-05-26-rss-tldr-ai-anthropic-prepares-mythos-1-for-claude-code-and-claude-securit.md]
+- Contrary Research claims Anthropic projected $10.9B Q2 revenue, $559M profit, improved compute spend from $0.71 to $0.56 per revenue dollar, October IPO expectations, and Claude Code as a major growth driver; treat as aggressive market-reporting signal requiring primary/financial verification. confidence: 1 business-newsletter source, last-confirmed 2026-05-26. [source: raw/2026-05-26-rss-tldr-ai-anthropic-s-march-to-profitability-3-minute-read.md]
+
+### Typed entities
+- model/product: Claude Mythos / Mythos 1
+- product: Claude Security
+- initiative: Project Glasswing
+- product: Claude Code
+- concept: vulnerability-discovery model
+- concept: enterprise security dashboard
+- business event: Anthropic profitability/IPO rumor
+- metric: compute spend per revenue dollar
+
+### Explicit relationships
+- Claude Mythos appears to depend-on stronger safeguards before general release, per Project Glasswing framing cited by TestingCatalog.
+- Claude Security uses vulnerability discovery/triage surfaces to package model capabilities for enterprise security workflows.
+- Anthropic growth claims depend-on Claude coding-tool enterprise adoption in Contrary's reporting, but those claims need verification before investment-grade decisions.
+
+### HoneyDrunk implications
+- Track Mythos/Claude Security as a possible security-review/pentest-assist surface, but do not route sensitive repos or security decisions to rumored/preview products without official docs, retention policy, and eval results.
+- Claude Code demand is a market signal that coding agents are becoming business-critical; HoneyDrunk should keep provider abstraction and cost telemetry rather than assuming one vendor's capacity/pricing remains stable.
+
+### Quality notes
+- TestingCatalog and Contrary are useful early-warning sources, not canonical vendor docs. No leaked UI/source-code strings beyond the reported model/access labels were copied into actionable instructions.

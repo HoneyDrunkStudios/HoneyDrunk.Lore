@@ -131,3 +131,34 @@ OpenTelemetry is becoming the practical neutral observability layer for LLM/agen
 ### HoneyDrunk implications
 - Treat OTel as the default neutral observability vocabulary for OpenClaw/Grid agents unless a concrete constraint says otherwise.
 - Continue pinning semantic-convention and SDK versions; project graduation is not a license for unversioned telemetry assumptions.
+
+## 2026-05-26 compile additions
+
+### Claims
+- CNCF TAG guidance frames ingress request tracing for multi-tenant SaaS as a product/platform capability built around generate-or-preserve Trace IDs, per-service Span IDs, parent-child span relationships, and W3C Trace Context propagation. confidence: 1 CNCF source, last-confirmed 2026-05-26. [source: raw/2026-05-26-rss-tldr-devops-designing-end-to-end-ingress-request-tracing-for-multi-ten.md]
+- The framework explicitly excludes request payloads, credentials, secrets, tokens, and PII from trace metadata; it recommends operational metadata only: trace/span/parent IDs, service and operation names, timestamps, duration, status, and HTTP code. confidence: 1 CNCF source, last-confirmed 2026-05-26. [source: raw/2026-05-26-rss-tldr-devops-designing-end-to-end-ingress-request-tracing-for-multi-ten.md]
+- Trace export should be configuration-only through Kubernetes/operator workflows, and telemetry backend failures must not block customer requests; partial/dropped traces are acceptable while failed requests are not. confidence: 1 CNCF source, last-confirmed 2026-05-26. [source: raw/2026-05-26-rss-tldr-devops-designing-end-to-end-ingress-request-tracing-for-multi-ten.md]
+- The hardest part of distributed tracing adoption is complete coverage: if some services fail to propagate context, traces become operationally unreliable; the source recommends CI/CD checks, service onboarding checklists, and adoption tracking. confidence: 1 CNCF source, last-confirmed 2026-05-26. [source: raw/2026-05-26-rss-tldr-devops-designing-end-to-end-ingress-request-tracing-for-multi-ten.md]
+
+### Typed entities
+- standard: W3C Trace Context
+- header: `traceparent`
+- header: `tracestate`
+- identifier: Trace ID
+- identifier: Span ID
+- identifier: Parent Span ID
+- platform: Kubernetes
+- concept: multi-tenant SaaS ingress tracing
+- control: configuration-only telemetry export
+- control: non-disruptive tracing failure mode
+- control: tracing adoption CI/CD checks
+
+### Explicit relationships
+- OpenTelemetry uses W3C Trace Context to propagate trace/span relationships across service boundaries.
+- SaaS incident response depends-on trace continuity across ingress, auth, orchestration, data, and downstream services.
+- Trace metadata privacy depends-on excluding payloads, credentials, tokens, secrets, and PII by design.
+- Complete distributed tracing depends-on organizational enforcement, not only instrumentation libraries.
+
+### HoneyDrunk implications
+- For Grid/OpenClaw services, standardize trace headers and response-header lookup keys early; debugging multi-agent requests without stable trace IDs will not scale.
+- Add "telemetry must not break requests" and "no payload/secrets in traces by default" as acceptance criteria for any HoneyDrunk tracing rollout.

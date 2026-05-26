@@ -40,3 +40,11 @@
 ## Confidence and quality notes
 - Quality posture: decision-usable for upgrade planning and dependency-audit policy. Vendor telemetry claims need local measurement.
 - Privacy filter: no private project/package inventory copied.
+
+## 2026-05-26 cross-ecosystem note
+
+- npm 11.15.0 staged publishing and install-source allowlist flags are not NuGet features, but they reinforce the same dependency-security posture: package publication should use short-lived trusted identity plus human approval for release, and package installation should restrict nonregistry sources by default where possible. confidence: 1 GitHub changelog source, last-confirmed 2026-05-26. [source: raw/2026-05-26-rss-tldr-infosec-staged-publishing-and-new-install-time-controls-for-npm-2.md; page: [[ai-coding-agent-security]]]
+
+Typed entities added: ecosystem: npm; control: staged publishing; control: install source allowlist.
+
+Relationship added: npm staged publishing complements OIDC trusted publishing; install-source allowlists complement package cooldown/proxy and NuGet audit/pruning by reducing dependency-source ambiguity.
