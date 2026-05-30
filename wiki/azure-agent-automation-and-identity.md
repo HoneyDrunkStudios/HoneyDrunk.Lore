@@ -52,3 +52,30 @@ Azure's May 2026 agent/developer tooling signal is that agent automation is movi
 - Quality posture: decision-usable for Azure agent deployment and authorization architecture scouting.
 - Weak spots: both sources are vendor-authored; validate template maturity, cost, and region/model availability locally before adoption.
 - Privacy filter: example token values from the public blog were summarized by field names and purpose only; no reusable token or private user data was copied.
+
+## 2026-05-30 compile additions
+
+### Claims
+- Azure Container Apps dynamic sessions can create a shell session pool with a platform-managed MCP server enabled through `Microsoft.App/sessionPools` preview API settings, avoiding custom MCP server deployment for basic remote shell tools. confidence: 1 Microsoft Learn source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-microsoft-learn-tutorial-use-mcp-with-dynamic-sessions-shell.md]
+- The dynamic-session MCP shell tutorial exposes `launchShell` and `runShellCommandInRemoteEnvironment`, with sessions destroyed after a configurable inactivity cooldown in the sample ARM template. confidence: 1 Microsoft Learn source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-microsoft-learn-tutorial-use-mcp-with-dynamic-sessions-shell.md]
+- The platform-managed MCP server uses API-key authentication through the `x-ms-apikey` header rather than standard bearer-token session-pool management APIs; Microsoft warns not to commit this key. confidence: 1 Microsoft Learn source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-microsoft-learn-tutorial-use-mcp-with-dynamic-sessions-shell.md]
+- The tutorial's API version and `mcpServerSettings` properties are preview and subject to change, so production architecture should not depend on stable behavior yet. confidence: 1 Microsoft Learn source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-microsoft-learn-tutorial-use-mcp-with-dynamic-sessions-shell.md]
+
+### Typed entities
+- Azure resource type: `Microsoft.App/sessionPools`
+- API version: `2025-02-02-preview`
+- property: `mcpServerSettings.isMCPServerEnabled`
+- property: `containerType: Shell`
+- tool: `launchShell`
+- tool: `runShellCommandInRemoteEnvironment`
+- auth header: `x-ms-apikey`
+- client: GitHub Copilot Chat in VS Code
+
+### Explicit relationships
+- Azure dynamic sessions use platform-managed MCP to connect agent clients to ephemeral shell environments.
+- Session-pool API keys depend-on secret storage and should not be committed to project MCP config.
+- Preview dynamic-session MCP complements, but does not supersede, least-privilege identity patterns for production cloud automation.
+
+### HoneyDrunk implications
+- Dynamic shell sessions are a useful candidate for disposable agent compute, but HoneyDrunk must validate egress policy, secrets handling, audit logs, costs, region support, and preview churn.
+- Treat remote shell MCP tools as high-risk even when ephemeral; require scoped environments and explicit operator intent.

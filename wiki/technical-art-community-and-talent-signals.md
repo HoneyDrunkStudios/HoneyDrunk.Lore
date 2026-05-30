@@ -86,3 +86,28 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### HoneyDrunk implications
 - Preserve this as a character-art reference/toolchain signal for UE5-real-time character work; benchmark separately before assuming similar fidelity is viable in interactive scenes.
+
+## 2026-05-30 compile additions
+
+### Claims
+- Black Eye 2.0's product/interview signal frames camera work as a technical-art and production-workflow concern: gameplay, cinematic, trailer, and virtual-production teams need shared camera behaviors rather than isolated code/keyframe systems. confidence: 1 80 Level interview source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-80-level-how-black-eye-2-0-is-rethinking-how-video-game-camera-systems.md; page: [[game-camera-systems]]]
+- The source argues smaller teams benefit when camera tools provide subject tracking, adaptive framing, clean blending, collisions, and multi-character support without custom code for every case; treat as product-interview evidence requiring validation. confidence: 1 80 Level interview source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-80-level-how-black-eye-2-0-is-rethinking-how-video-game-camera-systems.md]
+- Unity's 2026 render-pipeline strategy is a technical-art pipeline signal: Asset Store and education content are being encouraged toward URP compatibility as Built-In deprecation begins. confidence: 1 Unity source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-unity-render-pipelines-strategy-for-2026.md; page: [[unity-3d-and-realtime-vfx-patterns]]]
+
+### Typed entities
+- product/tool: Black Eye 2.0
+- prior tool: Cinemachine
+- engine: Unreal Engine
+- concept: camera authoring
+- concept: adaptive framing
+- render pipeline: Unity URP
+- render pipeline: Unity Built-In Render Pipeline
+- content ecosystem: Unity Asset Store
+
+### Explicit relationships
+- Camera authoring depends-on both technical-art workflow and runtime systems engineering.
+- URP migration affects technical artists because shader/material/content compatibility shifts with render-pipeline defaults.
+
+### HoneyDrunk implications
+- Track camera-system authoring as a technical-art competency, not only gameplay engineering.
+- Prefer URP-compatible Unity assets and shader references when sourcing new Unity technical-art content.

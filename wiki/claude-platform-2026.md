@@ -132,3 +132,42 @@ Anthropic's 2026 platform direction is enterprise/workflow-heavy: Claude Opus 4.
 
 ### Quality notes
 - TestingCatalog and Contrary are useful early-warning sources, not canonical vendor docs. No leaked UI/source-code strings beyond the reported model/access labels were copied into actionable instructions.
+
+## 2026-05-30 compile additions
+
+### Claims
+- Anthropic released Claude Opus 4.8 on 2026-05-28 as a direct Opus 4.7 upgrade with unchanged regular API pricing at $5/M input tokens and $25/M output tokens, and fast mode priced at $10/M input and $50/M output. confidence: 1 official vendor source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-anthropic-introducing-claude-opus-4-8.md]
+- Anthropic claims Opus 4.8 improves benchmark performance, agentic task judgment, honesty/uncertainty flagging, and alignment metrics compared with Opus 4.7; customer quotes and vendor evals are useful but require local task validation. confidence: 1 official vendor source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-anthropic-introducing-claude-opus-4-8.md]
+- Opus 4.8 launches with effort controls in claude.ai/Cowork, dynamic workflows in Claude Code, Messages API support for `system` entries inside the messages array, and a cheaper/faster Opus fast mode. confidence: 1 official vendor source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-anthropic-introducing-claude-opus-4-8.md]
+- Claude Code dynamic workflows are in research preview for Max, Team, and Enterprise plans and can dynamically write orchestration scripts that run tens to hundreds of parallel subagents, verify outputs, save progress, and resume long-running work. confidence: 1 official vendor source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-anthropic-introducing-dynamic-workflows-in-claude-code.md]
+- Anthropic reports a Bun Zig-to-Rust rewrite example using dynamic workflows: roughly 750,000 lines of Rust, 99.8% of the existing test suite passing, and eleven days from first commit to merge; the source states this is not yet in production, so treat it as a large-scale demonstration rather than production-proof evidence. confidence: 1 official vendor/product source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-anthropic-introducing-dynamic-workflows-in-claude-code.md]
+- Anthropic says Mythos-class models remain constrained by stronger cyber-safeguard requirements and expects broader availability in coming weeks, while Project Glasswing customers use Claude Mythos Preview for cybersecurity work. confidence: 1 official vendor source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-anthropic-introducing-claude-opus-4-8.md]
+
+### Typed entities
+- model: Claude Opus 4.8
+- model: Claude Opus 4.7
+- model/class: Claude Mythos Preview / Mythos-class models
+- initiative: Project Glasswing
+- feature: effort control
+- feature: fast mode
+- feature: dynamic workflows
+- feature/setting: `ultracode`
+- feature/setting: `xhigh`
+- API feature: `system` entries inside `messages`
+- product: Claude Code CLI
+- product: Claude Code Desktop
+- product: Claude Code VS Code extension
+- product: Claude Cowork
+- project/example: Bun Zig-to-Rust rewrite
+
+### Explicit relationships
+- Claude Opus 4.8 supersedes Opus 4.7 as Anthropic's frontier Opus default, but migration depends-on local benchmark and token-budget measurement.
+- Dynamic workflows use parallel subagents and verification loops to handle codebase-scale tasks.
+- Effort controls trade response speed/rate-limit use against deeper reasoning and token consumption.
+- Messages API mid-task system entries support harness updates to permissions, token budgets, or environment context without breaking prompt cache through a user turn.
+- Mythos-class release depends-on stronger cyber safeguards before general availability.
+
+### HoneyDrunk implications
+- Benchmark Opus 4.8 against Opus 4.7/GPT/OpenAI/Google models on HoneyDrunk coding, review, browser, and document tasks before changing routing defaults.
+- Treat dynamic workflows as high-budget machinery: require scoped tasks, repo sandboxing, test gates, cost telemetry, and human review before using them on important codebases.
+- The Messages API system-entry change is relevant for HoneyDrunk agent harnesses that need to update permissions or context mid-run without forcing awkward user-message turns.

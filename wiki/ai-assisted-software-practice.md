@@ -171,3 +171,34 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 ### HoneyDrunk implications
 - Use vibe coding freely for throwaway internal prototypes, but require agentic-programming discipline for anything connected to credentials, users, data, revenue, or production workflows.
 - Add performance and invariant checks to AI-code review where correctness tests alone can pass.
+
+## 2026-05-30 compile additions
+
+### Claims
+- Fowler's May 27 fragment summarizes Ian Johnson's AI-assisted codebase restructuring: after adding characterization tests, static analysis, and architectural patterns, the human role could move from micromanaged in-the-loop review toward on-the-loop curation because gates forced better agent behavior. confidence: 1 Fowler fragment source summarizing a practitioner series, last-confirmed 2026-05-30. [source: raw/2026-05-30-rss-martin-fowler-fragments-may-27.md]
+- The same fragment cites Adam Tornhill's cognitive-endurance warning: agentic coding increases decision density, so even productive agent use can be mentally expensive and should be scoped around small tasks, automation, and verification mechanisms. confidence: 1 Fowler fragment source, last-confirmed 2026-05-30. [source: raw/2026-05-30-rss-martin-fowler-fragments-may-27.md]
+- Fowler's fragment argues public-to-private source closure is not an effective substitute for secure-by-design delivery, ownership, and remediation against LLM-augmented attackers. confidence: 1 Fowler fragment source citing UK GDS position, last-confirmed 2026-05-30. [source: raw/2026-05-30-rss-martin-fowler-fragments-may-27.md]
+- GitHub Copilot guidance for .NET reinforces task-first delegation: chat for understanding/planning, agentic workflows for bounded change-and-verify tasks, and careful review of resulting diffs. confidence: 1 Microsoft/.NET Blog source, last-confirmed 2026-05-30. [source: raw/2026-05-30-rss-net-blog-doing-more-with-github-copilot-as-a-net-developer.md]
+
+### Typed entities
+- person: Martin Fowler
+- person: Kent Beck
+- person: Ian Johnson
+- person: Adam Tornhill
+- organization: UK Government Digital Service / GDS
+- concept: on-the-loop human-AI collaboration
+- concept: in-the-loop human-AI collaboration
+- concept: characterization tests
+- concept: cognitive endurance
+- product: GitHub Copilot
+
+### Explicit relationships
+- Automated quality gates enable on-the-loop agent supervision by forcing behavior before human review.
+- Cognitive endurance limits contradict hype around human attention over many parallel agent streams.
+- Secure-by-design remediation supersedes repository closure as a response to LLM-augmented security risk.
+- Copilot agentic workflows depend-on bounded tasks and reviewable diffs.
+
+### HoneyDrunk implications
+- Increase agent autonomy only where tests, static analysis, logs, and architectural rules can constrain it.
+- Avoid workflows that force Oleg/Honeyclaw to context-switch across many high-stakes agent threads at once; machine parallelism is different from human attention parallelism.
+- Keep source-security policy grounded in real controls, not obscurity.

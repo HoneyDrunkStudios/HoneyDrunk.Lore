@@ -73,3 +73,32 @@
 
 ### HoneyDrunk implications
 - Track .NET 11 previews not only for MAUI/process APIs, but also for unsafe-code policy gates in tool/agent repos.
+
+## 2026-05-30 compile additions
+
+### Claims
+- .NET MAUI 10 adds Android Material 3 opt-in styling through a single MSBuild property, `<UseMaterial3>true</UseMaterial3>`, while iOS, Mac Catalyst, and Windows continue using native design systems. confidence: 1 Microsoft/.NET Blog source, last-confirmed 2026-05-30. [source: raw/2026-05-30-rss-net-blog-give-your-net-maui-android-apps-a-material-3-makeover.md]
+- Material 3 support requires .NET MAUI 10 / `net10.0-android`; Microsoft says the largest control wave landed in SR6 / Microsoft.Maui.Controls 10.0.60, covering Button, Entry, SearchBar, DatePicker, Slider, ProgressBar, ImageButton, Switch, Shell theming, and more. confidence: 1 Microsoft/.NET Blog source, last-confirmed 2026-05-30. [source: raw/2026-05-30-rss-net-blog-give-your-net-maui-android-apps-a-material-3-makeover.md]
+- Material 3 currently affects supported default control appearance on Android; explicit app colors/styles and custom handlers still take precedence, and the app can opt back out by removing the property or setting it false. confidence: 1 Microsoft/.NET Blog source, last-confirmed 2026-05-30. [source: raw/2026-05-30-rss-net-blog-give-your-net-maui-android-apps-a-material-3-makeover.md]
+- Microsoft states the active plan is for Material 3 to become the default Android styling after tracked gaps are resolved, but per-control opt-in, direct .NET MAUI APIs for Material color roles, and some navigation/collection surfaces remain tracked work. confidence: 1 Microsoft/.NET Blog source, last-confirmed 2026-05-30. [source: raw/2026-05-30-rss-net-blog-give-your-net-maui-android-apps-a-material-3-makeover.md]
+
+### Typed entities
+- framework: .NET MAUI 10
+- platform: Android
+- design system: Material 3 / Material You
+- property: `<UseMaterial3>`
+- package: `Microsoft.Maui.Controls`
+- release: 10.0.60 / SR6
+- control: Entry
+- control: SearchBar
+- control: DatePicker
+- control: Shell
+
+### Explicit relationships
+- .NET MAUI Android uses Material 3 opt-in to supersede Material 2 default styling for covered controls.
+- Explicit app styles/custom handlers override Material 3 defaults.
+- Material 3 default adoption depends-on closing tracked control/navigation/color-token gaps.
+
+### HoneyDrunk implications
+- For any MAUI Android app, run a visual regression pass across high-use screens before enabling Material 3.
+- Keep `UseMaterial3` branch-scoped until unsupported controls, navigation chrome, brand colors, and Android API-level behavior are checked.

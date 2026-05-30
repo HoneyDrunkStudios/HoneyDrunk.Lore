@@ -1,50 +1,57 @@
-# OpenClaw Lore ingest run — 2026-05-26
+# OpenClaw Lore ingest run - 2026-05-30
 
-- Timestamp: 2026-05-26 05:00 America/New_York / 2026-05-26 09:00 UTC
+- Timestamp: 2026-05-30 18:33 America/New_York / 2026-05-30 22:33 UTC
 - Operator: Honeyclaw / OpenClaw scheduled ingest
 
-## Raw sources ingested: 8
+## Raw sources ingested: 15
 
-1. `raw/2026-05-26-rss-80-level-browser-based-tool-for-creating-alpha-textures.md` — Levels browser-based alpha/height/roughness texture-prep utility.
-2. `raw/2026-05-26-rss-80-level-native-c-gdextension-for-high-performance-object-pooling.md` — ZeroAllocPool Godot C++ GDExtension object-pooling performance signal.
-3. `raw/2026-05-26-rss-tldr-ai-anthropic-prepares-mythos-1-for-claude-code-and-claude-securit.md` — Claude Mythos/Mythos 1 and Claude Security early-warning/leak-reporting signal.
-4. `raw/2026-05-26-rss-tldr-ai-anthropic-s-march-to-profitability-3-minute-read.md` — Anthropic profitability/IPO/compute-economics market-watch signal.
-5. `raw/2026-05-26-rss-tldr-devops-designing-end-to-end-ingress-request-tracing-for-multi-ten.md` — CNCF ingress request tracing framework for multi-tenant SaaS.
-6. `raw/2026-05-26-rss-tldr-devops-github-internal-repositories-exfiltrated-via-malicious-vs-.md` — GitHub internal repo exfiltration via malicious VS Code extension.
-7. `raw/2026-05-26-rss-tldr-infosec-pardon-mie-4-minute-read.md` — Apple MIE/CVE-2026-28952 defensive analysis.
-8. `raw/2026-05-26-rss-tldr-infosec-staged-publishing-and-new-install-time-controls-for-npm-2.md` — npm staged publishing GA and install-source allowlist flags.
+1. `raw/2026-05-30-rss-martin-fowler-fragments-may-27.md` - AI-assisted restructuring, on-the-loop collaboration, cognitive endurance, open-source security posture.
+2. `raw/2026-05-30-rss-net-blog-doing-more-with-github-copilot-as-a-net-developer.md` - GitHub Copilot task/surface guidance for .NET developers.
+3. `raw/2026-05-30-rss-net-blog-give-your-net-maui-android-apps-a-material-3-makeover.md` - .NET MAUI 10 Android Material 3 opt-in styling.
+4. `raw/2026-05-30-web-80-level-how-black-eye-2-0-is-rethinking-how-video-game-camera-systems.md` - Black Eye 2.0 adaptive camera-system workflow signal.
+5. `raw/2026-05-30-web-anthropic-introducing-claude-opus-4-8.md` - Claude Opus 4.8, effort controls, dynamic workflows, pricing, Mythos roadmap.
+6. `raw/2026-05-30-web-anthropic-introducing-dynamic-workflows-in-claude-code.md` - Claude Code dynamic workflows research preview.
+7. `raw/2026-05-30-web-github-changelog-code-coverage-on-pull-requests-is-now-in-public-previ.md` - GitHub Code Quality PR coverage preview.
+8. `raw/2026-05-30-web-github-changelog-expanded-oidc-support-for-dependabot-and-code-scannin.md` - GitHub OIDC support for Dependabot/code scanning registries.
+9. `raw/2026-05-30-web-github-changelog-filter-secret-scanning-approval-requests-by-sort-orde.md` - Secret scanning approval-request sorting and `is_bypassed` API filter.
+10. `raw/2026-05-30-web-github-changelog-github-code-quality-repository-enablement-api.md` - GitHub Code Quality setup API preview.
+11. `raw/2026-05-30-web-jkm-dev-how-2004-runescape-fit-a-multiplayer-rpg-into-56k-dial-up.md` - RuneScape 2004 realtime multiplayer protocol design.
+12. `raw/2026-05-30-web-microsoft-learn-ai-agent-orchestration-patterns.md` - Microsoft multiagent orchestration patterns.
+13. `raw/2026-05-30-web-microsoft-learn-tutorial-use-mcp-with-dynamic-sessions-shell.md` - Azure Container Apps dynamic shell sessions with MCP.
+14. `raw/2026-05-30-web-openai-secure-mcp-tunnel.md` - OpenAI Secure MCP Tunnel for private MCP servers.
+15. `raw/2026-05-30-web-unity-render-pipelines-strategy-for-2026.md` - Unity 2026 render-pipeline strategy.
 
 ## Wiki pages created/updated
 
-- Created: `wiki/apple-platform-security-and-memory-safety.md`.
-- Updated: `wiki/browser-native-gpu-creative-tools.md`, `wiki/godot-2026-mobile-and-4-7-cycle.md`, `wiki/claude-platform-2026.md`, `wiki/edge-ai-and-ai-infrastructure-2026.md`, `wiki/opentelemetry-genai-observability-and-ecosystem.md`, `wiki/ai-coding-agent-security.md`, `wiki/dotnet-dependency-security-and-nuget.md`.
+- Created: `wiki/game-camera-systems.md`, `wiki/realtime-game-network-protocol-design.md`.
+- Updated: `wiki/ai-agent-harnesses.md`, `wiki/ai-assisted-software-practice.md`, `wiki/ai-coding-agent-security.md`, `wiki/azure-agent-automation-and-identity.md`, `wiki/claude-platform-2026.md`, `wiki/dotnet-runtime-and-mobile-2026.md`, `wiki/gamedev-production-and-community-signals.md`, `wiki/github-actions-platform-operations.md`, `wiki/github-copilot-and-app-token-changes.md`, `wiki/mcp-tool-governance-and-app-surfaces.md`, `wiki/microsoft-dotnet-ai-stack.md`, `wiki/multi-agent-architectures.md`, `wiki/technical-art-community-and-talent-signals.md`, `wiki/unity-3d-and-realtime-vfx-patterns.md`.
 - Updated indexes: `wiki/indexes/sources.md`, `wiki/indexes/topics.md`, `wiki/indexes/gaps.md`, `wiki/indexes/audit.md`.
 
 ## Crystallization from `output/query-*.md`
 
-- Reviewed latest query-output posture by filename/timing. No new durable `output/query-*.md` facts required crystallization in this pass; today’s durable additions came from new raw sources.
+- Reviewed existing query outputs by filename and recent wiki coverage. No new durable facts required crystallization in this pass; the latest query outputs were already represented in wiki pages from prior compile passes.
 
 ## Contradictions / supersession
 
-- No direct contradictions resolved.
-- Reinforced existing coding-agent/security posture with malicious IDE-extension breach and npm staged publishing controls.
-- Reinforced existing OTel/observability posture with SaaS ingress tracing acceptance criteria.
-- Added a new Apple platform-security page rather than merging exploit-defense concepts into C# memory-safety content.
+- No direct contradictions required resolution.
+- Added supersession-style posture for Unity graphics strategy: URP is now the recommended default for new Unity projects, while Built-In Render Pipeline deprecation starts in Unity 6.5 and remains available through Unity 6.7 LTS.
+- Added supersession-style posture for Claude: Opus 4.8 supersedes Opus 4.7 for Anthropic frontier Opus scouting, but HoneyDrunk should re-benchmark before routing changes.
 
 ## Gaps logged
 
-- Godot native object-pooling benchmark validation.
-- npm staged publishing ownership/migration decision.
-- npm nonregistry install-source default-deny/exception policy.
-- HoneyDrunk W3C Trace Context/OpenTelemetry ingress contract.
-- Apple fleet patch/Lockdown Mode verification after CVE-2026-28952.
-- Primary verification for Contrary Anthropic profitability/IPO/compute-economics claims.
+- Private MCP connectivity choice: OpenAI Secure MCP Tunnel vs Azure dynamic sessions vs self-managed/sandboxed networking.
+- Claude Code dynamic workflow policy: token budget, sandboxing, approvals, and verification gates.
+- GitHub Code Quality / PR coverage preview adoption by repo and permission model.
+- Dependabot/code scanning private-registry OIDC migration candidates.
+- .NET MAUI Android Material 3 visual-regression checklist and candidate prototypes.
+- Unity Built-In Render Pipeline inventory and URP migration path.
+- Game camera-system architecture needs for adaptive framing, blending, and spectator/cinematic workflows.
 
 ## Quality posture
 
-- Decision-usefulness: strong for CNCF tracing and GitHub/npm supply-chain controls; useful scouting for browser-native texture tools and Godot pooling; defensive/security-architecture useful for Apple MIE.
-- Weak claims: TestingCatalog Mythos/Mythos 1 report is early/leak-based; Contrary financial/IPO claims are market-watch only until primary support exists; ZeroAllocPool performance is developer-reported.
-- Privacy/safety filtering: no secrets, credentials, customer support excerpts, or private data copied. Apple exploit source was summarized at defensive architecture/control level; no step-by-step exploit chain, payload, or offensive procedure promoted.
+- Decision-usefulness: strong for official platform/control facts from OpenAI, Anthropic, GitHub, Microsoft, and Unity; useful for architecture vocabulary and scouting.
+- Weak claims: Anthropic customer quotes and dynamic-workflow examples are vendor/product evidence; Black Eye 2.0 is interview/product evidence; RuneScape protocol details are reverse-engineering evidence rather than official documentation.
+- Privacy/safety filtering: no secrets, credentials, private network addresses, or reusable API keys copied. Tunnel/runtime key examples were summarized only by purpose and risk. Private MCP and shell-session capabilities were framed with auth/audit/sandbox cautions.
 - Source citations: all promoted claims cite immutable raw filenames.
 
 ## Blockers

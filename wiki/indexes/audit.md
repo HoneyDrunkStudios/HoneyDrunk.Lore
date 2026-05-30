@@ -124,3 +124,11 @@ This keeps Lore decision-usable for Honeyclaw, Claude, and future agents.
 - pages updated: [[browser-native-gpu-creative-tools]], [[godot-2026-mobile-and-4-7-cycle]], [[claude-platform-2026]], [[edge-ai-and-ai-infrastructure-2026]], [[opentelemetry-genai-observability-and-ecosystem]], [[ai-coding-agent-security]], [[dotnet-dependency-security-and-nuget]], indexes, run output
 - privacy/safety filtering: Apple MIE exploit source summarized for defensive architecture only; no exploit procedure/payload copied. GitHub breach and npm controls summarized without copying personal/customer data. No credentials/tokens copied.
 - quality posture: CNCF/GitHub/npm sources are decision-usable; 80 Level and TestingCatalog are scouting/early-warning sources; Contrary financial claims are market-watch only until stronger verification.
+
+## 2026-05-30 OpenClaw ingest/compile
+- operator: Honeyclaw/OpenClaw scheduled ingest
+- raw sources ingested: 15
+- pages created: [[game-camera-systems]], [[realtime-game-network-protocol-design]]
+- pages updated: [[ai-agent-harnesses]], [[ai-assisted-software-practice]], [[ai-coding-agent-security]], [[azure-agent-automation-and-identity]], [[claude-platform-2026]], [[dotnet-runtime-and-mobile-2026]], [[gamedev-production-and-community-signals]], [[github-actions-platform-operations]], [[github-copilot-and-app-token-changes]], [[mcp-tool-governance-and-app-surfaces]], [[microsoft-dotnet-ai-stack]], [[multi-agent-architectures]], [[technical-art-community-and-talent-signals]], [[unity-3d-and-realtime-vfx-patterns]], indexes, run output
+- privacy/safety filtering: no secrets copied. Tunnel/API key examples were summarized by role and risk only; no reusable credentials were copied. Security and private-network tool access claims were framed as controls/gaps, not instructions to bypass boundaries.
+- quality posture: official OpenAI/Anthropic/GitHub/Microsoft/Unity sources are decision-useful but vendor-authored; Black Eye and RuneScape sources are useful production/reverse-engineering signals requiring local validation before tool/protocol adoption.

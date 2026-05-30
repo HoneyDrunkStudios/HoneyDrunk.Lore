@@ -216,3 +216,35 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 ### HoneyDrunk implications
 - For Grid/Lore agent evals, define small executable environments with typed actions, validators, and scoring before attempting broader autonomous training or self-improvement.
 - Treat reward functions as product/design artifacts: validity, safety, task coverage, and aesthetics may need separate weighted checks.
+
+## 2026-05-30 compile additions
+
+### Claims
+- OpenAI Secure MCP Tunnel reinforces private-tool connectivity as a harness primitive: supported products can call a private MCP server through an outbound `tunnel-client` without opening public ingress. confidence: 1 official vendor docs source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-openai-secure-mcp-tunnel.md; page: [[mcp-tool-governance-and-app-surfaces]]]
+- Claude Code dynamic workflows make subagent fan-out a productized harness capability: Claude plans, writes orchestration scripts, runs many parallel subagents, verifies outputs, and resumes long-running work outside the conversation context. confidence: 1 official vendor source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-anthropic-introducing-dynamic-workflows-in-claude-code.md; page: [[claude-platform-2026]]]
+- Microsoft Learn's orchestration guide reinforces that agent harnesses should start at the lowest complexity level that works: direct model call, single agent with tools, then multiagent orchestration only when prompt/tool/context/security limits justify it. confidence: 1 Microsoft architecture source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-microsoft-learn-ai-agent-orchestration-patterns.md; page: [[multi-agent-architectures]]]
+- Azure Container Apps dynamic sessions provide a platform-managed MCP shell execution environment in preview, demonstrating that harness compute can be offered as managed ephemeral sessions rather than bespoke server code. confidence: 1 Microsoft Learn source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-microsoft-learn-tutorial-use-mcp-with-dynamic-sessions-shell.md]
+- GitHub Copilot guidance for .NET developers distinguishes chat for understanding/planning/explanation from agentic workflows for bounded change/verify/update/rerun tasks; this maps directly onto harness definitions of scope, definition of done, and reviewable diffs. confidence: 1 Microsoft/.NET Blog source, last-confirmed 2026-05-30. [source: raw/2026-05-30-rss-net-blog-doing-more-with-github-copilot-as-a-net-developer.md]
+
+### Typed entities
+- product: OpenAI Secure MCP Tunnel
+- product: Claude Code dynamic workflows
+- platform: Azure Container Apps dynamic sessions
+- product: GitHub Copilot
+- feature: Copilot CLI
+- feature: Copilot cloud coding agent
+- concept: effort control
+- concept: definition of done
+- concept: reviewable diff
+- concept: managed ephemeral shell session
+
+### Explicit relationships
+- Agent harnesses use private MCP tunnels to reach internal tools without public exposure.
+- Dynamic workflows depend-on budget controls, progress persistence, subagent verification, and sandboxed execution.
+- Managed shell sessions depend-on API-key or stronger authentication and should be isolated from persistent secrets.
+- Chat-mode assistance complements agentic delegation; it does not supersede bounded execution tasks when changes must be made and verified.
+
+### HoneyDrunk implications
+- Treat parallel subagents as a scarce resource, not a default mode; require cost telemetry and clear synthesis criteria.
+- For private tools, design connectivity, auth, and audit before exposing MCP servers to assistant clients.
+- For .NET work, write agent tasks with explicit boundaries, constraints, tests to run, and stop conditions.

@@ -67,3 +67,30 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 ### HoneyDrunk implications
 - For issue/task-heavy internal tools, cache issue/task shells and recently visited data locally before optimizing server endpoints.
 - Measure perceived navigation latency separately from backend latency; users feel route transitions, boot cost, and hydration, not only API timings.
+
+## 2026-05-30 compile additions
+
+### Claims
+- GitHub Code Quality Repository Enablement API is in public preview on github.com, adding `PATCH /repos/{owner}/{repo}/code-quality/setup` to enable/disable default setup, configure languages, and choose runner type, plus `GET /repos/{owner}/{repo}/code-quality/setup` to retrieve state, languages, runner type, and analysis schedule. confidence: 1 GitHub changelog source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-github-changelog-github-code-quality-repository-enablement-api.md]
+- The repository enablement API supports `csharp`, `go`, `java-kotlin`, `javascript-typescript`, `python`, and `ruby`, and is not available on GitHub Enterprise Server during this preview. confidence: 1 GitHub changelog source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-github-changelog-github-code-quality-repository-enablement-api.md]
+- GitHub code coverage metrics on pull requests are in public preview for GitHub Code Quality users on github.com; teams upload Cobertura reports from CI using `upload-code-coverage`, and GitHub Apps/Actions need the new fine-grained `code-quality:write` permission. confidence: 1 GitHub changelog source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-github-changelog-code-coverage-on-pull-requests-is-now-in-public-previ.md]
+- GitHub Code Quality is available for GitHub Enterprise Cloud and Team and free during preview, but not yet available on GitHub Enterprise Server. confidence: 1 GitHub changelog source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-github-changelog-code-coverage-on-pull-requests-is-now-in-public-previ.md]
+
+### Typed entities
+- product: GitHub Code Quality
+- API: `PATCH /repos/{owner}/{repo}/code-quality/setup`
+- API: `GET /repos/{owner}/{repo}/code-quality/setup`
+- feature: pull request code coverage
+- report format: Cobertura
+- action: `upload-code-coverage`
+- permission: `code-quality:write`
+- languages: C#, Go, Java/Kotlin, JavaScript/TypeScript, Python, Ruby
+
+### Explicit relationships
+- GitHub Code Quality Repository Enablement API uses repository-level configuration to automate static analysis rollout.
+- Pull request coverage depends-on CI-generated Cobertura reports and `code-quality:write` upload permission.
+- Code Quality preview features complement existing CI checks but do not supersede local test and coverage gates until preview behavior is validated.
+
+### HoneyDrunk implications
+- Audit which HoneyDrunk repos could enable Code Quality centrally, especially C# and TypeScript repos.
+- If coverage is adopted, upload least-privilege Cobertura reports from existing CI and avoid broad permissions where `code-quality:write` is enough.

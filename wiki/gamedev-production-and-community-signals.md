@@ -152,3 +152,27 @@ The game-development community feed produced a mix of process advice, tooling ex
 
 ### HoneyDrunk implications
 - Treat Subnautica 2 as AAA/established-IP market signal, not indie baseline; the durable lesson is that Early Access must be paired with credible community-feedback loops.
+
+## 2026-05-30 compile additions
+
+### Claims
+- The RuneScape networking teardown shows 2004 Jagex optimized multiplayer protocol design around hard dial-up constraints: small opcodes, variable/fixed packet bodies, waypoint deltas, bit-packed movement/update flags, relative coordinates, and cached byte-aligned detail buffers. confidence: 1 reverse-engineering source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-jkm-dev-how-2004-runescape-fit-a-multiplayer-rpg-into-56k-dial-up.md; page: [[realtime-game-network-protocol-design]]]
+- The durable production lesson is constraint-driven architecture: tight protocol co-design is right when client/server ship together and bandwidth is binding, while verbose self-describing protocols remain right when independent deployability/debugging/change velocity are binding. confidence: 1 reverse-engineering source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-jkm-dev-how-2004-runescape-fit-a-multiplayer-rpg-into-56k-dial-up.md; page: [[realtime-game-network-protocol-design]]]
+- Black Eye 2.0 reinforces camera systems as production infrastructure: fragile special-case camera code slows iteration, while adaptive/directable camera behaviors can support gameplay, cinematic, trailer, and virtual-production work from one system. confidence: 1 80 Level interview source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-80-level-how-black-eye-2-0-is-rethinking-how-video-game-camera-systems.md; page: [[game-camera-systems]]]
+
+### Typed entities
+- game: RuneScape
+- company: Jagex
+- page: [[realtime-game-network-protocol-design]]
+- product/tool: Black Eye 2.0
+- page: [[game-camera-systems]]
+- concept: constraint-driven architecture
+- concept: adaptive camera system
+
+### Explicit relationships
+- Realtime game protocol design depends-on the binding constraint: bandwidth, latency, server assembly cost, debuggability, or independent deployability.
+- Camera systems depend-on iteration-friendly authoring models because gameplay and cinematic needs change throughout production.
+
+### HoneyDrunk implications
+- For multiplayer or networked simulation prototypes, choose protocol verbosity/compactness based on actual deployment/versioning constraints.
+- Treat cameras and networking as first-order production systems early in game prototypes, not polish-layer details.

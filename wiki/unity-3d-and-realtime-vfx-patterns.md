@@ -210,3 +210,38 @@ Unity-related sources clustered around practical production patterns: planning n
 ### HoneyDrunk implications
 - Unity's ad stack is increasingly outcome/ROAS-oriented; useful if HoneyDrunk evaluates mobile UA, irrelevant for prototype engine choice unless monetization is in scope.
 - For stylized water, avoid overcommitting to mesh trails until shader resource conflicts with outlines/distance fields are tested.
+
+## 2026-05-30 compile additions
+
+### Claims
+- Unity's 2026 render-pipeline strategy concentrates new graphics feature investment in URP, maintains HDRP mainly for stability and Nintendo Switch 2 platform reach, and begins Built-In Render Pipeline deprecation in Unity 6.5. confidence: 1 Unity source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-unity-render-pipelines-strategy-for-2026.md]
+- Unity says URP is used by the vast majority of Unity games released in the past three years and is the default target for faster performance/build time, stability, extensibility, and dynamic 3D lighting improvements. confidence: 1 Unity source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-unity-render-pipelines-strategy-for-2026.md]
+- Planned URP work includes physical light units, pre/auto exposure, physical sky and dynamic sky manager, realtime global illumination, screen-space reflections, and on-tile post-processing for mobile, with scalability/build-size/performance caveats. confidence: 1 Unity source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-unity-render-pipelines-strategy-for-2026.md]
+- HDRP gets no new features in the described strategy, but Unity plans official HDRP support for Nintendo Switch 2 in Unity 6.5 for enrolled Nintendo developers, focused on stability and platform reach. confidence: 1 Unity source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-unity-render-pipelines-strategy-for-2026.md]
+- Built-In Render Pipeline will remain available at least through Unity 6.7 LTS, with official support at least until end of 2028 and 2029 for Unity Enterprise/Industry licenses; final removal version is not yet decided, but Unity strongly discourages Built-In for new titles. confidence: 1 Unity source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-unity-render-pipelines-strategy-for-2026.md]
+- Black Eye 2.0 is an Unreal-targeted camera-system signal, not a Unity tool, but its separation of camera intent from transform execution is relevant to Unity/Cinemachine-style production camera planning. confidence: 1 80 Level interview source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-80-level-how-black-eye-2-0-is-rethinking-how-video-game-camera-systems.md; page: [[game-camera-systems]]]
+
+### Typed entities
+- render pipeline: Unity Universal Render Pipeline / URP
+- render pipeline: Unity High Definition Render Pipeline / HDRP
+- render pipeline: Unity Built-In Render Pipeline
+- release: Unity 6.5
+- release: Unity 6.7 LTS
+- platform: Nintendo Switch 2
+- feature: realtime global illumination
+- feature: screen-space reflections
+- feature: physical light units
+- feature: dynamic sky manager
+- concept: camera intent
+- page: [[game-camera-systems]]
+
+### Explicit relationships
+- URP supersedes Built-In Render Pipeline as Unity's recommended default for new projects.
+- HDRP maintenance depends-on stability and platform reach rather than new feature expansion.
+- Built-In Render Pipeline deprecation depends-on migration feedback before final removal timing.
+- Black Eye 2.0 camera-system lessons complement Cinemachine/Unity camera thinking despite targeting Unreal Engine.
+
+### HoneyDrunk implications
+- New Unity prototypes should default to URP unless there is a clear reason not to.
+- Inventory any Built-In Render Pipeline projects before Unity 6.5/6.7 LTS planning; migration effort should be budgeted before support windows tighten.
+- For Switch 2/HDRP ambitions, verify developer-program constraints and HDRP support in Unity 6.5 rather than assuming public availability.

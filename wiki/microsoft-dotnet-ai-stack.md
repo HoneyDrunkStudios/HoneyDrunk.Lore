@@ -135,3 +135,33 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 ### HoneyDrunk implications
 - Use the .NET MCP governance package as the default starting point for any internal C# MCP server rather than hand-written filters.
 - Keep .NET AI/MCP repositories on safe-code defaults; require explicit review for any `AllowUnsafeBlocks=true` exception.
+
+## 2026-05-30 compile additions
+
+### Claims
+- Microsoft/.NET Blog guidance says .NET developers should choose Copilot surfaces by task: Visual Studio for solution-local understanding/refactors/tests, VS Code when changes cross code/config/docs, Copilot CLI for terminal build/test loops, and the cloud coding agent for bounded multi-file tasks that can return a reviewable draft. confidence: 1 Microsoft/.NET Blog source, last-confirmed 2026-05-30. [source: raw/2026-05-30-rss-net-blog-doing-more-with-github-copilot-as-a-net-developer.md]
+- The same source frames useful .NET Copilot prompts around goal, code/command output, constraints, and expected answer shape; agentic tasks should have bounded scope, constraints, a clear definition of done, and verification such as rerunning relevant tests. confidence: 1 Microsoft/.NET Blog source, last-confirmed 2026-05-30. [source: raw/2026-05-30-rss-net-blog-doing-more-with-github-copilot-as-a-net-developer.md]
+- .NET MAUI 10 can opt Android apps into Material 3 styling with `<UseMaterial3>true</UseMaterial3>` when targeting `net10.0-android`; Microsoft recommends Microsoft.Maui.Controls 10.0.60+ for the broadest current control coverage. confidence: 1 Microsoft/.NET Blog source, last-confirmed 2026-05-30. [source: raw/2026-05-30-rss-net-blog-give-your-net-maui-android-apps-a-material-3-makeover.md; page: [[dotnet-runtime-and-mobile-2026]]]
+- Azure Container Apps dynamic shell sessions can be exposed as a platform-managed MCP server and connected to GitHub Copilot in VS Code through `.vscode/mcp.json`; the API key must be treated as a secret and should not be committed. confidence: 1 Microsoft Learn source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-microsoft-learn-tutorial-use-mcp-with-dynamic-sessions-shell.md]
+
+### Typed entities
+- product: GitHub Copilot
+- IDE: Visual Studio
+- IDE/editor: Visual Studio Code
+- tool: Copilot CLI
+- product: Copilot cloud coding agent
+- framework: .NET MAUI 10
+- property: `<UseMaterial3>`
+- package: `Microsoft.Maui.Controls` 10.0.60+
+- platform: Azure Container Apps dynamic sessions
+- file: `.vscode/mcp.json`
+
+### Explicit relationships
+- Copilot chat supports understanding, planning, explanation, and targeted generation; Copilot agentic workflows use bounded tasks to change, verify, update, rerun, and produce reviewable diffs.
+- .NET MAUI Material 3 belongs under runtime/mobile tracking, but it also affects .NET developer platform adoption.
+- Azure dynamic-session MCP can connect cloud shell execution to Copilot, but depends-on secret-safe configuration and preview API behavior.
+
+### HoneyDrunk implications
+- For .NET repos, standardize agent task wording around scope, constraints, no-change boundaries, tests to run, and expected summary.
+- Do not store MCP session-pool API keys in committed VS Code MCP config; use environment indirection or local ignored files.
+- If HoneyDrunk has MAUI Android prototypes, treat Material 3 as a branch-level UI validation task rather than a blind default switch until control gaps are checked.

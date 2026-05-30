@@ -157,7 +157,7 @@ def fetch(url: str, timeout: int = 25) -> str:
 
 
 def strip_html(value: str) -> str:
-    value = re.sub(r"(?is)<(script|style).*?</\\1>", " ", value)
+    value = re.sub(r"(?is)<(script|style).*?</\1>", " ", value)
     value = re.sub(r"(?is)<br\s*/?>", "\n", value)
     value = re.sub(r"(?is)</p\s*>", "\n\n", value)
     value = re.sub(r"(?is)<[^>]+>", " ", value)

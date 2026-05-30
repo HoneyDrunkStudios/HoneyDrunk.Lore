@@ -195,3 +195,34 @@ Relationships added: CoCo workloads depend-on remote attestation and runtime-sid
 
 ### Quality notes
 - The GitHub breach report is trade-press and should be backed by GitHub's final incident report before procurement-grade claims. GitHub npm changelog is primary source.
+
+## 2026-05-30 compile additions
+
+### Claims
+- GitHub expanded organization-level OIDC support for Dependabot and code scanning private registries to include Cloudsmith and Google Artifact Registry, alongside AWS CodeArtifact, Azure DevOps Artifacts, and JFrog Artifactory; the feature is GA on github.com and planned for GitHub Enterprise Server 3.22. confidence: 1 GitHub changelog source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-github-changelog-expanded-oidc-support-for-dependabot-and-code-scannin.md]
+- GitHub secret scanning approval-request lists can now be sorted by newest, oldest, recently updated, and least recently updated at repository, organization, and enterprise levels for push-protection bypass and alert-dismissal requests. confidence: 1 GitHub changelog source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-github-changelog-filter-secret-scanning-approval-requests-by-sort-orde.md]
+- The secret scanning alerts REST API now accepts an `is_bypassed` boolean query parameter on repository, organization, and enterprise list endpoints to include or exclude push-protection-bypassed alerts programmatically. confidence: 1 GitHub changelog source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-github-changelog-filter-secret-scanning-approval-requests-by-sort-orde.md]
+- GitHub Code Quality coverage uploads require the new fine-grained `code-quality:write` permission, reinforcing least-privilege CI token design for new quality/security telemetry uploads. confidence: 1 GitHub changelog source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-github-changelog-code-coverage-on-pull-requests-is-now-in-public-previ.md; page: [[github-actions-platform-operations]]]
+
+### Typed entities
+- platform: Dependabot
+- feature: code scanning
+- protocol: OpenID Connect / OIDC
+- registry: Cloudsmith
+- registry: Google Artifact Registry
+- registry: AWS CodeArtifact
+- registry: Azure DevOps Artifacts
+- registry: JFrog Artifactory
+- feature: secret scanning push protection
+- REST API parameter: `is_bypassed`
+- permission: `code-quality:write`
+
+### Explicit relationships
+- OIDC private-registry authentication supersedes long-lived registry credentials where supported.
+- Secret scanning bypass filters depend-on alert metadata and help security teams prioritize bypassed secrets at scale.
+- `code-quality:write` complements least-privilege GitHub Actions permissions for quality telemetry.
+
+### HoneyDrunk implications
+- Prefer OIDC-based private-registry access for Dependabot/code scanning rather than static registry secrets wherever supported.
+- Add a periodic secret-scanning report for `is_bypassed=true` alerts if HoneyDrunk uses GitHub Advanced Security.
+- Keep quality-report upload tokens narrow; do not reuse broad repo/write credentials for Code Quality coverage uploads.

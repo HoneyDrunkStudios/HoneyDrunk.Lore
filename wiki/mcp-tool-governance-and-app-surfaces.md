@@ -91,3 +91,35 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 - If HoneyDrunk builds .NET MCP servers, governance should be a default builder-layer concern, not ad hoc per-tool checks.
 - Keep policy files outside application code so agent/tool authorization can change without redeploying binaries.
 - Treat Microsoft defaults as a baseline; tune risk thresholds and sanitizer patterns with HoneyDrunk-specific false-positive/false-negative tests.
+
+## 2026-05-30 compile additions
+
+### Claims
+- OpenAI Secure MCP Tunnel lets supported OpenAI surfaces reach private MCP servers without public inbound access by running `tunnel-client` inside the network; the client long-polls OpenAI over outbound HTTPS, forwards JSON-RPC requests to a local stdio or HTTP MCP server, and returns responses through the same tunnel. confidence: 1 official vendor docs source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-openai-secure-mcp-tunnel.md]
+- Secure MCP Tunnel requires tunnel identity, a runtime API key with tunnel read/use permissions, outbound HTTPS to OpenAI, and local reachability to the private MCP server; optional controls include outbound proxies, custom CA bundles, control-plane mTLS, and MCP-side mTLS. confidence: 1 official vendor docs source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-openai-secure-mcp-tunnel.md]
+- OpenAI's Harpoon embedded MCP server can expose narrowly allowlisted private HTTP targets through the tunnel, but is explicitly not a general-purpose proxy because callers cannot choose arbitrary hosts and request/response limits are bounded. confidence: 1 official vendor docs source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-openai-secure-mcp-tunnel.md]
+- Azure Container Apps dynamic sessions can expose a platform-managed MCP server for shell session pools in preview, with built-in `launchShell` and `runShellCommandInRemoteEnvironment` tools authenticated by an `x-ms-apikey` header. confidence: 1 Microsoft Learn source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-microsoft-learn-tutorial-use-mcp-with-dynamic-sessions-shell.md]
+
+### Typed entities
+- product: OpenAI Secure MCP Tunnel
+- binary/tool: `tunnel-client`
+- endpoint family: `/v1/tunnel/*`
+- control: outbound-only HTTPS
+- control: control-plane mTLS
+- embedded MCP server: Harpoon
+- platform: Azure Container Apps dynamic sessions
+- tool: `launchShell`
+- tool: `runShellCommandInRemoteEnvironment`
+- auth header: `x-ms-apikey`
+
+### Explicit relationships
+- Secure MCP Tunnel uses an outbound client to keep private MCP servers off the public internet while exposing a supported OpenAI MCP request path.
+- Tunnel runtime keys depend-on scoped tunnel read/use permissions and should be treated as secrets.
+- Allowlisted HTTP callouts complement MCP tools but do not supersede proper private API authorization.
+- Azure dynamic-session MCP uses platform-managed shell execution environments rather than custom MCP server code.
+- [[ai-agent-harnesses]] depends-on private-tool connectivity patterns when agents need network-internal tools.
+
+### HoneyDrunk implications
+- For private HoneyDrunk MCP servers, compare OpenAI Secure MCP Tunnel, Cloudflare-style self-managed sandboxes, and Azure Container Apps dynamic sessions by trust boundary, logging, mTLS, key handling, and local Windows/dev ergonomics.
+- Do not commit local MCP API keys or tunnel runtime keys in `.vscode/mcp.json` or equivalent project files; prefer environment variables or secret stores.
+- Treat tunneled private HTTP targets as a small allowlist with explicit method and response limits, not a backdoor proxy into the network.

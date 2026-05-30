@@ -47,3 +47,38 @@ Multi-agent systems are warranted only when a single agent hits hard limits: con
 - Quality posture: decision-usable as architecture framing, but source is a newsletter preview/paywalled excerpt; validate against implementation experience before standardizing.
 - Weak claims: named case-study metrics were source-reported and not independently verified here.
 - Privacy filter: sponsor material and subscription copy omitted; no secrets or unsafe PII copied.
+
+## 2026-05-30 compile additions
+
+### Claims
+- Microsoft Learn's AI agent orchestration guide explicitly recommends using the lowest reliable complexity level: direct model call, single agent with tools, then multiagent orchestration only when cross-domain work, parallel specialization, context/tool overload, or security boundaries justify it. confidence: 1 Microsoft architecture source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-microsoft-learn-ai-agent-orchestration-patterns.md]
+- The guide names five multiagent orchestration patterns: sequential, concurrent, group chat, handoff, and magentic manager-led task-ledger orchestration. confidence: 1 Microsoft architecture source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-microsoft-learn-ai-agent-orchestration-patterns.md]
+- Sequential orchestration suits known ordered transformations and auditability, but should be avoided when stages can run independently, need backtracking, or require dynamic routing. confidence: 1 Microsoft architecture source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-microsoft-learn-ai-agent-orchestration-patterns.md]
+- Concurrent orchestration suits independent perspectives and latency-sensitive fan-out/fan-in work, but requires conflict-resolution and resource controls. confidence: 1 Microsoft architecture source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-microsoft-learn-ai-agent-orchestration-patterns.md]
+- Magentic orchestration uses a manager agent and task/progress ledger for open-ended plans that adapt as new information arrives; the source warns about slow convergence, stalls on ambiguous goals, and the need for audit trails and loop controls. confidence: 1 Microsoft architecture source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-microsoft-learn-ai-agent-orchestration-patterns.md]
+- Claude Code dynamic workflows are a concrete vendor product signal for large-scale concurrent/magentic-style work: tasks fan out to tens or hundreds of subagents, are verified before synthesis, and can run for hours or days. confidence: 1 official vendor source, last-confirmed 2026-05-30. [source: raw/2026-05-30-web-anthropic-introducing-dynamic-workflows-in-claude-code.md; page: [[claude-platform-2026]]]
+
+### Typed entities
+- pattern: sequential orchestration
+- pattern: concurrent orchestration
+- pattern: group chat orchestration
+- pattern: handoff orchestration
+- pattern: magentic orchestration
+- concept: task ledger
+- concept: progress ledger
+- framework: Microsoft Agent Framework
+- product: Foundry Agent Service
+- framework: Semantic Kernel
+- product: Claude Code dynamic workflows
+
+### Explicit relationships
+- Multiagent orchestration depends-on explicit routing, context/state management, reliability controls, security trimming, observability, and cost measurement.
+- Sequential orchestration supersedes ad hoc agent loops when process order is known and auditability matters.
+- Concurrent orchestration uses fan-out/fan-in but depends-on aggregation and contradiction handling.
+- Magentic orchestration depends-on a manager-maintained task ledger and loop/stall controls.
+- Dynamic workflows are product evidence that parallel subagents are entering mainstream coding tools, but they do not supersede the need for scoped tasks and verification gates.
+
+### HoneyDrunk implications
+- Reuse the five-pattern vocabulary when designing OpenClaw/Grid flows so the team can distinguish pipelines, fan-out review, handoffs, and adaptive task-ledger work.
+- Default to single-agent-with-tools until there is a hard reason to split agents.
+- If using dynamic workflows or magentic-style managers, persist task state and define stop/approval conditions before long runs begin.

@@ -37,3 +37,25 @@ Two GitHub platform changes affect automation cost and compatibility: GitHub App
 - Quality posture: decision-usable; all operational dates are cited.
 - Supersession: older fixed-length `ghs_` token assumptions are superseded by the 2026 format rollout.
 - Privacy filter: no real tokens or secrets copied.
+
+## 2026-05-30 compile additions
+
+### Claims
+- Microsoft/.NET Blog guidance frames GitHub Copilot for .NET as a set of surfaces with different fit: inline completions for repetitive C# work, chat for reasoning/planning/explanation, Visual Studio Test Agent for solution-local testing, Copilot CLI for terminal build/test loops, and cloud coding agent for bounded background changes. confidence: 1 Microsoft/.NET Blog source, last-confirmed 2026-05-30. [source: raw/2026-05-30-rss-net-blog-doing-more-with-github-copilot-as-a-net-developer.md]
+- The source says agentic Copilot tasks should be multi-step, bounded, reviewable, and paired with constraints such as preserving public APIs, following existing test style, limiting scope, and rerunning relevant tests. confidence: 1 Microsoft/.NET Blog source, last-confirmed 2026-05-30. [source: raw/2026-05-30-rss-net-blog-doing-more-with-github-copilot-as-a-net-developer.md]
+
+### Typed entities
+- product: GitHub Copilot
+- feature: inline completions
+- feature: Copilot Chat
+- feature: Visual Studio Test Agent
+- feature: Copilot CLI
+- feature: cloud coding agent
+- language/runtime: .NET / C#
+
+### Explicit relationships
+- Copilot cloud coding agent depends-on GitHub Actions runner capacity and cost, as tracked in this page's billing claims.
+- Agentic Copilot use complements, not replaces, PR-style diff review and test verification.
+
+### HoneyDrunk implications
+- Treat Copilot agent tasks as CI-costing work units after 2026-06-01 when code review Actions-minute billing begins; scope and verify them like other runner-consuming automation.
