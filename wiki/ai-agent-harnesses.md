@@ -248,3 +248,45 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 - Treat parallel subagents as a scarce resource, not a default mode; require cost telemetry and clear synthesis criteria.
 - For private tools, design connectivity, auth, and audit before exposing MCP servers to assistant clients.
 - For .NET work, write agent tasks with explicit boundaries, constraints, tests to run, and stop conditions.
+
+## 2026-05-31 compile additions
+
+### Claims
+- Hugging Face's agent glossary reinforces the working split used in Lore: the model is raw text generation, scaffolding is the behavior-defining layer of prompts/tools/context/memory, and the harness is the execution loop that calls the model, routes tool calls, handles errors, and decides when to stop. confidence: 1 source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-hugging-face-blog-harness-scaffold-and-the-ai-agent-terms-worth-gettin.md]
+- The same glossary distinguishes tools, skills, and subagents: tools are actions, skills package multi-step task knowledge, and subagents are independently reasoning agents called by another agent. confidence: 1 source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-hugging-face-blog-harness-scaffold-and-the-ai-agent-terms-worth-gettin.md]
+- OpenAI's Tax AI case study shows a production self-improvement loop where practitioner corrections and product traces become grouped findings, targeted evals, scoped Codex tasks, validation runs, and reviewed product changes. confidence: 1 official/vendor-partner source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-openai-via-tldr-ai-building-self-improving-tax-agents-with-codex.md]
+- The Tax AI pattern depends-on bounded automation: ambiguous practitioner corrections route back to product/engineering review instead of being forced into automatic Codex fixes. confidence: 1 official/vendor-partner source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-openai-via-tldr-ai-building-self-improving-tax-agents-with-codex.md]
+- Google ADK for Kotlin and ADK for Android 0.1.0 extends ADK agent harness patterns to Kotlin backends and Android on-device/hybrid agents, including session state, memory service, function tools, long-running tools, MCP tools, A2A plugins, OpenTelemetry, and a development web interface. confidence: 1 vendor source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-google-developers-blog-announcing-adk-for-kotlin-and-adk-for-android-0.md; page: [[google-agent-platform-and-gemini-api-2026]]]
+- Claude Code agent view productizes multi-session agent management in the CLI: `claude agents`, left-arrow navigation, `/bg`, and `claude --bg` let users background, peek, answer, and reattach to multiple sessions. confidence: 1 vendor product source, last-confirmed 2026-05-31. [source: raw/2026-05-31-web-claude-blog-agent-view-in-claude-code.md; page: [[claude-platform-2026]]]
+- OpenAI's evaluation playbook reinforces that harness design is part of the evaluation result: tools, scaffolding, state management, retries, context compaction, and budget can materially change observed capability. confidence: 1 official source, last-confirmed 2026-05-31. [source: raw/2026-05-31-web-openai-a-shared-playbook-for-trustworthy-third-party-evaluations.md; page: [[agent-evaluation-and-benchmarks]]]
+
+### Typed entities
+- concept: scaffold
+- concept: harness
+- concept: skill
+- concept: subagent
+- product/system: Tax AI
+- company: Crete
+- company: Thrive Holdings
+- tool: Codex
+- framework: ADK for Kotlin
+- framework: ADK for Android
+- product: Claude Code agent view
+- command: `claude agents`
+- command: `claude --bg`
+- command: `/bg`
+- page: [[agent-evaluation-and-benchmarks]]
+
+### Explicit relationships
+- Agent harnesses use scaffolding, tool routing, state, and stop conditions to turn model output into action.
+- Skills complement tools by packaging reusable task knowledge, while subagents add independent reasoning and tool use.
+- Self-improving agent loops depend-on production traces, expert corrections, targeted evals, scoped tasks, and human review.
+- ADK for Android uses on-device Gemini Nano retrieval agents to keep private document analysis local while a cloud orchestrator handles broader reasoning.
+- Agent view depends-on background session state and user-attention routing for parallel Claude Code sessions.
+- Agent evaluations depend-on harness disclosure because harness choices can change measured capability.
+
+### HoneyDrunk implications
+- Keep Lore/OpenClaw vocabulary precise: do not call every prompt, tool, skill, scaffold, and orchestrator an "agent" when a narrower term is available.
+- For self-improving HoneyDrunk agents, first design trace capture and eval grouping; do not ask a coding agent to improve production behavior from vague feedback.
+- For parallel agents, build a queue/status surface and attention budget before increasing concurrency.
+- Treat any benchmark score as harness-specific unless the report discloses tools, retries, state, and budget.

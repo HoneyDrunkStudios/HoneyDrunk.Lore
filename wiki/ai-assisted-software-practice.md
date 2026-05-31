@@ -202,3 +202,37 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 - Increase agent autonomy only where tests, static analysis, logs, and architectural rules can constrain it.
 - Avoid workflows that force Oleg/Honeyclaw to context-switch across many high-stakes agent threads at once; machine parallelism is different from human attention parallelism.
 - Keep source-security policy grounded in real controls, not obscurity.
+
+## 2026-05-31 compile additions
+
+### Claims
+- Thoughtworks' VibeSec Reckoning reports two AI-assisted prototype near misses: public storage recommendations for sensitive assets and excessive service-account token permissions; both were caught by humans asking security questions. confidence: 1 Thoughtworks/Fowler source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-martin-fowler-the-vibesec-reckoning.md]
+- The source argues "be secure" prompting is not equivalent to enforcement: non-negotiable rules must be codified in the development lifecycle through context files, secure templates, scanners, pre-commit/build gates, and review. confidence: 1 Thoughtworks/Fowler source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-martin-fowler-the-vibesec-reckoning.md]
+- The article maps harness controls to guides/sensors and computational/inferential controls: context rules can steer the model, while linters, tests, SAST, credential scanning, infrastructure validation, dependency checks, and security review validate outputs. confidence: 1 Thoughtworks/Fowler source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-martin-fowler-the-vibesec-reckoning.md]
+- The article recommends daily security intelligence feeds for CVEs, platform advisories, and AI coding tool issues so vulnerabilities are noticed near disclosure time. confidence: 1 Thoughtworks/Fowler source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-martin-fowler-the-vibesec-reckoning.md]
+- OpenAI's Tax AI case study reinforces agentic software practice by turning production evidence into scoped engineering tasks: practitioner corrections are captured, grouped, converted into eval targets, and then given to Codex with traces, repo context, skills, docs, targeted evals, and regression suites. confidence: 1 official/vendor-partner source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-openai-via-tldr-ai-building-self-improving-tax-agents-with-codex.md]
+
+### Typed entities
+- concept: VibeSec
+- organization: Thoughtworks
+- concept: security context file
+- concept: daily security intelligence feed
+- control: SAST scanning
+- control: credential scanning
+- control: infrastructure validation
+- control: secure-by-default template
+- product/system: Tax AI
+- product/tool: Codex
+- concept: production trace
+- concept: targeted eval
+
+### Explicit relationships
+- Security context files guide AI-assisted coding but depend-on computational sensors for enforcement.
+- Secure-by-default templates reduce the chance that nontechnical builders accept insecure AI suggestions under deadline pressure.
+- Production traces and practitioner corrections cause targeted evals, which enable scoped AI-assisted product improvements.
+- Human review complements Codex-generated fixes because ambiguous corrections can reflect workflow noise or product judgment rather than a code defect.
+
+### HoneyDrunk implications
+- Create HoneyDrunk security rules as both agent context and executable gates; do not stop at markdown.
+- If business/non-engineering prototypes become durable tools, require the same storage, IAM, secrets, dependency, and review gates as engineering-owned apps.
+- Build improvement loops around evidence bundles: trace, expected output, actual output, source artifacts, scoped code surface, eval command, and regression suite.

@@ -303,3 +303,28 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 - [[technical-art-community-and-talent-signals]] - 8 sources - last-confirmed 2026-05-30
 - [[game-camera-systems]] - 1 source - last-confirmed 2026-05-30
 - [[realtime-game-network-protocol-design]] - 1 source - last-confirmed 2026-05-30
+
+## 2026-05-31 topic additions
+
+### AI agents, harnesses, and evaluation
+- [[ai-agent-harnesses]] - 41 sources - last-confirmed 2026-05-31
+- [[agent-evaluation-and-benchmarks]] - 2 sources - last-confirmed 2026-05-31
+- [[multi-agent-architectures]] - 4 sources - last-confirmed 2026-05-31
+- [[google-agent-platform-and-gemini-api-2026]] - 11 sources - last-confirmed 2026-05-31
+- [[claude-platform-2026]] - 22 sources - last-confirmed 2026-05-31
+
+### MCP, Azure, and private tool surfaces
+- [[mcp-tool-governance-and-app-surfaces]] - 9 sources - last-confirmed 2026-05-31
+- [[azure-agent-automation-and-identity]] - 5 sources - last-confirmed 2026-05-31
+
+### AI-assisted software and security
+- [[ai-assisted-software-practice]] - 21 sources - last-confirmed 2026-05-31
+- [[ai-coding-agent-security]] - 20 sources - last-confirmed 2026-05-31
+
+### Observability and platform operations
+- [[opentelemetry-genai-observability-and-ecosystem]] - 7 sources - last-confirmed 2026-05-31
+
+### Game engines, gamedev, and technical art
+- [[gamedev-production-and-community-signals]] - 21 sources - last-confirmed 2026-05-31
+- [[unity-3d-and-realtime-vfx-patterns]] - 23 sources - last-confirmed 2026-05-31
+- [[technical-art-community-and-talent-signals]] - 9 sources - last-confirmed 2026-05-31

@@ -162,3 +162,37 @@ OpenTelemetry is becoming the practical neutral observability layer for LLM/agen
 ### HoneyDrunk implications
 - For Grid/OpenClaw services, standardize trace headers and response-header lookup keys early; debugging multi-agent requests without stable trace IDs will not scale.
 - Add "telemetry must not break requests" and "no payload/secrets in traces by default" as acceptance criteria for any HoneyDrunk tracing rollout.
+
+## 2026-05-31 compile additions
+
+### Claims
+- Skyscanner runs over 1,000 microservices across 24 production Kubernetes clusters and manages most OpenTelemetry Collector work with a six-person platform/Hubble team, demonstrating that centralized collector ownership can scale when service teams get strong defaults. confidence: 1 official OpenTelemetry case-study source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-opentelemetry-blog-how-skyscanner-scales-opentelemetry-managing-collec.md]
+- Skyscanner uses a central telemetry DNS endpoint with Istio routing to the nearest gateway collector, plus two collector patterns: gateway collectors for bulk OTLP traces/metrics and daemonset agent collectors for Prometheus scraping of platform services. confidence: 1 official OpenTelemetry case-study source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-opentelemetry-blog-how-skyscanner-scales-opentelemetry-managing-collec.md]
+- Skyscanner generates platform HTTP/gRPC metrics from Istio service-mesh spans through the span metrics connector, avoiding higher-cardinality native Istio metrics and providing metrics for services without code instrumentation. confidence: 1 official OpenTelemetry case-study source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-opentelemetry-blog-how-skyscanner-scales-opentelemetry-managing-collec.md]
+- Skyscanner disables most OpenTelemetry Java auto-instrumentations by default in a shared Java base image, then enables a curated set and allows service teams to opt into more; this provides consistency without forcing every service owner to understand all OTel internals. confidence: 1 official OpenTelemetry case-study source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-opentelemetry-blog-how-skyscanner-scales-opentelemetry-managing-collec.md]
+- Skyscanner uses SDK views to drop HTTP/RPC metrics while preserving spans when service-mesh metrics already cover the platform view; individual services can selectively keep/rename app-specific metrics to avoid duplicate counting. confidence: 1 official OpenTelemetry case-study source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-opentelemetry-blog-how-skyscanner-scales-opentelemetry-managing-collec.md]
+- The Skyscanner case study recommends starting collectors simply with memory limiter, batch processor, and exporter; adding filter processors early for high-volume false-positive errors; and progressively promoting collector changes across cluster tiers. confidence: 1 official OpenTelemetry case-study source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-opentelemetry-blog-how-skyscanner-scales-opentelemetry-managing-collec.md]
+
+### Typed entities
+- organization: Skyscanner
+- team: Hubble platform team
+- component: OpenTelemetry Collector
+- deployment pattern: gateway collector ReplicaSet
+- deployment pattern: agent collector DaemonSet
+- service mesh: Istio
+- connector: span metrics connector
+- instrumentation: OpenTelemetry Java agent
+- control: SDK view file
+- control: filter processor
+- deployment tool: Argo CD
+
+### Explicit relationships
+- Platform-managed base images and wrapper libraries make OpenTelemetry adoption easier for service teams.
+- Istio spans can be transformed into lower-cardinality platform metrics when direct SDK metrics would duplicate or overload telemetry.
+- SDK metric views complement tracing by dropping selected metric aggregations without disabling span instrumentation.
+- Collector configuration quality depends-on progressive rollout because central collector mistakes affect many services.
+
+### HoneyDrunk implications
+- For Grid/OpenClaw, define one shared OTel base/wrapper pattern before service-by-service agent-added instrumentation spreads.
+- Avoid duplicate HTTP/RPC metrics if a gateway/service-mesh layer already provides platform latency metrics; preserve traces for debugging.
+- Add filter processors for expected non-error statuses early to avoid noisy sampling/cost surprises.

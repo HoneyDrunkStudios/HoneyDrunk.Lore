@@ -171,3 +171,35 @@ Anthropic's 2026 platform direction is enterprise/workflow-heavy: Claude Opus 4.
 - Benchmark Opus 4.8 against Opus 4.7/GPT/OpenAI/Google models on HoneyDrunk coding, review, browser, and document tasks before changing routing defaults.
 - Treat dynamic workflows as high-budget machinery: require scoped tasks, repo sandboxing, test gates, cost telemetry, and human review before using them on important codebases.
 - The Messages API system-entry change is relevant for HoneyDrunk agent harnesses that need to update permissions or context mid-run without forcing awkward user-message turns.
+
+## 2026-05-31 compile additions
+
+### Claims
+- Claude Code agent view is a research-preview CLI surface for managing multiple Claude Code sessions, available on Pro, Max, Team, Enterprise, and Claude API plans; users can open it with `claude agents` or the left arrow from a session. confidence: 1 vendor product source, last-confirmed 2026-05-31. [source: raw/2026-05-31-web-claude-blog-agent-view-in-claude-code.md]
+- Agent view shows session status, last response, last interaction time, and whether a session needs user input; users can peek, answer inline, or reattach to a full transcript. confidence: 1 vendor product source, last-confirmed 2026-05-31. [source: raw/2026-05-31-web-claude-blog-agent-view-in-claude-code.md]
+- Existing Claude Code sessions can be sent to agent view with `/bg`, and new background sessions can launch with `claude --bg [task]`. confidence: 1 vendor product source, last-confirmed 2026-05-31. [source: raw/2026-05-31-web-claude-blog-agent-view-in-claude-code.md]
+- Anthropic's containment article says Claude products use different isolation patterns for different users and risk profiles: claude.ai code execution uses ephemeral gVisor containers, Claude Code uses human-in-the-loop plus OS-level sandboxing, and Claude Cowork uses VM-backed containment for non-developer knowledge work. confidence: 1 official engineering source, last-confirmed 2026-05-31. [source: raw/2026-05-31-web-anthropic-engineering-how-we-contain-claude-across-products.md]
+- Anthropic says Claude Cowork keeps credentials in the host keychain, mounts only selected workspace/.claude paths, supports read-only/read-write/read-write-no-delete mount modes, and must resolve symlinks before path validation to avoid escape. confidence: 1 official engineering source, last-confirmed 2026-05-31. [source: raw/2026-05-31-web-anthropic-engineering-how-we-contain-claude-across-products.md]
+
+### Typed entities
+- product: Claude Code agent view
+- command: `claude agents`
+- command: `/bg`
+- command: `claude --bg`
+- product: claude.ai code execution
+- product: Claude Cowork
+- isolation: gVisor container
+- isolation: OS-level sandbox
+- isolation: local VM
+- control: read-write-no-delete mount
+- control: symlink pre-resolution
+
+### Explicit relationships
+- Agent view complements dynamic workflows by giving users a session-management surface for many concurrent Claude Code runs.
+- Claude platform containment depends-on matching isolation strength to user ability to evaluate risk.
+- Claude Cowork's VM isolation depends-on mounted workspace paths, keychain-held credentials, and network/file policy rather than per-command user approval.
+- Symlink resolution must precede path validation to prevent mounted-folder escape.
+
+### HoneyDrunk implications
+- Parallel Claude sessions need the same cost, status, and review discipline as dynamic workflows; more visible sessions do not remove human attention limits.
+- When designing HoneyDrunk desktop agents, choose isolation based on target user expertise. Developers can handle more explicit review than nontechnical operators, but both need hard boundaries.

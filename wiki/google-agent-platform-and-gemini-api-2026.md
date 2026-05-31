@@ -73,3 +73,33 @@ Google's 2026 agent developer surface is converging on production plumbing: Agen
 
 ### HoneyDrunk implications
 - Put Gemini 3.5 Flash on the benchmark shortlist for cheap/fast coding-agent and multimodal-routing tasks, but do not trust vendor benchmark deltas without representative HoneyDrunk runs.
+
+## 2026-05-31 compile additions
+
+### Claims
+- Google released ADK for Kotlin and ADK for Android 0.1.0, after ADK for Java and Go 1.0.0 and ADK for Python 2.0 beta, positioning Kotlin for backend agent workflows and Android for on-device/hybrid mobile agents. confidence: 1 vendor source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-google-developers-blog-announcing-adk-for-kotlin-and-adk-for-android-0.md]
+- ADK for Android is designed for hybrid orchestration: a cloud model can act as main orchestrator while on-device subagents use Gemini Nano through Android/AICore paths to retrieve and parse local documents without sending private data off-device. confidence: 1 vendor source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-google-developers-blog-announcing-adk-for-kotlin-and-adk-for-android-0.md]
+- The ADK for Kotlin/Android 0.1.0 feature set includes LLM/workflow/custom agents, multi-agent systems, function tools, long-running tools, MCP tools, A2A plugins, session state, memory service, OpenTelemetry telemetry, and a web interface for development/experimentation. confidence: 1 vendor source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-google-developers-blog-announcing-adk-for-kotlin-and-adk-for-android-0.md]
+- Google reports Gemini Nano availability on more than 140 million Android devices as the edge-AI motivation for ADK for Android; treat this as platform-reach signal, not a guarantee of capability parity across devices. confidence: 1 vendor source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-google-developers-blog-announcing-adk-for-kotlin-and-adk-for-android-0.md]
+
+### Typed entities
+- framework: ADK for Kotlin
+- framework: ADK for Android
+- model: Gemini Nano
+- Android service/surface: AICore
+- API/library: ML Kit GenAI
+- product: Firebase AI Logic
+- protocol: Model Context Protocol
+- protocol: A2A
+- concept: hybrid cloud/on-device orchestration
+- concept: local document retrieval
+
+### Explicit relationships
+- ADK for Android uses on-device models to keep sensitive retrieval/parsing local while cloud models can orchestrate broader reasoning.
+- Kotlin ADK depends-on Gradle/KSP tooling for typed function tools.
+- ADK uses OpenTelemetry to make mobile/backend agent traces inspectable.
+- Edge-agent privacy depends-on device capability, model availability, and clear delegation boundaries between cloud and local agents.
+
+### HoneyDrunk implications
+- For Android apps with private local documents or user state, evaluate hybrid ADK only after testing device coverage, latency, offline behavior, and what leaves the device.
+- Treat ADK for Kotlin/Android 0.1.0 as experimental; useful for prototypes and architecture scouting, not a stable production dependency without version pinning and migration budget.

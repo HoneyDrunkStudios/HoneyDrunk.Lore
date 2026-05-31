@@ -79,3 +79,36 @@ Azure's May 2026 agent/developer tooling signal is that agent automation is movi
 ### HoneyDrunk implications
 - Dynamic shell sessions are a useful candidate for disposable agent compute, but HoneyDrunk must validate egress policy, secrets handling, audit logs, costs, region support, and preview churn.
 - Treat remote shell MCP tools as high-risk even when ephemeral; require scoped environments and explicit operator intent.
+
+## 2026-05-31 compile additions
+
+### Claims
+- Azure Developer CLI hooks now support Python, JavaScript, TypeScript, and .NET in addition to Bash and PowerShell; `azd` infers hook language from file extension or an explicit `kind` field in `azure.yaml`. confidence: 1 Microsoft Azure blog source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-azure-blog-write-azd-hooks-in-python-javascript-typescript-or-net.md]
+- Python hooks use nearby `requirements.txt` or `pyproject.toml` files, with `azd` creating a virtual environment and installing dependencies before running the script. confidence: 1 Microsoft Azure blog source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-azure-blog-write-azd-hooks-in-python-javascript-typescript-or-net.md]
+- JavaScript/TypeScript hooks use nearby `package.json`; TypeScript runs through `npx tsx` without a compile step, and hook config can select package managers such as npm, pnpm, or yarn. confidence: 1 Microsoft Azure blog source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-azure-blog-write-azd-hooks-in-python-javascript-typescript-or-net.md]
+- .NET hooks support project mode with restore/build when a project file exists, and single-file `.cs` execution through .NET 10+ script support; hook config can set build configuration and target framework. confidence: 1 Microsoft Azure blog source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-azure-blog-write-azd-hooks-in-python-javascript-typescript-or-net.md]
+
+### Typed entities
+- file: `azure.yaml`
+- hook language: Python
+- hook language: JavaScript
+- hook language: TypeScript
+- hook language: .NET / C# / F# / VB.NET
+- config field: `kind`
+- config field: `dir`
+- config field: `packageManager`
+- config field: `virtualEnvName`
+- config field: `framework`
+- dependency file: `requirements.txt`
+- dependency file: `pyproject.toml`
+- dependency file: `package.json`
+- runtime tool: `tsx`
+
+### Explicit relationships
+- `azd` hooks use language inference and executor-specific config to make deployment lifecycle automation project-language-native.
+- Multi-language hooks supersede shell-only hook assumptions for teams whose deployment logic already lives in Python, TypeScript, or .NET.
+- Hook dependency installation depends-on nearby project files and can change deploy reproducibility if versions are not pinned.
+
+### HoneyDrunk implications
+- For agent-run Azure deployments, prefer hook languages already used by the repo, but pin dependencies and make hooks deterministic under `AZD_NON_INTERACTIVE`.
+- Audit hooks as executable deployment code: they can seed data, migrate schemas, create resources, and leak secrets if logging is careless.

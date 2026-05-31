@@ -245,3 +245,29 @@ Unity-related sources clustered around practical production patterns: planning n
 - New Unity prototypes should default to URP unless there is a clear reason not to.
 - Inventory any Built-In Render Pipeline projects before Unity 6.5/6.7 LTS planning; migration effort should be budgeted before support windows tighten.
 - For Switch 2/HDRP ambitions, verify developer-program constraints and HDRP support in Unity 6.5 rather than assuming public availability.
+
+## 2026-05-31 compile additions
+
+### Claims
+- The RealtimeVFX ShaderBoy/ShapeMesh source describes baking animated Maya procedural shader/component-color data into image sequences so stylized assets can move to Unity, Unreal, Blender, Houdini, Alembic, or other renderers that cannot use the original Maya shader network. confidence: 1 community/tooling source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-realtimevfx-baking-animated-maya-procedural-shaders-into-texture-seque.md]
+- The source covers export controls such as texture resolution, frame range, file extension, output directory, shader-network rewiring, temporary shader swatches, API access, and cleanup of temporary nodes. confidence: 1 community/tooling source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-realtimevfx-baking-animated-maya-procedural-shaders-into-texture-seque.md]
+
+### Typed entities
+- DCC: Maya
+- toolset: ShapeMesh
+- feature/API: ShaderBoy / Bake Shader
+- engine: Unity
+- engine: Unreal Engine
+- DCC: Blender
+- DCC: Houdini
+- format/workflow: Alembic
+- concept: procedural shader baking
+- artifact: texture sequence
+
+### Explicit relationships
+- Maya procedural shader networks depend-on baking when downstream engines/DCCs cannot reproduce animated procedural color logic.
+- Texture sequences supersede nonportable procedural shader graphs for cross-DCC/engine export, at the cost of storage and resolution/frame-range decisions.
+
+### HoneyDrunk implications
+- For stylized animated assets, consider bake-to-texture-sequence as an interchange strategy before rebuilding procedural shader logic in every target engine.
+- Validate storage size, playback performance, and material rewiring quality on representative Unity/Unreal scenes before using this in production.

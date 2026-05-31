@@ -176,3 +176,35 @@ The game-development community feed produced a mix of process advice, tooling ex
 ### HoneyDrunk implications
 - For multiplayer or networked simulation prototypes, choose protocol verbosity/compactness based on actual deployment/versioning constraints.
 - Treat cameras and networking as first-order production systems early in game prototypes, not polish-layer details.
+
+## 2026-05-31 compile additions
+
+### Claims
+- The data-driven ability/combat system source argues that abilities should be first-class data assets with composed primitives for costs, cooldowns, targeting, effects, tags, and instancing rather than bespoke handwritten scripts per ability. confidence: 1 source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-dev-to-gamedev-building-a-data-driven-ability-combat-system.md]
+- The source recommends a small canonical runtime model: `AbilityDefinition`, `EffectSpec`, `AttributeSet`, tag taxonomy, and `TargetingDescription`, with runtime components for ability ownership, cooldowns, effect buffers, and targeting. confidence: 1 source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-dev-to-gamedev-building-a-data-driven-ability-combat-system.md]
+- For multiplayer combat, the source recommends server-authoritative resolution, client-side prediction for feel-critical actions, sanitized target snapshots, rate limits, batching, reconciliation, and lag-compensated targeting where appropriate. confidence: 1 source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-dev-to-gamedev-building-a-data-driven-ability-combat-system.md]
+- The source treats balancing as a telemetry/live-ops loop: every activation, resolve outcome, cancel, tick, rollback, and major attribute change should emit events, and numeric changes should roll out through remote config/experiments with a kill switch. confidence: 1 source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-dev-to-gamedev-building-a-data-driven-ability-combat-system.md]
+
+### Typed entities
+- concept: data-driven ability system
+- artifact: `AbilityDefinition`
+- artifact: `EffectSpec`
+- artifact: `AttributeSet`
+- artifact: gameplay tag taxonomy
+- artifact: `TargetingDescription`
+- pattern: server-authoritative combat
+- pattern: client-side prediction
+- pattern: lag compensation
+- product/service: Unity Remote Config
+- product/service: PlayFab Experiments
+- product/service: GameAnalytics
+
+### Explicit relationships
+- Ability systems use data assets to separate designer tuning from engine execution.
+- Server-authoritative resolution depends-on sanitized client intents and authoritative attribute mutation.
+- Client prediction complements authoritative resolution when feel matters but cannot supersede server validation.
+- Live balancing depends-on telemetry, staged rollout, and rollback controls rather than manual guesswork.
+
+### HoneyDrunk implications
+- If HoneyDrunk prototypes combat, start with an ability schema, tag taxonomy, telemetry event taxonomy, and server-authority contract before adding many effects.
+- Treat designer scripting hooks as curated APIs; direct attribute writes from scripts should be blocked outside the effect system.

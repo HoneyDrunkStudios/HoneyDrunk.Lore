@@ -123,3 +123,32 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 - For private HoneyDrunk MCP servers, compare OpenAI Secure MCP Tunnel, Cloudflare-style self-managed sandboxes, and Azure Container Apps dynamic sessions by trust boundary, logging, mTLS, key handling, and local Windows/dev ergonomics.
 - Do not commit local MCP API keys or tunnel runtime keys in `.vscode/mcp.json` or equivalent project files; prefer environment variables or secret stores.
 - Treat tunneled private HTTP targets as a small allowlist with explicit method and response limits, not a backdoor proxy into the network.
+
+## 2026-05-31 compile additions
+
+### Claims
+- Azure MCP Server is now distributed as platform-specific MCP Bundles (`.mcpb`) that package a manifest, server binary, and dependencies so Claude Desktop and compatible clients can install the server without Node.js, Python, .NET SDK, or Docker. confidence: 1 Microsoft Azure blog source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-azure-blog-azure-mcp-server-now-available-as-an-mcp-bundle-mcpb.md]
+- Azure MCP Server MCPB exposes the same Azure MCP Server capabilities as other install methods, including 100+ Azure service tools, Azure CLI command generation, infrastructure guidance, architecture recommendations, and diagnostics. confidence: 1 Microsoft Azure blog source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-azure-blog-azure-mcp-server-now-available-as-an-mcp-bundle-mcpb.md]
+- The MCPB installation path improves end-user setup but increases the importance of bundle provenance, platform matching, client extension trust, Azure credential scope, and tool/profile governance because the server can reach real Azure resources after authentication. confidence: 1 Microsoft Azure blog source plus compile judgment, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-azure-blog-azure-mcp-server-now-available-as-an-mcp-bundle-mcpb.md]
+- Hugging Face community discussion in the agent glossary frames MCP as a protocol that standardizes the tool-use to harness connection, reinforcing MCP as a harness/tool-call interface rather than the agent itself. confidence: 1 source with community discussion, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-hugging-face-blog-harness-scaffold-and-the-ai-agent-terms-worth-gettin.md]
+
+### Typed entities
+- package format: MCP Bundle / `.mcpb`
+- product: Azure MCP Server
+- client: Claude Desktop
+- runtime: Node.js
+- runtime: Python
+- runtime: .NET SDK
+- runtime: Docker Engine
+- concept: bundle provenance
+- concept: MCP as tool-use interface
+
+### Explicit relationships
+- MCP Bundles package MCP servers and dependencies into client-installable artifacts.
+- Azure MCP Server MCPB supersedes runtime-specific setup for Claude Desktop users who need low-friction installation.
+- Easy MCP installation depends-on stronger catalog/profile governance because install friction is no longer a meaningful safety barrier.
+- MCP standardizes tool-call interoperability between a harness and external capabilities.
+
+### HoneyDrunk implications
+- If HoneyDrunk uses `.mcpb` packages, require source, release, platform, hash/signature if available, and approved-tool profile review before broad use.
+- For Azure MCP, authenticate with least-privilege Azure identities; a convenient bundle still exposes powerful cloud-management tools.

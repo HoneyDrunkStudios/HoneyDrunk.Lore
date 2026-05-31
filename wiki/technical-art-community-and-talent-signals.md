@@ -111,3 +111,21 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 ### HoneyDrunk implications
 - Track camera-system authoring as a technical-art competency, not only gameplay engineering.
 - Prefer URP-compatible Unity assets and shader references when sourcing new Unity technical-art content.
+
+## 2026-05-31 compile additions
+
+### Claims
+- BFX's RealtimeVFX post shows a technical-art portability pattern: bake Maya procedural shader channels driven by animation controls into texture sequences before exporting to other engines or DCC packages. confidence: 1 community/tooling source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-realtimevfx-baking-animated-maya-procedural-shaders-into-texture-seque.md; page: [[unity-3d-and-realtime-vfx-patterns]]]
+
+### Typed entities
+- person/source handle: BFX
+- toolset: ShapeMesh
+- API/tool: ShaderBoy
+- concept: animated procedural shader export
+- artifact: texture sequence
+
+### Explicit relationships
+- Technical-art portability depends-on converting DCC-specific procedural behavior into engine-readable textures when shader graph parity is not available.
+
+### HoneyDrunk implications
+- Preserve shader-baking workflows as technical-art sourcing terms for future Maya/Unity/Unreal pipeline research.

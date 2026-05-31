@@ -226,3 +226,47 @@ Relationships added: CoCo workloads depend-on remote attestation and runtime-sid
 - Prefer OIDC-based private-registry access for Dependabot/code scanning rather than static registry secrets wherever supported.
 - Add a periodic secret-scanning report for `is_bypassed=true` alerts if HoneyDrunk uses GitHub Advanced Security.
 - Keep quality-report upload tokens narrow; do not reuse broad repo/write credentials for Code Quality coverage uploads.
+
+## 2026-05-31 compile additions
+
+### Claims
+- Docker's sandboxing comparison says chroot provides filesystem isolation but weak process isolation, systemd-nspawn adds process and network isolation on Linux, containers provide broad portability but Docker-in-Docker often weakens isolation through privileged mode or host-daemon access, and traditional VMs provide strong isolation at higher startup/resource cost. confidence: 1 vendor/community source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-docker-blog-comparing-different-approaches-to-sandboxing.md]
+- Docker positions microVM-based Sandboxes as a local agent isolation layer with dedicated guest kernels, isolated networks, and per-sandbox Docker Engines so agent-run Docker commands cannot see the host daemon or other sandbox daemons. confidence: 2 Docker sources, last-confirmed 2026-05-31. [sources: raw/2026-05-31-rss-docker-blog-comparing-different-approaches-to-sandboxing.md; raw/2026-05-31-rss-docker-blog-the-untrusted-autonomous-workload-how-ai-coding-agents-res.md]
+- Docker's untrusted-autonomous-workload article says the sandbox's shared workspace remains a deliberate trust boundary: agents can still modify project files that later execute on the host, including Git hooks, package scripts, CI config, IDE tasks, Makefiles, and pre-commit config. confidence: 1 vendor/community source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-docker-blog-the-untrusted-autonomous-workload-how-ai-coding-agents-res.md]
+- Docker's network proxy design blocks UDP/ICMP, requires explicit rules for non-HTTP TCP, filters outbound HTTP/HTTPS by policy, and can inject credentials from the host keychain so secrets do not enter the VM; broad allowed domains remain possible exfiltration channels. confidence: 1 vendor/community source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-docker-blog-the-untrusted-autonomous-workload-how-ai-coding-agents-res.md]
+- Anthropic frames agent containment around three defense layers: the environment, the model, and external content. It says environmental controls such as sandboxes, VMs, filesystem boundaries, egress controls, and scoped credentials are the deterministic blast-radius limit when model-layer defenses miss. confidence: 1 official vendor source, last-confirmed 2026-05-31. [source: raw/2026-05-31-web-anthropic-engineering-how-we-contain-claude-across-products.md]
+- Anthropic reports Claude Code approval fatigue: users approved roughly 93% of prompts, and adding an OS-level sandbox reduced permission prompts by 84%; auto mode is framed as defense-in-depth, not a substitute for sandboxing. confidence: 1 official vendor source, last-confirmed 2026-05-31. [source: raw/2026-05-31-web-anthropic-engineering-how-we-contain-claude-across-products.md]
+- Anthropic's Claude Code incidents show that project-local config, hooks, and localhost listeners must not execute before a folder trust prompt; parsing and execution of untrusted project config should be deferred until after trust is established. confidence: 1 official vendor source, last-confirmed 2026-05-31. [source: raw/2026-05-31-web-anthropic-engineering-how-we-contain-claude-across-products.md]
+- Anthropic's Claude Cowork allowlist incident shows domain allowlists are capability grants, not just destination filters: allowing a trusted API domain can still permit data exfiltration to an attacker-controlled account unless token provenance, request class, and upload capabilities are constrained. confidence: 1 official vendor source, last-confirmed 2026-05-31. [source: raw/2026-05-31-web-anthropic-engineering-how-we-contain-claude-across-products.md]
+- Fowler/Thoughtworks' VibeSec article argues that telling an AI to be secure is not enough; security rules need versioned context files plus deterministic sensors such as SAST, credential scanning, infrastructure validation, dependency checks, and secure-by-default templates. confidence: 1 Thoughtworks/Fowler source, last-confirmed 2026-05-31. [source: raw/2026-05-31-rss-martin-fowler-the-vibesec-reckoning.md; page: [[ai-assisted-software-practice]]]
+
+### Typed entities
+- isolation: chroot
+- isolation: systemd-nspawn
+- isolation: container
+- isolation: virtual machine
+- isolation: microVM
+- product: Docker Sandboxes / `sbx`
+- component: per-sandbox Docker Engine
+- control: egress proxy
+- control: host-keychain credential injection
+- product: Claude Code auto mode
+- product: Claude Cowork
+- control: folder trust prompt
+- threat: pre-trust project config execution
+- threat: domain-allowlist exfiltration
+- concept: security context file
+- control: deterministic security sensor
+
+### Explicit relationships
+- MicroVM sandboxes supersede plain containers when an autonomous agent needs its own Docker daemon and broad command execution.
+- Sandbox workspace sharing contradicts a belief that VM isolation alone makes agent output safe; host-executed project files still require review.
+- Domain allowlists depend-on capability analysis because allowed domains may expose upload, messaging, or arbitrary-content features.
+- Security context files guide agent behavior but depend-on computational sensors and deployment gates for enforcement.
+- Human approval gates degrade under approval fatigue and should be backed by environment-layer controls.
+
+### HoneyDrunk implications
+- Audit OpenClaw/Honeyclaw agent sessions for host-executed workspace artifacts after agent work: `.git/hooks`, package scripts, CI workflows, IDE tasks, Makefiles, pre-commit hooks, and launch profiles.
+- Treat MCP/API allowlists as capability grants. For each allowed domain, document whether upload, arbitrary posting, webhooks, or account-switching could become exfiltration paths.
+- If adopting Docker Sandboxes or similar, test not only build speed but shared-workspace review, Git worktree use, page-size quirks on Apple Silicon, Windows behavior, EDR visibility, and network-policy ergonomics.
+- Add a HoneyDrunk security context file only with matching gates; prompt rules without scanners and policy checks are advisory, not enforcement.
