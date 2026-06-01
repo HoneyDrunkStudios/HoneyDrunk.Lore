@@ -328,3 +328,30 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 - [[gamedev-production-and-community-signals]] - 21 sources - last-confirmed 2026-05-31
 - [[unity-3d-and-realtime-vfx-patterns]] - 23 sources - last-confirmed 2026-05-31
 - [[technical-art-community-and-talent-signals]] - 9 sources - last-confirmed 2026-05-31
+
+## 2026-06-01 topic additions
+
+### AI agents, harnesses, evaluation, and memory
+- [[ai-agent-harnesses]] - 47 sources - last-confirmed 2026-06-01
+- [[agent-evaluation-and-benchmarks]] - 3 sources - last-confirmed 2026-06-01
+- [[multi-agent-architectures]] - 6 sources - last-confirmed 2026-06-01
+
+### AI-assisted software and .NET agent practice
+- [[ai-assisted-software-practice]] - 24 sources - last-confirmed 2026-06-01
+- [[microsoft-dotnet-ai-stack]] - 27 sources - last-confirmed 2026-06-01
+- [[github-copilot-and-app-token-changes]] - 5 sources - last-confirmed 2026-06-01
+
+### Agent security, MCP, Azure, and CI/CD governance
+- [[ai-coding-agent-security]] - 23 sources - last-confirmed 2026-06-01
+- [[github-actions-platform-operations]] - 7 sources - last-confirmed 2026-06-01
+- [[mcp-tool-governance-and-app-surfaces]] - 10 sources - last-confirmed 2026-06-01
+- [[azure-agent-automation-and-identity]] - 7 sources - last-confirmed 2026-06-01
+
+### AI infrastructure and mobile frameworks
+- [[edge-ai-and-ai-infrastructure-2026]] - 13 sources - last-confirmed 2026-06-01
+- [[mobile-ai-and-react-native-2026]] - 1 source - last-confirmed 2026-06-01
+
+### Game engines, gamedev, and technical art
+- [[gamedev-production-and-community-signals]] - 22 sources - last-confirmed 2026-06-01
+- [[unity-3d-and-realtime-vfx-patterns]] - 24 sources - last-confirmed 2026-06-01
+- [[technical-art-community-and-talent-signals]] - 10 sources - last-confirmed 2026-06-01

@@ -165,3 +165,28 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 - For .NET repos, standardize agent task wording around scope, constraints, no-change boundaries, tests to run, and expected summary.
 - Do not store MCP session-pool API keys in committed VS Code MCP config; use environment indirection or local ignored files.
 - If HoneyDrunk has MAUI Android prototypes, treat Material 3 as a branch-level UI validation task rather than a blind default switch until control gaps are checked.
+
+## 2026-06-01 compile additions
+
+### Claims
+- The dotnet/runtime Copilot Coding Agent report is a large-scale .NET ecosystem case study: 878 CCA PRs in dotnet/runtime over ten months, 535 merged, 67.9% success excluding open PRs, and 3 detected reverts among merged CCA PRs. confidence: 1 Microsoft/.NET source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-ten-months-with-copilot-coding-agent-in-dotnet-runtime.md]
+- The report says dotnet/runtime's early CCA failures were caused partly by missing `.github/copilot-instructions.md` guidance and default sandbox/firewall rules blocking package feeds needed for builds; repo-specific build/test instructions were a major improvement lever. confidence: 1 source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-ten-months-with-copilot-coding-agent-in-dotnet-runtime.md]
+- In dotnet/runtime, CCA was strongest for bounded managed-code tasks such as removal/cleanup, tests, refactoring, and clear bug fixes, while native C++ and cross-platform runtime work remained harder because the agent could not verify all target OS/architecture/toolchain combinations. confidence: 1 source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-ten-months-with-copilot-coding-agent-in-dotnet-runtime.md]
+
+### Typed entities
+- repository: dotnet/runtime
+- product: Copilot Coding Agent / CCA
+- file: `.github/copilot-instructions.md`
+- language/runtime: C#
+- language/runtime: C++
+- component: CoreCLR
+- concept: cross-platform verification
+
+### Explicit relationships
+- .NET coding-agent workflows depend-on repo-specific build instructions and dependency/network access.
+- CCA complements .NET maintainers for bounded, reviewable work but does not supersede maintainer ownership.
+- Cross-platform .NET runtime work depends-on target-specific verification that a Linux-only agent environment may not provide.
+
+### HoneyDrunk implications
+- For HoneyDrunk .NET repos, keep copilot/agent instructions specific about build subsets, test commands, package feeds, and no-change boundaries.
+- Do not route platform-specific runtime/native work to unattended agents unless target verification is available in CI or a local harness.

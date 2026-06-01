@@ -208,3 +208,32 @@ The game-development community feed produced a mix of process advice, tooling ex
 ### HoneyDrunk implications
 - If HoneyDrunk prototypes combat, start with an ability schema, tag taxonomy, telemetry event taxonomy, and server-authority contract before adding many effects.
 - Treat designer scripting hooks as curated APIs; direct attribute writes from scripts should be blocked outside the effect system.
+
+## 2026-06-01 compile additions
+
+### Claims
+- The mobile reward-economy source defines a reward economy as the system of reward types, timing, value, and behavioral purpose across daily rewards, missions, battle passes, level rewards, rewarded ads, gacha, and events; it distinguishes reward delivery from the currency economy. confidence: 1 DEV.to gamedev source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-how-to-build-a-reward-economy-for-a-mobile-game.md]
+- The source argues each reward type should have a distinct behavioral role: daily rewards drive return visits, missions direct behavior, battle passes anchor long-term engagement, level rewards celebrate progress, ads monetize attention, gacha acquires rare items, and events re-engage players. confidence: 1 source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-how-to-build-a-reward-economy-for-a-mobile-game.md]
+- The source recommends balancing reward sources against each other because stacking too many high-value rewards devalues the economy; gacha drop rates and pity systems are framed as trust/ethics requirements. confidence: 1 source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-how-to-build-a-reward-economy-for-a-mobile-game.md]
+
+### Typed entities
+- concept: mobile reward economy
+- reward type: daily login reward
+- reward type: mission reward
+- reward type: battle pass reward
+- reward type: level reward
+- reward type: rewarded ad
+- reward type: gacha
+- reward type: event reward
+- control: gacha drop-rate disclosure
+- control: pity system
+
+### Explicit relationships
+- Reward economy depends-on currency economy but is not identical to it.
+- Battle pass rewards use season XP and tier structure to create retention loops.
+- Gacha trust depends-on published rates and pity rules.
+- Events can cause inflation when injected rewards exceed available sinks.
+
+### HoneyDrunk implications
+- For mobile/free-to-play concepts, define reward behavioral intent and sink/source balance before implementation.
+- Treat gacha, ads, and FOMO events as trust-sensitive systems requiring policy/design review, not only economy math.

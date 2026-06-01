@@ -129,3 +129,19 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### HoneyDrunk implications
 - Preserve shader-baking workflows as technical-art sourcing terms for future Maya/Unity/Unreal pipeline research.
+
+## 2026-06-01 compile additions
+
+### Claims
+- The image-to-3D for Unity source reinforces a technical-art validation role for AI-generated assets: mesh structure, multi-angle silhouette, UV/material quality, scale/origin, texture organization, polygon budget, and animation readiness must be checked before engine import. confidence: 1 DEV.to source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-image-to-3d-for-unity-what-to-check-before-importing-an-ai-generated-m.md; page: [[unity-3d-and-realtime-vfx-patterns]]]
+
+### Typed entities
+- workflow: AI image-to-3D asset review
+- engine: Unity
+- concept: technical-art import checklist
+
+### Explicit relationships
+- Technical-art review gates AI-generated models before Unity import.
+
+### HoneyDrunk implications
+- Preserve "AI asset intake checklist" as a future technical-art workflow term.

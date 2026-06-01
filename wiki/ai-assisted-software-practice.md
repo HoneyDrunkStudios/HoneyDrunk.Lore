@@ -236,3 +236,31 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 - Create HoneyDrunk security rules as both agent context and executable gates; do not stop at markdown.
 - If business/non-engineering prototypes become durable tools, require the same storage, IAM, secrets, dependency, and review gates as engineering-owned apps.
 - Build improvement loops around evidence bundles: trace, expected output, actual output, source artifacts, scoped code surface, eval command, and regression suite.
+
+## 2026-06-01 compile additions
+
+### Claims
+- Stephen Toub's dotnet/runtime report says Copilot Coding Agent created 878 PRs from 2025-05-19 through 2026-03-22, with 535 merged, 253 closed, 90 open, and a 67.9% success rate under explicit maintainer assignment; the report cautions that CCA tasks are not comparable to human PR populations. confidence: 1 Microsoft/.NET source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-ten-months-with-copilot-coding-agent-in-dotnet-runtime.md]
+- The same report identifies sweet spots for cloud coding agents: mechanical cleanup/removal, test additions, refactoring, and clearly described bug fixes; it flags harder areas such as native/cross-platform code, architecture-heavy work, and tests that accidentally encode existing incorrect behavior. confidence: 1 source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-ten-months-with-copilot-coding-agent-in-dotnet-runtime.md]
+- Warne's Claude Code reflection says AI coding shifts developer time away from typing boilerplate and toward understanding, review, testing, exploratory checks, and codebase learning; it explicitly rejects treating AI as an excuse not to understand the system. confidence: 1 practitioner source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-with-claude-less-coding-more-testing.md]
+- System Design Newsletter's agent-use article frames agent delegation risk around four factors: how fast mistakes are discovered, how easy answers are to check, how much can break, and whether the result can be undone. confidence: 1 source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-how-to-get-ahead-of-99-of-software-engineers-with-ai-agents.md]
+
+### Typed entities
+- product: GitHub Copilot Coding Agent / CCA
+- repository: dotnet/runtime
+- product: Claude Code
+- concept: task reversibility
+- concept: reviewable diff
+- concept: exploratory testing
+- concept: AI-generated tests
+
+### Explicit relationships
+- Coding-agent success depends-on task shape, available verification, repository instructions, and human review.
+- Mechanical cleanup and scoped refactoring complement cloud coding agents because success criteria are easier to search, test, and review.
+- Human understanding supersedes agent output when the developer is accountable for the change.
+- Agent autonomy contradicts high-blast-radius work when feedback is slow, evidence is ambiguous, or rollback is difficult.
+
+### HoneyDrunk implications
+- Prefer assigning agents small reversible tasks with clear issue descriptions, tests to run, and reviewable diffs.
+- Review AI-generated tests for behavior validity; do not let agents freeze existing bugs as expected behavior.
+- Keep incident diagnosis and product/architecture judgment human-owned even when agents gather evidence quickly.

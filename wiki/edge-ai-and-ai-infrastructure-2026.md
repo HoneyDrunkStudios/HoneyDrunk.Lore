@@ -174,3 +174,29 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - Business/market claims from Contrary were not treated as canonical financial facts; use them as watchlist signals until primary filings or stronger reporting exist.
+
+## 2026-06-01 compile additions
+
+### Claims
+- Callstack's Apex source describes a React Native-specialized coding model based on Gemma 4 and trained with SFT plus GRPO on curated React Native ecosystem data; it is positioned as a focused specialist, not a replacement for frontier coding models. confidence: 1 vendor/source-author source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-introducing-apex-a-fast-specialized-model-for-react-native.md; page: [[mobile-ai-and-react-native-2026]]]
+- Apex reinforces a domain-specialist model pattern: a smaller or specialized model can improve cost/performance for narrow framework work when general coding benchmarks fail to capture framework conventions, native-module constraints, and cross-platform details. confidence: 1 source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-introducing-apex-a-fast-specialized-model-for-react-native.md; page: [[mobile-ai-and-react-native-2026]]]
+- DigitalOcean's OpenCode integration makes inference routing usable from a coding harness through OpenAI-compatible API calls that target `router:<name>`, avoiding manual per-model configuration churn in `opencode.json`. confidence: 1 vendor source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-opencode-now-supports-digitalocean-inference-router-for-intelligent-mo.md]
+
+### Typed entities
+- model: Apex
+- base model: Gemma 4
+- framework: React Native
+- training method: SFT
+- training method: GRPO
+- product: DigitalOcean Inference Router
+- tool: OpenCode
+- config file: `opencode.json`
+
+### Explicit relationships
+- Domain-specialized models complement frontier generalist models when framework-specific conventions dominate answer quality.
+- Inference routing uses latency, cost, and quality tradeoffs to choose models per request.
+- OpenCode depends-on provider/model configuration; router integration reduces static config churn.
+
+### HoneyDrunk implications
+- For any React Native/mobile agent work, benchmark specialized models on HoneyDrunk tasks before assuming frontier models are always the best cost/quality choice.
+- Treat inference routers as operational infrastructure: log routing decisions, model costs, fallback behavior, and quality regressions.

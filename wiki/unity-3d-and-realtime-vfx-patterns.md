@@ -271,3 +271,26 @@ Unity-related sources clustered around practical production patterns: planning n
 ### HoneyDrunk implications
 - For stylized animated assets, consider bake-to-texture-sequence as an interchange strategy before rebuilding procedural shader logic in every target engine.
 - Validate storage size, playback performance, and material rewiring quality on representative Unity/Unreal scenes before using this in production.
+
+## 2026-06-01 compile additions
+
+### Claims
+- The image-to-3D for Unity source frames AI-generated 3D assets as first drafts, not production-ready Unity assets; the practical flow is generate, inspect topology/materials/scale, fix issues in a DCC, then import into Unity. confidence: 1 DEV.to technical-art source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-image-to-3d-for-unity-what-to-check-before-importing-an-ai-generated-m.md]
+- The source's import checklist includes coherent mesh structure, silhouettes beyond the front view, sensible scale/origin, UV/material quality, polygon count, texture naming, and whether the asset can be animated or needs retopology. confidence: 1 source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-image-to-3d-for-unity-what-to-check-before-importing-an-ai-generated-m.md]
+
+### Typed entities
+- workflow: AI image-to-3D
+- engine: Unity
+- concept: mesh coherence
+- concept: silhouette validation
+- concept: retopology
+- concept: UV/material inspection
+- artifact: AI-generated 3D model
+
+### Explicit relationships
+- AI-generated 3D models depend-on DCC cleanup before reliable Unity import.
+- Image-to-3D output contradicts production-ready asset assumptions when topology, UVs, scale, or animation constraints are unverified.
+
+### HoneyDrunk implications
+- Add an import checklist for AI-generated 3D assets before any asset enters a Unity prototype branch.
+- Treat AI image-to-3D as ideation/blockout unless retopology, UVs, scale, materials, and animation readiness pass inspection.

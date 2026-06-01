@@ -112,3 +112,32 @@ Azure's May 2026 agent/developer tooling signal is that agent automation is movi
 ### HoneyDrunk implications
 - For agent-run Azure deployments, prefer hook languages already used by the repo, but pin dependencies and make hooks deterministic under `AZD_NON_INTERACTIVE`.
 - Audit hooks as executable deployment code: they can seed data, migrate schemas, create resources, and leak secrets if logging is careless.
+
+## 2026-06-01 compile additions
+
+### Claims
+- Azure Container Apps dynamic sessions expose isolated session contexts through a session-pool management endpoint; callers pass a required `identifier` query parameter and Azure allocates a new session automatically when that identifier does not yet exist. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-use-dynamic-sessions-in-azure-container-apps.md]
+- Session-pool management API calls require Microsoft Entra authentication and the `Azure ContainerApps Session Executor` role; Microsoft warns that end users should not receive the tokens used to create and access sessions. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-use-dynamic-sessions-in-azure-container-apps.md]
+- Dynamic sessions are intended for untrusted code/app isolation, but anything inside one session, including files and environment variables, is accessible to users of that session; secure, unpredictable identifiers and tenant/user access checks are required. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-use-dynamic-sessions-in-azure-container-apps.md]
+- The Secure MCP on Container Apps source clarifies that dynamic-session MCP uses API-key auth at the session-pool level, while standalone Container Apps MCP servers should use Microsoft Entra bearer-token auth and app-owned authorization. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-secure-mcp-servers-on-azure-container-apps.md]
+
+### Typed entities
+- Azure feature: Container Apps dynamic sessions
+- Azure resource: session pool
+- role: Azure ContainerApps Session Executor
+- query parameter: `identifier`
+- auth mechanism: Microsoft Entra token
+- auth mechanism: dynamic-session MCP API key
+- control: `sessionNetworkConfiguration.status`
+- control: `coolDownPeriodInSeconds`
+- service: Azure Monitor / Log Analytics
+
+### Explicit relationships
+- Dynamic sessions use session identifiers to route requests to isolated execution contexts.
+- Session identifiers depend-on entropy and tenant authorization because predictable identifiers can cross user/session boundaries.
+- Managed identity can give sessions access to Entra-protected resources, so identity scope must match the session's blast radius.
+- Platform-managed MCP auth does not supersede Entra-based management API auth; they are separate surfaces.
+
+### HoneyDrunk implications
+- Before using Azure dynamic sessions for agent compute, define token custody, session ID generation, per-user authorization, egress posture, log retention, cooldown, and managed-identity scope.
+- Use dynamic sessions as disposable execution contexts, not as a place to hold durable secrets or cross-tenant state.

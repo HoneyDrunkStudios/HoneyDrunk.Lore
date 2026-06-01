@@ -59,3 +59,23 @@ Two GitHub platform changes affect automation cost and compatibility: GitHub App
 
 ### HoneyDrunk implications
 - Treat Copilot agent tasks as CI-costing work units after 2026-06-01 when code review Actions-minute billing begins; scope and verify them like other runner-consuming automation.
+
+## 2026-06-01 compile additions
+
+### Claims
+- dotnet/runtime's CCA experience reinforces that Copilot cloud coding agent PRs are human-initiated and should be treated as reviewed drafts, not autonomous commits: every CCA PR in the report was explicitly requested by a maintainer. confidence: 1 Microsoft/.NET source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-ten-months-with-copilot-coding-agent-in-dotnet-runtime.md]
+- The report notes CCA PRs may overproduce tests and require review pruning, especially when "comprehensive" is underspecified or when tests could encode existing incorrect behavior. confidence: 1 source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-ten-months-with-copilot-coding-agent-in-dotnet-runtime.md]
+
+### Typed entities
+- product: GitHub Copilot Coding Agent
+- repository: dotnet/runtime
+- concept: human-requested PR
+- concept: AI-generated test review
+
+### Explicit relationships
+- Copilot cloud agent output depends-on human PR review before merge.
+- Test-generation assistance complements coverage work but does not supersede human judgment about behavior under test.
+
+### HoneyDrunk implications
+- Keep Copilot agent usage under PR-review discipline, especially after code review and agent runs consume Actions minutes.
+- Prompt generated-test tasks with expected behavior and bug hypotheses, not only "add comprehensive tests."

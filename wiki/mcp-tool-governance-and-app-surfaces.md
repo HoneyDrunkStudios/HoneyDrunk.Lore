@@ -152,3 +152,30 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 ### HoneyDrunk implications
 - If HoneyDrunk uses `.mcpb` packages, require source, release, platform, hash/signature if available, and approved-tool profile review before broad use.
 - For Azure MCP, authenticate with least-privilege Azure identities; a convenient bundle still exposes powerful cloud-management tools.
+
+## 2026-06-01 compile additions
+
+### Claims
+- Microsoft Learn distinguishes two Azure Container Apps MCP hosting/auth models: standalone container apps use built-in authentication backed by Microsoft Entra ID and bearer tokens, while platform-managed dynamic-session MCP uses an opaque API key in the `x-ms-apikey` header scoped to the session pool. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-secure-mcp-servers-on-azure-container-apps.md]
+- For standalone MCP servers, Microsoft recommends network restrictions or VNet integration, rate limiting, tool-argument validation, trusted CORS origins for web clients, and bearer-token client configuration that keeps tokens out of committed config. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-secure-mcp-servers-on-azure-container-apps.md]
+- For dynamic-session MCP, Microsoft warns that the API key grants access to all tools and sessions in the pool; recommended controls include Hyper-V-isolated sessions, egress control, short idle cooldowns, Key Vault or Container Apps secret storage, and key rotation awareness because validation results can be cached briefly after regeneration. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-secure-mcp-servers-on-azure-container-apps.md]
+
+### Typed entities
+- platform: Azure Container Apps
+- hosting model: standalone MCP server
+- hosting model: dynamic sessions MCP
+- auth mechanism: Microsoft Entra ID bearer token
+- auth mechanism: `x-ms-apikey`
+- control: CORS trusted origins
+- control: VNet integration / IP restrictions
+- control: session-pool API key rotation
+- control: Hyper-V-isolated container session
+
+### Explicit relationships
+- Standalone MCP servers depend-on application-owned auth, authorization, rate limiting, and input validation.
+- Dynamic-session MCP depends-on session-pool API-key custody because one key can create environments and execute code across the pool.
+- Auth-header choice depends-on MCP hosting model; `x-ms-apikey` and bearer-token authentication are not interchangeable.
+
+### HoneyDrunk implications
+- For private HoneyDrunk MCP servers, document the hosting model and auth header explicitly in profile/catalog metadata.
+- Treat session-pool API keys as high-risk secrets; never commit them to `.vscode/mcp.json`, repo settings, or shared wiki pages.

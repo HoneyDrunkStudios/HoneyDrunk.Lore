@@ -290,3 +290,40 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 - For self-improving HoneyDrunk agents, first design trace capture and eval grouping; do not ask a coding agent to improve production behavior from vague feedback.
 - For parallel agents, build a queue/status surface and attention budget before increasing concurrency.
 - Treat any benchmark score as harness-specific unless the report discloses tools, retries, state, and budget.
+
+## 2026-06-01 compile additions
+
+### Claims
+- System Design Newsletter's state/memory source argues that long-running agents fail when state, memory, and consistency rules are conflated: state tracks the current workflow, memory spans tasks, and external systems remain the system of record. confidence: 1 source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-ai-agents-state-memory-consistency-a-deep-dive.md]
+- The same source recommends checkpointing, state versioning, rollback to the earliest affected step, scoped memory retrieval, memory lifecycle management, and "react fast with state, learn slowly with memory." confidence: 1 source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-ai-agents-state-memory-consistency-a-deep-dive.md]
+- Azure Container Apps dynamic sessions provide isolated session-pool execution contexts for user-generated or third-party code, with Entra-authenticated management APIs, session identifiers, automatic allocation, cooldown destruction, optional managed identity, Azure Monitor logging, and configurable outbound network access. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-use-dynamic-sessions-in-azure-container-apps.md]
+- Stephen Toub's dotnet/runtime CCA report reinforces that coding-agent harness success depends-on repo-specific instructions, accessible dependencies/build commands, task selection, and verification feedback loops; early dotnet/runtime CCA success was poor before instructions and network/build constraints were addressed. confidence: 1 Microsoft/.NET source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-ten-months-with-copilot-coding-agent-in-dotnet-runtime.md]
+- DigitalOcean's OpenCode integration source frames inference routing as a harness-level model-selection control: OpenAI-compatible calls can target `router:<name>` so a router chooses among models by latency, cost, and quality rather than hardcoding one provider/model. confidence: 1 vendor source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-opencode-now-supports-digitalocean-inference-router-for-intelligent-mo.md]
+- Warne's Claude Code reflection and System Design Newsletter's agent-use source both reinforce human responsibility: agents are useful for code generation, tests, and codebase exploration, but humans still need to understand changes, judge review comments, own diagnosis, and set up feedback loops where errors are cheap to detect and undo. confidence: 2 commentary sources, last-confirmed 2026-06-01. [sources: raw/2026-06-01-web-with-claude-less-coding-more-testing.md; raw/2026-06-01-web-how-to-get-ahead-of-99-of-software-engineers-with-ai-agents.md]
+
+### Typed entities
+- concept: stateful agent
+- concept: short-term memory
+- concept: long-term memory
+- concept: external memory / system of record
+- framework: LangGraph
+- component: SqliteSaver
+- component: PostgresSaver
+- platform: Azure Container Apps dynamic sessions
+- role: Azure ContainerApps Session Executor
+- product: GitHub Copilot Coding Agent / CCA
+- tool: OpenCode
+- product: DigitalOcean Inference Router
+- product: Claude Code
+
+### Explicit relationships
+- Long-horizon agents depend-on durable state, checkpointing, versioning, and scoped memory retrieval.
+- State updates supersede current-task behavior immediately, while long-term memory updates only after a durable preference is established.
+- Systems of record supersede stored memory when live data, inventory, prices, or source-control state disagree.
+- Dynamic sessions use session identifiers and session pools to provide isolated executable contexts for agent/tool workloads.
+- Inference routers complement agent harnesses by moving model choice from prompt convention into provider-routing infrastructure.
+
+### HoneyDrunk implications
+- Treat OpenClaw memory as a designed subsystem: record what is current workflow state, what is durable memory, what expires, and what external source wins conflicts.
+- For dynamic code/session execution, design identifier entropy, token custody, egress policy, logging, and cooldown settings before exposing sessions to agents.
+- Route coding agents toward tasks with fast, reviewable feedback and reversible outputs; high-blast-radius diagnosis/deployment should keep human ownership.

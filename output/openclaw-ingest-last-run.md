@@ -1,62 +1,60 @@
-# OpenClaw Lore ingest run - 2026-05-31
+# OpenClaw Lore ingest run - 2026-06-01
 
-- Timestamp: 2026-05-31 10:00 America/New_York / 2026-05-31 14:00 UTC
+- Timestamp: 2026-06-01 10:10 America/New_York / 2026-06-01 14:10 UTC
 - Operator: Honeyclaw / OpenClaw scheduled ingest
 
 ## Raw sources ingested: 15
 
-1. `raw/2026-05-31-rss-azure-blog-azure-mcp-server-now-available-as-an-mcp-bundle-mcpb.md` - Azure MCP Server MCP Bundle packaging.
-2. `raw/2026-05-31-rss-azure-blog-write-azd-hooks-in-python-javascript-typescript-or-net.md` - multi-language `azd` hooks.
-3. `raw/2026-05-31-rss-dev-to-gamedev-building-a-data-driven-ability-combat-system.md` - data-driven ability/combat architecture.
-4. `raw/2026-05-31-rss-docker-blog-comparing-different-approaches-to-sandboxing.md` - sandboxing strategy comparison for agents.
-5. `raw/2026-05-31-rss-docker-blog-the-untrusted-autonomous-workload-how-ai-coding-agents-res.md` - Docker Sandboxes autonomous-agent threat model.
-6. `raw/2026-05-31-rss-google-developers-blog-announcing-adk-for-kotlin-and-adk-for-android-0.md` - Google ADK for Kotlin/Android 0.1.0.
-7. `raw/2026-05-31-rss-hugging-face-blog-harness-scaffold-and-the-ai-agent-terms-worth-gettin.md` - agent vocabulary: model, scaffold, harness, tools, skills, subagents.
-8. `raw/2026-05-31-rss-hugging-face-blog-itbench-aa-frontier-models-score-below-50-on-the-fir.md` - ITBench-AA SRE benchmark.
-9. `raw/2026-05-31-rss-martin-fowler-the-vibesec-reckoning.md` - AI-assisted prototype security controls.
-10. `raw/2026-05-31-rss-openai-via-tldr-ai-building-self-improving-tax-agents-with-codex.md` - Tax AI self-improvement loop with Codex.
-11. `raw/2026-05-31-rss-opentelemetry-blog-how-skyscanner-scales-opentelemetry-managing-collec.md` - Skyscanner OpenTelemetry collector operations.
-12. `raw/2026-05-31-rss-realtimevfx-baking-animated-maya-procedural-shaders-into-texture-seque.md` - Maya procedural shader baking to texture sequences.
-13. `raw/2026-05-31-web-anthropic-engineering-how-we-contain-claude-across-products.md` - Anthropic Claude containment engineering.
-14. `raw/2026-05-31-web-claude-blog-agent-view-in-claude-code.md` - Claude Code agent view.
-15. `raw/2026-05-31-web-openai-a-shared-playbook-for-trustworthy-third-party-evaluations.md` - OpenAI third-party evaluation methodology.
+1. `raw/2026-06-01-web-agent-judge-solving-long-context-evals-for-production-agents.md` - agentic long-context evaluation harness.
+2. `raw/2026-06-01-web-ai-agent-at-the-wheel-how-an-attacker-used-llms-to-move-from-a-cve-to-.md` - LLM-agent-assisted intrusion case study.
+3. `raw/2026-06-01-web-ai-agents-state-memory-consistency-a-deep-dive.md` - agent state, memory, consistency, rollback, and context-budget architecture.
+4. `raw/2026-06-01-web-ci-cd-security-threat-modeling-using-a-mitre-style-threat-matrix.md` - CI/CD threat matrix and pipeline trust-boundary modeling.
+5. `raw/2026-06-01-web-gamma-world-generative-multi-agent-world-modeling-beyond-two-players.md` - NVIDIA multi-agent world-modeling research.
+6. `raw/2026-06-01-web-governing-infrastructure-as-code-using-pattern-based-policy-as-code.md` - AWS OPA/IaC policy-as-code gating patterns.
+7. `raw/2026-06-01-web-how-to-build-a-reward-economy-for-a-mobile-game.md` - mobile reward-economy design.
+8. `raw/2026-06-01-web-how-to-get-ahead-of-99-of-software-engineers-with-ai-agents.md` - agent workflow risk and setup framing.
+9. `raw/2026-06-01-web-image-to-3d-for-unity-what-to-check-before-importing-an-ai-generated-m.md` - AI-generated 3D model Unity import checklist.
+10. `raw/2026-06-01-web-introducing-apex-a-fast-specialized-model-for-react-native.md` - React Native-specialized Apex model.
+11. `raw/2026-06-01-web-opencode-now-supports-digitalocean-inference-router-for-intelligent-mo.md` - OpenCode and DigitalOcean Inference Router integration.
+12. `raw/2026-06-01-web-secure-mcp-servers-on-azure-container-apps.md` - Azure Container Apps MCP authentication models and security controls.
+13. `raw/2026-06-01-web-ten-months-with-copilot-coding-agent-in-dotnet-runtime.md` - dotnet/runtime Copilot Coding Agent case study.
+14. `raw/2026-06-01-web-use-dynamic-sessions-in-azure-container-apps.md` - Azure Container Apps dynamic sessions management and security.
+15. `raw/2026-06-01-web-with-claude-less-coding-more-testing.md` - practitioner reflection on Claude Code shifting work toward review/testing.
 
 ## Wiki pages created/updated
 
-- Created: `wiki/agent-evaluation-and-benchmarks.md`.
-- Updated: `wiki/ai-agent-harnesses.md`, `wiki/ai-assisted-software-practice.md`, `wiki/ai-coding-agent-security.md`, `wiki/azure-agent-automation-and-identity.md`, `wiki/claude-platform-2026.md`, `wiki/gamedev-production-and-community-signals.md`, `wiki/google-agent-platform-and-gemini-api-2026.md`, `wiki/mcp-tool-governance-and-app-surfaces.md`, `wiki/opentelemetry-genai-observability-and-ecosystem.md`, `wiki/technical-art-community-and-talent-signals.md`, `wiki/unity-3d-and-realtime-vfx-patterns.md`.
+- Created: `wiki/mobile-ai-and-react-native-2026.md`.
+- Updated: `wiki/agent-evaluation-and-benchmarks.md`, `wiki/ai-agent-harnesses.md`, `wiki/ai-assisted-software-practice.md`, `wiki/ai-coding-agent-security.md`, `wiki/azure-agent-automation-and-identity.md`, `wiki/edge-ai-and-ai-infrastructure-2026.md`, `wiki/gamedev-production-and-community-signals.md`, `wiki/github-actions-platform-operations.md`, `wiki/github-copilot-and-app-token-changes.md`, `wiki/mcp-tool-governance-and-app-surfaces.md`, `wiki/microsoft-dotnet-ai-stack.md`, `wiki/multi-agent-architectures.md`, `wiki/technical-art-community-and-talent-signals.md`, `wiki/unity-3d-and-realtime-vfx-patterns.md`.
 - Updated indexes: `wiki/indexes/sources.md`, `wiki/indexes/topics.md`, `wiki/indexes/gaps.md`.
 
 ## Crystallization from `output/query-*.md`
 
-- Reviewed existing query outputs by filename and current wiki coverage. No new durable query facts required crystallization in this pass; recent query facts were already represented by prior wiki compile additions.
+- Reviewed the existing `output/query-*.md` set by filename and current wiki coverage. No new durable query facts required crystallization in this pass.
 - Non-query `output/signal-review-*.md` files were not crystallized because the Compile contract only names `query-*.md` outputs for this step.
 
 ## Contradictions / supersession
 
-- No direct contradictions required resolution.
-- Added reinforced posture that agent benchmark scores are harness- and budget-specific; this limits over-reading older model-ranking notes without superseding them.
-- Added reinforced posture that environment containment is the primary blast-radius boundary for coding agents; prompt/security-context rules are useful guidance but do not supersede deterministic gates.
+- No direct contradictions required supersession.
+- Reinforced existing positions that benchmark results are harness-specific, coding-agent success depends on task shape and verification, MCP auth models must be explicit, and prompt/security-context rules do not supersede deterministic gates.
 
 ## Gaps logged
 
-- HoneyDrunk model-routing eval design: controlled comparison versus maximum elicitation and required harness/budget metadata.
-- SRE/agent-ops benchmark design with strict root-cause false-positive penalties.
-- Post-agent shared-workspace checks for host-executed artifacts.
-- AI security context file plus deterministic sensor rollout.
-- Azure MCP `.mcpb` provenance and least-privilege approval policy.
-- Google ADK Android hybrid-agent prototype candidates and local-data boundaries.
-- Data-driven ability/combat schema and telemetry taxonomy.
-- OpenTelemetry collector/base-image standardization.
-- Maya procedural shader baking validation for stylized asset interchange.
+- Long-trajectory agent evaluation trace schema and source-of-truth verification.
+- Stateful agent memory/versioning/rollback rules for long-running OpenClaw/Grid workflows.
+- CI/CD threat-matrix and OPA/IaC policy-gate candidates.
+- Azure dynamic sessions / dynamic-session MCP safety validation.
+- HoneyDrunk task selection for CCA-style coding-agent delegation.
+- React Native-specialized model and inference-router benchmarking.
+- Mobile reward-economy schema and trust policy.
+- Unity AI-generated 3D asset intake checklist.
 
 ## Quality posture
 
-- Decision-usefulness: strong for official OpenAI, Anthropic, Microsoft/Azure, Google, OpenTelemetry, and Docker platform-control sources; useful for methodology and vocabulary.
-- Weak claims: ITBench-AA leaderboard values are a 2026-05-31 snapshot and should be checked against the live leaderboard before routing decisions; Docker and Anthropic sources are vendor-authored; RealtimeVFX and DEV.to game sources require local validation.
-- Privacy/safety filtering: no secrets, credentials, private network addresses, exploit payloads, or unsafe PII copied into wiki pages. Public comments embedded in Hugging Face captures were not promoted except for high-level MCP vocabulary signal.
+- Decision-usefulness: strongest for Microsoft Learn/Azure MCP and dynamic-session auth, Microsoft/.NET CCA operational lessons, Datadog/AWS CI/CD governance, and agent evaluation/memory architecture.
+- Weak claims: Apex, DigitalOcean routing, Gamma-World, mobile reward economy, image-to-3D, Warne/System Design commentary, and Sysdig incident analysis are useful but require local validation before product or security-policy commitments.
+- Privacy/safety filtering: no secrets, credential values, exploit payloads, private personal data, or tokenized URLs copied into wiki pages. Sysdig attack commands were summarized at behavior/control level only.
 - Source citations: all promoted claims cite immutable raw filenames.
-- Decision-usefulness notes: strongest new decisions are around evaluation reporting discipline, agent containment review, MCP bundle governance, and OTel standardization.
+- Decision-usefulness notes: the most actionable new work is agent trace/eval design, Azure MCP/session auth policy, CCA task selection, and CI/CD policy gates.
 
 ## Blockers
 

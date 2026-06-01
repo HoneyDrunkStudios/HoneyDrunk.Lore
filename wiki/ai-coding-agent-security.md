@@ -270,3 +270,39 @@ Relationships added: CoCo workloads depend-on remote attestation and runtime-sid
 - Treat MCP/API allowlists as capability grants. For each allowed domain, document whether upload, arbitrary posting, webhooks, or account-switching could become exfiltration paths.
 - If adopting Docker Sandboxes or similar, test not only build speed but shared-workspace review, Git worktree use, page-size quirks on Apple Silicon, Windows behavior, EDR visibility, and network-policy ergonomics.
 - Add a HoneyDrunk security context file only with matching gates; prompt rules without scanners and policy checks are advisory, not enforcement.
+
+## 2026-06-01 compile additions
+
+### Claims
+- Sysdig TRT reports observing an LLM-agent-driven post-compromise intrusion on 2026-05-10: an internet-reachable marimo notebook was compromised via CVE-2026-39987, cloud credentials were harvested, AWS Secrets Manager was queried for an SSH key, and an internal PostgreSQL database was dumped through a bastion. confidence: 1 security-research source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-ai-agent-at-the-wheel-how-an-attacker-used-llms-to-move-from-a-cve-to-.md]
+- Sysdig's evidence for agent-driven execution includes real-time improvisation, a leaked planning comment, command shapes optimized for machine parsing, and value handoffs lifted from prior tool output; this is stronger than generic "automation happened" evidence but still a vendor incident analysis. confidence: 1 source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-ai-agent-at-the-wheel-how-an-attacker-used-llms-to-move-from-a-cve-to-.md]
+- The Sysdig incident reinforces that per-source-IP detection can fail when attackers fan requests through edge-worker infrastructure; detection must correlate credentials, request timing, API patterns, and downstream session behavior rather than source IP alone. confidence: 1 source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-ai-agent-at-the-wheel-how-an-attacker-used-llms-to-move-from-a-cve-to-.md]
+- Datadog's CI/CD threat matrix maps CI/CD-specific attack paths across MITRE-style stages such as reconnaissance, initial access, execution, persistence, privilege escalation, defense evasion, credential access, lateral movement, exfiltration, and impact. confidence: 1 vendor security source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-ci-cd-security-threat-modeling-using-a-mitre-style-threat-matrix.md]
+- AWS's pattern-based policy-as-code source recommends organizing OPA/IaC checks around recurring control patterns such as required metadata, allowed configuration, exposure restriction, protection enforcement, and privilege constraint, then running them as preventive CI/CD gates with retained validation artifacts. confidence: 1 AWS security source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-governing-infrastructure-as-code-using-pattern-based-policy-as-code.md]
+
+### Typed entities
+- organization: Sysdig Threat Research Team / TRT
+- vulnerability: CVE-2026-39987
+- project: marimo notebook
+- service: AWS Secrets Manager
+- service: PostgreSQL
+- infrastructure: SSH bastion
+- threat technique: edge-worker egress fan-out
+- framework: MITRE ATT&CK-style CI/CD threat matrix
+- platform: CI/CD pipeline
+- policy engine: Open Policy Agent / OPA
+- concept: pattern-based policy as code
+
+### Explicit relationships
+- LLM-assisted intrusion uses agentic planning and tool-output handoff to accelerate post-compromise pivoting.
+- Agent-driven attacker speed depends-on defenders correlating cross-system state, not only individual command strings or source IPs.
+- CI/CD threat modeling depends-on mapping pipeline inputs, identities, secrets, artifacts, caches, runners, and deployment permissions as trust boundaries.
+- OPA policy-as-code gates complement CI/CD threat modeling by converting known infrastructure risks into preventive delivery checks.
+
+### HoneyDrunk implications
+- Treat agent-security controls as dual-use: the same harness capabilities that help defenders can accelerate attackers after initial access.
+- Add CI/CD threat modeling to GitHub Actions audits: PR execution permissions, pipeline config writes, secrets, caches, artifact promotion, runner images, and cloud credentials.
+- Promote recurring IaC security rules into OPA/checkov-style gates with saved validation artifacts for later audit.
+
+### Privacy and quality notes
+- Privacy filter: exploit commands and secret-like values from the incident were summarized at behavior/control level rather than copied as runnable payloads.

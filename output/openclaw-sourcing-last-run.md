@@ -1,48 +1,35 @@
-# OpenClaw Lore Sourcing — Last Run
+# OpenClaw Lore Sourcing - Last Run
 
-Timestamp: 2026-05-30T18:22:08
+Timestamp: 2026-06-01T08:06:23
 Mode: write
-Candidates scanned: 173
-Skipped duplicates: 32
-Selected: 15
-Saved: 15
-
-## Selected candidates
-- [AI / LLM Research & Tooling] OpenAI: Secure MCP Tunnel
-- [AI / LLM Research & Tooling] Anthropic: Introducing Claude Opus 4.8
-- [Developer Tooling & AI Coding] Anthropic: Introducing dynamic workflows in Claude Code
-- [.NET Ecosystem] .NET Blog: Give Your .NET MAUI Android Apps a Material 3 Makeover
-- [.NET Ecosystem] .NET Blog: Doing More with GitHub Copilot as a .NET Developer
-- [Azure & Cloud] Microsoft Learn: Tutorial: Use MCP with dynamic sessions (shell)
-- [Azure & Cloud] Microsoft Learn: AI Agent Orchestration Patterns
-- [DevOps & CI/CD] GitHub Changelog: GitHub Code Quality: Repository Enablement API
-- [DevOps & CI/CD] GitHub Changelog: Code coverage on pull requests is now in public preview
-- [Security & Ethical Hacking] GitHub Changelog: Expanded OIDC support for Dependabot and code scanning
-- [Security & Ethical Hacking] GitHub Changelog: Filter secret scanning approval requests by sort order and bypass status
-- [Game Development / Unity] jkm.dev: How 2004 RuneScape fit a multiplayer RPG into 56k dial-up
-- [Game Development / Unity] 80 Level: How Black Eye 2.0 is Rethinking How Video Game Camera Systems Work
-- [Software Architecture] Martin Fowler: Fragments: May 27
-- [Technical Art & Creator Tools] Unity: Render Pipelines strategy for 2026
+Curated candidates checked: 15
+Public sourcing dry-run candidates scanned: 173
+Public sourcing dry-run skipped duplicates: 34
+Saved count: 15
+Skipped duplicate count: 0
 
 ## Files written
-- raw/2026-05-30-web-openai-secure-mcp-tunnel.md
-- raw/2026-05-30-web-anthropic-introducing-claude-opus-4-8.md
-- raw/2026-05-30-web-anthropic-introducing-dynamic-workflows-in-claude-code.md
-- raw/2026-05-30-rss-net-blog-give-your-net-maui-android-apps-a-material-3-makeover.md
-- raw/2026-05-30-rss-net-blog-doing-more-with-github-copilot-as-a-net-developer.md
-- raw/2026-05-30-web-microsoft-learn-tutorial-use-mcp-with-dynamic-sessions-shell.md
-- raw/2026-05-30-web-microsoft-learn-ai-agent-orchestration-patterns.md
-- raw/2026-05-30-web-github-changelog-github-code-quality-repository-enablement-api.md
-- raw/2026-05-30-web-github-changelog-code-coverage-on-pull-requests-is-now-in-public-previ.md
-- raw/2026-05-30-web-github-changelog-expanded-oidc-support-for-dependabot-and-code-scannin.md
-- raw/2026-05-30-web-github-changelog-filter-secret-scanning-approval-requests-by-sort-orde.md
-- raw/2026-05-30-web-jkm-dev-how-2004-runescape-fit-a-multiplayer-rpg-into-56k-dial-up.md
-- raw/2026-05-30-web-80-level-how-black-eye-2-0-is-rethinking-how-video-game-camera-systems.md
-- raw/2026-05-30-rss-martin-fowler-fragments-may-27.md
-- raw/2026-05-30-web-unity-render-pipelines-strategy-for-2026.md
+- raw/2026-06-01-web-ten-months-with-copilot-coding-agent-in-dotnet-runtime.md
+- raw/2026-06-01-web-use-dynamic-sessions-in-azure-container-apps.md
+- raw/2026-06-01-web-secure-mcp-servers-on-azure-container-apps.md
+- raw/2026-06-01-web-agent-judge-solving-long-context-evals-for-production-agents.md
+- raw/2026-06-01-web-gamma-world-generative-multi-agent-world-modeling-beyond-two-players.md
+- raw/2026-06-01-web-introducing-apex-a-fast-specialized-model-for-react-native.md
+- raw/2026-06-01-web-opencode-now-supports-digitalocean-inference-router-for-intelligent-mo.md
+- raw/2026-06-01-web-with-claude-less-coding-more-testing.md
+- raw/2026-06-01-web-ci-cd-security-threat-modeling-using-a-mitre-style-threat-matrix.md
+- raw/2026-06-01-web-governing-infrastructure-as-code-using-pattern-based-policy-as-code.md
+- raw/2026-06-01-web-ai-agent-at-the-wheel-how-an-attacker-used-llms-to-move-from-a-cve-to-.md
+- raw/2026-06-01-web-image-to-3d-for-unity-what-to-check-before-importing-an-ai-generated-m.md
+- raw/2026-06-01-web-how-to-build-a-reward-economy-for-a-mobile-game.md
+- raw/2026-06-01-web-ai-agents-state-memory-consistency-a-deep-dive.md
+- raw/2026-06-01-web-how-to-get-ahead-of-99-of-software-engineers-with-ai-agents.md
 
-## Failures / skips
-- OpenAI self-improving tax agents: local fetch failed certificate verification and PowerShell fetch returned 403
-- Azure Container Apps Express: public page fetch yielded only a short description
-- ACR Artifact Cache multi-arch article: public page fetch yielded only a short description after script/style cleanup
-- Unity Pipeline Automation: public page fetch yielded only a short description
+## Failed sources / skips
+_None_
+
+## Selection notes
+- Sourcing-only pass; no compile or wiki mutation performed.
+- Excluded X, Discord, podcasts, and YouTube.
+- Preferred clean public written sources with durable technical or operational relevance.
+- Official/vendor sources were used where available; newsletter and practitioner sources filled architecture and workflow gaps.

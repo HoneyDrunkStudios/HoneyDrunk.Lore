@@ -82,3 +82,30 @@ Multi-agent systems are warranted only when a single agent hits hard limits: con
 - Reuse the five-pattern vocabulary when designing OpenClaw/Grid flows so the team can distinguish pipelines, fan-out review, handoffs, and adaptive task-ledger work.
 - Default to single-agent-with-tools until there is a hard reason to split agents.
 - If using dynamic workflows or magentic-style managers, persist task state and define stop/approval conditions before long runs begin.
+
+## 2026-06-01 compile additions
+
+### Claims
+- NVIDIA's Gamma-World research project frames multi-agent world modeling as an interactive-video-generation problem where multiple independently controllable agents act in one evolving environment while preserving temporal and cross-perspective consistency. confidence: 1 research project page, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-gamma-world-generative-multi-agent-world-modeling-beyond-two-players.md]
+- Gamma-World introduces Simplex Rotary Agent Encoding to make agents distinct while permutation-equivalent, Sparse Hub Attention to reduce cross-agent attention cost from quadratic to linear in agent count, and teacher-student distillation so a causal model can stream rollouts with KV caching. confidence: 1 research project page, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-gamma-world-generative-multi-agent-world-modeling-beyond-two-players.md]
+- Judgment Labs' Agent Judge uses a multi-agent evaluator structure where reader/worker/forked agents inspect targeted trajectory evidence and source-of-truth state rather than pushing the whole trace through one judge prompt. confidence: 1 source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-agent-judge-solving-long-context-evals-for-production-agents.md; page: [[agent-evaluation-and-benchmarks]]]
+
+### Typed entities
+- research project: Gamma-World / gamma-World
+- organization: NVIDIA Spatial Intelligence Lab
+- concept: generative multi-agent world model
+- method: Simplex Rotary Agent Encoding
+- method: Sparse Hub Attention
+- method: teacher-student distillation
+- concept: block-causal student
+- concept: KV caching
+- pattern: multi-agent evaluator
+
+### Explicit relationships
+- Multi-agent world models depend-on independent controllability and shared-environment consistency.
+- Sparse Hub Attention reduces cross-agent communication cost compared with full pairwise attention.
+- Multi-agent evaluation uses worker specialization to inspect long traces without one oversized judge context.
+
+### HoneyDrunk implications
+- For future game/agent simulations, track multi-agent world models as research, not production tooling; validate controllability, runtime cost, and asset/control integration before adoption.
+- Use multi-agent evaluators only when evidence search can be partitioned cleanly and synthesis criteria are explicit.

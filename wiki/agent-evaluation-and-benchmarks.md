@@ -53,3 +53,30 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 - Quality posture: decision-useful for evaluation design. ITBench-AA is a benchmark announcement and should be checked against the live leaderboard before current routing decisions. OpenAI's playbook is an official methodology source but reflects OpenAI's framing.
 - Weak spots: leaderboard values can change; treat the 2026-05-31 snapshot as historical evidence, not a permanent ranking.
 - Privacy filter: no benchmark examples with private data copied; public model and organization names retained.
+
+## 2026-06-01 compile additions
+
+### Claims
+- Judgment Labs' Agent Judge source argues that simple LLM judges break down on long-horizon production agents because trajectories exceed context windows, stateful actions require verification against systems of record, and agent/tool behavior drifts as products change. confidence: 1 vendor/practitioner source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-agent-judge-solving-long-context-evals-for-production-agents.md]
+- Agent Judge is described as an agentic evaluation harness with three capabilities: search over long trajectories, verification against tool evidence and environment state, and rubric adaptation from human labels, production outcomes, judge disagreement, and similar prior runs. confidence: 1 source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-agent-judge-solving-long-context-evals-for-production-agents.md]
+- In the source's internal trajectory-level hallucination test, a refined Agent Judge rubric reports 0.86 accuracy and 0.79 F1, outperforming its initial rubric and listed LLM/coding-agent judge baselines; treat the numbers as vendor-reported internal-traffic evidence, not a general benchmark. confidence: 1 source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-agent-judge-solving-long-context-evals-for-production-agents.md]
+
+### Typed entities
+- product/pattern: Agent Judge
+- concept: trajectory-level hallucination
+- concept: agentic evaluation harness
+- capability: search
+- capability: stateful verification
+- capability: rubric adaptation
+- concept: Rubric Builder
+- system of record: GitHub / AWS / CRM / database / MCP server
+
+### Explicit relationships
+- Agent evaluation depends-on searchable trajectories when full traces exceed a single model context window.
+- Stateful verification depends-on read-only source-of-truth access to systems the evaluated agent changed or claimed to change.
+- Rubric adaptation uses human and production feedback to supersede stale fixed evaluation rubrics.
+- [[AI Agent Harnesses]] depends-on evaluation harnesses that can inspect tool calls, state changes, logs, and durable external evidence.
+
+### HoneyDrunk implications
+- For OpenClaw/Grid evals, store enough trace spans, tool outputs, file diffs, test results, and external state IDs to let a judge verify claims after the run.
+- Do not score long-running agents only by final answer text; include evidence search and state verification in the evaluation plan.

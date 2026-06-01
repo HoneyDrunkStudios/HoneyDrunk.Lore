@@ -94,3 +94,26 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 ### HoneyDrunk implications
 - Audit which HoneyDrunk repos could enable Code Quality centrally, especially C# and TypeScript repos.
 - If coverage is adopted, upload least-privilege Cobertura reports from existing CI and avoid broad permissions where `code-quality:write` is enough.
+
+## 2026-06-01 compile additions
+
+### Claims
+- Datadog's CI/CD threat matrix treats pipeline resources, SCM settings, runners, caches, artifacts, secrets, branch protections, and deployment credentials as an attack surface that should be threat-modeled separately from application runtime security. confidence: 1 vendor security source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-ci-cd-security-threat-modeling-using-a-mitre-style-threat-matrix.md]
+- The example CI/CD attack path moves from public repo reconnaissance to PR-triggered CI execution, malicious pipeline configuration, credential access, exfiltration, and cryptomining impact. confidence: 1 source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-ci-cd-security-threat-modeling-using-a-mitre-style-threat-matrix.md]
+- AWS's OPA policy-as-code article shows preventive IaC checks running in CI/CD before deployment and retaining validation artifacts to support release decisions and audit review. confidence: 1 AWS security source, last-confirmed 2026-06-01. [source: raw/2026-06-01-web-governing-infrastructure-as-code-using-pattern-based-policy-as-code.md]
+
+### Typed entities
+- framework: CI/CD threat matrix
+- concept: pipeline trust boundary
+- control: OPA policy gate
+- artifact: validation report
+- threat: malicious pipeline configuration
+- threat: credential exfiltration from CI
+
+### Explicit relationships
+- GitHub Actions security depends-on SCM, branch protection, runner, cache, artifact, secret, and cloud-permission configuration together.
+- Policy-as-code gates complement GitHub Actions governance by blocking risky infrastructure changes before deployment.
+
+### HoneyDrunk implications
+- Extend GitHub Actions audits beyond YAML syntax: model who can change workflows, what credentials a run can reach, where caches/artifacts cross trust boundaries, and whether PRs can execute with write permissions.
+- Save policy validation outputs as release evidence for infrastructure changes.
