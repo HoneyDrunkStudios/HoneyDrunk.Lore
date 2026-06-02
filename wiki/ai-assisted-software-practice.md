@@ -264,3 +264,34 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 - Prefer assigning agents small reversible tasks with clear issue descriptions, tests to run, and reviewable diffs.
 - Review AI-generated tests for behavior validity; do not let agents freeze existing bugs as expected behavior.
 - Keep incident diagnosis and product/architecture judgment human-owned even when agents gather evidence quickly.
+
+## 2026-06-02 compile additions
+
+### Claims
+- Sean Goedecke's agent-vs-pipeline essay says pipelines are better when context size, GPU cost, or local-model constraints must be tightly bounded; agents are better when context gathering is uncertain, the task needs action/reaction loops, or the problem is hard enough that one-shot context assembly is unlikely to work. confidence: 1 practitioner source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-sean-goedecke-build-agents-not-pipelines.md]
+- The same essay argues prompt injection and unsafe action risks exist in both pipelines and agents whenever untrusted human-generated data is fed to an LLM; tool/action constraints and human approval remain necessary in either design. confidence: 1 practitioner source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-sean-goedecke-build-agents-not-pipelines.md]
+- Simon Willison's Pasted File Editor prototype was built with Codex desktop and implements a UI pattern similar to Claude's large-paste attachment behavior: long pasted text becomes an attachment instead of replacing/editor-polluting the active text area. confidence: 1 practitioner source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-simon-willison-pasted-file-editor.md]
+- GameMaker's GMRT/GM-CLI release includes Claude Code in the new command-line toolchain so developers can inspect project structure, debug, manage build configuration, and use natural-language terminal workflows; GameMaker frames AI use as optional and complementary, with CLI/API/MCP/GitHub Actions surfaces available without embedded GameMaker-run AI servers. confidence: 1 Game Developer trade-press source quoting GameMaker, last-confirmed 2026-06-02. [source: raw/2026-06-02-web-game-developer-gamemaker-incorporates-claude-code-to-enable-ai-assiste.md]
+
+### Typed entities
+- concept: pipeline
+- concept: agent
+- concept: prompt injection
+- tool/prototype: Pasted File Editor
+- product: Codex desktop
+- product/tool: GameMaker GMRT
+- tool: GM-CLI
+- product: Claude Code
+- protocol: MCP Server
+- platform: GitHub Actions
+
+### Explicit relationships
+- Pipeline design uses coded control flow; agent design delegates control flow to the model plus tools.
+- Action safety depends-on constrained tools and approval gates in both pipeline and agent designs.
+- Attachment-aware paste handling reduces context pollution in AI-assisted editing.
+- GameMaker's Claude Code integration depends-on CLI/API/MCP surfaces rather than an embedded always-on AI server.
+
+### HoneyDrunk implications
+- Pick agents only when the task shape needs iterative context discovery or action feedback; use pipelines for bounded bulk processing and local-model constraints.
+- Build prompt/file UI that separates instructions from source attachments so users can inspect and remove large context chunks deliberately.
+- Treat game-engine CLI/MCP integration as the enabling layer for AI-assisted workflows; do not bind the studio to an IDE-only AI path.

@@ -190,3 +190,20 @@ The 2026-05-03 through 2026-05-07 X-list and Discord clipper snapshots are low-y
 ### Explicit relationships
 - Tokenized article URLs require privacy filtering before semantic wiki citation.
 - CSS/site-scaffolding captures weaken decision-grade extraction and create gaps even when title-level summaries are available.
+
+## 2026-06-02 compile additions
+
+### Claims
+- Microsoft Tech Community raw captures for the OpenClaw/Kata and ACR Artifact Cache sources contained duplicated article fragments and substantial platform/footer scaffolding, but article body/key-takeaway content remained recoverable. confidence: 2 sources, last-confirmed 2026-06-02. [sources: raw/2026-06-02-rss-microsoft-tech-community-hardening-openclaw-on-aks-mitigating-containe.md; raw/2026-06-02-rss-microsoft-tech-community-how-acr-artifact-cache-handles-multi-arch-ima.md]
+- Hackread and Game Developer captures contained large navigation/sidebar/related-content boilerplate around recoverable article text; extraction should continue to prioritize article body boundaries before wiki promotion. confidence: 2 sources, last-confirmed 2026-06-02. [sources: raw/2026-06-02-rss-hackread-fake-anthropic-sites-deliver-fileless-infostealer-to-claude-c.md; raw/2026-06-02-web-game-developer-gamemaker-incorporates-claude-code-to-enable-ai-assiste.md]
+
+### Typed entities
+- source family: Microsoft Tech Community pages
+- source family: Hackread pages
+- source family: Game Developer pages
+- concept: duplicated article fragments
+- concept: article-body boundary extraction
+
+### Explicit relationships
+- Duplicated body fragments increase compile noise but do not necessarily block source use when key takeaways are present.
+- Navigation/sidebar boilerplate requires body-boundary extraction before claims are promoted with confidence.

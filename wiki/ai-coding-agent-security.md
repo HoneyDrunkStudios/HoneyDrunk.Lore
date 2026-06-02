@@ -306,3 +306,44 @@ Relationships added: CoCo workloads depend-on remote attestation and runtime-sid
 
 ### Privacy and quality notes
 - Privacy filter: exploit commands and secret-like values from the incident were summarized at behavior/control level rather than copied as runnable payloads.
+
+## 2026-06-02 compile additions
+
+### Claims
+- Hackread/Cyderes report a fake-Anthropic SEO-poisoning campaign targeting first-time Claude Code users with a ClickFix-style lure: users are instructed to run a Windows command that launches a fileless infostealer chain through Windows script tooling and PowerShell. confidence: 1 security-news source citing Cyderes, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-hackread-fake-anthropic-sites-deliver-fileless-infostealer-to-claude-c.md]
+- The same campaign is useful as a defensive lesson rather than a payload source: developer onboarding pages, install commands, and search results for AI tools are now credential-theft surfaces; defenders should prefer official install docs, block risky script-host execution where possible, and monitor unusual script-host outbound behavior. confidence: 1 source plus compile judgment, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-hackread-fake-anthropic-sites-deliver-fileless-infostealer-to-claude-c.md]
+- LLMReaper demonstrates that browser extensions with page access can read AI conversation DOM content in real time across Claude, ChatGPT, and Gemini, including prompts, responses, titles, and platform user metadata; the attack does not require compromising the AI provider. confidence: 1 researcher PoC source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-lohitya-pushkar-thewhiteh4t-llmreaper-dom-based-ai-conversation-exfilt.md]
+- LLMReaper maps the extension risk to masquerading, web portal capture, exfiltration over a command channel, supply-chain compromise, and credentials-from-browser-content techniques; the practical control is treating AI conversations as sensitive browser content and restricting extensions/profiles accordingly. confidence: 1 researcher PoC source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-lohitya-pushkar-thewhiteh4t-llmreaper-dom-based-ai-conversation-exfilt.md]
+- Microsoft Tech Community's OpenClaw-on-AKS article argues that standard shared-kernel containers are too thin a boundary for adversarial agent code, and recommends Kata microVM isolation on AKS node pools with `kata-vm-isolation` runtime class, Azure Files persistent storage, and Application Gateway ingress as a stronger defense-in-depth design. confidence: 1 Microsoft community source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-microsoft-tech-community-hardening-openclaw-on-aks-mitigating-containe.md]
+
+### Typed entities
+- threat: fake Anthropic / fake Claude Code installer
+- technique: SEO poisoning
+- technique: ClickFix lure
+- threat: fileless infostealer
+- tool/runtime: Windows script host / PowerShell
+- project/PoC: LLMReaper
+- platform: browser extension
+- browser API: MutationObserver
+- target surfaces: Claude, ChatGPT, Gemini
+- isolation: Kata Containers
+- isolation: microVM
+- platform: Azure Kubernetes Service / AKS
+- runtime class: `kata-vm-isolation`
+- storage: Azure Files
+
+### Explicit relationships
+- Fake installer campaigns exploit AI-tool adoption by turning search/install workflows into credential-theft paths.
+- Browser extensions can exfiltrate AI conversation content because LLM chat prompts and responses are rendered in the page DOM.
+- Browser profile isolation and extension allowlists mitigate AI-chat exfiltration risk; provider-side privacy controls do not prevent local extension reads.
+- Kata microVM isolation supersedes plain container isolation when OpenClaw-style workloads execute untrusted or high-permission agent code.
+- MicroVM isolation complements, but does not replace, scoped credentials, egress control, workspace review, and host-executed artifact checks.
+
+### HoneyDrunk implications
+- Do not install Claude Code, Codex, or similar agent tools from search-result commands or unofficial mirrors; use official docs and pinned install paths.
+- Treat browser extensions as repo/credential access: use a minimal extension profile for AI chat and never paste credentials or private repo excerpts into browsers with unreviewed extensions.
+- If OpenClaw moves to AKS, evaluate Kata/runtime-class support, nested-virtualization node SKUs, persistent workspace behavior, and egress/audit policy before relying on agent execution.
+
+### Privacy and quality notes
+- Privacy filter: public malware infrastructure, keys, and command strings were not copied into the wiki; the campaign was reduced to defensive behavior and control lessons.
+- Quality posture: Hackread is secondary reporting; use Cyderes or other primary technical reporting before treating campaign details as incident-grade evidence. LLMReaper is a PoC and should be used for awareness/control design, not as a production exploit reference.

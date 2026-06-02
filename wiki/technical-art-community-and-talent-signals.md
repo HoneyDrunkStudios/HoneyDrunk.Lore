@@ -145,3 +145,24 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### HoneyDrunk implications
 - Preserve "AI asset intake checklist" as a future technical-art workflow term.
+
+## 2026-06-02 compile additions
+
+### Claims
+- Adobe Photoshop API v2 in Firefly Services adds production creative-automation features relevant to technical art and content operations: linked smart objects, 5GB file support, UXP scripting, customizable action workflows, richer document/layer/artboard metadata, ICC color support, and flexible storage. confidence: 1 Adobe documentation source, last-confirmed 2026-06-02. [source: raw/2026-06-02-web-adobe-developer-adobe-photoshop-api-firefly-services.md; page: [[creative-automation-and-firefly-services]]]
+- Photoshop API v1 end-of-life on 2026-07-31 makes v2 migration a technical-art pipeline concern for any existing server-side Photoshop automation. confidence: 1 Adobe documentation source, last-confirmed 2026-06-02. [source: raw/2026-06-02-web-adobe-developer-adobe-photoshop-api-firefly-services.md; page: [[creative-automation-and-firefly-services]]]
+
+### Typed entities
+- page: [[creative-automation-and-firefly-services]]
+- product/API: Adobe Photoshop API v2
+- platform: Firefly Services
+- scripting runtime: UXP
+- concept: linked smart object
+- date/decision: 2026-07-31 Photoshop API v1 end of life
+
+### Explicit relationships
+- Server-side creative automation depends-on technical-art review for asset governance, color, layout, localization, and brand rules.
+- Photoshop API v2 supersedes v1 for new automated content workflows.
+
+### HoneyDrunk implications
+- Track Firefly/Photoshop API v2 as a candidate for templated promotional/content-variant pipelines if HoneyDrunk needs scalable asset production.

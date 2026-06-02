@@ -141,3 +141,39 @@ Azure's May 2026 agent/developer tooling signal is that agent automation is movi
 ### HoneyDrunk implications
 - Before using Azure dynamic sessions for agent compute, define token custody, session ID generation, per-user authorization, egress posture, log retention, cooldown, and managed-identity scope.
 - Use dynamic sessions as disposable execution contexts, not as a place to hold durable secrets or cross-tenant state.
+
+## 2026-06-02 compile additions
+
+### Claims
+- Microsoft Tech Community's OpenClaw-on-AKS guide recommends a dedicated AKS node pool with `--workload-runtime KataMshvVmIsolation`, `runtimeClassName: kata-vm-isolation`, nested-virtualization-capable VM sizes, Azure Files NFS persistent storage, and Application Gateway for Containers for ingress. confidence: 1 Microsoft community source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-microsoft-tech-community-hardening-openclaw-on-aks-mitigating-containe.md]
+- The same guide frames Kata microVM isolation as defense-in-depth for OpenClaw-style agent workloads: containers still look like OCI/Kubernetes workloads, but each pod sandbox gets a VM boundary that reduces shared-kernel escape blast radius. confidence: 1 Microsoft community source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-microsoft-tech-community-hardening-openclaw-on-aks-mitigating-containe.md]
+- ACR Artifact Cache is a pull-through proxy, not a redirect: clients pull from downstream ACR, ACR streams from upstream when uncached, and an asynchronous background job stores artifacts locally for later cache hits. confidence: 1 Microsoft Tech Community source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-microsoft-tech-community-how-acr-artifact-cache-handles-multi-arch-ima.md]
+- For a multi-architecture image, ACR Artifact Cache copies the manifest list and only the platform-specific manifest that was pulled; other platform manifests are not copied until someone pulls that platform. confidence: 1 Microsoft Tech Community source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-microsoft-tech-community-how-acr-artifact-cache-handles-multi-arch-ima.md]
+- ACR push webhooks fire when artifact-cache asynchronous copy completes; a single-platform pull of a multi-arch image can produce three push events: tagged manifest list, untagged manifest list, and the platform manifest. Layer/blob copies do not produce push webhooks. confidence: 1 Microsoft Tech Community source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-microsoft-tech-community-how-acr-artifact-cache-handles-multi-arch-ima.md]
+
+### Typed entities
+- platform: Azure Kubernetes Service / AKS
+- runtime: KataMshvVmIsolation
+- runtime class: `kata-vm-isolation`
+- ingress: Application Gateway for Containers
+- storage: Azure Files NFS
+- service: Azure Container Registry / ACR
+- feature: ACR Artifact Cache
+- artifact: manifest list / OCI image index
+- artifact: platform manifest
+- event: ACR push webhook
+
+### Explicit relationships
+- OpenClaw on AKS uses Kata node pools to isolate agent pods behind a microVM boundary.
+- Kata runtime selection depends-on AKS node-pool runtime and compatible VM sizes.
+- ACR Artifact Cache uses asynchronous local copy after proxying the first pull.
+- Multi-arch cache completeness depends-on which platforms have actually been pulled.
+- ACR webhooks can signal artifact-cache materialization for manifests but not layer/blob copying.
+
+### HoneyDrunk implications
+- If using AKS for OpenClaw, validate Kata support, node SKU availability, persistent workspace behavior, ingress auth, and per-pod egress before trusting the design.
+- Do not assume one amd64 cache warm-up populates arm64 images; warm each required platform explicitly.
+- Use ACR push webhooks as cache-readiness evidence carefully: count manifest-list/platform events and avoid treating blob/layer absence as a failed cache.
+
+### Quality notes
+- Microsoft Tech Community posts are useful implementation references but may include duplicated page scaffolding in raw; promoted facts came from article body/key-takeaway sections only.

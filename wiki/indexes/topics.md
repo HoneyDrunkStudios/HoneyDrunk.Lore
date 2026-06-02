@@ -355,3 +355,26 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 - [[gamedev-production-and-community-signals]] - 22 sources - last-confirmed 2026-06-01
 - [[unity-3d-and-realtime-vfx-patterns]] - 24 sources - last-confirmed 2026-06-01
 - [[technical-art-community-and-talent-signals]] - 10 sources - last-confirmed 2026-06-01
+
+## 2026-06-02 topic additions
+
+### AI agents, harnesses, evaluation, and retrieval
+- [[ai-agent-harnesses]] - 51 sources - last-confirmed 2026-06-02
+- [[agent-evaluation-and-benchmarks]] - 5 sources - last-confirmed 2026-06-02
+- [[mcp-tool-governance-and-app-surfaces]] - 11 sources - last-confirmed 2026-06-02
+
+### Agent security, browser risk, Azure, and CI/CD
+- [[ai-coding-agent-security]] - 26 sources - last-confirmed 2026-06-02
+- [[azure-agent-automation-and-identity]] - 9 sources - last-confirmed 2026-06-02
+- [[github-actions-platform-operations]] - 10 sources - last-confirmed 2026-06-02
+- [[github-copilot-and-app-token-changes]] - 7 sources - last-confirmed 2026-06-02
+- [[browser-snapshot-source-quality]] - 100 sources - last-confirmed 2026-06-02
+
+### AI-assisted software, infrastructure, and creative automation
+- [[ai-assisted-software-practice]] - 28 sources - last-confirmed 2026-06-02
+- [[edge-ai-and-ai-infrastructure-2026]] - 14 sources - last-confirmed 2026-06-02
+- [[creative-automation-and-firefly-services]] - 1 source - last-confirmed 2026-06-02
+
+### Game engines, gamedev, and technical art
+- [[gamedev-production-and-community-signals]] - 23 sources - last-confirmed 2026-06-02
+- [[technical-art-community-and-talent-signals]] - 11 sources - last-confirmed 2026-06-02

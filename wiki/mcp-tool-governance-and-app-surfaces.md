@@ -179,3 +179,28 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 ### HoneyDrunk implications
 - For private HoneyDrunk MCP servers, document the hosting model and auth header explicitly in profile/catalog metadata.
 - Treat session-pool API keys as high-risk secrets; never commit them to `.vscode/mcp.json`, repo settings, or shared wiki pages.
+
+## 2026-06-02 compile additions
+
+### Claims
+- Google announced a Google Pay & Wallet Developer MCP server that lets AI development assistants search official Pay/Wallet documentation, access integration/account details, validate or amend Wallet pass JWT/JSON definitions, inspect integration metrics/errors, and create/configure integrations from the development environment. confidence: 1 Google Developers source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-google-developers-blog-supercharge-your-integration-workflow-with-the-.md]
+- The Google Pay & Wallet MCP server reinforces a pattern where vendor MCP servers are not generic docs search: they may combine RAG documentation, authenticated account state, validation tools, metrics, and mutating setup actions, so catalog/profile governance must distinguish read-only and write-capable tools. confidence: 1 source plus compile judgment, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-google-developers-blog-supercharge-your-integration-workflow-with-the-.md]
+
+### Typed entities
+- product: Google Pay & Wallet Developer MCP server
+- protocol: Model Context Protocol
+- tool: `search_documentation`
+- capability: Wallet pass JWT/JSON validation
+- capability: merchant/integration account inspection
+- capability: integration metrics/error inspection
+- capability: merchant account and integration creation
+- assistant clients: Antigravity, Cursor, Visual Studio Code
+
+### Explicit relationships
+- Vendor MCP servers use authenticated account state and official documentation to ground agent output.
+- Pay/Wallet MCP validation tools complement integration testing by catching pass-definition errors before application use.
+- Mutating MCP tools depend-on profile-level approval, identity scope, and audit logging because they can create or configure payment integrations.
+
+### HoneyDrunk implications
+- Catalog vendor MCP servers with per-tool capability labels: docs-only, account-read, validation, metrics, and mutating configuration.
+- Do not expose payment or wallet setup tools to broad coding profiles without scoped credentials and explicit approval gates.

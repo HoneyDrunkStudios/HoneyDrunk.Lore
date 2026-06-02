@@ -237,3 +237,25 @@ The game-development community feed produced a mix of process advice, tooling ex
 ### HoneyDrunk implications
 - For mobile/free-to-play concepts, define reward behavioral intent and sink/source balance before implementation.
 - Treat gacha, ads, and FOMO events as trust-sensitive systems requiring policy/design review, not only economy math.
+
+## 2026-06-02 compile additions
+
+### Claims
+- GameMaker launched GMRT and GM-CLI to support larger teams, broader language backgrounds, preferred external environments, automation, API access, GitHub Actions, MCP Server use, and optional Claude Code-assisted workflows. confidence: 1 Game Developer trade-press source quoting GameMaker, last-confirmed 2026-06-02. [source: raw/2026-06-02-web-game-developer-gamemaker-incorporates-claude-code-to-enable-ai-assiste.md]
+- GameMaker head Russell Kay described the AI tooling as opt-in and complementary, with developers deciding whether to use it; the underlying production signal is that game tools are adding CLI/API/MCP automation surfaces around engines that were historically IDE-centric. confidence: 1 Game Developer trade-press source, last-confirmed 2026-06-02. [source: raw/2026-06-02-web-game-developer-gamemaker-incorporates-claude-code-to-enable-ai-assiste.md]
+
+### Typed entities
+- engine/tool: GameMaker
+- runtime: GMRT
+- command-line tool: GM-CLI
+- product: Claude Code
+- protocol: MCP Server
+- platform: GitHub Actions
+- company: Opera
+
+### Explicit relationships
+- GameMaker GM-CLI uses command-line/API access to enable automation and AI-assisted workflows outside the IDE.
+- Optional AI assistance complements, but does not supersede, conventional engine/runtime/toolchain workflows.
+
+### HoneyDrunk implications
+- When evaluating engines, include CLI/API/build automation and MCP/scriptability as first-class criteria because AI-assisted workflows need machine-operable project surfaces.

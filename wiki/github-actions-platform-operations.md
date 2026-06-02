@@ -117,3 +117,31 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 ### HoneyDrunk implications
 - Extend GitHub Actions audits beyond YAML syntax: model who can change workflows, what credentials a run can reach, where caches/artifacts cross trust boundaries, and whether PRs can execute with write permissions.
 - Save policy validation outputs as release evidence for infrastructure changes.
+
+## 2026-06-02 compile additions
+
+### Claims
+- CodeQL 2.25.5 improves GitHub Actions query accuracy by extending `poisonable_steps` modeling to additional sinks, including scripts executed through Python modules and `go run` in directories. confidence: 1 GitHub changelog source, last-confirmed 2026-06-02. [source: raw/2026-06-02-web-github-changelog-codeql-2-25-5-improves-query-accuracy-for-github-acti.md]
+- CodeQL 2.25.5 updates `actions/unpinned-tag` so it analyzes composite action metadata files (`action.yml` and `action.yaml`) as well as workflow files. confidence: 1 GitHub changelog source, last-confirmed 2026-06-02. [source: raw/2026-06-02-web-github-changelog-codeql-2-25-5-improves-query-accuracy-for-github-acti.md]
+- CodeQL 2.25.5 reduces selected false positives in C/C++ cleartext-transmission and Java/Kotlin Zip Slip queries by improving sink modeling, including distinguishing read-only path sinks. confidence: 1 GitHub changelog source, last-confirmed 2026-06-02. [source: raw/2026-06-02-web-github-changelog-codeql-2-25-5-improves-query-accuracy-for-github-acti.md]
+- GitHub says CodeQL 2.25.5 is automatically deployed to github.com code scanning users and will be included in GHES 3.22; older GHES users can manually upgrade CodeQL. confidence: 1 GitHub changelog source, last-confirmed 2026-06-02. [source: raw/2026-06-02-web-github-changelog-codeql-2-25-5-improves-query-accuracy-for-github-acti.md]
+- GitHub's 2026-06-01 Copilot billing release lets organization admins configure a default Actions runner for Copilot code review across repositories, making Copilot review runner choice an org-level CI operations setting. confidence: 1 GitHub changelog source, last-confirmed 2026-06-02. [source: raw/2026-06-02-web-github-changelog-updates-to-github-copilot-billing-and-plans.md; page: [[github-copilot-and-app-token-changes]]]
+
+### Typed entities
+- tool: CodeQL 2.25.5
+- query model: `poisonable_steps`
+- query: `actions/unpinned-tag`
+- file: `action.yml`
+- file: `action.yaml`
+- product: GitHub Enterprise Server 3.22
+- control: default Actions runner for Copilot code review
+
+### Explicit relationships
+- Composite action metadata participates in unpinned-tag risk, not only workflow YAML.
+- CodeQL query accuracy depends-on sink modeling; improved sinks reduce both missed GitHub Actions risks and irrelevant alerts.
+- Copilot code review uses Actions runner infrastructure, so runner defaults belong in CI governance.
+
+### HoneyDrunk implications
+- Include composite actions in GitHub Actions pinning audits.
+- If HoneyDrunk uses GHES before 3.22, verify CodeQL version manually before expecting these GitHub Actions detections.
+- Choose Copilot code-review runners deliberately if review traffic grows; runner class affects cost, isolation, and throughput.

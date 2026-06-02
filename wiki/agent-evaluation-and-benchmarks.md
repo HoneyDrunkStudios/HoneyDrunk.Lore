@@ -80,3 +80,24 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 ### HoneyDrunk implications
 - For OpenClaw/Grid evals, store enough trace spans, tool outputs, file diffs, test results, and external state IDs to let a judge verify claims after the run.
 - Do not score long-running agents only by final answer text; include evidence search and state verification in the evaluation plan.
+
+## 2026-06-02 compile additions
+
+### Claims
+- IBM Research's agent-logic article reports ITBench-measured gains for structured agent systems over generic baselines across incident investigation, code analysis, bug remediation, and compliance modernization; because these are vendor/product claims, use them to shape eval hypotheses rather than as neutral benchmark results. confidence: 1 vendor/research source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-hugging-face-ibm-research-beyond-llms-why-scalable-enterprise-ai-adopt.md]
+- Perplexity's Search as Code article reports performance and cost-performance improvements on knowledge-intensive agent benchmarks when agents can compose low-level search primitives in sandboxed code; the benchmark result depends-on Perplexity's proprietary search stack, SDK, skill design, and sandbox runtime. confidence: 1 vendor/research source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-perplexity-research-rethinking-search-as-code-generation.md]
+
+### Typed entities
+- benchmark: ITBench
+- architecture: Search as Code / SaC
+- SDK: Agentic Search SDK
+- concept: cost-performance frontier
+- concept: harness-specific benchmark result
+
+### Explicit relationships
+- Agent-evaluation outcomes depend-on harness primitives such as search SDKs, program-analysis libraries, knowledge graphs, policy systems, and sandbox runtime.
+- Vendor benchmark results can generate local eval hypotheses but do not supersede HoneyDrunk task-specific benchmark evidence.
+
+### HoneyDrunk implications
+- When benchmarking Lore/OpenClaw retrieval, compare monolithic search, agent-driven grep/read, and programmable retrieval primitives under the same task/budget report.
+- Record whether eval gains came from the model, the harness, the search/index layer, or deterministic validators.

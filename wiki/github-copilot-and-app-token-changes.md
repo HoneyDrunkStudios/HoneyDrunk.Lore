@@ -79,3 +79,34 @@ Two GitHub platform changes affect automation cost and compatibility: GitHub App
 ### HoneyDrunk implications
 - Keep Copilot agent usage under PR-review discipline, especially after code review and agent runs consume Actions minutes.
 - Prompt generated-test tasks with expected behavior and bug hypotheses, not only "add comprehensive tests."
+
+## 2026-06-02 compile additions
+
+### Claims
+- GitHub Copilot usage metrics API now assigns engaged users to AI adoption phases over a rolling 28-day window using a new user-level `ai_adoption_phase` field and enterprise/organization `totals_by_ai_adoption_phase` grouping. confidence: 1 GitHub changelog source, last-confirmed 2026-06-02. [source: raw/2026-06-02-web-github-changelog-copilot-usage-metrics-api-adds-cohorts-for-ai-adoptio.md]
+- GitHub's v1 adoption phases are Phase 0 no cohort, Phase 1 code first, Phase 2 agent first, and Phase 3 multi-agent; phase assignment requires use of matching Copilot surfaces on at least two days in the last 28 days. confidence: 1 GitHub changelog source, last-confirmed 2026-06-02. [source: raw/2026-06-02-web-github-changelog-copilot-usage-metrics-api-adds-cohorts-for-ai-adoptio.md]
+- As of 2026-06-01, usage-based billing is active for all Copilot plans, Copilot code review consumes GitHub Actions minutes in addition to AI Credits, organization admins can configure a default runner for Copilot code review, and user-level budgets are generally available for organizations and enterprises. confidence: 1 GitHub changelog source, last-confirmed 2026-06-02. [source: raw/2026-06-02-web-github-changelog-updates-to-github-copilot-billing-and-plans.md]
+- Copilot Max is available as an upgrade for existing Student, Pro, and Pro+ subscribers, while new user sign-ups for Student, Pro, Pro+, and Max remained paused at publication time. confidence: 1 GitHub changelog source, last-confirmed 2026-06-02. [source: raw/2026-06-02-web-github-changelog-updates-to-github-copilot-billing-and-plans.md]
+
+### Typed entities
+- API field: `ai_adoption_phase`
+- API field: `totals_by_ai_adoption_phase`
+- cohort: Phase 0 no cohort
+- cohort: Phase 1 code first
+- cohort: Phase 2 agent first
+- cohort: Phase 3 multi-agent
+- billing unit: GitHub AI Credits
+- billing unit: GitHub Actions minutes
+- control: default Actions runner for Copilot code review
+- control: user-level budget
+- plan: Copilot Max
+
+### Explicit relationships
+- Copilot usage metrics use adoption cohorts to relate product-surface usage to AI rollout maturity.
+- User-level budgets constrain Copilot AI Credit consumption at the organization/enterprise level.
+- Default Copilot code-review runners route code-review work onto an organization-chosen Actions runner instead of requiring per-repository configuration.
+- Copilot code review now depends-on both AI Credit and Actions-minute governance.
+
+### HoneyDrunk implications
+- If HoneyDrunk uses GitHub Copilot broadly, report adoption by cohort rather than active-user count alone; multi-agent use should trigger stronger cost and review policy.
+- Configure a default runner and user budgets before turning on Copilot code review widely, because billing is active as of 2026-06-01.

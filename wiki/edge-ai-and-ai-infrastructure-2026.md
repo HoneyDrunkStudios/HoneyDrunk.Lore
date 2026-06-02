@@ -200,3 +200,37 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 ### HoneyDrunk implications
 - For any React Native/mobile agent work, benchmark specialized models on HoneyDrunk tasks before assuming frontier models are always the best cost/quality choice.
 - Treat inference routers as operational infrastructure: log routing decisions, model costs, fallback behavior, and quality regressions.
+
+## 2026-06-02 compile additions
+
+### Claims
+- Slack AI moved from SageMaker-hosted model endpoints to Amazon Bedrock provisioned throughput, then hybrid Bedrock on-demand routing, and finally a multi-cloud architecture including GCP Vertex AI by early 2026. confidence: 1 Slack Engineering source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-slack-engineering-slack-ai-the-path-to-multi-cloud.md]
+- Slack's Bedrock migration used legal/security/FedRAMP signoff, load tests mapping SageMaker capacity to Model Units, A/B/evaluation parity checks, feature-flag rollout, and instant rollback; Slack reports zero customer-facing incidents during the migration. confidence: 1 Slack Engineering source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-slack-engineering-slack-ai-the-path-to-multi-cloud.md]
+- Slack's hybrid strategy kept high-volume latency-sensitive workloads on provisioned throughput, moved bursty/asynchronous workloads to on-demand, and added spillover plus model hierarchy fallback when primary endpoints degraded. confidence: 1 Slack Engineering source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-slack-engineering-slack-ai-the-path-to-multi-cloud.md]
+- Slack's multi-cloud routing layer normalizes provider APIs/error codes, uses quality/latency/health telemetry for model selection, supports A/B experiments, and trips circuit breakers on signals such as elevated time-to-first-token, 5xx spikes, throttling, p90 latency, or negative feedback trends. confidence: 1 Slack Engineering source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-slack-engineering-slack-ai-the-path-to-multi-cloud.md]
+- Slack reports multi-cloud model-to-feature optimization produced approximately 10% quality improvement for complex reasoning tasks and 67% latency reduction for high-velocity low-token workloads; treat as Slack-specific production telemetry. confidence: 1 Slack Engineering source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-slack-engineering-slack-ai-the-path-to-multi-cloud.md]
+
+### Typed entities
+- company/product: Slack AI
+- cloud service: AWS SageMaker
+- cloud service: Amazon Bedrock
+- cloud service: GCP Vertex AI
+- capacity unit: Bedrock Model Unit / MU
+- capacity type: Provisioned Throughput
+- capacity type: On Demand
+- pattern: spillover routing
+- pattern: model hierarchy fallback
+- pattern: intelligent routing layer
+- control: circuit breaker
+- metric: time to first token / TTFT
+
+### Explicit relationships
+- Enterprise AI reliability depends-on provider abstraction, model fallback, load testing, and cross-functional compliance approval.
+- Provisioned throughput complements on-demand capacity: PT handles predictable latency-sensitive traffic, while OD handles burst and model agility.
+- Multi-cloud routing uses normalized provider signals to decouple product features from one provider's outage, capacity, or model catalog.
+- Circuit breakers treat slow LLM endpoints as failures even when the endpoint is technically up.
+
+### HoneyDrunk implications
+- For OpenClaw/model routing, design provider abstraction, health metrics, fallback models, and cost attribution before multi-provider complexity grows.
+- Treat TTFT, p90 latency, throttling, 5xxs, cost per feature, and quality feedback as routing inputs, not only uptime.
+- Do not copy Slack's multi-cloud architecture prematurely; use it as a maturity map for when one provider becomes a reliability or model-quality bottleneck.

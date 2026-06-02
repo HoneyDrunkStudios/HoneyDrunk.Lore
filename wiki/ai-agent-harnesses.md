@@ -327,3 +327,46 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 - Treat OpenClaw memory as a designed subsystem: record what is current workflow state, what is durable memory, what expires, and what external source wins conflicts.
 - For dynamic code/session execution, design identifier entropy, token custody, egress policy, logging, and cooldown settings before exposing sessions to agents.
 - Route coding agents toward tasks with fast, reviewable feedback and reversible outputs; high-blast-radius diagnosis/deployment should keep human ownership.
+
+## 2026-06-02 compile additions
+
+### Claims
+- IBM Research argues that scalable enterprise agents need "agent logic" in the harness layer: knowledge graphs, algorithms, program-analysis libraries, policy systems, and directed workflows that steer model behavior while reducing context and token consumption. confidence: 1 vendor/research source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-hugging-face-ibm-research-beyond-llms-why-scalable-enterprise-ai-adopt.md]
+- IBM cites multiple internal/product case studies where structured harness logic outperforms LLM-only or generic ReAct baselines on app understanding, test generation, incident investigation, compliance modernization, healthcare policy enforcement, and asset maintenance; the exact numbers are vendor-reported and should be locally validated before procurement decisions. confidence: 1 vendor/research source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-hugging-face-ibm-research-beyond-llms-why-scalable-enterprise-ai-adopt.md]
+- Perplexity's Search as Code architecture exposes search primitives as a Python SDK inside secure sandboxes so agents can generate task-specific retrieval, ranking, filtering, fanout, aggregation, and rendering pipelines instead of calling a monolithic search API repeatedly. confidence: 1 vendor/research source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-perplexity-research-rethinking-search-as-code-generation.md]
+- Perplexity reports that filesystem-backed explicit serialization for sandbox state was more reliable than REPL-style implicit state on very long trajectories, reinforcing declarative state handoff as a long-horizon harness design pattern. confidence: 1 vendor/research source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-perplexity-research-rethinking-search-as-code-generation.md]
+- Sean Goedecke's agent-vs-pipeline essay frames the control-flow tradeoff clearly: pipelines are more predictable and cost-bounded, while agents are more flexible when context gathering, action/reaction loops, or hard tasks exceed one-shot prompt assembly. confidence: 1 practitioner source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-sean-goedecke-build-agents-not-pipelines.md]
+- Simon Willison's Pasted File Editor prototype shows a small harness/product-interface pattern: large clipboard pastes or dragged/opened files can be converted into file attachments while preserving the prompt/editor text, reducing accidental context pollution in AI-assisted editing workflows. confidence: 1 practitioner source, last-confirmed 2026-06-02. [source: raw/2026-06-02-rss-simon-willison-pasted-file-editor.md]
+
+### Typed entities
+- concept: agent logic
+- technique: program analysis
+- technique: knowledge graph
+- technique: policy-as-code
+- product/platform: IBM watsonx Code Assistant for Z
+- product/platform: IBM Instana I3
+- product/platform: IBM Concert Platform
+- product/platform: IBM Maximo Condition Insights
+- architecture: Search as Code / SaC
+- SDK: Agentic Search SDK
+- runtime: secure compute sandbox
+- state pattern: filesystem-backed serialization
+- concept: pipeline
+- concept: agentic context gathering
+- tool/prototype: Pasted File Editor
+
+### Explicit relationships
+- Agent logic depends-on structured harness primitives to constrain context and decision rights before model prompting.
+- Program analysis and knowledge graphs complement LLM reasoning by narrowing the search/context space.
+- Search as Code uses generated code and deterministic sandbox execution to compose retrieval primitives within an agent turn.
+- Explicit serialized state supersedes implicit REPL state when long trajectories require traceable intermediate artifacts.
+- Pipelines supersede agents when cost, context size, and local-model constraints are strict; agents supersede pipelines when context gathering and action loops are the hard part.
+- File attachments can reduce context pollution by separating durable pasted source material from the active editor prompt.
+
+### HoneyDrunk implications
+- For Lore retrieval, consider Search-as-Code style primitives only after the flat-file layer stops scaling; keep explicit serialized intermediate state over hidden REPL state for reproducibility.
+- When deciding between OpenClaw agents and deterministic workflows, use task shape: strict budget/local model/simple control flow favors pipelines; uncertain context gathering and reversible exploration favors agents.
+- For AI editor surfaces, prefer attachment-aware paste/file handling so long source material is inspectable, removable, and not silently mixed into the instruction text.
+
+### Quality notes
+- IBM and Perplexity results are vendor-authored and benchmark-sensitive. They are useful architecture signals, not local performance evidence.
