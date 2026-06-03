@@ -101,3 +101,30 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 ### HoneyDrunk implications
 - When benchmarking Lore/OpenClaw retrieval, compare monolithic search, agent-driven grep/read, and programmable retrieval primitives under the same task/budget report.
 - Record whether eval gains came from the model, the harness, the search/index layer, or deterministic validators.
+
+## 2026-06-03 compile additions
+
+### Claims
+- MAI-Code-1-Flash was evaluated by Microsoft against Claude Haiku 4.5 on SWE-Bench Verified, SWE-Bench Pro, SWE-Bench Multilingual, Terminal Bench 2, instruction-following, and adversarial reasoning tasks using a Copilot production harness; benchmark deltas should be treated as harness-specific vendor claims. confidence: 1 Microsoft AI source, last-confirmed 2026-06-03. [source: raw/2026-06-03-web-microsoft-ai-introducing-mai-code-1-flash.md]
+- Microsoft reports MAI-Code-1-Flash uses fewer solution tokens on some tasks, making cost/latency part of the evaluation claim rather than only pass rate. confidence: 1 Microsoft AI source, last-confirmed 2026-06-03. [source: raw/2026-06-03-web-microsoft-ai-introducing-mai-code-1-flash.md]
+- Fowler's June 2 fragment reinforces benchmark recency risk: closed and open model rankings can shift over months, so historical public benchmarks should not be treated as permanent routing evidence. confidence: 1 Fowler fragment source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-martin-fowler-fragments-june-2.md]
+
+### Typed entities
+- model: MAI-Code-1-Flash
+- comparison model: Claude Haiku 4.5
+- benchmark: SWE-Bench Verified
+- benchmark: SWE-Bench Pro
+- benchmark: SWE-Bench Multilingual
+- benchmark: Terminal Bench 2
+- benchmark: IF Bench
+- concept: solution-token efficiency
+- concept: benchmark recency risk
+
+### Explicit relationships
+- Model evaluation depends-on pass rate, solution-token cost, latency, harness, and task mix.
+- Vendor benchmark results generate local eval hypotheses but do not supersede HoneyDrunk task-specific controlled comparisons.
+- Model-routing evidence decays as model families and open/closed capability gaps change.
+
+### HoneyDrunk implications
+- When comparing coding models, include token count, time-to-first-useful-output, total latency, retries, and review burden alongside pass/fail.
+- Re-run small routing evals after major model releases rather than relying on benchmark snapshots older than a few months.

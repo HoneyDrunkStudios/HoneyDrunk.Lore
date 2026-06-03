@@ -347,3 +347,50 @@ Relationships added: CoCo workloads depend-on remote attestation and runtime-sid
 ### Privacy and quality notes
 - Privacy filter: public malware infrastructure, keys, and command strings were not copied into the wiki; the campaign was reduced to defensive behavior and control lessons.
 - Quality posture: Hackread is secondary reporting; use Cyderes or other primary technical reporting before treating campaign details as incident-grade evidence. LLMReaper is a PoC and should be used for awareness/control design, not as a production exploit reference.
+
+## 2026-06-03 compile additions
+
+### Claims
+- Ammar Askar disclosed a github.dev / VS Code webview bug where untrusted notebook/webview JavaScript could simulate trusted VS Code keybindings, install or activate extension behavior, and expose the broad GitHub OAuth token used by github.dev; the durable control lesson is that browser IDEs and webviews are high-value token-bearing surfaces. confidence: 1 security-research source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-ammar-askar-1-click-github-token-stealing-via-a-vscode-bug.md]
+- Askar's source says the github.dev token was not scoped to the opened repository, so compromise could expose private repositories beyond the lure repository; avoid repo-specific trust assumptions for browser-IDE sessions unless token scope is verified. confidence: 1 security-research source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-ammar-askar-1-click-github-token-stealing-via-a-vscode-bug.md]
+- Flatt Security's Claude Code GitHub Actions research found an `agent`-mode permission bypass in which GitHub App actors could trigger workflows intended for write/admin users; Anthropic fixed the issue in Claude Code GitHub Actions v1.0.94 by rejecting GitHub App triggers by default. confidence: 1 security-research source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-flatt-security-poisoning-claude-code-one-github-issue-to-break-the-sup.md]
+- Flatt also warns that `allowed_non_write_users: "*"` is unsafe when Claude Code workflows expose secrets, write permissions, or exfiltration-capable tools; even seemingly narrow issue-triage workflows can become stepping stones if they can edit issues, post summaries, call GitHub CLI, or reach OIDC token material. confidence: 1 security-research source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-flatt-security-poisoning-claude-code-one-github-issue-to-break-the-sup.md]
+- AWS's software-supply-chain security post frames package-consumer defense around temporary credentials, least privilege, defense in depth, artifact signing, centralized dependency management, provenance attestations, continuous scanning, SBOMs, and centralized logging/monitoring. confidence: 1 AWS Security Blog source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-aws-security-blog-well-architected-best-practices-for-software-supply-.md]
+- AWS explicitly notes that CVE-only scanners may miss malicious packages before formal identifiers exist; behavioral analysis, community malicious-package feeds, SBOM blast-radius search, and alert routing are needed for fast-moving package-registry attacks. confidence: 1 AWS Security Blog source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-aws-security-blog-well-architected-best-practices-for-software-supply-.md]
+
+### Typed entities
+- surface: github.dev
+- product: VS Code / VS Code webviews
+- threat: browser IDE token theft
+- token type: GitHub OAuth token
+- product: Claude Code GitHub Actions
+- setting: `allowed_non_write_users`
+- permission: `id-token: write`
+- credential type: GitHub Actions OIDC request credentials
+- control: human-actor check
+- control: workflow summary suppression
+- control: command argument wrapper
+- control: temporary credentials
+- control: artifact signing
+- service: AWS Signer
+- service: Amazon CodeArtifact
+- service: Amazon ECR
+- service: Amazon Inspector
+- artifact: SBOM
+- standard: npm provenance attestation
+
+### Explicit relationships
+- Browser IDEs use OAuth tokens and extension/webview trust boundaries; webview bugs can cause repository-token exfiltration even without desktop RCE.
+- Claude Code GitHub Actions depends-on actor validation, least-privilege workflow permissions, scoped secrets, and strict tool allowlists when processing issue or pull-request content.
+- `allowed_non_write_users: "*"` contradicts safe handling of untrusted public issue content when secrets or write-capable tools are present.
+- OIDC credentials in GitHub Actions can be exchanged for more privileged downstream tokens, so leaking request-token material can supersede ordinary `GITHUB_TOKEN` limits.
+- Artifact signing and provenance complement dependency scanning by proving build identity, while malicious-package scanning and SBOMs help detect and scope compromise after publication.
+
+### HoneyDrunk implications
+- Treat github.dev, vscode.dev, notebook previews, and browser-based code workspaces as sensitive token surfaces; clear site data and avoid opening untrusted notebook/webview content in authenticated browser IDE sessions until upstream patches and token scoping are verified.
+- Audit any Claude Code or similar GitHub Actions workflows for public triggers, `allowed_non_write_users`, `id-token: write`, broad GitHub App permissions, writable issue/PR tools, workflow summaries, and shell/GitHub CLI allowlists.
+- For HoneyDrunk package consumers, prefer temporary cloud credentials, OIDC trusted publishing, package provenance checks, centralized dependency proxies, artifact signing, SBOM generation, and alerts that route malicious-package findings as incidents rather than ordinary low-priority CVEs.
+
+### Privacy and quality notes
+- Privacy filter: exploit payloads, token-exchange procedure details, and exfiltration examples were reduced to defensive control language. No tokens, malware indicators, or runnable attack sequences were copied into wiki prose.
+- Quality posture: Askar and Flatt sources are primary security-research writeups; AWS is vendor-authored but strong for control taxonomy. Validate current VS Code/GitHub/Anthropic mitigation status before treating the historical vulnerabilities as still exploitable.

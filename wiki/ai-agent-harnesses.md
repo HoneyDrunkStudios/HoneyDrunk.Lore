@@ -370,3 +370,46 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - IBM and Perplexity results are vendor-authored and benchmark-sensitive. They are useful architecture signals, not local performance evidence.
+
+## 2026-06-03 compile additions
+
+### Claims
+- Azure `azure-functions-skills` public preview packages Azure Functions agent skills, a `functions-copilot` agent definition, MCP configuration, hooks, and instruction files for hosts such as GitHub Copilot CLI, Claude Code, Codex CLI, and VS Code. confidence: 1 Microsoft Azure SDK Blog source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-azure-blog-introducing-azure-functions-skills-an-ai-era-workspace-for-.md]
+- The Azure Functions `doctor` flow uses deterministic checks by default and opt-in semantic LLM checks for code issues such as hardcoded secrets, client-per-invocation patterns, blocking I/O, and Durable Functions nondeterminism; Microsoft recommends Tier 1-only validation on untrusted PRs and deeper checks after merge/release. confidence: 1 Microsoft source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-azure-blog-introducing-azure-functions-skills-an-ai-era-workspace-for-.md]
+- n8n frames agent reliability as layered controls across model configuration, prompt structure, output schemas, tool design, guardrails, and routing logic, with capability restrictions applied before, during, and after agent execution rather than left to a single prompt. confidence: 1 n8n source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-n8n-blog-how-can-i-make-ai-agents-more-reliable-and-restrict-the-actio.md]
+- DigitalOcean Serverless Inference exposes OpenAI-compatible, Anthropic-compatible, multimodal, retrieval, MCP, web-search, prompt-caching, and routing surfaces behind one API, reinforcing that model routing, built-in tools, telemetry, and billing can be provider infrastructure rather than bespoke harness code. confidence: 1 vendor source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-digitalocean-digitalocean-serverless-inference-a-deep-dive.md]
+- GitHub Copilot app technical preview productizes multi-agent work management through My Work, per-session git worktrees, Agent Merge, canvases, local/cloud sandboxes, custom skills, MCP connections, scheduled tasks, Memory++/`/chronicle`, and partner agent apps. confidence: 1 GitHub product source, last-confirmed 2026-06-03. [source: raw/2026-06-03-web-github-blog-github-copilot-app-the-agent-native-desktop-experience.md]
+- Fowler's June 2 fragment reinforces a human-attention constraint for parallel agents: many agents can run concurrently, but architecture judgment, conflict resolution, and final review still serialize through the human operator. confidence: 1 Fowler fragment source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-martin-fowler-fragments-june-2.md]
+
+### Typed entities
+- package/plugin: `azure-functions-skills`
+- agent definition: `functions-copilot`
+- command: `npx @azure/functions-skills install`
+- command: `npx @azure/functions-skills doctor`
+- product: GitHub Copilot app
+- feature: My Work
+- feature: Agent Merge
+- feature: canvas
+- feature: local/cloud sandbox
+- feature: Memory++ / `/chronicle`
+- product: DigitalOcean Serverless Inference
+- feature: Inference Router
+- control: structured output schema
+- control: guardrail node
+- concept: human attention bottleneck
+
+### Explicit relationships
+- Agent skills package procedural knowledge, hooks, MCP config, and instruction files so agent behavior can be installed and validated as workspace infrastructure.
+- Deterministic validation should run before semantic LLM checks on untrusted code because LLM deep checks can execute with file-write and shell permissions.
+- Agent reliability depends-on schemas, narrow tools, fixed/dynamic parameters, guardrails, and routing logic; these controls complement model choice.
+- Inference routers and built-in platform tools complement local harness code by centralizing model selection, tool execution, telemetry, and billing.
+- Multi-agent control centers depend-on worktree isolation, inspectable plans, sandbox policies, and human review capacity.
+
+### HoneyDrunk implications
+- Treat HoneyDrunk skills as installable, versioned workspace/runtime artifacts with validation commands, not just markdown instructions.
+- For OpenClaw agent validation, separate safe deterministic checks from risky semantic/agentic checks and gate the latter by trusted event source.
+- Build any parallel-agent dashboard around human review bandwidth: surface status, diffs, tests, unresolved decisions, and conflict risks before increasing concurrency.
+- If evaluating DigitalOcean Serverless Inference, log router-selected models, tool use, cache hit rates, rate limits, and per-feature cost; the value is operational routing, not just endpoint compatibility.
+
+### Quality notes
+- Azure, DigitalOcean, GitHub, and n8n sources are vendor-authored and useful for architecture signals; validate preview features, pricing, and policy controls locally before standardizing.

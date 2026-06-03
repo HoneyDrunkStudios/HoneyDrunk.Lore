@@ -103,3 +103,28 @@ Google's 2026 agent developer surface is converging on production plumbing: Agen
 ### HoneyDrunk implications
 - For Android apps with private local documents or user state, evaluate hybrid ADK only after testing device coverage, latency, offline behavior, and what leaves the device.
 - Treat ADK for Kotlin/Android 0.1.0 as experimental; useful for prototypes and architecture scouting, not a stable production dependency without version pinning and migration budget.
+
+## 2026-06-03 compile additions
+
+### Claims
+- Google AI Edge Gallery added experimental MCP support over Streamable HTTP in the Android app, letting an on-device Gemma 4 model import tool/resource schemas into the prompt, choose tools locally, and call a configured MCP server on a home computer or secure cloud endpoint. confidence: 1 Google Developers source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-google-developers-blog-a-smarter-google-ai-edge-gallery-mcp-integratio.md]
+- The same release adds a Schedule Notification skill, persistent chat history, fast prefill via LiteRT-LM, and custom system prompt editing, making AI Edge Gallery a mobile/on-device agent experimentation surface rather than only a one-shot model demo. confidence: 1 Google Developers source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-google-developers-blog-a-smarter-google-ai-edge-gallery-mcp-integratio.md]
+
+### Typed entities
+- app: Google AI Edge Gallery
+- model: Gemma 4
+- protocol: Model Context Protocol
+- transport: Streamable HTTP
+- skill: Schedule Notification
+- feature: persistent chat history
+- runtime/backend: LiteRT-LM
+- concept: custom system prompt
+
+### Explicit relationships
+- Google AI Edge Gallery uses MCP to connect local mobile reasoning to external tools.
+- LiteRT-LM fast prefill enables persistent session restoration on device.
+- Local notification skills turn reactive chat sessions into scheduled mobile routines.
+
+### HoneyDrunk implications
+- For Android/on-device agent prototypes, Google AI Edge Gallery is now a useful scouting app for MCP, local reminders, and session continuity.
+- Treat mobile MCP as a privacy boundary exercise: local reasoning does not guarantee local data handling if the MCP server retrieves or sends external data.

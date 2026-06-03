@@ -166,3 +166,35 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### HoneyDrunk implications
 - Track Firefly/Photoshop API v2 as a candidate for templated promotional/content-variant pipelines if HoneyDrunk needs scalable asset production.
+
+## 2026-06-03 compile additions
+
+### Claims
+- 80 Level reports Sparseal is developing CozyBlanket Pro, a separate product from CozyBlanket focused on geometry cleanup, optimization, retopology, UV unwrapping, GPU-based UV packing, texture baking, and scene/object statistics. confidence: 1 80 Level source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-80-level-sparseal-announces-new-ai-assisted-retopology-tool.md]
+- CozyBlanket Pro's topology prediction AI is described as continuously analyzing high- and low-poly meshes to provide real-time autocomplete suggestions, while keeping manual topology/UV tools available. confidence: 1 trade-press/source-author source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-80-level-sparseal-announces-new-ai-assisted-retopology-tool.md]
+- Sparseal states CozyBlanket Pro's topology predictor and unwrapping algorithms are proprietary, built in-house, and not based on third-party AI inference services or licensed third-party solutions; this is vendor/product positioning and should be validated before procurement decisions. confidence: 1 source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-80-level-sparseal-announces-new-ai-assisted-retopology-tool.md]
+
+### Typed entities
+- company: Sparseal
+- product: CozyBlanket Pro
+- product: CozyBlanket
+- product: Uniform
+- product: Wafer
+- workflow: AI-assisted retopology
+- workflow: UV unwrapping
+- workflow: GPU-based UV packing
+- workflow: texture baking
+- artifact: UDIM
+- concept: topology prediction AI
+
+### Explicit relationships
+- AI-assisted retopology complements technical-art cleanup by suggesting topology while manual editing remains the authority.
+- UV packing, texture baking, retopology, and DCC network bridges are technical-art workflow concerns, not just artist UI features.
+- Proprietary in-house AI claims do not supersede licensing, privacy, and output-quality validation.
+
+### HoneyDrunk implications
+- Track CozyBlanket Pro as a technical-art scouting candidate for AI-generated or scanned mesh cleanup, but wait for open beta/licensing/platform details before adoption.
+- If HoneyDrunk builds AI asset intake, retopology and UV/bake validation should be part of the checklist, not an optional polish step.
+
+### Quality notes
+- 80 Level is trade press and the product is closed beta. Claims are useful scouting signals, not tested production evidence.

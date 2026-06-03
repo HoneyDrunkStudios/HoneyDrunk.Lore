@@ -294,3 +294,26 @@ Unity-related sources clustered around practical production patterns: planning n
 ### HoneyDrunk implications
 - Add an import checklist for AI-generated 3D assets before any asset enters a Unity prototype branch.
 - Treat AI image-to-3D as ideation/blockout unless retopology, UVs, scale, materials, and animation readiness pass inspection.
+
+## 2026-06-03 compile additions
+
+### Claims
+- CozyBlanket Pro is relevant to Unity/engine asset pipelines because it combines retopology, UV unwrapping/packing, texture baking, multiple UV sets, UDIMs, custom bake cages, and high-to-low poly assignments before export to downstream DCC/engine workflows. confidence: 1 80 Level source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-80-level-sparseal-announces-new-ai-assisted-retopology-tool.md]
+- CozyBlanket Pro is planned for Windows, macOS, Linux, iPadOS, Android, and web, but not all platforms will be supported at launch; treat platform fit as unknown until beta/release details are available. confidence: 1 source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-80-level-sparseal-announces-new-ai-assisted-retopology-tool.md]
+
+### Typed entities
+- product: CozyBlanket Pro
+- company: Sparseal
+- concept: AI-assisted retopology
+- concept: UV packing
+- concept: texture baking
+- artifact: custom bake cage
+- artifact: UDIM
+
+### Explicit relationships
+- AI-generated or high-poly assets depend-on retopology, UV, and baking workflows before performant Unity/engine import.
+- Cross-platform technical-art tools complement Unity pipelines only when export, scale, material, and topology outputs validate cleanly in target scenes.
+
+### HoneyDrunk implications
+- Add retopology/UV/bake tooling to the AI asset validation shortlist alongside image-to-3D generation tools.
+- Validate any CozyBlanket Pro output through Unity import, material setup, animation readiness, and target-device profiling before production use.

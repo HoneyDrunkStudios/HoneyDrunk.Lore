@@ -234,3 +234,48 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 - For OpenClaw/model routing, design provider abstraction, health metrics, fallback models, and cost attribution before multi-provider complexity grows.
 - Treat TTFT, p90 latency, throttling, 5xxs, cost per feature, and quality feedback as routing inputs, not only uptime.
 - Do not copy Slack's multi-cloud architecture prematurely; use it as a maturity map for when one provider becomes a reliability or model-quality bottleneck.
+
+## 2026-06-03 compile additions
+
+### Claims
+- DigitalOcean Serverless Inference is a managed, API-first inference platform with 30+ foundation models across text, code, vision, image, video, speech, and embeddings, using a single key/base URL and pay-per-token pricing. confidence: 1 vendor source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-digitalocean-digitalocean-serverless-inference-a-deep-dive.md]
+- DigitalOcean describes a production path of Cloudflare edge proxying, load balancer policy enforcement, Traefik on DOKS, Intelligent Inference API, Model Executor Service provider translation, Ray/vLLM backends for open models, provider APIs for OpenAI/Anthropic, and Kafka usage telemetry. confidence: 1 vendor source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-digitalocean-digitalocean-serverless-inference-a-deep-dive.md]
+- The DigitalOcean Inference Router selects models by task using cost-efficiency, speed, manual ranking, or provider-defined optimal policies, and reports selected model/route metadata; this strengthens inference routing as an operational architecture pattern. confidence: 1 vendor source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-digitalocean-digitalocean-serverless-inference-a-deep-dive.md]
+- Holo3.1 releases computer-use agent models from 0.8B to 35B-A3B, with FP8, NVFP4, and Q4 GGUF quantized checkpoints aimed at local, private, and cross-environment GUI automation across desktop, browser, and mobile. confidence: 1 Hugging Face/H Company source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-hugging-face-blog-holo3-1-fast-local-computer-use-agents.md]
+- Holo3.1 reports AndroidWorld gains, cross-harness improvements, and local speedups from quantization/harness optimization; treat all benchmark and throughput numbers as vendor-reported until reproduced on HoneyDrunk tasks/hardware. confidence: 1 vendor/model-release source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-hugging-face-blog-holo3-1-fast-local-computer-use-agents.md]
+- Google AI Edge Gallery added persistent chat history using LiteRT-LM fast prefill, custom system prompt editing, local notifications, and MCP support, showing mobile on-device agents moving from demos toward persistent/local routines. confidence: 1 Google source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-google-developers-blog-a-smarter-google-ai-edge-gallery-mcp-integratio.md]
+
+### Typed entities
+- product: DigitalOcean Serverless Inference
+- component: Intelligent Inference API
+- component: Model Executor Service
+- framework/runtime: Ray
+- inference engine: vLLM
+- telemetry backbone: Kafka
+- feature: prompt caching
+- feature: model reasoning traces
+- feature: Inference Router
+- model family: Holo3.1
+- base family: Qwen
+- quantization: FP8
+- quantization: NVFP4
+- format: Q4 GGUF
+- benchmark: AndroidWorld
+- benchmark: OSWorld
+- app: Google AI Edge Gallery
+- library/runtime: LiteRT-LM
+
+### Explicit relationships
+- Serverless inference separates model consumption from GPU lifecycle management, but stateless requests depend-on callers providing full context or using supported prompt-caching features.
+- Provider translation layers normalize API contracts and error/stream formats across self-hosted and commercial models.
+- Inference routers depend-on live latency/cost/quality telemetry to avoid hardcoded model/provider choices.
+- Local computer-use agents depend-on model size, quantization, harness optimization, and target GUI environment; benchmark transfer between web, desktop, and mobile is not guaranteed.
+- On-device agents use fast prefill and persistent history to restore context locally, but local persistence also creates device-side privacy and retention responsibilities.
+
+### HoneyDrunk implications
+- Treat DigitalOcean Serverless Inference as a candidate provider abstraction layer only after testing routing decisions, provider failure behavior, VPC-bound keys, prompt cache economics, and MCP/web-search policy.
+- Benchmark Holo3.1 or similar local computer-use models on actual HoneyDrunk UI automation tasks before assuming OSWorld/AndroidWorld gains transfer.
+- For mobile/on-device agents, evaluate not only model speed but session retention, notification permissions, system prompt editability, local data storage, and MCP server trust.
+
+### Quality notes
+- All quantitative performance and pricing claims in the June 3 provider/model sources are vendor-authored snapshots; use them for scouting and local eval design, not as procurement-grade evidence.

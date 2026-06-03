@@ -42,3 +42,30 @@ The RuneScape 2004 networking teardown is a compact case study in bandwidth-cons
 ## Confidence and quality notes
 - Quality posture: useful reverse-engineering case study, not official Jagex documentation. Treat exact implementation details as historical analysis; treat the design principles as decision-useful.
 - Privacy filter: no private data copied.
+
+## 2026-06-03 compile additions
+
+### Claims
+- Turnkit's hybrid turn-based multiplayer article argues that a specialized turn-based server can own generic authority concerns such as turn enforcement, hidden-data filtering, reconnects, and event delivery while clients retain game-specific rule code. confidence: 1 self-authored product/source article, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-dev-to-kill-the-double-coding-tax-a-hybrid-approach-to-authoritative-m.md]
+- The same source proposes client voting consensus for complex rules: clients validate moves in the background and the server accepts moves when enough clients agree; the source acknowledges collusion and 1v1 grief/fail-vote risks. confidence: 1 self-authored source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-dev-to-kill-the-double-coding-tax-a-hybrid-approach-to-authoritative-m.md]
+
+### Typed entities
+- product/service: Turnkit
+- concept: hybrid authoritative turn-based server
+- concept: turn enforcement
+- concept: hidden-data filtering
+- concept: client voting consensus
+- threat: client collusion
+- threat: grief/fail vote in 1v1 matches
+
+### Explicit relationships
+- Turn-based server authority can separate generic multiplayer rules from game-specific client rules.
+- Hidden-data filtering depends-on server-side visibility rules rather than trusting clients to hide cards/hands locally.
+- Client voting consensus contradicts strict server authority and depends-on social/reputation/anti-collusion controls.
+
+### HoneyDrunk implications
+- For turn-based prototypes, decide whether generic server authority plus client-side rule validation is acceptable before building duplicated client/server rules.
+- Do not use client voting consensus for high-stakes competitive or economy-bearing matches without collusion controls, replay evidence, and dispute handling.
+
+### Quality notes
+- The source is self-authored by a product builder and should be treated as architecture scouting, not neutral security validation.

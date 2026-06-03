@@ -177,3 +177,39 @@ Azure's May 2026 agent/developer tooling signal is that agent automation is movi
 
 ### Quality notes
 - Microsoft Tech Community posts are useful implementation references but may include duplicated page scaffolding in raw; promoted facts came from article body/key-takeaway sections only.
+
+## 2026-06-03 compile additions
+
+### Claims
+- `azure-functions-skills` public preview installs Azure Functions-focused skills, `functions-copilot` agent definition, MCP configuration, hooks, and repo instruction files, splitting user-scope plugin install from workspace-scoped artifacts by default. confidence: 1 Microsoft Azure SDK Blog source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-azure-blog-introducing-azure-functions-skills-an-ai-era-workspace-for-.md]
+- The Azure Functions skills steer agents toward managed identity, Key Vault references, Flex Consumption, current binding/concurrency patterns, Azure MCP template service scaffolding, and deployment validation rather than hardcoded keys or stale programming models. confidence: 1 Microsoft source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-azure-blog-introducing-azure-functions-skills-an-ai-era-workspace-for-.md]
+- The `azure-functions-agents` skill targets the Azure Functions serverless agents runtime, Microsoft Foundry, Connector Namespaces, remote MCP servers, and Azure Container Apps dynamic sessions for code execution or web browsing. confidence: 1 Microsoft source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-azure-blog-introducing-azure-functions-skills-an-ai-era-workspace-for-.md]
+- Azure Cosmos DB MCP Toolkit v1.1.2 GA adds Foundry integration, Entra/RBAC/managed-identity posture, multi-provider embeddings, startup validation, and structured role-denied responses for agent/database access. confidence: 1 Microsoft Azure Cosmos DB Blog source, last-confirmed 2026-06-03. [source: raw/2026-06-03-web-azure-cosmos-db-blog-azure-cosmos-db-mcp-toolkit-is-now-generally-avai.md]
+
+### Typed entities
+- package/plugin: `@azure/functions-skills`
+- plugin: `azure-functions-skills`
+- agent definition: `functions-copilot`
+- skill: `azure-functions-agents`
+- service/runtime: Azure Functions serverless agents runtime
+- service: Azure MCP template service
+- service: Azure Cosmos DB MCP Toolkit
+- version: Azure Cosmos DB MCP Toolkit v1.1.2
+- platform: Microsoft Foundry
+- control: managed identity
+- control: Key Vault references
+- plan: Flex Consumption
+
+### Explicit relationships
+- Azure Functions skills use workspace-scoped artifacts to make agent behavior repository-specific while keeping reusable skills discoverable at user scope.
+- Managed identity and Key Vault references supersede hardcoded connection strings for agent-generated Azure Functions code.
+- Azure Functions agent workflows can depend-on Foundry, Connector Namespaces, remote MCP servers, and dynamic sessions; each adds a separate auth/audit boundary.
+- Cosmos DB MCP Toolkit uses Azure identity/RBAC to expose database tools to agents through MCP.
+
+### HoneyDrunk implications
+- If HoneyDrunk builds Azure Functions with agents, install skills into a test repo first and inspect generated MCP/hook/instruction artifacts before committing them as standard.
+- Treat Azure Functions `doctor` as a pre-deploy gate candidate, but keep `--deep` semantic checks away from untrusted PRs.
+- Do not expose Cosmos DB MCP tools to agents without scoped managed identities, read/write tool separation, and audit logs; database tool convenience increases data-exposure blast radius.
+
+### Quality notes
+- Azure Functions skills are public preview; Cosmos DB MCP Toolkit is GA. Validate current package behavior, generated files, and role assignments locally before production use.

@@ -295,3 +295,45 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 - Pick agents only when the task shape needs iterative context discovery or action feedback; use pipelines for bounded bulk processing and local-model constraints.
 - Build prompt/file UI that separates instructions from source attachments so users can inspect and remove large context chunks deliberately.
 - Treat game-engine CLI/MCP integration as the enabling layer for AI-assisted workflows; do not bind the studio to an IDE-only AI path.
+
+## 2026-06-03 compile additions
+
+### Claims
+- Fowler's June 2 fragment reinforces that common AI productivity metrics such as lines of code, tickets closed, or self-reported productivity are weak evidence; qualitative developer reports may still be useful when treated as non-conclusive signal. confidence: 1 Fowler fragment source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-martin-fowler-fragments-june-2.md]
+- Fowler's summary of benchmark catch-up argues there are few stable frontier capability moats: open models have been closing gaps faster over time, so model choice should be revisited with current local evals rather than treated as permanent. confidence: 1 Fowler fragment source summarizing RedMonk analysis, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-martin-fowler-fragments-june-2.md]
+- Fowler's hallucinated-citation note frames fake AI-generated citations as data poisoning: polished reports with false references can mislead future researchers and model-generated synthesis. confidence: 1 Fowler fragment source citing GPTZero investigation, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-martin-fowler-fragments-june-2.md]
+- Fowler's Mozilla security-bug note says model and harness improvements turned AI-generated security bug finding from noisy reports into a high-signal defensive practice for Firefox, but the lesson is the combination of steering, scaling, and filtering rather than raw model prompting. confidence: 1 Fowler fragment source summarizing Mozilla report, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-martin-fowler-fragments-june-2.md]
+- Fowler's generative-debt note says degraded codebases become training examples for future LLM work: models reproduce confused concepts and local style, so technical debt now affects both humans and agents. confidence: 1 Fowler fragment source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-martin-fowler-fragments-june-2.md]
+- n8n's reliability article recommends explicit prompt structure, prompt versioning, JSON schemas, clear tool descriptions, fixed/dynamic/agent-decided parameters, sub-workflows, guardrails, and routing logic for production agents. confidence: 1 n8n source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-n8n-blog-how-can-i-make-ai-agents-more-reliable-and-restrict-the-actio.md]
+- MAI-Code-1-Flash is positioned as a Copilot-harness-trained coding model with adaptive solution length; Microsoft claims benchmark and token-efficiency gains over Claude Haiku 4.5, but this is vendor evidence and should become a local eval candidate rather than a default routing decision. confidence: 1 Microsoft AI product source, last-confirmed 2026-06-03. [source: raw/2026-06-03-web-microsoft-ai-introducing-mai-code-1-flash.md]
+
+### Typed entities
+- person: Martin Fowler
+- person: Greg Wilson
+- person: Benedict Evans
+- person: Stephen O'Grady
+- organization: Mozilla
+- concept: hallucinated citation
+- concept: generative debt
+- product/platform: n8n
+- control: prompt versioning
+- control: structured output parser
+- control: sub-workflow
+- model: MAI-Code-1-Flash
+- concept: adaptive solution length control
+
+### Explicit relationships
+- AI productivity metrics depend-on context and should not supersede outcome quality, defect rates, maintainability, or local task evals.
+- Hallucinated citations poison downstream research because false public artifacts can be retrieved and reinforced later.
+- Generative debt is caused when LLMs imitate degraded abstractions, naming, and patterns already present in the codebase.
+- Reliable agents depend-on layered workflow controls rather than a single "be reliable" instruction.
+- Coding-model benchmark claims depend-on the production harness and should be tested against HoneyDrunk tasks before routing changes.
+
+### HoneyDrunk implications
+- Report AI productivity with caveats: pair qualitative developer feedback with delivery quality, defect escape, review burden, and rework cost rather than raw output volume.
+- Add citation checks to Lore/query outputs and any AI-generated research reports; false references should be treated as source-quality defects.
+- Maintainability gates matter more with agents because agents will copy local precedent. Clean examples are part of the harness.
+- For production workflows, prefer schema-validated outputs, narrow tool descriptions, fixed parameters where possible, and staged routing over a single broad agent.
+
+### Quality notes
+- Fowler fragments are curated commentary and secondary summaries; use them as practice signals. n8n and Microsoft sources are vendor-authored.

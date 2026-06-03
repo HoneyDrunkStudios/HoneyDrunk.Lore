@@ -110,3 +110,42 @@ Two GitHub platform changes affect automation cost and compatibility: GitHub App
 ### HoneyDrunk implications
 - If HoneyDrunk uses GitHub Copilot broadly, report adoption by cohort rather than active-user count alone; multi-agent use should trigger stronger cost and review policy.
 - Configure a default runner and user budgets before turning on Copilot code review widely, because billing is active as of 2026-06-01.
+
+## 2026-06-03 compile additions
+
+### Claims
+- GitHub Copilot app is in technical preview for Copilot Pro, Pro+, Business, and Enterprise users as an agent-native desktop control center with a My Work view spanning active sessions, issues, pull requests, and automations. confidence: 1 GitHub product source, last-confirmed 2026-06-03. [source: raw/2026-06-03-web-github-blog-github-copilot-app-the-agent-native-desktop-experience.md]
+- GitHub says each Copilot app session runs in its own git worktree, helping parallel agent sessions isolate branches and changes without manual worktree setup/cleanup. confidence: 1 GitHub product source, last-confirmed 2026-06-03. [source: raw/2026-06-03-web-github-blog-github-copilot-app-the-agent-native-desktop-experience.md]
+- GitHub Agent Merge can monitor CI, required reviewers, failing checks, review feedback, and merge conditions while the user decides how much automation is enabled and what ships. confidence: 1 GitHub product source, last-confirmed 2026-06-03. [source: raw/2026-06-03-web-github-blog-github-copilot-app-the-agent-native-desktop-experience.md]
+- GitHub announced local and cloud sandboxes for Copilot: local sandboxes run isolated on the developer machine with centrally configurable filesystem/network/system restrictions, while cloud sandboxes are ephemeral isolated Linux environments with organization policy. confidence: 1 GitHub product source, last-confirmed 2026-06-03. [source: raw/2026-06-03-web-github-blog-github-copilot-app-the-agent-native-desktop-experience.md]
+- Microsoft announced MAI-Code-1-Flash, a Microsoft-built coding model rolling out to GitHub Copilot individual users in VS Code's model picker and auto picker; Microsoft claims it was trained for Copilot production harnesses and can solve some tasks with fewer solution tokens than Claude Haiku 4.5 in their benchmark setup. confidence: 1 Microsoft AI product source, last-confirmed 2026-06-03. [source: raw/2026-06-03-web-microsoft-ai-introducing-mai-code-1-flash.md]
+
+### Typed entities
+- product: GitHub Copilot app
+- feature: My Work
+- feature: Agent Merge
+- feature: canvas
+- feature: local sandbox
+- feature: cloud sandbox
+- feature: Copilot SDK
+- feature: Copilot CLI `/every`
+- feature: Memory++ / `/chronicle`
+- model: MAI-Code-1-Flash
+- comparison model: Claude Haiku 4.5
+- benchmark: SWE-Bench Verified
+- benchmark: SWE-Bench Pro
+- benchmark: Terminal Bench 2
+
+### Explicit relationships
+- Copilot app uses git worktrees to isolate parallel agent sessions.
+- Agent Merge depends-on CI/reviewer/branch-policy state and should remain subordinate to explicit human shipping policy.
+- Local/cloud sandboxes complement Copilot code review and agent sessions by reducing direct host or production exposure.
+- MAI-Code-1-Flash depends-on Copilot harness training/evaluation; benchmark results are harness-specific and do not supersede HoneyDrunk task evals.
+
+### HoneyDrunk implications
+- If adopting Copilot app, set policy for local/cloud sandbox defaults, allowed repositories, network access, merge automation, and when Agent Merge may act versus only report.
+- Treat MAI-Code-1-Flash as a candidate for lower-cost routine Copilot tasks, but run HoneyDrunk-specific comparisons before changing model-routing defaults.
+- Worktree-based session isolation is useful but not sufficient: still review generated workflows, hooks, package scripts, and CI changes before host or production execution.
+
+### Quality notes
+- GitHub and Microsoft claims are product-launch claims. Features are preview/rollout-dependent and should be verified in the actual HoneyDrunk Copilot plan before workflow changes.

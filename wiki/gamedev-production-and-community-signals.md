@@ -259,3 +259,32 @@ The game-development community feed produced a mix of process advice, tooling ex
 
 ### HoneyDrunk implications
 - When evaluating engines, include CLI/API/build automation and MCP/scriptability as first-class criteria because AI-assisted workflows need machine-operable project surfaces.
+
+## 2026-06-03 compile additions
+
+### Claims
+- Turnkit's article frames hybrid turn-based multiplayer as a production-speed tradeoff: a generic server owns turn enforcement, hidden-data visibility, reconnects, and event flow while teams avoid duplicating every rule on a custom authoritative server. confidence: 1 self-authored product/source article, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-dev-to-kill-the-double-coding-tax-a-hybrid-approach-to-authoritative-m.md]
+- Game Developer's Control Resonant interview describes Remedy's "vision propagation" practice: a creative director and discipline leads workshop core pillars early, then leads translate that vision into team-level ownership and production decisions. confidence: 1 trade-press interview source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-game-developer-how-to-direct-unconventional-games-like-control-resonan.md]
+- The Control Resonant source frames production alignment as especially important for unconventional genres/settings because new mechanics and strange worlds have few obvious external references; top-down forcing is presented as less effective than team investment and the ability to drop ideas that do not work. confidence: 1 trade-press interview source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-game-developer-how-to-direct-unconventional-games-like-control-resonan.md]
+
+### Typed entities
+- product/service: Turnkit
+- game: Control Resonant
+- studio: Remedy Entertainment
+- person: Mikael Kasurinen
+- concept: vision propagation
+- concept: discipline leads
+- concept: unconventional game production
+- concept: hybrid turn-based multiplayer
+
+### Explicit relationships
+- Hybrid turn-based server patterns trade strict server-authored game rules for lower duplicated implementation cost and generic authority services.
+- Vision propagation depends-on early shared pillar work and lead-level ownership rather than a director repeatedly restating the same top-down instruction.
+- Unconventional game production depends-on stronger internal alignment because fewer genre conventions can serve as external decision rails.
+
+### HoneyDrunk implications
+- For small turn-based prototypes, consider generic authority services only after deciding what cheating/collusion risk is acceptable for the match type.
+- For unusual HoneyDrunk game concepts, write core pillars and ownership boundaries early, then let discipline leads/tool owners translate them into concrete constraints and kill criteria.
+
+### Quality notes
+- Turnkit is a self-authored product source; Remedy is a trade-press interview. Both are production-pattern signals, not universal process proof.

@@ -190,3 +190,38 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 ### HoneyDrunk implications
 - For HoneyDrunk .NET repos, keep copilot/agent instructions specific about build subsets, test commands, package feeds, and no-change boundaries.
 - Do not route platform-specific runtime/native work to unattended agents unless target verification is available in CI or a local harness.
+
+## 2026-06-03 compile additions
+
+### Claims
+- `azure-functions-skills` makes Azure Functions agent scaffolding a .NET/Microsoft-stack concern as well as an Azure tooling concern: it installs skills, MCP config, hooks, `AGENTS.md`/`CLAUDE.md`/Copilot instructions, and a `doctor` validator for secure-by-default Functions workspaces. confidence: 1 Microsoft Azure SDK Blog source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-azure-blog-introducing-azure-functions-skills-an-ai-era-workspace-for-.md]
+- The preview skill catalog includes setup, create, deploy, diagnostics, best-practices, health-status, inventory, doctor, feedback, and agents skills; the agents skill targets the Azure Functions serverless agents runtime. confidence: 1 Microsoft source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-azure-blog-introducing-azure-functions-skills-an-ai-era-workspace-for-.md]
+- The `doctor` validator checks Azure Functions project shape, runtime pinning, trigger configuration, extension bundles, deprecated settings, lockfiles, tracked `.env` files, supply-chain risks, and optional semantic code issues through an agent. confidence: 1 Microsoft source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-azure-blog-introducing-azure-functions-skills-an-ai-era-workspace-for-.md]
+- Azure Cosmos DB MCP Toolkit v1.1.2 GA uses .NET-hosted MCP server patterns to expose Cosmos DB discovery, text search, vector search, schema inference, and document lookup to agents with enterprise Azure identity controls. confidence: 1 Microsoft Azure Cosmos DB Blog source, last-confirmed 2026-06-03. [source: raw/2026-06-03-web-azure-cosmos-db-blog-azure-cosmos-db-mcp-toolkit-is-now-generally-avai.md]
+
+### Typed entities
+- package/plugin: `@azure/functions-skills`
+- skill: `azure-functions-doctor`
+- skill: `azure-functions-create`
+- skill: `azure-functions-deploy`
+- skill: `azure-functions-agents`
+- runtime: Azure Functions serverless agents runtime
+- product: Azure Cosmos DB MCP Toolkit
+- API/abstraction: `IEmbeddingClient`
+- provider: Azure AI Services
+- provider: Azure AI Foundry
+- provider: OpenAI native API
+
+### Explicit relationships
+- Azure Functions skills complement Microsoft Agent Framework by packaging current Functions-specific scaffold/deploy/validation guidance for coding agents.
+- `doctor` uses deterministic checks before optional semantic agent checks, making validation part of the .NET/Azure agent workspace rather than a separate review convention.
+- Cosmos DB MCP Toolkit depends-on embedding-provider abstraction for vector search portability.
+- .NET MCP server patterns increasingly combine data-plane tools with Azure identity and Foundry catalog integration.
+
+### HoneyDrunk implications
+- For .NET/Azure repositories, treat generated agent instruction files and MCP configs as source-controlled infrastructure requiring review.
+- Add Functions `doctor` or equivalent deterministic checks before relying on agent-generated Functions deployments.
+- If HoneyDrunk builds RAG over Cosmos DB, evaluate the MCP Toolkit separately from the database itself: tool granularity, auth behavior, schema sampling, vector-search quality, and error handling all affect agent safety.
+
+### Quality notes
+- Microsoft sources are implementation-specific but vendor-authored. Preview skill behavior can change; pin versions when testing.

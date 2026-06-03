@@ -204,3 +204,44 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 ### HoneyDrunk implications
 - Catalog vendor MCP servers with per-tool capability labels: docs-only, account-read, validation, metrics, and mutating configuration.
 - Do not expose payment or wallet setup tools to broad coding profiles without scoped credentials and explicit approval gates.
+
+## 2026-06-03 compile additions
+
+### Claims
+- Google AI Edge Gallery now supports experimental MCP over Streamable HTTP on Android, dynamically importing tool definitions and resource schemas into an on-device model prompt while reasoning/tool selection happens locally on the phone. confidence: 1 Google Developers source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-google-developers-blog-a-smarter-google-ai-edge-gallery-mcp-integratio.md]
+- Google recommends short MCP tool descriptions and bite-sized returned data for on-device models because mobile context windows and latency budgets are smaller than server-side frontier models. confidence: 1 Google Developers source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-google-developers-blog-a-smarter-google-ai-edge-gallery-mcp-integratio.md]
+- Azure Cosmos DB MCP Toolkit v1.1.2 is generally available with Microsoft Foundry catalog integration, Entra ID/RBAC/managed identity support, multi-provider embeddings, structured 403 responses, startup validation, and `/mcp` HTTP transport compatibility. confidence: 1 Microsoft Azure Cosmos DB Blog source, last-confirmed 2026-06-03. [source: raw/2026-06-03-web-azure-cosmos-db-blog-azure-cosmos-db-mcp-toolkit-is-now-generally-avai.md]
+- The Cosmos DB MCP Toolkit exposes database discovery, container listing, recent-document retrieval, ID lookup, text search, vector search, and approximate-schema sampling tools, making production databases directly reachable by agents through MCP. confidence: 1 Microsoft source, last-confirmed 2026-06-03. [source: raw/2026-06-03-web-azure-cosmos-db-blog-azure-cosmos-db-mcp-toolkit-is-now-generally-avai.md]
+- DigitalOcean Serverless Inference supports remote MCP tools in inference requests, including authenticated MCP servers and `allowed_tools` constraints, which reinforces MCP as a provider-level tool-routing surface as well as a local agent-client protocol. confidence: 1 DigitalOcean source, last-confirmed 2026-06-03. [source: raw/2026-06-03-rss-digitalocean-digitalocean-serverless-inference-a-deep-dive.md]
+
+### Typed entities
+- app: Google AI Edge Gallery
+- protocol transport: MCP Streamable HTTP
+- model: Gemma 4
+- product: Azure Cosmos DB MCP Toolkit v1.1.2
+- product/platform: Microsoft Foundry
+- service: Azure Cosmos DB
+- auth: Microsoft Entra ID / RBAC / managed identity
+- tool: `list_databases`
+- tool: `list_collections`
+- tool: `get_recent_documents`
+- tool: `find_document_by_id`
+- tool: `text_search`
+- tool: `vector_search`
+- tool: `get_approximate_schema`
+- product: DigitalOcean Serverless Inference
+- request field: `allowed_tools`
+
+### Explicit relationships
+- On-device MCP uses external servers for execution while local models decide tool selection, so privacy depends-on both local reasoning boundaries and remote tool/data policy.
+- MCP tool descriptions and response size depend-on the model context/latency budget of the client, especially on mobile.
+- Cosmos DB MCP Toolkit uses RBAC/managed identity to constrain database access but still depends-on profile-level capability governance because database tools can reveal or mutate production context depending on implementation.
+- Provider-hosted inference APIs can act as MCP clients, so MCP governance must cover both local desktop clients and model-provider request surfaces.
+
+### HoneyDrunk implications
+- Label MCP tools by execution location and data sensitivity: local-device reasoning, local server, cloud server, production database read, production database write, and external network action.
+- Do not connect production Cosmos DB MCP tools to broad coding profiles without read/write separation, scoped identities, schema/data redaction rules, and audit logging.
+- For on-device/mobile agent experiments, keep tool descriptions compact and return summarized data; mobile MCP usability will fail if server tools dump large records into small contexts.
+
+### Quality notes
+- Microsoft and Google sources are vendor-authored but concrete implementation signals. Validate current toolkit versions, Foundry catalog behavior, and auth defaults before production database access.
