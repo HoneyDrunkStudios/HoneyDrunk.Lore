@@ -69,3 +69,7 @@ The RuneScape 2004 networking teardown is a compact case study in bandwidth-cons
 
 ### Quality notes
 - The source is self-authored by a product builder and should be treated as architecture scouting, not neutral security validation.
+
+## Related distributed-systems note
+
+- [[distributed-systems-patterns]] covers gossip protocol as a broader cluster-membership/failure-detection/dissemination pattern. Gossip may inform multiplayer presence or server-health designs, but it does not supersede game-specific authority, anti-cheat, or latency constraints. confidence: 1 source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-high-scalability-gossip-protocol-explained-high-scalability.md]

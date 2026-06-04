@@ -317,3 +317,35 @@ Unity-related sources clustered around practical production patterns: planning n
 ### HoneyDrunk implications
 - Add retopology/UV/bake tooling to the AI asset validation shortlist alongside image-to-3D generation tools.
 - Validate any CozyBlanket Pro output through Unity import, material setup, animation readiness, and target-device profiling before production use.
+
+## 2026-06-04 compile additions
+
+### Claims
+- Unity Pipeline Automation is a Unity Cloud service for creating, triggering, and monitoring custom cloud pipelines for real-time 3D production and live operations, including CAD translation, asset processing, validation, and notifications. confidence: 1 Unity source, last-confirmed 2026-06-04. [source: raw/2026-06-04-rss-unity-blog-what-is-unity-pipeline-automation.md]
+- Unity Pipeline Automation models workflows as directed graphs with dependencies, parameterized inputs, conditional logic, dynamic runtime-generated parallel steps, output references between actions, and nested reusable pipelines. confidence: 1 Unity source, last-confirmed 2026-06-04. [source: raw/2026-06-04-rss-unity-blog-what-is-unity-pipeline-automation.md]
+- Unity Pipeline Automation integrates Unity services and third-party tools, including Unity Virtual Private Cloud deployments and messaging/notification systems, while offloading heavy processing from local artist/engineer workstations. confidence: 1 Unity source, last-confirmed 2026-06-04. [source: raw/2026-06-04-rss-unity-blog-what-is-unity-pipeline-automation.md]
+- The 80 Level colored-penumbra source reports a UE5 shader-editing approach for colored shadow penumbra that is lightweight, works with dynamic lights, and avoids post-process light/shadow guessing, but has global saturation control and does not work with baked lighting. confidence: 1 trade-press source summarizing a technical-art guide, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-80-level-how-to-implement-colored-penumbra-shadows-in-ue5.md; page: [[technical-art-community-and-talent-signals]]]
+
+### Typed entities
+- product: Unity Pipeline Automation / UPA
+- service: Unity Cloud
+- service: Unity Asset Manager
+- product: Unity Asset Transformer
+- infrastructure: Unity Virtual Private Cloud / VPC
+- format: USD
+- workflow: CAD data translation
+- engine: Unreal Engine 5
+- technique: colored shadow penumbra
+- feature: dynamic lights
+- feature: baked lighting
+
+### Explicit relationships
+- Unity Pipeline Automation uses directed-graph workflow orchestration to automate 3D production pipelines.
+- CAD translation workflows depend-on asset retrieval, format conversion, processing, and upload into asset management.
+- Dynamic task generation complements large asset batches by parallelizing work from input arrays.
+- Colored penumbra shader edits complement stylized lighting, but depend-on dynamic lighting and wide penumbras to be visible.
+
+### HoneyDrunk implications
+- Treat Unity Pipeline Automation as a candidate only when asset-processing bottlenecks are measurable; a small studio can overbuy orchestration before it has pipeline scale.
+- If HoneyDrunk builds repeatable 3D intake, express the pipeline as a graph with inputs, outputs, failure nodes, and notifications before adopting a service.
+- Preserve colored-penumbra as a stylized-lighting reference for Unreal/technical-art research; validate engine-version maintenance cost before editing engine shaders.

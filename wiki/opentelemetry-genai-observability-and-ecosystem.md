@@ -196,3 +196,30 @@ OpenTelemetry is becoming the practical neutral observability layer for LLM/agen
 - For Grid/OpenClaw, define one shared OTel base/wrapper pattern before service-by-service agent-added instrumentation spreads.
 - Avoid duplicate HTTP/RPC metrics if a gateway/service-mesh layer already provides platform latency metrics; preserve traces for debugging.
 - Add filter processors for expected non-error statuses early to avoid noisy sampling/cost surprises.
+
+## 2026-06-04 compile additions
+
+### Claims
+- Microsoft Foundry extends tracing and evaluations to agents built on LangChain, LangGraph, OpenAI SDK, Microsoft Agent Framework, or custom frameworks through OpenTelemetry, so tool calls, LLM invocations, and handoffs can land in one trace view. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-microsoft-foundry-blog-build-2026-from-observability-to-roi-for-ai-age.md]
+- Foundry's Azure Developer CLI observability experience brings tracing, logging, and evaluation insights into `azd`, terminal, and VS Code workflows for hosted agents. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-microsoft-foundry-blog-build-2026-from-observability-to-roi-for-ai-age.md]
+- Intelligent trace sampling runs evaluations against a curated sample of live production traces instead of every trace, balancing continuous quality monitoring against evaluation cost. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-microsoft-foundry-blog-build-2026-from-observability-to-roi-for-ai-age.md]
+
+### Typed entities
+- framework: LangGraph
+- SDK: OpenAI SDK
+- framework: Microsoft Agent Framework
+- product: Microsoft Foundry observability
+- tool: Azure Developer CLI / `azd`
+- control: intelligent trace sampling
+- feature: trace replay
+- feature: traces to dataset
+
+### Explicit relationships
+- Foundry observability uses OpenTelemetry as the common trace language across agent frameworks.
+- Evaluation sampling depends-on trace filtering so production quality checks do not require evaluating every request.
+- Trace replay complements ordinary logs by showing prompt, decision, tool call, and model output sequence.
+
+### HoneyDrunk implications
+- Keep OpenClaw traces framework-neutral where possible; emit OTel spans for model calls, tool calls, handoffs, retries, and long waits.
+- Add sampling rules before high-volume agent deployment; "evaluate everything" will become a cost and privacy problem.
+- Use traces-to-dataset only after redaction rules are in place, because production traces may contain private prompt/tool content.

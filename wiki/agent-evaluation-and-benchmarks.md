@@ -128,3 +128,36 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 ### HoneyDrunk implications
 - When comparing coding models, include token count, time-to-first-useful-output, total latency, retries, and review burden alongside pass/fail.
 - Re-run small routing evals after major model releases rather than relying on benchmark snapshots older than a few months.
+
+## 2026-06-04 compile additions
+
+### Claims
+- Microsoft ASSERT is an open-source policy-driven evaluation framework that converts organizational policies and requirements into targeted agent evaluation scenarios, with inspectable local artifacts such as specs, generated cases, outputs, judge rationale, and metrics. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-microsoft-foundry-blog-build-agents-you-can-trust-across-any-framework.md]
+- Agent Control Specification (ACS) is a portable runtime control standard for deterministic checks at input, LLM, state, tool-execution, and output checkpoints; it is intended to pair with ASSERT by evaluating, applying controls, and re-running evaluations. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-microsoft-foundry-blog-build-agents-you-can-trust-across-any-framework.md]
+- Foundry observability adds multi-turn evaluation, user simulation, rubric evaluation, intelligent trace sampling, trace replay/visualization, and traces-to-dataset; this reinforces evaluation as a production loop over traces rather than one-off prompt tests. confidence: 2 Microsoft Foundry sources, last-confirmed 2026-06-04. [sources: raw/2026-06-04-web-microsoft-foundry-blog-build-2026-from-observability-to-roi-for-ai-age.md; raw/2026-06-04-web-microsoft-foundry-blog-build-agents-you-can-trust-across-any-framework.md]
+- Foundry's ROI for agents private preview measures task completion, time saved, and cost efficiency, making business value part of the eval/operations loop rather than a separate spreadsheet. confidence: 2 Microsoft Foundry sources, last-confirmed 2026-06-04. [sources: raw/2026-06-04-web-microsoft-foundry-blog-build-2026-from-observability-to-roi-for-ai-age.md; raw/2026-06-04-web-microsoft-foundry-blog-build-and-run-agents-at-scale-with-microsoft-fo.md]
+
+### Typed entities
+- framework: ASSERT
+- specification: Agent Control Specification / ACS
+- evaluator: Rubric evaluator
+- feature: user simulation
+- feature: multi-turn evaluation
+- feature: intelligent trace sampling
+- feature: trace replay and visualization
+- feature: traces to dataset
+- feature: ROI for agents
+- concept: policy-driven evaluation
+- concept: runtime control checkpoint
+
+### Explicit relationships
+- ASSERT uses policy requirements to generate targeted safety/quality evaluations.
+- ACS complements ASSERT by converting identified risks into portable runtime controls.
+- Multi-turn evaluation supersedes single-turn scoring when context accumulation, tone drift, contradiction, or long task completion are the failure modes.
+- Trace replay and traces-to-dataset use production behavior to strengthen offline eval coverage.
+- ROI measurement depends-on task completion, time saved, cost, and trace-level evidence.
+
+### HoneyDrunk implications
+- For OpenClaw evals, model the loop as policy -> generated scenarios -> controls -> re-run -> trace-backed dataset, not as ad hoc examples.
+- Keep judge artifacts inspectable. A pass/fail score without generated cases, rationale, and trace links is weak evidence for agent governance.
+- Include business value only after correctness and safety are measurable; ROI dashboards without trustworthy evals can optimize the wrong behavior.

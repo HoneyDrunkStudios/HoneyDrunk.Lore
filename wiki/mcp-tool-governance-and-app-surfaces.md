@@ -245,3 +245,35 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - Microsoft and Google sources are vendor-authored but concrete implementation signals. Validate current toolkit versions, Foundry catalog behavior, and auth defaults before production database access.
+
+## 2026-06-04 compile additions
+
+### Claims
+- Foundry Toolboxes give agents a managed endpoint for tool types, with skills as versioned project-scoped catalog entries discoverable as MCP resources and tool search for selecting task-relevant tools instead of exposing the full surface. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-microsoft-foundry-blog-build-and-run-agents-at-scale-with-microsoft-fo.md]
+- Foundry IQ is generally available as a knowledge layer behind Foundry agents, unifying Work IQ, Fabric IQ, Azure SQL, File Search, and MCP sources behind a retrieval endpoint; this makes retrieval sources part of the governed tool surface. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-microsoft-foundry-blog-build-and-run-agents-at-scale-with-microsoft-fo.md]
+- Azure Cosmos DB Build 2026 announcements reinforce that database MCP governance is expanding beyond connection: MCP Toolkit is GA, Agent Kit adds 100+ coding-agent best-practice rules, Agent Memory Toolkit is in public preview, and semantic reranking improves RAG retrieval quality. confidence: 1 Microsoft Azure Cosmos DB source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-azure-cosmos-db-blog-announced-at-ms-build-2026-azure-cosmos-db-mcp-to.md]
+- Cosmos DB Global Secondary Indexes are GA and can isolate query/vector/full-text workloads from transactional source containers, which matters when agents use operational databases for retrieval or memory. confidence: 1 Microsoft Azure Cosmos DB source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-azure-cosmos-db-blog-announced-at-ms-build-2026-azure-cosmos-db-mcp-to.md]
+
+### Typed entities
+- product: Foundry Toolboxes
+- feature: Skills in Toolboxes
+- feature: Tool search
+- product: Foundry IQ
+- product: Work IQ
+- product: Fabric IQ
+- product: Azure Cosmos DB Agent Kit
+- product: Azure Cosmos DB Agent Memory Toolkit
+- feature: Semantic Reranking
+- feature: Global Secondary Indexes / GSI
+
+### Explicit relationships
+- Toolboxes use managed endpoints and project-scoped catalogs to govern agent tool discovery.
+- Tool search reduces tool-surface exposure by selecting relevant tools per task.
+- Foundry IQ uses MCP and enterprise data sources as governed retrieval inputs.
+- Cosmos DB Agent Kit uses rule-based guidance to steer coding agents toward database best practices.
+- Global Secondary Indexes complement agent retrieval by isolating secondary query patterns from transactional containers.
+
+### HoneyDrunk implications
+- Catalog MCP/tool entries with capability class, data source, identity scope, mutability, and retrieval size limits.
+- Treat "tool search" as a governance feature only if the underlying catalog is already curated; search over unsafe tools still exposes unsafe tools.
+- For database-backed agents, separate operational writes, read-only retrieval, schema sampling, memory storage, and vector/full-text workloads by identity and container/index policy.

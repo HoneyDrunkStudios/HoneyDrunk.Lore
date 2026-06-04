@@ -198,3 +198,29 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - 80 Level is trade press and the product is closed beta. Claims are useful scouting signals, not tested production evidence.
+
+## 2026-06-04 compile additions
+
+### Claims
+- Oscar Sanz's colored-shadow-penumbra UE5 guide, surfaced through 80 Level, is a technical-art shader modification signal: it targets the colored transition edge of dynamic-light shadows to improve visual clarity and stylization. confidence: 1 trade-press source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-80-level-how-to-implement-colored-penumbra-shadows-in-ue5.md; page: [[unity-3d-and-realtime-vfx-patterns]]]
+- The same source says the approach is lightweight and supports all light types, but needs dynamic lights, wide penumbras, and global saturation control; baked lighting is outside scope. confidence: 1 trade-press source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-80-level-how-to-implement-colored-penumbra-shadows-in-ue5.md]
+- A Tech-Artists.org forum post announces Houdini HDAs for real-world terrain generation after Mapbox-to-Houdini became unavailable, claiming automated terrain plus splatmaps and 1 m/px or 10 m/px USA resolution / 30 m/px global resolution. confidence: 1 forum/product post, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-tech-artists-org-real-world-terrain-for-houdini-replaces-mapbox-to-hou.md]
+
+### Typed entities
+- person: Oscar Sanz / Chosker
+- engine: Unreal Engine 5
+- technique: colored shadow penumbra
+- DCC: Houdini
+- artifact/tool: Houdini Digital Asset / HDA
+- workflow: real-world terrain generation
+- artifact: splatmap
+- deprecated/missing tool: Mapbox-to-Houdini
+
+### Explicit relationships
+- Shader-level lighting modifications depend-on engine-version compatibility and dynamic-lighting constraints.
+- Houdini terrain HDAs complement Unity/Unreal terrain workflows by generating engine-importable terrain and splatmaps.
+- Forum/product posts require follow-up validation before procurement or pipeline standardization.
+
+### HoneyDrunk implications
+- Add "colored penumbra" and "dynamic-light shader edits" to stylized lighting research terms.
+- If real-world terrain becomes relevant, validate Houdini HDA source/licensing, geographic data source, resolution, export formats, and engine-import quality before adopting.

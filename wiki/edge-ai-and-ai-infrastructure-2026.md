@@ -279,3 +279,35 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - All quantitative performance and pricing claims in the June 3 provider/model sources are vendor-authored snapshots; use them for scouting and local eval design, not as procurement-grade evidence.
+
+## 2026-06-04 compile additions
+
+### Claims
+- DigitalOcean's prefix-aware routing source describes redundant prefill as a major inference cost: shared prompts, tool definitions, RAG documents, and conversation context are repeatedly prefetched unless KV cache reuse and routing are coordinated. confidence: 1 vendor infrastructure source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-digitalocean-the-inference-tax-how-prefix-aware-routing-eliminates-the.md]
+- vLLM prefix caching stores KV blocks in a GPU memory pool and uses block hashes to find the longest cached prefix for later requests; only uncached suffix tokens need prefill on cache hits. confidence: 1 vendor infrastructure source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-digitalocean-the-inference-tax-how-prefix-aware-routing-eliminates-the.md]
+- DigitalOcean's Inference Gateway consumes KV cache events from vLLM instances, builds per-pod prefix state, and routes requests using cache affinity plus KV utilization instead of round-robin alone. confidence: 1 vendor infrastructure source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-digitalocean-the-inference-tax-how-prefix-aware-routing-eliminates-the.md]
+- DigitalOcean reports cache-hit improvement from roughly 25% under round-robin to 75%+ on shared-prefix workloads, with possible up to 4x effective compute-cost reduction for suitable multi-turn/RAG/agent traffic; treat as vendor-reported and workload-specific. confidence: 1 vendor infrastructure source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-digitalocean-the-inference-tax-how-prefix-aware-routing-eliminates-the.md]
+
+### Typed entities
+- technique: prefix-aware routing
+- technique: prefix caching
+- concept: redundant prefill
+- artifact: KV cache
+- inference engine: vLLM
+- component: DigitalOcean Inference Gateway
+- component: Endpoint Picker / EPP
+- component: Envoy external processing / ext_proc
+- hardware: AMD Instinct MI325X
+- hardware: NVIDIA H200
+- hardware: NVIDIA Blackwell / B200
+
+### Explicit relationships
+- Prefix-aware routing uses KV cache locality to choose the worker most likely to reuse shared prompt state.
+- KV cache event streams complement load metrics because cache locality and utilization both affect routing quality.
+- Prompt caching depends-on tenant isolation, cache salt/adapters, eviction policy, hardware memory, and engine compatibility.
+- Agent traffic amplifies prefill waste because tool schemas, system prompts, and documents repeat across turns.
+
+### HoneyDrunk implications
+- If HoneyDrunk runs high-volume agent/RAG inference, log prefix length, cache hit rate, TTFT, selected worker/model, tenant isolation controls, and cached-token pricing before making provider decisions.
+- Benchmark prefix-aware routing only on workloads with meaningful shared prefixes; it may not help short independent prompts.
+- Treat vendor 4x cost-reduction claims as an eval hypothesis, not a procurement conclusion.

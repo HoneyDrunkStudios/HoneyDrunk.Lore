@@ -288,3 +288,28 @@ The game-development community feed produced a mix of process advice, tooling ex
 
 ### Quality notes
 - Turnkit is a self-authored product source; Remedy is a trade-press interview. Both are production-pattern signals, not universal process proof.
+
+## 2026-06-04 compile additions
+
+### Claims
+- Ludeo's Indie Program lets Steam developers convert gameplay clips into instantly playable snippets and offers creator marketing support, integration help, creator access, grants up to $10,000, and possible top-campaign support up to $50,000. confidence: 1 trade-press source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-80-level-ludeo-converts-clips-of-your-games-into-instantly-playable-sn.md]
+- Ludeo is positioned as a creator-driven discovery funnel: playable snippets reduce the gap between watching a creator clip and trying the game, similar in intent to playable ads, cloud-streamed demos, browser demos, and instant trials. confidence: 1 trade-press source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-80-level-ludeo-converts-clips-of-your-games-into-instantly-playable-sn.md]
+- Unity Pipeline Automation reinforces that production scale in 3D/games often shifts bottlenecks from scene creation to repeatable asset processing, validation, format conversion, and notification pipelines. confidence: 1 Unity source, last-confirmed 2026-06-04. [source: raw/2026-06-04-rss-unity-blog-what-is-unity-pipeline-automation.md; page: [[unity-3d-and-realtime-vfx-patterns]]]
+
+### Typed entities
+- company/product: Ludeo
+- program: Ludeo Indie Program
+- platform: Steam
+- concept: playable gameplay snippet
+- concept: creator-driven discovery
+- product: Unity Pipeline Automation
+- workflow: asset processing pipeline
+
+### Explicit relationships
+- Playable snippets use creator content as a direct acquisition funnel rather than only awareness media.
+- Creator discovery depends-on reducing friction from watch intent to playable experience.
+- 3D production pipelines depend-on asset validation, conversion, processing, and collaboration automation as projects scale.
+
+### HoneyDrunk implications
+- For small game launches, evaluate playable-snippet marketing only after checking SDK/integration cost, player-data/privacy terms, platform constraints, and whether the game has compelling short moments.
+- Treat creator marketing support as distribution signal, not proof that a game concept will retain players after the snippet.

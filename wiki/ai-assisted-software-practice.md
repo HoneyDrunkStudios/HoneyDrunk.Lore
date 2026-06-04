@@ -337,3 +337,31 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Fowler fragments are curated commentary and secondary summaries; use them as practice signals. n8n and Microsoft sources are vendor-authored.
+
+## 2026-06-04 compile additions
+
+### Claims
+- Thoughtworks' review-gates source proposes a three-part workflow for AI-assisted development: small milestones, review gates at two frequencies, and a living context file such as `AGENTS.md` plus `MILESTONES.md` updated after milestones. confidence: 1 Thoughtworks source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-thoughtworks-insights-how-to-implement-effective-review-gates-for-ai-a.md]
+- Milestones keep AI-generated changes reviewable by splitting features into chunks that leave the codebase compilable, tested, and documented at each checkpoint. confidence: 1 Thoughtworks source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-thoughtworks-insights-how-to-implement-effective-review-gates-for-ai-a.md]
+- Inner review gates stop after each red-green-refactor/test cycle to catch wrong assumptions before they propagate; outer review gates run at milestone boundaries with tests, lint, build, docs, design review, and context-file updates. confidence: 1 Thoughtworks source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-thoughtworks-insights-how-to-implement-effective-review-gates-for-ai-a.md]
+- The source notes friction: models may over-implement instead of writing minimal TDD code, skip refactor judgment, probabilistically ignore context rules, and forget documentation updates unless explicitly gated. confidence: 1 Thoughtworks source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-thoughtworks-insights-how-to-implement-effective-review-gates-for-ai-a.md]
+
+### Typed entities
+- file: `AGENTS.md`
+- file: `MILESTONES.md`
+- practice: inner review gate
+- practice: outer review gate
+- practice: red-green-refactor
+- concept: living context file
+- concept: reviewable milestone
+
+### Explicit relationships
+- Milestones use dependency analysis to split features into reviewable, stable checkpoints.
+- Inner gates complement TDD by forcing human review after each smallest tested assumption.
+- Outer gates depend-on mechanical checks plus human design review before proceeding.
+- Living context files preserve AI session continuity but do not supersede automated checks.
+
+### HoneyDrunk implications
+- Keep repo `AGENTS.md` and task milestone files short, current, and enforced by gates where possible.
+- For agent-assigned implementation, require stable checkpoints: tests pass, docs updated where needed, context updated, and the diff is small enough to review.
+- Treat skipped docs/context updates as workflow failures, not polish. Future agent sessions depend on those artifacts.

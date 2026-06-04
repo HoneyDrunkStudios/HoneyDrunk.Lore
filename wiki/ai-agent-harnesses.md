@@ -413,3 +413,39 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - Azure, DigitalOcean, GitHub, and n8n sources are vendor-authored and useful for architecture signals; validate preview features, pricing, and policy controls locally before standardizing.
+
+## 2026-06-04 compile additions
+
+### Claims
+- Microsoft Foundry's Build 2026 agent platform source frames the production-agent stack as build, deploy, and operate layers: Microsoft Agent Framework for harness/framework work, Foundry Agent Service for hosted runtime and distribution, and Foundry tracing/evaluation/optimizer for operations. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-microsoft-foundry-blog-build-and-run-agents-at-scale-with-microsoft-fo.md]
+- Microsoft Agent Framework stable updates include an agent harness with skills, memory, middleware, integrations with GitHub Copilot SDK and Claude Agent SDK, and multi-agent orchestration patterns such as Magentic-One. confidence: 1 Microsoft Foundry source plus 1 Agent Framework session source, last-confirmed 2026-06-04. [sources: raw/2026-06-04-web-microsoft-foundry-blog-build-and-run-agents-at-scale-with-microsoft-fo.md; raw/2026-06-04-web-microsoft-agent-framework-microsoft-agent-framework-at-build-2026.md]
+- Foundry Agent Service is positioned as a framework-agnostic hosted runtime for production agents with per-session sandboxing, durable state/file access, long-running autonomous agents, routines, and Responses API / Invocations protocol support. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-microsoft-foundry-blog-build-and-run-agents-at-scale-with-microsoft-fo.md]
+- Foundry Agent Service memory now distinguishes procedural memory, user memory, and session memory; procedural memory is framed as learning how to perform recurring work across runs. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-microsoft-foundry-blog-build-and-run-agents-at-scale-with-microsoft-fo.md]
+- DigitalOcean's prefix-aware routing source reinforces that inference routing is a harness/runtime concern for agentic traffic: long shared prompts, tool definitions, and multi-turn context create cache-locality problems that naive load balancing wastes. confidence: 1 vendor infrastructure source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-digitalocean-the-inference-tax-how-prefix-aware-routing-eliminates-the.md; page: [[edge-ai-and-ai-infrastructure-2026]]]
+
+### Typed entities
+- platform: Microsoft Foundry
+- service: Foundry Agent Service
+- framework: Microsoft Agent Framework
+- SDK: GitHub Copilot SDK
+- SDK: Claude Agent SDK
+- pattern: Magentic-One
+- protocol/API: Responses API
+- protocol/API: Invocations protocol
+- feature: hosted agents
+- feature: routines
+- memory type: procedural memory
+- memory type: user memory
+- memory type: session memory
+- concept: prefix-aware routing
+
+### Explicit relationships
+- Production agent platforms depend-on harness, runtime, distribution, observability, evaluation, security, and optimization layers rather than model calls alone.
+- Foundry Agent Service uses sandboxed sessions and durable state to host long-running autonomous agents.
+- Procedural memory complements user/session memory by storing task method rather than only user facts or current conversation context.
+- Inference routing depends-on prompt/cache locality when agent traffic repeatedly sends shared system prompts, tool definitions, or document context.
+
+### HoneyDrunk implications
+- Keep OpenClaw/Honeyclaw architecture split into build-time skills/framework, runtime isolation/state, distribution surface, and operate/eval loops; do not let one framework choice obscure the other responsibilities.
+- If testing Foundry hosted agents, validate sandbox boundaries, file durability, identity, cost, long-running routines, trace export, and rollback before production use.
+- Treat procedural memory as powerful but risky: learned workflows should be inspectable, versioned, and superseded when they conflict with current repo instructions.

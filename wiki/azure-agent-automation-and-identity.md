@@ -213,3 +213,35 @@ Azure's May 2026 agent/developer tooling signal is that agent automation is movi
 
 ### Quality notes
 - Azure Functions skills are public preview; Cosmos DB MCP Toolkit is GA. Validate current package behavior, generated files, and role assignments locally before production use.
+
+## 2026-06-04 compile additions
+
+### Claims
+- Microsoft Foundry Build 2026 positions hosted agents as a managed runtime for framework-agnostic production agents, including session sandboxing, durable state/file access, long-running agents, routines, and deployment into Microsoft Teams / Microsoft 365 Copilot. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-microsoft-foundry-blog-build-and-run-agents-at-scale-with-microsoft-fo.md]
+- Foundry autopilot agents are described as independently acting agents with Entra Agent ID, email address, Microsoft Teams presence, org-chart placement, attribution, auditability, and governance through Agent 365. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-microsoft-foundry-blog-build-and-run-agents-at-scale-with-microsoft-fo.md]
+- Azure Cosmos DB's 2026 Build release makes several agent/data capabilities GA or preview: MCP Toolkit GA, Agent Kit GA, Agent Memory Toolkit public preview, Semantic Reranking public preview, Linux Emulator GA, GSIs GA, Per-Partition Automatic Failover GA, Distributed Transactions preview, and Azure Backup preview. confidence: 1 Microsoft Azure Cosmos DB source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-azure-cosmos-db-blog-announced-at-ms-build-2026-azure-cosmos-db-mcp-to.md]
+- Per-Partition Automatic Failover lets Cosmos DB fail over only affected partitions during regional disruption, while unaffected partitions continue operating; this strengthens Cosmos DB as agent memory/retrieval infrastructure for mission-critical workloads. confidence: 1 Microsoft Azure Cosmos DB source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-azure-cosmos-db-blog-announced-at-ms-build-2026-azure-cosmos-db-mcp-to.md]
+
+### Typed entities
+- service: Foundry Agent Service
+- product: Microsoft Teams
+- product: Microsoft 365 Copilot
+- identity: Entra Agent ID
+- product/control plane: Agent 365
+- service: Azure Cosmos DB
+- feature: Agent Memory Toolkit
+- feature: Per-Partition Automatic Failover
+- feature: Distributed Transactions
+- feature: Azure Backup for Azure Cosmos DB
+- feature: Azure Cosmos DB Linux Emulator
+
+### Explicit relationships
+- Hosted agents depend-on identity, sandboxing, durable state, audit, and distribution policy when they leave local development.
+- Autopilot agents use Entra Agent ID and Microsoft 365 presence as accountable enterprise actors.
+- Cosmos DB agent memory depends-on database resilience, backup, partition strategy, and retrieval relevance, not only vector search.
+- Per-Partition Automatic Failover complements multi-region agent applications by reducing blast radius during regional disruption.
+
+### HoneyDrunk implications
+- If HoneyDrunk exposes agents in Teams/M365, treat agent identity as an audited enterprise principal with separate permissions from the human operator.
+- For Cosmos-backed agent memory, define partition keys, GSI strategy, backup/restore posture, and failover requirements before storing durable agent state.
+- Validate Build 2026 preview features locally before depending on them for production agent memory or data planes.

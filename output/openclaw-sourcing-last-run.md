@@ -1,45 +1,45 @@
 # OpenClaw Lore Sourcing - Last Run
 
-Timestamp: 2026-06-03T08:16:14
+Timestamp: 2026-06-04T08:10:01
 Mode: write
 Candidates curated: 16
-Skipped duplicates: 0
+Skipped duplicates: 1
 Selected: 15
 Saved: 15
 
 ## Selected candidates
-- [Azure & Cloud] Azure Blog: Introducing azure-functions-skills: An AI-Era Workspace for Azure Functions (Preview)
-- [Azure & Cloud] Azure Cosmos DB Blog: Azure Cosmos DB MCP Toolkit Is Now Generally Available — Bringing Your Database to AI Agents at Scale
-- [AI / LLM Research & Tooling] Google Developers Blog: A Smarter Google AI Edge Gallery: MCP integration, notifications, and session continuity
-- [AI / LLM Research & Tooling] Hugging Face Blog: Holo3.1: Fast & Local Computer Use Agents
-- [Developer Tooling & AI Coding] GitHub Blog: GitHub Copilot app: The agent-native desktop experience
-- [Developer Tooling & AI Coding] Microsoft AI: Introducing MAI-Code-1-Flash
-- [Security & Ethical Hacking] FLATT Security: Poisoning Claude Code: One GitHub Issue to Break the Supply Chain
-- [Security & Ethical Hacking] Ammar Askar: 1-Click GitHub Token Stealing via a VSCode Bug
-- [Security & Ethical Hacking] AWS Security Blog: Well-Architected Best Practices for Software Supply Chain Security
-- [DevOps & CI/CD] DigitalOcean: DigitalOcean Serverless Inference: A Deep Dive
-- [Software Architecture] Martin Fowler: Fragments: June 2
-- [Workflow Automation] n8n Blog: How can I make AI Agents more reliable and restrict the actions they can take?
-- [Game Development / Unity] Game Developer: How to direct unconventional games like Control Resonant
-- [Technical Art & Creator Tools] 80 Level: Sparseal Announces New AI-Assisted Retopology Tool
-- [Game Development / Unity] DEV.to: Kill the Double Coding Tax: A Hybrid Approach to Authoritative Multiplayer Turn-Based Games
+- [AI / LLM Research & Tooling] Microsoft Foundry Blog: Build 2026: From observability to ROI for AI agents on any framework
+- [AI / LLM Research & Tooling] Microsoft Foundry Blog: Build agents you can trust across any framework with open evals and a control standard
+- [.NET Ecosystem] Microsoft Agent Framework: Microsoft Agent Framework at BUILD 2026
+- [Azure & Cloud] Microsoft Foundry Blog: Build and run agents at scale with Microsoft Foundry at Build 2026
+- [Azure & Cloud] Azure Cosmos DB Blog: Announced at MS Build 2026: Azure Cosmos DB MCP Toolkit, Semantic Reranking, Global Secondary Indexes, and more!
+- [DevOps & CI/CD] GitHub Changelog Actions: View Agentic Workflow configs in the Actions run summary
+- [DevOps & CI/CD] DigitalOcean: The Inference Tax: How Prefix-Aware Routing Eliminates the Hidden Cost of LLMs at Scale | DigitalOcean
+- [Security & Ethical Hacking] BleepingComputer: Red Hat npm packages compromised to steal developer credentials
+- [Security & Ethical Hacking] Vercel: Protecting against token theft
+- [Software Architecture] Thoughtworks Insights: How to implement effective review gates for AI-assisted development | Thoughtworks
+- [Software Architecture] High Scalability: Gossip Protocol Explained - High Scalability -
+- [Game Development / Unity] Unity Blog: What is Unity Pipeline Automation?
+- [Technical Art & Creator Tools] 80 Level: How To Implement Colored Penumbra Shadows In UE5
+- [Technical Art & Creator Tools] Tech-Artists.org: Real‑world terrain for Houdini: replaces Mapbox‑to‑Houdini
+- [Game Development / Unity] 80 Level: Ludeo Converts Clips of Your Games Into Instantly Playable Snippets
 
 ## Files written
-- raw/2026-06-03-rss-80-level-sparseal-announces-new-ai-assisted-retopology-tool.md
-- raw/2026-06-03-rss-ammar-askar-1-click-github-token-stealing-via-a-vscode-bug.md
-- raw/2026-06-03-rss-aws-security-blog-well-architected-best-practices-for-software-supply-.md
-- raw/2026-06-03-rss-azure-blog-introducing-azure-functions-skills-an-ai-era-workspace-for-.md
-- raw/2026-06-03-rss-dev-to-kill-the-double-coding-tax-a-hybrid-approach-to-authoritative-m.md
-- raw/2026-06-03-rss-digitalocean-digitalocean-serverless-inference-a-deep-dive.md
-- raw/2026-06-03-rss-flatt-security-poisoning-claude-code-one-github-issue-to-break-the-sup.md
-- raw/2026-06-03-rss-game-developer-how-to-direct-unconventional-games-like-control-resonan.md
-- raw/2026-06-03-rss-google-developers-blog-a-smarter-google-ai-edge-gallery-mcp-integratio.md
-- raw/2026-06-03-rss-hugging-face-blog-holo3-1-fast-local-computer-use-agents.md
-- raw/2026-06-03-rss-martin-fowler-fragments-june-2.md
-- raw/2026-06-03-rss-n8n-blog-how-can-i-make-ai-agents-more-reliable-and-restrict-the-actio.md
-- raw/2026-06-03-web-azure-cosmos-db-blog-azure-cosmos-db-mcp-toolkit-is-now-generally-avai.md
-- raw/2026-06-03-web-github-blog-github-copilot-app-the-agent-native-desktop-experience.md
-- raw/2026-06-03-web-microsoft-ai-introducing-mai-code-1-flash.md
+- raw/2026-06-04-web-80-level-ludeo-converts-clips-of-your-games-into-instantly-playable-sn.md
+- raw/2026-06-04-web-microsoft-foundry-blog-build-2026-from-observability-to-roi-for-ai-age.md
+- raw/2026-06-04-web-microsoft-foundry-blog-build-agents-you-can-trust-across-any-framework.md
+- raw/2026-06-04-web-microsoft-agent-framework-microsoft-agent-framework-at-build-2026.md
+- raw/2026-06-04-web-microsoft-foundry-blog-build-and-run-agents-at-scale-with-microsoft-fo.md
+- raw/2026-06-04-web-azure-cosmos-db-blog-announced-at-ms-build-2026-azure-cosmos-db-mcp-to.md
+- raw/2026-06-04-web-github-changelog-actions-view-agentic-workflow-configs-in-the-actions-.md
+- raw/2026-06-04-web-digitalocean-the-inference-tax-how-prefix-aware-routing-eliminates-the.md
+- raw/2026-06-04-web-bleepingcomputer-red-hat-npm-packages-compromised-to-steal-developer-c.md
+- raw/2026-06-04-web-vercel-protecting-against-token-theft.md
+- raw/2026-06-04-web-thoughtworks-insights-how-to-implement-effective-review-gates-for-ai-a.md
+- raw/2026-06-04-web-high-scalability-gossip-protocol-explained-high-scalability.md
+- raw/2026-06-04-rss-unity-blog-what-is-unity-pipeline-automation.md
+- raw/2026-06-04-web-80-level-how-to-implement-colored-penumbra-shadows-in-ue5.md
+- raw/2026-06-04-web-tech-artists-org-real-world-terrain-for-houdini-replaces-mapbox-to-hou.md
 
 ## Failures / skips
-- OpenAI: HTTPError: HTTP Error 403: Forbidden: https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/
+_None_

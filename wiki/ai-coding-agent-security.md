@@ -394,3 +394,42 @@ Relationships added: CoCo workloads depend-on remote attestation and runtime-sid
 ### Privacy and quality notes
 - Privacy filter: exploit payloads, token-exchange procedure details, and exfiltration examples were reduced to defensive control language. No tokens, malware indicators, or runnable attack sequences were copied into wiki prose.
 - Quality posture: Askar and Flatt sources are primary security-research writeups; AWS is vendor-authored but strong for control taxonomy. Validate current VS Code/GitHub/Anthropic mitigation status before treating the historical vulnerabilities as still exploitable.
+
+## 2026-06-04 compile additions
+
+### Claims
+- BleepingComputer reports more than 30 npm packages under Red Hat's `@redhat-cloud-services` namespace were compromised in a supply-chain attack distributing a Shai-Hulud-style credential stealer variant called Miasma; Red Hat said the affected packages were internal development tooling and removed them from npm. confidence: 1 security-news source quoting Red Hat/researchers, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-bleepingcomputer-red-hat-npm-packages-compromised-to-steal-developer-c.md]
+- The reported Red Hat/Miasma attack path abused a compromised GitHub account, malicious commits, a GitHub Actions workflow, `id-token: write`, npm trusted publishing, and package `preinstall` execution to publish backdoored package versions. confidence: 1 security-news source citing Aikido/OX Security, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-bleepingcomputer-red-hat-npm-packages-compromised-to-steal-developer-c.md]
+- Vercel frames inference theft as a high-margin abuse model for internet-facing AI endpoints: attackers wrap custom AI endpoints behind OpenAI/Anthropic-compatible adapters, fan requests through residential proxies, and resell stolen inference. confidence: 1 Vercel source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-vercel-protecting-against-token-theft.md]
+- Vercel argues AI endpoint protection needs per-request verification because auth walls and session-level checks are amortized across many stolen inference calls; Vercel reports using BotID deep analysis on every AI request. confidence: 1 Vercel source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-vercel-protecting-against-token-theft.md]
+- Thoughtworks' review-gates source reinforces that AI-assisted work should stop at explicit review gates: inner gates after each red-green-refactor test cycle and outer gates at milestone boundaries, with context files updated at stable checkpoints. confidence: 1 Thoughtworks source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-thoughtworks-insights-how-to-implement-effective-review-gates-for-ai-a.md; page: [[ai-assisted-software-practice]]]
+
+### Typed entities
+- package namespace: `@redhat-cloud-services`
+- malware family/variant: Miasma
+- malware family: Shai-Hulud
+- permission: `id-token: write`
+- control: npm trusted publishing
+- package lifecycle hook: `preinstall`
+- threat: inference theft
+- control: per-request verification
+- product/control: Vercel BotID
+- pattern: review gate
+
+### Explicit relationships
+- Compromised source repositories can cause legitimate package publishes when GitHub Actions and trusted publishing are abused.
+- `id-token: write` can amplify package-publishing compromise when workflow permissions and target package lists are not constrained.
+- Package install hooks create immediate execution risk for developer workstations and CI runners.
+- Inference theft depends-on adapter/proxy infrastructure that turns a victim endpoint into a provider-compatible resale surface.
+- Per-request bot verification supersedes session-only checks for high-value AI inference endpoints.
+- Review gates complement sandboxing by limiting assumption drift and unreviewed diff size.
+
+### HoneyDrunk implications
+- Audit npm/GitHub publishing workflows for `id-token: write`, trusted-publishing package scope, CODEOWNERS on workflow/package files, and install-script risk.
+- Treat any package compromise as a credential incident for affected developer/CI environments; rotate reachable tokens rather than only removing the package.
+- For public AI endpoints, verify callers at the request that consumes inference, not only at signup or session start.
+- Keep AI-code review gates small enough that Oleg/Honeyclaw can actually inspect the diff and tests before the next milestone proceeds.
+
+### Privacy and quality notes
+- Privacy filter: payload mechanics, infrastructure indicators, and runnable malware details were summarized at control level and not copied.
+- Quality posture: BleepingComputer is secondary reporting; use Red Hat, Aikido, OX Security, and npm/GitHub records for incident-grade follow-up.

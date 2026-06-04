@@ -145,3 +145,25 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 - Include composite actions in GitHub Actions pinning audits.
 - If HoneyDrunk uses GHES before 3.22, verify CodeQL version manually before expecting these GitHub Actions detections.
 - Choose Copilot code-review runners deliberately if review traffic grows; runner class affects cost, isolation, and throughput.
+
+## 2026-06-04 compile additions
+
+### Claims
+- GitHub Actions now shows Agentic Workflow markdown configs directly in the Actions run summary for agentic workflows, reducing page switching and preserving the exact config used for the run. confidence: 1 GitHub changelog source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-github-changelog-actions-view-agentic-workflow-configs-in-the-actions-.md]
+- The Red Hat/Miasma package compromise report reinforces that GitHub Actions workflow permissions, OIDC trusted publishing, and package release workflows form one supply-chain trust boundary. confidence: 1 security-news source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-bleepingcomputer-red-hat-npm-packages-compromised-to-steal-developer-c.md; page: [[ai-coding-agent-security]]]
+
+### Typed entities
+- feature: GitHub Agentic Workflow run-summary config view
+- artifact: agentic workflow markdown config
+- platform: GitHub Actions
+- control: OIDC trusted publishing
+- permission: `id-token: write`
+
+### Explicit relationships
+- Agentic workflow review depends-on seeing the exact markdown configuration used during a run.
+- GitHub Actions OIDC trusted publishing depends-on strict workflow permissions and repository write controls.
+- Run-summary visibility complements, but does not replace, CODEOWNERS/review on agentic workflow configs.
+
+### HoneyDrunk implications
+- Treat agentic workflow markdown as executable CI configuration: require code review, CODEOWNERS, and run-summary inspection for high-risk workflows.
+- Include agentic workflow configs in CI/security audits alongside `.github/workflows`, composite actions, and publish scripts.
