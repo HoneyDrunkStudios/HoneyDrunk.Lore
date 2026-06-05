@@ -203,3 +203,35 @@ Anthropic's 2026 platform direction is enterprise/workflow-heavy: Claude Opus 4.
 ### HoneyDrunk implications
 - Parallel Claude sessions need the same cost, status, and review discipline as dynamic workflows; more visible sessions do not remove human attention limits.
 - When designing HoneyDrunk desktop agents, choose isolation based on target user expertise. Developers can handle more explicit review than nontechnical operators, but both need hard boundaries.
+
+## 2026-06-05 compile additions
+
+### Claims
+- Anthropic says eligible Claude Pro, Max, Team, and Enterprise plan users can claim a separate monthly Claude Agent SDK credit starting 2026-06-15; Claude Platform API-key users continue pay-as-you-go and do not receive this subscription credit. confidence: 1 Anthropic Help Center source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-use-the-claude-agent-sdk-with-your-claude-plan.md]
+- Agent SDK credit applies to Claude Agent SDK usage, `claude -p`, Claude Code GitHub Actions, and third-party apps authenticated through the Agent SDK, but not to interactive Claude Code, Claude web/desktop/mobile conversations, or Claude Cowork. confidence: 1 Anthropic Help Center source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-use-the-claude-agent-sdk-with-your-claude-plan.md]
+- The credit is per-user, monthly, non-pooled, non-rollover, opt-in once, and drains before usage credits; after the credit is exhausted, additional Agent SDK requests require enabled usage credits or stop until refresh. confidence: 1 Anthropic Help Center source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-use-the-claude-agent-sdk-with-your-claude-plan.md]
+- Anthropic explicitly says teams running shared production automation should use Claude Platform API keys for predictable pay-as-you-go billing rather than relying on individual Agent SDK monthly credits. confidence: 1 Anthropic Help Center source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-use-the-claude-agent-sdk-with-your-claude-plan.md]
+
+### Typed entities
+- product: Claude Agent SDK
+- command: `claude -p`
+- integration: Claude Code GitHub Actions
+- plan: Claude Pro
+- plan: Claude Max
+- plan: Claude Team
+- plan: Claude Enterprise
+- billing concept: monthly Agent SDK credit
+- billing concept: usage credits
+- product: Claude Platform API key
+
+### Explicit relationships
+- Agent SDK credit separates non-interactive SDK automation from interactive Claude subscription limits for eligible subscription users after 2026-06-15.
+- Individual subscription credits contradict pooled team automation budgets because credits are per-user and non-transferable.
+- Claude Platform API keys supersede individual plan credits for shared production automation when predictable billing is required.
+
+### HoneyDrunk implications
+- Use personal Agent SDK credits for experimentation only; shared HoneyDrunk jobs need service-owned API keys, budgets, logs, and ownership.
+- Track `claude -p` and GitHub Actions usage separately from interactive Claude Code usage when estimating team costs.
+
+### Quality notes
+- Billing and plan terms are date-sensitive. Recheck Anthropic account docs before changing automation routing or cost policy.

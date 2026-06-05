@@ -149,3 +149,38 @@ Two GitHub platform changes affect automation cost and compatibility: GitHub App
 
 ### Quality notes
 - GitHub and Microsoft claims are product-launch claims. Features are preview/rollout-dependent and should be verified in the actual HoneyDrunk Copilot plan before workflow changes.
+
+## 2026-06-05 compile additions
+
+### Claims
+- GitHub Copilot cloud agent tasks can now be started and tracked through the Agent tasks REST API for Copilot Pro, Pro+, and Max users in public preview, with authentication by classic/fine-grained personal access tokens or OAuth tokens. confidence: 1 GitHub changelog source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-agent-tasks-rest-api-now-available-for-copilot-pro-pro-and-max.md]
+- The Agent tasks REST API is positioned for custom automation such as repository-wide migrations, internal developer-portal repository setup, and recurring release preparation. confidence: 1 GitHub changelog source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-agent-tasks-rest-api-now-available-for-copilot-pro-pro-and-max.md]
+- Copilot cloud agent automations can run on schedules or repository events and can triage issues, attempt nightly failing-test fixes, or prepare weekly release-note pull requests without manual launch. confidence: 1 GitHub changelog source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-schedule-and-automate-tasks-with-copilot-cloud-agent.md]
+- Copilot automations are scoped to a single repository and can be configured with a prompt, trigger, tool allowlist, model, and billing attribution to the creating user at standard usage-based rates. confidence: 1 GitHub changelog source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-schedule-and-automate-tasks-with-copilot-cloud-agent.md]
+- GitHub's separate sandbox changelog says Copilot can run shell command execution inside local sandboxes with filesystem/network/system restrictions and ephemeral cloud Linux sandboxes that inherit organization Copilot cloud-agent policy. confidence: 1 GitHub changelog source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-cloud-and-local-sandboxes-for-github-copilot-now-in-public-preview.md]
+
+### Typed entities
+- API: GitHub Agent tasks REST API
+- product: Copilot cloud agent
+- feature: Copilot automations
+- feature: local sandbox
+- feature: cloud sandbox
+- control: tool allowlist
+- auth: personal access token
+- auth: OAuth token
+- billing: usage-based Copilot token usage
+- technology: Microsoft MXC
+
+### Explicit relationships
+- Agent tasks REST API uses Copilot cloud agent as an automation target for background repository work.
+- Copilot automations depend-on repository-scoped prompts, triggers, tools, and model selection.
+- Copilot automations use usage-based billing attributed to the automation creator.
+- Local sandboxes constrain Copilot-initiated shell execution; cloud sandboxes isolate Copilot sessions in GitHub-hosted ephemeral Linux environments.
+
+### HoneyDrunk implications
+- Treat Copilot cloud-agent automations as CI-adjacent scheduled actors: define repository scope, tool allowlist, spend owner, branch/PR behavior, and review requirements before enabling.
+- Do not fan out agent tasks across many repositories without budget limits, progress tracking, and a rollback plan.
+- Prefer sandboxed Copilot execution where available, but keep host-executed artifacts, workflow changes, package scripts, and generated tests under normal PR review.
+
+### Quality notes
+- GitHub features are public preview/rollout-dependent. Verify availability, pricing, token scopes, and org policy controls in the actual HoneyDrunk GitHub plan before operational use.

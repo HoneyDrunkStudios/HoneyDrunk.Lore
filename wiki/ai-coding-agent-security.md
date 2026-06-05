@@ -433,3 +433,56 @@ Relationships added: CoCo workloads depend-on remote attestation and runtime-sid
 ### Privacy and quality notes
 - Privacy filter: payload mechanics, infrastructure indicators, and runnable malware details were summarized at control level and not copied.
 - Quality posture: BleepingComputer is secondary reporting; use Red Hat, Aikido, OX Security, and npm/GitHub records for incident-grade follow-up.
+
+## 2026-06-05 compile additions
+
+### Claims
+- Docker's practical agent-security overview organizes production AI-agent security into four domains: execution isolation, tool access control, identity/credential management, and runtime monitoring. confidence: 1 Docker source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-how-to-secure-ai-agents-a-practical-overview.md]
+- The same source argues permission prompts are not a durable security strategy because approval fatigue scales poorly; infrastructure-level isolation and policy enforcement are stronger controls for autonomous agents. confidence: 1 Docker source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-how-to-secure-ai-agents-a-practical-overview.md]
+- Docker recommends task-scoped tool availability, curated/provenance-verified tool registries, review of tool descriptions as well as code, dedicated scoped agent identities, short-lived runtime-injected credentials, and full tool-call decision-chain logging. confidence: 1 Docker source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-how-to-secure-ai-agents-a-practical-overview.md]
+- Docker's software supply-chain overview reinforces that build systems, base images, registries, CI/CD pipelines, SBOMs, signing, provenance attestations, vulnerability scans, and deploy-time verification are one continuous trust boundary rather than separate compliance checkboxes. confidence: 1 Docker source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-what-is-software-supply-chain-security.md]
+- Calif/Jun Rong reports an HTTP/2 memory-exhaustion attack chain against default HTTP/2 configurations in multiple major servers, combining HPACK header-reference amplification with stalled response flow control; nginx and Apache had public fixes or mitigations, while some affected implementations were still pending fixes at publication time. confidence: 1 primary security-research source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-codex-discovered-a-hidden-http-2-bomb.md]
+- The HTTP/2 source's durable defense lesson is that HTTP/2 termination points need both decoded-header-size limits and header-field-count limits, including cookie crumbs, plus bounded stalled-stream lifetime and worker/container memory caps. confidence: 1 primary security-research source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-codex-discovered-a-hidden-http-2-bomb.md]
+- GitHub Copilot local/cloud sandboxes add first-party isolated execution options for Copilot shell command execution and cloud tasks, but they do not remove the need for scoped credentials, egress policy, generated-artifact review, and repository workflow safeguards. confidence: 1 GitHub source plus existing page posture, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-cloud-and-local-sandboxes-for-github-copilot-now-in-public-preview.md]
+
+### Typed entities
+- control domain: execution isolation
+- control domain: tool access control
+- control domain: agent identity and credentials
+- control domain: runtime monitoring
+- threat: tool poisoning
+- control: curated tool registry
+- control: dedicated scoped agent identity
+- artifact: SBOM
+- standard: SLSA
+- standard: NIST SSDF
+- concept: provenance attestation
+- vulnerability class: HTTP/2 HPACK memory exhaustion
+- protocol: HTTP/2
+- compression scheme: HPACK
+- server/product: nginx
+- server/product: Apache httpd
+- server/product: Microsoft IIS
+- server/product: Envoy
+- server/product: Cloudflare Pingora
+- control: header-field-count limit
+- control: stalled-stream lifetime bound
+- product: GitHub Copilot local/cloud sandboxes
+
+### Explicit relationships
+- Agent security depends-on isolation, scoped tools, scoped identity, and monitoring working together; prompts and approvals alone do not enforce the boundary.
+- Tool poisoning uses trusted tool metadata as a prompt-injection surface, so tool-description review complements code/provenance review.
+- Supply-chain security uses SBOMs, signing, provenance, trusted base images, and registry/deploy policies to verify artifacts at each transition.
+- AI coding agents can accelerate vulnerability discovery by composing known attack primitives across codebases.
+- HTTP/2 memory exhaustion is caused by HPACK allocation amplification combined with flow-control stalls that keep allocations live.
+- Copilot sandboxes complement, but do not supersede, supply-chain and repository-level controls.
+
+### HoneyDrunk implications
+- Define a minimum agent-security baseline for OpenClaw/Honeyclaw: disposable isolated workspace, egress allowlist, task-scoped tools, short-lived non-human credentials, and full tool-call audit.
+- Add supply-chain controls to agent-generated changes: signed/trusted base images, SBOM generation, dependency provenance, action pinning, and deploy-time image verification where applicable.
+- Inventory any HoneyDrunk public HTTP/2 termination points and verify server versions/configuration for header-count, cookie-crumb, stalled-stream, and worker-memory controls.
+- Treat first-party Copilot sandboxes as a candidate execution layer, but still inspect generated CI workflows, package scripts, hooks, and dependency changes before host or production execution.
+
+### Privacy and quality notes
+- Privacy filter: exploit mechanics were summarized at mitigation/control level; no PoC commands or runnable attack procedure were copied into the wiki.
+- Quality posture: Docker sources are vendor-authored but useful control taxonomies. The HTTP/2 source is primary research with active disclosure/patch status that must be checked against current vendor advisories before incident response.

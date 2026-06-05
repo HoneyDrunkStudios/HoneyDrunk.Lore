@@ -1,31 +1,32 @@
-# OpenClaw Lore ingest run - 2026-06-04
+# OpenClaw Lore ingest run - 2026-06-05
 
-- Timestamp: 2026-06-04 10:15 America/New_York / 2026-06-04 14:15 UTC
+- Timestamp: 2026-06-05 10:08 America/New_York / 2026-06-05 14:08 UTC
 - Operator: Honeyclaw / OpenClaw scheduled ingest
 
 ## Raw sources ingested: 15
 
-1. `raw/2026-06-04-rss-unity-blog-what-is-unity-pipeline-automation.md` - Unity Pipeline Automation directed-graph cloud workflows for 3D/CAD/asset pipelines.
-2. `raw/2026-06-04-web-80-level-how-to-implement-colored-penumbra-shadows-in-ue5.md` - UE5 colored dynamic-shadow penumbra shader technique.
-3. `raw/2026-06-04-web-80-level-ludeo-converts-clips-of-your-games-into-instantly-playable-sn.md` - Ludeo playable gameplay snippet / creator-discovery program.
-4. `raw/2026-06-04-web-azure-cosmos-db-blog-announced-at-ms-build-2026-azure-cosmos-db-mcp-to.md` - Cosmos DB Build 2026 MCP, Agent Kit, memory, reranking, GSI, failover, and backup updates.
-5. `raw/2026-06-04-web-bleepingcomputer-red-hat-npm-packages-compromised-to-steal-developer-c.md` - Red Hat npm namespace compromise and Miasma/Shai-Hulud-style credential-theft chain.
-6. `raw/2026-06-04-web-digitalocean-the-inference-tax-how-prefix-aware-routing-eliminates-the.md` - DigitalOcean/vLLM prefix caching and prefix-aware routing for shared-prefix inference.
-7. `raw/2026-06-04-web-github-changelog-actions-view-agentic-workflow-configs-in-the-actions-.md` - GitHub Actions agentic workflow config visibility in run summaries.
-8. `raw/2026-06-04-web-high-scalability-gossip-protocol-explained-high-scalability.md` - Gossip protocol architecture primer.
-9. `raw/2026-06-04-web-microsoft-agent-framework-microsoft-agent-framework-at-build-2026.md` - Microsoft Agent Framework Build 2026 session and roadmap signal.
-10. `raw/2026-06-04-web-microsoft-foundry-blog-build-2026-from-observability-to-roi-for-ai-age.md` - Foundry observability, multi-turn evals, trace replay, optimizer, and ROI loop.
-11. `raw/2026-06-04-web-microsoft-foundry-blog-build-agents-you-can-trust-across-any-framework.md` - ASSERT, Agent Control Specification, guardrails, Rubric, and Foundry data protection.
-12. `raw/2026-06-04-web-microsoft-foundry-blog-build-and-run-agents-at-scale-with-microsoft-fo.md` - Foundry Agent Service, Toolboxes, Foundry IQ, hosted agents, memory, routines, and A2A.
-13. `raw/2026-06-04-web-tech-artists-org-real-world-terrain-for-houdini-replaces-mapbox-to-hou.md` - Houdini HDA terrain/splatmap generation product/forum signal.
-14. `raw/2026-06-04-web-thoughtworks-insights-how-to-implement-effective-review-gates-for-ai-a.md` - Thoughtworks milestones, inner/outer review gates, and living context file workflow.
-15. `raw/2026-06-04-web-vercel-protecting-against-token-theft.md` - Vercel inference-theft threat model and per-request AI endpoint verification.
+1. `raw/2026-06-05-web-agent-tasks-rest-api-now-available-for-copilot-pro-pro-and-max.md` - GitHub Agent tasks REST API for Copilot cloud agent.
+2. `raw/2026-06-05-web-blender-5-2-lts-moves-into-beta.md` - Blender 5.2 LTS beta technical-art and DCC workflow signal.
+3. `raw/2026-06-05-web-cloud-and-local-sandboxes-for-github-copilot-now-in-public-preview.md` - GitHub Copilot local/cloud sandbox preview for isolated agent execution.
+4. `raw/2026-06-05-web-code-is-cheap-er.md` - Engineering-practice essay on cheap generated code, expensive understanding, and subtractive engineering.
+5. `raw/2026-06-05-web-codex-discovered-a-hidden-http-2-bomb.md` - HTTP/2 HPACK/flow-control memory-exhaustion research, promoted only at mitigation/control level.
+6. `raw/2026-06-05-web-codex-for-every-role-tool-and-workflow.md` - Codex role plugins, Sites preview, and annotations.
+7. `raw/2026-06-05-web-designing-the-hf-cli-as-an-agent-optimized-way-to-work-with-the-hub.md` - Hugging Face `hf` CLI agent-mode design and benchmark.
+8. `raw/2026-06-05-web-foundry-iq-build-smarter-agents-faster-with-unified-knowledge-and-server.md` - Foundry IQ GA/serverless/MCP/multi-source retrieval updates.
+9. `raw/2026-06-05-web-how-to-secure-ai-agents-a-practical-overview.md` - Docker practical agent-security control taxonomy.
+10. `raw/2026-06-05-web-microsoft-build-2026-building-agentic-apps-with-microsoft-fabric-and-mic.md` - Microsoft Fabric/Rayfin/HorizonDB/Fabric IQ/graph/planning agentic-app announcements.
+11. `raw/2026-06-05-web-released-real-fake-interiors-unity3d-bake-tool-shader-fake-rooms-that-lo.md` - Unity fake-interior bake/shader product signal.
+12. `raw/2026-06-05-web-schedule-and-automate-tasks-with-copilot-cloud-agent.md` - GitHub Copilot cloud-agent scheduled/event automations.
+13. `raw/2026-06-05-web-use-the-claude-agent-sdk-with-your-claude-plan.md` - Claude Agent SDK monthly credit and production billing guidance.
+14. `raw/2026-06-05-web-what-is-software-supply-chain-security.md` - Docker software supply-chain security overview.
+15. `raw/2026-06-05-web-writing-node-js-addons-with-net-native-aot.md` - .NET Native AOT Node-API addon case study.
 
 ## Wiki pages created/updated
 
-- Created: `wiki/distributed-systems-patterns.md`.
-- Updated: `wiki/agent-evaluation-and-benchmarks.md`, `wiki/ai-agent-harnesses.md`, `wiki/ai-assisted-software-practice.md`, `wiki/ai-coding-agent-security.md`, `wiki/azure-agent-automation-and-identity.md`, `wiki/edge-ai-and-ai-infrastructure-2026.md`, `wiki/gamedev-production-and-community-signals.md`, `wiki/github-actions-platform-operations.md`, `wiki/mcp-tool-governance-and-app-surfaces.md`, `wiki/opentelemetry-genai-observability-and-ecosystem.md`, `wiki/realtime-game-network-protocol-design.md`, `wiki/technical-art-community-and-talent-signals.md`, `wiki/unity-3d-and-realtime-vfx-patterns.md`.
+- Created: none.
+- Updated: `wiki/ai-agent-harnesses.md`, `wiki/ai-assisted-software-practice.md`, `wiki/ai-coding-agent-security.md`, `wiki/azure-agent-automation-and-identity.md`, `wiki/claude-platform-2026.md`, `wiki/dotnet-runtime-and-mobile-2026.md`, `wiki/edge-ai-and-ai-infrastructure-2026.md`, `wiki/generative-ui-and-a2ui.md`, `wiki/github-copilot-and-app-token-changes.md`, `wiki/mcp-tool-governance-and-app-surfaces.md`, `wiki/technical-art-community-and-talent-signals.md`, `wiki/unity-3d-and-realtime-vfx-patterns.md`.
 - Updated indexes: `wiki/indexes/sources.md`, `wiki/indexes/topics.md`, `wiki/indexes/gaps.md`.
+- Preserved existing sourcing output change: `output/openclaw-sourcing-last-run.md` was already modified before this ingest pass and was not overwritten.
 
 ## Crystallization from `output/query-*.md`
 
@@ -35,33 +36,33 @@
 ## Contradictions / supersession
 
 - No direct contradictions required supersession.
-- Existing claims were reinforced: production agents need runtime/eval/observability/control infrastructure; agent security belongs in permissions, isolation, workflow gates, and endpoint verification rather than prompts.
+- Existing claims were reinforced: agent security needs execution-layer controls; AI-assisted coding needs small reviewable diffs and human understanding; MCP/knowledge sources need catalog/profile/identity governance; vendor benchmark claims need local validation.
 
 ## Gaps logged
 
-- Foundry platform adoption strategy versus selected OpenClaw-compatible pieces.
-- Cosmos DB-backed agent memory/retrieval governance.
-- DigitalOcean prefix-aware routing local reproducibility.
-- Public AI endpoint inference-theft controls.
-- npm/GitHub trusted-publishing and `id-token: write` audit scope.
-- AI-assisted implementation milestone/review-gate policy.
-- Unity Pipeline Automation scale-fit validation.
-- UE5 colored penumbra and Houdini terrain HDA technical-art validation.
-- Gossip protocol suitability for OpenClaw/Grid worker presence.
-- Playable-snippet/creator-discovery marketing fit.
+- Copilot cloud-agent REST/API and scheduled automation policy by repository.
+- Agent execution isolation choice across Copilot sandboxes, Docker Sandboxes, Azure dynamic sessions, AKS Kata, or hybrid models.
+- HoneyDrunk HTTP/2 termination inventory and HTTP/2 Bomb mitigation status.
+- Agent-optimized HoneyDrunk CLI/tool contract based on `hf` CLI patterns.
+- Foundry IQ/Fabric IQ/Rayfin/HorizonDB evaluation versus flat-file/lightweight Lore architecture.
+- Software supply-chain security baseline by HoneyDrunk repo.
+- .NET Native AOT Node-API addon applicability to HoneyDrunk Node tooling.
+- Blender 5.2 LTS and Real Fake Interiors validation on representative assets/scenes.
+- Claude Agent SDK credit separation between personal experiments and shared production automation.
 
 ## Quality posture
 
-- Decision-usefulness: strongest for Foundry/agent-eval architecture, Cosmos DB agent-data governance, inference routing economics, supply-chain controls, inference-theft mitigation, and AI review-gate workflow design.
-- Weak claims: Microsoft, Unity, DigitalOcean, and Vercel sources are vendor-authored; 80 Level and Tech-Artists.org items are scouting/trade/community signals; High Scalability is a secondary architecture explainer.
-- Privacy/safety filtering: malware, token-theft, and credential-exfiltration details were reduced to control-level summaries. No tokens, indicators, runnable payloads, or unsafe commands were copied into wiki pages.
+- Decision-usefulness: strongest for Copilot automation/sandbox policy, agent-security baseline, supply-chain controls, agent-optimized CLI design, Microsoft managed knowledge/data stack scouting, and .NET/Node interop.
+- Weak claims: Microsoft, GitHub, Docker, OpenAI, Anthropic, Hugging Face, and DigitalOcean-adjacent items are vendor-authored/product-launch claims; 80 Level and RealtimeVFX items are scouting/trade/community/product signals; local validation is required before adoption.
+- Privacy/safety filtering: HTTP/2 exploit details, malware/supply-chain mechanics, and token/credential topics were summarized at control level. No runnable exploit commands, payloads, credentials, tokens, or private PII were copied into wiki pages.
 - Source citations: all promoted claims cite immutable raw filenames.
 
 ## Validation
 
-- Raw source coverage check passed: every raw file except `.gitkeep` appears in `wiki/indexes/sources.md`.
+- Raw source coverage check passed after index update: every raw file except `.gitkeep` appears in `wiki/indexes/sources.md`.
+- June 5 source coverage check passed: all 15 `raw/2026-06-05-*` files appear in `wiki/indexes/sources.md`.
 - Query crystallization check found no new unrepresented durable query outputs.
 
 ## Blockers
 
-- None for content quality or validation at write time. Safe to commit/push if git commit and remote push succeed.
+- None for content quality at write time. Safe to commit/push if validation, commit, and remote push succeed.

@@ -277,3 +277,34 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 - Catalog MCP/tool entries with capability class, data source, identity scope, mutability, and retrieval size limits.
 - Treat "tool search" as a governance feature only if the underlying catalog is already curated; search over unsafe tools still exposes unsafe tools.
 - For database-backed agents, separate operational writes, read-only retrieval, schema sampling, memory storage, and vector/full-text workloads by identity and container/index policy.
+
+## 2026-06-05 compile additions
+
+### Claims
+- Foundry IQ knowledge bases are generally available with a Foundry IQ MCP server that exposes governed knowledge bases to any MCP-compatible host, including Claude, ChatGPT, LangChain, and Microsoft Agent Framework. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-foundry-iq-build-smarter-agents-faster-with-unified-knowledge-and-server.md]
+- Foundry IQ can treat MCP servers themselves as knowledge sources inside a multi-source knowledge base, so MCP is both an access protocol for agents and an ingest/retrieval source inside Microsoft's knowledge layer. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-foundry-iq-build-smarter-agents-faster-with-unified-knowledge-and-server.md]
+- Microsoft Fabric Build 2026 says Fabric IQ tools and skills are accessible through GitHub Copilot CLI via Agent Skills for Fabric, letting terminal agents query Power BI reports and semantic models through governed Fabric context. confidence: 1 Microsoft Fabric source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-microsoft-build-2026-building-agentic-apps-with-microsoft-fabric-and-mic.md]
+- Anthropic's Agent SDK credit article states third-party apps can authenticate with a user's Claude subscription through the Agent SDK, which makes app/SDK authentication mode part of tool-governance and billing policy. confidence: 1 Anthropic Help Center source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-use-the-claude-agent-sdk-with-your-claude-plan.md]
+
+### Typed entities
+- product: Foundry IQ MCP server
+- product: Fabric IQ
+- tool package: Agent Skills for Fabric
+- client: GitHub Copilot CLI
+- data product: Power BI semantic model
+- SDK: Claude Agent SDK
+- concept: subscription-authenticated third-party app
+
+### Explicit relationships
+- Foundry IQ MCP server uses MCP as a governed retrieval interface.
+- MCP servers can also serve as inputs to multi-source knowledge bases, so provenance and capability metadata matter on both ingress and egress.
+- Agent Skills for Fabric expose governed Fabric/Power BI context to coding-agent CLIs.
+- Third-party Agent SDK apps depend-on user subscription authentication and plan-specific billing/credit rules.
+
+### HoneyDrunk implications
+- Catalog knowledge MCP servers separately from action MCP servers: retrieval-only knowledge sources still need source provenance, sensitivity labels, indexing status, and citation behavior.
+- If using Fabric/Power BI agent skills, label them as business-data tools with strict identity, audit, and export controls rather than generic coding helpers.
+- For third-party Agent SDK apps, record whether the app bills through individual subscription credits or an organization API key before team use.
+
+### Quality notes
+- Microsoft and Anthropic claims are product/platform documentation. Verify current auth headers, workspace admin controls, and data-retention terms before connecting private HoneyDrunk data.

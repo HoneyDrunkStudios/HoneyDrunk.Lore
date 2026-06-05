@@ -245,3 +245,44 @@ Azure's May 2026 agent/developer tooling signal is that agent automation is movi
 - If HoneyDrunk exposes agents in Teams/M365, treat agent identity as an audited enterprise principal with separate permissions from the human operator.
 - For Cosmos-backed agent memory, define partition keys, GSI strategy, backup/restore posture, and failover requirements before storing durable agent state.
 - Validate Build 2026 preview features locally before depending on them for production agent memory or data planes.
+
+## 2026-06-05 compile additions
+
+### Claims
+- Foundry IQ knowledge bases are generally available as a production knowledge layer with stable APIs, SLA coverage, compliance certifications, output/activity logs, minimal retrieval reasoning effort, and a Foundry IQ MCP server for MCP-compatible hosts. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-foundry-iq-build-smarter-agents-faster-with-unified-knowledge-and-server.md]
+- Foundry IQ Serverless Developer tier is in public preview with scale-to-zero pricing, Compute Unit metering, and preview limits such as 1 GB indexed storage per index and 30 indexes per service. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-foundry-iq-build-smarter-agents-faster-with-unified-knowledge-and-server.md]
+- Foundry IQ preview sources can unify Work IQ, Fabric IQ, File Search, Azure SQL, and MCP sources into multi-source knowledge bases while respecting permission models; Web IQ adds external web/news/image/video/shopping grounding with zero data retention claims. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-foundry-iq-build-smarter-agents-faster-with-unified-knowledge-and-server.md]
+- Microsoft Fabric Build 2026 announced Rayfin, an open-source SDK/CLI that lets developers and coding agents define data models, backend logic, and access policies in code and deploy an enterprise-grade application backend to Microsoft Fabric. confidence: 1 Microsoft Fabric source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-microsoft-build-2026-building-agentic-apps-with-microsoft-fabric-and-mic.md]
+- Azure HorizonDB is in public preview as a managed PostgreSQL-compatible database for AI applications, with claimed zone resilience, 128 TB elastic storage, scale-out compute up to 3,072 vCores, vector search, AI model management, and direct Foundry/Fabric connectivity. confidence: 1 Microsoft source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-microsoft-build-2026-building-agentic-apps-with-microsoft-fabric-and-mic.md]
+- Fabric IQ is generally available as a shared business-context layer, with graph in Fabric generally available and planning in Fabric expected later in June 2026; Ontologies are previewed in Foundry and Agent 365 as knowledge/tool surfaces. confidence: 1 Microsoft Fabric source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-microsoft-build-2026-building-agentic-apps-with-microsoft-fabric-and-mic.md]
+
+### Typed entities
+- product: Foundry IQ
+- feature: Foundry IQ Serverless
+- product: Work IQ
+- product: Fabric IQ
+- product: Web IQ
+- product: Rayfin
+- database: Azure HorizonDB
+- service: Microsoft Fabric
+- service: OneLake
+- feature: Fabric graph
+- feature: planning in Fabric
+- concept: ontology
+- product/control plane: Agent 365
+
+### Explicit relationships
+- Foundry IQ uses MCP to expose governed knowledge bases to non-Microsoft agent hosts.
+- Foundry IQ Serverless uses scale-to-zero retrieval infrastructure for bursty agent workloads.
+- Work IQ, Fabric IQ, File Search, Azure SQL, MCP, and Web IQ act as knowledge sources behind Foundry IQ retrieval.
+- Rayfin uses code-defined backend/data/access policy to move agent-created applications from prototype to Fabric-hosted production backends.
+- Fabric IQ ontologies and graph features give agents relationship-aware business context rather than raw table/document access alone.
+- HorizonDB complements Cosmos DB and Fabric as an AI-application data plane option for PostgreSQL-compatible workloads.
+
+### HoneyDrunk implications
+- Treat Foundry IQ as a candidate managed retrieval/MCP layer only after validating tenant permissions, source indexing quality, trace/log export, cost, and local connector fit.
+- If HoneyDrunk prototypes agent-created internal apps, Rayfin is a watchlist item for Fabric-backed apps, but lock-in and preview maturity need evaluation.
+- Do not put durable agent memory or business context into Microsoft data planes until partitioning, backup, redaction, identity, and retrieval-eval policies are explicit.
+
+### Quality notes
+- Microsoft Build claims mix GA and preview features. The exact maturity, pricing, region availability, and admin controls should be verified before architectural commitment.

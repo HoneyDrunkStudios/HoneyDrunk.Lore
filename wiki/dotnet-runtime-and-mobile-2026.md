@@ -102,3 +102,37 @@
 ### HoneyDrunk implications
 - For any MAUI Android app, run a visual regression pass across high-use screens before enabling Material 3.
 - Keep `UseMaterial3` branch-scoped until unsupported controls, navigation chrome, brand colors, and Android API-level behavior are checked.
+
+## 2026-06-05 compile additions
+
+### Claims
+- Microsoft's C# Dev Kit team replaced some C++/node-gyp native Node.js addons with .NET Native AOT shared libraries that export the Node-API entry point `napi_register_module_v1`. confidence: 1 Microsoft/.NET Blog source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-writing-node-js-addons-with-net-native-aot.md]
+- The Native AOT Node addon pattern uses `[UnmanagedCallersOnly]` for exported entry points, `[LibraryImport]` P/Invokes against `node`, a `NativeLibrary.SetDllImportResolver` that resolves Node-API symbols from the host process, and Span/ArrayPool-based UTF-8 marshalling. confidence: 1 Microsoft/.NET Blog source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-writing-node-js-addons-with-net-native-aot.md]
+- Microsoft reports the practical benefit was removing an old Python/node-gyp setup requirement for contributors and CI while keeping comparable performance for registry/string-marshalling work; Native AOT's larger memory footprint was described as negligible for the long-running VS Code extension process. confidence: 1 Microsoft/.NET Blog source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-writing-node-js-addons-with-net-native-aot.md]
+- The source notes Native AOT and Node-API are cross-platform, but Native AOT cannot cross-compile across operating systems, so Windows, macOS, and Linux addons require matching build environments. confidence: 1 Microsoft/.NET Blog source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-writing-node-js-addons-with-net-native-aot.md]
+
+### Typed entities
+- product: C# Dev Kit
+- runtime: .NET Native AOT
+- platform/runtime: Node.js
+- API: Node-API / N-API
+- build tool: node-gyp
+- attribute: `[UnmanagedCallersOnly]`
+- attribute/API: `[LibraryImport]`
+- API: `NativeLibrary.SetDllImportResolver`
+- API: `NativeLibrary.GetMainProgramHandle`
+- file extension: `.node`
+- concept: native addon
+
+### Explicit relationships
+- .NET Native AOT can produce Node.js native addons when the shared library exports the Node-API registration entry point.
+- Native AOT Node addons can supersede small C++/node-gyp addons when a team already depends on the .NET SDK and needs a narrow native API bridge.
+- Node-API ABI stability complements Native AOT because Node only requires exported symbols and C ABI calls, not C++ implementation.
+- Cross-platform addon distribution depends-on per-OS Native AOT builds.
+
+### HoneyDrunk implications
+- For HoneyDrunk VS Code/Node tooling that needs native Windows/macOS/Linux operations, consider .NET Native AOT addons before adding C++/node-gyp dependency chains.
+- Keep the pattern narrow: interop code must catch exceptions before returning to Node, handle UTF-8 marshalling carefully, and ship platform-specific `.node` artifacts.
+
+### Quality notes
+- Source is an implementation case study from Microsoft. Validate debugging, packaging, signing, and CI matrix complexity before adopting.

@@ -311,3 +311,35 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 - If HoneyDrunk runs high-volume agent/RAG inference, log prefix length, cache hit rate, TTFT, selected worker/model, tenant isolation controls, and cached-token pricing before making provider decisions.
 - Benchmark prefix-aware routing only on workloads with meaningful shared prefixes; it may not help short independent prompts.
 - Treat vendor 4x cost-reduction claims as an eval hypothesis, not a procurement conclusion.
+
+## 2026-06-05 compile additions
+
+### Claims
+- Foundry IQ Serverless Developer tier is a managed retrieval infrastructure preview with scale-to-zero economics and per-minute Compute Unit metering; Microsoft says billing will not start before late 2026 and details will be provided at least 30 days ahead. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-foundry-iq-build-smarter-agents-faster-with-unified-knowledge-and-server.md]
+- Foundry IQ retrieval updates claim up to 20% answer-quality benchmark improvements and up to 54% recall improvement over single-shot RAG through batched iterative retrieval, semantic ranking, and server-side token caching; treat as vendor-reported retrieval benchmark evidence. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-foundry-iq-build-smarter-agents-faster-with-unified-knowledge-and-server.md]
+- Microsoft Fabric Data Warehouse announced GPU acceleration in early access preview, with Microsoft reporting up to 7x faster performance versus three comparable external vendors for reporting/application workloads at 64-user concurrency in internal May 2026 benchmarking. confidence: 1 Microsoft Fabric source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-microsoft-build-2026-building-agentic-apps-with-microsoft-fabric-and-mic.md]
+- Azure HorizonDB's public preview signals a PostgreSQL-compatible AI-application data plane that combines transactional PostgreSQL compatibility with vector search, AI model management, and Foundry/Fabric connectivity. confidence: 1 Microsoft source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-microsoft-build-2026-building-agentic-apps-with-microsoft-fabric-and-mic.md]
+
+### Typed entities
+- product: Foundry IQ Serverless
+- metric: Compute Unit / CU
+- technique: agentic retrieval
+- technique: semantic ranking
+- technique: server-side token caching
+- service: Fabric Data Warehouse
+- hardware/technique: GPU acceleration
+- database: Azure HorizonDB
+- concept: AI application data plane
+
+### Explicit relationships
+- Serverless retrieval infrastructure complements agent/RAG workloads when usage is bursty and idle capacity cost matters.
+- Agentic retrieval uses multiple query/retrieval steps and semantic ranking to improve answer coverage over single-shot RAG.
+- GPU-accelerated analytics complements agentic business applications by reducing latency for many simultaneous data questions.
+- HorizonDB complements vector/RAG stores when applications need PostgreSQL-compatible transactions plus AI search.
+
+### HoneyDrunk implications
+- Treat Foundry IQ Serverless as a retrieval-cost experiment, not a default; benchmark Lore-like and app-like queries against flat-file/local retrieval before adopting.
+- If HoneyDrunk uses Fabric or HorizonDB, capture query latency, concurrency, cost, vector quality, data egress, and backup/failover behavior under representative agent workloads.
+
+### Quality notes
+- All June 5 infrastructure performance claims here are vendor-reported. Use them to design local evals, not as procurement-grade conclusions.

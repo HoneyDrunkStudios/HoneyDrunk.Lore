@@ -47,3 +47,27 @@ A2UI v0.9 is Google's framework-agnostic generative UI standard for letting agen
 - Quality posture: decision-usable architectural scouting from a single vendor-authored announcement.
 - Weak claims: ecosystem adoption examples are early and may shift quickly.
 - Privacy filter: no secrets or unsafe PII copied.
+
+## 2026-06-05 compile additions
+
+### Claims
+- OpenAI's Codex Sites preview lets Business and Enterprise users generate and share interactive hosted websites/apps inside a workspace, including dashboards, planners, review workspaces, project boards, galleries, and lightweight tools. confidence: 1 OpenAI source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-codex-for-every-role-tool-and-workflow.md]
+- Codex annotations let users select a specific part of a generated site, document, spreadsheet, slide, or code artifact and ask Codex for a localized refinement rather than restarting the whole artifact. confidence: 1 OpenAI source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-codex-for-every-role-tool-and-workflow.md]
+
+### Typed entities
+- product/feature: Codex Sites
+- feature: annotations
+- artifact: interactive hosted site
+- artifact: dashboard
+- artifact: review workspace
+- artifact: project board
+
+### Explicit relationships
+- Codex Sites use generated interactive apps as shared decision artifacts rather than static documents.
+- Annotations complement generated UI/artifact workflows by localizing human feedback to a selected component or content region.
+
+### HoneyDrunk implications
+- For Grid/Lore dashboards, generated sites are useful as a prototyping signal, but durable internal tools should still use governed component/data schemas, source citations, and reviewable code.
+
+### Quality notes
+- Codex Sites are preview product claims; availability, hosting boundaries, sharing permissions, and data retention need verification before private HoneyDrunk use.

@@ -365,3 +365,42 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 - Keep repo `AGENTS.md` and task milestone files short, current, and enforced by gates where possible.
 - For agent-assigned implementation, require stable checkpoints: tests pass, docs updated where needed, context updated, and the diff is small enough to review.
 - Treat skipped docs/context updates as workflow failures, not polish. Future agent sessions depend on those artifacts.
+
+## 2026-06-05 compile additions
+
+### Claims
+- Carson Gross argues that AI has made code cheaper to create but more expensive to understand, because generated code can arrive faster than a team can read, validate, and build shared ownership around it. confidence: 1 practitioner essay source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-code-is-cheap-er.md]
+- The essay recommends incremental LLM use and a "subtractive, constraining engineer" posture: say no, examine output closely, remove unnecessary layers, and resist complexity introduced by cheap code generation. confidence: 1 practitioner essay source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-code-is-cheap-er.md]
+- Gross argues compiler-output analogies are misleading for LLM code because compilers are deterministic, preserve source as the authority, and target a narrow machine-code domain, while LLMs generate general software probabilistically. confidence: 1 practitioner essay source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-code-is-cheap-er.md]
+- OpenAI's Codex product announcement positions Codex beyond software development: role-specific plugins bundle apps, skills, instructions, and workflows for data analytics, creative production, sales, product design, public-equity investing, and investment banking. confidence: 1 OpenAI source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-codex-for-every-role-tool-and-workflow.md]
+- The same Codex announcement adds preview Sites for Business/Enterprise teams, where Codex can generate shared interactive websites/apps such as dashboards, planners, review workspaces, project boards, galleries, and lightweight tools; annotations let users point at a part of generated content and request targeted changes. confidence: 1 OpenAI source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-codex-for-every-role-tool-and-workflow.md]
+
+### Typed entities
+- person: Carson Gross
+- concept: cheap code
+- concept: expensive understanding
+- concept: subtractive engineering
+- product: Codex
+- feature: role-specific plugins
+- feature: Codex Sites
+- feature: annotations
+- plugin: data analytics plugin
+- plugin: creative production plugin
+- plugin: sales plugin
+- plugin: product design plugin
+- plugin: public equity investing plugin
+- plugin: investment banking plugin
+
+### Explicit relationships
+- Cheap code generation increases complexity risk when understanding and review capacity do not scale with output volume.
+- Subtractive engineering complements AI-assisted coding by reducing unnecessary code, layers, and semantic drift.
+- Codex role plugins use bundled apps, skills, instructions, and workflows to extend agentic work beyond code changes.
+- Codex Sites use generated interactive apps as collaborative work artifacts, while annotations provide localized refinement feedback.
+
+### HoneyDrunk implications
+- Keep HoneyDrunk agent changes small enough that a human can understand them; reject large semantic rewrites unless they are mechanically constrained and heavily tested.
+- Treat deletion, simplification, and layer removal as positive AI-assisted engineering outcomes, not only net-new code output.
+- For non-code studio workflows, role-specific plugin patterns are worth watching, but generated work surfaces still need source citations, permissions review, and owner approval before decisions.
+
+### Quality notes
+- Gross is practitioner commentary and should guide engineering posture, not serve as empirical productivity evidence. OpenAI claims are product-launch claims and need local plan/region/permission verification before workflow adoption.

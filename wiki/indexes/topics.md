@@ -430,3 +430,32 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 
 ### Distributed systems
 - [[distributed-systems-patterns]] - 1 source - last-confirmed 2026-06-04
+
+## 2026-06-05 topic additions
+
+### AI agents, harnesses, CLIs, and generated work surfaces
+- [[ai-agent-harnesses]] - 65 sources - last-confirmed 2026-06-05
+- [[ai-assisted-software-practice]] - 34 sources - last-confirmed 2026-06-05
+- [[generative-ui-and-a2ui]] - 2 sources - last-confirmed 2026-06-05
+- [[claude-platform-2026]] - 23 sources - last-confirmed 2026-06-05
+
+### Copilot, coding-agent automation, and sandboxed execution
+- [[github-copilot-and-app-token-changes]] - 12 sources - last-confirmed 2026-06-05
+- [[ai-coding-agent-security]] - 36 sources - last-confirmed 2026-06-05
+- [[ai-agent-harnesses]] - 65 sources - last-confirmed 2026-06-05
+
+### MCP, Azure, Fabric, and enterprise knowledge
+- [[mcp-tool-governance-and-app-surfaces]] - 21 sources - last-confirmed 2026-06-05
+- [[azure-agent-automation-and-identity]] - 16 sources - last-confirmed 2026-06-05
+- [[edge-ai-and-ai-infrastructure-2026]] - 22 sources - last-confirmed 2026-06-05
+
+### Security, supply chain, and protocol resilience
+- [[ai-coding-agent-security]] - 36 sources - last-confirmed 2026-06-05
+- [[github-actions-platform-operations]] - 11 sources - last-confirmed 2026-06-04
+
+### Game engines, DCC, and technical art
+- [[unity-3d-and-realtime-vfx-patterns]] - 29 sources - last-confirmed 2026-06-05
+- [[technical-art-community-and-talent-signals]] - 16 sources - last-confirmed 2026-06-05
+
+### .NET, Node, and native interop
+- [[dotnet-runtime-and-mobile-2026]] - 5 sources - last-confirmed 2026-06-05

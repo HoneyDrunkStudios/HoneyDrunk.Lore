@@ -449,3 +449,42 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 - Keep OpenClaw/Honeyclaw architecture split into build-time skills/framework, runtime isolation/state, distribution surface, and operate/eval loops; do not let one framework choice obscure the other responsibilities.
 - If testing Foundry hosted agents, validate sandbox boundaries, file durability, identity, cost, long-running routines, trace export, and rollback before production use.
 - Treat procedural memory as powerful but risky: learned workflows should be inspectable, versioned, and superseded when they conflict with current repo instructions.
+
+## 2026-06-05 compile additions
+
+### Claims
+- Hugging Face rebuilt the official `hf` CLI for both humans and coding agents, using agent-environment detection to switch output toward compact, complete, untruncated, non-ANSI agent-readable formats while preserving richer human terminal output. confidence: 1 Hugging Face source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-designing-the-hf-cli-as-an-agent-optimized-way-to-work-with-the-hub.md]
+- Hugging Face reports that, on evaluated multi-step Hub tasks, agents using the `hf` CLI achieved equal-or-better success with roughly 1.3x to 1.8x fewer tokens than curl/Python SDK baselines, with larger savings on complex write/sync/copy workflows; treat quantitative results as vendor-run evals. confidence: 1 Hugging Face source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-designing-the-hf-cli-as-an-agent-optimized-way-to-work-with-the-hub.md]
+- The `hf` CLI adds agent-friendly harness affordances: explicit `--format human|agent|json|quiet`, next-command hints to stderr, non-blocking fail-fast confirmation behavior, retry-safe/idempotent options, dry runs for data-moving commands, predictable resource-verb command structure, and an auto-generated `hf` skill. confidence: 1 Hugging Face source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-designing-the-hf-cli-as-an-agent-optimized-way-to-work-with-the-hub.md]
+- OpenAI's Codex role-specific plugins reinforce that agent harnesses are becoming packaged distributions of apps, skills, instructions, and workflows tailored to role/task context rather than generic chat prompts. confidence: 1 OpenAI source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-codex-for-every-role-tool-and-workflow.md]
+- Anthropic's Agent SDK monthly credit program separates Agent SDK/`claude -p`/Claude Code GitHub Actions usage from interactive Claude subscription limits for eligible plans starting 2026-06-15, while advising teams running shared production automation to use Claude Platform API keys for predictable pay-as-you-go billing. confidence: 1 Anthropic Help Center source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-use-the-claude-agent-sdk-with-your-claude-plan.md]
+
+### Typed entities
+- CLI: `hf`
+- product/platform: Hugging Face Hub
+- environment signal: `AI_AGENT`
+- environment signal: `CODEX_SANDBOX`
+- environment signal: `CLAUDE_CODE`
+- CLI flag: `--format`
+- CLI flag: `--json`
+- CLI flag: `--quiet`
+- CLI flag: `--dry-run`
+- skill: `hf` CLI skill
+- product: Codex role-specific plugins
+- SDK: Claude Agent SDK
+- command: `claude -p`
+- integration: Claude Code GitHub Actions
+
+### Explicit relationships
+- Agent-optimized CLIs reduce harness friction by providing parseable complete output, noninteractive behavior, idempotency, and next-step hints.
+- CLI skills complement predictable command trees by giving agents a compact command reference at session start.
+- Role-specific plugins use apps, skills, instructions, and workflows as reusable harness packages.
+- Agent SDK billing depends-on plan type and is separate from interactive subscription limits only for eligible subscription users after 2026-06-15.
+
+### HoneyDrunk implications
+- Design HoneyDrunk CLIs/tools with explicit agent mode: no prompts, structured full output, `--json`/quiet support, dry-run, idempotent retries, and next-command hints on stderr.
+- Treat skills as generated/versioned command references where possible, not hand-maintained prose that drifts from the CLI.
+- Use subscription Agent SDK credits only for individual experimentation or small automations; shared production HoneyDrunk automation should use explicit API billing, budgets, and service identities.
+
+### Quality notes
+- Hugging Face benchmark results are vendor-authored but methodologically useful because they grade live Hub state instead of trusting agent self-reports. Billing details are plan/date-sensitive and should be verified near use.

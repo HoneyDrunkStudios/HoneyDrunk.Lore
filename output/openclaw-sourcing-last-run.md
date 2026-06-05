@@ -1,45 +1,44 @@
-# OpenClaw Lore Sourcing - Last Run
+# OpenClaw Lore Sourcing — Last Run
 
-Timestamp: 2026-06-04T08:10:01
+Timestamp: 2026-06-05T08:08:12
 Mode: write
-Candidates curated: 16
+Candidates scanned: 15 curated plus RSS/search discovery
 Skipped duplicates: 1
-Selected: 15
 Saved: 15
 
-## Selected candidates
-- [AI / LLM Research & Tooling] Microsoft Foundry Blog: Build 2026: From observability to ROI for AI agents on any framework
-- [AI / LLM Research & Tooling] Microsoft Foundry Blog: Build agents you can trust across any framework with open evals and a control standard
-- [.NET Ecosystem] Microsoft Agent Framework: Microsoft Agent Framework at BUILD 2026
-- [Azure & Cloud] Microsoft Foundry Blog: Build and run agents at scale with Microsoft Foundry at Build 2026
-- [Azure & Cloud] Azure Cosmos DB Blog: Announced at MS Build 2026: Azure Cosmos DB MCP Toolkit, Semantic Reranking, Global Secondary Indexes, and more!
-- [DevOps & CI/CD] GitHub Changelog Actions: View Agentic Workflow configs in the Actions run summary
-- [DevOps & CI/CD] DigitalOcean: The Inference Tax: How Prefix-Aware Routing Eliminates the Hidden Cost of LLMs at Scale | DigitalOcean
-- [Security & Ethical Hacking] BleepingComputer: Red Hat npm packages compromised to steal developer credentials
-- [Security & Ethical Hacking] Vercel: Protecting against token theft
-- [Software Architecture] Thoughtworks Insights: How to implement effective review gates for AI-assisted development | Thoughtworks
-- [Software Architecture] High Scalability: Gossip Protocol Explained - High Scalability -
-- [Game Development / Unity] Unity Blog: What is Unity Pipeline Automation?
-- [Technical Art & Creator Tools] 80 Level: How To Implement Colored Penumbra Shadows In UE5
-- [Technical Art & Creator Tools] Tech-Artists.org: Real‑world terrain for Houdini: replaces Mapbox‑to‑Houdini
-- [Game Development / Unity] 80 Level: Ludeo Converts Clips of Your Games Into Instantly Playable Snippets
-
 ## Files written
-- raw/2026-06-04-web-80-level-ludeo-converts-clips-of-your-games-into-instantly-playable-sn.md
-- raw/2026-06-04-web-microsoft-foundry-blog-build-2026-from-observability-to-roi-for-ai-age.md
-- raw/2026-06-04-web-microsoft-foundry-blog-build-agents-you-can-trust-across-any-framework.md
-- raw/2026-06-04-web-microsoft-agent-framework-microsoft-agent-framework-at-build-2026.md
-- raw/2026-06-04-web-microsoft-foundry-blog-build-and-run-agents-at-scale-with-microsoft-fo.md
-- raw/2026-06-04-web-azure-cosmos-db-blog-announced-at-ms-build-2026-azure-cosmos-db-mcp-to.md
-- raw/2026-06-04-web-github-changelog-actions-view-agentic-workflow-configs-in-the-actions-.md
-- raw/2026-06-04-web-digitalocean-the-inference-tax-how-prefix-aware-routing-eliminates-the.md
-- raw/2026-06-04-web-bleepingcomputer-red-hat-npm-packages-compromised-to-steal-developer-c.md
-- raw/2026-06-04-web-vercel-protecting-against-token-theft.md
-- raw/2026-06-04-web-thoughtworks-insights-how-to-implement-effective-review-gates-for-ai-a.md
-- raw/2026-06-04-web-high-scalability-gossip-protocol-explained-high-scalability.md
-- raw/2026-06-04-rss-unity-blog-what-is-unity-pipeline-automation.md
-- raw/2026-06-04-web-80-level-how-to-implement-colored-penumbra-shadows-in-ue5.md
-- raw/2026-06-04-web-tech-artists-org-real-world-terrain-for-houdini-replaces-mapbox-to-hou.md
+- raw/2026-06-05-web-microsoft-build-2026-building-agentic-apps-with-microsoft-fabric-and-mic.md
+- raw/2026-06-05-web-foundry-iq-build-smarter-agents-faster-with-unified-knowledge-and-server.md
+- raw/2026-06-05-web-agent-tasks-rest-api-now-available-for-copilot-pro-pro-and-max.md
+- raw/2026-06-05-web-cloud-and-local-sandboxes-for-github-copilot-now-in-public-preview.md
+- raw/2026-06-05-web-schedule-and-automate-tasks-with-copilot-cloud-agent.md
+- raw/2026-06-05-web-codex-for-every-role-tool-and-workflow.md
+- raw/2026-06-05-web-use-the-claude-agent-sdk-with-your-claude-plan.md
+- raw/2026-06-05-web-designing-the-hf-cli-as-an-agent-optimized-way-to-work-with-the-hub.md
+- raw/2026-06-05-web-how-to-secure-ai-agents-a-practical-overview.md
+- raw/2026-06-05-web-what-is-software-supply-chain-security.md
+- raw/2026-06-05-web-codex-discovered-a-hidden-http-2-bomb.md
+- raw/2026-06-05-web-code-is-cheap-er.md
+- raw/2026-06-05-web-blender-5-2-lts-moves-into-beta.md
+- raw/2026-06-05-web-released-real-fake-interiors-unity3d-bake-tool-shader-fake-rooms-that-lo.md
+- raw/2026-06-05-web-writing-node-js-addons-with-net-native-aot.md
+
+## Saved sources
+- [Azure & Cloud] Microsoft Build 2026: Building agentic apps with Microsoft Fabric and Microsoft Databases — https://azure.microsoft.com/en-us/blog/microsoft-build-2026-building-agentic-apps-with-microsoft-fabric-and-microsoft-databases/
+- [Azure & Cloud] Foundry IQ: Build smarter agents faster with unified knowledge and serverless retrieval | Microsoft Foundry Blog — https://azure.microsoft.com/en-us/blog/foundry-iq-build-smarter-agents-faster-with-unified-knowledge-and-serverless-retrieval/
+- [DevOps & CI/CD] Agent tasks REST API now available for Copilot Pro, Pro+, and Max — https://github.blog/changelog/2026-06-04-agent-tasks-rest-api-now-available-for-copilot-pro-pro-and-max/
+- [Developer Tooling & AI Coding] Cloud and local sandboxes for GitHub Copilot now in public preview — https://github.blog/changelog/2026-06-02-cloud-and-local-sandboxes-for-github-copilot-now-in-public-preview/
+- [Workflow Automation] Schedule and automate tasks with Copilot cloud agent — https://github.blog/changelog/2026-06-02-schedule-and-automate-tasks-with-copilot-cloud-agent/
+- [AI / LLM Research & Tooling] Codex for every role, tool, and workflow — https://openai.com/index/codex-for-every-role-tool-workflow/
+- [Developer Tooling & AI Coding] Use the Claude Agent SDK with your Claude plan — https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan
+- [AI / LLM Research & Tooling] Designing the hf CLI as an agent-optimized way to work with the Hub — https://huggingface.co/blog/hf-cli-for-agents
+- [Security & Ethical Hacking] How to Secure AI Agents: A Practical Overview — https://www.docker.com/blog/how-to-secure-ai-agents/
+- [Security & Ethical Hacking] What is Software Supply Chain Security? — https://www.docker.com/blog/what-is-software-supply-chain-security/
+- [Security & Ethical Hacking] Codex Discovered a Hidden HTTP/2 Bomb — https://blog.calif.io/p/codex-discovered-a-hidden-http2-bomb
+- [Software Architecture] Code is Cheap(er) — https://htmx.org/essays/code-is-cheap/
+- [Technical Art & Creator Tools] Blender 5.2 LTS Moves Into Beta — https://80.lv/articles/blender-5-2-lts-is-now-in-beta/
+- [Game Development / Unity] [Released] Real Fake Interiors - Unity3D Bake Tool + Shader: Fake rooms that look 3D from any angle! — https://realtimevfx.com/t/released-real-fake-interiors-unity3d-bake-tool-shader-fake-rooms-that-look-3d-from-any-angle/31045
+- [.NET Ecosystem] Writing Node.js addons with .NET Native AOT — https://devblogs.microsoft.com/dotnet/writing-nodejs-addons-with-dotnet-native-aot/
 
 ## Failures / skips
-_None_
+- duplicate skipped: https://devblogs.microsoft.com/dotnet/nuget-package-pruning-in-dotnet-10/

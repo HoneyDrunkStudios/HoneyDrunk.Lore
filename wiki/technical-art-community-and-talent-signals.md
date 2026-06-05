@@ -224,3 +224,26 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 ### HoneyDrunk implications
 - Add "colored penumbra" and "dynamic-light shader edits" to stylized lighting research terms.
 - If real-world terrain becomes relevant, validate Houdini HDA source/licensing, geographic data source, resolution, export formats, and engine-import quality before adopting.
+
+## 2026-06-05 compile additions
+
+### Claims
+- Blender 5.2 LTS beta is a technical-art ecosystem signal because its updates touch texture-heavy rendering, Geometry Nodes simulation, Grease Pencil, mesh editing, audio sampling, and remote asset-library workflows. confidence: 1 80 Level source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-blender-5-2-lts-moves-into-beta.md; page: [[unity-3d-and-realtime-vfx-patterns]]]
+- Real Fake Interiors is a Unity technical-art product signal for shader/bake-based environment optimization: fake depth interiors can reduce real geometry needs for building/window scenes while preserving per-instance variation controls. confidence: 1 RealtimeVFX product/community source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-released-real-fake-interiors-unity3d-bake-tool-shader-fake-rooms-that-lo.md; page: [[unity-3d-and-realtime-vfx-patterns]]]
+
+### Typed entities
+- DCC/tool: Blender 5.2 LTS
+- concept: remote asset libraries
+- product/tool: Real Fake Interiors
+- technique: fake interior shader
+- workflow: room bake
+
+### Explicit relationships
+- Blender beta features affect technical artists because DCC-side rendering/simulation/tooling changes can alter engine export and lookdev workflows.
+- Fake-interior shaders complement environment art optimization by trading geometry for baked data and shader work.
+
+### HoneyDrunk implications
+- Preserve Blender 5.2 and fake-interior shader terms for future technical-art sourcing queries and prototype spikes.
+
+### Quality notes
+- Both sources are scouting signals, not validated HoneyDrunk pipeline evidence.

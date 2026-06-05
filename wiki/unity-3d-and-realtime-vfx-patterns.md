@@ -349,3 +349,40 @@ Unity-related sources clustered around practical production patterns: planning n
 - Treat Unity Pipeline Automation as a candidate only when asset-processing bottlenecks are measurable; a small studio can overbuy orchestration before it has pipeline scale.
 - If HoneyDrunk builds repeatable 3D intake, express the pipeline as a graph with inputs, outputs, failure nodes, and notifications before adopting a service.
 - Preserve colored-penumbra as a stylized-lighting reference for Unreal/technical-art research; validate engine-version maintenance cost before editing engine shaders.
+
+## 2026-06-05 compile additions
+
+### Claims
+- Blender 5.2 LTS entered beta with features relevant to Unity/engine-adjacent technical art: Cycles texture cache for texture-heavy scenes, Geometry Nodes hair/cloth dynamics, Thin Wall mode in Principled BSDF, Grease Pencil updates, built-in LoopTools features, new Geometry Nodes capabilities, and remotely hosted asset libraries. confidence: 1 80 Level trade-press source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-blender-5-2-lts-moves-into-beta.md]
+- The Blender source says the stable Blender 5.2 LTS release target is July 8, 2026; beta features should be tested but not assumed stable until release. confidence: 1 80 Level trade-press source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-blender-5-2-lts-moves-into-beta.md]
+- Real Fake Interiors is a Unity shader and room-baking tool for fake 3D interiors from square, rectangular, and tall source rooms, supporting HDRP, URP, Built-In Render Pipeline, WebGL, depth/color baking, coarse-to-fine raymarching, blue-noise jitter, and per-instance material variation. confidence: 1 RealtimeVFX product/community source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-released-real-fake-interiors-unity3d-bake-tool-shader-fake-rooms-that-lo.md]
+- Real Fake Interiors advertises no runtime components and shader-only runtime behavior after baking, which makes it a performance-scouting candidate for dense facade/interior illusions but still requires profiling on target Unity scenes. confidence: 1 RealtimeVFX product/community source, last-confirmed 2026-06-05. [source: raw/2026-06-05-web-released-real-fake-interiors-unity3d-bake-tool-shader-fake-rooms-that-lo.md]
+
+### Typed entities
+- DCC/tool: Blender 5.2 LTS
+- feature: Cycles texture cache
+- feature: Geometry Nodes hair/cloth dynamics
+- feature: Thin Wall mode
+- feature: Grease Pencil Fill tool
+- feature: remote asset libraries
+- product/tool: Real Fake Interiors
+- company/author: Amplify Creations
+- engine: Unity
+- render pipelines: HDRP, URP, Built-In Render Pipeline
+- platform/export: WebGL
+- technique: fake interiors
+- technique: raymarching
+- technique: blue-noise jitter
+
+### Explicit relationships
+- Blender 5.2 beta complements Unity/engine asset workflows by improving DCC-side simulation, texture memory, Grease Pencil, and asset-library access.
+- Remote asset libraries depend-on explicit internet-access preference and asset provenance review.
+- Real Fake Interiors uses baked depth/color room data plus shader raymarching to fake interior volume without real room geometry.
+- Shader-only fake interiors complement mobile/browser performance goals only if raymarching cost and material variation are profiled under target camera distances.
+
+### HoneyDrunk implications
+- Test Blender 5.2 LTS features on copies of representative assets before adopting the beta in production pipelines.
+- If HoneyDrunk needs city/building facades or stylized interior depth at low geometry cost, Real Fake Interiors is worth a small Unity profiling spike across URP/WebGL/target hardware.
+
+### Quality notes
+- Blender beta coverage is trade press pointing to official release notes; validate final behavior against the stable 5.2 LTS release. Real Fake Interiors is a product/forum post and should be profiled before production use.
