@@ -343,3 +343,34 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - All June 5 infrastructure performance claims here are vendor-reported. Use them to design local evals, not as procurement-grade conclusions.
+
+## 2026-06-07 compile additions
+
+### Claims
+- Foundry Managed Compute is a Microsoft Foundry preview for serving open-source and custom models on Foundry-managed dedicated GPU capacity, with templates that pin runtime, accelerator family/count, context length, quantization, and model-specific tuning. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-announcing-foundry-managed-compute-run-open-models-in-microsoft-foundr.md]
+- Foundry Managed Compute supports a unified Foundry endpoint/SDK surface, Azure Monitor metrics for request/latency/token usage, private networking, Entra/RBAC, Azure Policy, billing tags, and curated runtime/container patching for supported runtimes. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-announcing-foundry-managed-compute-run-open-models-in-microsoft-foundr.md]
+- Managed Compute uses hourly accelerator-family billing for model instances, starting with A100 and H100 Global Managed Compute preview, with Data Zone scope, MI300X, BYO weights, LoRA adapters, and IP-protected marketplace models on the roadmap. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-announcing-foundry-managed-compute-run-open-models-in-microsoft-foundr.md]
+
+### Typed entities
+- service: Foundry Managed Compute
+- deployment template: Foundry managed compute deployment template
+- accelerator family: A100 80GB
+- accelerator family: H100 80GB
+- accelerator family: MI300X 192GB
+- inference runtime: vLLM
+- model catalog: Hugging Face Collection in Foundry Model Catalog
+- scope: Global Managed Compute
+- scope: Data Zone Managed Compute
+
+### Explicit relationships
+- Foundry Managed Compute complements pay-per-token and provisioned throughput by adding managed open/custom model hosting under the same Foundry resource.
+- Deployment templates supersede manual GPU VM/runtime sizing for supported catalog models.
+- Cache-aware routing and session affinity complement open-model serving when agent/RAG traffic has repeated prefixes or multi-turn context.
+- Managed runtime patching reduces DIY container/CVE burden but depends-on supported runtimes and provider-controlled update behavior.
+
+### HoneyDrunk implications
+- Benchmark Managed Compute only if HoneyDrunk has open-weight/custom-model serving needs; otherwise it remains infrastructure literacy.
+- Compare against direct GPU VMs, local inference, and other managed providers using the same model, context length, expected concurrency, private-networking, identity, and observability requirements.
+
+### Quality notes
+- Microsoft source is a preview announcement with vendor-reported economics and roadmap. Treat as scouting evidence until pricing, quotas, and region availability are verified.

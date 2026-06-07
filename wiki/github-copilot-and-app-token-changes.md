@@ -184,3 +184,30 @@ Two GitHub platform changes affect automation cost and compatibility: GitHub App
 
 ### Quality notes
 - GitHub features are public preview/rollout-dependent. Verify availability, pricing, token scopes, and org policy controls in the actual HoneyDrunk GitHub plan before operational use.
+
+## 2026-06-07 compile additions
+
+### Claims
+- GitHub's "Fix with Copilot" button on failing Actions workflow run logs is now available to Copilot Pro, Pro+, and Max subscribers; it starts a Copilot cloud-agent session that investigates the failure, pushes a fix to the branch, and tags the user for review. confidence: 1 GitHub changelog source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-fix-with-copilot-for-failing-actions-now-in-pro-pro-and-max.md]
+- Enterprise-managed plugins in VS Code public preview extend prior Copilot CLI enterprise plugin management, allowing enterprise administrators to configure and distribute plugins, hooks, MCP configurations, and auto-installed plugins across VS Code and Copilot CLI clients. confidence: 1 GitHub changelog source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-enterprise-managed-plugins-in-vs-code-in-public-preview.md]
+
+### Typed entities
+- feature: Fix with Copilot
+- product: Copilot cloud agent
+- surface: GitHub Actions workflow run logs
+- product: enterprise-managed plugins
+- editor: Visual Studio Code
+- product: Copilot CLI
+- config file: `.github-private/.github/copilot/settings.json`
+
+### Explicit relationships
+- Fix with Copilot uses Copilot cloud agent to turn failing CI logs into a branch update for human review.
+- Enterprise-managed plugins use centralized Copilot client settings to standardize plugin/hook/MCP configuration across developer clients.
+- Fix with Copilot complements, but does not supersede, branch protection, PR review, and test verification.
+
+### HoneyDrunk implications
+- Allow Fix with Copilot only for bounded CI failures where branch push behavior, billing owner, review requirement, and allowed tools are understood.
+- Treat enterprise-managed plugins as org-level execution policy; auto-installing a plugin should require provenance and hook/MCP review.
+
+### Quality notes
+- Both GitHub features are plan/preview dependent. Verify availability, billing, branch permissions, and enterprise policy controls before enabling in HoneyDrunk repos.

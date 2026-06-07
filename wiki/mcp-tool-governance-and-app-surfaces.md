@@ -308,3 +308,36 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - Microsoft and Anthropic claims are product/platform documentation. Verify current auth headers, workspace admin controls, and data-retention terms before connecting private HoneyDrunk data.
+
+## 2026-06-07 compile additions
+
+### Claims
+- Reachy Mini remote tools show a narrow MCP governance pattern: built-in robot tools remain local/trusted, shareable stateless capabilities can run as public Hugging Face Gradio Spaces, and profiles decide which local or remote tools are active. confidence: 1 Hugging Face/Pollen Robotics source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-adding-mcp-tools-to-reachy-mini.md]
+- Reachy Mini remote Space installation validates the Space on the Hub, probes the standard Gradio `/gradio_api/mcp/` endpoint, discovers tools, namespaces local tool IDs, persists installed sources, and fails fast on name collisions. confidence: 1 source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-adding-mcp-tools-to-reachy-mini.md]
+- The current Reachy Mini remote-tool path supports public MCP-compatible Gradio Spaces but not private/authenticated Spaces, non-Gradio Spaces, arbitrary raw MCP URLs, or guaranteed parallel tool orchestration. confidence: 1 source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-adding-mcp-tools-to-reachy-mini.md]
+- GitHub enterprise-managed plugins can automatically install plugins and enforce hooks/MCP configurations for VS Code and Copilot CLI users licensed through Copilot Business or Enterprise, using enterprise-managed client settings. confidence: 1 GitHub changelog source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-enterprise-managed-plugins-in-vs-code-in-public-preview.md]
+
+### Typed entities
+- product: Reachy Mini conversation app
+- platform: Hugging Face Gradio Spaces
+- endpoint: `/gradio_api/mcp/`
+- file: `tools.txt`
+- file: `installed_tool_spaces.json`
+- product: GitHub Copilot CLI
+- editor: Visual Studio Code
+- config file: `.github-private/.github/copilot/settings.json`
+- concept: enterprise-managed client settings
+
+### Explicit relationships
+- Profile-level tool lists govern whether a discovered MCP tool is actually callable.
+- Namespaced remote tool IDs prevent collisions between local tools and multiple remote Spaces.
+- Public remote MCP tools complement local custom tools but do not supersede private-tool authentication requirements.
+- Enterprise-managed plugin settings use central configuration to enforce always-on hooks and MCP configurations across client surfaces.
+
+### HoneyDrunk implications
+- For OpenClaw profiles, require namespace/provenance metadata for remote tools and keep public unauthenticated tools separate from private/internal MCP tools.
+- Do not treat remote MCP installability as trust; catalog public Spaces by owner, endpoint behavior, tool mutability, data returned, and whether they call external networks.
+- If HoneyDrunk adopts enterprise-managed plugins, review auto-installed hooks and MCP configs as organization-wide execution policy.
+
+### Quality notes
+- Reachy Mini source is a concrete product implementation but public-only and canary-oriented. GitHub enterprise plugin support is public preview and should be verified in the actual plan/client versions.

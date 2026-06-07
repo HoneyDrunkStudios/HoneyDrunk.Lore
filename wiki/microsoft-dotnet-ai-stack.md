@@ -225,3 +225,39 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 
 ### Quality notes
 - Microsoft sources are implementation-specific but vendor-authored. Preview skill behavior can change; pin versions when testing.
+
+## 2026-06-07 compile additions
+
+### Claims
+- Microsoft.Extensions.AI tool calling describes available .NET methods, external APIs, MCP servers, or other executable operations to a model; the model returns structured tool-call requests and the application invokes them, with `FunctionInvokingChatClient` handling the invocation loop automatically. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-ai-tool-calling-net.md]
+- MEAI tool calling uses provider-agnostic `AIFunction`, `AIFunctionFactory`, and `FunctionInvokingChatClient` abstractions over any `IChatClient`, including Azure OpenAI, OpenAI, Ollama, and other providers that implement the interface. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-ai-tool-calling-net.md]
+- Function-calling support includes automatic parallel function calling where the model/provider supports it, while tool descriptions count against token limits and should be scoped to the conversation. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-ai-tool-calling-net.md]
+- Microsoft Agent Framework evaluation in .NET builds on `Microsoft.Extensions.AI.Evaluation`, with `IAgentEvaluator`, `EvalItem`, `EvalResults`, local evaluators, custom function evaluators, Foundry evaluators, expected outputs/tool calls, repetitions, and conversation splitters. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-evaluation.md]
+- Azure Functions serverless agents runtime uses markdown agent definitions, `agents.config.yaml`, and `mcp.json` to deploy serverless agents through standard Azure Functions infrastructure. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-quickstart-build-serverless-agents-using-azure-functions.md]
+
+### Typed entities
+- project/library: Microsoft.Extensions.AI
+- type: `AIFunction`
+- type: `AIFunctionFactory`
+- type: `FunctionInvokingChatClient`
+- interface: `IChatClient`
+- package/namespace: `Microsoft.Extensions.AI.Evaluation`
+- interface: `IAgentEvaluator`
+- type: `EvalItem`
+- type: `EvalResults`
+- runtime: Azure Functions serverless agents runtime
+
+### Explicit relationships
+- MEAI tool calling uses `IChatClient` and function abstractions to separate provider choice from tool invocation logic.
+- FunctionInvokingChatClient supersedes hand-written tool-call loops for common .NET chat clients, while provider/model capability still determines actual function-call behavior.
+- Token budgets depend-on registered tool definitions, so broad always-on tool lists contradict efficient .NET agent calls.
+- Agent Framework evaluation uses MEAI evaluation primitives to connect .NET agent workflows to local and Foundry scoring.
+- Azure Functions serverless agents complement Microsoft Agent Framework hosting by making trigger-based agents deployable as Functions workloads.
+
+### HoneyDrunk implications
+- For .NET agents, start with narrow `AIFunction` sets per workflow and avoid registering every possible tool by default.
+- Add local `LocalEvaluator`/function checks for expected tool calls before relying on Foundry LLM-as-judge evaluation.
+- Treat serverless agent markdown/config files as source-controlled runtime configuration that needs review like code.
+
+### Quality notes
+- Microsoft Learn pages are implementation guidance but may change with package versions. Verify API names and package versions before coding.

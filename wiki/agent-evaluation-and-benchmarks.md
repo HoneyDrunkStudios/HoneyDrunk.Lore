@@ -161,3 +161,37 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 - For OpenClaw evals, model the loop as policy -> generated scenarios -> controls -> re-run -> trace-backed dataset, not as ad hoc examples.
 - Keep judge artifacts inspectable. A pass/fail score without generated cases, rationale, and trace links is weak evidence for agent governance.
 - Include business value only after correctness and safety are measurable; ROI dashboards without trustworthy evals can optimize the wrong behavior.
+
+## 2026-06-07 compile additions
+
+### Claims
+- EVA-Bench Data 2.0 expands the ServiceNow voice-agent benchmark to 213 scenarios across three enterprise domains: Airline CSM, ITSM, and Healthcare HRSD, with 121 tools and 35+ workflows. confidence: 1 benchmark/dataset release source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-eva-bench-data-2-0-3-domains-121-tools-213-scenarios.md]
+- EVA-Bench scenarios include structured user goals, initial scenario databases, and expected final database states, with generation/validation intended to produce exactly one correct resolution path for reproducible bot-to-bot evaluation. confidence: 1 benchmark/dataset release source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-eva-bench-data-2-0-3-domains-121-tools-213-scenarios.md]
+- Microsoft Agent Framework evaluation supports local checks, custom function evaluators, Foundry cloud evaluators, expected outputs/tool calls, repetitions for consistency, conversation split strategies, and workflow/sub-agent breakdowns in .NET and Python. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-evaluation.md]
+- Foundry Agent Optimizer evaluates hosted agents against task criteria, generates candidate instructions/skills/model/tool-description configurations, ranks candidates by score and token cost, and promotes a chosen candidate as a versioned hosted-agent configuration. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-introducing-agent-optimizer-in-foundry-agent-service.md]
+
+### Typed entities
+- benchmark/dataset: EVA-Bench Data 2.0
+- domains: Airline Customer Service Management, Enterprise IT Service Management, Healthcare HR Service Delivery
+- framework: Microsoft Agent Framework evaluation
+- evaluator: LocalEvaluator
+- evaluator: FoundryEvals
+- product: Foundry Agent Optimizer
+- concept: expected final database state
+- concept: expected tool calls
+- concept: conversation split strategy
+- concept: optimization candidate
+
+### Explicit relationships
+- Voice-agent evaluation depends-on domain-specific tools, authentication flows, unsatisfiable goals, and final-state verification, not only transcript quality.
+- Agent Framework evaluation uses local deterministic checks and cloud LLM-as-judge evaluators as complementary scoring paths.
+- Foundry Agent Optimizer depends-on evaluation datasets and criteria; optimization without stable evals risks improving the wrong behavior.
+- Candidate prompt/skill/model/tool-description configurations supersede a baseline only after scoring against the same task set and cost report.
+
+### HoneyDrunk implications
+- For voice or support-agent experiments, prefer eval cases with tool/database final-state checks and adversarial/unsatisfiable user goals.
+- When using Agent Framework, keep local smoke checks in CI and reserve Foundry/LLM judge runs for broader quality, safety, and regression evaluation.
+- Treat agent optimization as an auditable release step: preserve baseline, candidate diff, score, token cost, and rollback path.
+
+### Quality notes
+- EVA-Bench is a benchmark release and should be validated against the dataset/repo before adopting its scenarios. Microsoft sources are product documentation/blog claims; preview optimizer behavior and pricing need local verification.

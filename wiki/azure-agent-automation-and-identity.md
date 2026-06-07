@@ -286,3 +286,36 @@ Azure's May 2026 agent/developer tooling signal is that agent automation is movi
 
 ### Quality notes
 - Microsoft Build claims mix GA and preview features. The exact maturity, pricing, region availability, and admin controls should be verified before architectural commitment.
+
+## 2026-06-07 compile additions
+
+### Claims
+- Azure Functions serverless agents quickstart deploys a Flex Consumption function app with Foundry resources, model deployment, storage, monitoring, Azure Container Apps dynamic session pool, and optional Connector Namespace / Microsoft 365 Outlook managed MCP server for email delivery. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-quickstart-build-serverless-agents-using-azure-functions.md]
+- The serverless agents sample separates a chat/debug agent from a timer-triggered digest agent; email delivery requires a Microsoft 365 connector authorization, while the debug chat agent uses a function key and can use sandboxed Python and web browsing. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-quickstart-build-serverless-agents-using-azure-functions.md]
+- Foundry Managed Compute is a preview model-hosting deployment type for open-source and custom models on dedicated GPU capacity, using Foundry model catalog entries, deployment templates, accelerator-family quota, private networking, Entra/RBAC, Azure Monitor metrics, and one Foundry endpoint/SDK surface. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-announcing-foundry-managed-compute-run-open-models-in-microsoft-foundr.md]
+- Foundry Managed Compute routing includes concurrency-aware load balancing, prompt-prefix affinity for KV-cache reuse, and multi-turn session affinity with load bounds. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-announcing-foundry-managed-compute-run-open-models-in-microsoft-foundr.md]
+
+### Typed entities
+- service/runtime: Azure Functions serverless agents runtime
+- plan: Flex Consumption
+- service: Microsoft Foundry
+- resource: Azure Container Apps dynamic session pool
+- resource: Connector Namespace
+- connector: Microsoft 365 Outlook
+- service: Foundry Managed Compute
+- accelerator families: A100, H100, MI300X
+- control: prompt-prefix affinity
+- control: multi-turn session affinity
+
+### Explicit relationships
+- Azure Functions serverless agents use managed identities and connector authorization to bind Functions-hosted agents to Foundry, dynamic sessions, and managed MCP connectors.
+- Connector Namespace authorization complements function-app managed identity; both must be configured before email-capable agent tools work.
+- Foundry Managed Compute complements pay-per-token and provisioned throughput by hosting open/custom models under the same Foundry governance surface.
+- Prompt-prefix affinity depends-on repeated shared prompts, tool definitions, or RAG context to improve cache locality.
+
+### HoneyDrunk implications
+- If HoneyDrunk tests serverless agents, evaluate connector consent, function-key/debug exposure, dynamic-session egress/logging, and managed identity scope before any shared automation.
+- Treat Foundry Managed Compute as an open-model hosting candidate only after comparing it with direct Azure VMs, DigitalOcean, local hosting, and existing provider APIs on cost, latency, auth, and rollback.
+
+### Quality notes
+- Both Microsoft sources are preview/product documentation. Verify region, quota, pricing, auth behavior, and current deployment-template availability before design commitments.

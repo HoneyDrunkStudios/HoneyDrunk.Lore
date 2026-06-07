@@ -109,3 +109,32 @@ Multi-agent systems are warranted only when a single agent hits hard limits: con
 ### HoneyDrunk implications
 - For future game/agent simulations, track multi-agent world models as research, not production tooling; validate controllability, runtime cost, and asset/control integration before adoption.
 - Use multi-agent evaluators only when evidence search can be partitioned cleanly and synthesis criteria are explicit.
+
+## 2026-06-07 compile additions
+
+### Claims
+- Microsoft Learn distinguishes workflow-oriented multi-agent systems from hierarchical/open-ended systems: workflow-oriented systems chain agent calls through deterministic process control, explicit sequencing, preconditions, postconditions, thresholds, retries, dead-letter handling, and approval gates. confidence: 1 Microsoft architecture source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-workflow-oriented-multi-agent-patterns.md]
+- Workflow-oriented multi-agent systems are recommended for strict ordering, auditability, compliance/evidence collection, approvals, incident triage/remediation, and data-centric ETL; they should be avoided when dynamic routing, iteration, or simple single-agent handling is the real fit. confidence: 1 Microsoft architecture source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-workflow-oriented-multi-agent-patterns.md]
+- Microsoft Learn's orchestrator/subagent pattern uses one primary orchestrator to delegate to specialist child or connected agents, improving modular ownership and reuse but creating risk for low-consistency, time-sensitive, compliance, or large-context workflows. confidence: 1 Microsoft architecture source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-orchestrator-and-subagent-multi-agent-patterns.md]
+
+### Typed entities
+- pattern: workflow-oriented multi-agent system
+- pattern: orchestrator and subagent
+- pattern: connected agents
+- control: preconditions
+- control: postconditions
+- control: approval gate
+- control: dead-letter handling
+- platform examples: Power Automate, Logic Apps, Copilot Studio topics, Microsoft Foundry workflows
+
+### Explicit relationships
+- Workflow-oriented multi-agent systems use deterministic workflow engines to supersede open-ended orchestration where auditability and strict business rules matter.
+- Orchestrator/subagent systems depend-on a primary agent for user experience and routing while specialist agents handle narrower execution domains.
+- Orchestrator/subagent patterns contradict compliance/Q&A use cases when consistent success rate and bounded execution are more important than exploratory attempts.
+
+### HoneyDrunk implications
+- For HoneyHub/OpenClaw dispatch, choose workflow-oriented orchestration for known approval or compliance flows, and orchestrator/subagent only where modular specialist ownership or exploratory parallel attempts are justified.
+- Record preconditions, postconditions, retry/dead-letter policy, and human approval channels before calling a workflow "agentic."
+
+### Quality notes
+- Microsoft Learn sources are architecture guidance, not local performance evidence. Use them as vocabulary and gating criteria, then validate on HoneyDrunk workflows.

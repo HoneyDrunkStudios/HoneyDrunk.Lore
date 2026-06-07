@@ -488,3 +488,40 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - Hugging Face benchmark results are vendor-authored but methodologically useful because they grade live Hub state instead of trusting agent self-reports. Billing details are plan/date-sensitive and should be verified near use.
+
+## 2026-06-07 compile additions
+
+### Claims
+- Reachy Mini's conversation app can now register public Hugging Face Gradio Spaces as remote MCP tools, with per-profile `tools.txt` enablement, namespaced remote tool IDs, install/list/remove commands, Hub validation, MCP endpoint probing, and no arbitrary tool code downloaded into the local app. confidence: 1 Hugging Face/Pollen Robotics source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-adding-mcp-tools-to-reachy-mini.md]
+- The Reachy Mini source says prompts can encourage parallel tool calls for combined search/weather questions, but deterministic parallel orchestration should move into code when reliability matters. confidence: 1 source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-adding-mcp-tools-to-reachy-mini.md]
+- Azure Functions serverless agents runtime defines agents in markdown files, app-wide defaults in `agents.config.yaml`, remote MCP servers in `mcp.json`, and can combine browser/debug chat agents, timer-triggered agents, sandboxed Python execution, dynamic session pools, and managed MCP connector tools. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-quickstart-build-serverless-agents-using-azure-functions.md]
+- Foundry Agent Optimizer turns eval output into harness configuration changes by rewriting instructions, generating reusable skills, selecting model deployments, or improving local tool descriptions, with candidates injected through configuration rather than hardcoded feature branches. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-introducing-agent-optimizer-in-foundry-agent-service.md]
+- GitHub enterprise-managed plugins in VS Code and Copilot CLI let enterprise administrators auto-install plugins and enforce baseline hooks and MCP configurations through `.github-private/.github/copilot/settings.json`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-enterprise-managed-plugins-in-vs-code-in-public-preview.md]
+
+### Typed entities
+- product: Reachy Mini conversation app
+- platform: Hugging Face Spaces
+- protocol: Model Context Protocol
+- file: `tools.txt`
+- file: `installed_tool_spaces.json`
+- runtime: Azure Functions serverless agents runtime
+- file: `agents.config.yaml`
+- file: `mcp.json`
+- product: Foundry Agent Optimizer
+- product: GitHub Copilot enterprise-managed plugins
+- file: `.github-private/.github/copilot/settings.json`
+
+### Explicit relationships
+- Reachy Mini uses profile-scoped tool enablement to keep local embodied tools and optional remote MCP tools in one registry.
+- Prompt instructions complement, but do not guarantee, parallel tool orchestration.
+- Azure Functions serverless agents use markdown agent definitions and Functions triggers to turn agents into deployable serverless workloads.
+- Enterprise-managed plugins use centralized settings to distribute hooks, MCP configuration, skills, and agents across VS Code and Copilot CLI clients.
+- Foundry Agent Optimizer uses evaluation feedback to update harness configuration rather than model weights.
+
+### HoneyDrunk implications
+- Model HoneyDrunk agent profiles after small explicit tool lists; remote tools should be opt-in per profile and namespaced to avoid collision.
+- For scheduled Honeyclaw/OpenClaw-style jobs, Azure Functions serverless agents are worth a spike only if identity, sandbox, logs, connector auth, and local repo fit are validated.
+- Enterprise-managed plugins are relevant to HoneyDrunk only after plugin provenance, hook behavior, MCP server trust, and default install policy are explicit.
+
+### Quality notes
+- Reachy Mini and Foundry sources are vendor/product posts. GitHub plugin management is public preview. Azure Functions quickstart is concrete but includes auth-gated Learn scaffolding in raw; promoted facts came from the readable body.

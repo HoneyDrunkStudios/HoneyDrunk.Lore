@@ -167,3 +167,33 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 ### HoneyDrunk implications
 - Treat agentic workflow markdown as executable CI configuration: require code review, CODEOWNERS, and run-summary inspection for high-risk workflows.
 - Include agentic workflow configs in CI/security audits alongside `.github/workflows`, composite actions, and publish scripts.
+
+## 2026-06-07 compile additions
+
+### Claims
+- CodeQL 2.25.6 adds Swift 6.3.2 analysis support, completes C# 14 and .NET 10 extractor/runtime data-flow support, and adds source/sink models for Apache Avro and `scanf_s`-family functions. confidence: 1 GitHub changelog source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-codeql-2-25-6-adds-swift-6-3-2-support-and-improves-c-coverage.md]
+- CodeQL 2.25.6 changes GitHub Actions queries: `actions/untrusted-checkout/critical` alerts now appear at checkout points and may reopen previously closed alerts; `actions/unpinned-tag` recognizes 64-character SHA-256 commit hashes as pinned references; Bash regex validation recognition improved for SHA-1/SHA-256 and alphanumeric checks. confidence: 1 GitHub changelog source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-codeql-2-25-6-adds-swift-6-3-2-support-and-improves-c-coverage.md]
+- Fix with Copilot for failing Actions makes Copilot cloud-agent CI repair available from workflow logs for Pro, Pro+, and Max users, turning CI failure remediation into an agentic Actions-adjacent workflow. confidence: 1 GitHub changelog source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-fix-with-copilot-for-failing-actions-now-in-pro-pro-and-max.md]
+
+### Typed entities
+- tool: CodeQL 2.25.6
+- language/runtime: Swift 6.3.2
+- language/runtime: C# 14
+- platform/runtime: .NET 10
+- query: `actions/untrusted-checkout/critical`
+- query: `actions/unpinned-tag`
+- feature: Fix with Copilot
+- product: Copilot cloud agent
+
+### Explicit relationships
+- CodeQL language coverage depends-on extractor support and generated runtime models.
+- CodeQL query changes can reopen alerts when alert locations or pinning heuristics change.
+- Fix with Copilot depends-on Actions logs and Copilot cloud-agent execution, so it belongs in CI operations governance.
+
+### HoneyDrunk implications
+- Expect possible CodeQL alert churn after 2.25.6, especially for untrusted checkout and sensitive-data logging queries.
+- Include SHA-256-pinned actions in pinning policy and update any internal scanners that only recognize SHA-1 pins.
+- Do not let one-click CI repair bypass normal branch protection or human review.
+
+### Quality notes
+- GitHub changelog source is authoritative for feature existence. Verify GHES/manual CodeQL upgrade timing if not on github.com code scanning.

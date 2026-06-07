@@ -386,3 +386,38 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - Blender beta coverage is trade press pointing to official release notes; validate final behavior against the stable 5.2 LTS release. Real Fake Interiors is a product/forum post and should be profiled before production use.
+
+## 2026-06-07 compile additions
+
+### Claims
+- Unity Pipeline Automation basic concepts define Apps, Actions, Events, Pipelines, Steps, Automations, Jobs, and Job File Storage as the core model for cloud RT3D workflow automation. confidence: 1 Unity Docs source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-basic-concepts-unity-pipeline-automation.md]
+- Unity Pipeline Automation actions are versioned, can require configurable hardware profiles, expose input/output parameters, and can reference output parameters from previous steps. confidence: 1 Unity Docs source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-basic-concepts-unity-pipeline-automation.md]
+- Pipeline steps can run actions, trigger other pipelines, suspend/resume work, and express dependencies as a DAG with sequential, parallel, and grouped steps. confidence: 1 Unity Docs source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-basic-concepts-unity-pipeline-automation.md]
+- Job File Storage is temporary shared storage mounted for a job and purged when the job ends; durable artifacts must be moved to Asset Manager, Unity Version Control, S3, or another persistent system. confidence: 1 Unity Docs source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-basic-concepts-unity-pipeline-automation.md]
+
+### Typed entities
+- product: Unity Pipeline Automation
+- concept: App
+- concept: Action
+- concept: Event
+- concept: Pipeline
+- concept: Automation
+- concept: Job
+- concept: Job File Storage
+- service: Unity Asset Manager
+- service: Unity Asset Transformer
+- storage: S3 bucket
+
+### Explicit relationships
+- Pipeline actions use versioning to prevent app/action updates from breaking existing pipelines.
+- Pipeline steps use dependencies to form DAGs for sequential and parallel asset-processing work.
+- Automations use schedules or app events to trigger pipelines through automation bot service accounts.
+- Job File Storage complements transient processing but contradicts durable artifact assumptions unless outputs are uploaded elsewhere.
+
+### HoneyDrunk implications
+- If HoneyDrunk pilots Unity Pipeline Automation, specify persistent artifact destinations before running asset conversions; temporary job storage is not archival.
+- Treat pipeline action versions and automation bot roles as part of the change-control surface.
+- Express any candidate 3D intake pipeline as parameters, step dependencies, hardware profile needs, outputs, and failure behavior before buying into the service.
+
+### Quality notes
+- Unity Docs is stronger than the earlier vendor blog for product model details, but Pipeline Automation remains beta. Validate roles, pricing, app availability, API behavior, and artifact retention before production use.

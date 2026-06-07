@@ -459,3 +459,25 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 
 ### .NET, Node, and native interop
 - [[dotnet-runtime-and-mobile-2026]] - 5 sources - last-confirmed 2026-06-05
+
+## 2026-06-07 topic additions
+
+### AI agents, harnesses, evaluation, and voice workflows
+- [[ai-agent-harnesses]] - 70 sources - last-confirmed 2026-06-07
+- [[agent-evaluation-and-benchmarks]] - 13 sources - last-confirmed 2026-06-07
+- [[multi-agent-architectures]] - 8 sources - last-confirmed 2026-06-07
+- [[voice-agent-platforms-2026]] - 2 sources - last-confirmed 2026-06-07
+
+### MCP, Azure, Foundry, and .NET agent surfaces
+- [[mcp-tool-governance-and-app-surfaces]] - 23 sources - last-confirmed 2026-06-07
+- [[azure-agent-automation-and-identity]] - 19 sources - last-confirmed 2026-06-07
+- [[microsoft-dotnet-ai-stack]] - 32 sources - last-confirmed 2026-06-07
+- [[edge-ai-and-ai-infrastructure-2026]] - 23 sources - last-confirmed 2026-06-07
+
+### Copilot, CI/CD, sandboxing, and code scanning
+- [[github-copilot-and-app-token-changes]] - 14 sources - last-confirmed 2026-06-07
+- [[github-actions-platform-operations]] - 13 sources - last-confirmed 2026-06-07
+- [[ai-coding-agent-security]] - 39 sources - last-confirmed 2026-06-07
+
+### Game engines and technical art
+- [[unity-3d-and-realtime-vfx-patterns]] - 30 sources - last-confirmed 2026-06-07

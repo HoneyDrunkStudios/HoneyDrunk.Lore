@@ -40,3 +40,33 @@ The May 2026 OpenAI voice-agent signal is that real-time speech agents are movin
 - Quality posture: useful scouting signal, but not enough for procurement or model-default decisions.
 - Weak spots: source is a newsletter article with vendor-linked claims; raw file included large site scaffolding.
 - Privacy filter: raw public Sentry/Stripe/VAPID/client configuration strings and site JavaScript were not copied into wiki content.
+
+## 2026-06-07 compile additions
+
+### Claims
+- EVA-Bench Data 2.0 is a voice-agent evaluation dataset with 213 scenarios across Airline CSM, ITSM, and Healthcare HRSD, designed around voice-first enterprise workflows, realistic tool schemas, authentication, adversarial calls, unsatisfiable goals, and reproducibility. confidence: 1 ServiceNow-AI benchmark source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-eva-bench-data-2-0-3-domains-121-tools-213-scenarios.md]
+- EVA-Bench's generation/validation process uses jointly generated user goals, initial scenario databases, expected final database states, structural validation, LLM consistency checks, trace verification, manual review, and frontier-model solvability checks. confidence: 1 benchmark source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-eva-bench-data-2-0-3-domains-121-tools-213-scenarios.md]
+- The EVA-Bench source says multilingual support is being added by localizing conversation language, names, emails, phone numbers, locations, metrics, and judges rather than translating English-only evals mechanically. confidence: 1 benchmark source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-eva-bench-data-2-0-3-domains-121-tools-213-scenarios.md]
+
+### Typed entities
+- benchmark/dataset: EVA-Bench Data 2.0
+- dataset split: airline
+- dataset split: itsm
+- dataset split: medical / HRSD
+- concept: voice-first scope
+- concept: authentication flow
+- concept: adversarial call
+- concept: unsatisfiable goal
+- pipeline: SyGra
+
+### Explicit relationships
+- Voice-agent evaluation depends-on tool execution, authentication, final-state verification, and realistic caller behavior, not just ASR or response wording.
+- Multilingual voice evaluation depends-on localized scenario data and judging metrics, not direct text translation alone.
+- EVA-Bench complements real-time voice model benchmarks by testing enterprise workflow completion.
+
+### HoneyDrunk implications
+- Any HoneyDrunk voice-agent benchmark should include authentication, no-solution cases, tool calls, and final-state checks.
+- Treat multilingual voice support as a separate eval dimension with localized data and phone/name/address conventions.
+
+### Quality notes
+- Benchmark is open-source per source, but scenario content and leaderboard should be inspected directly before use. No private example phone/email data was copied into the wiki.

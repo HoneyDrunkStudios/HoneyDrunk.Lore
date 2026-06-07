@@ -486,3 +486,45 @@ Relationships added: CoCo workloads depend-on remote attestation and runtime-sid
 ### Privacy and quality notes
 - Privacy filter: exploit mechanics were summarized at mitigation/control level; no PoC commands or runnable attack procedure were copied into the wiki.
 - Quality posture: Docker sources are vendor-authored but useful control taxonomies. The HTTP/2 source is primary research with active disclosure/patch status that must be checked against current vendor advisories before incident response.
+
+## 2026-06-07 compile additions
+
+### Claims
+- Docker's sandbox-security overview frames sandbox security as enforcing isolation boundaries and access controls around sandboxed environments, combining process isolation, system-call filtering, network segmentation, resource limits, runtime monitoring, and audit trails. confidence: 1 Docker source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-what-is-sandbox-security.md]
+- Docker contrasts OS-level sandboxing, VM/microVM isolation, and application-level sandboxing: OS-level controls are efficient but share a kernel, VM-based isolation fits multi-tenant or untrusted code at higher cost, and application-level sandboxes should layer on top rather than act as the only boundary. confidence: 1 Docker source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-what-is-sandbox-security.md]
+- For AI agents, Docker recommends isolating each tool execution with minimum permissions, exposing only required files/data/environment variables, enforcing egress allowlists, and monitoring file/syscall/network behavior for audit and incident response. confidence: 1 Docker source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-what-is-sandbox-security.md]
+- CodeQL 2.25.6 improves sensitive-data heuristics across JavaScript/TypeScript, Python, Swift, and Rust cleartext logging queries, which may surface more credential/private-data handling issues in agent-edited code. confidence: 1 GitHub changelog source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-codeql-2-25-6-adds-swift-6-3-2-support-and-improves-c-coverage.md]
+
+### Typed entities
+- concept: sandbox security
+- control: process isolation
+- control: system call filtering / seccomp
+- control: network segmentation
+- control: resource limits / cgroups
+- control: runtime monitoring
+- isolation model: OS-level sandbox
+- isolation model: VM/microVM sandbox
+- isolation model: application-level sandbox
+- tool: CodeQL 2.25.6
+- query family: cleartext logging sensitive data
+
+### Explicit relationships
+- Sandbox security uses multiple enforcement layers to keep a sandbox from becoming only nominal isolation.
+- VM/microVM isolation supersedes shared-kernel containers when code is genuinely untrusted or multi-tenant blast radius matters.
+- Application-level sandboxing complements kernel/hypervisor isolation but does not replace it for high-risk agent execution.
+- CodeQL sensitive-data detection complements agent review gates by flagging credential/private-data handling that a model may miss.
+
+### HoneyDrunk implications
+- Define OpenClaw/Honeyclaw sandbox tiers by trust level: ordinary repo work, untrusted generated code, multi-tenant/cloud execution, and production-adjacent tool use.
+- For agent tool execution, enforce egress, visible data, resource limits, and audit outside the model prompt.
+- Review new CodeQL sensitive-data alerts after 2.25.6 as possible real findings, not just noise from a query update.
+
+### Privacy and quality notes
+- Docker source is vendor-authored and product-positioned, but the control taxonomy is useful. No exploit payloads, secrets, or unsafe indicators were copied.
+
+### Content-safety guardrail note
+- NVIDIA's Nemotron 3.5 Content Safety release is a compact 4B multimodal/multilingual safety model with custom policy enforcement, optional concise reasoning traces, and a released safety dataset; it is relevant as a scouting signal for domain-specific guardrails, but benchmark and latency claims are vendor-authored and should not drive production safety policy without local tests. confidence: 1 NVIDIA/Hugging Face source, last-confirmed 2026-06-07. [source: raw/2026-06-07-web-nemotron-3-5-content-safety-customizable-multimodal-safety-for-global-.md]
+
+Typed entities added: model: Nemotron 3.5 Content Safety; base model: Gemma 3 4B IT; framework/taxonomy: Aegis 2.0; concept: custom policy enforcement; concept: safety reasoning trace; dataset: Nemotron-3.5-Content-Safety-Dataset.
+
+Relationship added: content-safety guardrails complement execution-layer sandboxing and tool governance by classifying prompts/responses/images against built-in or custom policies, but they do not supersede least-privilege tools, scoped identities, or audit logs.
