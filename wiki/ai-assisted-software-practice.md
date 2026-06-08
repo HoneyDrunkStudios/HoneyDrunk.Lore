@@ -404,3 +404,30 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Gross is practitioner commentary and should guide engineering posture, not serve as empirical productivity evidence. OpenAI claims are product-launch claims and need local plan/region/permission verification before workflow adoption.
+
+## 2026-06-08 compile additions
+
+### Claims
+- Copilot code review skills and MCP support reinforce a team-practice pattern: standards, service catalogs, incidents, docs, and issue-tracker context can be pulled into AI review, but those same context/tool paths need repository-level governance and cost controls. confidence: 1 GitHub changelog source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-shape-copilot-code-review-around-your-team.md; page: [[github-copilot-and-app-token-changes]]]
+- VS Code Copilot's terminal-safety changes reinforce that AI-assisted development should keep passwords, passphrases, PINs, and verification codes in terminal-controlled input paths rather than sending them to the LLM. confidence: 1 GitHub changelog source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-github-copilot-in-visual-studio-code-may-releases.md]
+- The `VSCODE_AGENT` environment variable is a concrete signal that CLIs can adapt behavior when invoked by agents, aligning with prior agent-optimized CLI guidance. confidence: 1 GitHub changelog source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-github-copilot-in-visual-studio-code-may-releases.md]
+
+### Typed entities
+- product: Copilot code review
+- protocol: Model Context Protocol
+- directory: `.github/skills`
+- environment variable: `VSCODE_AGENT`
+- concept: terminal-controlled sensitive input
+- concept: agent-aware CLI
+
+### Explicit relationships
+- AI review quality depends-on team context, but context/tool injection depends-on provenance, least privilege, and billing governance.
+- Terminal-controlled secret entry supersedes LLM-mediated prompt handling for passwords, passphrases, PINs, and verification codes.
+- Agent-aware CLIs use environment signals to switch output, prompts, and safety behavior for automated callers.
+
+### HoneyDrunk implications
+- Add `VSCODE_AGENT`, `AI_AGENT`, `CODEX_SANDBOX`, and related environment signals to HoneyDrunk CLI design notes so tools can choose noninteractive/structured/safe behavior.
+- Keep authentication prompts outside model context by default, even in local trusted repos.
+
+### Quality notes
+- GitHub source is authoritative for these features; translate them into HoneyDrunk CLI standards only after checking behavior in the actual clients used.

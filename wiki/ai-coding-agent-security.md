@@ -528,3 +528,51 @@ Relationships added: CoCo workloads depend-on remote attestation and runtime-sid
 Typed entities added: model: Nemotron 3.5 Content Safety; base model: Gemma 3 4B IT; framework/taxonomy: Aegis 2.0; concept: custom policy enforcement; concept: safety reasoning trace; dataset: Nemotron-3.5-Content-Safety-Dataset.
 
 Relationship added: content-safety guardrails complement execution-layer sandboxing and tool governance by classifying prompts/responses/images against built-in or custom policies, but they do not supersede least-privilege tools, scoped identities, or audit logs.
+
+## 2026-06-08 compile additions
+
+### Claims
+- OWASP FinBot CTF is a hands-on Agentic Security Initiative companion to the OWASP GenAI Security Project, simulating a financial-services multi-agent vendor-management platform with real tool access and challenges around prompt injection, tool misuse, policy bypass, data exfiltration, privilege escalation, remote code execution, and MCP tool-server supply-chain attacks. confidence: 1 OWASP GenAI source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-finbot-ctf-is-live-a-hands-on-companion-to-the-owasp-genai-security-pr.md]
+- OWASP's Q1 2026 GenAI exploit roundup says major AI-related incidents increasingly target agent identities, orchestration layers, supply chains, prompt-injection paths, and operational trust boundaries rather than only model outputs. confidence: 1 OWASP GenAI roundup source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-owasp-genai-exploit-round-up-report-q1-2026.md]
+- The same OWASP roundup notes that many AI security incidents do not map cleanly to CVEs because they arise from misconfiguration, autonomy, trust boundaries, supply-chain compromise, prompt injection, and data-flow manipulation; only classical software flaws such as Flowise CVE-2025-59528 reliably receive CVE tracking. confidence: 1 OWASP GenAI roundup source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-owasp-genai-exploit-round-up-report-q1-2026.md]
+- OWASP's MCP Tool Poisoning page describes indirect prompt injection through malicious MCP tool responses: connect-time tool descriptions may look safe, while runtime tool outputs inject instructions into the LLM context and can trigger restricted tools or exfiltration if backend controls are weak. confidence: 1 OWASP security source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-mcp-tool-poisoning.md; page: [[mcp-tool-governance-and-app-surfaces]]]
+- Durable MCP tool-poisoning mitigations include approved MCP server allowlists, structured output schemas, output validation/sanitization, least-privilege separation between external and privileged tools, backend tool-access enforcement, and confirmation outside the LLM context for sensitive operations. confidence: 1 OWASP security source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-mcp-tool-poisoning.md]
+- OpenAI's TanStack/Mini Shai-Hulud response says two corporate employee devices were impacted, limited credential material was exfiltrated from internal source repositories, signing certificates were rotated as a precaution, macOS OpenAI apps must be updated by 2026-06-12, and OpenAI found no evidence of product, user-data, or IP compromise. confidence: 1 official OpenAI incident-response source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-our-response-to-the-tanstack-npm-supply-chain-attack.md]
+- OpenAI's incident controls included system/identity isolation, session revocation, credential rotation, temporary deployment-workflow restrictions, user/credential behavior scrutiny, blocking new notarizations with impacted material, certificate rotation, package-manager controls such as minimum release age, and provenance validation for new packages. confidence: 1 official OpenAI incident-response source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-our-response-to-the-tanstack-npm-supply-chain-attack.md]
+- Docker Navigator reinforces that agent execution, hardened images, microVM sandboxes, trusted namespace compromise, VEX-aware scanning, and local-model workflows are converging into one AI-era DevSecOps problem. confidence: 1 Docker newsletter source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-docker-navigator-ai-workflows-container-security-and-build-reliability.md]
+
+### Typed entities
+- project: OWASP GenAI Security Project
+- project: OWASP Agentic Security Initiative
+- platform: OWASP FinBot CTF
+- framework: OWASP Top 10 for Agentic Applications 2026
+- threat: MCP Tool Poisoning
+- protocol: Model Context Protocol
+- vulnerability: CVE-2025-59528
+- platform/tool: Flowise
+- campaign: Mini Shai-Hulud
+- library/package family: TanStack npm packages
+- organization: OpenAI
+- control: minimum release age
+- control: package provenance validation
+- control: certificate rotation
+- product/control: Docker Hardened Images
+- control: VEX-aware scanning
+
+### Explicit relationships
+- FinBot CTF uses simulated multi-agent financial workflows to make OWASP agentic risks executable and observable.
+- MCP Tool Poisoning is caused by a runtime trust gap between reviewed tool metadata and untrusted tool responses.
+- Structured MCP outputs and backend tool policies complement prompt-injection detection because free-text injection remains hard to identify reliably.
+- Agentic AI incidents often contradict CVE-only vulnerability management; architectural failures need risk registers, controls, and exercises even when no CVE exists.
+- Package-manager minimum-age controls and provenance validation mitigate fast-moving dependency compromise before ordinary CVE workflows catch up.
+- Certificate rotation supersedes trust in previously exposed signing material even when no malicious signing has been observed.
+
+### HoneyDrunk implications
+- Add FinBot or equivalent labs to the candidate training/eval set for anyone building HoneyDrunk agents with tool access.
+- Treat MCP server outputs as untrusted data. Approved servers, schema validation, response sanitization, and tool-layer authorization all belong in the baseline.
+- Track AI/agent security issues outside CVE feeds: OWASP reports, vendor advisories, package compromise feeds, MCP/tooling disclosures, and incident-response writeups.
+- If HoneyDrunk systems run OpenAI macOS apps, update before 2026-06-12 and verify downloads come from official update channels.
+
+### Privacy and quality notes
+- Privacy filter: incident details were reduced to control-level posture; no credential material, exploit payloads, malware indicators, or runnable attack examples were copied.
+- Quality posture: OWASP/OpenAI sources are high authority for their own materials. OWASP roundup incident details should still be cross-checked against primary reports before incident-grade claims.

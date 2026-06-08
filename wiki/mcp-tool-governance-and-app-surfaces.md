@@ -341,3 +341,45 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - Reachy Mini source is a concrete product implementation but public-only and canary-oriented. GitHub enterprise plugin support is public preview and should be verified in the actual plan/client versions.
+
+## 2026-06-08 compile additions
+
+### Claims
+- OWASP's MCP Tool Poisoning page frames malicious MCP responses as an indirect prompt-injection channel: safe-looking tool names/descriptions can pass connect-time review, but runtime tool outputs may smuggle instructions into model context. confidence: 1 OWASP security source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-mcp-tool-poisoning.md]
+- OWASP recommends constraining MCP tool responses to fixed schemas where possible, isolating privileged tools from external MCP context, enforcing tool restrictions server-side, maintaining an approved MCP server allowlist, and requiring out-of-model confirmation for sensitive operations. confidence: 1 OWASP security source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-mcp-tool-poisoning.md]
+- The OWASP Agent Observability Standard MCP extension proposes routing MCP messages through AOS as a transport to a guardian agent before and after calls so requests and responses can receive allow/modify/deny decisions that the agent must enforce. confidence: 1 OWASP AOS source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-instrument-mcp-agent-observability-standard.md; page: [[opentelemetry-genai-observability-and-ecosystem]]]
+- GitHub Copilot SDK GA supports registering custom tools, connecting MCP servers, overriding built-in tools, and hooking pre/post tool use, session start, MCP tool calls, and permission requests. confidence: 1 GitHub changelog source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-copilot-sdk-is-now-generally-available.md; page: [[github-copilot-and-app-token-changes]]]
+- Copilot code review public preview lets repositories configure MCP servers and agent skills for review context; existing MCP configurations for Copilot cloud agent automatically apply to Copilot code review. confidence: 1 GitHub changelog source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-shape-copilot-code-review-around-your-team.md]
+- FinBot CTF includes MCP tool-server configuration and tampered tool-description scenarios, reinforcing MCP tool supply and runtime-response trust as hands-on agent-security topics. confidence: 1 OWASP GenAI source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-finbot-ctf-is-live-a-hands-on-companion-to-the-owasp-genai-security-pr.md]
+
+### Typed entities
+- attack: MCP Tool Poisoning
+- standard: OWASP Agent Observability Standard / AOS
+- control actor: guardian agent
+- decision: allow
+- decision: modify
+- decision: deny
+- SDK: GitHub Copilot SDK
+- hook: pre-tool-use
+- hook: post-tool-use
+- hook: MCP tool-call hook
+- product: Copilot code review
+- directory: `.github/skills`
+- platform: OWASP FinBot CTF
+
+### Explicit relationships
+- MCP response validation complements connect-time tool-description review because runtime output is a separate trust boundary.
+- AOS guardian checks use allow/modify/deny decisions to mediate MCP requests and responses before model or tool continuation.
+- Copilot SDK hooks depend-on application policy to decide whether MCP tool calls are allowed, modified, denied, logged, or escalated.
+- Copilot code review MCP configuration reuses Copilot cloud-agent MCP configuration, so a cloud-agent tool choice can affect review behavior.
+- FinBot uses MCP tool-server scenarios to exercise tool-poisoning and agentic supply-chain risks.
+
+### HoneyDrunk implications
+- Catalog MCP servers with two trust dimensions: tool metadata provenance and runtime response trust. Both need controls.
+- Treat Copilot code review MCP inheritance as a policy risk: a tool configured for cloud-agent work may be inappropriate for PR review context.
+- If implementing guardian-style MCP mediation, make the enforcement result deterministic at the tool layer; the model must not be able to ignore a deny/modify decision.
+- Prefer schema-bound, small, low-privilege MCP outputs for coding profiles; free-text external tools should not share context with filesystem, database, deployment, or messaging tools.
+
+### Privacy and quality notes
+- Privacy filter: OWASP examples with sensitive-looking email/salary/file-exfiltration content were summarized at control level and not copied into wiki prose.
+- Quality posture: OWASP pages are strong security-taxonomy sources; AOS implementation maturity should be validated before adopting as a standard.

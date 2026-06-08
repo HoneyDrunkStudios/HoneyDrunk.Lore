@@ -247,3 +247,50 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - Both sources are scouting signals, not validated HoneyDrunk pipeline evidence.
+
+## 2026-06-08 compile additions
+
+### Claims
+- Unity's HP Anyware sunset guide says HP has ended new-customer sales of HP Anyware, Anyware Trust Center and Trusted Zero Clients reach end of support on 2026-10-31, and broader HP Anyware support/maintenance continues through 2029-10-31, making unsupported remote postproduction infrastructure a security/compliance risk. confidence: 1 Unity/Parsec source citing HP support dates, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-hp-anyware-is-being-sunset-a-practical-guide-for-postproduction-teams.md]
+- The same source positions Parsec as a low-latency remote editorial/finishing option with GPU-side encoding, peer-to-peer encrypted streaming where media remains on the organization's storage, multi-monitor support, tablet input, SSO/SCIM/RBAC/audit logging in enterprise contexts, and High Performance Relay for firewall-constrained deployments. confidence: 1 Unity/Parsec source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-hp-anyware-is-being-sunset-a-practical-guide-for-postproduction-teams.md]
+- Parsec does not currently support Linux hosts and is not optimized for fully air-gapped deployments, so Linux-only or isolated postproduction machines may need a hybrid remote-access plan. confidence: 1 Unity/Parsec source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-hp-anyware-is-being-sunset-a-practical-guide-for-postproduction-teams.md]
+- Ryan Amos's technical-artist interview frames recurring production inefficiencies as lack of visibility, weak structure, inconsistent naming/folders, poor documentation, late validation, and manual repetitive work; he treats repeated breakage as a pipeline problem rather than an artist problem. confidence: 1 80 Level interview source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-technical-artist-on-building-tools-pipelines-and-blending-art-with-eng.md]
+- The same interview recommends making profiling data actionable for artists through automated telemetry, frame reports, graphs/trends, clear targets, editor-integrated tools, inherent documentation, and artist feedback loops. confidence: 1 80 Level interview source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-technical-artist-on-building-tools-pipelines-and-blending-art-with-eng.md]
+- Cairn's Unity technical-art deep dive describes a No-Piton Surface workflow that moved from 2D blendmaps to runtime-generated low-resolution Texture3D distance-field/blendmaps, then used a Compute Shader sharing shader logic to sample gameplay-valid piton-placement positions consistently with rendered rock material. confidence: 1 Unity developer deep dive, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-technical-art-deep-dive-how-cairn-renders-gameplay-specific-rock-mater.md; page: [[unity-3d-and-realtime-vfx-patterns]]]
+
+### Typed entities
+- product: HP Anyware
+- product: HP Anyware Trust Center
+- product: HP Trusted Zero Clients
+- product: Parsec
+- protocol: PCoIP
+- control: SAML SSO
+- control: SCIM
+- control: RBAC
+- control: audit logging
+- concept: remote postproduction workstation
+- role: technical artist
+- person: Ryan Amos
+- tool: Unreal Insights
+- tool: PIX
+- workflow: automated performance telemetry
+- game: Cairn
+- studio: The Game Bakers
+- technique: 3D blendmap
+- technique: Texture3D distance field
+- technique: Compute Shader gameplay sampling
+
+### Explicit relationships
+- HP Anyware support sunset causes migration pressure for postproduction teams that depend-on secure remote editorial/VFX/finishing workstations.
+- Parsec complements centralized media storage by streaming frames rather than project files, but does not supersede Linux-host or air-gap requirements.
+- Technical-art pipeline quality depends-on early validation, visible performance costs, documentation, naming/folder standards, and editor-integrated tools.
+- Automated performance telemetry converts low-level profiling data into artist-actionable reports.
+- Cairn's No-Piton Surfaces use shared shader/compute logic to align gameplay permissions with material rendering.
+
+### HoneyDrunk implications
+- If HoneyDrunk ever supports remote artists/editors, inventory host OS, isolation needs, color/peripheral requirements, identity controls, and audit logging before selecting Parsec or another remote workstation stack.
+- Treat technical-art tools as production infrastructure: build validation and visibility early instead of relying on artists to catch pipeline drift manually.
+- For gameplay-specific materials, prefer shared data/logic between render shaders and gameplay validation to avoid visual/gameplay mismatch.
+
+### Quality notes
+- Unity/Parsec source is vendor-positioned; validate support dates against HP and feature/compliance claims against Parsec docs before procurement. 80 Level interview is practitioner evidence. Cairn is a strong shipped-game technical-art case study but project-specific.

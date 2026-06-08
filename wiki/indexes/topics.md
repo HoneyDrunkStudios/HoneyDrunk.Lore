@@ -481,3 +481,23 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 
 ### Game engines and technical art
 - [[unity-3d-and-realtime-vfx-patterns]] - 30 sources - last-confirmed 2026-06-07
+
+## 2026-06-08 topic additions
+
+### AI agents, harnesses, Copilot, and review surfaces
+- [[ai-agent-harnesses]] - 75 sources - last-confirmed 2026-06-08
+- [[github-copilot-and-app-token-changes]] - 20 sources - last-confirmed 2026-06-08
+- [[ai-assisted-software-practice]] - 37 sources - last-confirmed 2026-06-08
+- [[github-actions-platform-operations]] - 15 sources - last-confirmed 2026-06-08
+
+### MCP, observability, and tool governance
+- [[mcp-tool-governance-and-app-surfaces]] - 28 sources - last-confirmed 2026-06-08
+- [[opentelemetry-genai-observability-and-ecosystem]] - 10 sources - last-confirmed 2026-06-08
+
+### Agent security and supply chain
+- [[ai-coding-agent-security]] - 45 sources - last-confirmed 2026-06-08
+- [[mcp-tool-governance-and-app-surfaces]] - 28 sources - last-confirmed 2026-06-08
+
+### Game engines, technical art, and remote creative workflows
+- [[unity-3d-and-realtime-vfx-patterns]] - 32 sources - last-confirmed 2026-06-08
+- [[technical-art-community-and-talent-signals]] - 19 sources - last-confirmed 2026-06-08

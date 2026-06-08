@@ -1,42 +1,39 @@
-# OpenClaw Lore ingest run - 2026-06-07
+# OpenClaw Lore ingest run - 2026-06-08
 
-- Timestamp: 2026-06-07 10:10 America/New_York / 2026-06-07 14:10 UTC
+- Timestamp: 2026-06-08 10:06 America/New_York / 2026-06-08 14:06 UTC
 - Operator: Honeyclaw / OpenClaw scheduled ingest
 
 ## Raw sources ingested: 15
 
-- raw/2026-06-07-web-eva-bench-data-2-0-3-domains-121-tools-213-scenarios.md
-- raw/2026-06-07-web-nemotron-3-5-content-safety-customizable-multimodal-safety-for-global-.md
-- raw/2026-06-07-web-adding-mcp-tools-to-reachy-mini.md
-- raw/2026-06-07-web-quickstart-build-serverless-agents-using-azure-functions.md
-- raw/2026-06-07-web-evaluation.md
-- raw/2026-06-07-web-ai-tool-calling-net.md
-- raw/2026-06-07-web-workflow-oriented-multi-agent-patterns.md
-- raw/2026-06-07-web-orchestrator-and-subagent-multi-agent-patterns.md
-- raw/2026-06-07-web-introducing-agent-optimizer-in-foundry-agent-service.md
-- raw/2026-06-07-web-announcing-foundry-managed-compute-run-open-models-in-microsoft-foundr.md
-- raw/2026-06-07-web-enterprise-managed-plugins-in-vs-code-in-public-preview.md
-- raw/2026-06-07-web-codeql-2-25-6-adds-swift-6-3-2-support-and-improves-c-coverage.md
-- raw/2026-06-07-web-fix-with-copilot-for-failing-actions-now-in-pro-pro-and-max.md
-- raw/2026-06-07-web-what-is-sandbox-security.md
-- raw/2026-06-07-web-basic-concepts-unity-pipeline-automation.md
+- raw/2026-06-08-web-copilot-cli-improved-ui-rubber-duck-prompt-scheduling-and-voice-input.md
+- raw/2026-06-08-web-copilot-sdk-is-now-generally-available.md
+- raw/2026-06-08-web-docker-navigator-ai-workflows-container-security-and-build-reliability.md
+- raw/2026-06-08-web-expanded-technical-preview-availability-for-the-github-copilot-app.md
+- raw/2026-06-08-web-finbot-ctf-is-live-a-hands-on-companion-to-the-owasp-genai-security-pr.md
+- raw/2026-06-08-web-github-copilot-in-visual-studio-code-may-releases.md
+- raw/2026-06-08-web-hp-anyware-is-being-sunset-a-practical-guide-for-postproduction-teams.md
+- raw/2026-06-08-web-instrument-mcp-agent-observability-standard.md
+- raw/2026-06-08-web-mcp-tool-poisoning.md
+- raw/2026-06-08-web-our-response-to-the-tanstack-npm-supply-chain-attack.md
+- raw/2026-06-08-web-owasp-genai-exploit-round-up-report-q1-2026.md
+- raw/2026-06-08-web-shape-copilot-code-review-around-your-team.md
+- raw/2026-06-08-web-technical-art-deep-dive-how-cairn-renders-gameplay-specific-rock-mater.md
+- raw/2026-06-08-web-technical-artist-on-building-tools-pipelines-and-blending-art-with-eng.md
+- raw/2026-06-08-web-the-making-of-unity-studio-empowering-your-3d-vision.md
 
 ## Wiki pages created/updated
 
 - Created: none.
 - Updated:
-  - wiki/agent-evaluation-and-benchmarks.md
   - wiki/ai-agent-harnesses.md
+  - wiki/ai-assisted-software-practice.md
   - wiki/ai-coding-agent-security.md
-  - wiki/azure-agent-automation-and-identity.md
-  - wiki/edge-ai-and-ai-infrastructure-2026.md
   - wiki/github-actions-platform-operations.md
   - wiki/github-copilot-and-app-token-changes.md
   - wiki/mcp-tool-governance-and-app-surfaces.md
-  - wiki/microsoft-dotnet-ai-stack.md
-  - wiki/multi-agent-architectures.md
+  - wiki/opentelemetry-genai-observability-and-ecosystem.md
+  - wiki/technical-art-community-and-talent-signals.md
   - wiki/unity-3d-and-realtime-vfx-patterns.md
-  - wiki/voice-agent-platforms-2026.md
 - Indexes rebuilt/updated:
   - wiki/indexes/sources.md
   - wiki/indexes/topics.md
@@ -44,36 +41,40 @@
 
 ## Crystallization from `output/query-*.md`
 
-- Reviewed query-output inventory. The unrepresented query files through 2026-05-23 are older daily signal summaries.
-- No additional crystallization was performed because the durable facts in those query outputs are already reflected in the cited wiki pages, and the remaining material is redundant extraction-quality commentary rather than new durable facts.
+- Reviewed query-output inventory. Existing `query-*.md` files are older daily signal summaries through 2026-05-23.
+- No additional crystallization was performed because their durable facts are already reflected in current wiki pages or are redundant extraction-quality commentary.
 
 ## Contradictions / supersession
 
 - No contradictions required resolution.
-- No existing claims were superseded. New sources mostly reinforced existing posture around agent evaluation, tool governance, sandbox security, Copilot automation, Foundry/Azure agent infrastructure, and Unity pipeline automation.
+- No existing claims were superseded. New sources reinforced existing posture around Copilot surfaces, MCP governance, coding-agent security, GenAI observability, CI review policy, Unity Studio, and technical-art pipeline discipline.
 
 ## Gaps logged
 
-- Which HoneyDrunk voice/support-agent scenarios should become reproducible eval cases with tool calls, authentication, unsatisfiable goals, and final-state checks?
-- Should HoneyDrunk pilot Azure Functions serverless agents for scheduled OpenClaw/Honeyclaw jobs, and what connector consent, function-key, dynamic-session, managed-identity, logging, and cost policy is required?
-- Should HoneyDrunk evaluate Foundry Managed Compute for open-weight/custom models, and what comparison set should include direct Azure GPU VMs, local inference, DigitalOcean, and existing API providers?
-- What organization policy should govern enterprise-managed Copilot plugins in VS Code/Copilot CLI, including auto-install, hooks, MCP configs, provenance, and rollback?
-- Which CI failure classes are safe for one-click Fix with Copilot, and what branch, billing-owner, tool, sandbox, and review requirements should constrain it?
+- Which HoneyDrunk repositories should use Copilot code-review skills/MCP and Medium analysis tier, and which standards should remain deterministic checks instead of prompt context?
+- Should HoneyDrunk embed or build against the GitHub Copilot SDK, and what app identity, hook, MCP, OTel redaction, BYOK, and cloud-session policies would govern it?
+- What baseline should HoneyDrunk require for MCP runtime response trust: schema validation, guardian allow/modify/deny mediation, output sanitization, privileged-tool isolation, and approved-server catalogs?
+- Should FinBot CTF or a similar lab become a required exercise/eval source for HoneyDrunk agent-security work?
+- Which HoneyDrunk machines use OpenAI macOS desktop apps, and have they updated before OpenAI's 2026-06-12 certificate-rotation cutoff?
+- Does HoneyDrunk need a remote creative-workstation policy for future artists/editors, including Parsec vs alternatives, Linux hosts, air-gapped environments, color/peripheral validation, SSO/RBAC, and audit logging?
+- Can HoneyDrunk prototype shared shader/compute gameplay sampling for gameplay-specific material regions before duplicating visual and gameplay authoring rules?
+- What HoneyDrunk CLI conventions should react to `VSCODE_AGENT`, `AI_AGENT`, `CODEX_SANDBOX`, or similar environment signals for structured output, noninteractive failure, secret prompts, dry-runs, and idempotency?
 
 ## Quality posture
 
 - Decision-usefulness: good. All promoted claims cite immutable raw files and were mapped to existing canonical wiki pages rather than creating duplicate pages.
-- Weak claims: Microsoft/GitHub/Docker/NVIDIA/Unity product and benchmark claims remain vendor-authored. Preview features, pricing, region/plan availability, benchmark transfer, and production controls require local validation before adoption.
-- Privacy/safety filtering: no raw secrets, tokens, malware indicators, or runnable exploit procedures were copied into wiki content. Safety/security sources were summarized at control and decision level.
-- Source-quality notes: Microsoft Learn raw captures included auth/scaffolding boilerplate, but readable body content was sufficient for durable claims. The Nemotron source was retained as scouting evidence and not treated as production safety proof.
-- Decision-usefulness notes: strongest actionable signals are eval final-state design from EVA-Bench, serverless agent/dynamic-session policy questions, Foundry Managed Compute as an open-model hosting candidate, Copilot plugin/CI repair governance, and sandbox-tier discipline for OpenClaw/Honeyclaw.
+- Weak claims: GitHub, Docker, Unity/Parsec, and Microsoft-adjacent product claims remain vendor-authored. Preview features, plan availability, pricing, client versions, sandbox behavior, and procurement fit require local validation before adoption.
+- Security posture: OWASP and OpenAI incident sources were summarized at control and decision level. MCP poisoning examples, FinBot attack scenarios, and supply-chain incident mechanics were not copied as runnable exploit content.
+- Privacy/safety filtering: no raw secrets, tokens, credential material, malware indicators, public-client configs, or unsafe PII were copied into wiki content. OpenAI certificate and app-version facts were retained because they are public operational guidance.
+- Decision-usefulness notes: strongest actionable signals are Copilot SDK/app/review governance, MCP runtime response trust, FinBot as agent-security exercise material, OpenAI macOS app update deadline, and technical-art validation patterns for Unity/remote creative workflows.
 
 ## Validation
 
 - Raw source coverage check passed: every file under `raw/` except `.gitkeep` is represented in `wiki/indexes/sources.md`.
-- Source-to-wiki citation check passed: every 2026-06-07 raw source appears in at least one non-index wiki page.
-- Non-raw staged diff check passed. Full staged `git diff --check` reports trailing whitespace inside newly added `raw/` source captures; those files were left unchanged because `raw/` is immutable source evidence.
-- Topic and gap indexes updated with 2026-06-07 additions.
+- Source-to-wiki citation check passed: every 2026-06-08 raw source appears in at least one non-index wiki page.
+- `git diff --check` passed with line-ending warnings only; no whitespace errors were reported.
+- Sourcing artifacts checked: `output/openclaw-sourcing-last-run.md` matches the 15 saved 2026-06-08 raw sources; `output/signal-review-2026-06-05.md` contains prior Lore signal review output and no secrets.
+- Topic and gap indexes updated with 2026-06-08 additions.
 
 ## Blockers
 

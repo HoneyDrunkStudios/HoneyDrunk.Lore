@@ -223,3 +223,32 @@ OpenTelemetry is becoming the practical neutral observability layer for LLM/agen
 - Keep OpenClaw traces framework-neutral where possible; emit OTel spans for model calls, tool calls, handoffs, retries, and long waits.
 - Add sampling rules before high-volume agent deployment; "evaluate everything" will become a cost and privacy problem.
 - Use traces-to-dataset only after redaction rules are in place, because production traces may contain private prompt/tool content.
+
+## 2026-06-08 compile additions
+
+### Claims
+- GitHub Copilot SDK GA includes OpenTelemetry tracing with W3C trace-context propagation across CLI startup, JSON-RPC calls, session operations, and tool execution. confidence: 1 GitHub changelog source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-copilot-sdk-is-now-generally-available.md]
+- The OWASP Agent Observability Standard MCP extension proposes inspecting MCP requests and responses through guardian-agent decisions before continuing tool/model flow, which is adjacent to observability because the security decision point sees the same tool-call sequence that traces should record. confidence: 1 OWASP AOS source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-instrument-mcp-agent-observability-standard.md]
+- VS Code Copilot May updates include richer agent terminal/run UX and session sync/history, reinforcing that agent observability includes local IDE/client state as well as backend traces. confidence: 1 GitHub changelog source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-github-copilot-in-visual-studio-code-may-releases.md]
+
+### Typed entities
+- SDK: GitHub Copilot SDK
+- standard: W3C Trace Context
+- protocol/API: JSON-RPC
+- standard: OWASP Agent Observability Standard / AOS
+- protocol: Model Context Protocol
+- concept: guardian-agent decision
+- surface: VS Code Agents window
+- feature: session sync
+
+### Explicit relationships
+- Copilot SDK uses W3C trace context to connect CLI/session/tool execution spans.
+- Guardian-agent mediation complements OTel tracing by adding policy decisions to the tool-call control path.
+- Agent observability depends-on client/session state as well as model/tool spans when agents run across IDE, CLI, cloud, and desktop-app surfaces.
+
+### HoneyDrunk implications
+- For OpenClaw/Grid, capture both execution telemetry and policy decisions: tool requested, policy result, modified arguments if safe to log, execution result, and verification outcome.
+- Keep prompt/tool content redaction aligned with policy logs; a denied exfiltration-like call can still leak data if logged verbatim.
+
+### Quality notes
+- GitHub is authoritative for SDK capability. AOS is an OWASP standard source but should be evaluated for implementation maturity and compatibility with existing OTel pipelines.

@@ -211,3 +211,60 @@ Two GitHub platform changes affect automation cost and compatibility: GitHub App
 
 ### Quality notes
 - Both GitHub features are plan/preview dependent. Verify availability, billing, branch permissions, and enterprise policy controls before enabling in HoneyDrunk repos.
+
+## 2026-06-08 compile additions
+
+### Claims
+- GitHub Copilot CLI now has generally available rubber duck and voice-input features, while prompt scheduling with `/every` and `/after` and a redesigned terminal interface are available through `/experimental`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-copilot-cli-improved-ui-rubber-duck-prompt-scheduling-and-voice-input.md]
+- Copilot CLI voice input runs local speech-to-text so recorded audio stays on the user's machine; the CLI downloads a runtime/model on first enablement. confidence: 1 GitHub changelog source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-copilot-cli-improved-ui-rubber-duck-prompt-scheduling-and-voice-input.md]
+- GitHub Copilot SDK is generally available with stable APIs across Node.js/TypeScript, Python, Go, .NET, Rust, and Java, exposing planning, tool invocation, file edits, streaming, multi-turn sessions, custom tools, MCP, hooks, cloud/remote sessions, and OpenTelemetry tracing. confidence: 1 GitHub changelog source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-copilot-sdk-is-now-generally-available.md]
+- The Copilot app technical preview is now available to existing Copilot Pro, Pro+, Business, and Enterprise customers; the release adds canvases, cloud sessions, cloud automations, CLI session visibility in My Work, agentic browsing, voice conversations, rubber duck, and `/chronicle` session querying. confidence: 1 GitHub changelog source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-expanded-technical-preview-availability-for-the-github-copilot-app.md]
+- GitHub positions canvases as shared structured work surfaces where users inspect/edit/approve state, agents read and update that state, and the app enforces allowed actions against the underlying artifact or runtime. confidence: 1 GitHub changelog source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-expanded-technical-preview-availability-for-the-github-copilot-app.md]
+- VS Code's May 2026 Copilot releases brought the Agents window to Stable preview, added remote agents over SSH or Dev Tunnels, continued Agent Host Protocol work, synced chat sessions to GitHub account history, expanded BYOK to air-gapped environments, and added token/effort/utility-model controls. confidence: 1 GitHub changelog source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-github-copilot-in-visual-studio-code-may-releases.md]
+- VS Code terminal-agent updates include expanded terminal output compression, experimental command risk assessments, keeping sensitive prompts in the terminal instead of model context, clearer background-command UX, and the `VSCODE_AGENT` environment variable for agent-aware CLIs. confidence: 1 GitHub changelog source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-github-copilot-in-visual-studio-code-may-releases.md]
+- Copilot code review public previews add repository skills/MCP support and a Medium analysis tier that uses a higher-reasoning model for complex/security-sensitive/cross-service pull requests at higher AI Credit cost. confidence: 1 GitHub changelog source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-shape-copilot-code-review-around-your-team.md]
+
+### Typed entities
+- product: GitHub Copilot CLI
+- feature: rubber duck
+- feature: voice input
+- feature: `/every`
+- feature: `/after`
+- feature: experimental terminal interface
+- SDK: GitHub Copilot SDK
+- language/runtime: Node.js / TypeScript
+- language/runtime: Python
+- language/runtime: Go
+- language/runtime: .NET
+- language/runtime: Rust
+- language/runtime: Java
+- product: GitHub Copilot app
+- feature: canvas
+- feature: cloud automation
+- feature: agentic browsing
+- command: `/chronicle`
+- product: VS Code Agents window
+- protocol: Agent Host Protocol / AHP
+- feature: air-gapped BYOK
+- environment variable: `VSCODE_AGENT`
+- feature: Copilot code review Medium tier
+- directory: `.github/skills`
+- file: `SKILL.md`
+
+### Explicit relationships
+- Copilot CLI scheduling uses `/every` and `/after` to run prompts or skills inside the current session.
+- Copilot SDK uses MCP, hooks, custom tools, cloud sessions, and OpenTelemetry to expose Copilot's agent runtime to external applications.
+- Copilot app canvases complement chat by making agent state inspectable and editable as a structured artifact.
+- VS Code remote agents depend-on SSH or Dev Tunnels so sessions can continue when the client disconnects.
+- Sensitive terminal prompts contradict model-context ingestion and should stay in terminal-controlled input paths.
+- Copilot code review uses repository skills and MCP servers to bring organization context into review.
+- Copilot code review Medium tier depends-on higher AI Credit spend and should be routed to repositories where deeper analysis is worth the cost.
+
+### HoneyDrunk implications
+- Treat Copilot surfaces as one ecosystem, not isolated tools: CLI, SDK, app, VS Code Agents window, code review, skills, MCP, cloud sessions, and automations now share configuration and session concepts.
+- If HoneyDrunk uses Copilot SDK, define SDK app identities, hook behavior, MCP allowlists, OTel redaction, and BYOK policy before production embedding.
+- Keep voice input local-only as a privacy requirement for agent prompts; verify this behavior before using it near sensitive unreleased work.
+- For Copilot code review, create repository-specific `code-review` skills only after deciding which standards belong in prompts versus deterministic checks.
+
+### Quality notes
+- GitHub sources are authoritative for feature existence, but many capabilities are preview, plan-dependent, or enabled through experimental mode. Verify current plan, billing, and client versions before workflow changes.

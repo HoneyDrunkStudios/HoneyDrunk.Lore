@@ -421,3 +421,39 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - Unity Docs is stronger than the earlier vendor blog for product model details, but Pipeline Automation remains beta. Validate roles, pricing, app availability, API behavior, and artifact retention before production use.
+
+## 2026-06-08 compile additions
+
+### Claims
+- Unity's "making of Unity Studio" source says Unity Studio is a web-based, no-code 3D editor for creating and sharing interactive 3D applications in the browser, with beta feedback driving drag-and-drop animations, a visual material editor, CAD/3D file integration, collaboration tools, and deeper Unity ecosystem integrations. confidence: 1 Unity source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-the-making-of-unity-studio-empowering-your-3d-vision.md]
+- Unity frames Unity Studio's core product challenge as balancing simplicity and power: hiding rendering complexity for non-developers while retaining deeper controls and Unity Editor ecosystem handoff where needed. confidence: 1 Unity source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-the-making-of-unity-studio-empowering-your-3d-vision.md]
+- Cairn's No-Piton Surface solution shows a Unity gameplay/material alignment pattern: 3D blendmaps and Texture3D distance-field volumes can represent gameplay-relevant surfaces on complex kitbashed mountains where vertex colors or one global 2D projection are insufficient. confidence: 1 Unity developer deep dive, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-technical-art-deep-dive-how-cairn-renders-gameplay-specific-rock-mater.md]
+- Cairn's team used a Compute Shader sharing the rock shader's code path to sample whether a piton can be planted at a raycast hit position, then added nearby fallback samples to avoid unfair precision at boundary pixels. confidence: 1 Unity developer deep dive, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-technical-art-deep-dive-how-cairn-renders-gameplay-specific-rock-mater.md]
+
+### Typed entities
+- product: Unity Studio
+- feature: drag-and-drop animation
+- feature: visual material editor
+- feature: CAD/3D file integration
+- feature: collaboration tools
+- engine: Unity
+- game: Cairn
+- studio: The Game Bakers
+- concept: No-Piton Surfaces
+- technique: Texture3D blendmap
+- technique: distance-field volume
+- technique: Compute Shader
+- workflow: shader/gameplay logic sharing
+
+### Explicit relationships
+- Unity Studio uses no-code browser editing to reduce 3D authoring friction for designers, educators, and reviewers.
+- Unity Studio depends-on deeper Unity ecosystem integration when no-code defaults are insufficient for advanced interactive workflows.
+- 3D blendmaps supersede 2D blendmap projection when gameplay-relevant materials must wrap caves, concave geometry, and kitbashed surfaces.
+- Shared shader and compute sampling logic prevents rendered material state from contradicting gameplay permission checks.
+
+### HoneyDrunk implications
+- Keep Unity Studio on the prototype/review shortlist, but judge it by CAD import, collaboration, export/handoff, and whether generated projects remain clean enough for Unity Editor production work.
+- For Unity gameplay surfaces, store material/gameplay masks in a representation both rendering and gameplay can sample or derive from, rather than duplicating authoring rules.
+
+### Quality notes
+- Unity Studio source is vendor-authored and should be validated with HoneyDrunk assets. Cairn source is a concrete developer post from a shipped game and is strong as technique inspiration, not a general engine benchmark.

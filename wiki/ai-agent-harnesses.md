@@ -525,3 +525,43 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - Reachy Mini and Foundry sources are vendor/product posts. GitHub plugin management is public preview. Azure Functions quickstart is concrete but includes auth-gated Learn scaffolding in raw; promoted facts came from the readable body.
+
+## 2026-06-08 compile additions
+
+### Claims
+- Copilot SDK GA reinforces that commercial coding-agent harnesses expose stable programmatic primitives for planning, tool invocation, file edits, streaming, multi-turn sessions, MCP, hooks, prompt-section customization, cloud/remote sessions, and OpenTelemetry tracing. confidence: 1 GitHub changelog source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-copilot-sdk-is-now-generally-available.md; page: [[github-copilot-and-app-token-changes]]]
+- Copilot CLI prompt scheduling with `/every` and `/after` treats scheduled prompt/skill execution as an in-session harness primitive, while voice input and rubber duck add input and critique subflows to the CLI experience. confidence: 1 GitHub changelog source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-copilot-cli-improved-ui-rubber-duck-prompt-scheduling-and-voice-input.md]
+- Copilot app canvases reinforce a durable work-surface pattern: agent progress, state, approvals, and verification should live in an inspectable artifact rather than only in chat transcripts. confidence: 1 GitHub changelog source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-expanded-technical-preview-availability-for-the-github-copilot-app.md]
+- VS Code's Agents window and Agent Host Protocol work reinforce multi-client/session-synchronization as a harness concern: sessions, preferences, remote state, side-by-side work, and Git flow need explicit synchronization across clients. confidence: 1 GitHub changelog source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-github-copilot-in-visual-studio-code-may-releases.md]
+- Docker Navigator's May issue frames AI agents as moving from code generation into execution in CI and local workflows, making isolation, hardened images, supply-chain response, and local model workflows part of the surrounding harness rather than separate DevOps concerns. confidence: 1 Docker newsletter source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-docker-navigator-ai-workflows-container-security-and-build-reliability.md; page: [[ai-coding-agent-security]]]
+
+### Typed entities
+- SDK: GitHub Copilot SDK
+- product: GitHub Copilot CLI
+- product: GitHub Copilot app
+- product/surface: VS Code Agents window
+- protocol: Agent Host Protocol / AHP
+- feature: canvas
+- feature: rubber duck
+- feature: scheduled prompt
+- feature: remote agent
+- feature: session sync
+- concept: inspectable work surface
+- concept: local model workflow
+- product/control: Docker Hardened Images
+- product/control: Docker Sandboxes
+
+### Explicit relationships
+- Agent harnesses use stable SDK APIs, hooks, MCP, and telemetry to expose repeatable runtime behavior.
+- Scheduled prompts depend-on session lifetime and should not be confused with durable external job scheduling unless persisted elsewhere.
+- Canvases complement chat transcripts by preserving work state that humans can inspect, edit, approve, and verify.
+- Multi-client agent work depends-on synchronized session state, Git state, remote execution state, and preferences.
+- CI/local execution harnesses depend-on isolation and supply-chain controls because agents increasingly run code, not only suggest it.
+
+### HoneyDrunk implications
+- Model OpenClaw/Honeyclaw scheduled jobs as durable workflow runs with explicit persistence and audit; in-session prompt scheduling is useful but not sufficient for unattended operations.
+- Build agent dashboards around structured state: plan, diff, tests, approvals, unresolved decisions, trace IDs, and artifacts.
+- If embedding Copilot SDK-like runtimes, require hook-level audit, tool permission checks, and OTel traces from the start.
+
+### Quality notes
+- GitHub and Docker sources are vendor-authored. They are strong feature/ecosystem signals but need local verification around plan availability, privacy settings, sandbox behavior, and pricing.

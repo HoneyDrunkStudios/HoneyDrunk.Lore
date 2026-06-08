@@ -197,3 +197,36 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ### Quality notes
 - GitHub changelog source is authoritative for feature existence. Verify GHES/manual CodeQL upgrade timing if not on github.com code scanning.
+
+## 2026-06-08 compile additions
+
+### Claims
+- Copilot code review now supports repository agent skills and MCP server connections in public preview, bringing issue tracking, documentation, service catalogs, incident tooling, and internal standards into review context when configured. confidence: 1 GitHub changelog source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-shape-copilot-code-review-around-your-team.md; page: [[github-copilot-and-app-token-changes]]]
+- Copilot code review adds a Medium analysis tier that admins can set per repository, trading higher AI Credit cost for deeper review of complex logic, security-sensitive code, and cross-service changes. confidence: 1 GitHub changelog source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-shape-copilot-code-review-around-your-team.md]
+- The same GitHub source says configurable Actions workflows control the compute and environment Copilot uses for review, and shared configuration applies across Copilot code review and Copilot cloud agent. confidence: 1 GitHub changelog source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-shape-copilot-code-review-around-your-team.md]
+- VS Code Copilot terminal changes include automatic retry of network-dependent sandbox commands with broader network permissions while keeping filesystem protections, which makes sandbox permission escalation visible as an agent workflow concern. confidence: 1 GitHub changelog source, last-confirmed 2026-06-08. [source: raw/2026-06-08-web-github-copilot-in-visual-studio-code-may-releases.md]
+
+### Typed entities
+- product: Copilot code review
+- feature: review effort level
+- tier: Low
+- tier: Medium
+- directory: `.github/skills`
+- file: `SKILL.md`
+- protocol: Model Context Protocol
+- control: configurable Actions workflow
+- control: sandbox network-permission retry
+
+### Explicit relationships
+- Copilot code review depends-on Actions runner/workflow configuration when repository context and custom compute are used.
+- Medium review tier supersedes Low only when review depth justifies higher AI Credit spend.
+- Shared Copilot cloud-agent and code-review configuration means MCP/tool changes can affect both automation and PR review.
+- Sandbox network escalation complements filesystem protection but should be auditable because broader network access can change exfiltration risk.
+
+### HoneyDrunk implications
+- Treat Copilot review skills/MCP config like CI configuration: CODEOWNERS, review, provenance, secrets handling, and rollback.
+- Use Medium review only for repositories or PR classes where subtle bugs/security/cross-service reasoning justify cost; keep docs/simple repos on Low.
+- Audit shared Copilot configuration before enabling code review so review agents do not inherit tools meant for separate cloud-agent tasks.
+
+### Quality notes
+- GitHub changelog source is authoritative for preview feature existence. Verify repository settings, billing impact, and runner behavior before rollout.
