@@ -1,34 +1,27 @@
 # OpenClaw Lore Sourcing - Last Run
 
-Timestamp: 2026-06-08T08:10:44
+Timestamp: 2026-06-09T08:07:11
 Mode: write
-Source scope: public website/RSS/web-accessible written sources only; no X, Discord, podcasts, YouTube, or browser-backed sourcing.
-Candidate strategy: feed dry-run plus scoped web search against playbook sources; saved only URLs with clean readable extraction.
-Feed dry-run candidates scanned: 173
-Feed dry-run duplicates observed: 33
-Manual save candidates evaluated: 16
-Skipped duplicate count: 1
-Saved count: 15
+Candidates scanned: 231 feed/web candidates from dry-run plus 15 curated final URLs
+Skipped duplicates: 48 during candidate scan; 0 selected URL duplicates
+Saved: 15
 
 ## Files written
-- raw/2026-06-08-web-github-copilot-in-visual-studio-code-may-releases.md
-- raw/2026-06-08-web-expanded-technical-preview-availability-for-the-github-copilot-app.md
-- raw/2026-06-08-web-copilot-cli-improved-ui-rubber-duck-prompt-scheduling-and-voice-input.md
-- raw/2026-06-08-web-copilot-sdk-is-now-generally-available.md
-- raw/2026-06-08-web-shape-copilot-code-review-around-your-team.md
-- raw/2026-06-08-web-our-response-to-the-tanstack-npm-supply-chain-attack.md
-- raw/2026-06-08-web-owasp-genai-exploit-round-up-report-q1-2026.md
-- raw/2026-06-08-web-finbot-ctf-is-live-a-hands-on-companion-to-the-owasp-genai-security-pr.md
-- raw/2026-06-08-web-mcp-tool-poisoning.md
-- raw/2026-06-08-web-instrument-mcp-agent-observability-standard.md
-- raw/2026-06-08-web-hp-anyware-is-being-sunset-a-practical-guide-for-postproduction-teams.md
-- raw/2026-06-08-web-technical-art-deep-dive-how-cairn-renders-gameplay-specific-rock-mater.md
-- raw/2026-06-08-web-the-making-of-unity-studio-empowering-your-3d-vision.md
-- raw/2026-06-08-web-technical-artist-on-building-tools-pipelines-and-blending-art-with-eng.md
-- raw/2026-06-08-web-docker-navigator-ai-workflows-container-security-and-build-reliability.md
+- raw/2026-06-09-web-net-at-microsoft-build-2026-must-watch-sessions-net-blog.md
+- raw/2026-06-09-web-making-claude-a-chemist.md
+- raw/2026-06-09-web-when-ai-builds-itself.md
+- raw/2026-06-09-web-give-your-agent-its-own-computer.md
+- raw/2026-06-09-web-what-s-new-in-microsoft-foundry-build-edition-microsoft-foundry-blog.md
+- raw/2026-06-09-web-a-developer-s-guide-to-managing-models-cost-and-quality-in-microsoft-f.md
+- raw/2026-06-09-web-designing-agentgateway-a-unified-high-performance-gateway-for-ai-and-a.md
+- raw/2026-06-09-web-how-a-unified-data-model-improves-feature-flag-rollout-decisions-datad.md
+- raw/2026-06-09-web-coding-is-no-longer-the-constraint-scaling-developer-experience-to-tea.md
+- raw/2026-06-09-web-supervisory-engineering-orchestrating-software-s-middle-loop-thoughtwo.md
+- raw/2026-06-09-web-i-built-a-vulnerable-app-and-spent-1-500-seeing-if-llms-could-hack-it.md
+- raw/2026-06-09-web-system-over-model-tested-reproducing-mythos-s-freebsd-find-on-local-op.md
+- raw/2026-06-09-web-procedural-manta-ray-system-made-with-unity.md
+- raw/2026-06-09-web-creating-rich-surface-details-like-crimson-desert-with-pom-silhouettes.md
+- raw/2026-06-09-web-recreating-nostalgic-alley-of-peace-set-in-italy.md
 
-## Skipped duplicates
-- https://unity.com/blog/albion-online-cross-platform-pvp-mmo-architecture
-
-## Failed sources
-- fetch/extract failed: How Wasmer used Codex to build a Node.js runtime for the edge - HTTPError: HTTP Error 403: Forbidden
+## Failures / skips
+- Azure AI Foundry Blog: skipped short content: https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/load-testing-hosted-mcp-servers-with-locust-and-azure-load-testing/4522691

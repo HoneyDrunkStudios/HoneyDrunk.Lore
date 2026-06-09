@@ -374,3 +374,39 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - Microsoft source is a preview announcement with vendor-reported economics and roadmap. Treat as scouting evidence until pricing, quotas, and region availability are verified.
+
+## 2026-06-09 compile additions
+
+### Claims
+- Microsoft Foundry's model-operations guidance frames model selection as a continuous operating discipline across capability, safety, latency, and cost rather than a one-time leaderboard choice. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-a-developer-s-guide-to-managing-models-cost-and-quality-in-microsoft-f.md]
+- Foundry Model Router is described as routing each request to an appropriate model based on workload characteristics, cost targets, and latency requirements; this reinforces model routing as production infrastructure. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-a-developer-s-guide-to-managing-models-cost-and-quality-in-microsoft-f.md]
+- Fireworks AI on Microsoft Foundry is now generally available, providing open-model inference through a single Azure endpoint with enterprise SLAs, provisioned throughput Data Zone support, SOC 2 readiness, access controls, and audit logging under Foundry. confidence: 2 Microsoft Foundry sources, last-confirmed 2026-06-09. [sources: raw/2026-06-09-web-a-developer-s-guide-to-managing-models-cost-and-quality-in-microsoft-f.md; raw/2026-06-09-web-what-s-new-in-microsoft-foundry-build-edition-microsoft-foundry-blog.md]
+- Microsoft Foundry Build recap expands model/compute choices with MAI-Thinking-1, MAI-Image-2.5, MAI-Transcribe-2, MAI-Voice-2, Managed Compute, fine-tuning, and Frontier Tuning; all are platform signals requiring local cost/quality validation. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-what-s-new-in-microsoft-foundry-build-edition-microsoft-foundry-blog.md]
+- Datadog argues that warehouse-native experimentation and OpenFeature protect portability while still allowing unified feature-flag/product-observability decisions, making data-model ownership part of AI/release infrastructure. confidence: 1 Datadog source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-how-a-unified-data-model-improves-feature-flag-rollout-decisions-datad.md]
+
+### Typed entities
+- platform: Microsoft Foundry Models
+- feature: Model Router
+- provider: Fireworks AI on Foundry
+- model: MAI-Thinking-1
+- model: MAI-Image-2.5
+- model: MAI-Transcribe-2
+- model: MAI-Voice-2
+- service: Foundry Managed Compute
+- tuning method: Frontier Tuning
+- standard: OpenFeature SDK
+- concept: warehouse-native experimentation
+
+### Explicit relationships
+- Model routing depends-on workload-specific quality, safety, latency, cost, and throughput criteria.
+- Fireworks AI on Foundry complements managed open-model inference by bringing external/open models under Azure endpoint, audit, and SLA controls.
+- Fine-tuning, compression, distillation, caching, batching, quota management, and provisioned throughput complement routing as cost/performance levers.
+- OpenFeature and warehouse-native experimentation reduce release-platform lock-in while preserving correlated decision data.
+
+### HoneyDrunk implications
+- Treat every model/provider switch as a dependency upgrade: baseline evals, latency/cost comparison, staged rollout, monitoring, and rollback.
+- For OpenClaw routing, profile by task type before optimizing globally; extraction/routing, coding, RAG, long-context review, and image/voice work have different cost-quality tradeoffs.
+- If adopting feature-flag or experimentation tooling, require OpenFeature/provider portability and warehouse/source-data ownership where practical.
+
+### Quality notes
+- Foundry and Datadog claims are vendor-authored. Use them to design local routing/retrieval/release evals, not as default platform choices.

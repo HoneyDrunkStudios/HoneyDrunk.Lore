@@ -457,3 +457,42 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - Unity Studio source is vendor-authored and should be validated with HoneyDrunk assets. Cairn source is a concrete developer post from a shipped game and is strong as technique inspiration, not a general engine benchmark.
+
+## 2026-06-09 compile additions
+
+### Claims
+- The Surface Forge/80 Level POM source frames Parallax Occlusion Mapping as a predictable per-pixel-cost alternative or complement to geometry displacement for flat surfaces needing depth, self-occlusion, self-shadowing, or decal depth. confidence: 1 80 Level technical-art source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-creating-rich-surface-details-like-crimson-desert-with-pom-silhouettes.md; page: [[technical-art-community-and-talent-signals]]]
+- POM and Nanite displacement are presented as complementary: Nanite can handle macro geometry and silhouettes, while POM can provide art-directable fine crevice/self-shadow detail or decal depth. confidence: 1 source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-creating-rich-surface-details-like-crimson-desert-with-pom-silhouettes.md]
+- The POM source warns that distance fading by lerp does not save GPU cost; material LOD or StaticSwitch-based variants must compile out the POM path to reclaim shader cost. confidence: 1 source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-creating-rich-surface-details-like-crimson-desert-with-pom-silhouettes.md]
+- Jawad Srour's procedural manta ray project uses Unity VFX Graph and Shader Graph for GPU-generated swimming motion, procedural texturing, randomized attributes, optimization, and LOD swapping without baked animations or skeletal rigs. confidence: 1 80 Level source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-procedural-manta-ray-system-made-with-unity.md]
+- The Alley of Peace environment-art breakdown reinforces modular-kit workflow, tileable materials in Substance Designer, world-position tint variation, grungy vertex-paint masks, RGB mask windows, decals, intentional prop placement, and LUT/color-grade iteration as environment production patterns. confidence: 1 80 Level source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-recreating-nostalgic-alley-of-peace-set-in-italy.md; page: [[technical-art-community-and-talent-signals]]]
+
+### Typed entities
+- technique: Parallax Occlusion Mapping / POM
+- product/tool: Surface Forge
+- engine: Unreal Engine 5
+- technique: Nanite displacement
+- control: StaticSwitch material LOD
+- tool: Unity VFX Graph
+- tool: Unity Shader Graph
+- workflow: procedural GPU animation
+- workflow: modular environment kit
+- DCC/tool: Substance 3D Designer
+- DCC/tool: Substance 3D Painter
+- technique: world-position color tinting
+- technique: vertex paint breakup mask
+- artifact: LUT color grade
+
+### Explicit relationships
+- POM complements Nanite displacement by adding fine self-shadowing/detail where real geometry would be expensive or impossible, such as decals.
+- StaticSwitch material variants supersede in-shader zero-intensity fades when the goal is actual performance savings.
+- Unity procedural creature systems use VFX Graph and Shader Graph to move animation work to the GPU, but depend-on topology and LOD strategy.
+- Modular environment art depends-on scale references, reusable kits, material variation, decals, lighting, and composition iteration.
+
+### HoneyDrunk implications
+- Add POM with self-shadowing and StaticSwitch LOD to the technical-art spike list for stylized stone/brick/decal-heavy scenes.
+- For procedural ambient creatures or crowds in Unity, prototype GPU-driven deformation and LOD early; mesh topology can make or break the result.
+- Keep environment-art workflows anchored in large-shape composition and lighting before asset microdetail; this directly affects review quality in prototypes.
+
+### Quality notes
+- 80 Level sources are trade/practitioner scouting signals. They are useful technique references but require local engine-version, shader-cost, and target-hardware validation.

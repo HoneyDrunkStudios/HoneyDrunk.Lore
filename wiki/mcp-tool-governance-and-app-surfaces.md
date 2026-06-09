@@ -383,3 +383,40 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 ### Privacy and quality notes
 - Privacy filter: OWASP examples with sensitive-looking email/salary/file-exfiltration content were summarized at control level and not copied into wiki prose.
 - Quality posture: OWASP pages are strong security-taxonomy sources; AOS implementation maturity should be validated before adopting as a standard.
+
+## 2026-06-09 compile additions
+
+### Claims
+- Solo.io's agentgateway is positioned as a unified control plane/proxy data plane for HTTP, gRPC, MCP, A2A, and LLM traffic, avoiding separate AI and API gateway stacks. confidence: 1 Solo.io source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-designing-agentgateway-a-unified-high-performance-gateway-for-ai-and-a.md]
+- Agentgateway introduces tool/model/service federation so clients can use a unified endpoint while platform teams apply authentication, authorization, routing, observability, rate limiting, and governance centrally. confidence: 1 source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-designing-agentgateway-a-unified-high-performance-gateway-for-ai-and-a.md]
+- The agentgateway source says the project uses Rust/Tokio/Hyper/Tonic, xDS dynamic configuration, and was donated into vendor-neutral governance under the Agentic AI Infrastructure Foundation as a Growth-stage project. confidence: 1 source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-designing-agentgateway-a-unified-high-performance-gateway-for-ai-and-a.md]
+- Microsoft Foundry Toolboxes provide one managed endpoint for tools, skills, MCP clients, and enterprise data, with skills as versioned project-scoped catalog entries and tool search to select task-relevant tools instead of exposing everything. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-what-s-new-in-microsoft-foundry-build-edition-microsoft-foundry-blog.md]
+- Datadog's MCP/CLI exposure for feature flags, product analytics, observability, session replay, warehouse metrics, and LLM evals shows MCP surfaces expanding from developer tools into release-operation and product-decision contexts. confidence: 1 Datadog source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-how-a-unified-data-model-improves-feature-flag-rollout-decisions-datad.md]
+
+### Typed entities
+- project: agentgateway
+- company: Solo.io
+- foundation: Agentic AI Infrastructure Foundation / AAIF
+- protocol: A2A
+- protocol/config: xDS
+- language: Rust
+- runtime/library: Tokio
+- library: Hyper
+- library: Tonic
+- product: Foundry Toolboxes
+- feature: tool search
+- product: Datadog MCP Server
+
+### Explicit relationships
+- agentgateway federates MCP, A2A, LLM, HTTP, and gRPC traffic through one policy/observability/routing surface.
+- xDS dynamic configuration lets gateway policy and routes evolve without data-plane restarts.
+- Foundry Toolboxes use managed endpoints and tool search to govern project tools and skills.
+- MCP governance now covers release/product operations, not only coding and documentation lookup.
+
+### HoneyDrunk implications
+- If OpenClaw/Grid grows multiple MCP servers and internal APIs, evaluate whether a unified gateway/policy point reduces duplicated auth, logs, and rate limits.
+- Do not treat tool search as a safety feature unless the underlying catalog is curated and capability-labeled.
+- For release-operation MCP tools, require tighter action gating than docs/search tools because they can affect feature rollouts and user exposure.
+
+### Quality notes
+- Solo.io and Microsoft sources are product/vendor authored. Agentgateway performance and adoption claims should be validated with current project benchmarks before architectural commitment.

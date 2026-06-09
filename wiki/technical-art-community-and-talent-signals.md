@@ -294,3 +294,40 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - Unity/Parsec source is vendor-positioned; validate support dates against HP and feature/compliance claims against Parsec docs before procurement. 80 Level interview is practitioner evidence. Cairn is a strong shipped-game technical-art case study but project-specific.
+
+## 2026-06-09 compile additions
+
+### Claims
+- Surface Forge's POM silhouette work identifies production pitfalls for POM in Unreal: missing self-shadowing, tangent-space light-direction rotation errors, normal-map rotation mismatch, brute-force step counts, and ineffective distance fades that do not compile out shader work. confidence: 1 80 Level technical-art source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-creating-rich-surface-details-like-crimson-desert-with-pom-silhouettes.md; page: [[unity-3d-and-realtime-vfx-patterns]]]
+- The same source recommends heightmap quality, conservative height ratios, step-count dithering with Temporal AA, clean 0-1 face UVs for silhouette clipping, and StaticSwitch material LODs for POM performance. confidence: 1 source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-creating-rich-surface-details-like-crimson-desert-with-pom-silhouettes.md]
+- Alex Arabi's Alley of Peace breakdown shows portfolio-scale environment production discipline: six-week half-time planning, reference/Google Maps scale checks, modular blockout, early Unreal camera composition, asset list from narrative questions, and iterative feedback across artists and non-artists. confidence: 1 80 Level interview source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-recreating-nostalgic-alley-of-peace-set-in-italy.md]
+- The Alley source emphasizes technical-art material variation systems: world-position color tinting for repeated assets, vertex-paint breakup masks for wear, trim sheets for windows, secondary-UV RGB masks for grime/sun damage/edge wear, and decals to blend modular pieces. confidence: 1 source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-recreating-nostalgic-alley-of-peace-set-in-italy.md]
+- The Unity manta ray source is a small but useful signal that Shader Graph and VFX Graph can support procedural GPU character/creature systems when mesh topology, randomization, optimization, and LOD swapping are designed together. confidence: 1 80 Level source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-procedural-manta-ray-system-made-with-unity.md]
+
+### Typed entities
+- person/creator: ArghanionsPuzzlebox
+- product/tool: Surface Forge
+- person/artist: Alex K. Arabi
+- role: Environment Artist
+- school: The Game Assembly
+- location/reference: Vicolo della Pace / Sanremo, Italy
+- person/artist: Jawad Srour
+- technique: POM silhouette clipping
+- technique: step-count dithering with TAA
+- technique: trim sheet
+- technique: RGB mask
+- workflow: modular blockout
+- workflow: GPU procedural animation
+
+### Explicit relationships
+- POM production quality depends-on heightmap authoring, tangent-space correctness, self-shadowing, silhouette UV assumptions, and material-LOD compilation.
+- Portfolio environment workflows use modular kits, narrative-driven asset lists, material variation, set dressing, and lighting/post-processing to create cohesive scenes.
+- GPU procedural animation depends-on mesh topology and LOD policy, not only shader graph logic.
+
+### HoneyDrunk implications
+- Add POM, trim-sheet/RGB-mask variation, world-position tinting, and vertex-paint breakup masks to technical-art reference patterns.
+- For art reviews, ask for blockout, scale reference, material variation plan, focal path, lighting plan, and optimization/LOD notes before judging final polish.
+- Keep 80 Level artist breakdowns as talent/practice signals, but require local replication before treating any technique as pipeline standard.
+
+### Quality notes
+- All three June 9 technical-art sources are public practitioner/trade-press signals. No private portfolio contact data was copied.

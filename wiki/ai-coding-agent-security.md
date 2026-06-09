@@ -576,3 +576,41 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 ### Privacy and quality notes
 - Privacy filter: incident details were reduced to control-level posture; no credential material, exploit payloads, malware indicators, or runnable attack examples were copied.
 - Quality posture: OWASP/OpenAI sources are high authority for their own materials. OWASP roundup incident details should still be cross-checked against primary reports before incident-grade claims.
+
+## 2026-06-09 compile additions
+
+### Claims
+- LangSmith Sandboxes are described as hardware-virtualized microVMs for agent execution, intended to isolate arbitrary model/user/repo/package code while still providing filesystem, shell, package manager, network access, local server preview URLs, snapshots/forks, blueprints, and persistent state. confidence: 1 LangChain source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-give-your-agent-its-own-computer.md]
+- LangChain argues containers are insufficient for untrusted agent code because shared-kernel escape risk remains; VM/microVM isolation is the recommended boundary for agents that install arbitrary dependencies or run generated scripts. confidence: 1 vendor security/source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-give-your-agent-its-own-computer.md]
+- The LangSmith source's auth-proxy pattern injects credentials at the network layer so secrets do not enter the agent runtime directly, aligning with prior scoped-secret guidance. confidence: 1 source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-give-your-agent-its-own-computer.md]
+- Kasra's vulnerable-app experiment shows a common mobile/backend security failure mode: a hardened API can coexist with wide-open Firebase/Firestore or Supabase-style data access, so mobile app security review must inspect embedded service configuration and datastore rules, not only API routes. confidence: 1 practitioner security-eval source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-i-built-a-vulnerable-app-and-spent-1-500-seeing-if-llms-could-hack-it.md]
+- The same experiment is weak as a model benchmark because runs were small, costly, harness-dependent, and affected by provider refusal/budget behavior; its stronger signal is that security-agent evaluations need reproducible harnesses, budgets, transcripts, and success criteria. confidence: 1 source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-i-built-a-vulnerable-app-and-spent-1-500-seeing-if-llms-could-hack-it.md; page: [[agent-evaluation-and-benchmarks]]]
+- The clearbluejar reproduction of a FreeBSD RPCSEC_GSS CVE reinforces "system over model" for vulnerability research: local open-weight models could find the issue under the right scaffold, but false positives required an added reachability stage to make the output reviewable. confidence: 1 practitioner security-research source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-system-over-model-tested-reproducing-mythos-s-freebsd-find-on-local-op.md; page: [[agent-evaluation-and-benchmarks]]]
+
+### Typed entities
+- product: LangSmith Sandboxes
+- isolation type: hardware-virtualized microVM
+- control: auth proxy
+- feature: sandbox snapshot/fork
+- service: Firebase / Firestore
+- service: Supabase
+- vulnerability class: broken access control / missing object-level authorization
+- benchmark target: CVE-2026-4747
+- project: nano-analyzer
+- control: reachability filter
+- model family: GPT-OSS-20B
+- model family: Gemma 4 31B
+
+### Explicit relationships
+- MicroVM execution supersedes shared-kernel containers for untrusted generated code when escape blast radius matters.
+- Auth proxies inject credentials outside the model runtime, reducing direct secret exposure.
+- Mobile/backend security review depends-on datastore authorization rules as well as API route hardening.
+- Vulnerability-research agents depend-on scaffolding, repeated trials, and reachability triage to separate true findings from false positives.
+
+### HoneyDrunk implications
+- Keep OpenClaw execution-isolation decisions tied to task risk: dependency installation, generated scripts, cloned repos, or user-submitted code should run in disposable isolated machines.
+- Add Firebase/Supabase/datastore-rule checks to mobile app review checklists; API-only review can miss direct client datastore paths.
+- When evaluating security agents, count false-positive review burden and require reachability evidence, not just "found a candidate" output.
+
+### Privacy and quality notes
+- Privacy filter: exploit details were summarized at vulnerability-class/control level. Practitioner benchmark data is useful for eval design but not procurement-grade model ranking.

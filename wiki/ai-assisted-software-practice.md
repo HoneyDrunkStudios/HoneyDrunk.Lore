@@ -431,3 +431,40 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - GitHub source is authoritative for these features; translate them into HoneyDrunk CLI standards only after checking behavior in the actual clients used.
+
+## 2026-06-09 compile additions
+
+### Claims
+- Spotify's developer-experience source reports AI coding tool adoption above 99% weekly engineer usage, 94% self-reported productivity improvement, and 76% increased PR frequency; because these are internal/self-reported and output-heavy metrics, use them as platform signal rather than neutral productivity proof. confidence: 1 Spotify Engineering source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-coding-is-no-longer-the-constraint-scaling-developer-experience-to-tea.md]
+- Spotify says agent performance is measurably worse in fragmented codebases and better where components follow consistent stacks, patterns, Backstage catalog metadata, Soundcheck standards, and golden-state lint/static-analysis feedback. confidence: 1 source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-coding-is-no-longer-the-constraint-scaling-developer-experience-to-tea.md]
+- Thoughtworks' supervisory engineering article names a new "middle loop" between local coding and CI/CD: after an AI agent proposes a solution, human engineers align intent, synthesize multi-agent work, perform behavioral/differential review, and gate whether generated code is safe to merge. confidence: 1 Thoughtworks source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-supervisory-engineering-orchestrating-software-s-middle-loop-thoughtwo.md]
+- The same source frames supervisory engineering around directing, evaluating, and correcting; the scarce skill shifts from syntax production to architectural mental models, task decomposition, review, and orchestration of machine-generated work. confidence: 1 source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-supervisory-engineering-orchestrating-software-s-middle-loop-thoughtwo.md]
+- Anthropic's recursive-self-improvement essay says AI-generated code and research assistance already shift bottlenecks toward human review and direction-setting; it reports large internal Claude-authored code shares and productivity gains, but the evidence is lab-internal and should be treated as strategic signal, not a general benchmark. confidence: 1 Anthropic Institute source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-when-ai-builds-itself.md; page: [[ai-research-automation-and-recursive-self-improvement]]]
+
+### Typed entities
+- company/platform: Spotify
+- product: Backstage
+- agent: Honk
+- control: Soundcheck
+- concept: golden state
+- concept: middle loop
+- practice: supervisory engineering
+- practice: directing
+- practice: evaluating
+- practice: correcting
+- concept: human review bottleneck
+- concept: recursive self-improvement
+
+### Explicit relationships
+- Agent productivity depends-on codebase consistency, catalog metadata, and enforced standards; inconsistent local precedent causes worse agent output.
+- Supervisory engineering complements AI coding by moving human effort to intent setting, behavioral verification, architectural coherence, and merge gating.
+- The middle loop depends-on automated tests, policy-as-code, targeted integration tests, and human judgment before CI/CD accepts AI-generated code.
+- AI research/code acceleration causes human review and direction-setting bottlenecks when generation speed exceeds evaluation capacity.
+
+### HoneyDrunk implications
+- Standardize HoneyDrunk repo shapes and catalog metadata where possible; clean examples and consistent patterns are now agent infrastructure.
+- Add "middle-loop" checkpoints to agent tasks: intent/constraints before work, behavior evidence after work, and merge gate before the next milestone.
+- Track PR/review volume, rollback/rework, and review latency alongside agent output volume; increased PR frequency alone is not a success metric.
+
+### Quality notes
+- Spotify and Anthropic metrics are internal platform/lab evidence and may not transfer. Thoughtworks is conceptual practice guidance; it reinforces existing review-gate posture.

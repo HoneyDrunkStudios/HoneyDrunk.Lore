@@ -195,3 +195,42 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - EVA-Bench is a benchmark release and should be validated against the dataset/repo before adopting its scenarios. Microsoft sources are product documentation/blog claims; preview optimizer behavior and pricing need local verification.
+
+## 2026-06-09 compile additions
+
+### Claims
+- Kasra's vulnerable-app benchmark tested multiple LLMs against a deliberately vulnerable React Native/FastAPI/Firebase app under budget and time limits; the strongest durable signal is that security-agent evals are highly sensitive to harness, refusal policy, budget, provider limits, and whether success criteria require the agent to inspect indirect service/datastore paths. confidence: 1 practitioner eval source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-i-built-a-vulnerable-app-and-spent-1-500-seeing-if-llms-could-hack-it.md]
+- The same source reports GPT-5.5 solved 7/10 runs while several other models solved fewer or refused, but the author states the eval is not scientific; treat exact model rankings as weak, non-generalizable evidence. confidence: 1 practitioner eval source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-i-built-a-vulnerable-app-and-spent-1-500-seeing-if-llms-could-hack-it.md]
+- The clearbluejar FreeBSD reproduction shows detection should be measured as a rate over repeated runs: initial full-subsystem runs appeared to miss CVE-2026-4747, but reruns showed local open-weight models could identify it; the bigger issue was false-positive volume. confidence: 1 practitioner security-research source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-system-over-model-tested-reproducing-mythos-s-freebsd-find-on-local-op.md]
+- Adding a reachability stage to the vulnerability-scanning pipeline reportedly pruned Gemma findings from 30 to 5 and GPT-OSS findings from 21 to 4 while preserving the target CVE, reinforcing that eval harness stages can matter more than raw model choice. confidence: 1 practitioner security-research source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-system-over-model-tested-reproducing-mythos-s-freebsd-find-on-local-op.md]
+- Anthropic's chemistry benchmark compares Claude Opus 4.7/4.6/Sonnet 4.6 against ChemDraw and MestReNova on small NMR forward-prediction and inverse-elucidation tasks; Opus 4.7 was competitive or better on average, but the evaluation is small and scaffold-limited. confidence: 1 Anthropic research source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-making-claude-a-chemist.md; page: [[ai-for-science-and-chemistry]]]
+
+### Typed entities
+- benchmark target: vulnerable React Native/FastAPI/Firebase app
+- model: GPT-5.5
+- model: DeepSeek V4 Pro
+- model: Claude Sonnet 4.6
+- model: Claude Opus 4.8
+- model: Gemma 4 31B
+- model: GPT-OSS-20B
+- vulnerability: CVE-2026-4747
+- project: AISLE nano-analyzer
+- stage: reachability filter
+- software: ChemDraw
+- software: MestReNova
+- task: NMR forward prediction
+- task: structure elucidation
+
+### Explicit relationships
+- Security-agent eval outcomes depend-on harness, budget, refusal policy, provider reliability, and success scoring.
+- Vulnerability-scanning evals should measure solve rate, false-positive burden, and reachability evidence, not only whether one run surfaced a candidate.
+- Reachability filters complement LLM triage by checking attacker-controlled inputs and call paths.
+- Domain-science evals depend-on representative scaffold breadth, solvent coverage, stereochemistry/2D data scope, and expert-auditable outputs.
+
+### HoneyDrunk implications
+- For HoneyDrunk model routing, avoid adopting one-off online eval rankings. Run small repeated local evals with transcripts, budget, refusal, cost, and false-positive review time recorded.
+- Add "candidate count after triage" and "human minutes to validate" to vulnerability-agent eval reports.
+- For scientific or asset-domain AI claims, require domain-specific holdout tasks and expert review before treating model output as operationally reliable.
+
+### Quality notes
+- June 9 eval sources are useful for harness design. Practitioner evals are not controlled benchmarks; Anthropic chemistry eval is primary but small and scoped.

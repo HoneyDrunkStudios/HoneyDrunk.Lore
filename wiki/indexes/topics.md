@@ -501,3 +501,27 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 ### Game engines, technical art, and remote creative workflows
 - [[unity-3d-and-realtime-vfx-patterns]] - 32 sources - last-confirmed 2026-06-08
 - [[technical-art-community-and-talent-signals]] - 19 sources - last-confirmed 2026-06-08
+
+## 2026-06-09 topic additions
+
+### AI agents, harnesses, gateways, and execution
+- [[ai-agent-harnesses]] - 80 sources - last-confirmed 2026-06-09
+- [[mcp-tool-governance-and-app-surfaces]] - 31 sources - last-confirmed 2026-06-09
+- [[ai-coding-agent-security]] - 48 sources - last-confirmed 2026-06-09
+- [[opentelemetry-genai-observability-and-ecosystem]] - 11 sources - last-confirmed 2026-06-09
+
+### AI-assisted software and research automation
+- [[ai-assisted-software-practice]] - 40 sources - last-confirmed 2026-06-09
+- [[ai-research-automation-and-recursive-self-improvement]] - 1 source - last-confirmed 2026-06-09
+- [[agent-evaluation-and-benchmarks]] - 17 sources - last-confirmed 2026-06-09
+
+### AI platforms, Foundry, .NET, and model operations
+- [[edge-ai-and-ai-infrastructure-2026]] - 26 sources - last-confirmed 2026-06-09
+- [[microsoft-dotnet-ai-stack]] - 33 sources - last-confirmed 2026-06-09
+
+### AI for science
+- [[ai-for-science-and-chemistry]] - 1 source - last-confirmed 2026-06-09
+
+### Game engines, Unity, and technical art
+- [[unity-3d-and-realtime-vfx-patterns]] - 35 sources - last-confirmed 2026-06-09
+- [[technical-art-community-and-talent-signals]] - 22 sources - last-confirmed 2026-06-09

@@ -261,3 +261,39 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 
 ### Quality notes
 - Microsoft Learn pages are implementation guidance but may change with package versions. Verify API names and package versions before coding.
+
+## 2026-06-09 compile additions
+
+### Claims
+- Microsoft Build 2026 .NET sessions position .NET 11 around AI-era runtime, library, SDK, diagnostics, performance, and developer-productivity improvements. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-net-at-microsoft-build-2026-must-watch-sessions-net-blog.md]
+- C# union types are presented as a coming language feature for modeling closed sets of data shapes, especially useful for wire protocols and domain modeling. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-net-at-microsoft-build-2026-must-watch-sessions-net-blog.md]
+- ASP.NET Core and Blazor in .NET 11 are framed as faster, more secure, Aspire-integrated, and gaining agentic web building blocks such as agents, tools, skills, and components. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-net-at-microsoft-build-2026-must-watch-sessions-net-blog.md]
+- .NET MAUI sessions emphasize local/on-device AI across mobile and desktop, with privacy, performance, UX, and AI-assisted app-development workflow implications. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-net-at-microsoft-build-2026-must-watch-sessions-net-blog.md; page: [[dotnet-runtime-and-mobile-2026]]]
+- Build 2026 related sessions tie .NET to Foundry Agent Service, Microsoft Agent Framework, Foundry multi-agent/Claw patterns, GitHub Copilot SDK multi-client agents, Aspire for agents, and modernization agents for legacy .NET apps. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-net-at-microsoft-build-2026-must-watch-sessions-net-blog.md]
+
+### Typed entities
+- platform/runtime: .NET 11
+- language feature: C# union types
+- framework: ASP.NET Core
+- framework: Blazor
+- framework: Aspire
+- framework: .NET MAUI
+- tool: dotnetup
+- product: GitHub Copilot SDK
+- platform: Microsoft Foundry Agent Service
+- framework: Microsoft Agent Framework
+
+### Explicit relationships
+- .NET 11 uses runtime/library/SDK improvements to support cloud-connected and agent-driven apps.
+- Union types complement protocol/domain modeling by representing closed data-shape sets.
+- ASP.NET Core/Blazor agentic web features depend-on Aspire and agent/tool/skill/component building blocks.
+- .NET MAUI edge AI depends-on local models and device capability rather than cloud-only inference.
+- Foundry and Copilot SDK sessions connect .NET app development to hosted agents and multi-device agent surfaces.
+
+### HoneyDrunk implications
+- Track C# union types for HoneyDrunk protocol and domain-model code once available; do not prematurely simulate with awkward abstractions unless needed.
+- For .NET web apps, evaluate agent/tool/skill patterns alongside ordinary ASP.NET/Blazor security and performance work.
+- Treat .NET MAUI edge AI as a privacy/performance spike requiring target-device testing, not a default mobile architecture.
+
+### Quality notes
+- Source is a Microsoft session roundup, so it is roadmap/session signal rather than detailed API documentation. Verify APIs and preview status before implementation.

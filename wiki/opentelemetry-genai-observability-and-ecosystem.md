@@ -252,3 +252,33 @@ OpenTelemetry is becoming the practical neutral observability layer for LLM/agen
 
 ### Quality notes
 - GitHub is authoritative for SDK capability. AOS is an OWASP standard source but should be evaluated for implementation maturity and compatibility with existing OTel pipelines.
+
+## 2026-06-09 compile additions
+
+### Claims
+- Datadog argues feature-flag rollout decisions need a unified data model that correlates flag state, error rates, traces, session replay, funnel/product data, warehouse metrics, data-quality signals, and LLM evaluation scores without exports or tab switching. confidence: 1 Datadog source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-how-a-unified-data-model-improves-feature-flag-rollout-decisions-datad.md]
+- The same source frames fragmented integrations as particularly risky for agentic release workflows because agents lack human judgment for navigating disconnected tabs, ownership, and implicit context. confidence: 1 Datadog source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-how-a-unified-data-model-improves-feature-flag-rollout-decisions-datad.md]
+- Datadog's agentic release example uses MCP to let an agent correlate a treatment-group error spike with flag exposure data, traces, Android version, warehouse segment size, and Slack reporting before holding part of a rollout. confidence: 1 source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-how-a-unified-data-model-improves-feature-flag-rollout-decisions-datad.md; page: [[mcp-tool-governance-and-app-surfaces]]]
+
+### Typed entities
+- product: Datadog Feature Flags
+- product: Datadog Experiments
+- product: Datadog Product Analytics
+- product: Datadog Session Replay
+- product: Datadog MCP Server
+- standard: OpenFeature SDK
+- concept: warehouse-native experimentation
+- metric/context: flag exposure data
+- metric/context: LLM evaluation score
+
+### Explicit relationships
+- Feature-flag observability depends-on release state, product signals, infrastructure traces, and business metrics sharing identifiers/data model.
+- Agentic rollout decisions depend-on complete correlated context because missing telemetry or disconnected ownership can cause unsafe automated action.
+- OpenFeature and warehouse-native experimentation complement platform observability by preserving code/data portability.
+
+### HoneyDrunk implications
+- Do not allow unattended release/rollout agents until traces, feature exposure, user segment impact, rollback, and notification paths are available as governed tool calls.
+- Keep product analytics and LLM eval metrics linkable to trace IDs or release/flag IDs where possible; otherwise agent decisions will be hard to audit.
+
+### Quality notes
+- Datadog source is vendor-authored and product-positioned, but the unified-data-model requirement is decision-useful for any agentic release workflow.

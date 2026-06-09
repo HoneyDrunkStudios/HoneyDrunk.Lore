@@ -565,3 +565,51 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - GitHub and Docker sources are vendor-authored. They are strong feature/ecosystem signals but need local verification around plan availability, privacy settings, sandbox behavior, and pricing.
+
+## 2026-06-09 compile additions
+
+### Claims
+- Spotify's Honk background coding agent shows a production-scale harness pattern: Claude runs through the Anthropic Agent SDK inside Spotify's own harness on Kubernetes pods, with trusted tools and CI verification across operating systems, while Fleetshift manages target selection, scheduling, progress, and PR tracking. confidence: 1 Spotify Engineering source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-coding-is-no-longer-the-constraint-scaling-developer-experience-to-tea.md; page: [[ai-assisted-software-practice]]]
+- Spotify reports Fleet Management has merged more than 2.5 million automated maintenance PRs, mostly auto-merged, and that Honk reduced a recent Java backend migration to three days for one engineer; treat the numbers as vendor/self-reported platform evidence. confidence: 1 source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-coding-is-no-longer-the-constraint-scaling-developer-experience-to-tea.md]
+- LangSmith Sandboxes reinforce that code-executing agents need stateful isolated computers: filesystem, shell, package manager, network, service URLs, snapshots/forks, blueprints, auth proxy, and persistent session state behind a microVM boundary. confidence: 1 LangChain source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-give-your-agent-its-own-computer.md; page: [[ai-coding-agent-security]]]
+- Microsoft Foundry Build recap says hosted agents are expected to reach GA by early July 2026 with per-session sandboxed compute, state, filesystem access, framework-agnostic deployment, Responses API and Invocations protocol support, and routines for timer/scheduled agents. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-what-s-new-in-microsoft-foundry-build-edition-microsoft-foundry-blog.md]
+- Foundry Agent Service memory now distinguishes procedural, user, and session memory, with procedural memory intended to teach agents recurring work methods across runs. confidence: 1 Microsoft Foundry source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-what-s-new-in-microsoft-foundry-build-edition-microsoft-foundry-blog.md]
+- Datadog's unified feature-flag/product-signal source reinforces that agentic release workflows need a single correlated data model for flag exposure, traces, session replay, warehouse metrics, product funnels, and LLM eval scores; fragmented tools turn agent operation into an automated swivel-chair problem. confidence: 1 Datadog source, last-confirmed 2026-06-09. [source: raw/2026-06-09-web-how-a-unified-data-model-improves-feature-flag-rollout-decisions-datad.md; page: [[opentelemetry-genai-observability-and-ecosystem]]]
+
+### Typed entities
+- company/platform: Spotify
+- agent: Honk
+- orchestration system: Fleetshift / Fleet Management
+- product: Backstage
+- control: Soundcheck
+- concept: golden state
+- product: LangSmith Sandboxes
+- isolation type: microVM
+- feature: snapshots and forks
+- feature: blueprints
+- feature: service URLs
+- control: auth proxy
+- product: Microsoft Foundry hosted agents
+- feature: routines
+- protocol/API: Responses API
+- protocol/API: Invocations protocol
+- memory type: procedural memory
+- product: Datadog Feature Flags
+- product: Datadog MCP Server
+- standard: OpenFeature SDK
+
+### Explicit relationships
+- Honk uses Kubernetes pods, trusted tools, CI verification, Fleetshift orchestration, and Backstage context to execute background code changes at fleet scale.
+- Backstage Software Catalog and Soundcheck golden-state standards provide agent-readable ownership, documentation, and lint/standard feedback.
+- LangSmith Sandboxes use microVM isolation and auth proxying to let agents execute code without inheriting production infrastructure or direct secret custody.
+- Foundry hosted agents use sandboxed sessions and durable state/filesystem access to host long-running agents.
+- Agentic release workflows depend-on correlated product, release, observability, warehouse, and eval data when agents are allowed to hold, continue, or modify rollouts.
+
+### HoneyDrunk implications
+- Treat OpenClaw/Honeyclaw background maintenance as a platform workflow: target selection, session scheduling, CI verification, PR tracking, owner routing, and dashboard state should be explicit.
+- Build Backstage-like catalog/golden-state data for agents before expecting reliable cross-repo edits; fragmented repos reduce agent quality.
+- For any agent that installs dependencies or runs generated code, prefer microVM/session isolation with injected scoped credentials over local host execution.
+- For release/feature-flag agents, do not expose action tools until flag state, traces, product impact, and rollback controls are queryable from one governed surface.
+
+### Quality notes
+- Spotify, LangChain, Microsoft, and Datadog sources are vendor/platform-authored; promoted claims are operational patterns and feature signals, not procurement decisions. No secrets or private identifiers were copied.
