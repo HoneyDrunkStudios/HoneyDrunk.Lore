@@ -268,3 +268,36 @@ Two GitHub platform changes affect automation cost and compatibility: GitHub App
 
 ### Quality notes
 - GitHub sources are authoritative for feature existence, but many capabilities are preview, plan-dependent, or enabled through experimental mode. Verify current plan, billing, and client versions before workflow changes.
+
+## 2026-06-10 compile additions: Fable 5 and third-party agent validation
+
+### Source-backed claims
+- Claude Fable 5 is generally available in GitHub Copilot for Copilot Pro+, Max, Business, and Enterprise users across VS Code, Visual Studio, JetBrains, Xcode, Copilot CLI, cloud agent, Copilot app, github.com, and GitHub Mobile. Source: `raw/2026-06-10-web-github-changelog-claude-fable-5-is-generally-available-for-github-copilot-github-changelo.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Copilot Business and Enterprise administrators must opt in to Claude Fable 5 by enabling a policy that acknowledges Anthropic's up-to-30-day retention for this model. Source: `raw/2026-06-10-web-github-changelog-claude-fable-5-is-generally-available-for-github-copilot-github-changelo.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Other Claude models in Copilot, including Opus 4.8, Sonnet 4.5, and Haiku 4.5, continue under Zero Data Retention according to GitHub's changelog, so Fable 5 is an exception rather than a general Copilot-Claude policy change. Source: `raw/2026-06-10-web-github-changelog-claude-fable-5-is-generally-available-for-github-copilot-github-changelo.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- GitHub security validation for third-party coding agents is generally available; when supported agents such as Claude or OpenAI Codex create code, GitHub can automatically run CodeQL, dependency checks against the GitHub Advisory Database, and secret scanning, then ask the agent to attempt fixes before finalizing a pull request. Source: `raw/2026-06-10-web-github-changelog-security-validation-for-third-party-coding-agents-github-changelog.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Third-party agent validation is on by default and follows the repository's existing Copilot validation-tool settings; GitHub says it does not require a GitHub Advanced Security license. Source: `raw/2026-06-10-web-github-changelog-security-validation-for-third-party-coding-agents-github-changelog.md`. confidence: 1 source, last-confirmed 2026-06-10.
+
+### Typed entities
+- project: GitHub Copilot
+- project: Claude Fable 5
+- project: OpenAI Codex
+- concept: Zero Data Retention
+- concept: third-party coding-agent security validation
+- library/tool: CodeQL
+- project: GitHub Advisory Database
+- decision: whether to enable Fable 5 in Copilot Business or Enterprise
+
+### Explicit relationships
+- Claude Fable 5 in Copilot depends-on admin policy enablement for Business and Enterprise tenants.
+- Claude Fable 5 contradicts the default expectation that Anthropic Copilot traffic is ZDR.
+- Third-party coding-agent validation uses CodeQL, dependency advisory checks, and secret scanning as merge-readiness gates.
+- Third-party coding-agent validation extends Copilot cloud-agent validation patterns to non-Copilot coding agents.
+
+### HoneyDrunk implications
+- Keep Fable 5 disabled for sensitive repos unless the retention exception is explicitly accepted.
+- Do not treat GitHub's automatic validation as a replacement for repo CI; treat it as an additional agent PR guardrail.
+- If Codex or Claude agents open PRs directly, confirm each repository's Copilot validation settings and required checks before relying on automatic remediation.
+
+### Quality notes
+- GitHub is the primary source for feature behavior. Retention and validation behavior are date-sensitive tenant-policy facts and should be rechecked before rollout.

@@ -297,3 +297,35 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 
 ### Quality notes
 - Source is a Microsoft session roundup, so it is roadmap/session signal rather than detailed API documentation. Verify APIs and preview status before implementation.
+
+## 2026-06-10 compile additions: .NET 11 Preview 5 and Foundry agent architecture
+
+### Source-backed claims
+- .NET 11 Preview 5 includes updates across runtime, SDK, libraries, ASP.NET Core, MAUI, C#, and EF Core; Microsoft recommends Visual Studio 2026 Insiders for Windows preview work. Source: `raw/2026-06-10-web-dotnet-net-11-preview-5-is-now-available-net-blog.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Preview 5 library and SDK highlights include System.Text.Json JSON Lines support, LINQ full outer joins, X25519 key agreement, generic numeric `Random` APIs, file-based apps referencing other C# files, build-time SDK vulnerability/EOL checks, and a `dotnet new` MCP Server template. Source: `raw/2026-06-10-web-dotnet-net-11-preview-5-is-now-available-net-blog.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Preview 5 ASP.NET Core highlights include Blazor SSR client-side validation, QuickGrid without interactivity, Blazor WebAssembly Gateway, and `SupplyParameterFromSession`. Source: `raw/2026-06-10-web-dotnet-net-11-preview-5-is-now-available-net-blog.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Microsoft Foundry gateway guidance and the Foundry chat baseline both reinforce that AI app architecture needs an app/gateway layer for auth, routing, rollout, observability, throttling, and failback rather than direct client access to broad project/model credentials. Sources: `raw/2026-06-10-web-microsoft-learn-access-foundry-models-and-other-language-models-through-a-gateway-azure.md`, `raw/2026-06-10-web-microsoft-learn-baseline-microsoft-foundry-chat-reference-architecture-azure-architectur.md`. confidence: 2 sources, last-confirmed 2026-06-10.
+
+### Typed entities
+- project: .NET 11 Preview 5
+- library: System.Text.Json
+- project: ASP.NET Core
+- project: Blazor
+- project: .NET MAUI
+- project: Microsoft Foundry Agent Service
+- concept: MCP Server template
+- decision: .NET AI app gateway pattern
+
+### Explicit relationships
+- .NET 11 Preview 5 adds MCP server scaffolding to `dotnet new`.
+- Blazor and ASP.NET Core preview features support more server-rendered and gateway-style app surfaces.
+- Foundry Agent Service depends-on application-layer authorization for per-user access control in chat apps.
+- Foundry progressive rollout depends-on routing outside the managed agent service.
+
+### HoneyDrunk implications
+- Track the .NET MCP Server template as a possible starting point for internal tool servers, but avoid preview dependency in production.
+- For .NET AI apps, design authorization/routing around the app boundary first; do not expose Foundry project credentials directly to clients.
+- Use build-time vulnerability/EOL checks as an additional CI signal once .NET 11 tooling stabilizes.
+
+### Quality notes
+- .NET 11 is preview. Foundry architecture guidance is Microsoft-authored and should be validated against current Azure region, quota, and identity behavior.

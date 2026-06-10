@@ -331,3 +331,27 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - All three June 9 technical-art sources are public practitioner/trade-press signals. No private portfolio contact data was copied.
+
+## 2026-06-10 compile additions: Hollowbody lighting and solo production signal
+
+### Source-backed claims
+- Hollowbody's retro visual identity uses low-poly assets, diffuse-texture emphasis, selective hero-asset detail, real-time fill/key lighting, and color grading to create a cyberpunk survival-horror mood inside solo-production constraints. Source: `raw/2026-06-10-web-80-level-how-hollowbody-blends-silent-hill-inspirations-with-cyberpunk-horror.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- The creator identifies game feel, movement/combat battle-testing, and greybox refinement as areas that should have received more time before atmosphere/art production. Source: `raw/2026-06-10-web-80-level-how-hollowbody-blends-silent-hill-inspirations-with-cyberpunk-horror.md`. confidence: 1 source, last-confirmed 2026-06-10.
+
+### Typed entities
+- project: Hollowbody
+- person: Nathan Hamley
+- project: Headware Games
+- concept: retro survival-horror art direction
+- concept: greybox refinement
+
+### Explicit relationships
+- Hollowbody art direction depends-on production constraints as much as aesthetics.
+- Movement/combat feel should precede final atmosphere work in survival-horror production.
+
+### HoneyDrunk implications
+- In portfolio or reference reviews, value evidence of constraint-driven lighting/composition decisions, not only final asset polish.
+- For small horror prototypes, make game-feel proof a gate before final art pass.
+
+### Quality notes
+- Public trade source only; no private contact or portfolio data was copied.

@@ -410,3 +410,34 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - Foundry and Datadog claims are vendor-authored. Use them to design local routing/retrieval/release evals, not as default platform choices.
+
+## 2026-06-10 compile additions: North Mini Code, HF Jobs, and Foundry routing
+
+### Source-backed claims
+- North Mini Code is a 30B sparse MoE coding model with 3B active parameters, Apache 2.0 weights on Hugging Face, and availability through OpenCode, Cohere API, and BF16/FP8 model files. Source: `raw/2026-06-10-web-hugging-face-introducing-north-mini-code-coheres-first-model-for-developers.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Hugging Face Jobs can run CI workloads on selectable CPU and GPU hardware while GitHub Actions remains the orchestrator through an ephemeral self-hosted runner bridge. Source: `raw/2026-06-10-web-hugging-face-migrating-your-github-ci-to-hugging-face-jobs.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Microsoft Foundry gateway guidance treats model access as infrastructure needing routing, failover, throttling, auth, telemetry, and policy controls; direct model clients must otherwise implement these controls individually. Source: `raw/2026-06-10-web-microsoft-learn-access-foundry-models-and-other-language-models-through-a-gateway-azure.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Microsoft's Foundry baseline distinguishes provisioned deployments, which target predictable latency and reserved capacity, from consumption deployments, which are best-effort and subject to noisy-neighbor behavior. Source: `raw/2026-06-10-web-microsoft-learn-baseline-microsoft-foundry-chat-reference-architecture-azure-architectur.md`. confidence: 1 source, last-confirmed 2026-06-10.
+
+### Typed entities
+- project: North Mini Code
+- project: Hugging Face Jobs
+- project: Microsoft Foundry
+- concept: sparse MoE
+- concept: ephemeral self-hosted runner
+- concept: provisioned model deployment
+- decision: HoneyDrunk model/CI infrastructure routing
+
+### Explicit relationships
+- North Mini Code uses sparse MoE architecture to reduce active-parameter compute per token.
+- Hugging Face Jobs depends-on external orchestration and tokens when used as GitHub Actions runner infrastructure.
+- Foundry provisioned capacity mitigates latency variance at higher commitment cost.
+- Foundry gateway routing mitigates direct-client duplication of resilience and policy controls.
+
+### HoneyDrunk implications
+- Compare North Mini Code against local and hosted coding models on actual repo tasks before adopting it as an open-model default.
+- Evaluate HF Jobs only for suites where GPU access or runner speed materially changes developer throughput.
+- Treat Foundry gateway/provisioned deployments as an enterprise-grade option, not a default for lightweight Lore/OpenClaw workflows.
+
+### Quality notes
+- Infrastructure claims are vendor-authored and cost-sensitive. Recheck current pricing, quota, and regional availability before architectural decisions.

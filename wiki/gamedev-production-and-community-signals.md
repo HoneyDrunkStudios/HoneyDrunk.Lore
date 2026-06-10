@@ -313,3 +313,27 @@ The game-development community feed produced a mix of process advice, tooling ex
 ### HoneyDrunk implications
 - For small game launches, evaluate playable-snippet marketing only after checking SDK/integration cost, player-data/privacy terms, platform constraints, and whether the game has compelling short moments.
 - Treat creator marketing support as distribution signal, not proof that a game concept will retain players after the snippet.
+
+## 2026-06-10 compile additions: Hollowbody solo-production lessons
+
+### Source-backed claims
+- Hollowbody's production shows a solo developer using retro visual constraints, fixed-camera survival horror conventions, Unity, and PlayMaker to keep a cyberpunk horror project shippable. Source: `raw/2026-06-10-web-80-level-how-hollowbody-blends-silent-hill-inspirations-with-cyberpunk-horror.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- The creator's strongest postmortem lesson is to spend more time battle-testing movement, combat, game feel, and greybox layout before investing heavily in atmosphere and finished art. Source: `raw/2026-06-10-web-80-level-how-hollowbody-blends-silent-hill-inspirations-with-cyberpunk-horror.md`. confidence: 1 source, last-confirmed 2026-06-10.
+
+### Typed entities
+- project: Hollowbody
+- person: Nathan Hamley
+- project: Headware Games
+- concept: solo game production
+- concept: survival-horror greyboxing
+
+### Explicit relationships
+- Solo production depends-on disciplined scope constraints and fast pivoting.
+- Survival-horror atmosphere depends-on movement/combat/layout fundamentals being tested first.
+
+### HoneyDrunk implications
+- For HoneyDrunk game prototypes, require playable feel and navigation evidence before art-complete milestones.
+- Retro constraints can be a production strategy, not just a nostalgic art choice.
+
+### Quality notes
+- Source is practitioner/trade press. The lesson is useful as production guidance, not a universal rule.

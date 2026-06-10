@@ -420,3 +420,34 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - Solo.io and Microsoft sources are product/vendor authored. Agentgateway performance and adoption claims should be validated with current project benchmarks before architectural commitment.
+
+## 2026-06-10 compile additions: Space tool manifests, OpenEnv MCP, and Foundry gateways
+
+### Source-backed claims
+- Hugging Face Spaces `agents.md` files act as plain-text agent-call manifests for model-backed apps, giving agents schemas, request formats, polling instructions, file-upload guidance, and authentication expectations. Source: `raw/2026-06-10-web-hugging-face-how-an-agent-built-a-3d-paris-gallery-by-chaining-two-hugging-face-space.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- OpenEnv treats MCP as a first-class interface for environments that can be used in simulation, evaluation, and production modes. Source: `raw/2026-06-10-web-hugging-face-the-open-source-community-is-backing-openenv-for-agentic-rl.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Microsoft Foundry gateway guidance recommends a reverse-proxy/API-gateway pattern when teams need centralized model routing, auth, rate limits, retry/failover, observability, and policy rather than duplicating those concerns in each client. Source: `raw/2026-06-10-web-microsoft-learn-access-foundry-models-and-other-language-models-through-a-gateway-azure.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Microsoft's Foundry chat baseline says Foundry Agent Service lacks built-in blue-green or canary agent deployment controls, so progressive rollout/failback must be implemented in an application router, API gateway, or custom routing layer. Source: `raw/2026-06-10-web-microsoft-learn-baseline-microsoft-foundry-chat-reference-architecture-azure-architectur.md`. confidence: 1 source, last-confirmed 2026-06-10.
+
+### Typed entities
+- file: agents.md
+- project: Hugging Face Spaces
+- project: OpenEnv
+- project: MCP
+- project: Microsoft Foundry
+- concept: API gateway
+- decision: OpenClaw tool catalog and gateway policy
+
+### Explicit relationships
+- Spaces `agents.md` exposes remote model apps as agent-callable tools.
+- OpenEnv uses MCP to bridge simulation/evaluation and production tool environments.
+- Foundry gateway patterns centralize policy that otherwise lives in every model client.
+- Foundry progressive rollout depends-on routing outside the managed agent service.
+
+### HoneyDrunk implications
+- If OpenClaw consumes remote `agents.md` manifests, require a signed or curated tool catalog rather than arbitrary manifest discovery.
+- Treat MCP and API gateways as complementary layers: MCP describes actions, while gateways enforce auth, routing, rate, telemetry, and rollback policy.
+- For model APIs with broad resource/project permissions, put a HoneyDrunk-controlled policy layer in front of client tools.
+
+### Quality notes
+- Sources are platform-authored. Tool-manifest and gateway patterns are useful design inputs, but security posture depends on local allowlists and credential handling.

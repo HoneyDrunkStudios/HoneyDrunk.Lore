@@ -136,3 +136,35 @@
 
 ### Quality notes
 - Source is an implementation case study from Microsoft. Validate debugging, packaging, signing, and CI matrix complexity before adopting.
+
+## 2026-06-10 compile additions: .NET 11 Preview 5 and June servicing
+
+### Source-backed claims
+- .NET 11 Preview 5 includes runtime, SDK, libraries, ASP.NET Core, MAUI, C#, and EF Core updates, with runtime work including faster async suspension and SDK work including file-based app references, vulnerability checks, EOL checks, and an MCP Server template. Source: `raw/2026-06-10-web-dotnet-net-11-preview-5-is-now-available-net-blog.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- .NET MAUI Preview 5 focuses on reliability and platform fixes, adds CancellationToken-aware animation overloads, adds a Windows Maps implementation backed by Azure Maps, and stabilizes .NET for Android API 37. Source: `raw/2026-06-10-web-dotnet-net-11-preview-5-is-now-available-net-blog.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- The June 2026 .NET servicing release fixes CVE-2026-45591, CVE-2026-45491, and CVE-2026-45490 across supported .NET release trains, with runtime/ASP.NET Core updates for .NET 10, 9, and 8. Source: `raw/2026-06-10-web-dotnet-net-and-net-framework-june-2026-servicing-releases-updates-net-blog.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Microsoft reports no new .NET Framework security or non-security updates in the June 2026 servicing post. Source: `raw/2026-06-10-web-dotnet-net-and-net-framework-june-2026-servicing-releases-updates-net-blog.md`. confidence: 1 source, last-confirmed 2026-06-10.
+
+### Typed entities
+- project: .NET 11 Preview 5
+- project: .NET MAUI
+- project: .NET 10
+- project: .NET 9
+- project: .NET 8
+- vulnerability: CVE-2026-45591
+- vulnerability: CVE-2026-45491
+- vulnerability: CVE-2026-45490
+- decision: June 2026 .NET servicing priority
+
+### Explicit relationships
+- .NET 11 Preview 5 previews SDK and MAUI capabilities but should not supersede supported production trains.
+- June 2026 servicing supersedes prior vulnerable .NET 10/9/8 patch levels for security posture.
+- .NET Framework has no new June 2026 servicing action from this source.
+
+### HoneyDrunk implications
+- Audit HoneyDrunk .NET 8/9/10 services for June 2026 servicing uptake.
+- Keep .NET 11 Preview 5 experiments isolated from production branches until API and tooling stability improve.
+- Watch MAUI Windows Maps and Android API 37 if any mobile/desktop client work resumes.
+
+### Quality notes
+- Microsoft servicing posts are authoritative for release existence, but project-specific urgency depends on package/runtime inventory and exposure.

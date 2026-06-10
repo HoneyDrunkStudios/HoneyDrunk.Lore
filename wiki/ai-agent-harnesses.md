@@ -613,3 +613,44 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - Spotify, LangChain, Microsoft, and Datadog sources are vendor/platform-authored; promoted claims are operational patterns and feature signals, not procurement decisions. No secrets or private identifiers were copied.
+
+## 2026-06-10 compile additions: composable Spaces, OpenEnv, sandboxing, Foundry routing, and decision load
+
+### Source-backed claims
+- Hugging Face Spaces can expose plain-text `agents.md` instructions that tell agents how to call a Space, including schema, request, polling, file upload, and authentication patterns; Hugging Face used this pattern to chain image generation and 3D Gaussian-splat generation Spaces into a deployed 3D Paris gallery. Source: `raw/2026-06-10-web-hugging-face-how-an-agent-built-a-3d-paris-gallery-by-chaining-two-hugging-face-space.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- OpenEnv is positioned as an interoperability layer for agentic reinforcement-learning environments: environments expose Gymnasium-style `reset()`, `step()`, and `state()` APIs over HTTP/WebSocket, package with Docker, and can integrate MCP as a first-class interface. Source: `raw/2026-06-10-web-hugging-face-the-open-source-community-is-backing-openenv-for-agentic-rl.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- OpenEnv standardizes publishing, deploying, and consuming environments, but does not prescribe reward definitions or training loops. Source: `raw/2026-06-10-web-hugging-face-the-open-source-community-is-backing-openenv-for-agentic-rl.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- `micropython-wasm` shows an experimental way to keep a persistent Python interpreter inside a WASM sandbox with selected host calls, memory limits, and experimental fuel-based CPU controls. Source: `raw/2026-06-10-web-simon-willison-running-python-code-in-a-sandbox-with-micropython-and-wasm.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Microsoft Foundry gateway guidance says direct model endpoint use pushes retry, circuit breaking, failover, model selection, throttling, and observability responsibilities into every client/orchestrator; a gateway can centralize those concerns but becomes its own architecture component. Source: `raw/2026-06-10-web-microsoft-learn-access-foundry-models-and-other-language-models-through-a-gateway-azure.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Microsoft's Foundry chat baseline puts the chat application layer in front of Foundry Agent Service as the user access boundary, because Foundry project roles can grant broad access to all agents in a project and the app must enforce per-user agent/conversation authorization. Source: `raw/2026-06-10-web-microsoft-learn-baseline-microsoft-foundry-chat-reference-architecture-azure-architectur.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Thoughtworks argues that AI adoption can move humans from execution into continuous evaluation, creating decision fatigue unless workflows add automated gates, upstream specs, guardrails, and exception-based human review. Source: `raw/2026-06-10-web-thoughtworks-the-paradox-of-acceleration-overcoming-ai-induced-decision-fatigue-and-b.md`. confidence: 1 source, last-confirmed 2026-06-10.
+
+### Typed entities
+- project: Hugging Face Spaces
+- file: agents.md
+- project: OpenEnv
+- library: Gymnasium
+- project: MCP
+- project: micropython-wasm
+- project: Microsoft Foundry Agent Service
+- concept: agentic RL environment
+- concept: decision fatigue
+- decision: OpenClaw remote-tool and sandbox policy
+
+### Explicit relationships
+- Hugging Face Spaces `agents.md` uses plain-text tool instructions to make model-backed apps agent-callable.
+- OpenEnv depends-on containerized environments, client/server APIs, and harness/trainer interoperability.
+- OpenEnv uses MCP as a first-class production/simulation interface.
+- `micropython-wasm` depends-on Wasmtime and selected host functions to expose controlled capabilities.
+- Foundry baseline architecture depends-on an app/gateway layer for end-user authorization and progressive rollout because Foundry project RBAC is too broad for consumer-facing access.
+- Automated gates reduce AI-induced decision fatigue by moving routine validation out of human review queues.
+
+### HoneyDrunk implications
+- Treat remote model Spaces as supply-chain dependencies: require provenance, auth scope, returned-artifact validation, and cost/rate limits before adding them to OpenClaw.
+- Watch OpenEnv as a possible standard for reusable agent training/evaluation harnesses, but do not assume it solves rewards, benchmark leakage, or production safety.
+- Keep generated-code execution in isolated sandboxes; `micropython-wasm` is a useful design reference, not a ready security boundary.
+- For Foundry-style agents, prefer an application-controlled access and routing layer over direct model/project API exposure.
+- Add cognitive-load metrics to agent workflows: review queue length, human validation time, rollback/rework, and exception rate.
+
+### Quality notes
+- Hugging Face, Microsoft, and Thoughtworks are platform/vendor/practice sources. The claims are durable architecture signals, but each requires local threat modeling and workload testing.

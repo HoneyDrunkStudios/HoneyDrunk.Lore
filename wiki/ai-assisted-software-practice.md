@@ -468,3 +468,31 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Spotify and Anthropic metrics are internal platform/lab evidence and may not transfer. Thoughtworks is conceptual practice guidance; it reinforces existing review-gate posture.
+
+## 2026-06-10 compile additions: decision fatigue, Fable 5 routing, and open coding models
+
+### Source-backed claims
+- Thoughtworks argues that AI acceleration can create "continuous evaluator" load, where humans spend more effort judging AI output than doing the original work unless automated gates and redesigned workflows absorb routine decisions. Source: `raw/2026-06-10-web-thoughtworks-the-paradox-of-acceleration-overcoming-ai-induced-decision-fatigue-and-b.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Thoughtworks recommends algorithmic guardrails, automated testing/security/compliance gates, unified data platforms or AI gateways with lineage, cognitive audits, and curated domain-specific AI stacks instead of adding overlapping AI wrappers. Source: `raw/2026-06-10-web-thoughtworks-the-paradox-of-acceleration-overcoming-ai-induced-decision-fatigue-and-b.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Claude Fable 5 is positioned by Anthropic and GitHub as a stronger long-horizon coding model, but it comes with 30-day retention and possible safeguard fallback behavior that affects routing decisions. Sources: `raw/2026-06-10-web-anthropic-claude-fable-5-and-claude-mythos-5.md`, `raw/2026-06-10-web-github-changelog-claude-fable-5-is-generally-available-for-github-copilot-github-changelo.md`. confidence: 2 sources, last-confirmed 2026-06-10.
+- North Mini Code is an open Apache 2.0 coding model optimized for terminal-based agentic software engineering, with training and eval emphasis on verifiable repo tasks and multiple scaffolds. Source: `raw/2026-06-10-web-hugging-face-introducing-north-mini-code-coheres-first-model-for-developers.md`. confidence: 1 source, last-confirmed 2026-06-10.
+
+### Typed entities
+- concept: AI-induced decision fatigue
+- project: Claude Fable 5
+- project: North Mini Code
+- concept: automated review gate
+- decision: HoneyDrunk AI coding model routing
+
+### Explicit relationships
+- AI output volume can cause review bottlenecks unless automated gates filter routine cases.
+- Claude Fable 5 improves candidate capability but depends-on explicit retention acceptance for sensitive work.
+- North Mini Code supports local/open-model coding-agent evaluation where hosted retention is undesirable.
+
+### HoneyDrunk implications
+- Measure agent adoption by validated outcomes, cycle time, review latency, rework, and cost efficiency, not only generated PR count or token throughput.
+- Move routine validation into deterministic gates before expanding agent autonomy.
+- Add non-ZDR hosted models and open/local models to the routing matrix as different privacy/cost/capability tradeoffs.
+
+### Quality notes
+- Thoughtworks is practice guidance; Anthropic, GitHub, and Hugging Face are vendor sources. Local workflow metrics remain the deciding evidence.

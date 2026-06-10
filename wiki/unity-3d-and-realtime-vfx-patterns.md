@@ -496,3 +496,30 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - 80 Level sources are trade/practitioner scouting signals. They are useful technique references but require local engine-version, shader-cost, and target-hardware validation.
+
+## 2026-06-10 compile additions: Hollowbody Unity retro-horror pipeline
+
+### Source-backed claims
+- Hollowbody was built in Unity with PlayMaker visual scripting, using a deliberately constrained retro/PS2-inspired art pipeline of low-poly assets and mostly diffuse textures to keep solo production tractable. Source: `raw/2026-06-10-web-80-level-how-hollowbody-blends-silent-hill-inspirations-with-cyberpunk-horror.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- The creator used Unity's built-in renderer, many real-time non-shadow-casting tinted fill lights, focal key lights, and heavy post-process color grading during lighting iteration rather than relying on baked lightmaps. Source: `raw/2026-06-10-web-80-level-how-hollowbody-blends-silent-hill-inspirations-with-cyberpunk-horror.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Fixed-camera survival horror level design required modifying realistic spaces with roadblocks and funnels because real-world streets and rooms often felt too wide or long for the camera/combat style. Source: `raw/2026-06-10-web-80-level-how-hollowbody-blends-silent-hill-inspirations-with-cyberpunk-horror.md`. confidence: 1 source, last-confirmed 2026-06-10.
+
+### Typed entities
+- project: Hollowbody
+- person: Nathan Hamley
+- project: Headware Games
+- library/tool: Unity
+- library/tool: PlayMaker
+- concept: fixed-camera survival horror
+
+### Explicit relationships
+- Hollowbody uses Unity and PlayMaker.
+- Retro art constraints reduce solo production scope and lighting/rendering cost.
+- Fixed camera design depends-on level geometry tuned for composition, navigation, and combat readability.
+
+### HoneyDrunk implications
+- For small-team Unity horror prototypes, constrain asset fidelity early and spend saved time on movement, combat feel, and greybox iteration.
+- Validate camera framing and navigation against actual player movement before committing final environmental dressing.
+
+### Quality notes
+- 80 Level is a trade interview. Treat technique claims as practitioner evidence requiring local prototype validation.

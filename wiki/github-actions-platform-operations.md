@@ -230,3 +230,35 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ### Quality notes
 - GitHub changelog source is authoritative for preview feature existence. Verify repository settings, billing impact, and runner behavior before rollout.
+
+## 2026-06-10 compile additions: inactive scans, agent validation, and HF Jobs CI
+
+### Source-backed claims
+- GitHub code scanning can now keep scheduled scans running for repositories with no pushes or pull requests for six months or more, provided those repositories use code scanning default setup. When enabled at the organization level, inactive repositories are scanned every 30 days. Source: `raw/2026-06-10-web-github-changelog-periodic-code-scanning-of-inactive-repositories-github-changelog.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- GitHub's generally available third-party coding-agent validation automatically analyzes agent-authored code with CodeQL, dependency advisory checks, and secret scanning when repository settings permit it. Source: `raw/2026-06-10-web-github-changelog-security-validation-for-third-party-coding-agents-github-changelog.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Hugging Face published a GitHub Actions bridge that starts ephemeral Hugging Face Jobs self-hosted runners from signed GitHub `workflow_job.queued` webhooks, allowing workflows to use labels such as `hf-jobs-cpu-upgrade` or `hf-jobs-t4-small` while GitHub Actions remains the control plane. Source: `raw/2026-06-10-web-hugging-face-migrating-your-github-ci-to-hugging-face-jobs.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- The Hugging Face Jobs CI pattern relies on a dispatcher GitHub App, short-lived runner registration tokens, a Hugging Face token stored as a Space secret, and one-shot ephemeral runner Jobs that report status back to GitHub before exiting. Source: `raw/2026-06-10-web-hugging-face-migrating-your-github-ci-to-hugging-face-jobs.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Hugging Face reports Trackio CPU CI ran about 30% faster than GitHub-hosted runners and that a GPU `t4-small` suite ran for less than one cent in the cited example; these are project-specific vendor measurements. Source: `raw/2026-06-10-web-hugging-face-migrating-your-github-ci-to-hugging-face-jobs.md`. confidence: 1 source, last-confirmed 2026-06-10.
+
+### Typed entities
+- project: GitHub code scanning
+- project: GitHub Actions
+- project: Hugging Face Jobs
+- project: huggingface/jobs-actions
+- project: Trackio
+- concept: ephemeral self-hosted runner
+- decision: whether HoneyDrunk should run GPU or faster CPU CI on Hugging Face Jobs
+
+### Explicit relationships
+- Periodic inactive-repository scanning depends-on code scanning default setup.
+- Third-party coding-agent validation uses existing Copilot validation-tool settings.
+- Hugging Face Jobs CI depends-on GitHub Actions webhooks, a dispatcher Space, short-lived runner tokens, and ephemeral Jobs.
+- Hugging Face Jobs can replace GitHub-hosted runner execution while preserving GitHub Actions workflow orchestration.
+
+### HoneyDrunk implications
+- Enable periodic scans only after confirming repos use default setup and that scan cadence/noise is acceptable.
+- Evaluate HF Jobs for GPU-heavy or slow CPU suites, but review token handling, dispatcher uptime, webhook verification, runner isolation, and cost limits first.
+- Keep required GitHub branch checks authoritative even if agent validation or HF Jobs adds earlier feedback.
+
+### Quality notes
+- GitHub and Hugging Face are primary/vendor sources. HF Jobs performance numbers are not transferable without local CI measurements.

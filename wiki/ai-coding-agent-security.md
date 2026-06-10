@@ -614,3 +614,39 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 
 ### Privacy and quality notes
 - Privacy filter: exploit details were summarized at vulnerability-class/control level. Practitioner benchmark data is useful for eval design but not procurement-grade model ranking.
+
+## 2026-06-10 compile additions: non-ZDR coding models, agent PR validation, and WASM sandboxing
+
+### Source-backed claims
+- Claude Fable 5 introduces a coding-agent privacy exception in Copilot because Anthropic retains prompts and outputs for up to 30 days for safety-classifier and abuse-analysis purposes; GitHub states other Claude Copilot models remain Zero Data Retention. Source: `raw/2026-06-10-web-github-changelog-claude-fable-5-is-generally-available-for-github-copilot-github-changelo.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Anthropic's Fable 5 safeguards can route some sensitive biology, chemistry, cyber, and distillation requests to Opus 4.8, which makes model behavior policy-dependent rather than purely capability-dependent. Source: `raw/2026-06-10-web-anthropic-claude-fable-5-and-claude-mythos-5.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- GitHub's third-party coding-agent validation is designed to catch security vulnerabilities, vulnerable newly introduced dependencies, and leaked secrets in agent-authored pull requests before finalization. Source: `raw/2026-06-10-web-github-changelog-security-validation-for-third-party-coding-agents-github-changelog.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Simon Willison's `micropython-wasm` demonstrates an alpha Python-in-WASM sandbox using Wasmtime, memory limits, experimental fuel-based CPU limits, persistent interpreter state through host-function queues, and selected host functions compiled into the WASM blob. Source: `raw/2026-06-10-web-simon-willison-running-python-code-in-a-sandbox-with-micropython-and-wasm.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- The `micropython-wasm` author explicitly characterizes the package as alpha and not ready for users unwilling to accept significant security risk. Source: `raw/2026-06-10-web-simon-willison-running-python-code-in-a-sandbox-with-micropython-and-wasm.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Microsoft Foundry gateway guidance frames API gateways as a way to centralize model-level authorization, API-key hiding, routing/failover, throttling, logging, policy, and compliance around model endpoints that otherwise expose resource/project-level access. Source: `raw/2026-06-10-web-microsoft-learn-access-foundry-models-and-other-language-models-through-a-gateway-azure.md`. confidence: 1 source, last-confirmed 2026-06-10.
+
+### Typed entities
+- project: Claude Fable 5
+- project: GitHub third-party coding-agent validation
+- library/tool: CodeQL
+- library/tool: Wasmtime
+- project: micropython-wasm
+- project: Microsoft Foundry
+- concept: Zero Data Retention
+- concept: WASM sandbox
+- decision: sandbox policy for OpenClaw-generated code execution
+
+### Explicit relationships
+- Claude Fable 5 contradicts a blanket ZDR assumption for Copilot-hosted Anthropic models.
+- GitHub third-party coding-agent validation uses CodeQL, dependency advisory checks, and secret scanning as PR guardrails.
+- `micropython-wasm` depends-on Wasmtime and MicroPython compiled to WASI/WASM.
+- Foundry gateway patterns mitigate direct client access to broad project/resource model permissions.
+
+### HoneyDrunk implications
+- Block non-ZDR coding models from repos containing unreleased game/IP, credentials, customer data, or private partner content unless explicitly approved.
+- Treat GitHub agent validation as defense in depth; deterministic tests, branch protection, CODEOWNERS, and secret scanning still remain required.
+- Do not adopt `micropython-wasm` for trusted isolation without a dedicated security review, filesystem/network tests, fuel calibration, host-function allowlists, and failure-mode analysis.
+- For any Foundry-backed agent app, put model access behind an application/gateway policy surface rather than handing broad project credentials to clients.
+
+### Privacy and quality notes
+- Secret examples from sources were summarized generically. No tokens or private prompts were copied. Security controls are date-sensitive and require tenant/repo verification before rollout.

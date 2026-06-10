@@ -319,3 +319,35 @@ Azure's May 2026 agent/developer tooling signal is that agent automation is movi
 
 ### Quality notes
 - Both Microsoft sources are preview/product documentation. Verify region, quota, pricing, auth behavior, and current deployment-template availability before design commitments.
+
+## 2026-06-10 compile additions: Foundry gateway and baseline chat architecture
+
+### Source-backed claims
+- Microsoft Foundry model endpoints are commonly consumed through HTTP APIs by clients or orchestrators such as Agent Framework, Semantic Kernel, LangChain, and Foundry Agent Service; direct access pushes retry, circuit breaking, failover, model selection, throttling, and telemetry into every client. Source: `raw/2026-06-10-web-microsoft-learn-access-foundry-models-and-other-language-models-through-a-gateway-azure.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Microsoft guidance presents a gateway/reverse-proxy layer as a way to centralize model-level authorization, API-key hiding, routing, failover, rate limits, logging, and policy. Source: `raw/2026-06-10-web-microsoft-learn-access-foundry-models-and-other-language-models-through-a-gateway-azure.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Microsoft's baseline Foundry chat architecture places the chat application in front of Foundry Agent Service as the access boundary, authenticates users with Microsoft Entra ID, and enforces per-user conversation and agent authorization in the application layer. Source: `raw/2026-06-10-web-microsoft-learn-baseline-microsoft-foundry-chat-reference-architecture-azure-architectur.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- The baseline notes that any principal with the Foundry User role on a project can interact with all agents in that project, so project RBAC alone is not sufficient for consumer-facing per-agent authorization. Source: `raw/2026-06-10-web-microsoft-learn-baseline-microsoft-foundry-chat-reference-architecture-azure-architectur.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Foundry Agent Service lacks built-in blue-green or canary agent deployment, so progressive rollout and failback require routing/API-gateway/application logic outside the managed service. Source: `raw/2026-06-10-web-microsoft-learn-baseline-microsoft-foundry-chat-reference-architecture-azure-architectur.md`. confidence: 1 source, last-confirmed 2026-06-10.
+
+### Typed entities
+- project: Microsoft Foundry
+- project: Foundry Agent Service
+- project: Microsoft Entra ID
+- project: Azure API Management
+- concept: reverse proxy
+- concept: project-level RBAC
+- decision: Foundry app access-boundary pattern
+
+### Explicit relationships
+- Foundry direct model access depends-on every client implementing resilience and policy.
+- Gateway access centralizes auth, routing, failover, telemetry, and throttling.
+- Foundry project RBAC contradicts fine-grained per-agent consumer authorization requirements.
+- Progressive agent rollout depends-on application or gateway routing outside Foundry Agent Service.
+
+### HoneyDrunk implications
+- If HoneyDrunk adopts Foundry agents, put user authorization, conversation scoping, rollout, and fallback in HoneyDrunk-owned app/gateway code.
+- Avoid broad project credentials in clients or low-trust tools.
+- Compare Foundry baseline complexity against lighter self-hosted agent patterns before committing.
+
+### Quality notes
+- Microsoft Learn is authoritative for Microsoft architectural guidance, but current service limits, role behavior, and region support must be checked before implementation.

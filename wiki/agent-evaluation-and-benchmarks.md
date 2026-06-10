@@ -234,3 +234,33 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - June 9 eval sources are useful for harness design. Practitioner evals are not controlled benchmarks; Anthropic chemistry eval is primary but small and scoped.
+
+## 2026-06-10 compile additions: Fable 5, North Mini Code, and OpenEnv
+
+### Source-backed claims
+- Anthropic reports Claude Fable 5 is strongest among its models on several benchmark and customer-task examples, including long-horizon coding and vision-based game/app reconstruction; these are vendor-supplied claims requiring local validation. Source: `raw/2026-06-10-web-anthropic-claude-fable-5-and-claude-mythos-5.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- GitHub reports Claude Fable 5 completed equivalent Copilot work with fewer tool calls and lower token consumption than previous Opus-tier models on internal benchmarks; the changelog does not provide enough detail for procurement-grade comparison. Source: `raw/2026-06-10-web-github-changelog-claude-fable-5-is-generally-available-for-github-copilot-github-changelo.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Cohere's North Mini Code is a 30B-parameter sparse MoE coding model with 3B active parameters, released under Apache 2.0 on Hugging Face and trained for agentic software-engineering tasks. Source: `raw/2026-06-10-web-hugging-face-introducing-north-mini-code-coheres-first-model-for-developers.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- North Mini Code's evaluation writeup emphasizes terminal-agent harnesses, SWE-Bench/SWE-Bench-Pro deduplication, Terminal-Bench, SciCode, LiveCodeBench, multiple seeds, and task scaffolds rather than only single-turn coding prompts. Source: `raw/2026-06-10-web-hugging-face-introducing-north-mini-code-coheres-first-model-for-developers.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- OpenEnv is intended to make agentic RL environments reusable across harnesses, trainers, and deployment settings without standardizing the reward function itself. Source: `raw/2026-06-10-web-hugging-face-the-open-source-community-is-backing-openenv-for-agentic-rl.md`. confidence: 1 source, last-confirmed 2026-06-10.
+
+### Typed entities
+- project: Claude Fable 5
+- project: North Mini Code
+- project: OpenEnv
+- concept: terminal-agent benchmark
+- concept: agentic RL environment
+- decision: HoneyDrunk local coding-agent eval suite
+
+### Explicit relationships
+- North Mini Code uses terminal-agent harnesses and verifiable repository tasks to target agentic software engineering.
+- OpenEnv supports evaluation and training reuse but does not replace task design or reward validation.
+- Claude Fable 5 vendor benchmarks should be tested against HoneyDrunk tasks before routing changes.
+
+### HoneyDrunk implications
+- Add Fable 5 and North Mini Code to candidate evals only with retention, cost, local-run feasibility, and task-specific quality recorded.
+- Prefer eval transcripts that include tool calls, token use, refusal/fallback behavior, human validation time, and false-positive review burden.
+- Track environment standardization separately from benchmark quality; OpenEnv can make harnesses portable while still requiring strong tasks.
+
+### Quality notes
+- Fable and North Mini Code claims are vendor-authored. Use them to select candidates, not to declare winners.

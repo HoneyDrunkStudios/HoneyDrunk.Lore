@@ -235,3 +235,35 @@ Anthropic's 2026 platform direction is enterprise/workflow-heavy: Claude Opus 4.
 
 ### Quality notes
 - Billing and plan terms are date-sensitive. Recheck Anthropic account docs before changing automation routing or cost policy.
+
+## 2026-06-10 compile additions: Fable 5 and Mythos 5
+
+### Source-backed claims
+- Anthropic launched Claude Fable 5 on 2026-06-09 as the first Mythos-class model made generally available; Anthropic positions it as its highest-capability GA model and especially strong for long-running coding, research, and knowledge-work tasks. Source: `raw/2026-06-10-web-anthropic-claude-fable-5-and-claude-mythos-5.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Claude Mythos 5 uses the same underlying model family as Fable 5 but removes some Fable safeguards for trusted-access use cases; Anthropic initially routes it through Project Glasswing for US government partners, with selected biology access planned before broader trusted access. Source: `raw/2026-06-10-web-anthropic-claude-fable-5-and-claude-mythos-5.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Fable 5 includes conservative safeguards that can fall back to Claude Opus 4.8 for some biology, chemistry, cyber, distillation, and other sensitive requests; Anthropic reports an average trigger rate under 5% of sessions. Source: `raw/2026-06-10-web-anthropic-claude-fable-5-and-claude-mythos-5.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Fable 5 and Mythos 5 are priced at USD 10 per million input tokens and USD 50 per million output tokens, with API developers using the `claude-fable-5` model identifier for Fable. Source: `raw/2026-06-10-web-anthropic-claude-fable-5-and-claude-mythos-5.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Mythos-class traffic requires 30-day provider retention for safety-classifier, jailbreak, attack, and false-positive analysis; Anthropic says retained traffic is not used to train models and is deleted after 30 days in almost all cases. Sources: `raw/2026-06-10-web-anthropic-claude-fable-5-and-claude-mythos-5.md`, `raw/2026-06-10-web-github-changelog-claude-fable-5-is-generally-available-for-github-copilot-github-changelo.md`. confidence: 2 sources, last-confirmed 2026-06-10.
+- GitHub Copilot makes Claude Fable 5 available to Copilot Pro+, Max, Business, and Enterprise users across major Copilot clients, but Business and Enterprise admins must explicitly enable a Fable 5 policy because this model does not follow the Zero Data Retention handling used by other Claude Copilot models. Source: `raw/2026-06-10-web-github-changelog-claude-fable-5-is-generally-available-for-github-copilot-github-changelo.md`. confidence: 1 source, last-confirmed 2026-06-10.
+
+### Typed entities
+- project: Claude Fable 5
+- project: Claude Mythos 5
+- project: Project Glasswing
+- library/model: Claude Opus 4.8
+- project: GitHub Copilot
+- decision: whether HoneyDrunk allows non-ZDR Mythos-class model traffic in coding-agent workflows
+
+### Explicit relationships
+- Claude Fable 5 depends-on Mythos-class base capability plus additional safeguards and fallback routing.
+- Claude Mythos 5 supersedes Mythos Preview for trusted-access partners.
+- Claude Fable 5 contradicts the prior operational assumption that all Anthropic models exposed through Copilot can be treated as Zero Data Retention traffic.
+- GitHub Copilot uses Claude Fable 5 behind an admin-controlled policy gate.
+
+### HoneyDrunk implications
+- Treat Fable 5 as a high-capability but non-ZDR model. It should be disabled for sensitive HoneyDrunk repositories until repo/data classifications and retention policy are explicit.
+- Benchmark Fable 5 against existing coding models on HoneyDrunk tasks before adopting vendor benchmark claims for routing.
+- For automation, record when Opus 4.8 fallback may change behavior or tool outcomes on sensitive-task boundaries.
+
+### Quality notes
+- Anthropic and GitHub are primary/vendor sources. Capability claims are useful routing signals, not local proof of superiority. No private prompts, retained traffic, or customer content were copied.
