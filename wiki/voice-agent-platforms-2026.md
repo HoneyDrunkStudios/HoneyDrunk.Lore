@@ -70,3 +70,37 @@ The May 2026 OpenAI voice-agent signal is that real-time speech agents are movin
 
 ### Quality notes
 - Benchmark is open-source per source, but scenario content and leaderboard should be inspected directly before use. No private example phone/email data was copied into the wiki.
+
+## 2026-06-11 compile additions: RT.Assistant .NET voice architecture
+
+### Source-backed claims
+- RT.Assistant is a .NET/F# multi-agent voice sample using OpenAI Realtime API over WebRTC for low-latency bidirectional voice, Microsoft.Extensions.AI for portable model access, and .NET MAUI/Fabulous for cross-platform UI. Source: `raw/2026-06-11-web-net-blog-rt-assistant-a-multi-agent-voice-bot-using-net-and-openai-net-blog.md`. confidence: 1 Microsoft/.NET guest post, last-confirmed 2026-06-11.
+- RT.Assistant uses multiple specialized agents: Voice Agent, CodeGen Agent, Query Agent, and App Agent, coordinated through RTFlow's typed async bus and deterministic Flow state machine. Source: `raw/2026-06-11-web-net-blog-rt-assistant-a-multi-agent-voice-bot-using-net-and-openai-net-blog.md`. confidence: 1 source, last-confirmed 2026-06-11.
+- The sample uses LLM-generated Prolog queries against a structured Prolog knowledge base, so the LLM translates the question while Prolog computes/checks the answer against explicit facts. Source: `raw/2026-06-11-web-net-blog-rt-assistant-a-multi-agent-voice-bot-using-net-and-openai-net-blog.md`. confidence: 1 source, last-confirmed 2026-06-11.
+
+### Typed entities
+- project: RT.Assistant
+- framework: RTFlow
+- library: RTOpenAI
+- protocol: WebRTC
+- API: OpenAI Realtime API
+- framework: .NET MAUI
+- framework: Fabulous
+- language: F#
+- engine: Tau Prolog
+- agent role: Voice Agent
+- agent role: CodeGen Agent
+- agent role: Query Agent
+- agent role: App Agent
+
+### Explicit relationships
+- RT.Assistant uses WebRTC to reduce realtime voice transport burden versus raw WebSocket audio handling.
+- RTFlow uses typed messages and deterministic state machines to constrain multi-agent voice workflows.
+- Prolog-backed query execution reduces answer hallucination risk by moving domain fact evaluation into a symbolic engine.
+
+### HoneyDrunk implications
+- For voice agents that answer from structured rules/catalogs, prefer LLM-to-query plus deterministic execution over direct answer generation when correctness matters.
+- If HoneyDrunk prototypes native voice agents, validate WebRTC device support, typed event handling, interruption behavior, and UI transparency before model choice.
+
+### Quality notes
+- Guest post/sample evidence is useful architecture signal; production readiness requires local evals, error handling, and privacy review.

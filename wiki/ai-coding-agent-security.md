@@ -650,3 +650,44 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 
 ### Privacy and quality notes
 - Secret examples from sources were summarized generically. No tokens or private prompts were copied. Security controls are date-sensitive and require tenant/repo verification before rollout.
+
+## 2026-06-11 compile additions: MCP threat maturity, tool-chain attacks, Copilot review, and Codex deployment controls
+
+### Source-backed claims
+- The Cloud Security Alliance Agentic MCP Security Best Practices draft says MCP security needs defense in depth across authentication, tool integrity, session management, supply-chain validation, execution isolation, behavioral monitoring, and per-invocation verification for high-sensitivity deployments. Source: `raw/2026-06-11-web-cloud-security-alliance-agentic-mcp-security-best-practices-guide.md`. confidence: 1 draft whitepaper source, last-confirmed 2026-06-11.
+- The CSA draft maps MCP threats to categories including pre-auth RCE, tool poisoning, rug pulls, session hijacking, supply-chain attacks, cross-tenant information leakage, and insecure tool execution. Source: `raw/2026-06-11-web-cloud-security-alliance-agentic-mcp-security-best-practices-guide.md`. confidence: 1 draft whitepaper source, last-confirmed 2026-06-11.
+- CrowdStrike defines agentic tool-chain attacks as reasoning-layer attacks that manipulate tool descriptions, metadata, and context; examples include tool poisoning, tool shadowing, and rugpull attacks. Source: `raw/2026-06-11-web-crowdstrike-how-agentic-tool-chain-attacks-threaten-ai-agent-security.md`. confidence: 1 vendor security source, last-confirmed 2026-06-11.
+- CrowdStrike recommends signed manifests, version pinning, metadata audits, mTLS/certificate pinning, pre-execution parameter validation, boundary verification, reasoning telemetry, baseline tracking, and anomaly detection for agentic tool-chain risk. Source: `raw/2026-06-11-web-crowdstrike-how-agentic-tool-chain-attacks-threaten-ai-agent-security.md`. confidence: 1 vendor security source, last-confirmed 2026-06-11.
+- GitHub Copilot CLI `/security-review` is an experimental public-preview slash command that analyzes local code changes for high-confidence security findings such as injection, XSS, insecure data handling, path traversal, and weak cryptography; GitHub says it complements but does not rely on code scanning, Dependabot, or secret scanning. Source: `raw/2026-06-11-web-github-changelog-dedicated-security-review-command-now-available-in-copilot-cli-github-c.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-11.
+- OpenAI's Codex deployment posture combines sandboxing, approvals, managed network allowlists, secure keyring credential storage, enterprise workspace pinning, command allow/block rules, OTel export, and compliance logs. Source: `raw/2026-06-11-web-openai-running-codex-safely-at-openai.md`. confidence: 1 official OpenAI source, last-confirmed 2026-06-11.
+
+### Typed entities
+- organization: Cloud Security Alliance
+- framework: MCP Security Maturity Model
+- threat: tool poisoning
+- threat: tool shadowing
+- threat: rugpull attack
+- threat: session hijacking
+- control: signed tool manifest
+- control: version pinning
+- control: mutual TLS
+- control: certificate pinning
+- command: GitHub Copilot CLI `/security-review`
+- product: OpenAI Codex
+- control: OpenTelemetry log export
+
+### Explicit relationships
+- Agentic tool-chain attacks exploit natural-language tool metadata and runtime context rather than only executable code.
+- Tool shadowing causes one tool's metadata to influence how an agent calls another tool.
+- Signed manifests and version pinning mitigate tool-description drift and rugpull risk.
+- Copilot CLI `/security-review` complements deterministic scanners but does not supersede CodeQL, Dependabot, secret scanning, or human security review.
+- Codex sandboxing and approval policy complement enterprise compliance logs by constraining and explaining agent actions.
+
+### HoneyDrunk implications
+- Treat MCP/tool metadata as code: review, hash/sign where possible, pin versions, and alert on drift before exposing tools to broad agents.
+- Add `/security-review`-style AI review only as a fast local sensor; keep deterministic SAST, dependency, secret, and path/egress controls mandatory.
+- For OpenClaw, record the requested action, policy decision, network decision, and execution result for tool calls; endpoint logs alone will not explain agent intent.
+
+### Privacy and quality notes
+- Privacy filter: exploit examples were summarized as threat/control classes; no credential paths, payloads, or runnable exploitation steps were copied.
+- Quality posture: CSA source is draft; CrowdStrike is vendor-authored. Use as security architecture signal, not final compliance policy.

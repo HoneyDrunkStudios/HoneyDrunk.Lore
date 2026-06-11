@@ -548,3 +548,23 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 - [[unity-3d-and-realtime-vfx-patterns]] - 36 sources - last-confirmed 2026-06-10
 - [[technical-art-community-and-talent-signals]] - 23 sources - last-confirmed 2026-06-10
 - [[gamedev-production-and-community-signals]] - 28 sources - last-confirmed 2026-06-10
+
+## 2026-06-11 topic additions
+
+### AI agents, harnesses, and context engineering
+- [[ai-agent-harnesses]] - 93 sources - last-confirmed 2026-06-11
+- [[google-agent-platform-and-gemini-api-2026]] - 13 sources - last-confirmed 2026-06-11
+- [[openai-frontier-models-and-codex-2026]] - 2 sources - last-confirmed 2026-06-11
+
+### Agent security, MCP governance, and coding-agent review
+- [[ai-coding-agent-security]] - 57 sources - last-confirmed 2026-06-11
+- [[mcp-tool-governance-and-app-surfaces]] - 39 sources - last-confirmed 2026-06-11
+- [[github-copilot-and-app-token-changes]] - 25 sources - last-confirmed 2026-06-11
+
+### .NET agents, voice, and observability
+- [[microsoft-dotnet-ai-stack]] - 41 sources - last-confirmed 2026-06-11
+- [[opentelemetry-genai-observability-and-ecosystem]] - 14 sources - last-confirmed 2026-06-11
+- [[voice-agent-platforms-2026]] - 3 sources - last-confirmed 2026-06-11
+
+### Game engines, DCC, and mobile production
+- [[unity-3d-and-realtime-vfx-patterns]] - 38 sources - last-confirmed 2026-06-11

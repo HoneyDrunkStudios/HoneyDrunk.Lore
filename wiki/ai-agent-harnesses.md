@@ -654,3 +654,43 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - Hugging Face, Microsoft, and Thoughtworks are platform/vendor/practice sources. The claims are durable architecture signals, but each requires local threat modeling and workload testing.
+
+## 2026-06-11 compile additions: context engineering, outer harnesses, managed agents, and Codex controls
+
+### Source-backed claims
+- Fowler/Thoughtworks frames coding-agent context engineering as deliberate curation of reusable prompts, rules, skills, subagents, MCP servers, hooks, tools, and workspace files; more context is not automatically better because excessive context increases cost and can reduce agent effectiveness. Source: `raw/2026-06-11-web-martin-fowler-context-engineering-for-coding-agents.md`. confidence: 1 source, last-confirmed 2026-06-11.
+- The same context-engineering source distinguishes who loads context: the LLM can lazy-load skills/tools, a human can invoke slash commands, and agent software can deterministically trigger hooks. Source: `raw/2026-06-11-web-martin-fowler-context-engineering-for-coding-agents.md`. confidence: 1 source, last-confirmed 2026-06-11.
+- Fowler/Thoughtworks defines an outer coding-agent harness as feedforward guides plus feedback sensors; computational controls such as linters/tests/type checks are cheap and deterministic, while inferential controls such as AI review are slower, costlier, and probabilistic. Source: `raw/2026-06-11-web-martin-fowler-harness-engineering-for-coding-agent-users.md`. confidence: 1 source, last-confirmed 2026-06-11.
+- Google I/O 2026 announced Antigravity 2.0, Antigravity CLI, Managed Agents in the Gemini API, and Antigravity SDK; Google positions these as agent harness surfaces with subagents, terminal sandboxing, credential masking, hardened Git policies, remote sandboxes, and self-hostable agent control. Source: `raw/2026-06-11-web-google-developers-blog-all-the-news-from-the-google-i-o-2026-developer-keynote.md`. confidence: 1 vendor source, last-confirmed 2026-06-11.
+- OpenAI describes internal Codex deployment controls as managed configuration, sandbox write/network boundaries, approval policy, auto-review for some boundary-crossing actions, network allowlists, OS keyring credential storage, enterprise workspace pinning, command allow/block rules, and OpenTelemetry/compliance logs. Source: `raw/2026-06-11-web-openai-running-codex-safely-at-openai.md`. confidence: 1 official OpenAI source, last-confirmed 2026-06-11.
+
+### Typed entities
+- concept: context engineering
+- concept: outer coding-agent harness
+- control: feedforward guide
+- control: feedback sensor
+- control type: computational control
+- control type: inferential control
+- product: Google Antigravity 2.0
+- CLI: Antigravity CLI
+- SDK: Antigravity SDK
+- feature: Gemini API Managed Agents
+- product: OpenAI Codex
+- control: managed network policy
+- control: auto-review mode
+- standard: OpenTelemetry
+
+### Explicit relationships
+- Context engineering uses rules, skills, MCP servers, subagents, hooks, and workspace files to shape model behavior.
+- Outer harnesses use feedforward controls to steer agents before action and feedback sensors to let agents self-correct after action.
+- Computational sensors complement inferential review because deterministic checks can run earlier and more often.
+- Google Antigravity Managed Agents use remote sandboxing and harness provisioning to reduce local infrastructure setup.
+- Codex safety depends-on sandbox policy, approval policy, network policy, credential custody, and agent-native telemetry, not prompt instructions alone.
+
+### HoneyDrunk implications
+- Keep OpenClaw/Honeyclaw context small and task-scoped: always-on AGENTS guidance, lazy-loaded skills, profile-specific tools, and deterministic hooks should be separate levers.
+- Improve repeated agent failures by adding either a guide or a sensor; do not rely on humans remembering to re-explain recurring constraints.
+- For coding agents, log policy decisions and tool actions in addition to process/file changes so security review can explain agent intent.
+
+### Quality notes
+- Fowler/Thoughtworks sources are practice guidance. Google and OpenAI sources are vendor/platform-authored. Promoted claims are durable harness patterns, not procurement decisions.

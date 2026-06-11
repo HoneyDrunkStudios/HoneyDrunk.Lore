@@ -523,3 +523,43 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - 80 Level is a trade interview. Treat technique claims as practitioner evidence requiring local prototype validation.
+
+## 2026-06-11 compile additions: Blender 5.2 Geometry Nodes and mobile live-game optimization
+
+### Source-backed claims
+- Blender 5.2 LTS Geometry Nodes release notes add experimental physics focused on hair/cloth, geometry bundles attached to geometry, list types, collection-child listing, sound-frequency sampling, Geometry Nodes modifiers on empty objects, Mesh Bevel, attribute transfer/renaming/name listing, string fields/tools, and recursive closures with call-stack limits. Source: `raw/2026-06-11-web-blender-developer-documentation-blender-5-2-lts-geometry-nodes.md`. confidence: 1 official Blender docs source, last-confirmed 2026-06-11.
+- Geometry Bundles allow arbitrary data, including fields and closures, to travel with geometry across modifier/object boundaries, which Blender frames as a step toward declarative systems across multiple objects. Source: `raw/2026-06-11-web-blender-developer-documentation-blender-5-2-lts-geometry-nodes.md`. confidence: 1 official Blender docs source, last-confirmed 2026-06-11.
+- Unity's Game of Thrones: Dragonfire case study says Warner Bros. Games Boston used custom load-stage profiling, CSV aggregation, Chrome Trace Events, OpenTelemetry traces, Unity Profiler, Profile Analyzer, RenderDoc, and Memory Profiler to reduce loading, hitching, rendering, and memory bottlenecks on mobile. Source: `raw/2026-06-11-web-unity-blog-building-westeros-for-mobile-in-game-of-thrones-dragonfire-unity.md`. confidence: 1 Unity source, last-confirmed 2026-06-11.
+- Dragonfire optimized a 2000x4000 map by chunking/loading only relevant map regions, replacing some terrain GameObjects with direct mesh rendering, organizing asset bundles by area/feature/shared assets, alerting on bundle-size growth, using shared bundles to avoid duplicated dependencies, and using Protobuf/binary patching to reduce deserialization and patch payloads. Source: `raw/2026-06-11-web-unity-blog-building-westeros-for-mobile-in-game-of-thrones-dragonfire-unity.md`. confidence: 1 Unity source, last-confirmed 2026-06-11.
+
+### Typed entities
+- DCC/tool: Blender 5.2 LTS
+- feature: Geometry Nodes physics
+- feature: Geometry Bundles
+- feature: Lists
+- feature: Sample Sound Frequencies node
+- feature: Mesh Bevel node
+- feature: Transfer Attributes node
+- game: Game of Thrones: Dragonfire
+- studio: Warner Bros. Games Boston
+- tool: Unity Memory Profiler
+- tool: Unity Profile Analyzer
+- tool: RenderDoc
+- format: Chrome Trace Events
+- format: Protocol Buffers / Protobuf
+- workflow: binary patching
+
+### Explicit relationships
+- Blender Geometry Bundles use attached arbitrary data to support multi-object declarative Geometry Nodes systems.
+- Blender list and string nodes complement procedural technical-art workflows by making variable-length and text-like data available in node graphs.
+- Dragonfire mobile performance depends-on loading only needed map/content data and measuring each load stage with trace/profiler tools.
+- Shared asset bundles reduce redundant downloads and memory pressure when assets are used across biomes/features.
+- Protobuf supersedes JSON for design-data startup paths when deserialization cost and payload size dominate.
+
+### HoneyDrunk implications
+- Keep Blender 5.2 Geometry Nodes on the technical-art watchlist, especially bundles/lists/sound sampling/empty-object modifiers for procedural tools.
+- For mobile/live Unity prototypes, add bundle-size alerts, Memory Profiler snapshots, and traceable load-stage timing before content scale hides bottlenecks.
+- Prefer schema/binary data formats for large runtime tables when JSON parsing becomes a measured startup bottleneck.
+
+### Quality notes
+- Blender docs are strong feature evidence, but production adoption should wait for target Blender release stability. Unity case study is vendor/studio evidence and should be validated against HoneyDrunk target devices.

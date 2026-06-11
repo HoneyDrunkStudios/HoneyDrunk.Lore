@@ -301,3 +301,36 @@ Two GitHub platform changes affect automation cost and compatibility: GitHub App
 
 ### Quality notes
 - GitHub is the primary source for feature behavior. Retention and validation behavior are date-sensitive tenant-policy facts and should be rechecked before rollout.
+
+## 2026-06-11 compile additions: CLI security review, CodeQL incremental analysis, and .NET modernization agents
+
+### Source-backed claims
+- Copilot CLI `/security-review` is an experimental public-preview command that runs on local code changes and returns severity/confidence-scored security findings with actionable suggestions inside the terminal. Source: `raw/2026-06-11-web-github-changelog-dedicated-security-review-command-now-available-in-copilot-cli-github-c.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-11.
+- GitHub states `/security-review` is tuned for common high-impact vulnerability classes and complements, rather than replaces, code scanning, Dependabot, and secret scanning. Source: `raw/2026-06-11-web-github-changelog-dedicated-security-review-command-now-available-in-copilot-cli-github-c.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-11.
+- CodeQL pull-request scans for C/C++ and Go now use improved incremental analysis; CodeQL CLI supports incremental analysis from version 2.25.5 for third-party CI. Source: `raw/2026-06-11-web-github-changelog-incremental-analysis-for-go-c-c-and-codeql-cli-github-changelog.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-11.
+- Incremental CodeQL analysis is enabled by default for projects using `build mode none` extraction in default and advanced setup on github.com. Source: `raw/2026-06-11-web-github-changelog-incremental-analysis-for-go-c-c-and-codeql-cli-github-changelog.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-11.
+- Microsoft's `modernize-dotnet` custom Copilot agent can run across Visual Studio, VS Code, GitHub Copilot CLI, and GitHub, producing repository-local assessment, upgrade plan, and upgrade task artifacts for review before execution. Source: `raw/2026-06-11-web-net-blog-modernize-net-anywhere-with-github-copilot-net-blog.md`. confidence: 1 Microsoft/.NET source, last-confirmed 2026-06-11.
+
+### Typed entities
+- command: `/security-review`
+- tool: CodeQL CLI 2.25.5
+- language: C/C++
+- language: Go
+- extraction mode: `build mode none`
+- agent: `modernize-dotnet`
+- artifact: modernization assessment
+- artifact: upgrade plan
+- artifact: upgrade tasks
+
+### Explicit relationships
+- Copilot CLI security review complements deterministic GitHub security scanners but does not supersede them.
+- Incremental CodeQL analysis reduces PR security-scan latency for supported languages and extraction modes.
+- `modernize-dotnet` uses Copilot custom-agent surfaces to make modernization plans reviewable repository artifacts before execution.
+
+### HoneyDrunk implications
+- Add `/security-review` to the candidate pre-commit/manual review loop for suspicious local changes, but keep CI scanners mandatory.
+- If HoneyDrunk has C/C++ or Go repos under CodeQL, verify extraction mode and CodeQL CLI version so incremental analysis benefits actually apply.
+- For .NET upgrades, prefer modernization runs that leave assessment/plan/task artifacts in the repo for review rather than one-shot transformations.
+
+### Quality notes
+- GitHub features are public-preview or setup-dependent. Microsoft modernization agent claims are vendor-authored; run on a branch and review generated artifacts before execution.

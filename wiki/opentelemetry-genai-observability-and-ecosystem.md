@@ -282,3 +282,35 @@ OpenTelemetry is becoming the practical neutral observability layer for LLM/agen
 
 ### Quality notes
 - Datadog source is vendor-authored and product-positioned, but the unified-data-model requirement is decision-useful for any agentic release workflow.
+
+## 2026-06-11 compile additions: App Service agent views and Codex telemetry
+
+### Source-backed claims
+- Azure App Service's AI preview Agents tab reads Application Insights telemetry from apps that emit OpenTelemetry GenAI semantic conventions, grouping on `gen_ai.agent.name`, `gen_ai.agent.id`, and `gen_ai.usage.*`. Source: `raw/2026-06-11-web-microsoft-learn-build-agentic-web-applications-in-azure-app-service-azure-app-service.md`. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-11.
+- Microsoft's .NET multi-agent monitoring tutorial shows Microsoft Agent Framework agents wrapped with `UseOpenTelemetry`, Azure Monitor OpenTelemetry distro export, and Application Insights drilldowns for agent runs, tool calls, token consumption, and GenAI errors. Source: `raw/2026-06-11-web-microsoft-learn-monitor-a-multi-agent-app-with-opentelemetry-and-application-insights-ne.md`. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-11.
+- The tutorial explicitly warns that `EnableSensitiveData = true` includes message content in spans, is off by default, and should be disabled or controlled through `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` in production. Source: `raw/2026-06-11-web-microsoft-learn-monitor-a-multi-agent-app-with-opentelemetry-and-application-insights-ne.md`. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-11.
+- OpenAI says Codex supports OpenTelemetry log export for events such as user prompts, tool approval decisions, tool execution results, MCP server usage, and network proxy allow/deny events; Codex activity logs also flow through OpenAI's Compliance Platform for Enterprise/Edu customers. Source: `raw/2026-06-11-web-openai-running-codex-safely-at-openai.md`. confidence: 1 official OpenAI source, last-confirmed 2026-06-11.
+
+### Typed entities
+- product: Azure App Service AI Agents tab
+- product: Application Insights Agents preview
+- package: Azure Monitor OpenTelemetry distro
+- method: `UseOpenTelemetry`
+- environment variable: `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT`
+- product: OpenAI Codex
+- product: OpenAI Compliance Platform
+- signal: tool approval decision log
+- signal: network proxy allow/deny event
+
+### Explicit relationships
+- Application Insights agent views depend-on OpenTelemetry GenAI semantic attributes emitted by application code.
+- Message-content capture improves debugging but contradicts privacy-by-default operation unless explicitly approved and redacted.
+- Codex telemetry complements endpoint/process logs by exposing user/agent intent, approvals, MCP usage, and network policy decisions.
+
+### HoneyDrunk implications
+- For OpenClaw/Grid telemetry, capture both execution spans and policy decisions: tool requested, approval result, network allow/deny, and verification outcome.
+- Keep prompt/message/tool-result content capture off by default; allow only local or explicitly approved debugging with retention limits.
+- Use GenAI attributes consistently so local dashboards and cloud views can group by agent, model, tool, token usage, and errors.
+
+### Quality notes
+- Microsoft and OpenAI sources are authoritative for their own products. Exact attribute names and SDK hooks should still be pinned to package versions before implementation.

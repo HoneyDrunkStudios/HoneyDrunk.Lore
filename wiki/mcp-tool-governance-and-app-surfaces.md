@@ -451,3 +451,35 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - Sources are platform-authored. Tool-manifest and gateway patterns are useful design inputs, but security posture depends on local allowlists and credential handling.
+
+## 2026-06-11 compile additions: MCP maturity, tool-chain drift, and WebMCP
+
+### Source-backed claims
+- CSA's Agentic MCP Security Best Practices draft treats MCP as critical infrastructure and recommends maturing from basic inventory/auth/TLS toward signed messages, approved registries, SBOM/dependency monitoring, behavioral monitoring, and zero-trust per-invocation authorization. Source: `raw/2026-06-11-web-cloud-security-alliance-agentic-mcp-security-best-practices-guide.md`. confidence: 1 draft whitepaper source, last-confirmed 2026-06-11.
+- CSA highlights tool-description integrity as a separate governance problem: organizations should baseline tool descriptions, detect changes between sessions, surface changes to users/security teams, and consider signed tool definitions. Source: `raw/2026-06-11-web-cloud-security-alliance-agentic-mcp-security-best-practices-guide.md`. confidence: 1 draft whitepaper source, last-confirmed 2026-06-11.
+- CrowdStrike's tool-chain attack source reinforces that MCP concentrates risk because many agents may inherit one server's poisoned or drifted behavior through central capability advertisement. Source: `raw/2026-06-11-web-crowdstrike-how-agentic-tool-chain-attacks-threaten-ai-agent-security.md`. confidence: 1 vendor security source, last-confirmed 2026-06-11.
+- Google I/O 2026 announced WebMCP as a proposed open web standard for exposing structured browser/web tools such as JavaScript functions and HTML forms to browser-based AI agents, with an experimental Chrome 149 origin trial and Gemini in Chrome support planned. Source: `raw/2026-06-11-web-google-developers-blog-all-the-news-from-the-google-i-o-2026-developer-keynote.md`. confidence: 1 Google source, last-confirmed 2026-06-11.
+
+### Typed entities
+- framework: CSA MCP Security Maturity Model
+- proposed standard: WebMCP
+- browser: Chrome 149
+- product: Gemini in Chrome
+- control: tool-description baseline
+- control: approved MCP server registry
+- control: SBOM
+- control: per-invocation authorization
+
+### Explicit relationships
+- MCP governance depends-on inventory, authentication, transport security, tool-definition integrity, supply-chain controls, and runtime monitoring.
+- Tool-definition drift can supersede a prior approval decision unless definitions are pinned, signed, or re-reviewed.
+- WebMCP extends MCP-style structured tool exposure into browser/web surfaces.
+- Browser-exposed tools depend-on the same capability labeling, provenance, auth, and action-gating controls as server-side MCP tools.
+
+### HoneyDrunk implications
+- For OpenClaw profiles, store tool metadata baselines and review changes, not just server URLs.
+- Separate browser/web tool exposure from repository/cloud tooling; WebMCP-style tools may interact with user sessions and forms, so they need stricter consent and audit.
+- Add SBOM/provenance checks to MCP server intake for any server installed from npm/PyPI/container images.
+
+### Quality notes
+- CSA's document is marked draft. WebMCP is proposed/experimental. Use both as watchlist and design guidance, not stable implementation contract.

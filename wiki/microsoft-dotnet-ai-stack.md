@@ -329,3 +329,43 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 
 ### Quality notes
 - .NET 11 is preview. Foundry architecture guidance is Microsoft-authored and should be validated against current Azure region, quota, and identity behavior.
+
+## 2026-06-11 compile additions: App Service agents, OpenTelemetry, modernization, and RT.Assistant
+
+### Source-backed claims
+- Azure App Service guidance positions agentic web apps as ordinary App Service applications that add conversational planning/tool usage through frameworks such as Semantic Kernel, LangGraph, or Foundry Agent Service. Source: `raw/2026-06-11-web-microsoft-learn-build-agentic-web-applications-in-azure-app-service-azure-app-service.md`. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-11.
+- App Service's AI preview Agents tab uses connected Application Insights plus application-emitted OpenTelemetry GenAI semantic conventions, grouping on `gen_ai.agent.name`, `gen_ai.agent.id`, and `gen_ai.usage.*`. Source: `raw/2026-06-11-web-microsoft-learn-build-agentic-web-applications-in-azure-app-service-azure-app-service.md`. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-11.
+- Microsoft's multi-agent .NET monitoring tutorial deploys a Microsoft Agent Framework travel-planner app to App Service, wraps agents with `UseOpenTelemetry`, uses Azure Monitor OpenTelemetry distro, and visualizes tool calls, token usage, agent runs, and errors in Application Insights. Source: `raw/2026-06-11-web-microsoft-learn-monitor-a-multi-agent-app-with-opentelemetry-and-application-insights-ne.md`. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-11.
+- The `modernize-dotnet` Copilot custom agent follows an assess-plan-execute workflow and emits assessment, upgrade plan, and upgrade task artifacts directly into the repository for review. Source: `raw/2026-06-11-web-net-blog-modernize-net-anywhere-with-github-copilot-net-blog.md`. confidence: 1 Microsoft/.NET source, last-confirmed 2026-06-11.
+- RT.Assistant combines .NET, F#, OpenAI Realtime API over WebRTC, Microsoft.Extensions.AI, .NET MAUI/Fabulous, typed async buses, deterministic state machines, and Prolog-backed query execution for a multi-agent voice app. Source: `raw/2026-06-11-web-net-blog-rt-assistant-a-multi-agent-voice-bot-using-net-and-openai-net-blog.md`. confidence: 1 Microsoft/.NET guest post, last-confirmed 2026-06-11.
+
+### Typed entities
+- platform: Azure App Service
+- framework: Semantic Kernel
+- framework: LangGraph
+- framework: Microsoft Agent Framework
+- product: Application Insights Agents preview
+- method: `UseOpenTelemetry`
+- package: Azure Monitor OpenTelemetry distro
+- agent: `modernize-dotnet`
+- project: RT.Assistant
+- library: RTOpenAI
+- framework: RTFlow
+- language: F#
+- engine: Tau Prolog
+
+### Explicit relationships
+- App Service agent monitoring depends-on Application Insights and OpenTelemetry GenAI semantic attributes emitted by the app.
+- Microsoft Agent Framework agents use `UseOpenTelemetry` to emit per-agent spans and usage metrics.
+- `modernize-dotnet` uses Copilot agent surfaces to convert upgrade work into reviewable repo artifacts.
+- RT.Assistant uses a deterministic Flow state machine to constrain nondeterministic multi-agent voice behavior.
+- Prolog query execution complements LLM query translation by making final plan-selection answers checkable against structured facts.
+
+### HoneyDrunk implications
+- For .NET agent apps, add OTel GenAI attributes during first implementation rather than retrofitting observability after deployment.
+- Disable or avoid sensitive message-content capture in production unless a redaction and retention policy exists.
+- Treat `modernize-dotnet` as a branch-based migration assistant; generated assessments/plans/tasks should be reviewed like architecture artifacts.
+- RT.Assistant is a strong design reference for voice apps that need typed orchestration and symbolic/logic-backed answers instead of direct LLM responses.
+
+### Quality notes
+- Microsoft Learn pages are concrete implementation guidance but preview UI/API behavior can change. RT.Assistant is a guest/sample post and should be treated as architecture inspiration, not product support guarantee.

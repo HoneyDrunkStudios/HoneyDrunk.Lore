@@ -1,29 +1,31 @@
 # OpenClaw Lore Sourcing - Last Run
 
-Timestamp: 2026-06-10T08:06:52-04:00
+Timestamp: 2026-06-11T08:10:01-04:00
 Mode: write
 Candidates scanned: 16 curated web candidates
-Skipped duplicates: 1
-Skipped short/unclean: 0
-Failed sources: 0
+Skipped duplicates: 0
+Failed sources: 1
 Saved: 15
 
 ## Files written
-- raw/2026-06-10-web-80-level-how-hollowbody-blends-silent-hill-inspirations-with-cyberpunk-horror.md (2305 words) - https://80.lv/articles/how-hollowbody-blends-silent-hill-inspirations-with-cyberpunk-horror
-- raw/2026-06-10-web-anthropic-claude-fable-5-and-claude-mythos-5.md (4696 words) - https://www.anthropic.com/news/claude-fable-5-mythos-5
-- raw/2026-06-10-web-dotnet-net-11-preview-5-is-now-available-net-blog.md (1309 words) - https://devblogs.microsoft.com/dotnet/dotnet-11-preview-5/
-- raw/2026-06-10-web-dotnet-net-and-net-framework-june-2026-servicing-releases-updates-net-blog.md (944 words) - https://devblogs.microsoft.com/dotnet/dotnet-and-dotnet-framework-june-2026-servicing-updates/
-- raw/2026-06-10-web-github-changelog-claude-fable-5-is-generally-available-for-github-copilot-github-changelo.md (872 words) - https://github.blog/changelog/2026-06-09-claude-fable-5-is-generally-available-for-github-copilot/
-- raw/2026-06-10-web-github-changelog-periodic-code-scanning-of-inactive-repositories-github-changelog.md (613 words) - https://github.blog/changelog/2026-06-09-periodic-code-scanning-of-inactive-repositories/
-- raw/2026-06-10-web-github-changelog-security-validation-for-third-party-coding-agents-github-changelog.md (761 words) - https://github.blog/changelog/2026-06-09-security-validation-for-third-party-coding-agents/
-- raw/2026-06-10-web-hugging-face-how-an-agent-built-a-3d-paris-gallery-by-chaining-two-hugging-face-space.md (1202 words) - https://huggingface.co/blog/mishig/spaces-agents-md
-- raw/2026-06-10-web-hugging-face-introducing-north-mini-code-coheres-first-model-for-developers.md (3141 words) - https://huggingface.co/blog/CohereLabs/introducing-north-mini-code
-- raw/2026-06-10-web-hugging-face-migrating-your-github-ci-to-hugging-face-jobs.md (1969 words) - https://huggingface.co/blog/github-ci-hf-jobs
-- raw/2026-06-10-web-hugging-face-the-open-source-community-is-backing-openenv-for-agentic-rl.md (890 words) - https://huggingface.co/blog/openenv-agentic-rl
-- raw/2026-06-10-web-microsoft-learn-access-foundry-models-and-other-language-models-through-a-gateway-azure.md (4108 words) - https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/azure-openai-gateway-guide
-- raw/2026-06-10-web-microsoft-learn-baseline-microsoft-foundry-chat-reference-architecture-azure-architectur.md (12392 words) - https://learn.microsoft.com/en-us/azure/architecture/ai-ml/architecture/baseline-microsoft-foundry-chat
-- raw/2026-06-10-web-simon-willison-running-python-code-in-a-sandbox-with-micropython-and-wasm.md (2629 words) - https://simonwillison.net/2026/Jun/6/micropython-in-a-sandbox/
-- raw/2026-06-10-web-thoughtworks-the-paradox-of-acceleration-overcoming-ai-induced-decision-fatigue-and-b.md (1447 words) - https://www.thoughtworks.com/insights/blog/generative-ai/paradox-acceleration-overcoming-ai-decision-fatigue-bottlenecks
+- raw/2026-06-11-web-blender-developer-documentation-blender-5-2-lts-geometry-nodes.md (1483 words, Technical Art & Creator Tools) - https://developer.blender.org/docs/release_notes/5.2/geometry_nodes/
+- raw/2026-06-11-web-cloud-security-alliance-agentic-mcp-security-best-practices-guide.md (7529 words, Security & Ethical Hacking) - https://labs.cloudsecurityalliance.org/agentic/agentic-mcp-security-best-practices-v1/
+- raw/2026-06-11-web-crowdstrike-how-agentic-tool-chain-attacks-threaten-ai-agent-security.md (1246 words, Security & Ethical Hacking) - https://www.crowdstrike.com/en-us/blog/how-agentic-tool-chain-attacks-threaten-ai-agent-security/
+- raw/2026-06-11-web-github-changelog-dedicated-security-review-command-now-available-in-copilot-cli-github-c.md (193 words, Security & Ethical Hacking) - https://github.blog/changelog/2026-06-10-dedicated-security-review-command-now-available-in-copilot-cli/
+- raw/2026-06-11-web-github-changelog-incremental-analysis-for-go-c-c-and-codeql-cli-github-changelog.md (197 words, DevOps & CI/CD) - https://github.blog/changelog/2026-06-10-incremental-analysis-for-go-c-c-and-codeql-cli/
+- raw/2026-06-11-web-google-developers-blog-all-the-news-from-the-google-i-o-2026-developer-keynote.md (759 words, AI / LLM Research & Tooling) - https://developers.googleblog.com/all-the-news-from-the-google-io-2026-developer-keynote/
+- raw/2026-06-11-web-martin-fowler-context-engineering-for-coding-agents.md (2021 words, Software Architecture) - https://martinfowler.com/articles/exploring-gen-ai/context-engineering-coding-agents.html
+- raw/2026-06-11-web-martin-fowler-harness-engineering-for-coding-agent-users.md (2553 words, Software Architecture) - https://martinfowler.com/articles/harness-engineering.html
+- raw/2026-06-11-web-microsoft-learn-build-agentic-web-applications-in-azure-app-service-azure-app-service.md (676 words, Azure & Cloud) - https://learn.microsoft.com/en-us/azure/app-service/scenario-ai-agentic-web-apps
+- raw/2026-06-11-web-microsoft-learn-monitor-a-multi-agent-app-with-opentelemetry-and-application-insights-ne.md (1224 words, Azure & Cloud) - https://learn.microsoft.com/en-us/azure/app-service/tutorial-ai-agent-monitoring-dotnet
+- raw/2026-06-11-web-net-blog-modernize-net-anywhere-with-github-copilot-net-blog.md (888 words, .NET Ecosystem) - https://devblogs.microsoft.com/dotnet/modernize-dotnet-anywhere-with-ghcp/
+- raw/2026-06-11-web-net-blog-rt-assistant-a-multi-agent-voice-bot-using-net-and-openai-net-blog.md (3023 words, .NET Ecosystem) - https://devblogs.microsoft.com/dotnet/rt-assistant-a-realtime-multiagent-voice-bot-using-dotnet-and-open-ai-api/
+- raw/2026-06-11-web-openai-introducing-gpt-5-5.md (3981 words, AI / LLM Research & Tooling) - https://openai.com/index/introducing-gpt-5-5/
+- raw/2026-06-11-web-openai-running-codex-safely-at-openai.md (920 words, Developer Tooling & AI Coding) - https://openai.com/index/running-codex-safely/
+- raw/2026-06-11-web-unity-blog-building-westeros-for-mobile-in-game-of-thrones-dragonfire-unity.md (1985 words, Game Development / Unity) - https://unity.com/blog/building-westeros-for-mobile-in-game-of-thrones-dragonfire
+
+## Duplicates skipped
+_None_
 
 ## Failures / skips
-- duplicate skipped: https://www.docker.com/blog/ai-coding-agent-horror-stories-security-risks/ (already present in raw/2026-05-20-rss-docker-blog-coding-agent-horror-stories-the-security-crisis-threatenin.md)
+- failed fetch/extraction: https://developers.openai.com/blog/one-year-of-responses

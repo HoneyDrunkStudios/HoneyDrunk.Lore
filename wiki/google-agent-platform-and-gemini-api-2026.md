@@ -128,3 +128,40 @@ Google's 2026 agent developer surface is converging on production plumbing: Agen
 ### HoneyDrunk implications
 - For Android/on-device agent prototypes, Google AI Edge Gallery is now a useful scouting app for MCP, local reminders, and session continuity.
 - Treat mobile MCP as a privacy boundary exercise: local reasoning does not guarantee local data handling if the MCP server retrieves or sends external data.
+
+## 2026-06-11 compile additions: I/O 2026 Antigravity, Android agents, and WebMCP
+
+### Source-backed claims
+- Google I/O 2026 Developer keynote announced Gemini 3.5 series models, Antigravity 2.0, Antigravity CLI, and Antigravity SDK as Google's agent-first development platform surfaces. Source: `raw/2026-06-11-web-google-developers-blog-all-the-news-from-the-google-i-o-2026-developer-keynote.md`. confidence: 1 Google source, last-confirmed 2026-06-11.
+- Antigravity 2.0/CLI can spin up specialized subagents and includes built-in cross-platform terminal sandboxing, credential masking, and hardened Git policies. Source: `raw/2026-06-11-web-google-developers-blog-all-the-news-from-the-google-i-o-2026-developer-keynote.md`. confidence: 1 Google source, last-confirmed 2026-06-11.
+- Managed Agents in the Gemini API provide a fully provisioned agent with a remote sandbox through a single API call, while Antigravity SDK gives programmatic control for self-hosting the harness. Source: `raw/2026-06-11-web-google-developers-blog-all-the-news-from-the-google-i-o-2026-developer-keynote.md`. confidence: 1 Google source, last-confirmed 2026-06-11.
+- Google announced Android CLI, open-source Android skills, Android Bench, and a preview Android Studio migration agent that can migrate React Native, web-framework, or iOS app code toward native Kotlin Android. Source: `raw/2026-06-11-web-google-developers-blog-all-the-news-from-the-google-i-o-2026-developer-keynote.md`. confidence: 1 Google source, last-confirmed 2026-06-11.
+- Google announced WebMCP, Modern Web Guidance, Chrome DevTools for agents, and HTML-in-Canvas as web-development surfaces for browser-based agents and accessible high-performance WebGL/WebGPU experiences. Source: `raw/2026-06-11-web-google-developers-blog-all-the-news-from-the-google-i-o-2026-developer-keynote.md`. confidence: 1 Google source, last-confirmed 2026-06-11.
+
+### Typed entities
+- model family: Gemini 3.5
+- product: Google Antigravity 2.0
+- CLI: Antigravity CLI
+- SDK: Antigravity SDK
+- feature/API: Gemini API Managed Agents
+- tool: Android CLI
+- benchmark: Android Bench
+- proposed standard: WebMCP
+- guidance package: Modern Web Guidance
+- tool: Chrome DevTools for agents
+- API: HTML-in-Canvas
+
+### Explicit relationships
+- Antigravity uses subagents, sandboxing, credential masking, and Git policy as harness controls.
+- Managed Agents depend-on Google-provisioned remote sandboxes; Antigravity SDK enables self-hosted harness control.
+- Android CLI and Android skills expose Android Studio heavy-lifting to arbitrary agents.
+- WebMCP exposes web functions/forms as structured browser-agent tools.
+- HTML-in-Canvas uses DOM integration inside canvas/WebGL/WebGPU experiences to preserve accessibility and interactivity.
+
+### HoneyDrunk implications
+- Watch Antigravity Managed Agents as a sandboxed managed-agent reference, but compare against OpenClaw's local repo access, audit, and provider-independence needs.
+- For Android app work, benchmark Android CLI/skills and Android Bench before trusting migration-agent claims.
+- Treat WebMCP and Chrome DevTools for agents as browser QA/prototyping signals that will need strict session, auth, and action consent controls.
+
+### Quality notes
+- This is a Google keynote recap. Feature availability, origin-trial behavior, and pricing should be verified before adoption.

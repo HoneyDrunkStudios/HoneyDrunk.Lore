@@ -1,0 +1,165 @@
+---
+source: "https://developer.blender.org/docs/release_notes/5.2/geometry_nodes/"
+title: "Blender 5.2 LTS: Geometry Nodes¶"
+author: "Blender Developer Documentation"
+date_published: "2024-11-01"
+date_clipped: "2026-06-11"
+category: "Technical Art & Creator Tools"
+source_type: "web"
+---
+
+# Blender 5.2 LTS: Geometry Nodes¶
+
+Source: https://developer.blender.org/docs/release_notes/5.2/geometry_nodes/
+
+# Blender 5.2 LTS: Geometry Nodes[¶](#blender-52-lts-geometry-nodes)
+
+## Physics[¶](#physics)
+
+This release comes with a new experimental physics system with an initial focus on hair and cloth. Also see [physics release notes](../physics/).
+
+## Geometry Bundles[¶](#geometry-bundles)
+
+Bundles were introduced in Blender 5.0. Now it is possible to attach a bundle to a geometry. This allows passing along arbitrary data with a geometry, even across modifier and object boundaries. Even fields and closures are allowed to be stored in these bundles. This is a major step towards building [declarative systems](https://code.blender.org/2025/05/declarative-systems-in-geometry-nodes/) that are set-up across multiple objects. ([428c9987f5](https://projects.blender.org/blender/blender/commit/428c9987f5a3861c8920b24494a837229b38699a))
+
+While opening up many new possibilities, this only requires two simple new nodes:
+
+- The
+**Set Geometry Bundle**node updates the bundle stored in the geometry. If there was a bundle already, the old one is discarded. - The
+**Get Geometry Bundle**retrieves the bundle of a geometry, optionally removing it.
+
+This example shows how one object can create an additional geometry that is stored in the bundle and how it is retrieved on another object.
+
+Data attached to a geometry can be seen in the spreadsheet.
+
+## Lists[¶](#lists)
+
+Lists allow storing a sequence of arbitrary length of e.g. numbers or strings. They are a new core data type next to the already existing single values, fields and volume grids. ([273ee80a02](https://projects.blender.org/blender/blender/commit/273ee80a021c172082be46d23340b5b7ae17ecc9))
+
+Blender 5.2 only has a few core nodes for dealing with lists. This is expected to be expanded in the future.
+
+### Creating Lists[¶](#creating-lists)
+
+There are two main ways to create lists.
+
+- The
+**Field to List**node creates new lists with a given length by evaluating fields that may depend on the Index node. This can be used with all types supporting fields and is generally the most efficient way to create lists. - The
+**Closure to List**node creates new lists with a given length by evaluating a closure that has an index input. This can be used to create lists of any type but has a higher performance cost which can be noticable when creating large lists. ([e7e84d4460](https://projects.blender.org/blender/blender/commit/e7e84d446085))
+
+### Accessing Lists[¶](#accessing-lists)
+
+- The
+**List Length**node outputs the length of the passed in list. - The
+**Get List Item**node allows accessing individual items from the list.
+
+### Modifying Lists[¶](#modifying-lists)
+
+Lists can be operated on directly by many nodes like math nodes. For example, a Math node can add a value to each element of a list. Two lists can also be added together in which case the shorter list is repeated to match the length of the longer list.
+
+Additionally, one can use the **Filter List** node which creates a new list from all items where the boolean predicate is true or false respectively. The predicate can be a boolean list or field. ([207d331f70](https://projects.blender.org/blender/blender/commit/207d331f7087d2a771b4b598ea3474814dc4a855))
+
+Lastly, one can also use the **Sort List** node to sort the values based on a custom weight. ([a62bcf847a](https://projects.blender.org/blender/blender/commit/a62bcf847a3954fcac3a24ac12bc1e22f550f347))
+
+## Collections[¶](#collections)
+
+The introduction of lists also allows for another new node which opens up new designs: the **Collection Children** node. It allows accessing all the child objects and collections of a collection as a list, optionally recursively.
+
+## Sound[¶](#sound)
+
+There is a new **Sample Sound Frequencies** node. It allows controlling animations and simulations with imported sound. One can get a single amplitude value for the entire sound at a given time or also sample frequency ranges which allows creating sound spectrum animations. ([ccedfb3357](https://projects.blender.org/blender/blender/commit/ccedfb3357ffcd5a1f488cf6df8cd7fd6953d5f4))
+
+The node also uses the new Sound socket type. A sound can be opened directly in Geometry Nodes. However, to listen to it during playback, it can also be added in the video sequence editor. Remember enabling *Sync to Audio* in the playback settings to avoid the sound and animation going out of sync.
+
+## Empty Objects[¶](#empty-objects)
+
+Empty objects can have geometry nodes modifiers now. This makes them a good choice for implementing [custom forces](../physics/#forces) but also make sense for fully generated objects that don't have original data. ([301fceb1d3](https://projects.blender.org/blender/blender/commit/301fceb1d34f03492845c588f1bdb76f723fd4b5), [1504d9d586](https://projects.blender.org/blender/blender/commit/1504d9d5868ab8cedc44b4dbdb4414bf91211ac2))
+
+Note how the first modifier does not have a geometry input by default since there is no input geometry.
+
+This also allows Geometry Nodes to be used on collection instances.
+
+## Merging Points[¶](#merging-points)
+
+The *Merge by Distance* node can now be built from more atomic building blocks, giving more control over which points are merged exactly. To achieve that, three new nodes have been added. ([7588add7cb](https://projects.blender.org/blender/blender/commit/7588add7cb53))
+
+**Merge Points**combines points or mesh vertices with the same input group ID.**Cluster by Distance**creates group IDs for groups of close points.**Cluster by Connected**implements the existing "Connected" mode of the*Merge by Distance*node and*Weld*modifier, just for meshes.
+
+## Mesh Bevel[¶](#mesh-bevel)
+
+The long awaited **Mesh Bevel** node is now available. It provides detailed control over the edges or vertices to bevel. ([c53b03f46a](https://projects.blender.org/blender/blender/commit/c53b03f46a9fd1332dab0d440c72ae510ad10259))
+
+## Attributes[¶](#attributes)
+
+- The Capture Attribute node supports a selection now. This can make the node more efficient when attribute value is only required in a subset of elements. All unselected elements get their default value, which is zero generally. (
+[7fd7e77af3](https://projects.blender.org/blender/blender/commit/7fd7e77af3952ba36cdb9bf157276070cb6d1fb2)).
+
+- The new
+**Rename Attribute**node allows easily renaming a single attribute or all attributes with a specific prefix. ([24f3c4aad2](https://projects.blender.org/blender/blender/commit/24f3c4aad2ce)) - The
+**Get Attribute Names**node outputs a list of the names of attributes in a geometry, optionally filtered by domain and data type. ([eae8e8569d](https://projects.blender.org/blender/blender/commit/eae8e8569dbf)) - The new
+**Transfer Attributes**node can transfer an arbitrary number (including all) attributes from one geometry to another. By default it uses an index based mapping but custom IDs for each domain can be provided too. ([155e0363e5](https://projects.blender.org/blender/blender/commit/155e0363e56d0c02ccbb9479937c932d64dff6d8)) - Attributes can now be stored as 4D float vectors. However, Geometry Nodes still only operates on 3D vectors currently. (
+[73f95d6785](https://projects.blender.org/blender/blender/commit/73f95d678524))
+
+## Curves[¶](#curves)
+
+The new **Set NURBS Order** and **Set NURBS Weight** nodes provide easy access to built-in attributes affecting how the final curve is computed. ([52062edb6f](https://projects.blender.org/blender/blender/commit/52062edb6fcd), [fa4492cdf6](https://projects.blender.org/blender/blender/commit/fa4492cdf62d))
+
+## Strings[¶](#strings)
+
+- String fields are supported now. However, string attributes are not implemented yet. (
+[1268115c0f](https://projects.blender.org/blender/blender/commit/1268115c0f84be5ac10c01db59b192da118a3967)) - The
+*Find in String*node can now find the first occurence from the end. ([6edb5ce0a5](https://projects.blender.org/blender/blender/commit/6edb5ce0a5f7644a9369c0abf2b14960851299da)) - The new
+**Trim String**node removes specific characters at the start or end of a string. ([8e699aa94b](https://projects.blender.org/blender/blender/commit/8e699aa94b59e2dc896f2d39288d30cc969ba780)) - The new
+**Reverse String**node reverses the order of characters in a string. ([59e54526a2](https://projects.blender.org/blender/blender/commit/59e54526a24f64f8e835f336b220a18608175637)) - The new
+**Set String Case**node turns strings into upper or lowercase. ([905e6c527a](https://projects.blender.org/blender/blender/commit/905e6c527a775ec1aef45d16fb0a8fa3d378f9a5)) - Add base input to conversions between integer and string (
+[43a97ef002](https://projects.blender.org/blender/blender/commit/43a97ef0020560d744ca583c98541537a4a59367)). - The new
+**Split String**splits text into a list based on a delimiter. ([1c209733c8](https://projects.blender.org/blender/blender/commit/1c209733c8))
+
+## Node Group Inputs[¶](#node-group-inputs)
+
+- New
+*Scene Frame*default input type. ([51b4bbce89](https://projects.blender.org/blender/blender/commit/51b4bbce89400e787a68756fe1c7c4ee9d848dba))
+
+- For object sockets, the default value for group inputs can be the self-object now (
+[af602ba283](https://projects.blender.org/blender/blender/commit/af602ba283839108ecae839e2f72080d21c539d6)).
+
+## Bundled Assets[¶](#bundled-assets)
+
+- New nodes for space transformations and projection. (
+[a4ce6f378b](https://projects.blender.org/blender/blender/commit/a4ce6f378b))**3D to Screen Space:**: Transforms 3D coordinates from world to normalized camera space**Screen to 3D Space**: Given a depth and a normalized 2D vector, compute 3D coordinates in 3D space. This is the inverse transform of 3D to Screen space above.**Transform and Project**: A generalized, lower level variation of 3D to Screen Space node that takes Transform and Projection as inputs instead of a Camera object to compute the 2D coordinates in screen space.**Project with Depth**: A generalized, lower level variation of Screen to 3D space. Example to transform coordinates from the viewport 3D space to screen space and back using the Viewport Transform node.
+
+- New
+**Principal Component Analysis**nodes. ([40c0786af9](https://projects.blender.org/blender/blender/commit/40c0786af90465bd521fc5ca520a54c7cf2a7403))
+
+## Miscellaneous[¶](#miscellaneous)
+
+- New Nodes:
+- The new
+**Instance Reference**node provides access to the internal attribute which tells each instance what geometry it should instance. ([f7fb4b71de](https://projects.blender.org/blender/blender/commit/f7fb4b71de6c)) - The new
+**Get Geometry Component**node extracts a single component of a geometry if it exists. This also simplifies editing just a single component of a potentially more complex geometry. ([c9d606b747](https://projects.blender.org/blender/blender/commit/c9d606b74769b4682983dcfe3cfe5212812a1cf6))
+
+- The new
+- Closures:
+- Closures can now be called recursively, up to a limit. (
+[c800cc31b9](https://projects.blender.org/blender/blender/commit/c800cc31b9b8058fce6f46be011bf514542d1d24)) - A new call stack depth limit for Geometry Nodes can be configured in the user preferences. (
+[1e0f70ab99](https://projects.blender.org/blender/blender/commit/1e0f70ab995731ee42bc8456ba70d603f489b938))
+
+- Closures can now be called recursively, up to a limit. (
+- Node Tools:
+- Node tools inputs are remembered between operator invocations. (
+[1561c1ea4a](https://projects.blender.org/blender/blender/commit/1561c1ea4a)) - Node tool inputs can now be assigned in Python. (
+[15b0a2a574](https://projects.blender.org/blender/blender/commit/15b0a2a574a1116d9b8032db699bc3e37cd7a395))
+
+- Node tools inputs are remembered between operator invocations. (
+- Performance:
+- Internal fields are now deduplicated for evaluation. This can specifically speedup field evaluation when there are common sub-fields, e.g. when using the Sample UV Surface node multiple times. (
+[413bf5d935](https://projects.blender.org/blender/blender/commit/413bf5d9358d)) - Improved performance when some sampling nodes can avoid conversions to the face corner domain when the fields they depend use simpler domains. (
+[abdb70bee1](https://projects.blender.org/blender/blender/commit/abdb70bee1ba40301d0f9e90df3276d848011f1f))
+
+- Internal fields are now deduplicated for evaluation. This can specifically speedup field evaluation when there are common sub-fields, e.g. when using the Sample UV Surface node multiple times. (
+- The viewer node can show data-block names (
+[1958047f88](https://projects.blender.org/blender/blender/commit/1958047f8816318406b132c9029bc928ad3e0c14)). - Data-blocks sockets (object, collection, etc.) can be compared to each other and to
+`None`
+
+now. ([e6ee7af701](https://projects.blender.org/blender/blender/commit/e6ee7af701140b238154d21757da1728899c36de)) - The
+*Bone Info*node has an "Exists" output ([4c0c494f69](https://projects.blender.org/blender/blender/commit/4c0c494f6909efb0624842ff1213a682fe4157a6)). - The Python API for accessing Geometry Nodes modifier properties has changed. For more information, see the
+[Python API](../python_api/#geometry-nodes)release notes. ([1561c1ea4a](https://projects.blender.org/blender/blender/commit/1561c1ea4a))
