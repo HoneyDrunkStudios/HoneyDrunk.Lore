@@ -568,3 +568,22 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 
 ### Game engines, DCC, and mobile production
 - [[unity-3d-and-realtime-vfx-patterns]] - 38 sources - last-confirmed 2026-06-11
+
+## 2026-06-12 topic additions
+
+### Agent security, MCP governance, and execution isolation
+- [[ai-coding-agent-security]] - 60 sources - last-confirmed 2026-06-12
+- [[mcp-tool-governance-and-app-surfaces]] - 41 sources - last-confirmed 2026-06-12
+- [[edge-ai-and-ai-infrastructure-2026]] - 32 sources - last-confirmed 2026-06-12
+
+### AI-assisted software governance and agent practice
+- [[ai-assisted-software-practice]] - 45 sources - last-confirmed 2026-06-12
+- [[github-actions-platform-operations]] - 22 sources - last-confirmed 2026-06-12
+- [[openai-frontier-models-and-codex-2026]] - 3 sources - last-confirmed 2026-06-12
+
+### AI platforms, models, and .NET modernization
+- [[google-agent-platform-and-gemini-api-2026]] - 14 sources - last-confirmed 2026-06-12
+- [[microsoft-dotnet-ai-stack]] - 42 sources - last-confirmed 2026-06-12
+
+### Game engines, DCC, and technical art
+- [[technical-art-community-and-talent-signals]] - 25 sources - last-confirmed 2026-06-12

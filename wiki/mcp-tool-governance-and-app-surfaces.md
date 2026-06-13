@@ -483,3 +483,39 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - CSA's document is marked draft. WebMCP is proposed/experimental. Use both as watchlist and design guidance, not stable implementation contract.
+
+## 2026-06-12 compile additions: OWASP MCP Top 10 beta and AGT sandbox policy
+
+### Source-backed claims
+- OWASP's MCP Top 10 is in beta/pilot-testing phase and lists MCP risks including token mismanagement, privilege escalation through scope creep, tool poisoning, supply-chain attacks, command injection, intent/prompt-flow subversion, insufficient authZ/authN, lack of audit/telemetry, shadow MCP servers, and context injection/over-sharing. Source: `raw/2026-06-12-web-owasp-owasp-mcp-top-10-owasp-foundation.md`. confidence: 1 OWASP project source, last-confirmed 2026-06-12.
+- The OWASP MCP Top 10 frames MCP as an emerging model interaction layer where context, tool, memory, and role boundaries create protocol-specific attack surfaces beyond ordinary API security. Source: `raw/2026-06-12-web-owasp-owasp-mcp-top-10-owasp-foundation.md`. confidence: 1 OWASP project source, last-confirmed 2026-06-12.
+- Microsoft's Agent Governance Toolkit sandbox source shows a single YAML `PolicyDocument` being projected into host-side deny/tool rules, AST subprocess checks, Azure Container Apps sandbox CPU/memory settings, fail-closed egress allowlists, advisory timeout markers, and per-step receipts. Source: `raw/2026-06-12-web-microsoft-techcommunity-govern-ai-agents-using-agent-governance-toolkit-and-az.md`. confidence: 1 Microsoft source, last-confirmed 2026-06-12.
+- The same AGT source emphasizes that network policy is enforced inside the ACA sandbox egress proxy while denied code/tool calls are stopped host-side before Azure dispatch, making policy enforcement multi-layered rather than prompt-dependent. Source: `raw/2026-06-12-web-microsoft-techcommunity-govern-ai-agents-using-agent-governance-toolkit-and-az.md`. confidence: 1 Microsoft source, last-confirmed 2026-06-12.
+
+### Typed entities
+- framework: OWASP MCP Top 10
+- threat: token mismanagement and secret exposure
+- threat: privilege escalation via scope creep
+- threat: shadow MCP servers
+- threat: context injection and over-sharing
+- framework: Agent Governance Toolkit / AGT
+- package: `agt-sandbox`
+- class/API: `SandboxProvider`
+- provider: `ACASandboxProvider`
+- artifact: YAML `PolicyDocument`
+- control: fail-closed egress allowlist
+- artifact: per-step receipt
+
+### Explicit relationships
+- OWASP MCP Top 10 supersedes ad hoc MCP threat lists by providing a community-reviewed risk taxonomy, but it is still beta and should not be treated as final compliance policy.
+- AGT policy projects one reviewed policy document into host and sandbox controls.
+- Host-side policy denies complement sandbox egress controls because unsafe code should be blocked before execution and again at the network boundary.
+- Per-step receipts connect tool governance with auditability by recording allowed, denied, blocked-at-egress, timeout, or error outcomes.
+
+### HoneyDrunk implications
+- Map OpenClaw/Honeyclaw MCP intake and runtime controls against the OWASP MCP Top 10 categories before broad tool expansion.
+- Use policy-as-artifact patterns for agent execution: tool allowlists, code deny rules, network allowlists, resource budgets, and receipts should be reviewable diffs.
+- Treat shadow MCP servers as a real governance risk; profile/catalog search only helps if the catalog is curated and unauthorized servers are visible.
+
+### Quality notes
+- OWASP MCP Top 10 is a beta living document. Microsoft AGT source is implementation/vendor guidance and should be validated against current packages and ACA preview behavior.

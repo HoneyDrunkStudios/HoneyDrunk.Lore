@@ -39,3 +39,41 @@ OpenAI's June 11 raw sources add two durable signals for HoneyDrunk: GPT-5.5 is 
 ## Confidence and quality notes
 - Quality posture: decision-usable as OpenAI product/safety signal. Benchmarks, customer quotes, and cost-efficiency claims are vendor-authored and need local reproduction.
 - Privacy filter: no private prompts, credentials, customer data, or unsafe cyber procedure details were copied from raw sources.
+
+## 2026-06-12 compile additions: One year of Responses
+
+### Source-backed claims
+- OpenAI's one-year Responses API post positions Responses as the foundation for hosted tools and agentic workflows, with customer/developer examples spanning agent monitoring, context engineering, record-collection chat, product-demo generation, and AI-output visibility analytics. Source: `raw/2026-06-12-web-openai-developers-from-prompts-to-products-one-year-of-responses-openai-develo.md`. confidence: 1 official OpenAI source, last-confirmed 2026-06-12.
+- The Raindrop AI example uses Responses for long-running background analysis workflows that monitor agent behavior, detect anomalies/failures, alert developers, and help inspect reasoning traces/tool calls. Source: `raw/2026-06-12-web-openai-developers-from-prompts-to-products-one-year-of-responses-openai-develo.md`. confidence: 1 official OpenAI customer-story source, last-confirmed 2026-06-12.
+- The Repo Prompt example separates context-building agents from a deep reasoning workflow, using Responses background jobs, orchestration, and observability so the final reasoning model analyzes curated context rather than spending context budget gathering it. Source: `raw/2026-06-12-web-openai-developers-from-prompts-to-products-one-year-of-responses-openai-develo.md`. confidence: 1 official OpenAI customer-story source, last-confirmed 2026-06-12.
+- The Arcade example uses Responses with the computer-use tool to infer structured interaction steps from screen recordings, then generate guided product-demo walkthroughs; OpenAI reports Arcade reduced median pre-publish actions by 50%. Source: `raw/2026-06-12-web-openai-developers-from-prompts-to-products-one-year-of-responses-openai-develo.md`. confidence: 1 official OpenAI customer-story source, last-confirmed 2026-06-12.
+- OpenAI says Responses is adding richer tool ecosystems including hosted containers with networking and shell tools. Source: `raw/2026-06-12-web-openai-developers-from-prompts-to-products-one-year-of-responses-openai-develo.md`. confidence: 1 official OpenAI source, last-confirmed 2026-06-12.
+
+### Typed entities
+- API: OpenAI Responses API
+- feature: background jobs
+- feature: hosted tools
+- feature: hosted containers with networking
+- feature: shell tools
+- company/product: Raindrop AI
+- company/product: Repo Prompt
+- company/product: Collxn
+- company/product: Arcade
+- company/product: Hexagon
+- tool: computer use
+- concept: context-building agent
+- concept: agent monitoring
+
+### Explicit relationships
+- Responses API uses hosted and custom tools to move chat-style interactions toward agentic workflows.
+- Agent monitoring uses Responses background analysis to detect and diagnose production agent failures.
+- Context-building agents complement deep reasoning models by curating relevant context before long analysis.
+- Computer-use tooling converts visual workflows into structured actions when native event capture is unavailable or incomplete.
+
+### HoneyDrunk implications
+- For OpenClaw/Lore deep research, preserve the context-builder versus reasoning-worker split: retrieval/curation should be auditable before final synthesis.
+- If HoneyDrunk adopts Responses background jobs or hosted containers, require run receipts, egress policy, tool-call telemetry, and cost/time limits.
+- Treat OpenAI customer metric claims as product-story evidence only; reproduce workflow improvements locally before changing process.
+
+### Quality notes
+- Official OpenAI post is authoritative for product positioning and named examples. Customer outcome metrics and model/tool usage remain vendor-curated and need local validation.

@@ -165,3 +165,39 @@ Google's 2026 agent developer surface is converging on production plumbing: Agen
 
 ### Quality notes
 - This is a Google keynote recap. Feature availability, origin-trial behavior, and pricing should be verified before adoption.
+
+## 2026-06-12 compile additions: DiffusionGemma
+
+### Source-backed claims
+- DiffusionGemma is an experimental Gemma 4-based text-generation architecture that uses diffusion-style parallel denoising over a 256-token canvas instead of pure left-to-right autoregressive generation. Source: `raw/2026-06-12-web-google-developers-blog-diffusiongemma-the-developer-guide-google-developers-bl.md`. confidence: 1 Google Developers source, last-confirmed 2026-06-12.
+- Google positions DiffusionGemma as a 26B Mixture of Experts model with 3.8B active parameters during inference, designed for quantized deployment within roughly 18 GB VRAM limits. Source: `raw/2026-06-12-web-google-developers-blog-diffusiongemma-the-developer-guide-google-developers-bl.md`. confidence: 1 Google Developers source, last-confirmed 2026-06-12.
+- DiffusionGemma combines block-autoregressive prefill/commit behavior with bidirectional denoising inside each 256-token block, enabling self-correction and better handling of constrained non-sequential problems in the cited Sudoku example. Source: `raw/2026-06-12-web-google-developers-blog-diffusiongemma-the-developer-guide-google-developers-bl.md`. confidence: 1 Google Developers source, last-confirmed 2026-06-12.
+- Google reports a Sudoku SFT recipe using Hackable Diffusion that raises the source's Sudoku task correctness from approximately 0% for the base model to 80% while reducing inference steps; this is a task-specific demo, not a general reasoning benchmark. Source: `raw/2026-06-12-web-google-developers-blog-diffusiongemma-the-developer-guide-google-developers-bl.md`. confidence: 1 vendor demo source, last-confirmed 2026-06-12.
+- DiffusionGemma can be served through vLLM's OpenAI-compatible local server and has weights on Hugging Face under Apache 2.0, with support paths also named for Transformers, SGLang, MLX, Model Garden, and NVIDIA NIM. Source: `raw/2026-06-12-web-google-developers-blog-diffusiongemma-the-developer-guide-google-developers-bl.md`. confidence: 1 Google Developers source, last-confirmed 2026-06-12.
+
+### Typed entities
+- model: DiffusionGemma
+- model family: Gemma 4
+- architecture: diffusion language model
+- architecture: sparse Mixture of Experts
+- inference engine: vLLM
+- framework: Hugging Face Transformers
+- framework: SGLang
+- framework: MLX
+- platform: Google Cloud Model Garden
+- platform: NVIDIA NIM
+- library/toolkit: Hackable Diffusion
+- task: Sudoku solving
+
+### Explicit relationships
+- DiffusionGemma contradicts the assumption that developer text-generation models are necessarily token-by-token autoregressive systems.
+- Block-autoregressive diffusion uses causal prefill for committed history and bidirectional denoising for the current canvas.
+- vLLM integration makes DiffusionGemma usable through OpenAI-compatible serving surfaces despite the nonstandard generation loop.
+
+### HoneyDrunk implications
+- Add diffusion language models to the model-eval watchlist for constrained planning, puzzle-like validation, and local GPU inference experiments.
+- Do not treat Sudoku gains as general coding-agent quality evidence; benchmark against HoneyDrunk tasks before routing any work to DiffusionGemma.
+- If tested locally, capture VRAM, step count, latency, output quality, serving compatibility, and how tool-call/chat formatting behaves through vLLM.
+
+### Quality notes
+- Source is vendor-authored developer guidance. Architecture claims are useful; performance and task claims require reproduction.

@@ -355,3 +355,33 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - Public trade source only; no private contact or portfolio data was copied.
+
+## 2026-06-12 compile additions: Blender 5.2 assets and Cycles
+
+### Source-backed claims
+- Blender 5.2 LTS adds remotely hosted online asset libraries and extends the Essentials asset library with online-hosted assets, available in Blender when Allow Internet Access is enabled. Source: `raw/2026-06-12-web-blender-developer-documentation-assets-blender-developer-documentation.md`. confidence: 1 official Blender source, last-confirmed 2026-06-12.
+- Blender 5.2 Cycles adds a texture cache for many-image scenes, generating `.tx` files that can reduce memory use and startup time at the cost of disk usage and some rendering-performance impact. Source: `raw/2026-06-12-web-blender-developer-documentation-cycles-blender-developer-documentation.md`. confidence: 1 official Blender source, last-confirmed 2026-06-12.
+- Blender 5.2 Cycles exposes texture-cache controls for viewport simplification, OSL texture use, raycast attributes at intersection points, subsurface anisotropy updates, cast-shadows options for worlds, and geometry-memory/sync improvements. Source: `raw/2026-06-12-web-blender-developer-documentation-cycles-blender-developer-documentation.md`. confidence: 1 official Blender source, last-confirmed 2026-06-12.
+
+### Typed entities
+- DCC/tool: Blender 5.2 LTS
+- renderer: Cycles
+- feature: online asset libraries
+- asset library: Essentials
+- feature: Cycles texture cache
+- artifact: `.tx` file
+- feature: Raycast node attributes
+- shader feature: subsurface anisotropy
+- language/runtime: Open Shading Language / OSL
+
+### Explicit relationships
+- Blender online asset libraries depend-on user preference for internet access, so remote asset workflows have an explicit network/privacy control.
+- Cycles texture cache trades disk and some render performance for lower image-texture memory pressure and faster startup in texture-heavy scenes.
+- Raycast attributes connect geometry-node-style sampling with renderer-specific Cycles behavior; EEVEE does not provide the same output in this source.
+
+### HoneyDrunk implications
+- Validate Blender 5.2 texture-cache behavior on representative texture-heavy assets before adopting it as default lookdev/render guidance.
+- Treat remote asset libraries as a governed asset-source surface: provenance, licensing, network access, and cache location matter for production work.
+
+### Quality notes
+- Official release documentation is high-quality for feature existence. Performance effect remains scene-dependent and requires local measurement.

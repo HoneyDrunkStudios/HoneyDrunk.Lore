@@ -691,3 +691,40 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 ### Privacy and quality notes
 - Privacy filter: exploit examples were summarized as threat/control classes; no credential paths, payloads, or runnable exploitation steps were copied.
 - Quality posture: CSA source is draft; CrowdStrike is vendor-authored. Use as security architecture signal, not final compliance policy.
+
+## 2026-06-12 compile additions: Agentic email, agentic Top 10, and governed execution
+
+### Source-backed claims
+- Fowler's Agentic Email post applies the Lethal Trifecta to email agents: untrusted email content, sensitive account context, and external communication combine into a high-risk exfiltration/control surface, especially because password-reset workflows often route through email. Source: `raw/2026-06-12-web-martin-fowler-bliki-agentic-email.md`. confidence: 1 Fowler source, last-confirmed 2026-06-12.
+- Fowler describes a lower-risk email-agent pattern with read-only email access, no internet/external-send capability, and plain-text draft output for human review; this removes one leg of the trifecta but reduces capability. Source: `raw/2026-06-12-web-martin-fowler-bliki-agentic-email.md`. confidence: 1 Fowler source, last-confirmed 2026-06-12.
+- OWASP Top 10 for Agentic Applications 2026 is positioned as a peer-reviewed framework for risks facing autonomous AI systems that plan, act, and make decisions across workflows. Source: `raw/2026-06-12-web-owasp-genai-owasp-top-10-for-agentic-applications-for-2026.md`. confidence: 1 OWASP GenAI source, last-confirmed 2026-06-12.
+- Microsoft AGT plus Azure Container Apps sandbox guidance frames generated-code execution as two separable controls: where code runs and what it is allowed to do. Source: `raw/2026-06-12-web-microsoft-techcommunity-govern-ai-agents-using-agent-governance-toolkit-and-az.md`. confidence: 1 Microsoft source, last-confirmed 2026-06-12.
+- The AGT example enforces shell-out, dependency-install, credential-access, tool-allowlist, egress, CPU/memory, timeout, and audit controls outside the model, using host policy, AST checks, ACA egress proxy, sandbox resource ceilings, and receipts. Source: `raw/2026-06-12-web-microsoft-techcommunity-govern-ai-agents-using-agent-governance-toolkit-and-az.md`. confidence: 1 Microsoft source, last-confirmed 2026-06-12.
+
+### Typed entities
+- concept: Lethal Trifecta
+- workflow: agentic email
+- framework: OWASP Top 10 for Agentic Applications 2026
+- framework: Agent Governance Toolkit / AGT
+- platform: Azure Container Apps Sandboxes
+- control: read-only email access
+- control: no external communication
+- control: host-side policy evaluation
+- control: AST subprocess scan
+- control: fail-closed egress proxy
+- artifact: execution receipt
+
+### Explicit relationships
+- Agentic email creates exfiltration risk when untrusted content, sensitive information, and outbound communication are present together.
+- Read-only/no-network email assistance mitigates but does not eliminate agentic email risk.
+- OWASP Agentic Top 10 complements MCP-specific threat taxonomies by covering broader autonomous-agent applications.
+- Governed execution depends-on sandbox isolation plus explicit policy; sandboxing alone does not define allowed behavior.
+
+### HoneyDrunk implications
+- Do not expose email, messaging, calendar, ticketing, or password-reset surfaces to autonomous agents without separating read, draft, send, and approval capabilities.
+- For code-running agents, make receipts first-class audit artifacts: allowed, denied-by-policy, blocked-at-egress, timeout, and error should be searchable outcomes.
+- Use OWASP Agentic Top 10 as a control checklist for OpenClaw/Honeyclaw agents that plan and act across tools.
+
+### Privacy and quality notes
+- Privacy filter: risky prompt examples and secrets from sources were summarized as threat/control classes, not copied as reusable attack payloads.
+- Quality posture: Fowler and OWASP are strong practice/taxonomy sources; AGT/ACA details remain vendor implementation guidance.

@@ -369,3 +369,30 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 
 ### Quality notes
 - Microsoft Learn pages are concrete implementation guidance but preview UI/API behavior can change. RT.Assistant is a guest/sample post and should be treated as architecture inspiration, not product support guarantee.
+
+## 2026-06-12 compile additions: .NET agentic modernization event
+
+### Source-backed claims
+- Microsoft scheduled .NET Day on Agentic Modernization for 2026-06-16, focused on modernizing legacy .NET apps with GitHub Copilot-assisted workflows, Aspire, Microsoft Agent Framework, Microsoft Foundry, and GitHub Copilot for Azure / Azure MCP. Source: `raw/2026-06-12-web-dotnet-blog-join-us-for-net-day-on-agentic-modernization-livestream-net-blog.md`. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-06-12.
+- The event agenda emphasizes migration of real-world WinForms and data-heavy line-of-business apps, cloud migration, and adding agentic/AI-powered functionality after modernization rather than rewriting everything from scratch. Source: `raw/2026-06-12-web-dotnet-blog-join-us-for-net-day-on-agentic-modernization-livestream-net-blog.md`. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-06-12.
+
+### Typed entities
+- event: .NET Day on Agentic Modernization
+- framework: Aspire
+- framework: Microsoft Agent Framework
+- platform: Microsoft Foundry
+- product: GitHub Copilot for Azure
+- server/tool: Azure MCP
+- app type: WinForms line-of-business app
+- concept: agentic modernization
+
+### Explicit relationships
+- Agentic modernization uses Copilot, Aspire, Agent Framework, Foundry, and Azure MCP as migration/augmentation tools for existing .NET apps.
+- Modernization workflows complement lift-and-shift migration by adding cloud and AI capabilities after mechanical upgrade work.
+
+### HoneyDrunk implications
+- If HoneyDrunk touches legacy .NET apps, treat Microsoft’s agentic modernization materials as a scouting source for migration workflows, not a production recipe until session artifacts are reviewed.
+- Prefer assess-plan-execute artifacts for modernization agents so architecture choices remain reviewable.
+
+### Quality notes
+- This is an event announcement, so it is weak as implementation evidence. It strengthens Microsoft platform direction only.

@@ -1,0 +1,202 @@
+---
+source: "https://owasp.org/www-project-mcp-top-10/"
+title: "OWASP MCP Top 10 | OWASP Foundation"
+author: "unknown"
+date_published: "unknown"
+date_clipped: "2026-06-12"
+category: "Security & Ethical Hacking"
+source_type: "web"
+---
+
+# OWASP MCP Top 10
+
+## About the MCP Top 10
+
+As AI systems become increasingly integrated into software supply chains, enterprise applications, and security infrastructure, the need for structured, secure, and interpretable model interaction layers is paramount. The Model Context Protocol (MCP) is emerging as a framework to define the operational, contextual, and behavioral boundaries of AI models. However, with the power and flexibility of MCPs comes a new class of vulnerabilities and attack surfaces that remain underexplored.
+
+This OWASP Top 10 for MCP outlines the most critical security concerns arising in the lifecycle of MCP-enabled systems—spanning from model misbinding, context spoofing, and prompt-state manipulation to insecure memory references and covert channel abuse. These risks are amplified in scenarios involving agentic AI, model chaining, multi-modal orchestration, and dynamic role assignment.
+
+By mapping the top 10 MCP-related vulnerabilities and offering concrete recommendations for secure design, implementation, and auditing practices, this project aims to equip AI developers, ML engineers, and security practitioners with the insights necessary to build context-aware and attack-resilient AI systems. The OWASP MCP Top 10 will serve as a living document, evolving alongside the pace of AI model capability and protocol innovation—anchored in real-world threats, research findings, and industry feedback.
+
+## Road Map
+
+Road Map
+Phase 1 – Drafting
+Create an initial draft of requirements that cover the industry aspects.
+
+Phase 2 – Community Review and Feedback
+Publish the draft in a public repository for the community to review.
+Inputs from the community
+
+Phase 3 – Beta Release and Pilot Testing - We are here right now
+Release a “beta” version of MCP Top 10.
+Gather feedback on usability and coverage.
+
+## Next Phase
+
+Phase 4 – Final Release
+Incorporate feedback from pilot testing.
+
+Phase 5 – Continuous Improvement
+Periodically release updated versions
+
+### Top 10
+
+- MCP01:2025 - [Token Mismanagement & Secret Exposure](2025/MCP01-2025-Token-Mismanagement-and-Secret-Exposure)
+- MCP02:2025 - [Privilege Escalation via Scope Creep](2025/MCP02-2025–Privilege-Escalation-via-Scope-Creep)
+- MCP03:2025 - [Tool Poisoning](2025/MCP03-2025–Tool-Poisoning)
+- MCP04:2025 - [Software Supply Chain Attacks & Dependency Tampering](2025/MCP04-2025–Software-Supply-Chain-Attacks&Dependency-Tampering)
+- MCP05:2025 - [Command Injection & Execution](2025/MCP05-2025–Command-Injection&Execution)
+- MCP06:2025 - [Intent Flow Subversion](2025/MCP06-2025–Intent-Flow-Subversion)
+- MCP07:2025 - [Insufficient Authentication & Authorization](2025/MCP07-2025–Insufficient-Authentication&Authorization)
+- MCP08:2025 -  [Lack of Audit and Telemetry](2025/MCP08-2025–Lack-of-Audit-and-Telemetry)
+- MCP09:2025 - [Shadow MCP Servers](2025/MCP09-2025–Shadow-MCP-Servers)
+- MCP10:2025 - [Context Injection & Over-Sharing](2025/MCP10-2025–ContextInjection&OverSharing)
+
+### Overview
+
+| Title | Description |
+| --- | --- |
+| MCP01 - Token Mismanagement & Secret Exposure | Hard-coded credentials, long-lived tokens, and secrets stored in model memory or protocol logs can expose sensitive environments to unauthorized access. Attackers may retrieve these tokens through prompt injection, compromised context, or debug traces, leading to full compromise of connected systems. |
+| MCP02 - Privilege Escalation via Scope Creep | Temporary or loosely defined permissions within MCP servers often expand over time, granting agents excessive capabilities. An attacker exploiting weak scope enforcement can perform unintended actions such as repository modification, system control, or data exfiltration. |
+| MCP03 - Tool Poisoning | Tool poisoning occurs when an adversary compromises the tools, plugins, or their outputs that an AI model depends on - injecting malicious, misleading, or biased context to manipulate model behavior. |
+| MCP04 - Software Supply Chain Attacks & Dependency Tampering | A compromised dependency can alter agent behavior or introduce execution-level backdoors. |
+| MCP05 - Command Injection & Execution | Command injection occurs when an AI agent constructs and executes system commands, shell scripts, API calls, or code snippets using untrusted input whether from user prompts, retrieved context, or third-party data sources without proper validation or sanitization. |
+| MCP06 - Intent Flow Subversion | The Model Context Protocol enables agents to retrieve complex context that can act as a secondary instruction channel. Subversion occurs when malicious instructions embedded in context hijack the “Intent Flow,” steering the agent away from the user’s original goal toward an attacker’s objective. |
+| MCP07 - Insufficient Authentication & Authorization | Inadequate authentication and authorization occur when MCP servers, tools, or agents fail to properly verify identities or enforce access controls during interactions. Since MCP ecosystems often involve multiple agents, users, and services exchanging data and executing actions, weak or missing identity validation exposes critical attack paths. |
+| MCP08 - Lack of Audit and Telemetry | Limited telemetry from MCP servers and agents impedes investigation and incident response. Maintain detailed logs of tool invocations, context changes, and user-agent interactions with immutable audit trails. |
+| MCP09 - Shadow MCP Servers | “Shadow MCP Servers” refer to unapproved or unsupervised deployments of Model Context Protocol instances that operate outside the organization’s formal security governance.Much like Shadow IT, these rogue MCP nodes are often spun up by developers, research teams, or data scientists for experimentation, testing, or convenience frequently using default credentials, permissive configurations, or unsecured APIs. |
+| MCP10 - Context Injection & Over-Sharing | In the Model Context Protocol (MCP), “context” represents the working memory that stores prompts, retrieved data, and intermediate outputs across agents or sessions. When context windows are shared, persistent, or insufficiently scoped, sensitive information from one task, user, or agent may be exposed to another. This phenomenon known as context over-sharing turns convenience into a liability. |
+
+## Data Sources
+
+## Licensing
+
+The OWASP MCP Top 10 document is licensed under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/), the Creative Commons
+Attribution-ShareAlike 4.0 license. Some rights reserved.
+
+## Project Leaders
+
+- [Vandana Verma Sehgal](/cdn-cgi/l/email-protection#dbadbab5bfbab5baf5adbea9b6ba9bb4acbaa8abf5b4a9bc) (Twitter: [@infosecvandana](https://x.com/Infosecvandana))
+
+---
+
+## OWASP Top 10 for Model Context Protocol version [v0.1]
+
+## MCP1:2025 – [Token Mismanagement & Secret Exposure](2025/MCP01-2025-Token-Mismanagement-and-Secret-Exposure)
+
+Hard-coded credentials, long-lived tokens, and secrets stored in model memory or protocol logs can expose sensitive environments to unauthorized access.Attackers may retrieve these tokens through prompt injection, compromised context, or debug traces, leading to full compromise of connected systems. Short-lived, scoped credentials and secret-scanning controls are essential to mitigate this risk.
+
+## MCP2:2025 – [Privilege Escalation via Scope Creep](2025/MCP02-2025–Privilege-Escalation-via-Scope-Creep)
+
+Temporary or loosely defined permissions within MCP servers often expand over time, granting agents excessive capabilities. An attacker exploiting weak scope enforcement can perform unintended actions such as repository modification, system control, or data exfiltration. Enforce least-privilege design, automated scope expiry, and strict access reviews to prevent escalation.
+
+## MCP03:2025 – [Tool Poisoning](2025/MCP03-2025–Tool-Poisoning)
+
+Tool poisoning occurs when an adversary compromises the tools, plugins, or their outputs that an AI model depends on - injecting malicious, misleading, or biased context to manipulate model behavior. This category encompasses several sub-techniques, including rug pulls (malicious updates to trusted tools), schema poisoning (corrupting interface definitions to mislead the model), and tool shadowing (introducing fake or duplicate tools to intercept or alter interactions).
+
+## MCP4:2025 – [Software Supply Chain Attacks & Dependency Tampering](2025/MCP04-2025–Software-Supply-Chain-Attacks&Dependency-Tampering)
+
+MCP ecosystems depend on open-source packages, connectors, and model-side plug-ins that may contain malicious or vulnerable components. A compromised dependency can alter agent behavior or introduce execution-level backdoors. Implement signed components, dependency monitoring, and provenance tracking for all MCP modules.
+
+## MCP5:2025 – [Command Injection & Execution](2025/MCP05-2025–Command-Injection&Execution)
+
+Command injection in MCP environments occurs when an AI agent constructs and executes system commands, shell scripts, API calls, or code snippets using untrusted input—whether from user prompts, retrieved context, or third-party data sources—without proper validation or sanitization.
+
+## MCP6:2025 – [Prompt Injection via Contextual Payloads](2025/MCP06-2025–Prompt-InjectionviaContextual-Payloads)
+
+This risk is analogous to classic injection attacks (e.g., XSS, SQLi), but in the MCP world the “interpreter” is the model and the “payload” is text (or any content that becomes text after OCR/processing). Because models are designed to follow natural-language instructions, prompt injection attacks are both powerful and subtle.
+
+## MCP07:2025 – [Insufficient Authentication & Authorization](2025/MCP07-2025–Insufficient-Authentication&Authorization)
+
+Inadequate authentication and authorization occur when MCP servers, tools, or agents fail to properly verify identities or enforce access controls during interactions. Since MCP ecosystems often involve multiple agents, users, and services exchanging data and executing actions, weak or missing identity validation exposes critical attack paths.
+
+## MCP8:2025 – [Lack of Audit and Telemetry](2025/MCP08-2025–Lack-of-Audit-and-Telemetry)
+
+Without comprehensive activity logging and real-time alerting, unauthorized actions or data access may go undetected.
+Limited telemetry from MCP servers and agents impedes investigation and incident response. Maintain detailed logs of tool invocations, context changes, and user-agent interactions with immutable audit trails.
+
+## MCP9:2025 – [Shadow MCP Servers](2025/MCP09-2025–Shadow-MCP-Servers)
+
+“Shadow MCP Servers” refer to unapproved or unsupervised deployments of Model Context Protocol instances that operate outside the organization’s formal security governance. Much like Shadow IT, these rogue MCP nodes are often spun up by developers, research teams, or data scientists for experimentation, testing, or convenience—frequently using default credentials, permissive configurations, or unsecured APIs.
+
+## MCP10:2025 – [Context Injection & Over-Sharing](2025/MCP10-2025–ContextInjection&OverSharing)
+
+In the Model Context Protocol (MCP), “context” represents the working memory that stores prompts, retrieved data, and intermediate outputs across agents or sessions. When context windows are shared, persistent, or insufficiently scoped, sensitive information from one task, user, or agent may be exposed to another. This phenomenon—known as context over-sharing—turns convenience into a liability.
+
+---
+
+## Lead
+
+|  |  |  |
+| --- | --- | --- |
+| [Vandana Verma Sehgal](/cdn-cgi/l/email-protection#1c6a7d72787d727d326a796e717d5c736b7d6f6c32736e7b) | [Twitter](https://x.com/InfosecVandana) | [LinkedIn](https://www.linkedin.com/in/vandana-verma/) |
+
+## Contributors
+
+The most up-to-date OWASP MCP Top 10 is available here:
+➡️ https://github.com/OWASP/www-project-mcp-top-10/
+
+We proudly recognize contributors across the following categories:
+
+Roles & Recognition
+
+**Authors**
+Primary writers and core content creators behind major MCP Top 10 sections.
+
+**Reviewers**
+Community members who regularly provide constructive input through GitHub issues or PR reviews.
+
+**Top Contributors**
+Contributors who have made significant, high-quality contributions — typically 500+ additions.
+
+**Contributors**
+Individuals who have added meaningful content — generally 50+ additions.
+
+**Mini Contributors**
+Supporters who made smaller contributions — less than 50 additions (even a line counts!).
+
+**Editors**
+Folks helping in refine, format, and improve clarity, structure, and consistency.
+
+Note: Our contributor table is generated from GitHub contribution activity. Details on how these numbers are collected can be found in the project README. We refresh the table manually, so if you don’t see your name yet, don’t worry it may appear during the next update cycle!
+Every contribution matters from a single sentence to full sections — and helps strengthen the MCP Top 10. Thank you for helping the community grow!
+
+|  |  |  |
+| --- | --- | --- |
+| Name | Twitter | LinkedIn |
+
+---
+
+[Watch](https://github.com/owasp/www-project-mcp-top-10/subscription)
+[Star](https://github.com/owasp/www-project-mcp-top-10)
+
+**The OWASP® Foundation** works to improve the security of software through its community-led open source software projects,
+hundreds of chapters worldwide, tens of thousands of members, and by hosting local and global conferences.
+
+### MCP Top 10 Information
+
+- [Incubator Project](#)
+- [Type of Project](#)
+- [Version 0.0.0](#)
+- [Server](#)
+- [Client](#)
+
+### Downloads or Social Links
+
+- [Download](#)
+- [Meetup](#)
+
+### Code Repository
+
+- [repo](https://github.com/OWASP/www-project-mcp-top-10)
+
+### Change Log
+
+- [changes](#)
+
+### Leaders
+
+- [Vandana Verma Sehgal](/cdn-cgi/l/email-protection#3b4d5a555f5a555a154d5e49565a7b544c5a484b1554495c)
+
+### Upcoming OWASP Global Events

@@ -496,3 +496,39 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Thoughtworks is practice guidance; Anthropic, GitHub, and Hugging Face are vendor sources. Local workflow metrics remain the deciding evidence.
+
+## 2026-06-12 compile additions: Agentic email and AI-accelerated shadow IT
+
+### Source-backed claims
+- Fowler's Agentic Email post treats email agents as especially risky because email combines untrusted inbound content, sensitive life/work context, outbound communication, calendar authority, and password-reset workflows. Source: `raw/2026-06-12-web-martin-fowler-bliki-agentic-email.md`. confidence: 1 Fowler source, last-confirmed 2026-06-12.
+- Thoughtworks frames AI-accelerated shadow IT as a shift from shadow tools to entire shadow systems: employees can stitch together LLMs, MCP, repositories, and external APIs quickly when official paths are too slow. Source: `raw/2026-06-12-web-thoughtworks-balancing-innovation-and-quality-in-software-governance.md`. confidence: 1 Thoughtworks source, last-confirmed 2026-06-12.
+- Thoughtworks argues shadow IT is often a lagging signal of unmet organizational demand, so blanket bans tend to drive AI workarounds underground rather than eliminate them. Source: `raw/2026-06-12-web-thoughtworks-balancing-innovation-and-quality-in-software-governance.md`. confidence: 1 Thoughtworks source, last-confirmed 2026-06-12.
+- Thoughtworks identifies architectural risks in AI-generated shadow systems: fragile unversioned prompts, little telemetry or observability, missing tests/evals/fitness functions, and codebase cognitive debt. Source: `raw/2026-06-12-web-thoughtworks-balancing-innovation-and-quality-in-software-governance.md`. confidence: 1 Thoughtworks source, last-confirmed 2026-06-12.
+- Thoughtworks recommends lowering compliance friction through hardened internal self-service AI platforms, automated checks embedded in delivery, and risk-tiered evaluation by use case. Source: `raw/2026-06-12-web-thoughtworks-balancing-innovation-and-quality-in-software-governance.md`. confidence: 1 Thoughtworks source, last-confirmed 2026-06-12.
+
+### Typed entities
+- concept: agentic email
+- concept: AI-accelerated shadow IT
+- concept: shadow system
+- concept: codebase cognitive debt
+- control: hardened internal self-service platform
+- control: automated quality gate
+- control: risk-tiered governance
+- protocol: Model Context Protocol
+- organization: Thoughtworks
+- person: Martin Fowler
+- person: Lilly Ryan
+
+### Explicit relationships
+- Agentic email risk depends-on the combination of untrusted content, sensitive context, and outbound action channels.
+- AI-accelerated shadow IT is caused by unmet demand plus low-friction AI assembly of systems that bypass formal governance.
+- Paved-road internal platforms complement governance because they make the approved route easier than unauthorized API keys or private automations.
+- Automated quality checks and observability mitigate codebase cognitive debt but do not supersede human ownership for sensitive workflows.
+
+### HoneyDrunk implications
+- Treat user demand for quick agent automations as product signal; build lower-friction approved paths before banning tools.
+- Require any durable AI automation to version prompts/config, emit telemetry, run tests/evals where applicable, and declare owner/blast radius.
+- Keep email/calendar/message-sending agents in draft-and-approve mode until action scopes, audit, and exfiltration controls are mature.
+
+### Quality notes
+- Fowler and Thoughtworks are practice/commentary sources; they are strong for governance posture but not empirical proof of incident frequency.

@@ -441,3 +441,39 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - Infrastructure claims are vendor-authored and cost-sensitive. Recheck current pricing, quota, and regional availability before architectural decisions.
+
+## 2026-06-12 compile additions: Azure Container Apps Sandboxes and DiffusionGemma infrastructure
+
+### Source-backed claims
+- Azure Container Apps Sandboxes are in public preview as `Microsoft.App/SandboxGroups`, offering per-sandbox hardware-isolated microVMs, sub-second startup, OCI disk images, snapshot-based suspend/resume, lifecycle policies, egress controls, volumes, secrets, managed identity, and portal/CLI/SDK management. Source: `raw/2026-06-12-web-microsoft-techcommunity-introducing-azure-container-apps-sandboxes-secure-infr.md`. confidence: 1 Microsoft source, last-confirmed 2026-06-12.
+- Microsoft says ACA Sandboxes are the infrastructure used by Cloud sandboxes in GitHub Copilot, Foundry Hosted Agents, and ACA Express, and are the successor direction for Azure Container Apps Dynamic Sessions for new isolated ephemeral compute work. Source: `raw/2026-06-12-web-microsoft-techcommunity-introducing-azure-container-apps-sandboxes-secure-infr.md`. confidence: 1 Microsoft source, last-confirmed 2026-06-12.
+- ACA Sandboxes support deny-by-default network egress policy with host and CIDR rules, managed volumes backed by Blob or Azure Disk, scoped group secrets, system/user-assigned managed identity, and managed MCP connectors/triggers through Connector Namespace. Source: `raw/2026-06-12-web-microsoft-techcommunity-introducing-azure-container-apps-sandboxes-secure-infr.md`. confidence: 1 Microsoft source, last-confirmed 2026-06-12.
+- DiffusionGemma shifts local text generation pressure from memory bandwidth toward compute by denoising a 256-token canvas in parallel, with Google reporting high token throughput on RTX 5090 and H100-class GPUs; treat this as vendor performance evidence. Source: `raw/2026-06-12-web-google-developers-blog-diffusiongemma-the-developer-guide-google-developers-bl.md`. confidence: 1 Google Developers source, last-confirmed 2026-06-12.
+
+### Typed entities
+- platform: Azure Container Apps Sandboxes
+- Azure resource: `Microsoft.App/SandboxGroups`
+- isolation type: hardware-isolated microVM
+- feature: snapshot suspend/resume
+- feature: network egress policy
+- storage: Managed Azure Blob volume
+- storage: Managed Data Disk volume
+- identity: managed identity
+- platform: Connector Namespace
+- model: DiffusionGemma
+- hardware: NVIDIA RTX 5090
+- hardware: NVIDIA H100
+
+### Explicit relationships
+- ACA Sandboxes supersede Dynamic Sessions as Microsoft's new-work target for isolated ephemeral compute, while Dynamic Sessions remain supported.
+- Snapshot suspend/resume enables stateful scale-to-zero agent compute, but snapshot storage and lifecycle policies become operational controls.
+- Egress policy and managed identity make sandbox networking/credential boundaries platform concerns rather than prompt instructions.
+- DiffusionGemma uses compute-heavy parallel denoising to reduce autoregressive memory-bandwidth bottlenecks for suitable GPU workloads.
+
+### HoneyDrunk implications
+- Evaluate ACA Sandboxes as a candidate for cloud-side OpenClaw/Honeyclaw code execution only after testing Windows/dev ergonomics, egress logs, identity boundaries, cost, lifecycle cleanup, and local fallback.
+- Treat managed MCP connectors attached to sandboxes as high-capability tools requiring profile governance and audit.
+- If local open-model serving becomes relevant, benchmark DiffusionGemma against autoregressive coding/chat models on HoneyDrunk tasks instead of relying on generic token-throughput claims.
+
+### Quality notes
+- Microsoft and Google sources are vendor-authored preview/developer materials. Feature existence is useful; costs, limits, quotas, and performance require current tenant/hardware validation.

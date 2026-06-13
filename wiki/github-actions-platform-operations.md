@@ -262,3 +262,40 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ### Quality notes
 - GitHub and Hugging Face are primary/vendor sources. HF Jobs performance numbers are not transferable without local CI measurements.
+
+## 2026-06-12 compile additions: Agentic Workflows public preview and runner images
+
+### Source-backed claims
+- GitHub Agentic Workflows is in public preview and compiles natural-language Markdown automation definitions into standard GitHub Actions YAML, reusing existing runner groups and policy constraints. Source: `raw/2026-06-12-web-github-changelog-github-agentic-workflows-is-now-in-public-preview-github-chan.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-12.
+- GitHub describes Agentic Workflows safeguards including read-only default permissions, integrity filter rules, sandboxed container execution behind the Agent Workflow Firewall, safe outputs validation, and a threat-detection job before proposed changes are applied. Source: `raw/2026-06-12-web-github-changelog-github-agentic-workflows-is-now-in-public-preview-github-chan.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-12.
+- Agentic Workflows can now use the built-in `GITHUB_TOKEN` instead of a long-lived personal access token, with organization billing enabled through Copilot policy and `copilot-requests: write` workflow permissions. Source: `raw/2026-06-12-web-github-changelog-agentic-workflows-no-longer-need-a-personal-access-token-gith.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-12.
+- Pull requests created by `github-actions[bot]` can run CI/CD workflows after approval by a user with write access, reducing the risk that bot-created changes merge without CI while still gating sensitive workflow execution. Source: `raw/2026-06-12-web-github-changelog-bot-created-pull-requests-can-run-workflows-if-approved-githu.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-12.
+- GitHub-hosted runner images `ubuntu-26.04`, `ubuntu-26.04-arm`, and `windows-11-vs2026-arm` are available in public preview; the existing `windows-11-arm` label is planned to migrate to the VS 2026 image after the preview period in early September. Source: `raw/2026-06-12-web-github-changelog-new-runner-images-in-public-preview-github-changelog.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-12.
+
+### Typed entities
+- product: GitHub Agentic Workflows
+- platform: GitHub Actions
+- token: `GITHUB_TOKEN`
+- permission: `copilot-requests: write`
+- actor: `github-actions[bot]`
+- runner image: `ubuntu-26.04`
+- runner image: `ubuntu-26.04-arm`
+- runner image: `windows-11-vs2026-arm`
+- runner label: `windows-11-arm`
+- control: Agent Workflow Firewall
+- control: safe outputs validation
+
+### Explicit relationships
+- Agentic Workflows uses GitHub Actions as the execution/control plane for reasoning-based automations.
+- `GITHUB_TOKEN` supersedes long-lived PATs for supported Agentic Workflows authentication.
+- Bot-created PR CI execution depends-on explicit user approval to avoid automatic sensitive workflow execution.
+- Preview runner images complement migration testing and should not silently supersede pinned production release images.
+
+### HoneyDrunk implications
+- Treat Agentic Workflow Markdown as executable CI configuration: require review, CODEOWNERS, permission review, lockfile review, and cost policy.
+- Prefer `GITHUB_TOKEN` over PATs for GitHub-native automations where feature support is sufficient; long-lived PATs should become exceptions.
+- Audit bot-created PR workflows so approval requirements do not leave generated PRs mergeable without required checks.
+- Test `ubuntu-26.04` and `windows-11-vs2026-arm` in non-release workflows before any default-label migration affects production CI.
+
+### Quality notes
+- GitHub changelog sources are authoritative for preview feature existence. Public-preview behavior, pricing, and lockfile semantics need live verification before policy rollout.
