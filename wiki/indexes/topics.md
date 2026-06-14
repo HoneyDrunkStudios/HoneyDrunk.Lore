@@ -587,3 +587,21 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 
 ### Game engines, DCC, and technical art
 - [[technical-art-community-and-talent-signals]] - 25 sources - last-confirmed 2026-06-12
+
+## 2026-06-14 topic additions
+
+### Agent security, MCP governance, and supply chain
+- [[ai-coding-agent-security]] - 63 sources - last-confirmed 2026-06-14
+- [[mcp-tool-governance-and-app-surfaces]] - 45 sources - last-confirmed 2026-06-14
+- [[github-actions-platform-operations]] - 25 sources - last-confirmed 2026-06-14
+
+### Agent harnesses, evaluation, and model operations
+- [[ai-agent-harnesses]] - 97 sources - last-confirmed 2026-06-14
+- [[agent-evaluation-and-benchmarks]] - 23 sources - last-confirmed 2026-06-14
+- [[edge-ai-and-ai-infrastructure-2026]] - 35 sources - last-confirmed 2026-06-14
+
+### AI policy and governance
+- [[ai-policy-and-governance-2026]] - 1 source - last-confirmed 2026-06-14
+
+### Game engines and interactive 3D training
+- [[unity-3d-and-realtime-vfx-patterns]] - 39 sources - last-confirmed 2026-06-14

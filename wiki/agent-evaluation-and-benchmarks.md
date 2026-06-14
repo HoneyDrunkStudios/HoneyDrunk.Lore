@@ -264,3 +264,44 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - Fable and North Mini Code claims are vendor-authored. Use them to select candidates, not to declare winners.
+
+## 2026-06-14 compile additions: olmo-eval and hidden-state probes
+
+### Source-backed claims
+- Allen AI's olmo-eval is positioned as an evaluation workbench for active model development, not only finished-model benchmarking: it runs repeatable benchmarks across changing checkpoints and compares interventions at aggregate and per-question levels. Source: `raw/2026-06-14-web-hugging-face-blog-olmo-eval-an-evaluation-workbench-for-the-model-deve.md`. confidence: 1 Hugging Face/Allen AI source, last-confirmed 2026-06-14.
+- olmo-eval separates task, suite, and harness: the task defines what is measured, the suite groups tasks, and the harness controls runtime policy such as provider, tools, scaffolding, sandboxes, and auxiliary judge models. Source: `raw/2026-06-14-web-hugging-face-blog-olmo-eval-an-evaluation-workbench-for-the-model-deve.md`. confidence: 1 source, last-confirmed 2026-06-14.
+- olmo-eval reports standard error and minimum detectable effect, and supports pairwise checkpoint comparison question by question so small average-score changes can be distinguished from noise or localized regressions. Source: `raw/2026-06-14-web-hugging-face-blog-olmo-eval-an-evaluation-workbench-for-the-model-deve.md`. confidence: 1 source, last-confirmed 2026-06-14.
+- James Padolsey's hidden-state probe writeup argues that some rubric-style text classification decisions already exist in an LLM's residual stream before generation; a small calibrated probe over a mid-layer final-token hidden state can replace slow prose-based LLM judging for high-volume structural classification tasks. Source: `raw/2026-06-14-rss-j11y-io-don-t-let-the-llm-speak-just-probe-it-by-james-padolsey.md`. confidence: 1 practitioner/research source, last-confirmed 2026-06-14.
+- The same source notes a practical tradeoff for multi-criterion scoring: content-prefill/KV reuse is cheap when criteria are applied after content, but criteria-before-content can perform better when every content token needs to attend to a complex criterion. Source: `raw/2026-06-14-rss-j11y-io-don-t-let-the-llm-speak-just-probe-it-by-james-padolsey.md`. confidence: 1 source, last-confirmed 2026-06-14.
+- The Brain Overflow security-review experiment reinforces that automated security-review evaluation should test same-session, cold-session, diff-only, and cross-commit/component-boundary conditions separately, because each exposes different blind spots. Source: `raw/2026-06-14-rss-brain-overflow-hidden-gaps-in-claude-code-security-reviews.md`. confidence: 1 practitioner experiment, last-confirmed 2026-06-14.
+
+### Typed entities
+- project: olmo-eval
+- standard: OLMES
+- framework: Harbor
+- concept: task/suite/harness abstraction
+- concept: minimum detectable effect
+- concept: pairwise checkpoint comparison
+- concept: hidden-state probe
+- concept: residual stream
+- concept: calibrated classifier
+- technique: isotonic regression
+- technique: KV cache reuse
+- benchmark concern: review context bias
+
+### Explicit relationships
+- Evaluation workbenches depend-on separating benchmark logic from runtime policy so one benchmark can be run under baseline, tool-using, sandboxed, or judge-assisted harnesses.
+- Pairwise checkpoint comparison complements aggregate score reporting by surfacing which prompts improved or regressed.
+- Minimum detectable effect helps decide whether a small score delta is actionable or statistical noise.
+- Hidden-state probes complement LLM-as-judge generation by reading classifier-like decisions from the forward pass without asking the model to emit prose.
+- Probe accuracy depends-on prompt template, final-token seed, layer selection, calibration, and whether criterion/content interaction needs full cross-attention.
+- Security-review evals depend-on reviewer context condition: same-session, cold independent, diff-only, and cross-commit review are not interchangeable.
+
+### HoneyDrunk implications
+- For OpenClaw/Grid model or prompt evals, store task, suite, harness, model, tools, sandbox, judge, and cost configuration as first-class run metadata.
+- Report score deltas with standard error or minimum detectable effect before treating small improvements as routing evidence.
+- For high-volume Lore/source triage, hidden-state probes or other calibrated non-generative classifiers may be worth a spike once labeled examples exist.
+- Add security-review test cases that deliberately split risk across commits, tool permissions, and skill/subprocess boundaries.
+
+### Quality notes
+- olmo-eval is a concrete open-source evaluation-workbench signal, but adoption should follow a local spike. Hidden-state probe evidence is practitioner-research guidance and needs local labeled-data validation.

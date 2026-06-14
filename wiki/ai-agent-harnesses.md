@@ -694,3 +694,52 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - Fowler/Thoughtworks sources are practice guidance. Google and OpenAI sources are vendor/platform-authored. Promoted claims are durable harness patterns, not procurement decisions.
+
+## 2026-06-14 compile additions: Agent Substrate, Colab CLI, Foundry, and domain-specific tool boundaries
+
+### Source-backed claims
+- Solo.io describes Agent Substrate as a Kubernetes-adjacent control layer that schedules, suspends, snapshots, and resumes agent actors inside pre-provisioned worker pods, avoiding Kubernetes API writes in the hot path for agent deploy/suspend/resume operations. Source: `raw/2026-06-14-rss-solo-io-agent-substrate-can-power-agents-on-kubernetes-with-kagent-sol.md`. confidence: 1 vendor/community source, last-confirmed 2026-06-14.
+- Solo.io reports kagent can run OpenClaw-style harnesses on Agent Substrate, with agent workers isolated through gVisor or Firecracker and network traffic routed through agentgateway for future fine-grained ingress/egress controls and credential injection. Source: `raw/2026-06-14-rss-solo-io-agent-substrate-can-power-agents-on-kubernetes-with-kagent-sol.md`. confidence: 1 source, last-confirmed 2026-06-14.
+- Google Colab CLI exposes remote Colab runtimes from a local terminal, including GPU provisioning, package installation, remote script execution, notebook logs, download, REPL/console use, and cleanup; Google explicitly frames it as usable by terminal-based agents. Source: `raw/2026-06-14-web-google-developers-blog-introducing-the-google-colab-cli-google-develop.md`. confidence: 1 Google Developers source, last-confirmed 2026-06-14.
+- InfoQ's Microsoft Foundry Build recap says hosted agents provide managed sandboxed sessions with state, filesystem access, Responses API, invocations protocol, and scheduled routines for long-running or recurring agents such as overnight triage and daily reporting. Source: `raw/2026-06-14-web-infoq-microsoft-foundry-adds-runtime-tooling-and-governance-for-produc.md`. confidence: 1 secondary article summarizing Microsoft sources, last-confirmed 2026-06-14.
+- Foundry Toolboxes are described as managed endpoints for tools, skills, MCP clients, and enterprise integrations, with runtime tool search intended to expose a small relevant set of tools instead of dumping every possible tool into context. Source: `raw/2026-06-14-web-infoq-microsoft-foundry-adds-runtime-tooling-and-governance-for-produc.md`. confidence: 1 secondary source, last-confirmed 2026-06-14.
+- Thoughtworks argues MCP is valuable for local assistant adoption and rapid experimentation, but raw upstream MCP schemas directly injected into an enterprise agent's prompt create a conformist integration pattern; production agents should expose domain-specific tools that act as code-enforced anti-corruption layers. Source: `raw/2026-06-14-web-thoughtworks-your-agent-skill-is-not-an-anti-corruption-layer-thoughtw.md`. confidence: 1 Thoughtworks architecture source, last-confirmed 2026-06-14.
+- The same Thoughtworks source says prompt-based "skills" are not reliable architectural boundaries at scale; agent interfaces should be explicitly designed, validated, versioned, and translated in code when reliability becomes the bottleneck. Source: `raw/2026-06-14-web-thoughtworks-your-agent-skill-is-not-an-anti-corruption-layer-thoughtw.md`. confidence: 1 source, last-confirmed 2026-06-14.
+
+### Typed entities
+- project: Agent Substrate
+- project: kagent
+- project: agentgateway
+- isolation type: gVisor
+- isolation type: Firecracker microVM
+- resource: WorkerPool
+- resource: ActorTemplate
+- CLI: Google Colab CLI
+- file: `COLAB_SKILL.md`
+- platform: Microsoft Foundry hosted agents
+- feature: Foundry routines
+- feature: Foundry Toolboxes
+- concept: domain-specific tool
+- concept: anti-corruption layer
+- concept: conformist pattern
+- concept: bounded context
+
+### Explicit relationships
+- Agent Substrate complements Kubernetes by handling high-churn agent actor lifecycle outside the Kubernetes API hot path.
+- kagent uses Agent Substrate to run harnesses as schedulable actors instead of one long-running pod per agent.
+- agentgateway complements sandbox isolation by mediating network traffic and credential injection outside the agent runtime.
+- Colab CLI exposes remote GPU runtimes as terminal commands, making cloud compute available to agents without bespoke cloud provisioning code.
+- Foundry hosted agents and routines use managed state/filesystem/runtime surfaces to turn recurring agent work into platform jobs.
+- Tool search and curated toolboxes reduce context bloat by selecting task-relevant tools at runtime.
+- Domain-specific tools act as an anti-corruption layer by translating the agent's ubiquitous language into upstream system schemas in code.
+- Prompt skills complement domain tools for exploration, but do not supersede typed validation and explicit interface versioning for production agents.
+
+### HoneyDrunk implications
+- Treat Agent Substrate/kagent as a watchlist path for hosted OpenClaw/Honeyclaw only after testing startup/resume time, storage snapshots, network policy, credential injection, and Windows/local fallback.
+- Colab CLI is useful for ad hoc GPU/offload experiments, but any unattended Honeyclaw use needs budget caps, cleanup guarantees, artifact capture, and secret handling.
+- Keep HoneyDrunk agent tools small and domain-specific. For example, expose "create work item" or "summarize run receipt" rather than dumping raw Jira/GitHub/registry schemas into every agent prompt.
+- Use MCP as a protocol where it fits, but put code-enforced translation and validation at the boundary before production rollout.
+- For scheduled agent jobs, prefer durable platform/workflow state over in-chat instructions or transient session state.
+
+### Quality notes
+- Solo.io, Google, and Foundry claims are platform/vendor signals. Thoughtworks is architecture guidance. All need local validation before changing HoneyDrunk runtime architecture.

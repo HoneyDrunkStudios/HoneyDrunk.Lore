@@ -519,3 +519,38 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - OWASP MCP Top 10 is a beta living document. Microsoft AGT source is implementation/vendor guidance and should be validated against current packages and ACA preview behavior.
+
+## 2026-06-14 compile additions: MCP as protocol, not boundary
+
+### Source-backed claims
+- Thoughtworks argues that raw off-the-shelf MCP servers often expose an upstream system's schema and vocabulary directly into the agent prompt, creating a conformist bounded-context relationship rather than an anti-corruption layer. Source: `raw/2026-06-14-web-thoughtworks-your-agent-skill-is-not-an-anti-corruption-layer-thoughtw.md`. confidence: 1 architecture source, last-confirmed 2026-06-14.
+- Thoughtworks recommends domain-specific tools with typed validation and code-level translation as the production boundary, while MCP remains useful as an adoption and transport protocol, especially for local development and curated internal tools. Source: `raw/2026-06-14-web-thoughtworks-your-agent-skill-is-not-an-anti-corruption-layer-thoughtw.md`. confidence: 1 source, last-confirmed 2026-06-14.
+- InfoQ reports Foundry Toolboxes expose tools, skills, MCP clients, and enterprise data integrations through managed endpoints with versioned skills and runtime tool search, reflecting a platform-level move toward curated tool surfaces. Source: `raw/2026-06-14-web-infoq-microsoft-foundry-adds-runtime-tooling-and-governance-for-produc.md`. confidence: 1 secondary source summarizing Microsoft materials, last-confirmed 2026-06-14.
+- Fast-Embedding-MCP-SSE exposes local embedding, similarity, stateless search, and in-memory index operations as MCP tools, showing MCP's value for lightweight local retrieval surfaces. Source: `raw/2026-06-14-web-hugging-face-blog-sse-in-practice-fast-static-embeddings-you-can-train.md`. confidence: 1 community technical source, last-confirmed 2026-06-14.
+- Anthropic's LLM ATT&CK Navigator analysis identifies MCP-connected offensive tooling as part of agentic misuse scaffolding in a high-risk campaign, reinforcing that MCP tool access can materially change an actor's operational capability. Source: `raw/2026-06-14-rss-anthropic-red-team-llm-att-ck-navigator-red-anthropic-com.md`. confidence: 1 primary vendor threat-intelligence source, last-confirmed 2026-06-14.
+
+### Typed entities
+- protocol: Model Context Protocol / MCP
+- concept: bounded context
+- concept: anti-corruption layer
+- concept: conformist pattern
+- platform: Microsoft Foundry Toolboxes
+- feature: runtime tool search
+- tool/server: Fast-Embedding-MCP-SSE
+- risk: MCP-enabled offensive scaffolding
+
+### Explicit relationships
+- MCP transport does not itself enforce domain translation, validation, or least-privilege semantics.
+- Domain-specific tools complement MCP by exposing curated task language while code translates to upstream APIs.
+- Runtime tool search and managed toolboxes reduce tool bloat only if the registered tools are curated and governed.
+- Local retrieval MCP tools are useful low-risk surfaces when they run on local data and have no external side effects.
+- MCP-connected offensive tooling can increase agentic orchestration capability when tools enable scanning, exploitation, lateral movement, or exfiltration.
+
+### HoneyDrunk implications
+- Do not treat a prompt skill or raw MCP server as the architectural boundary for production agents. Put domain translation, validation, and authorization in code.
+- For HoneyDrunk MCP profiles, prefer narrow internal tools with names and schemas that match HoneyDrunk workflows.
+- Keep generic third-party MCP servers in experiment profiles until provenance, tool list, permissions, and output sanitization are reviewed.
+- Local retrieval MCP servers may be good Lore helpers, but still need profile scoping and clear data-retention behavior.
+
+### Quality notes
+- Thoughtworks guidance is architectural and decision-useful. InfoQ is secondary coverage and should be checked against Microsoft docs before implementation. SSE MCP tooling requires local evaluation.

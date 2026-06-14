@@ -563,3 +563,31 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - Blender docs are strong feature evidence, but production adoption should wait for target Blender release stability. Unity case study is vendor/studio evidence and should be validated against HoneyDrunk target devices.
+
+## 2026-06-14 compile additions: Unity Studio for interactive training prototypes
+
+### Source-backed claims
+- Unity's Unity Studio training-design article frames browser-based interactive 3D training as a way for non-simulation specialists to import existing CAD/3D assets, build guided scenarios, share browser prototypes, and iterate with subject matter experts before formal rollout. Source: `raw/2026-06-14-rss-unity-blog-how-training-designers-build-interactive-3d-training-unity.md`. confidence: 1 vendor illustrative article, last-confirmed 2026-06-14.
+- The article emphasizes visual scripting for procedure logic such as required safety checks, out-of-order warnings, fault responses, and unlocking later steps after correct completion. Source: `raw/2026-06-14-rss-unity-blog-how-training-designers-build-interactive-3d-training-unity.md`. confidence: 1 source, last-confirmed 2026-06-14.
+- The article is explicitly based on a fictional persona, so it is product-positioning evidence rather than a real customer case study or performance benchmark. Source: `raw/2026-06-14-rss-unity-blog-how-training-designers-build-interactive-3d-training-unity.md`. confidence: 1 vendor source, last-confirmed 2026-06-14.
+
+### Typed entities
+- product: Unity Studio
+- workflow: browser-based interactive 3D training
+- input: CAD/3D assets
+- role: training designer
+- role: subject matter expert / SME
+- technique: visual scripting
+- concept: guided training scenario
+
+### Explicit relationships
+- Unity Studio uses existing 3D/CAD assets to reduce the handoff gap between training design and interactive prototype creation.
+- Visual scripting complements training workflows by encoding ordered procedures, warnings, consequences, and progression gates without custom code.
+- Browser sharing complements SME review by making the same prototype inspectable without specialized installs.
+
+### HoneyDrunk implications
+- Treat Unity Studio as a rapid review/prototype surface for training or 3D process walkthroughs, not as proof of production simulation fidelity.
+- For any HoneyDrunk training prototype, validate CAD import quality, browser/device performance, interaction complexity, accessibility, LMS/export needs, and whether Unity Editor handoff remains necessary.
+
+### Quality notes
+- Vendor-authored fictional-persona source. Useful for product-direction scouting only; no real deployment metrics were promoted.

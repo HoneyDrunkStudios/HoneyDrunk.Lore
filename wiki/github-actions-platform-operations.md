@@ -299,3 +299,48 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ### Quality notes
 - GitHub changelog sources are authoritative for preview feature existence. Public-preview behavior, pricing, and lockfile semantics need live verification before policy rollout.
+
+## 2026-06-14 compile additions: CI trigger controls and self-hosted runner enforcement
+
+### Source-backed claims
+- CNCF's Cilium CI/CD hardening writeup describes an Ariane bot pattern where only verified organization members can trigger expensive or privileged workflows from PR comments, and the trigger-to-workflow mapping is hand-allowlisted. Source: `raw/2026-06-14-rss-cncf-securing-ci-cd-for-an-open-source-project-controlling-who-runs-wh.md`. confidence: 1 CNCF/project source, last-confirmed 2026-06-14.
+- Cilium uses a two-phase checkout pattern for remaining `pull_request_target` workflows: trusted base-branch code loads workflow/composite-action logic first, then untrusted PR code is checked out only as build context, with no scripts or composite actions loaded from the untrusted checkout. Source: `raw/2026-06-14-rss-cncf-securing-ci-cd-for-an-open-source-project-controlling-who-runs-wh.md`. confidence: 1 source, last-confirmed 2026-06-14.
+- Cilium protects CI configuration with CODEOWNERS so changes under `.github/`, workflow files, and CI automation config require review from security/CI-owner teams. Source: `raw/2026-06-14-rss-cncf-securing-ci-cd-for-an-open-source-project-controlling-who-runs-wh.md`. confidence: 1 source, last-confirmed 2026-06-14.
+- GitHub Actions is resuming minimum-version enforcement for self-hosted runners on github.com and GitHub Enterprise Cloud with Data Residency: runners must be at least `2.329.0` to register with the new platform and must install each new runner release within 30 days to keep executing jobs. Source: `raw/2026-06-14-rss-github-changelog-actions-github-actions-minimum-version-enforcement-ti.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-14.
+- GitHub says full enforcement begins on 2026-07-31 for GitHub Enterprise Cloud with Data Residency and on 2026-09-25 for GitHub Enterprise Cloud, with temporary brownouts before those dates. Source: `raw/2026-06-14-rss-github-changelog-actions-github-actions-minimum-version-enforcement-ti.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-14.
+- GitHub added runner version data to REST/audit-log surfaces for runner inventory and upgrade planning, but audit-log registration events are not a complete inventory of all connected runners. Source: `raw/2026-06-14-rss-github-changelog-actions-github-actions-minimum-version-enforcement-ti.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-14.
+- SafeDep's Miasma analysis reinforces that custom GitHub Actions, semver action tags, OIDC trusted publishing, deployment environments, and workflow permissions can be attacked as one supply-chain surface when credentials or repository write access are compromised. Source: `raw/2026-06-14-rss-safedep-inside-the-miasma-software-supply-chain-attack-toolkit-real-ti.md`. confidence: 1 security-research source, last-confirmed 2026-06-14.
+
+### Typed entities
+- project: Cilium
+- bot: Ariane
+- workflow trigger: PR comment `/test`
+- pattern: two-phase checkout
+- trigger: `pull_request_target`
+- control: CODEOWNERS for `.github/`
+- platform: GitHub Actions self-hosted runners
+- runner version: `2.329.0`
+- enforcement date: 2026-07-31 GitHub Enterprise Cloud with Data Residency
+- enforcement date: 2026-09-25 GitHub Enterprise Cloud
+- control: runner auto-update
+- threat: semver action tag hijacking
+- control: OIDC trusted publishing
+
+### Explicit relationships
+- Comment-triggered CI depends-on identity checks and a hand-curated workflow allowlist to avoid arbitrary external users triggering expensive or privileged jobs.
+- `pull_request_target` workflows depend-on a strict boundary between trusted workflow logic and untrusted PR content.
+- CODEOWNERS complements workflow review by ensuring CI/security owners see changes to automation code.
+- Self-hosted runner reliability depends-on runner binary freshness, not just successful historical registration.
+- Runner brownouts are an early warning mechanism before enforcement blocks registration or job execution.
+- Action tag integrity, deployment environments, OIDC tokens, and workflow permissions form one CI supply-chain trust boundary.
+
+### HoneyDrunk implications
+- Audit HoneyDrunk comment-triggered workflows for trigger identity, allowed workflow set, dependency workflows, and cost/credential blast radius.
+- Keep any `pull_request_target` workflow under a documented trusted/untrusted checkout boundary; scanners are noisy, so the workflow should explain why the pattern is safe if retained.
+- Add or verify CODEOWNERS coverage for `.github/`, workflows, composite actions, reusable workflows, agentic workflow configs, and CI trigger bot config.
+- Inventory self-hosted runners now and ensure auto-update or a manual upgrade cadence satisfies GitHub's 30-day runner update requirement before the 2026 enforcement windows.
+- Treat action version tags as mutable supply-chain assets. Prefer SHA pinning or internal controlled action mirrors for high-impact workflows.
+
+### Privacy and quality notes
+- Privacy filter: SafeDep attack mechanics were reduced to CI control classes; no exploit strings or destructive instructions were copied.
+- Quality posture: GitHub changelog is authoritative for enforcement timing. CNCF/Cilium is strong practice evidence but should be adapted to HoneyDrunk's smaller repo/fleet scale.

@@ -477,3 +477,48 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - Microsoft and Google sources are vendor-authored preview/developer materials. Feature existence is useful; costs, limits, quotas, and performance require current tenant/hardware validation.
+
+## 2026-06-14 compile additions: inference-aware routing, static embeddings, and agent compute surfaces
+
+### Source-backed claims
+- Datadog describes the Kubernetes Gateway API Inference Extension as a routing layer that chooses LLM-serving backends using model-serving state such as KV cache locality, LoRA adapter availability, queue length, health, and flow-control priority rather than generic round-robin HTTP routing. Source: `raw/2026-06-14-rss-datadog-monitor-llm-routing-with-the-kubernetes-inference-extension-da.md`. confidence: 1 vendor observability source, last-confirmed 2026-06-14.
+- Inference Extension flow control can centrally queue, dispatch, or shed requests based on capacity, priority, and fairness; this enables priority tiers and scale-to-zero patterns for noninteractive workloads while keeping real-time workloads sensitive to cold-start latency. Source: `raw/2026-06-14-rss-datadog-monitor-llm-routing-with-the-kubernetes-inference-extension-da.md`. confidence: 1 source, last-confirmed 2026-06-14.
+- Datadog recommends correlating gateway, EPP, vLLM, GPU, and Kubernetes signals to distinguish routing misconfiguration from real capacity limits; useful metrics include TTFT, KV cache hit/utilization, per-pod queue depth, swapped requests, shedding events, pod restarts, OOMKills, GPU memory, and GPU utilization. Source: `raw/2026-06-14-rss-datadog-monitor-llm-routing-with-the-kubernetes-inference-extension-da.md`. confidence: 1 source, last-confirmed 2026-06-14.
+- Stable Static Embedding (SSE) models are described as small static embedding models using token lookup, mean pooling, Separable Dynamic Tanh, and Matryoshka truncation to trade retrieval quality for CPU speed and vector storage footprint. Source: `raw/2026-06-14-web-hugging-face-blog-sse-in-practice-fast-static-embeddings-you-can-train.md`. confidence: 1 community technical source, last-confirmed 2026-06-14.
+- Fast-Embedding-MCP-SSE wraps SSE v2 behind an OpenAI-compatible embeddings API, stateless and in-memory semantic search endpoints, and MCP tools for local agent retrieval without a separate vector database. Source: `raw/2026-06-14-web-hugging-face-blog-sse-in-practice-fast-static-embeddings-you-can-train.md`. confidence: 1 source, last-confirmed 2026-06-14.
+- Google Colab CLI makes Colab GPU runtimes accessible through terminal commands for provisioning, package install, remote execution, artifact download, notebook logs, and cleanup, making it an agent-consumable compute surface. Source: `raw/2026-06-14-web-google-developers-blog-introducing-the-google-colab-cli-google-develop.md`. confidence: 1 Google Developers source, last-confirmed 2026-06-14.
+
+### Typed entities
+- project/spec: Kubernetes Gateway API Inference Extension
+- resource: InferencePool
+- resource: InferenceObjective
+- component: Endpoint Picker / EPP
+- component: Body-Based Router / BBR
+- filter: Envoy ext_proc
+- serving engine: vLLM
+- serving engine: NVIDIA Triton Inference Server
+- metric: Time to First Token / TTFT
+- model family/toolkit: Stable Static Embedding / SSE
+- technique: Separable Dynamic Tanh / Separable DyT
+- technique: Matryoshka truncation / MRL
+- API: OpenAI-compatible embeddings API
+- project: Fast-Embedding-MCP-SSE
+- CLI: Google Colab CLI
+
+### Explicit relationships
+- Inference-aware routing uses serving-state telemetry to select model backends that can respond with lower latency or less redundant computation.
+- LoRA adapter-aware routing depends-on adapter residency in GPU memory; static routing causes cold-start penalties when adapters churn.
+- Prefix-aware routing depends-on consistent session/context identifiers and fresh KV cache telemetry.
+- Flow control complements backend-local queues by centralizing priority, fairness, shedding, and scale-to-zero behavior.
+- Static embeddings complement transformer encoders when CPU throughput, local privacy, and small vector footprints matter more than maximum semantic quality.
+- MCP retrieval tools can expose local embedding/search capability to agents, but they inherit MCP tool-governance requirements.
+- Colab CLI complements local agent workflows by offloading heavy compute without requiring the agent to provision cloud infrastructure directly.
+
+### HoneyDrunk implications
+- If HoneyDrunk serves open-weight LLMs, log routing distribution, TTFT, KV cache hit rate, queue depth, adapter churn, GPU memory, and shedding outcomes before tuning routers.
+- For background inference, test central queue and scale-to-zero separately from interactive serving; cold model loads can be acceptable for batch jobs and unacceptable for chat.
+- Evaluate SSE-style local embeddings for Lore indexes or agent scratch retrieval only against HoneyDrunk queries, with vector dimension, recall, latency, and memory footprint recorded.
+- Treat Colab CLI as a convenient experiment runner, not durable production compute; require artifact capture, job cleanup, and budget guardrails.
+
+### Quality notes
+- Datadog and Google are vendor-authored. SSE is a community article with benchmark claims that should be reproduced locally before retrieval decisions.

@@ -728,3 +728,54 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 ### Privacy and quality notes
 - Privacy filter: risky prompt examples and secrets from sources were summarized as threat/control classes, not copied as reusable attack payloads.
 - Quality posture: Fowler and OWASP are strong practice/taxonomy sources; AGT/ACA details remain vendor implementation guidance.
+
+## 2026-06-14 compile additions: AI-enabled cyber operations, review blind spots, and Miasma supply-chain tooling
+
+### Source-backed claims
+- Anthropic Red Team analyzed 832 banned accounts associated with malicious cyber activity from March 2025 through March 2026 and mapped 13,873 observed actions to all 14 MITRE ATT&CK tactics and 482 unique sub-techniques; the highest-risk signal was not technique breadth alone, but whether AI was used for hands-on operational phases such as lateral movement and post-compromise activity. Source: `raw/2026-06-14-rss-anthropic-red-team-llm-att-ck-navigator-red-anthropic-com.md`. confidence: 1 primary vendor threat-intelligence source, last-confirmed 2026-06-14.
+- Anthropic's ARiES scoring adds actor threat profile, model contribution to harm, and observed or potential impact to rank AI-enabled misuse cases; the score is designed to identify concerning AI involvement, not to predict whether an attack succeeds. Source: `raw/2026-06-14-rss-anthropic-red-team-llm-att-ck-navigator-red-anthropic-com.md`. confidence: 1 source, last-confirmed 2026-06-14.
+- Anthropic reports that medium-or-higher AI enablement scores rose from roughly one-third to more than half of observed actors between the first and second halves of the study period, with more low- and mid-skill actors asking models for operational in-network work. Source: `raw/2026-06-14-rss-anthropic-red-team-llm-att-ck-navigator-red-anthropic-com.md`. confidence: 1 source, last-confirmed 2026-06-14.
+- The Brain Overflow Claude Code security-review experiment found that same-session review can suppress findings because the reviewing model inherits the implementation session's assumptions, while cold-session review and diff-scoped plugin review have different blind spots. Source: `raw/2026-06-14-rss-brain-overflow-hidden-gaps-in-claude-code-security-reviews.md`. confidence: 1 practitioner experiment, last-confirmed 2026-06-14.
+- The same experiment found diff-scoped security review can miss vulnerability chains split across commits or hidden behind component boundaries, especially when individual tool permissions look benign in isolation. Source: `raw/2026-06-14-rss-brain-overflow-hidden-gaps-in-claude-code-security-reviews.md`. confidence: 1 practitioner experiment, last-confirmed 2026-06-14.
+- SafeDep describes Miasma as a broader software supply-chain attack toolkit, not just a worm: it targets public package registries, GitHub repositories and Actions, AI coding tool configuration, SSH/AWS SSM lateral movement, and developer credential stores. Source: `raw/2026-06-14-rss-safedep-inside-the-miasma-software-supply-chain-attack-toolkit-real-ti.md`. confidence: 1 security-research source, last-confirmed 2026-06-14.
+- SafeDep reports Miasma uses public GitHub services as command, configuration, and exfiltration infrastructure, shifting detection requirements from simple network anomaly detection toward application-protocol and repository-behavior monitoring. Source: `raw/2026-06-14-rss-safedep-inside-the-miasma-software-supply-chain-attack-toolkit-real-ti.md`. confidence: 1 source, last-confirmed 2026-06-14.
+- SafeDep reports Miasma can poison AI coding tool configuration and developer workflow files so payloads run when developers or agents open folders or execute ordinary project commands; this reinforces config files as executable supply-chain surfaces. Source: `raw/2026-06-14-rss-safedep-inside-the-miasma-software-supply-chain-attack-toolkit-real-ti.md`. confidence: 1 source, last-confirmed 2026-06-14.
+
+### Typed entities
+- framework: MITRE ATT&CK
+- metric/framework: AI Risk Enablement Score / ARiES
+- organization: Anthropic Red Team
+- organization: Verizon DBIR
+- concept: AI-enabled cyber operations
+- concept: agentic attack orchestration
+- concept: model anchoring bias
+- concept: diff-scoped review blind spot
+- campaign/toolkit: Miasma
+- campaign family: Shai-Hulud / Mini Shai-Hulud
+- platform: GitHub Actions
+- platform: npm / PyPI / RubyGems
+- threat: AI coding tool config poisoning
+- threat: public-platform C2
+- threat: trusted publishing abuse
+- control: cold independent security review
+- control: cross-commit chain review
+- control: application-protocol anomaly detection
+
+### Explicit relationships
+- AI-enabled cyber-risk assessment depends-on orchestration behavior and live-operation use, not only MITRE technique count or actor technical sophistication.
+- Lateral movement and post-compromise AI use correlate with higher ARiES risk scores because they indicate AI involvement inside live operations.
+- Same-session review can contradict independent security review when implementation context anchors the model to the author's assumptions.
+- Diff-scoped review depends-on the full exploit chain being visible in the current diff; it can miss risks split across commits, config files, skills, or subprocess boundaries.
+- Supply-chain worms use AI coding tool config poisoning to turn developer and agent startup behavior into an execution path.
+- Public GitHub infrastructure can be abused for command and exfiltration channels, so network allowlists alone do not prove safety.
+
+### HoneyDrunk implications
+- Run high-stakes security review in a fresh session or independent reviewer path, and add a cross-commit/component-boundary pass for permissions, subprocesses, MCP tools, and agent skills.
+- Treat agent tool permissions as a combined capability set: `Write` plus scoped execution can still form write-then-execute risk.
+- Add `.claude`, `.gemini`, `.cursor`, `.vscode`, project scripts, package hooks, workflow files, and action tags to supply-chain review surfaces.
+- For Grid/OpenClaw review prompts, ask reviewers to reason about agentic orchestration and tool-chain chaining, not just isolated code smells.
+- For supply-chain monitoring, inspect GitHub repository events, workflow/tag mutations, bot-like branch changes, config-file additions, and unusual public-repo exfiltration patterns.
+
+### Privacy and quality notes
+- Privacy filter: the SafeDep source contained concrete malware strings, payload mechanics, and destructive behaviors. This wiki section records threat and control classes only and intentionally omits reusable indicators, code paths, command strings, and payload snippets.
+- Quality posture: Anthropic and SafeDep are strong primary/security-research sources for their own observations. Brain Overflow is a useful practitioner experiment but not a broad benchmark; treat it as review-process design evidence.
