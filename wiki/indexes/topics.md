@@ -605,3 +605,28 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 
 ### Game engines and interactive 3D training
 - [[unity-3d-and-realtime-vfx-patterns]] - 39 sources - last-confirmed 2026-06-14
+
+## 2026-06-15 topic additions
+
+### AI agents, harnesses, and persistent execution
+- [[openai-frontier-models-and-codex-2026]] - 4 sources - last-confirmed 2026-06-15
+- [[edge-ai-and-ai-infrastructure-2026]] - 38 sources - last-confirmed 2026-06-15
+- [[mcp-tool-governance-and-app-surfaces]] - 48 sources - last-confirmed 2026-06-15
+- [[ai-agent-harnesses]] - 97 sources - last-confirmed 2026-06-14
+
+### Agent security, governance, and design traceability
+- [[ai-coding-agent-security]] - 69 sources - last-confirmed 2026-06-15
+- [[mcp-tool-governance-and-app-surfaces]] - 48 sources - last-confirmed 2026-06-15
+- [[claude-platform-2026]] - 27 sources - last-confirmed 2026-06-15
+
+### AI-assisted software practice and verification
+- [[ai-assisted-software-practice]] - 48 sources - last-confirmed 2026-06-15
+- [[formal-methods-and-agent-verification]] - 1 source - last-confirmed 2026-06-15
+
+### GenAIOps and Microsoft AI app architecture
+- [[microsoft-dotnet-ai-stack]] - 43 sources - last-confirmed 2026-06-15
+
+### Game engines, realtime VFX, and technical art
+- [[unity-3d-and-realtime-vfx-patterns]] - 41 sources - last-confirmed 2026-06-15
+- [[technical-art-community-and-talent-signals]] - 27 sources - last-confirmed 2026-06-15
+- [[browser-native-gpu-creative-tools]] - 2 sources - last-confirmed 2026-05-26

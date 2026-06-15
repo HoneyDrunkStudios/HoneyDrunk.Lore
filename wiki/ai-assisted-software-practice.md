@@ -532,3 +532,42 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Fowler and Thoughtworks are practice/commentary sources; they are strong for governance posture but not empirical proof of incident frequency.
+
+## 2026-06-15 compile additions: sustainable AI work and agentic engineering platforms
+
+### Source-backed claims
+- Evil Martians argues AI-assisted coding can create burnout by increasing both work volume and cognitive intensity while reducing craft ownership, context retention, passive thinking time, and satisfaction from the work process. Source: `raw/2026-06-15-web-evil-martians-ai-assisted-engineers-are-burning-out-is-this-fine.md`. confidence: 1 practitioner/source-author article, last-confirmed 2026-06-15.
+- The same source recommends sustainable AI workflows: plan before generating, avoid repeated failed prompting loops, avoid multiple concurrent AI-heavy tasks, preserve craft/no-AI time, track wins, and treat breaks and work limits as part of the workflow. Source: `raw/2026-06-15-web-evil-martians-ai-assisted-engineers-are-burning-out-is-this-fine.md`. confidence: 1 practitioner/source-author article, last-confirmed 2026-06-15.
+- GitLab reports that many organizations now use multiple AI coding tools but see strain in maintainability, SDLC context, source-control scale, governance, and review burden; GitLab positions integrated SDLC context and governance as agentic engineering infrastructure. Source: `raw/2026-06-15-web-gitlab-blog-gitlab-built-for-the-agentic-engineering-era.md`. confidence: 1 vendor/product source, last-confirmed 2026-06-15.
+- GitLab Orbit is positioned as a lifecycle context graph over code, work items, pipelines, deployments, and production signals, with vendor/customer-reported improvements over RAG/no-context baselines in agent response speed, cost, hallucination, and review-comment placement. Source: `raw/2026-06-15-web-gitlab-blog-gitlab-built-for-the-agentic-engineering-era.md`. confidence: 1 vendor/product source, last-confirmed 2026-06-15.
+- GitLab's governance for agents private beta is positioned around identity, policy, audit, approvals, visibility into inputs/reasoning/tool calls, and anomalous/high-risk activity across agent actions. Source: `raw/2026-06-15-web-gitlab-blog-gitlab-built-for-the-agentic-engineering-era.md`. confidence: 1 vendor/product source, last-confirmed 2026-06-15.
+- Jane Street's formal-methods essay says agentic coding makes the verification bottleneck more important and increases the value of formal methods, type systems, property-based testing, and fuzzing as feedback loops for agents. Source: `raw/2026-06-15-web-yaron-minsky-formal-methods-and-the-future-of-programming.md`; page: [[formal-methods-and-agent-verification]]. confidence: 1 engineering-practice source, last-confirmed 2026-06-15.
+
+### Typed entities
+- organization: Evil Martians
+- organization/platform: GitLab
+- product: GitLab Orbit
+- product: GitLab Duo Agent Platform
+- feature: Governance for agents
+- feature: next-generation SCM
+- concept: AI burnout
+- concept: agentic engineering
+- concept: lifecycle context graph
+- concept: formal-methods feedback
+- page: [[formal-methods-and-agent-verification]]
+
+### Explicit relationships
+- AI-assisted coding can cause burnout when output speed increases review, prompting, and decision intensity faster than recovery and ownership.
+- Sustainable AI workflows depend-on task boundaries, planning, context retention, breaks, and preserving craft work.
+- GitLab Orbit uses lifecycle context graphs to complement or compete with RAG-only context for agent decisions.
+- Agent governance depends-on identity, policy, audit, approval, and visibility into tool calls and high-risk behavior.
+- [[formal-methods-and-agent-verification]] complements AI-assisted software practice by moving some review burden into stronger machine-checkable feedback.
+
+### HoneyDrunk implications
+- Measure agent adoption against review load, rework, cognitive burden, and sustainable pace, not only PR count or task throughput.
+- Keep OpenClaw tasks single-threaded enough for human context to remain intact unless a supervisor explicitly owns synthesis.
+- Favor lifecycle/catalog context over ad hoc prompt stuffing where agent work spans repos, work items, CI, and production signals.
+- Convert repeated correctness concerns into types, property tests, fuzz tests, analyzers, or formal checks when feasible.
+
+### Quality notes
+- Evil Martians and Jane Street are practice essays. GitLab is product/vendor material with internal and customer-reported metrics; use as architecture signal, not neutral productivity proof.

@@ -554,3 +554,37 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - Thoughtworks guidance is architectural and decision-useful. InfoQ is secondary coverage and should be checked against Microsoft docs before implementation. SSE MCP tooling requires local evaluation.
+
+## 2026-06-15 compile additions: MCP as agent-native product surface and security bridge
+
+### Source-backed claims
+- MotherDuck Flights exposes agent-native data ingest through a MotherDuck MCP server with tools to create, run, schedule, update, inspect logs, version, and delete Flights, plus a `get_flight_guide` instruction surface for consistent agent behavior. Source: `raw/2026-06-15-web-motherduck-introducing-flights-agent-native-ingest-in-motherduck.md`. confidence: 1 vendor product source, last-confirmed 2026-06-15.
+- MotherDuck says Flights also expose SQL table functions for the same operations, making agent-created ingest jobs manageable from SQL clients, BI tools, dbt, or other Flights. Source: `raw/2026-06-15-web-motherduck-introducing-flights-agent-native-ingest-in-motherduck.md`. confidence: 1 vendor product source, last-confirmed 2026-06-15.
+- MotherDuck states secrets stay in MotherDuck and are injected at Flight runtime so agents do not see them directly. Source: `raw/2026-06-15-web-motherduck-introducing-flights-agent-native-ingest-in-motherduck.md`. confidence: 1 vendor product source, last-confirmed 2026-06-15.
+- Dropbox uses Dash's MCP server to retrieve threat models and related design/security context during code review, allowing a foundational model to compare implementation against previously approved requirements. Source: `raw/2026-06-15-web-dropbox-tech-how-dropbox-uses-mcp-and-dash-to-close-the-design-to-code.md`. confidence: 1 Dropbox engineering source, last-confirmed 2026-06-15.
+- Microsoft AGT includes an MCP Security Gateway for tool poisoning detection, drift monitoring, typosquatting, hidden instruction scanning, and MCP-specific specifications/conformance tests. Source: `raw/2026-06-15-web-microsoft-agent-governance-toolkit.md`. confidence: 1 official GitHub README source, last-confirmed 2026-06-15.
+
+### Typed entities
+- product: MotherDuck Flights
+- product: MotherDuck MCP server
+- tool: `get_flight_guide`
+- function family: Flights SQL table functions
+- company/product: Dropbox Dash
+- concept: design-to-code traceability
+- component: AGT MCP Security Gateway
+- control: runtime secret injection
+- control: tool drift monitoring
+
+### Explicit relationships
+- MotherDuck Flights uses MCP and SQL table functions as parallel control surfaces for agent-created data ingest.
+- Runtime secret injection complements MCP tools by preventing agents from directly handling credentials.
+- Dropbox Dash MCP retrieval connects organizational design/security documents to PR review.
+- MCP Security Gateway controls complement catalog/profile governance by checking tool metadata and runtime drift.
+
+### HoneyDrunk implications
+- For Lore/OpenClaw data ingest tools, prefer agent-native APIs that expose create/run/schedule/log/version operations plus deterministic instructions, not only free-form shell scripts.
+- Keep secrets in the platform or runner and inject them at execution time; agents should receive handles/capabilities, not raw credentials.
+- For review agents, MCP context retrieval should be scoped to the relevant design/security sources and every finding should cite the retrieved requirement.
+
+### Quality notes
+- MotherDuck and Microsoft sources are vendor/project-authored. Dropbox is a concrete engineering case study. Validate current MCP tool schemas before implementation.

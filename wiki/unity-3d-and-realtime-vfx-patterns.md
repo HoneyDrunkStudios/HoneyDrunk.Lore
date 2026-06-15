@@ -591,3 +591,37 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - Vendor-authored fictional-persona source. Useful for product-direction scouting only; no real deployment metrics were promoted.
+
+## 2026-06-15 compile additions: GPU crowd systems and browser VFX texture tools
+
+### Source-backed claims
+- Kaley Cho's 80 Level breakdown describes an Unreal/Houdini crowd pipeline that uses Vertex Animation Textures (VAT), Hierarchical Instanced Static Meshes, a CSV/Data Table seat-transform source, material per-instance custom data, and shader-driven animation blending for 6,072 spectators. Source: `raw/2026-06-15-web-80-level-novel-high-performance-framework-for-gpu-driven-crowd-systems.md`. confidence: 1 practitioner/trade source, last-confirmed 2026-06-15.
+- The VAT/HISM comparison reports the same stadium moving from 28.37 FPS, 34.15 ms game thread, and 21,369 draw calls with skeletal mesh actors to 57.31 FPS, 0.66 ms game thread, and 276 draw calls with VAT/HISM on an RTX 3070 at 1080p/90% screen percentage. Source: `raw/2026-06-15-web-80-level-novel-high-performance-framework-for-gpu-driven-crowd-systems.md`. confidence: 1 practitioner/trade source with local benchmark, last-confirmed 2026-06-15.
+- The source warns that 8-bit VAT position textures introduce visible vertex jitter and that 16-bit floating point raster depth is required for this use case. Source: `raw/2026-06-15-web-80-level-novel-high-performance-framework-for-gpu-driven-crowd-systems.md`. confidence: 1 practitioner/trade source, last-confirmed 2026-06-15.
+- A RealtimeVFX community post surfaces VFXParlor, a free browser-based VFX texture site with regular and node-based editors for grayscale/procedural textures and PBR map processing. Source: `raw/2026-06-15-web-realtimevfx-new-free-online-vfx-procedural-textures-with-node-base-edi.md`. confidence: 1 community/forum source, last-confirmed 2026-06-15.
+
+### Typed entities
+- person: Yeonju "Kaley" Cho
+- DCC/tool: Houdini
+- engine: Unreal Engine
+- technique: Vertex Animation Textures / VAT
+- component: Hierarchical Instanced Static Mesh / HISM
+- artifact: CSV seat transform table
+- concept: shader-driven animation blending
+- tool/site: VFXParlor
+- concept: browser-based VFX texture editor
+- concept: node-based texture editor
+
+### Explicit relationships
+- VAT plus HISM moves crowd deformation and batching work from CPU skeletal systems to GPU shader and instancing pipelines.
+- Procedural Houdini seat extraction complements Unreal Data Tables by making stadium geometry the source of seat transforms.
+- 16-bit VAT position data supersedes 8-bit VAT data when precision artifacts become visible.
+- Browser VFX texture editors complement desktop DCC tools for lightweight grayscale/procedural texture creation, but do not supersede production material validation.
+
+### HoneyDrunk implications
+- For stadium/crowd/ambient-agent scenes, prototype VAT/HISM or equivalent GPU instancing before committing to many skeletal actors.
+- Record game-thread time, draw calls, GPU time, texture precision, LOD, and per-instance variation when evaluating crowd techniques.
+- Keep VFXParlor on the quick-prototype texture-tool list, but validate export formats, licensing, bit depth, offline/privacy posture, and texture quality before production use.
+
+### Quality notes
+- 80 Level source is a detailed practitioner breakdown but project/hardware-specific. RealtimeVFX source is community discovery signal and needs tool validation.

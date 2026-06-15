@@ -385,3 +385,28 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - Official release documentation is high-quality for feature existence. Performance effect remains scene-dependent and requires local measurement.
+
+## 2026-06-15 compile additions: GPU crowd and VFX texture sourcing
+
+### Source-backed claims
+- The 80 Level GPU crowd breakdown shows a complete technical-art pipeline spanning Houdini transform extraction, VAT baking, Unreal material logic, HISM spawning, UI-driven per-instance animation state, and performance profiling. Source: `raw/2026-06-15-web-80-level-novel-high-performance-framework-for-gpu-driven-crowd-systems.md`; page: [[unity-3d-and-realtime-vfx-patterns]]. confidence: 1 practitioner/trade source, last-confirmed 2026-06-15.
+- VFXParlor is a free browser-based VFX texture tool with node-based editing and PBR map processing surfaced through RealtimeVFX community discussion. Source: `raw/2026-06-15-web-realtimevfx-new-free-online-vfx-procedural-textures-with-node-base-edi.md`; page: [[unity-3d-and-realtime-vfx-patterns]]. confidence: 1 community source, last-confirmed 2026-06-15.
+
+### Typed entities
+- page: [[unity-3d-and-realtime-vfx-patterns]]
+- DCC/tool: Houdini
+- engine: Unreal Engine
+- technique: VAT
+- technique: HISM
+- tool/site: VFXParlor
+- community: RealtimeVFX
+
+### Explicit relationships
+- Technical-art crowd pipelines depend-on DCC preprocessing, engine data import, shader logic, instancing, profiling, and artist-facing controls.
+- Browser procedural texture tools complement community VFX sourcing by lowering setup cost for experimentation.
+
+### HoneyDrunk implications
+- Preserve VAT/HISM crowd systems and browser procedural texture editing as technical-art sourcing terms for future prototype spikes.
+
+### Quality notes
+- Both sources are public scouting signals. No private portfolio/contact data was copied.

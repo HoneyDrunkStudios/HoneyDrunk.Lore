@@ -77,3 +77,33 @@ OpenAI's June 11 raw sources add two durable signals for HoneyDrunk: GPT-5.5 is 
 
 ### Quality notes
 - Official OpenAI post is authoritative for product positioning and named examples. Customer outcome metrics and model/tool usage remain vendor-curated and need local validation.
+
+## 2026-06-15 compile additions: Ona acquisition for persistent Codex execution
+
+### Source-backed claims
+- OpenAI announced that it will acquire Ona, subject to closing conditions and regulatory approvals, to bring secure cloud execution and orchestration technology into the Codex ecosystem. Source: `raw/2026-06-15-web-openai-openai-to-acquire-ona.md`. confidence: 1 official OpenAI source, last-confirmed 2026-06-15.
+- OpenAI says Codex has more than 5 million weekly users, up 400% from earlier in 2026; treat the user-count and growth rate as vendor-reported product scale evidence. Source: `raw/2026-06-15-web-openai-openai-to-acquire-ona.md`. confidence: 1 official OpenAI source, last-confirmed 2026-06-15.
+- OpenAI frames the Ona acquisition around long-running Codex work that can continue for hours or days in secure, persistent environments after the user's local machine or active session is no longer present. Source: `raw/2026-06-15-web-openai-openai-to-acquire-ona.md`. confidence: 1 official OpenAI source, last-confirmed 2026-06-15.
+- Ona's customer-controlled execution model is intended to let agents operate inside an organization's own cloud environment while OpenAI supplies intelligence and orchestration, preserving customer control over infrastructure, data, credential scope, logging, review, and security boundaries. Source: `raw/2026-06-15-web-openai-openai-to-acquire-ona.md`. confidence: 1 official OpenAI source, last-confirmed 2026-06-15.
+
+### Typed entities
+- company: Ona
+- company: OpenAI
+- product: Codex
+- concept: secure persistent cloud execution
+- concept: customer-controlled execution environment
+- control: scoped credentials
+- control: activity logging
+- control: review workflow
+
+### Explicit relationships
+- Ona technology complements Codex by moving agent execution from single-device sessions toward persistent organization-controlled cloud environments.
+- Long-running Codex work depends-on execution environments with controlled tool access, credential scope, logging, and review.
+- Customer-controlled cloud execution complements OpenAI-hosted intelligence by keeping infrastructure and data boundaries under the customer's control.
+
+### HoneyDrunk implications
+- Treat persistent Codex execution as a strong platform-direction signal for OpenClaw/Honeyclaw: long-running agents need resumable state, logs, scoped credentials, and review checkpoints, not only better prompts.
+- If HoneyDrunk evaluates hosted/persistent agent environments, compare whether the execution plane remains under HoneyDrunk control and whether logs/reviews are inspectable before adoption.
+
+### Quality notes
+- Official acquisition announcement; product claims are vendor-authored and the acquisition had not closed in the source.

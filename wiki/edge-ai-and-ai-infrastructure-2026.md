@@ -522,3 +522,38 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - Datadog and Google are vendor-authored. SSE is a community article with benchmark claims that should be reproduced locally before retrieval decisions.
+
+## 2026-06-15 compile additions: local multimodal agents, persistent execution, and agent-native data runtimes
+
+### Source-backed claims
+- Google released Gemma 4 12B as a dense multimodal model with a unified encoder-free decoder-only architecture intended to reduce latency and fragmented memory footprints compared with separate vision/audio encoders. Source: `raw/2026-06-15-web-google-developers-blog-gemma-4-12b-the-developer-guide.md`. confidence: 1 Google Developers source, last-confirmed 2026-06-15.
+- Google positions Gemma 4 12B for local/offline multimodal agent workflows including ASR, diarization, video understanding, coding, and agentic reasoning, with examples using llama.cpp and OpenCode. Source: `raw/2026-06-15-web-google-developers-blog-gemma-4-12b-the-developer-guide.md`. confidence: 1 Google Developers source, last-confirmed 2026-06-15.
+- Google says LiteRT-LM can serve Gemma 4 12B through a local OpenAI-compatible API server using `litert-lm serve`, with stateless prefix caching intended to reduce repeated prefill latency. Source: `raw/2026-06-15-web-google-developers-blog-gemma-4-12b-the-developer-guide.md`. confidence: 1 Google Developers source, last-confirmed 2026-06-15.
+- OpenAI's planned Ona acquisition reinforces persistent cloud execution as agent infrastructure: agents need secure environments with tools, systems, context, scoped credentials, and logs over hours or days. Source: `raw/2026-06-15-web-openai-openai-to-acquire-ona.md`; page: [[openai-frontier-models-and-codex-2026]]. confidence: 1 official OpenAI source, last-confirmed 2026-06-15.
+- MotherDuck Flights runs agent-created Python ingest jobs against MotherDuck/DuckDB infrastructure and exposes MCP, SQL, and UI control paths. Source: `raw/2026-06-15-web-motherduck-introducing-flights-agent-native-ingest-in-motherduck.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 vendor product source, last-confirmed 2026-06-15.
+
+### Typed entities
+- model: Gemma 4 12B
+- framework/runtime: LiteRT-LM
+- command: `litert-lm serve`
+- project: llama.cpp
+- tool: OpenCode
+- product: Google AI Edge Gallery
+- company: Ona
+- product: MotherDuck Flights
+- concept: encoder-free multimodal architecture
+- concept: OpenAI-compatible local API server
+
+### Explicit relationships
+- Gemma 4 12B uses a unified decoder-only architecture to reduce dependency on separate modality encoders.
+- LiteRT-LM local serving complements agent harnesses by presenting local multimodal models behind an OpenAI-compatible API.
+- Persistent agent execution depends-on durable compute environments, credential scoping, and logs, whether hosted by OpenAI/Ona-style infrastructure or self-hosted.
+- Agent-native ingest runtimes complement data platforms when agents need to create scheduled code workflows without handling raw secrets.
+
+### HoneyDrunk implications
+- Add Gemma 4 12B/LiteRT-LM to the local-model scouting queue for multimodal Lore/artifact inspection only after testing Windows install, hardware fit, latency, memory, and quality on HoneyDrunk tasks.
+- Treat local OpenAI-compatible servers as useful harness adapters, but keep model identity, retention, and cost/latency telemetry explicit.
+- For scheduled data ingest, compare MotherDuck Flights-style managed Python jobs against simpler repo scripts based on secret handling, logs, versioning, schedule control, and rollback.
+
+### Quality notes
+- Google, OpenAI, and MotherDuck sources are vendor-authored. Use as infrastructure scouting evidence; reproduce performance and operational claims locally before adoption.

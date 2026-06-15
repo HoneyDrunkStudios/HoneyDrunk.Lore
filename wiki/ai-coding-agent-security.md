@@ -779,3 +779,49 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 ### Privacy and quality notes
 - Privacy filter: the SafeDep source contained concrete malware strings, payload mechanics, and destructive behaviors. This wiki section records threat and control classes only and intentionally omits reusable indicators, code paths, command strings, and payload snippets.
 - Quality posture: Anthropic and SafeDep are strong primary/security-research sources for their own observations. Brain Overflow is a useful practitioner experiment but not a broad benchmark; treat it as review-process design evidence.
+
+## 2026-06-15 compile additions: governed execution, AI-platform exposure, and deterministic security layers
+
+### Source-backed claims
+- Microsoft Agent Governance Toolkit (AGT) is a public-preview governance stack for autonomous agents that enforces policy, identity, sandboxing, audit, SRE controls, MCP security gateway checks, and compliance evidence outside the prompt. Source: `raw/2026-06-15-web-microsoft-agent-governance-toolkit.md`. confidence: 1 official GitHub README source, last-confirmed 2026-06-15.
+- AGT's README explicitly argues that prompt-level safety is not a security boundary and that every tool call, message send, and delegation should be intercepted in deterministic application code before reaching the wire. Source: `raw/2026-06-15-web-microsoft-agent-governance-toolkit.md`. confidence: 1 official GitHub README source, last-confirmed 2026-06-15.
+- AGT currently shares a process boundary between policy engine and agents and recommends separate containers for OS-level isolation in production, so it is middleware governance rather than a complete isolation boundary. Source: `raw/2026-06-15-web-microsoft-agent-governance-toolkit.md`. confidence: 1 official GitHub README source, last-confirmed 2026-06-15.
+- OpenTaint positions formal taint analysis as a deterministic layer under AI security agents: one discovered vulnerability pattern can be encoded as a rule and run across the full codebase, with current emphasis on Java/Kotlin/Spring and roadmap support for Python, Go, C#, JavaScript, and TypeScript. Source: `raw/2026-06-15-web-seqra-opentaint.md`. confidence: 1 project README source, last-confirmed 2026-06-15.
+- OpenTaint includes agent skills for an appsec workflow covering project build, scans, attack-surface discovery, dependency triage, rule creation, finding triage, and proof generation, making deterministic static analysis part of an agent loop. Source: `raw/2026-06-15-web-seqra-opentaint.md`. confidence: 1 project README source, last-confirmed 2026-06-15.
+- Attackers are actively exploiting Langflow CVE-2026-5027, a path traversal issue in file upload handling that can allow arbitrary file writes on exposed servers; public reports cite patches in `langflow-base` 0.8.3 and Langflow 1.9.0, with 1.10.0 recommended in the captured article. Source: `raw/2026-06-15-web-bill-toulas-path-traversal-flaw-in-ai-dev-platform-langflow-exploited-.md`. confidence: 1 security-news source with linked researcher/vendor advisories, last-confirmed 2026-06-15.
+- The Langflow report says default unauthenticated auto-login can make exploitation reachable without credentials on exposed instances, reinforcing that AI development platforms are internet-facing application infrastructure, not harmless local tools. Source: `raw/2026-06-15-web-bill-toulas-path-traversal-flaw-in-ai-dev-platform-langflow-exploited-.md`. confidence: 1 security-news source, last-confirmed 2026-06-15.
+- Dropbox reports only 12% of implementing PRs linked back to the relevant design review/threat model, while semantic search could link 80% of reviews to implementing code changes; context retrieval found security gaps invisible from code alone. Source: `raw/2026-06-15-web-dropbox-tech-how-dropbox-uses-mcp-and-dash-to-close-the-design-to-code.md`. confidence: 1 Dropbox engineering source, last-confirmed 2026-06-15.
+- Anthropic's Project Glasswing expansion reinforces that powerful cyber models can multiply vulnerability-finding capacity, making verification, disclosure, patching, and deployment the limiting security workflow. Source: `raw/2026-06-15-web-anthropic-expanding-project-glasswing.md`. confidence: 1 official Anthropic source, last-confirmed 2026-06-15.
+
+### Typed entities
+- framework/toolkit: Microsoft Agent Governance Toolkit / AGT
+- component: Agent Control Specification
+- component: MCP Security Gateway
+- component: Agent SRE
+- component: Agent Hypervisor
+- project/tool: OpenTaint
+- vulnerability: CVE-2026-5027
+- platform: Langflow
+- company/product: Dropbox Dash
+- concept: design-to-code security traceability
+- concept: formal taint analysis
+- control: deterministic policy interception
+- control: tamper-evident audit log
+
+### Explicit relationships
+- AGT governance depends-on deterministic middleware policy and audit controls, while production isolation still depends-on separate containers or stronger OS boundaries.
+- Prompt-only safety contradicts reliable agent security when tools can perform destructive or external actions.
+- OpenTaint complements LLM security review by turning discovered dataflow vulnerabilities into repeatable static rules.
+- Langflow CVE-2026-5027 is caused by unsanitized filenames in file upload handling and amplified by exposed unauthenticated access paths.
+- Dropbox's MCP/Dash security-review pattern depends-on retrieving design intent and threat models at PR review time.
+- AI vulnerability discovery causes triage/patching load unless deterministic scanners, reachability checks, ownership, and deployment workflows absorb the output.
+
+### HoneyDrunk implications
+- Treat agent governance libraries as policy middleware, not isolation by themselves. Pair them with containers/microVMs, egress control, secret custody, and receipts.
+- For HoneyDrunk appsec agents, prefer an LLM-plus-deterministic-analysis loop: agent finds patterns, deterministic rules prove coverage, humans review reachability and impact.
+- Add Langflow and similar AI dev platforms to exposure reviews if ever deployed: public reachability, auth defaults, upload paths, patch level, and file-write permissions are the minimum checks.
+- For PR review automation, retrieve applicable design/security requirements and compare implementation to intent, not only to generic secure-coding rules.
+
+### Privacy and quality notes
+- Privacy filter: exploit details were summarized at vulnerability/control level. No payloads, traversal strings beyond generic class names, or runnable exploit steps were copied.
+- Quality posture: AGT/OpenTaint are project README sources and may be product-positioned; validate package maturity and boundaries before adoption. Dropbox is a strong practice case study but internal metrics need local reproduction.

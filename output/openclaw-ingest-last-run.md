@@ -1,78 +1,78 @@
-# OpenClaw Lore ingest run - 2026-06-14
+# OpenClaw Lore Ingest - Last Run
 
-- Timestamp: 2026-06-14 10:09 America/New_York / 2026-06-14 14:09 UTC
-- Operator: Honeyclaw / OpenClaw scheduled ingest
+Timestamp: 2026-06-15T10:09:40-04:00
+Mode: ingest/compile
 
-## Raw sources ingested: 15
+## Raw sources ingested
 
-- raw/2026-06-14-rss-anthropic-red-team-llm-att-ck-navigator-red-anthropic-com.md
-- raw/2026-06-14-rss-brain-overflow-hidden-gaps-in-claude-code-security-reviews.md
-- raw/2026-06-14-rss-cncf-securing-ci-cd-for-an-open-source-project-controlling-who-runs-wh.md
-- raw/2026-06-14-rss-dario-amodei-dario-amodei-policy-on-the-ai-exponential.md
-- raw/2026-06-14-rss-datadog-monitor-llm-routing-with-the-kubernetes-inference-extension-da.md
-- raw/2026-06-14-rss-github-changelog-actions-github-actions-minimum-version-enforcement-ti.md
-- raw/2026-06-14-rss-j11y-io-don-t-let-the-llm-speak-just-probe-it-by-james-padolsey.md
-- raw/2026-06-14-rss-safedep-inside-the-miasma-software-supply-chain-attack-toolkit-real-ti.md
-- raw/2026-06-14-rss-solo-io-agent-substrate-can-power-agents-on-kubernetes-with-kagent-sol.md
-- raw/2026-06-14-rss-unity-blog-how-training-designers-build-interactive-3d-training-unity.md
-- raw/2026-06-14-web-google-developers-blog-introducing-the-google-colab-cli-google-develop.md
-- raw/2026-06-14-web-hugging-face-blog-olmo-eval-an-evaluation-workbench-for-the-model-deve.md
-- raw/2026-06-14-web-hugging-face-blog-sse-in-practice-fast-static-embeddings-you-can-train.md
-- raw/2026-06-14-web-infoq-microsoft-foundry-adds-runtime-tooling-and-governance-for-produc.md
-- raw/2026-06-14-web-thoughtworks-your-agent-skill-is-not-an-anti-corruption-layer-thoughtw.md
+Count: 15
+
+- raw/2026-06-15-web-80-level-novel-high-performance-framework-for-gpu-driven-crowd-systems.md
+- raw/2026-06-15-web-anthropic-expanding-project-glasswing.md
+- raw/2026-06-15-web-anthropic-statement-on-the-us-government-directive-to-suspend-access-t.md
+- raw/2026-06-15-web-bill-toulas-path-traversal-flaw-in-ai-dev-platform-langflow-exploited-.md
+- raw/2026-06-15-web-dropbox-tech-how-dropbox-uses-mcp-and-dash-to-close-the-design-to-code.md
+- raw/2026-06-15-web-evil-martians-ai-assisted-engineers-are-burning-out-is-this-fine.md
+- raw/2026-06-15-web-gitlab-blog-gitlab-built-for-the-agentic-engineering-era.md
+- raw/2026-06-15-web-google-developers-blog-gemma-4-12b-the-developer-guide.md
+- raw/2026-06-15-web-microsoft-agent-governance-toolkit.md
+- raw/2026-06-15-web-microsoft-learn-generative-ai-operations-for-organizations-with-mlops-.md
+- raw/2026-06-15-web-motherduck-introducing-flights-agent-native-ingest-in-motherduck.md
+- raw/2026-06-15-web-openai-openai-to-acquire-ona.md
+- raw/2026-06-15-web-realtimevfx-new-free-online-vfx-procedural-textures-with-node-base-edi.md
+- raw/2026-06-15-web-seqra-opentaint.md
+- raw/2026-06-15-web-yaron-minsky-formal-methods-and-the-future-of-programming.md
 
 ## Wiki pages created/updated
 
-- Created:
-  - wiki/ai-policy-and-governance-2026.md
-- Updated:
-  - wiki/agent-evaluation-and-benchmarks.md
-  - wiki/ai-agent-harnesses.md
-  - wiki/ai-coding-agent-security.md
-  - wiki/edge-ai-and-ai-infrastructure-2026.md
-  - wiki/github-actions-platform-operations.md
-  - wiki/mcp-tool-governance-and-app-surfaces.md
-  - wiki/unity-3d-and-realtime-vfx-patterns.md
-- Indexes rebuilt/updated:
-  - wiki/indexes/sources.md
-  - wiki/indexes/topics.md
-  - wiki/indexes/gaps.md
+Created:
 
-## Crystallization from `output/query-*.md`
+- wiki/formal-methods-and-agent-verification.md
 
-- Reviewed query-output inventory. No new durable `output/query-*.md` files were present after the already-crystallized older query outputs through 2026-05-23.
-- No additional crystallization was performed during this pass.
+Updated:
 
-## Contradictions / supersession
+- wiki/ai-assisted-software-practice.md
+- wiki/ai-coding-agent-security.md
+- wiki/claude-platform-2026.md
+- wiki/edge-ai-and-ai-infrastructure-2026.md
+- wiki/indexes/gaps.md
+- wiki/indexes/sources.md
+- wiki/indexes/topics.md
+- wiki/mcp-tool-governance-and-app-surfaces.md
+- wiki/microsoft-dotnet-ai-stack.md
+- wiki/openai-frontier-models-and-codex-2026.md
+- wiki/technical-art-community-and-talent-signals.md
+- wiki/unity-3d-and-realtime-vfx-patterns.md
 
-- No contradictions required resolution.
-- No existing claims were superseded. New sources refined current posture around AI-enabled cyber operations, security-review blind spots, CI/CD hardening, self-hosted runner enforcement, agent runtime substrates, MCP boundaries, model evaluation, inference routing, static embeddings, Unity Studio, and AI policy governance.
+## Contradictions resolved
+
+- Claude Fable 5 / Mythos 5 availability: the prior 2026-06-10 availability/access posture is now operationally superseded by Anthropic's 2026-06-12 statement that a US government directive forced Anthropic to suspend access for all customers. The older capability and retention notes were preserved; a dated supersession note was added under `wiki/claude-platform-2026.md`.
 
 ## Gaps logged
 
-- Which HoneyDrunk self-hosted runners have auto-update disabled or stale images before GitHub's 2026 enforcement windows.
-- Which HoneyDrunk workflows need Cilium-style CI trigger allowlists, CODEOWNERS gates, and trusted/untrusted checkout boundaries.
-- Whether HoneyDrunk can build a security-review eval suite for same-session, cold-session, diff-only, cross-commit, and component-boundary vulnerability chains.
-- Whether OpenClaw/Honeyclaw should monitor AI-native orchestration behaviors in addition to MITRE technique counts.
-- Whether Agent Substrate/kagent, Colab CLI, or Foundry hosted agents fit scheduled OpenClaw/Honeyclaw jobs.
-- Whether SSE-style embeddings or hidden-state probes can improve Lore/OpenClaw source triage and retrieval.
-- Which HoneyDrunk agent integrations expose raw upstream MCP/tool schemas where domain-specific anti-corruption layers should replace prompt-only boundaries.
+Count: 8
+
+- Persistent customer-controlled agent execution requirements for OpenClaw/Honeyclaw.
+- Langflow or similar AI-platform exposure and patch review.
+- AGT/OpenTaint/CodeQL deterministic security-layer evaluation.
+- Design-to-code traceability for PR review against threat models and architecture requirements.
+- Formal-methods/property/fuzz/type-check candidates for correctness-critical code.
+- Gemma 4 12B/LiteRT-LM local multimodal serving benchmark.
+- Sustainable AI-work operating limits and cognitive-load metrics.
+- VAT/HISM or equivalent GPU-driven instancing prototype for large crowds.
+
+## Crystallization
+
+- No new `output/query-*.md` files were found since the existing query outputs already reflected earlier May 2026 exploration. No query output was crystallized in this pass.
 
 ## Blockers
 
-- None.
+- None for this compile pass.
 
 ## Quality posture
 
-- Decision-usefulness: good. Every promoted claim cites immutable raw files and maps to a canonical wiki page or new policy/governance page.
-- Weak claims: vendor/platform claims from Google, Microsoft/InfoQ, Solo.io, Datadog, Unity, and Hugging Face community sources remain directional pending local validation. Dario Amodei's essay is a policy position, not enacted law.
-- Security posture: SafeDep Miasma details were summarized at threat/control level only; no C2 strings, payload snippets, destructive commands, or reusable malware instructions were copied into wiki content.
-- Privacy/safety filtering: no secrets, credentials, private prompts, private personal data, raw public client config, or unsafe PII were promoted.
-- Pages rewritten/flagged: no full rewrites needed; append-only compile sections plus one new canonical policy page were sufficient.
-- Decision-usefulness notes: strongest actionable signals are cold independent review, cross-commit security-review evals, `.github/`/agent-config supply-chain review, self-hosted runner freshness, MCP anti-corruption layers, and local validation for new agent runtime/compute surfaces.
-
-## Validation
-
-- Raw source coverage check passed: every file under `raw/` except `.gitkeep` is represented in `wiki/indexes/sources.md`.
-- Crystallization check: no new `output/query-*.md` files required promotion.
-- Final validation and explicit review results are recorded in the operator response for this run.
+- Pages used raw source citations, confidence notes, typed entities, explicit relationship language, and HoneyDrunk decision implications.
+- Vendor-authored claims were kept as scouting/platform signals and marked for local validation before adoption.
+- Security-sensitive sources were summarized at vulnerability/control level; no exploit payloads, secrets, credential strings, or unsafe operational detail were copied into wiki pages.
+- The Fable/Mythos suspension source is one-sided Anthropic reporting about a government action; operational supersession was recorded without treating Anthropic's disputed interpretation as independently verified.
+- Existing local changes outside the compile scope were left untouched: `.obsidian/graph.json` and `tools/openclaw-lore-signal-review-prompt.md`.

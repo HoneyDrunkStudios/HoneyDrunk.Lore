@@ -239,12 +239,12 @@ Anthropic's 2026 platform direction is enterprise/workflow-heavy: Claude Opus 4.
 ## 2026-06-10 compile additions: Fable 5 and Mythos 5
 
 ### Source-backed claims
-- Anthropic launched Claude Fable 5 on 2026-06-09 as the first Mythos-class model made generally available; Anthropic positions it as its highest-capability GA model and especially strong for long-running coding, research, and knowledge-work tasks. Source: `raw/2026-06-10-web-anthropic-claude-fable-5-and-claude-mythos-5.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- Anthropic launched Claude Fable 5 on 2026-06-09 as the first Mythos-class model made generally available; Anthropic positions it as its highest-capability GA model and especially strong for long-running coding, research, and knowledge-work tasks. superseded-by: 2026-06-12 Anthropic statement says a US government directive forced access suspension for all customers; capability/launch history preserved, but availability is no longer current. Source: `raw/2026-06-10-web-anthropic-claude-fable-5-and-claude-mythos-5.md`; supersession source: `raw/2026-06-15-web-anthropic-statement-on-the-us-government-directive-to-suspend-access-t.md`. confidence: 2 official sources, last-confirmed 2026-06-15.
 - Claude Mythos 5 uses the same underlying model family as Fable 5 but removes some Fable safeguards for trusted-access use cases; Anthropic initially routes it through Project Glasswing for US government partners, with selected biology access planned before broader trusted access. Source: `raw/2026-06-10-web-anthropic-claude-fable-5-and-claude-mythos-5.md`. confidence: 1 source, last-confirmed 2026-06-10.
 - Fable 5 includes conservative safeguards that can fall back to Claude Opus 4.8 for some biology, chemistry, cyber, distillation, and other sensitive requests; Anthropic reports an average trigger rate under 5% of sessions. Source: `raw/2026-06-10-web-anthropic-claude-fable-5-and-claude-mythos-5.md`. confidence: 1 source, last-confirmed 2026-06-10.
 - Fable 5 and Mythos 5 are priced at USD 10 per million input tokens and USD 50 per million output tokens, with API developers using the `claude-fable-5` model identifier for Fable. Source: `raw/2026-06-10-web-anthropic-claude-fable-5-and-claude-mythos-5.md`. confidence: 1 source, last-confirmed 2026-06-10.
 - Mythos-class traffic requires 30-day provider retention for safety-classifier, jailbreak, attack, and false-positive analysis; Anthropic says retained traffic is not used to train models and is deleted after 30 days in almost all cases. Sources: `raw/2026-06-10-web-anthropic-claude-fable-5-and-claude-mythos-5.md`, `raw/2026-06-10-web-github-changelog-claude-fable-5-is-generally-available-for-github-copilot-github-changelo.md`. confidence: 2 sources, last-confirmed 2026-06-10.
-- GitHub Copilot makes Claude Fable 5 available to Copilot Pro+, Max, Business, and Enterprise users across major Copilot clients, but Business and Enterprise admins must explicitly enable a Fable 5 policy because this model does not follow the Zero Data Retention handling used by other Claude Copilot models. Source: `raw/2026-06-10-web-github-changelog-claude-fable-5-is-generally-available-for-github-copilot-github-changelo.md`. confidence: 1 source, last-confirmed 2026-06-10.
+- GitHub Copilot makes Claude Fable 5 available to Copilot Pro+, Max, Business, and Enterprise users across major Copilot clients, but Business and Enterprise admins must explicitly enable a Fable 5 policy because this model does not follow the Zero Data Retention handling used by other Claude Copilot models. superseded-by: 2026-06-12 Anthropic statement says Fable 5 and Mythos 5 access was suspended for all users; recheck GitHub/Anthropic current access before routing work to Fable 5. Source: `raw/2026-06-10-web-github-changelog-claude-fable-5-is-generally-available-for-github-copilot-github-changelo.md`; supersession source: `raw/2026-06-15-web-anthropic-statement-on-the-us-government-directive-to-suspend-access-t.md`. confidence: 2 sources, last-confirmed 2026-06-15.
 
 ### Typed entities
 - project: Claude Fable 5
@@ -267,3 +267,37 @@ Anthropic's 2026 platform direction is enterprise/workflow-heavy: Claude Opus 4.
 
 ### Quality notes
 - Anthropic and GitHub are primary/vendor sources. Capability claims are useful routing signals, not local proof of superiority. No private prompts, retained traffic, or customer content were copied.
+
+## 2026-06-15 compile additions: Fable/Mythos suspension and Project Glasswing expansion
+
+### Source-backed claims
+- Anthropic says a US government directive on 2026-06-12 required it to suspend access to Fable 5 and Mythos 5 for all customers because the order applied to foreign nationals and foreign national Anthropic employees; Anthropic states other Anthropic models are not affected. Source: `raw/2026-06-15-web-anthropic-statement-on-the-us-government-directive-to-suspend-access-t.md`. confidence: 1 official Anthropic source, last-confirmed 2026-06-15.
+- Anthropic says the directive was based on a narrow potential Fable 5 jailbreak concern, not a disclosed universal jailbreak, and that Anthropic disagrees this should recall a commercial model deployed broadly. Source: `raw/2026-06-15-web-anthropic-statement-on-the-us-government-directive-to-suspend-access-t.md`. confidence: 1 official Anthropic source, last-confirmed 2026-06-15.
+- Anthropic's prior Fable 5/Mythos 5 access assumptions are superseded operationally by the 2026-06-12 suspension until access is restored or new official terms are published. Source: `raw/2026-06-15-web-anthropic-statement-on-the-us-government-directive-to-suspend-access-t.md`. confidence: 1 official Anthropic source, last-confirmed 2026-06-15.
+- Anthropic expanded Project Glasswing from roughly 50 initial partners to approximately 150 additional organizations, prioritizing critical infrastructure, vendors, maintainers, and organizations whose compromised codebases could affect very large populations. Source: `raw/2026-06-15-web-anthropic-expanding-project-glasswing.md`. confidence: 1 official Anthropic source, last-confirmed 2026-06-15.
+- Anthropic reports Project Glasswing partners found more than 10,000 high- or critical-severity flaws using Claude Mythos Preview and that the bottleneck is shifting from finding vulnerabilities to verifying, disclosing, fixing, and deploying patches. Source: `raw/2026-06-15-web-anthropic-expanding-project-glasswing.md`. confidence: 1 official Anthropic source citing its own program update, last-confirmed 2026-06-15.
+
+### Typed entities
+- model: Claude Fable 5
+- model: Claude Mythos 5
+- model: Claude Mythos Preview
+- program: Project Glasswing
+- program: Cyber Verification Program
+- actor: US government
+- concept: model access suspension
+- concept: narrow jailbreak
+- concept: cyberdefender access
+
+### Explicit relationships
+- The US government directive supersedes prior Fable 5/Mythos 5 availability for all customers as of 2026-06-12.
+- Fable 5 and Mythos 5 access depends-on external regulatory/national-security decisions as well as provider safety controls.
+- Project Glasswing uses trusted partner access to advanced cyber models to strengthen defensive vulnerability discovery.
+- Mythos-class vulnerability discovery causes a downstream patch-verification and disclosure bottleneck when findings exceed human triage capacity.
+
+### HoneyDrunk implications
+- Do not assume availability of frontier cyber/coding models is stable. Routing plans need fallback models and explicit failure behavior when a provider disables access.
+- Treat Mythos/Fable-class security work as operationally volatile: even if capability is high, access, retention, and legal constraints can change abruptly.
+- If HoneyDrunk uses AI vulnerability discovery at scale, plan the full pipeline: reproducibility, reachability triage, disclosure, patching, regression tests, and deployment tracking.
+
+### Quality notes
+- Anthropic is a primary source for its own posture but is also a party to the dispute. Government reasoning was not independently available in the raw source. No jailbreak technique or exploitable detail was copied.

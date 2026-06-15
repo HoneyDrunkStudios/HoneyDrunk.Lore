@@ -396,3 +396,37 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 
 ### Quality notes
 - This is an event announcement, so it is weak as implementation evidence. It strengthens Microsoft platform direction only.
+
+## 2026-06-15 compile additions: GenAIOps extension over MLOps
+
+### Source-backed claims
+- Microsoft Learn frames GenAIOps/LLMOps as an extension of existing MLOps investments rather than a replacement, with fine-tuning reusing many traditional MLOps patterns while prompting and RAG add new workload responsibilities. Source: `raw/2026-06-15-web-microsoft-learn-generative-ai-operations-for-organizations-with-mlops-.md`. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-15.
+- For RAG and prompt-engineering workloads, Microsoft says the governed system includes the orchestrator, prompts, grounding data stores, indexes, data pipelines, and evaluation process, not only the deployed model. Source: `raw/2026-06-15-web-microsoft-learn-generative-ai-operations-for-organizations-with-mlops-.md`. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-15.
+- Microsoft identifies GenAIOps extensions around chunking/embedding pipelines, search-index freshness, prompt/RAG experimentation, use-case-specific evaluation metrics, orchestrator/data-store deployment, gateways, rollout strategies, operational monitoring, production learning, content safety, quotas, and token usage. Source: `raw/2026-06-15-web-microsoft-learn-generative-ai-operations-for-organizations-with-mlops-.md`. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-15.
+- Microsoft cautions that software engineers can manage orchestration and metrics setup, but data scientists and subject matter experts should review evaluations because prompting/RAG evaluation still needs scientific and domain judgment. Source: `raw/2026-06-15-web-microsoft-learn-generative-ai-operations-for-organizations-with-mlops-.md`. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-15.
+
+### Typed entities
+- concept: GenAIOps / LLMOps
+- concept: MLOps
+- pattern: prompt engineering
+- pattern: retrieval-augmented generation / RAG
+- component: orchestrator
+- component: vector store
+- component: search index maintenance
+- product: Azure AI Search
+- product: Microsoft Foundry Evaluation SDK
+- platform/tool: MLflow
+
+### Explicit relationships
+- GenAIOps extends MLOps by adding prompt, orchestrator, grounding-data, index, gateway, and model-service operations.
+- RAG reproducibility depends-on versioned documents, chunks, embeddings, indexes, prompts, retrieval configuration, and evaluation data.
+- Search-index maintenance complements DataOps because freshness, right-to-be-forgotten, and rollback needs apply to grounding data.
+- Gateway deployment complements model deployment by centralizing auth, routing, failover, monitoring, and rollout controls.
+
+### HoneyDrunk implications
+- Treat Lore/OpenClaw RAG or retrieval work as deployable software: version source data, chunking, embeddings, index config, prompts, eval sets, and orchestration code.
+- Do not score RAG quality only with final-answer vibes. Track groundedness, relevance, completeness, usefulness feedback, and domain review.
+- Add quota/token/429 monitoring and content-safety decisions to any production GenAI app plan.
+
+### Quality notes
+- Microsoft Learn is strong architecture guidance but Azure-centered. Translate patterns to HoneyDrunk's flat-file and local-runner context before adopting managed services.
