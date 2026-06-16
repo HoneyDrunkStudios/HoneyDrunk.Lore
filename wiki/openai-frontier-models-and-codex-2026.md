@@ -107,3 +107,37 @@ OpenAI's June 11 raw sources add two durable signals for HoneyDrunk: GPT-5.5 is 
 
 ### Quality notes
 - Official acquisition announcement; product claims are vendor-authored and the acquisition had not closed in the source.
+
+## 2026-06-16 compile additions: OpenAI API deprecations as routing risk
+
+### Source-backed claims
+- OpenAI's deprecation page states that generally available model retirements receive at least six months' notice unless safety or compliance requires faster action, specialized GA variants receive at least three months, and preview models may retire with much shorter notice such as two weeks. Source: `raw/2026-06-16-web-openai-deprecations-openai-api.md`. confidence: 1 official OpenAI documentation source, last-confirmed 2026-06-16.
+- On 2026-06-11, OpenAI notified developers that older GPT-5 and o3 snapshots are deprecated and scheduled for API removal on 2026-12-11, with GPT-5.5 and GPT-5.5 Pro listed as recommended replacements for several snapshots. Source: `raw/2026-06-16-web-openai-deprecations-openai-api.md`. confidence: 1 official OpenAI documentation source, last-confirmed 2026-06-16.
+- OpenAI's 2026-06-03 deprecations schedule reusable prompt objects, the Evals platform, and Agent Builder for shutdown on 2026-11-30, with evals becoming read-only on 2026-10-31 and Agent Builder migration paths pointing to Agents SDK or ChatGPT Workspace Agents. Source: `raw/2026-06-16-web-openai-deprecations-openai-api.md`. confidence: 1 official OpenAI documentation source, last-confirmed 2026-06-16.
+- The Assistants API remains scheduled for shutdown on 2026-08-26, with Responses API and Conversations API listed as replacements. Source: `raw/2026-06-16-web-openai-deprecations-openai-api.md`. confidence: 1 official OpenAI documentation source, last-confirmed 2026-06-16.
+
+### Typed entities
+- model: GPT-5.5
+- model: GPT-5.5 Pro
+- API: Assistants API
+- API: Responses API
+- API: Conversations API
+- product: reusable prompt objects
+- product: Evals platform
+- product: Agent Builder
+- concept: model deprecation notice period
+- concept: preview-model migration risk
+
+### Explicit relationships
+- Legacy OpenAI model snapshots are superseded by newer listed replacement models at shutdown dates.
+- Preview-model use depends-on short-notice migration tolerance.
+- Reusable prompt objects and Agent Builder deprecations push durable prompt/agent definitions back into application code, Agents SDK, or Workspace Agents.
+- Assistants API migration depends-on Responses API and Conversations API readiness.
+
+### HoneyDrunk implications
+- Inventory OpenAI model IDs, prompt objects, evals, Agent Builder assets, and Assistants API use before July 2026 so migrations are not discovered at shutdown.
+- Avoid preview models for unattended or business-critical OpenClaw/Honeyclaw jobs unless routing has a tested fallback.
+- Keep model aliases and deprecation dates visible in agent-run receipts when external API models are used.
+
+### Quality notes
+- Official OpenAI documentation is authoritative for listed shutdown dates as captured on 2026-06-16, but this page is time-sensitive and should be rechecked before operational migration work.

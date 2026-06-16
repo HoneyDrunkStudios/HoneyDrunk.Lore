@@ -344,3 +344,32 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 ### Privacy and quality notes
 - Privacy filter: SafeDep attack mechanics were reduced to CI control classes; no exploit strings or destructive instructions were copied.
 - Quality posture: GitHub changelog is authoritative for enforcement timing. CNCF/Cilium is strong practice evidence but should be adapted to HoneyDrunk's smaller repo/fleet scale.
+
+## 2026-06-16 compile additions: deterministic Terraform auto-apply
+
+### Source-backed claims
+- Ricard Bejarano argues that Terraform plan review can bottleneck at higher velocity, but AI review cannot fully replace deterministic production infrastructure review because it is nondeterministic, may violate audit requirements, and weakens accountability. Source: `raw/2026-06-16-web-bejarano-safe-terraform-auto-apply-with-conftest.md`. confidence: 1 practitioner source, last-confirmed 2026-06-16.
+- The source describes exporting Terraform plans to JSON and using conftest/Open Policy Agent/Rego to deterministically allow or deny auto-apply based on explicit policy such as allowed actions, resource types, changed fields, blast-radius thresholds, and environment tags. Source: `raw/2026-06-16-web-bejarano-safe-terraform-auto-apply-with-conftest.md`. confidence: 1 practitioner source, last-confirmed 2026-06-16.
+- The source frames deterministic policy-as-code gates as increasingly important when AI agents can propose or execute infrastructure changes, because an auditable policy boundary can preserve both velocity and confidence. Source: `raw/2026-06-16-web-bejarano-safe-terraform-auto-apply-with-conftest.md`. confidence: 1 practitioner source, last-confirmed 2026-06-16.
+
+### Typed entities
+- tool: Terraform
+- tool: conftest
+- engine: Open Policy Agent / OPA
+- language: Rego
+- artifact: Terraform plan JSON
+- control: policy-as-code auto-apply gate
+- concept: infrastructure blast radius
+
+### Explicit relationships
+- Terraform auto-apply safety depends-on explicit structured policy, not free-form review impressions.
+- Conftest uses OPA/Rego to evaluate Terraform plan JSON before apply.
+- AI infrastructure agents increase the value of deterministic plan gates because agent judgment does not satisfy reproducibility or accountability by itself.
+
+### HoneyDrunk implications
+- If HoneyDrunk adds Terraform automation, start with deny-by-default plan JSON policies and allow only low-blast-radius changes with versioned tests.
+- Keep human approval for production updates/deletes, IAM/security changes, database/network changes, or large blast-radius plans until policy evidence justifies narrower automation.
+- Include the policy result, plan summary, and responsible human/agent identity in run receipts.
+
+### Quality notes
+- Practitioner source with concrete pattern. Validate against HoneyDrunk providers and Terraform module conventions before enabling auto-apply.

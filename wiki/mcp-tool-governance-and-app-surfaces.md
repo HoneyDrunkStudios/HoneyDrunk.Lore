@@ -588,3 +588,32 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - MotherDuck and Microsoft sources are vendor/project-authored. Dropbox is a concrete engineering case study. Validate current MCP tool schemas before implementation.
+
+## 2026-06-16 compile additions: agent-native authorization and Open Knowledge Format
+
+### Source-backed claims
+- Dick Hardt argues that agent authorization needs per-call constraints over operation parameters, not only agent/tool grants, and that delegation should produce narrower derived authority rather than inherited full parent permissions. Source: `raw/2026-06-16-web-hello-anthropic-s-zero-trust-for-ai-agents-sets-the-right-test-the-bearer-token-fails-it.md`. confidence: 1 identity-practitioner source, last-confirmed 2026-06-16.
+- Google Cloud's Open Knowledge Format (OKF) v0.1 formalizes an LLM-wiki pattern as a directory of markdown files with YAML frontmatter and cross-links, intended to be readable by humans and portable across agents/tools. Source: `raw/2026-06-16-web-google-introducing-the-open-knowledge-format.md`; page: [[llm-wiki-and-knowledge-formats]]. confidence: 1 official vendor/spec announcement, last-confirmed 2026-06-16.
+- OKF requires a `type` field and defines a small interoperability surface around fields such as `title`, `description`, `resource`, `tags`, and `timestamp`, while leaving detailed content models to producers. Source: `raw/2026-06-16-web-google-introducing-the-open-knowledge-format.md`; page: [[llm-wiki-and-knowledge-formats]]. confidence: 1 official vendor/spec announcement, last-confirmed 2026-06-16.
+
+### Typed entities
+- concept: constrained call
+- concept: derived authority
+- concept: proof-of-possession credential
+- specification: Open Knowledge Format / OKF v0.1
+- pattern: LLM wiki
+- field: `type`
+- field: `resource`
+- page: [[llm-wiki-and-knowledge-formats]]
+
+### Explicit relationships
+- Per-call constrained authorization complements MCP/tool governance by making operation parameters part of authorization.
+- Derived authority mitigates multi-agent delegation risk by narrowing access as tasks move between agents.
+- OKF complements Lore's flat-file wiki contract by making markdown knowledge bundles more portable across agent producers and consumers.
+
+### HoneyDrunk implications
+- For high-risk MCP tools, model the exact operation and parameters being authorized; do not rely on broad "agent can call tool" grants.
+- Track OKF as a possible future compatibility target for Lore exports, especially frontmatter fields and bundle identity rules.
+
+### Quality notes
+- Identity-control claims are expert opinion; OKF is a vendor-announced open specification and should be read against the repo/spec before implementation.

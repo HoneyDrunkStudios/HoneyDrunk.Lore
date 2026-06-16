@@ -625,3 +625,32 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - 80 Level source is a detailed practitioner breakdown but project/hardware-specific. RealtimeVFX source is community discovery signal and needs tool validation.
+
+## 2026-06-16 compile additions: industrial digital twins as machine information systems
+
+### Source-backed claims
+- Unity argues industrial digital twins are shifting from visualization surfaces toward Machine Information Systems that connect live machine signals, MES/enterprise context, structured documentation, spatial 3D context, and maintenance history. Source: `raw/2026-06-16-web-unity-from-digital-twins-to-industrial-ai-building-the-machine-information-system.md`. confidence: 1 vendor source, last-confirmed 2026-06-16.
+- The Unity source frames structured documentation, component metadata, and machine context as a foundation for grounded industrial AI, not a separate AI initiative. Source: `raw/2026-06-16-web-unity-from-digital-twins-to-industrial-ai-building-the-machine-information-system.md`. confidence: 1 vendor source, last-confirmed 2026-06-16.
+- Unity's second e-book topic positions MCP as a possible integration layer for industrial AI agents that need access to machine state, enterprise context, manufacturer documentation, and historical operational knowledge. Source: `raw/2026-06-16-web-unity-from-digital-twins-to-industrial-ai-building-the-machine-information-system.md`. confidence: 1 vendor source, last-confirmed 2026-06-16.
+
+### Typed entities
+- concept: Machine Information System / MIS
+- concept: industrial digital twin
+- protocol: Model Context Protocol / MCP
+- standard: Asset Administration Shell / AAS
+- data source: MES
+- data source: live machine signals
+- product: Unity Industry
+- organization: realvirtual.io
+
+### Explicit relationships
+- Industrial digital twins are evolving from visualization-only systems into integration layers for operations, documentation, and AI reasoning.
+- Grounded industrial AI depends-on structured operational context and authoritative documentation.
+- MCP can complement industrial digital twins by exposing machine state and documentation through consistent agent interfaces.
+
+### HoneyDrunk implications
+- For industrial/3D workflow scouting, evaluate digital twins by data integration, metadata, lifecycle documentation, and agent grounding, not only scene fidelity.
+- Treat MCP in industrial systems as read-only/advisory first until action authority, safety controls, and operator accountability are explicit.
+
+### Quality notes
+- Vendor e-book announcement; useful as product-direction signal but not independent proof of deployment outcomes.

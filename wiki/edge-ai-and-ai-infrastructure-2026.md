@@ -557,3 +557,47 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - Google, OpenAI, and MotherDuck sources are vendor-authored. Use as infrastructure scouting evidence; reproduce performance and operational claims locally before adoption.
+
+## 2026-06-16 compile additions: inference economics, inference engineering, tokenizer optimization, and data debugging
+
+### Source-backed claims
+- Inference cost analysis from Injuly frames per-user serving cost as a function of GPU memory bandwidth, compute throughput, active parameters, KV-cache size, context length, batching, and user duty cycle; long advertised context windows are not the same as typical active KV-cache usage. Source: `raw/2026-06-16-web-injuly-inference-cost-at-scale-with-napkin-math.md`. confidence: 1 technical blog source, last-confirmed 2026-06-16.
+- The same source argues that without KV cache, generation repeats expensive work over prior tokens, while KV caching shifts decode toward memory-bandwidth limits and makes batching/duty-cycle assumptions central to realistic cost estimates. Source: `raw/2026-06-16-web-injuly-inference-cost-at-scale-with-napkin-math.md`. confidence: 1 technical blog source, last-confirmed 2026-06-16.
+- ByteByteGo describes production LLM inference as two phases with different bottlenecks: prefill is compute-bound and measured by time to first token, while decode is memory-bandwidth-bound and measured by tokens per second. Source: `raw/2026-06-16-web-bytebytego-a-guide-to-ai-inference-engineering.md`. confidence: 1 technical explainer source, last-confirmed 2026-06-16.
+- ByteByteGo groups inference-engineering techniques by that split: batching, prefix caching, quantization, speculative decoding, tensor/expert parallelism, and prefill/decode disaggregation. Source: `raw/2026-06-16-web-bytebytego-a-guide-to-ai-inference-engineering.md`. confidence: 1 technical explainer source, last-confirmed 2026-06-16.
+- A.Q. Nichol reports a cutting-plane approach to tokenizer optimization that found provably optimal tokenizers for small/pretokenized settings, but notes limited practical impact because common tokenizers can already be near optimal and held-out generalization may matter more than training-set optimality. Source: `raw/2026-06-16-web-aqnichol-finding-optimal-tokenizers.md`. confidence: 1 research-practice source, last-confirmed 2026-06-16.
+- Goodfire introduces predictive data debugging: passing preference data through an interpreted model can predict which behaviors DPO will amplify or suppress before training, trace them to responsible data clusters, and guide filtering or targeted interventions. Source: `raw/2026-06-16-web-goodfire-predictive-data-debugging-reveal-and-shape-what-your-model-learns-before-you-train.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 research/vendor source, last-confirmed 2026-06-16.
+
+### Typed entities
+- concept: prefill
+- concept: decode
+- metric: time to first token / TTFT
+- metric: tokens per second / TPS
+- technique: KV cache
+- technique: prefix caching
+- technique: quantization
+- technique: speculative decoding
+- technique: tensor parallelism
+- technique: expert parallelism
+- technique: prefill/decode disaggregation
+- method: cutting-plane optimization
+- method: integer linear programming / ILP
+- concept: predictive data debugging
+- method: direct preference optimization / DPO
+- page: [[agent-evaluation-and-benchmarks]]
+
+### Explicit relationships
+- Inference unit economics depends-on workload duty cycle, batch size, median context length, and KV-cache memory pressure, not only advertised GPU FLOPS.
+- Prefill and decode have different bottlenecks, so optimization techniques can improve one phase without improving the other.
+- Prefix caching depends-on stable shared prompt prefixes; variable content placed before shared content can defeat the cache.
+- Tokenizer optimality on training data can contradict held-out robustness or operational simplicity.
+- Predictive data debugging complements post-training evals by surfacing likely behavioral changes before the training run.
+
+### HoneyDrunk implications
+- For any self-hosted model spike, record TTFT, TPS, active batch size, median context, KV-cache usage, prompt-cache hit rate, duty cycle, and cost per successful task.
+- Treat long-context marketing claims as capacity, not expected cost. Use observed HoneyDrunk task traces to size serving.
+- Keep tokenizer work as research signal unless HoneyDrunk has a measured tokenization bottleneck.
+- If HoneyDrunk trains or tunes models, evaluate data-debugging methods before productionizing preference data changes.
+
+### Quality notes
+- Sources are technical blog/research/vendor sources. Use them for modeling and spike design; confirm hardware specs, serving-engine behavior, and task traffic locally.

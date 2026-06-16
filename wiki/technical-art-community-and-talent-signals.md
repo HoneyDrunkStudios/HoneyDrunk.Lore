@@ -410,3 +410,29 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - Both sources are public scouting signals. No private portfolio/contact data was copied.
+
+## 2026-06-16 compile additions: Blender weekly technical-art signals
+
+### Source-backed claims
+- Blender's 2026-06-15 weekly update lists recent module changes including online asset-browser warning behavior, Geometry Nodes simulation catalog for dynamics assets, Grease Pencil input nodes, profile markers, GPU mipmap-update disable capability, USD normals export based on Blender's internal data model, and Texture Paint `update_pixels` parallelization. Source: `raw/2026-06-16-web-blender-15-june-2026-weekly-updates.md`. confidence: 1 official Blender Developer Forum weekly source, last-confirmed 2026-06-16.
+
+### Typed entities
+- DCC/tool: Blender
+- module: Geometry Nodes
+- module: Grease Pencil
+- module: Texture Paint
+- module: USD export
+- feature: dynamics-assets simulation catalog
+- feature: Grease Pencil input nodes
+- feature: GPU mipmap-update disable
+- feature: `update_pixels` parallelization
+
+### Explicit relationships
+- Blender weekly development signals complement release notes by showing near-term implementation movement across modules.
+- Geometry Nodes dynamics catalogs and Grease Pencil input nodes reinforce Blender's procedural and 2D/3D hybrid technical-art direction.
+
+### HoneyDrunk implications
+- Keep Blender weekly updates as low-weight scouting input; promote only release-note or measured workflow changes into production guidance.
+
+### Quality notes
+- Official weekly update source. It is change-list evidence, not a stable-release adoption recommendation.

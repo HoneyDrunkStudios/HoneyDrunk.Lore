@@ -630,3 +630,23 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 - [[unity-3d-and-realtime-vfx-patterns]] - 41 sources - last-confirmed 2026-06-15
 - [[technical-art-community-and-talent-signals]] - 27 sources - last-confirmed 2026-06-15
 - [[browser-native-gpu-creative-tools]] - 2 sources - last-confirmed 2026-05-26
+
+## 2026-06-16 topic additions
+
+### AI-assisted software practice and review
+- [[ai-assisted-software-practice]] - 51 sources - last-confirmed 2026-06-16
+- [[agent-evaluation-and-benchmarks]] - 24 sources - last-confirmed 2026-06-16
+- [[github-actions-platform-operations]] - 26 sources - last-confirmed 2026-06-16
+
+### Agent security, MCP governance, and supply chain
+- [[ai-coding-agent-security]] - 72 sources - last-confirmed 2026-06-16
+- [[mcp-tool-governance-and-app-surfaces]] - 50 sources - last-confirmed 2026-06-16
+
+### AI platforms, model operations, and knowledge formats
+- [[edge-ai-and-ai-infrastructure-2026]] - 42 sources - last-confirmed 2026-06-16
+- [[openai-frontier-models-and-codex-2026]] - 5 sources - last-confirmed 2026-06-16
+- [[llm-wiki-and-knowledge-formats]] - 1 source - last-confirmed 2026-06-16
+
+### Game engines, industrial 3D, and technical art
+- [[unity-3d-and-realtime-vfx-patterns]] - 42 sources - last-confirmed 2026-06-16
+- [[technical-art-community-and-talent-signals]] - 28 sources - last-confirmed 2026-06-16

@@ -305,3 +305,34 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - olmo-eval is a concrete open-source evaluation-workbench signal, but adoption should follow a local spike. Hidden-state probe evidence is practitioner-research guidance and needs local labeled-data validation.
+
+## 2026-06-16 compile additions: predictive data debugging as pre-training evaluation
+
+### Source-backed claims
+- Goodfire reports predictive data debugging can predict preference-training behavior before DPO by reading datasets through an interpreted model, with the captured article reporting R^2 = 0.9 against learned behavior in their experiments. Source: `raw/2026-06-16-web-goodfire-predictive-data-debugging-reveal-and-shape-what-your-model-learns-before-you-train.md`. confidence: 1 research/vendor source, last-confirmed 2026-06-16.
+- The method traces predicted behavior shifts back to responsible data clusters, letting teams identify safety regressions, hallucination-inducing patterns, sycophancy clusters, and unexpected dataset artifacts before a full train/eval/retrain loop. Source: `raw/2026-06-16-web-goodfire-predictive-data-debugging-reveal-and-shape-what-your-model-learns-before-you-train.md`. confidence: 1 research/vendor source, last-confirmed 2026-06-16.
+- Goodfire says some interventions can reshape data or training to preserve benchmark gains while reducing unwanted behavior, but other classes such as hallucinated links and narrow context-specific sycophancy remained only partially mitigated in the captured case studies. Source: `raw/2026-06-16-web-goodfire-predictive-data-debugging-reveal-and-shape-what-your-model-learns-before-you-train.md`. confidence: 1 research/vendor source, last-confirmed 2026-06-16.
+
+### Typed entities
+- company/platform: Goodfire Silico
+- dataset: Dolci
+- dataset: Tulu 3
+- model family: Llama 3.1
+- method: predictive data debugging
+- method: direct preference optimization / DPO
+- concept: concept-level data view
+- concept: preference-data regression
+- control: targeted data rewrite
+
+### Explicit relationships
+- Predictive data debugging complements benchmark evaluation by identifying likely training-induced behavior shifts before training.
+- Data-cluster tracing links model behavior regressions back to source examples, making dataset curation part of the evaluation loop.
+- Targeted data rewrites can mitigate some unwanted learned behavior but do not supersede downstream evals or manual inspection.
+
+### HoneyDrunk implications
+- If HoneyDrunk builds a preference dataset, treat it as executable behavior-shaping code: inspect, test, debug, and version it before training.
+- Record which data clusters drive any local model behavior change, not just aggregate eval deltas.
+- Use pre-training data-debugging results as risk triage, then confirm with held-out evals and human review.
+
+### Quality notes
+- Goodfire is both research source and product vendor. Claims are promising but should be reproduced on HoneyDrunk datasets before adoption.

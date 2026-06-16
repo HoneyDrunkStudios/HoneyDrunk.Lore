@@ -825,3 +825,47 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 ### Privacy and quality notes
 - Privacy filter: exploit details were summarized at vulnerability/control level. No payloads, traversal strings beyond generic class names, or runnable exploit steps were copied.
 - Quality posture: AGT/OpenTaint are project README sources and may be product-positioned; validate package maturity and boundaries before adoption. Dropbox is a strong practice case study but internal metrics need local reproduction.
+
+## 2026-06-16 compile additions: LangGraph checkpointers, bearer-token limits, and package ownership attacks
+
+### Source-backed claims
+- Check Point Research reports three LangGraph persistence-layer vulnerabilities: SQLite metadata-filter SQL injection (`CVE-2025-67644`), unsafe msgpack deserialization (`CVE-2026-28277`), and Redis metadata-filter injection (`CVE-2026-27022`). The RCE chain applies where self-hosted LangGraph exposes `get_state_history()` with user-controlled filters and vulnerable checkpointers. Source: `raw/2026-06-16-web-checkpoint-from-sqli-to-rce-exploiting-langgraph-s-checkpointer.md`. confidence: 1 security-research source, last-confirmed 2026-06-16.
+- The same source says LangChain patched the issues in `langgraph-checkpoint-sqlite` 3.0.1+, `langgraph` 1.0.10+, and `langgraph-checkpoint-redis` 1.0.2+; LangSmith Deployment was not vulnerable because it runs PostgreSQL rather than the affected SQLite/Redis paths. Source: `raw/2026-06-16-web-checkpoint-from-sqli-to-rce-exploiting-langgraph-s-checkpointer.md`. confidence: 1 security-research source, last-confirmed 2026-06-16.
+- Dick Hardt's response to Anthropic's zero-trust agent framework argues that short-lived bearer tokens reduce theft windows but do not make credential replay impossible; non-exportable proof-of-possession credentials and per-call constrained authorization are stronger agent-native patterns. Source: `raw/2026-06-16-web-hello-anthropic-s-zero-trust-for-ai-agents-sets-the-right-test-the-bearer-token-fails-it.md`. confidence: 1 identity-practitioner source, last-confirmed 2026-06-16.
+- The same source argues that "agent may use tool" is too coarse for agent authorization; the operation parameters themselves should be part of the authorization decision, and delegation should narrow authority as it travels between agents. Source: `raw/2026-06-16-web-hello-anthropic-s-zero-trust-for-ai-agents-sets-the-right-test-the-bearer-token-fails-it.md`. confidence: 1 identity-practitioner source, last-confirmed 2026-06-16.
+- Sonatype reports Atomic Arch, a campaign targeting orphaned Arch User Repository packages by taking over trusted package ownership and modifying PKGBUILDs to install malicious npm dependencies during package installation; preliminary reporting suggested about 1,500 affected packages across waves. Source: `raw/2026-06-16-web-sonatype-atomic-arch-attackers-hijack-trusted-aur-packages-to-deliver-rootkit-like-malware.md`. confidence: 1 security-research source, last-confirmed 2026-06-16.
+- Sonatype's analysis found the malicious payload had Linux credential-harvesting, stealth, anti-debugging, and potential exfiltration functionality; affected hosts should be treated as compromised because removing the package alone may not remove second-stage effects. Source: `raw/2026-06-16-web-sonatype-atomic-arch-attackers-hijack-trusted-aur-packages-to-deliver-rootkit-like-malware.md`. confidence: 1 security-research source, last-confirmed 2026-06-16.
+
+### Typed entities
+- framework: LangGraph
+- component: SQLite checkpointer
+- component: Redis checkpointer
+- vulnerability: CVE-2025-67644
+- vulnerability: CVE-2026-28277
+- vulnerability: CVE-2026-27022
+- platform: LangSmith Deployment
+- concept: proof-of-possession credential
+- concept: constrained call authorization
+- concept: derived delegation
+- ecosystem: Arch User Repository / AUR
+- campaign: Atomic Arch
+- package: atomic-lockfile
+- package: js-digest
+- package: lockfile-js
+
+### Explicit relationships
+- LangGraph RCE risk depends-on self-hosted affected checkpointers, user-controlled metadata filters, and vulnerable package versions.
+- PostgreSQL-backed LangSmith Deployment contradicts exposure assumptions for SQLite/Redis checkpointer findings in that managed service.
+- Short-lived bearer tokens mitigate but do not supersede credential replay risk because possession remains sufficient for use.
+- Per-call constrained authorization supersedes coarse agent/tool permission grants for sensitive operations.
+- AUR ownership takeover uses inherited trust to bypass user expectations; trusted package names can contradict current maintainer trustworthiness.
+
+### HoneyDrunk implications
+- If HoneyDrunk uses LangGraph, inventory checkpointer packages and block deployments below the patched versions before exposing state-history filters.
+- Treat agent memory/checkpoint stores as attack surfaces with ordinary input-validation, query-parameterization, and deserialization review.
+- Prefer sender-constrained or proof-of-possession patterns for high-value agent credentials when platform support exists; document any bearer-token exception with scope and lifetime.
+- Review package ecosystems for abandoned-maintainer and install-hook risk, especially where agents install packages on developer or runner machines.
+
+### Privacy and quality notes
+- Privacy filter: exploit mechanics were reduced to preconditions, vulnerable components, and patch floors. No payload bytes, command strings, or step-by-step exploit procedure were copied.
+- Quality posture: Check Point and Sonatype are security-research sources; validate current advisories/package versions before operational changes. The Hello source is expert opinion on identity architecture, not a standard by itself.

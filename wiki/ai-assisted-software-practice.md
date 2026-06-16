@@ -571,3 +571,43 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Evil Martians and Jane Street are practice essays. GitLab is product/vendor material with internal and customer-reported metrics; use as architecture signal, not neutral productivity proof.
+
+## 2026-06-16 compile additions: review capacity, engineering discipline, and LLM work registers
+
+### Source-backed claims
+- Addy Osmani argues that agentic coding shifts the bottleneck from code generation to verification and review confidence; teams should tier review effort by blast radius, require evidence before review, keep PRs small, and treat AI reviews as sensors rather than merge verdicts. Source: `raw/2026-06-16-web-addyosmani-agentic-code-review.md`. confidence: 1 practitioner/source-author article, last-confirmed 2026-06-16.
+- Osmani cites multiple 2026 review/productivity datasets as converging evidence that AI increases raw output faster than delivered value or human review capacity, so unreviewed or lightly reviewed merges become a systems risk when review process does not change. Source: `raw/2026-06-16-web-addyosmani-agentic-code-review.md`. confidence: 1 synthesis article citing vendor/benchmark sources, last-confirmed 2026-06-16.
+- Charity Majors argues that cheaper code generation makes engineering discipline more important, not less: durable value depends on encoded understanding, production feedback, observability, tests/evals, characterization, capture/replay, and clear invariants. Source: `raw/2026-06-16-web-charity-ai-demands-more-engineering-discipline-not-less.md`. confidence: 1 practitioner/source-author article, last-confirmed 2026-06-16.
+- Martin Fowler's June 16 fragments reinforce that DDD and context management remain important in LLM-assisted work, and record Chelsea Troy's four conversational registers for LLM sessions: exploring, brainstorming, deciding, and implementing. Source: `raw/2026-06-16-web-martinfowler-fragments-june-16.md`. confidence: 1 Fowler fragment source, last-confirmed 2026-06-16.
+- Fowler also summarizes Simon Willison's observation that enterprise pricing increases by Anthropic and OpenAI may reflect stronger product-market fit for coding/general-purpose agent products, making agent cost governance part of software-practice planning. Source: `raw/2026-06-16-web-martinfowler-fragments-june-16.md`. confidence: 1 secondary commentary source, last-confirmed 2026-06-16.
+
+### Typed entities
+- person: Addy Osmani
+- person: Charity Majors
+- person: Martin Fowler
+- person: Chelsea Troy
+- person: Simon Willison
+- concept: agentic code review
+- concept: review capacity
+- concept: review evidence
+- concept: conversational register
+- concept: encoded understanding
+- control: risk-tiered review
+- control: deterministic CI gate
+- control: test-change review
+
+### Explicit relationships
+- Agentic code review depends-on risk tiering, evidence capture, deterministic gates, and human ownership of merge decisions.
+- AI-generated output causes review-capacity pressure when raw diff volume grows faster than human understanding and verification.
+- Engineering discipline complements agentic coding by moving knowledge from transient human memory into tests, observability, specs, evals, and production feedback loops.
+- LLM conversation registers affect context quality; changing from exploration to implementation may require a fresh context boundary.
+- Agent-product pricing pressure affects software practice when recurring AI workflows become material budget items.
+
+### HoneyDrunk implications
+- Keep Grid/OpenClaw review prompts focused on bugs, security, broken behavior, deployability, data loss, contract breaks, and verification evidence.
+- Require agents to provide intent, test output, and risk notes before high-stakes review; do not let humans become the first place intent is reconstructed.
+- Treat test rewrites, CI weakening, auth/payments/infrastructure changes, and large agent PRs as higher-risk review triggers.
+- Separate exploration, brainstorming, decision, and implementation sessions in long-running agent work when context starts carrying old assumptions.
+
+### Quality notes
+- Sources are practitioner essays and commentary. They are strong process-shaping evidence, but HoneyDrunk should validate with local review load, defect, rework, and cost data.
