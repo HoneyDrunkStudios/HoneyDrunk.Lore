@@ -430,3 +430,46 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 
 ### Quality notes
 - Microsoft Learn is strong architecture guidance but Azure-centered. Translate patterns to HoneyDrunk's flat-file and local-runner context before adopting managed services.
+
+## 2026-06-17 compile additions: .NET versioned OpenAPI and Azure agent architecture
+
+### Source-backed claims
+- The .NET Blog recommends `Asp.Versioning` v10 for .NET 10 APIs that need official integration with `Microsoft.AspNetCore.OpenApi`, with separate packages for controllers and Minimal APIs and `Asp.Versioning.OpenApi` for versioned OpenAPI documents. Source: `raw/2026-06-17-web-devblogs-microsoft-com-combining-api-versioning-with-openapi-in-net-10-applications-net-blog.md`. confidence: 1 .NET Blog community/MVP source, last-confirmed 2026-06-17.
+- In `Asp.Versioning` v10, `AddApiVersioning().AddApiExplorer(...).AddOpenApi()` plus `app.MapOpenApi().WithDocumentPerVersion()` can generate one OpenAPI document per API version without duplicating `AddOpenApi()` calls for every version. Source: `raw/2026-06-17-web-devblogs-microsoft-com-combining-api-versioning-with-openapi-in-net-10-applications-net-blog.md`. confidence: 1 source, last-confirmed 2026-06-17.
+- The same .NET source recommends OpenAPI linting and diffing with tools such as Spectral and oasdiff/openapi-diff to catch unversioned endpoints or unintended breaking changes during PR review. Source: `raw/2026-06-17-web-devblogs-microsoft-com-combining-api-versioning-with-openapi-in-net-10-applications-net-blog.md`. confidence: 1 source, last-confirmed 2026-06-17.
+- Microsoft Architecture Center says multitenant AI/ML systems should choose explicitly among tenant-specific models, shared models, and tuned shared base models, with tenant data/model isolation and tenant consent as first-class requirements. Source: `raw/2026-06-17-web-learn-microsoft-com-architectural-approaches-for-ai-and-machine-learning-in-multitenant-solutions-azur.md`. confidence: 1 Microsoft Architecture Center source, last-confirmed 2026-06-17.
+- The same multitenant guidance distinguishes Foundry/prebuilt AI services from custom Azure Machine Learning architectures: managed platforms reduce setup and operational burden, while custom ML gives more control over training, inference, lineage, and drift management at higher implementation complexity. Source: `raw/2026-06-17-web-learn-microsoft-com-architectural-approaches-for-ai-and-machine-learning-in-multitenant-solutions-azur.md`. confidence: 1 source, last-confirmed 2026-06-17.
+- Microsoft's multiple-agent workflow architecture uses Microsoft Agent Framework custom code in Container Apps for deterministic orchestration control, while Foundry Agent Service is the lower-code alternative when prompt-defined behavior, HTTPS-reachable tools, and managed compute are sufficient. Source: `raw/2026-06-17-web-learn-microsoft-com-build-a-multiple-agent-workflow-automation-solution-by-using-microsoft-agent-frame.md`. confidence: 1 Microsoft Architecture Center source, last-confirmed 2026-06-17.
+
+### Typed entities
+- package: `Asp.Versioning` v10
+- package: `Asp.Versioning.OpenApi`
+- package: `Microsoft.AspNetCore.OpenApi`
+- API: `WithDocumentPerVersion()`
+- tool: SwaggerUI
+- tool: Scalar
+- tool: Spectral
+- tool: oasdiff
+- concept: tenant-specific model
+- concept: shared model
+- concept: tuned shared model
+- service: Microsoft Foundry
+- service: Azure Machine Learning
+- framework: Microsoft Agent Framework
+- platform: Azure Container Apps
+
+### Explicit relationships
+- Versioned OpenAPI depends-on the API explorer grouping and document-per-version generation matching the API versioning strategy.
+- OpenAPI diffing complements API versioning by detecting accidental breaking changes before release.
+- Tenant-specific models supersede shared-model reuse when tenant data sensitivity, contractual rules, or cross-tenant transfer risk dominate.
+- Shared and tuned shared models depend-on tenant consent and data minimization when tenant data contributes to training or adaptation.
+- Custom Agent Framework orchestration complements Foundry Agent Service when the workload needs deterministic control over compute, state, and workflow transitions.
+
+### HoneyDrunk implications
+- For .NET APIs that publish OpenAPI, make versioning and OpenAPI generation one contract; add schema diff checks before client-facing changes.
+- For HoneyDrunk.Payments/NovOutbox-style APIs, prefer explicit versioning over silent default-version behavior when external consumers depend on contracts.
+- If HoneyDrunk builds tenant-aware AI features, decide early whether data/model isolation is tenant-specific, shared, or tuned-shared; document data-use consent and opt-out behavior.
+- Use managed Foundry-style agents only when prompt-defined behavior is enough; keep custom code orchestration for workflows that need deterministic boundaries and reviewable state.
+
+### Quality notes
+- The API-versioning source is a .NET Blog guest post with concrete code and comments; verify package versions at implementation time. Microsoft Architecture Center sources are useful Azure-centered patterns, not a mandate to adopt Azure control planes.

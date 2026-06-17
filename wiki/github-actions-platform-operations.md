@@ -373,3 +373,35 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ### Quality notes
 - Practitioner source with concrete pattern. Validate against HoneyDrunk providers and Terraform module conventions before enabling auto-apply.
+
+## 2026-06-17 compile additions: Code Quality GA and Copilot metric coverage
+
+### Source-backed claims
+- GitHub Code Quality is scheduled to become generally available as a paid product on 2026-07-20, priced at $10 per active committer per month on enabled repositories plus usage-based billing for AI-powered capabilities such as Copilot code review, AI-assisted detection, and Copilot Autofix. Source: `raw/2026-06-17-web-github-blog-github-code-quality-generally-available-july-20-2026-github-changelog.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-17.
+- Deterministic CodeQL maintainability and reliability scans for Code Quality consume GitHub Actions minutes rather than AI usage charges. Source: `raw/2026-06-17-web-github-blog-github-code-quality-generally-available-july-20-2026-github-changelog.md`. confidence: 1 source, last-confirmed 2026-06-17.
+- Code Quality GA adds organization-wide deployment, organization-level dashboards, coverage enforcement through rulesets, quality scoring, and APIs for enablement and finding management; it is available for GitHub Enterprise Cloud and Team, not GitHub Enterprise Server. Source: `raw/2026-06-17-web-github-blog-github-code-quality-generally-available-july-20-2026-github-changelog.md`. confidence: 1 source, last-confirmed 2026-06-17.
+- GitHub Copilot usage metrics now include server-side telemetry in addition to client-side IDE/client telemetry, increasing active-user and DAU coverage when client telemetry is missing. Source: `raw/2026-06-17-web-github-blog-copilot-usage-metrics-now-include-more-of-your-active-users-github-changelog.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-17.
+- Server-side Copilot telemetry currently improves top-level active-user counts but does not yet provide the rich per-interaction breakdowns such as IDE, feature, model, and lines-of-code activity, so more usage can appear unattributed in dimensional reports. Source: `raw/2026-06-17-web-github-blog-copilot-usage-metrics-now-include-more-of-your-active-users-github-changelog.md`. confidence: 1 source, last-confirmed 2026-06-17.
+
+### Typed entities
+- product: GitHub Code Quality
+- feature: Code Quality quality gates
+- feature: Code Quality coverage rulesets
+- feature: Code Quality APIs
+- tool: CodeQL
+- product: GitHub Copilot usage metrics API
+- signal: server-side Copilot telemetry
+- metric: daily active users / DAU
+
+### Explicit relationships
+- Code Quality billing depends-on enabled repositories and active committers, while AI-powered features add usage-based consumption.
+- Deterministic CodeQL analysis complements AI-powered code-quality review by consuming Actions minutes rather than model usage.
+- Copilot usage metrics now combine client and server telemetry, reducing missing-user gaps but increasing unattributed activity until richer server-side dimensions land.
+
+### HoneyDrunk implications
+- Before 2026-07-20, decide which HoneyDrunk repos should keep Code Quality enabled and what active-committer cost envelope is acceptable.
+- Treat Copilot usage reports before and after this telemetry change as non-identical time series; DAU may rise because reporting improved, not because behavior changed.
+- For code-quality gates, separate deterministic CodeQL/coverage rules from AI review spend so CI costs and model usage are budgeted independently.
+
+### Quality notes
+- GitHub changelog sources are authoritative for GitHub product timing and pricing as captured. Billing and availability can change; recheck before procurement or org-wide enablement.

@@ -869,3 +869,49 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 ### Privacy and quality notes
 - Privacy filter: exploit mechanics were reduced to preconditions, vulnerable components, and patch floors. No payload bytes, command strings, or step-by-step exploit procedure were copied.
 - Quality posture: Check Point and Sonatype are security-research sources; validate current advisories/package versions before operational changes. The Hello source is expert opinion on identity architecture, not a standard by itself.
+
+## 2026-06-17 compile additions: indirect prompt injection, skill security, and attested images
+
+### Source-backed claims
+- Google Threat Intelligence scanned Common Crawl public-web snapshots with a coarse-to-fine pipeline of signature matching, Gemini classification, and human validation, finding indirect prompt injections in categories such as pranks, benign summary guidance, SEO manipulation, AI-agent deterrence, data-exfiltration attempts, and destructive-command attempts. Source: `raw/2026-06-17-web-blog-google-ai-threats-in-the-wild-the-current-state-of-prompt-injections-on-the-web.md`. confidence: 1 Google security source, last-confirmed 2026-06-17.
+- Google found the malicious public-web IPI category was still mostly low-sophistication in the sampled data, but observed a 32% relative increase in malicious detections between November 2025 and February 2026 and expects scale/sophistication to grow as agents become more capable. Source: `raw/2026-06-17-web-blog-google-ai-threats-in-the-wild-the-current-state-of-prompt-injections-on-the-web.md`. confidence: 1 source, last-confirmed 2026-06-17.
+- Anthropic's Managed Agents security boundary keeps credentials outside generated-code sandboxes: repository tokens are wired into initialized Git remotes, and custom-tool OAuth tokens are held in a vault behind an MCP proxy rather than exposed to the harness or sandbox environment. Source: `raw/2026-06-17-web-anthropic-com-scaling-managed-agents-decoupling-the-brain-from-the-hands.md`. confidence: 1 Anthropic engineering source, last-confirmed 2026-06-17.
+- Docker's DHI/Aikido integration uses signed SPDX SBOMs and OpenVEX attestations for Docker Hardened Images so scanners can suppress findings Docker has marked fixed or not affected, leaving a smaller active queue with attestation evidence for auditors. Source: `raw/2026-06-17-web-docker-com-docker-hardened-images-enhanced-vulnerability-scanning-with-docker-and-aikido-dock.md`. confidence: 1 Docker vendor source, last-confirmed 2026-06-17.
+- Docker frames hardened, minimal, attestable base images as more important when AI coding agents can generate services and dependencies faster than humans can triage flat CVE output. Source: `raw/2026-06-17-web-docker-com-docker-hardened-images-enhanced-vulnerability-scanning-with-docker-and-aikido-dock.md`. confidence: 1 Docker vendor source, last-confirmed 2026-06-17.
+- OWASP Agentic Skills Top 10 (AST10) positions skills as the behavior layer between models and tools, covering risks such as malicious skills, supply-chain compromise, over-privileged skills, insecure metadata, unsafe deserialization, weak isolation, update drift, poor scanning, no governance, and cross-platform reuse. Source: `raw/2026-06-17-web-owasp-org-owasp-agentic-skills-top-10-owasp-foundation.md`. confidence: 1 OWASP incubator project source, last-confirmed 2026-06-17.
+- AST10 recommends skill inventories, verified publishers, code signing, version pinning, permission manifests, sandboxed execution, network restrictions, install-time scanning, audit logging, and incident-response procedures for skill compromises. Source: `raw/2026-06-17-web-owasp-org-owasp-agentic-skills-top-10-owasp-foundation.md`. confidence: 1 OWASP incubator project source, last-confirmed 2026-06-17.
+
+### Typed entities
+- threat: indirect prompt injection / IPI
+- dataset: Common Crawl
+- organization: Google Threat Intelligence Group
+- control: LLM-based IPI classification
+- product: Claude Managed Agents
+- control: credential vault
+- control: MCP proxy
+- product: Docker Hardened Images / DHI
+- company/tool: Aikido
+- artifact: signed SPDX SBOM
+- artifact: OpenVEX attestation
+- framework: OWASP Agentic Skills Top 10 / AST10
+- concept: agentic skill behavior layer
+- control: skill permission manifest
+- control: skill signing
+
+### Explicit relationships
+- Public-web prompt injection depends-on agents consuming untrusted HTML, comments, documents, or email-like content as instructions.
+- IPI scanning depends-on human validation because educational/security content creates high false-positive rates.
+- Credential vaulting and proxy-mediated tool calls mitigate sandbox exfiltration by making raw tokens unreachable to generated code.
+- VEX attestations complement CVE scanning by adding exploitability status and justification from the image publisher.
+- Agentic skills differ from MCP tools: MCP defines reachable actions, while skills define multi-step behavior over those actions.
+- Skill security depends-on provenance, least privilege, isolation, safe parsing, update pinning, behavioral scanning, inventory, and audit logs.
+
+### HoneyDrunk implications
+- Treat Lore/browser ingestion as hostile content ingestion. Keep prompt-injection examples out of wiki pages except as summarized risk categories.
+- For OpenClaw/Honeyclaw, credentials should be injected as narrow capabilities or held behind proxies/vaults, not mounted into workspaces where generated code can read them.
+- Evaluate hardened base images and SBOM/VEX-aware scanners for agent-created container workloads, but verify attestation trust and scanner behavior locally.
+- Build a HoneyDrunk skill inventory before broad skill reuse: publisher, source, hash/version, declared permissions, network reach, filesystem reach, and last scan result.
+
+### Privacy and quality notes
+- Privacy filter: Google IPI examples and OWASP incident details were summarized by category; no prompt payloads, C2 indicators, commands, or destructive instructions were copied.
+- Quality posture: Google security and Docker sources are strong for their own observations/products. OWASP AST10 is useful taxonomy guidance but the project is incubating; source-claimed incident metrics should be corroborated before operational decisions rely on exact numbers.

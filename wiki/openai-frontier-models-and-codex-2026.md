@@ -141,3 +141,43 @@ OpenAI's June 11 raw sources add two durable signals for HoneyDrunk: GPT-5.5 is 
 
 ### Quality notes
 - Official OpenAI documentation is authoritative for listed shutdown dates as captured on 2026-06-16, but this page is time-sensitive and should be rechecked before operational migration work.
+
+## 2026-06-17 compile additions: Responses API migration surface
+
+### Source-backed claims
+- OpenAI's migration guide says Chat Completions remains supported, but Responses is recommended for all new projects because it provides a unified agentic interface with built-in tools such as web search, file search, computer use, code interpreter, remote MCP, custom functions, multimodal input, and multi-turn state options. Source: `raw/2026-06-17-web-developers-openai-com-migrate-to-the-responses-api-openai-api.md`. confidence: 1 official OpenAI documentation source, last-confirmed 2026-06-17.
+- Responses uses typed Items rather than Chat Completions messages/choices: output can include reasoning, messages, function calls, and function-call outputs, so consumers must iterate by item type instead of assuming one assistant message. Source: `raw/2026-06-17-web-developers-openai-com-migrate-to-the-responses-api-openai-api.md`. confidence: 1 source, last-confirmed 2026-06-17.
+- OpenAI lists three common Responses state patterns: `previous_response_id`, manually replaying prior output Items, or using the Conversations API; `previous_response_id` does not carry previous top-level instructions and prior input tokens in the chain are still billed. Source: `raw/2026-06-17-web-developers-openai-com-migrate-to-the-responses-api-openai-api.md`. confidence: 1 source, last-confirmed 2026-06-17.
+- Responses and Chat Completions storage are on by default in the documented behavior; applications that need stateless operation should set `store: false`, and ZDR-style reasoning continuity can use encrypted reasoning Items returned through `reasoning.encrypted_content`. Source: `raw/2026-06-17-web-developers-openai-com-migrate-to-the-responses-api-openai-api.md`. confidence: 1 source, last-confirmed 2026-06-17.
+- Responses moves Structured Outputs from `response_format` to `text.format`, changes function-tool shapes, removes the Chat Completions `n` multiple-generation parameter, and uses typed server-sent events for streaming. Source: `raw/2026-06-17-web-developers-openai-com-migrate-to-the-responses-api-openai-api.md`. confidence: 1 source, last-confirmed 2026-06-17.
+- The migration guide repeats that the Assistants API was deprecated on 2025-08-26 and is scheduled to sunset on 2026-08-26, with Responses and Conversations as migration targets. Source: `raw/2026-06-17-web-developers-openai-com-migrate-to-the-responses-api-openai-api.md`. confidence: 1 official source, last-confirmed 2026-06-17.
+
+### Typed entities
+- API: Responses API
+- API: Chat Completions API
+- API: Conversations API
+- API: Assistants API
+- tool: web search
+- tool: file search
+- tool: computer use
+- tool: code interpreter
+- tool: remote MCP
+- field: `previous_response_id`
+- field: `store`
+- field: `reasoning.encrypted_content`
+- field: `text.format`
+- concept: typed response Items
+
+### Explicit relationships
+- Responses supersedes Chat Completions for new OpenAI agent-style work, while Chat Completions remains supported for legacy flows.
+- Reasoning/tool workflows depend-on retaining or replaying typed Items; flattening them to text can drop necessary context.
+- Stateless or ZDR-sensitive workflows depend-on `store: false` and encrypted reasoning rather than default persisted response state.
+- Assistants API migration depends-on adopting Responses and Conversations before 2026-08-26.
+
+### HoneyDrunk implications
+- Inventory OpenAI integrations by API mode: Chat Completions can stay for simple legacy flows, but new OpenClaw/Lore agents should prefer Responses only after state, storage, and item-handling decisions are explicit.
+- Update stream parsers and function-call handlers before migration; a one-line endpoint swap will miss typed event and item semantics.
+- For sensitive HoneyDrunk data, default to stateless `store: false` until retention and audit requirements are documented.
+
+### Quality notes
+- Official OpenAI docs are authoritative for API shape as captured. The page is time-sensitive; verify SDK and API behavior before code changes.

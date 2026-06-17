@@ -743,3 +743,50 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - Solo.io, Google, and Foundry claims are platform/vendor signals. Thoughtworks is architecture guidance. All need local validation before changing HoneyDrunk runtime architecture.
+
+## 2026-06-17 compile additions: managed agents, dynamic selection, and production RAG harnesses
+
+### Source-backed claims
+- Anthropic's Managed Agents architecture decouples the session log, harness, and sandbox into separate interfaces, so a failed harness can restart from a durable event log and a failed sandbox can be reprovisioned as a tool-call failure instead of being nursed as a stateful container. Source: `raw/2026-06-17-web-anthropic-com-scaling-managed-agents-decoupling-the-brain-from-the-hands.md`. confidence: 1 Anthropic engineering source, last-confirmed 2026-06-17.
+- Anthropic reports that moving the "brain" out of the sandbox lowered time-to-first-token because sessions can begin inference before provisioning a container, and containers are created only when the agent needs a hand to execute code or tools. Source: `raw/2026-06-17-web-anthropic-com-scaling-managed-agents-decoupling-the-brain-from-the-hands.md`. confidence: 1 source, last-confirmed 2026-06-17.
+- Microsoft Agent Framework solution guidance describes a custom multi-agent automation architecture with App Service as front end, Container Apps as orchestrator compute, Foundry-hosted models/tools, Cosmos DB for plan/history persistence, and GitHub/ACR for container delivery. Source: `raw/2026-06-17-web-learn-microsoft-com-build-a-multiple-agent-workflow-automation-solution-by-using-microsoft-agent-frame.md`. confidence: 1 Microsoft Architecture Center source, last-confirmed 2026-06-17.
+- Microsoft's dynamic agents-at-scale pattern uses AI Search as a semantic cache of sample agent utterances, direct-invokes a single high-confidence agent when possible, and falls back to LLM selection over a shortlist when confidence is lower or multiple agents remain. Source: `raw/2026-06-17-web-learn-microsoft-com-dynamic-ai-agents-at-scale-pattern-azure-architecture-center.md`. confidence: 1 Microsoft Architecture Center source, last-confirmed 2026-06-17.
+- The same dynamic-agent pattern requires gated agent onboarding: unique names/descriptions, at least several representative utterances per capability, temporary cache evaluation, golden datasets, semantic-cache regression checks, end-to-end evaluation, and benchmark updates before production promotion. Source: `raw/2026-06-17-web-learn-microsoft-com-dynamic-ai-agents-at-scale-pattern-azure-architecture-center.md`. confidence: 1 source, last-confirmed 2026-06-17.
+- Fowler/Thoughtworks' Bayer PRINCE case study shows production agentic RAG as a staged harness: clarify intent, think/plan, research with RAG and Text-to-SQL, reflect on data sufficiency, write cited answers, persist LangGraph state, retry failed nodes, fall back across models, and run both dataset and live-traffic evaluations. Source: `raw/2026-06-17-web-martinfowler-com-building-reliable-agentic-ai-systems.md`. confidence: 1 case-study/practice source, last-confirmed 2026-06-17.
+- The PRINCE case argues that larger context windows do not remove the need for context discipline; each stage should receive the context it needs rather than one monolithic prompt containing all available information. Source: `raw/2026-06-17-web-martinfowler-com-building-reliable-agentic-ai-systems.md`. confidence: 1 source, last-confirmed 2026-06-17.
+
+### Typed entities
+- product: Claude Managed Agents
+- concept: session log
+- concept: harness/sandbox decoupling
+- interface: `execute(name, input) -> string`
+- service: Microsoft Agent Framework
+- service: Microsoft Foundry
+- platform: Azure Container Apps
+- database: Azure Cosmos DB
+- service: Azure AI Search
+- pattern: semantic cache agent selector
+- artifact: golden dataset
+- system: Bayer PRINCE
+- framework: LangGraph
+- pattern: Agentic RAG
+- pattern: Text-to-SQL
+- tool: Langfuse
+- framework: RAGAS
+
+### Explicit relationships
+- Managed Agents use durable session logs to decouple recovery from harness process lifetime.
+- Sandboxes are hands that expose execution through tool-like interfaces; they do not need to share state or credentials with the brain.
+- Dynamic agent selection uses semantic cache retrieval to reduce LLM routing cost and context bloat.
+- Agent onboarding depends-on representative utterances and regression evaluation because a new agent can degrade selection quality for existing agents.
+- PRINCE uses process reflection, data reflection, and writer/draft reflection as separate loops rather than one generic self-critique step.
+- Context engineering complements harness engineering: context routing shapes what each model sees, while harness controls state, retries, tools, observability, and recovery.
+
+### HoneyDrunk implications
+- For OpenClaw/Honeyclaw, treat session history as a durable queryable object distinct from the active context window and the execution sandbox.
+- Do not scale to many always-visible agents. Build a small agent catalog, sample utterances, and a golden dataset before trying dynamic routing.
+- For Lore/RAG work, separate retrieval, sufficiency review, and final synthesis so citations and failure points are auditable.
+- Prefer recoverable workflow nodes and explicit retry/fallback boundaries over one long autonomous loop.
+
+### Quality notes
+- Anthropic and Microsoft sources are platform-authored; PRINCE is a strong case study but domain-specific and regulated. No private data or credentials were copied.

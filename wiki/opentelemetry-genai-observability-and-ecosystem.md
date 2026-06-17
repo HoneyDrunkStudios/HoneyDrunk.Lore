@@ -314,3 +314,38 @@ OpenTelemetry is becoming the practical neutral observability layer for LLM/agen
 
 ### Quality notes
 - Microsoft and OpenAI sources are authoritative for their own products. Exact attribute names and SDK hooks should still be pinned to package versions before implementation.
+
+## 2026-06-17 compile additions: agentic system observability at scale
+
+### Source-backed claims
+- Microsoft's dynamic agents-at-scale pattern uses OpenTelemetry instrumentation, an OpenTelemetry Collector, Application Insights, Azure Monitor, and Log Analytics to correlate orchestrator, agent, model, semantic-cache, and external-call behavior across one conversation trace. Source: `raw/2026-06-17-web-learn-microsoft-com-dynamic-ai-agents-at-scale-pattern-azure-architecture-center.md`. confidence: 1 Microsoft Architecture Center source, last-confirmed 2026-06-17.
+- The same source distinguishes ordinary system observability from agentic application observability: teams need to know which agent responded slowly, what sequence of calls led to poor output, which model parameters/prompts were active, and where coordination failed. Source: `raw/2026-06-17-web-learn-microsoft-com-dynamic-ai-agents-at-scale-pattern-azure-architecture-center.md`. confidence: 1 source, last-confirmed 2026-06-17.
+- Microsoft recommends tracking system performance, LLM inference performance, usage/engagement, and quality/model-accuracy metrics, including latency, throughput, TTFT, token usage, content-safety triggers, active conversations, intent selection accuracy, instruction adherence, groundedness, and bias. Source: `raw/2026-06-17-web-learn-microsoft-com-dynamic-ai-agents-at-scale-pattern-azure-architecture-center.md`. confidence: 1 source, last-confirmed 2026-06-17.
+- The dynamic agents-at-scale source says observability can include system prompts, model parameters, user inputs, conversation history, and outputs for reproducibility, but also lists secure data handling and masking/omission of sensitive information as a best practice. Source: `raw/2026-06-17-web-learn-microsoft-com-dynamic-ai-agents-at-scale-pattern-azure-architecture-center.md`. confidence: 1 source, last-confirmed 2026-06-17.
+
+### Typed entities
+- service: Application Insights
+- service: Azure Monitor
+- service: Log Analytics
+- component: OpenTelemetry Collector
+- protocol: OTLP
+- metric: time to first token / TTFT
+- metric: intent selection accuracy
+- concept: semantic observability
+- concept: behavioral observability
+- control: telemetry sampling
+- control: sensitive-data masking
+
+### Explicit relationships
+- Agentic observability extends logs, metrics, and traces with semantic/behavioral signals about prompts, tools, agent selection, and collaboration.
+- Trace IDs and span IDs connect orchestrators, agents, caches, models, and external tools into one conversation path.
+- Reproducibility depends-on capturing enough prompt/model/context metadata, while privacy depends-on masking, omission, sampling, and retention controls.
+- Agent selector evaluation complements observability because production traces alone do not prove that the right agent should have been selected.
+
+### HoneyDrunk implications
+- For OpenClaw/Honeyclaw, log enough structure to reconstruct agent routing, tool calls, model IDs, token usage, approval outcomes, and verification results.
+- Keep prompt/user-input/output capture behind explicit debug or evaluation modes with retention limits; default telemetry should favor metadata over raw sensitive content.
+- Add agent-selection metrics if HoneyDrunk adopts dynamic routing: invoke accuracy, selector precision/recall, and "direct invoke vs orchestrator path" counts.
+
+### Quality notes
+- Microsoft source is architecture guidance and Azure-centered. The telemetry categories are broadly useful; product-specific dashboards should not drive HoneyDrunk architecture unless local needs justify Azure Monitor/Application Insights.

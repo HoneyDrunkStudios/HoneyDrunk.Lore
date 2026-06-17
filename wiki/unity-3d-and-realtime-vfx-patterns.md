@@ -654,3 +654,37 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - Vendor e-book announcement; useful as product-direction signal but not independent proof of deployment outcomes.
+
+## 2026-06-17 compile additions: Houdini GPU fluid and MPM workflow signal
+
+### Source-backed claims
+- 80 Level reports Joe Raasch's Houdini R&D with Theory Accelerated Paradigm, a GPU liquid solver plugin from the Axiom pyro-plugin team, using VDBs, points, or particle networks as fluid sources and supporting variable viscosity, surface tension, and whitewater generation. Source: `raw/2026-06-17-web-80-lv-theory-accelerated-s-liquid-solver-tested-with-marvel-s-wolverine.md`. confidence: 1 80 Level/practitioner source, last-confirmed 2026-06-17.
+- The source reports Paradigm test renders in Houdini Karma around one minute per frame for most shots and roughly three minutes per frame for the most demanding water-tank sequence, with the artist noting a 24 GB VRAM home-machine limit. Source: `raw/2026-06-17-web-80-lv-theory-accelerated-s-liquid-solver-tested-with-marvel-s-wolverine.md`. confidence: 1 source, last-confirmed 2026-06-17.
+- The dismemberment workflow combined Houdini MPM material-point simulation for breakage with MPM Debris Source emitting particles along breaking regions to drive the fluid sim, showing a practical Houdini link between material fracture behavior and fluid emission. Source: `raw/2026-06-17-web-80-lv-theory-accelerated-s-liquid-solver-tested-with-marvel-s-wolverine.md`. confidence: 1 source, last-confirmed 2026-06-17.
+- The same source notes SideFX teased Houdini 22 with 3D Gaussian splats as a headline feature and an online keynote planned for 2026-06-22. Source: `raw/2026-06-17-web-80-lv-theory-accelerated-s-liquid-solver-tested-with-marvel-s-wolverine.md`. confidence: 1 secondary news source, last-confirmed 2026-06-17.
+
+### Typed entities
+- tool/plugin: Theory Accelerated Paradigm
+- tool/plugin: Axiom
+- DCC: Houdini
+- renderer: Karma
+- solver: Houdini MPM solver
+- node/tool: MPM Debris Source
+- concept: GPU liquid solver
+- concept: whitewater generation
+- concept: 3D Gaussian splats
+- product/version: Houdini 22
+
+### Explicit relationships
+- Paradigm uses GPU compute to accelerate liquid simulation inside Houdini.
+- MPM breakage can drive fluid emission through debris-source particles.
+- VRAM limits constrain how far GPU fluid simulations can scale on workstation hardware.
+- Houdini 22's teased Gaussian-splat feature complements broader browser/engine Gaussian-splat watchlist work, but should not be treated as stable workflow guidance before release details.
+
+### HoneyDrunk implications
+- For cinematic fluid/VFX experiments, benchmark Paradigm or similar GPU solvers on actual target workstation VRAM before assuming production-scale capacity.
+- Track whether Houdini 22 Gaussian splats can bridge scanned/AI-generated 3D assets into technical-art pipelines after SideFX publishes concrete release notes.
+- Keep MPM-to-fluid emission as a Houdini R&D pattern for gore, debris, mud, lava, or breakage-driven effects, but validate art direction and render cost locally.
+
+### Quality notes
+- 80 Level is secondary/practitioner reporting with useful workflow detail. Render timings and hardware limits are anecdotal and should be reproduced before production planning.

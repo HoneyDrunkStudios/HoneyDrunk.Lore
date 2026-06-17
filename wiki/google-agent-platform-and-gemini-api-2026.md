@@ -201,3 +201,43 @@ Google's 2026 agent developer surface is converging on production plumbing: Agen
 
 ### Quality notes
 - Source is vendor-authored developer guidance. Architecture claims are useful; performance and task claims require reproduction.
+
+## 2026-06-17 compile additions: Antigravity CLI transition and older Gemini API baseline
+
+### Source-backed claims
+- Google announced that Antigravity CLI is available as the successor terminal experience to Gemini CLI for many consumer/developer workflows, sharing the Antigravity 2.0 server-side harness and retaining critical Gemini CLI concepts such as Agent Skills, Hooks, Subagents, and Extensions as Antigravity plugins. Source: `raw/2026-06-17-web-developers-googleblog-com-an-important-update-transitioning-gemini-cli-to-antigravity-cli-google-developers.md`. confidence: 1 Google Developers source, last-confirmed 2026-06-17.
+- Google states that on 2026-06-18 Gemini CLI and Gemini Code Assist IDE extensions stop serving requests for Google AI Pro/Ultra users and free individual Gemini Code Assist users; Gemini Code Assist for GitHub will also stop accepting new GitHub organization installations on that date and requests will stop in following weeks. Source: `raw/2026-06-17-web-developers-googleblog-com-an-important-update-transitioning-gemini-cli-to-antigravity-cli-google-developers.md`. confidence: 1 Google Developers source, last-confirmed 2026-06-17.
+- Enterprise customers using Gemini CLI or IDE extensions through Gemini Code Assist Standard/Enterprise or Gemini Code Assist for GitHub through Google Cloud remain supported, and Gemini CLI remains accessible through paid Gemini and Gemini Enterprise Agent Platform API keys. Source: `raw/2026-06-17-web-developers-googleblog-com-an-important-update-transitioning-gemini-cli-to-antigravity-cli-google-developers.md`. confidence: 1 source, last-confirmed 2026-06-17.
+- The 2025 Gemini API I/O update is now historical baseline rather than latest model guidance: it introduced 2.5-era thought summaries, thinking budgets, URL Context, browser computer-use tooling, broader JSON Schema support, async Live API function calling, and Batch API plans. Source: `raw/2026-06-17-web-developers-googleblog-com-gemini-api-i-o-updates-google-developers-blog.md`. confidence: 1 Google Developers source, last-confirmed 2026-06-17.
+- Later 2026 Lore evidence supersedes the 2025 source for model-routing decisions because the wiki already has newer Gemini 3.5, Antigravity, Gemma 4, and DiffusionGemma sources. Superseded-by: 2026-06-17 - newer Google platform/model pages are more authoritative for current model selection; retain the 2025 source only for API primitive history. Source: `raw/2026-06-17-web-developers-googleblog-com-gemini-api-i-o-updates-google-developers-blog.md`; pages: [[google-agent-platform-and-gemini-api-2026]], [[edge-ai-and-ai-infrastructure-2026]]. confidence: 1 source plus compile reconciliation, last-confirmed 2026-06-17.
+
+### Typed entities
+- product: Google Antigravity 2.0
+- CLI: Antigravity CLI
+- CLI: Gemini CLI
+- product: Gemini Code Assist
+- feature: Agent Skills
+- feature: Hooks
+- feature: Subagents
+- feature: Antigravity plugins
+- API feature: Gemini thought summaries
+- API feature: thinking budgets
+- tool: URL Context
+- tool: computer use
+- API: Gemini Live API
+- API: Batch API
+
+### Explicit relationships
+- Antigravity CLI supersedes Gemini CLI for affected consumer/free/Pro/Ultra workflows after 2026-06-18.
+- Antigravity CLI shares a harness with Antigravity 2.0, reducing split-brain behavior across desktop and terminal agent surfaces.
+- Gemini CLI enterprise access depends-on paid licenses or Gemini Enterprise Agent Platform API keys.
+- Gemini 2.5-era model claims are superseded for routing decisions by later Gemini 3.5/Gemma/DiffusionGemma sources in Lore.
+- URL Context and computer-use tools complement agent research/browser workflows but require untrusted-content and action-consent controls.
+
+### HoneyDrunk implications
+- Inventory any Gemini CLI, Gemini Code Assist individual, or Gemini Code Assist for GitHub usage immediately because the consumer cutoff is 2026-06-18.
+- If Antigravity CLI is tested, evaluate background/asynchronous workflows, plugin provenance, credential masking, sandboxing, and whether logs/artifacts are inspectable.
+- Keep older Gemini 2.5 claims out of current model-routing decisions unless revalidated; use them only as API-surface history.
+
+### Quality notes
+- Google sources are authoritative for Google product transition dates and feature positioning. Model/API availability remains time-sensitive and should be checked before implementation.

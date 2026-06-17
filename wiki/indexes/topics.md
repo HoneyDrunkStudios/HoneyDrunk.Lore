@@ -650,3 +650,28 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 ### Game engines, industrial 3D, and technical art
 - [[unity-3d-and-realtime-vfx-patterns]] - 42 sources - last-confirmed 2026-06-16
 - [[technical-art-community-and-talent-signals]] - 28 sources - last-confirmed 2026-06-16
+
+## 2026-06-17 topic additions
+
+### AI agents, harnesses, and dynamic orchestration
+- [[ai-agent-harnesses]] - 101 sources - last-confirmed 2026-06-17
+- [[opentelemetry-genai-observability-and-ecosystem]] - 15 sources - last-confirmed 2026-06-17
+- [[microsoft-dotnet-ai-stack]] - 46 sources - last-confirmed 2026-06-17
+
+### Agent security, skill governance, and container supply chain
+- [[ai-coding-agent-security]] - 76 sources - last-confirmed 2026-06-17
+- [[mcp-tool-governance-and-app-surfaces]] - 50 sources - last-confirmed 2026-06-16
+- [[github-actions-platform-operations]] - 28 sources - last-confirmed 2026-06-17
+
+### AI platforms, APIs, and provider transitions
+- [[google-agent-platform-and-gemini-api-2026]] - 16 sources - last-confirmed 2026-06-17
+- [[openai-frontier-models-and-codex-2026]] - 6 sources - last-confirmed 2026-06-17
+- [[edge-ai-and-ai-infrastructure-2026]] - 42 sources - last-confirmed 2026-06-16
+
+### .NET, API contracts, and multitenant AI
+- [[microsoft-dotnet-ai-stack]] - 46 sources - last-confirmed 2026-06-17
+- [[github-actions-platform-operations]] - 28 sources - last-confirmed 2026-06-17
+
+### Game engines, Houdini, and technical art
+- [[unity-3d-and-realtime-vfx-patterns]] - 43 sources - last-confirmed 2026-06-17
+- [[technical-art-community-and-talent-signals]] - 28 sources - last-confirmed 2026-06-16
