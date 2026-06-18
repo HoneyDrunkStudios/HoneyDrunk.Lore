@@ -336,3 +336,37 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - Goodfire is both research source and product vendor. Claims are promising but should be reproduced on HoneyDrunk datasets before adoption.
+
+## 2026-06-18 compile additions: fine-tuned trace judges and review evidence evaluation
+
+### Source-backed claims
+- LangChain/Fireworks report fine-tuning a Qwen judge model to classify "perceived error" in production traces, using multi-turn human/AI messages and labels built from model-assisted plus human review. Source: `raw/2026-06-18-web-langchain-com-building-a-100x-cheaper-trace-judge-with-fireworks.md`. confidence: 1 vendor/research blog source, last-confirmed 2026-06-18.
+- In the reported experiments, a Qwen-3.5-35B LoRA SFT judge trained on `chat-langchain` reached 96.1% on that holdout and 90.8% on the separate Fleet holdout, matching or exceeding several frontier-model baselines while being described as 10-100x cheaper at scale. Source: `raw/2026-06-18-web-langchain-com-building-a-100x-cheaper-trace-judge-with-fireworks.md`. confidence: 1 vendor/research source, last-confirmed 2026-06-18.
+- LangChain defines "perceived error" as user-observed assistant mistake/correction signals, not objective correctness or user happiness, and treats it as a general-purpose trace-mining signal that still may need application-specific evaluators. Source: `raw/2026-06-18-web-langchain-com-building-a-100x-cheaper-trace-judge-with-fireworks.md`. confidence: 1 source, last-confirmed 2026-06-18.
+- Greptile's TREX code-review design evaluates review usefulness through artifact-backed execution rather than only textual findings, using screenshots, logs, traces, scripts, and videos to make review conclusions inspectable. Source: `raw/2026-06-18-web-greptile-com-building-trex-code-execution-and-artifact-generation-for-.md`; page: [[ai-assisted-software-practice]]. confidence: 1 vendor engineering source, last-confirmed 2026-06-18.
+
+### Typed entities
+- platform: LangSmith
+- company/platform: Fireworks
+- model: Qwen-3.5-35B
+- method: LoRA SFT
+- metric/concept: perceived error
+- dataset: `chat-langchain`
+- dataset: Fleet
+- system: Greptile TREX
+- artifact: execution trace
+- artifact: screenshot/log/API trace/video
+
+### Explicit relationships
+- Trace judges complement live observability by mining every production trace for cheap, coarse signals before deeper human or application-specific evaluation.
+- Perceived-error classification does not supersede objective correctness tests because it measures user correction/frustration signals.
+- Fine-tuned open judges can complement frontier judges when trace volume makes per-call frontier evaluation too expensive.
+- Artifact-backed review evaluation links a finding to reproducible evidence, making precision/recall assessment less dependent on prose trust.
+
+### HoneyDrunk implications
+- For OpenClaw/Grid/Lore traces, consider a small labeled "perceived error" or "operator correction" dataset before adopting any trace judge.
+- Use cheap general trace classifiers for triage only; keep task-specific evals and human review for correctness-critical decisions.
+- When measuring AI review quality, score whether findings include reproducible evidence, not only whether they sound plausible.
+
+### Quality notes
+- LangChain/Fireworks and Greptile are vendor-authored sources. Treat reported accuracy/cost as spike hypotheses until reproduced on HoneyDrunk traces.

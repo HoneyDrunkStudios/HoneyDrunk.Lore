@@ -617,3 +617,42 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - Identity-control claims are expert opinion; OKF is a vendor-announced open specification and should be read against the repo/spec before implementation.
+
+## 2026-06-18 compile additions: MCP structured outputs, diagnostics bridges, and IDE semantic tools
+
+### Source-backed claims
+- The MCP C# SDK now supports the MCP 2025-06-18 specification with separated authentication/resource-server roles, elicitation, structured tool output schemas, resource links in tool results, expanded `_meta`, and human-friendly titles for tools/resources/prompts. Source: `raw/2026-06-18-web-devblogs-microsoft-com-mcp-c-sdk-gets-major-update-support-for-protoco.md`. confidence: 1 official .NET Blog source, last-confirmed 2026-06-18.
+- The MCP C# SDK's structured output support lets tools publish output schemas and return `structuredContent`, reducing the need for clients or models to infer result shapes from free text. Source: `raw/2026-06-18-web-devblogs-microsoft-com-mcp-c-sdk-gets-major-update-support-for-protoco.md`. confidence: 1 source, last-confirmed 2026-06-18.
+- Microsoft's Binlog MCP Server wraps MSBuild `.binlog` analysis as 15 MCP tools for build errors, warnings, properties, imports, embedded files, expensive projects/targets/tasks, and two-build comparison. Source: `raw/2026-06-18-web-devblogs-microsoft-com-ai-powered-msbuild-investigation-with-the-micro.md`. confidence: 1 official .NET Blog source, last-confirmed 2026-06-18.
+- AWS shows a custom MCP server pattern for AWS DevOps Agent that exposes EKS node diagnostics through SSM Automation and S3-backed extraction, keeping node access mediated rather than giving the agent an interactive shell. Source: `raw/2026-06-18-web-aws-amazon-com-diagnose-eks-node-issues-faster-with-aws-devops-agent-a.md`. confidence: 1 AWS DevOps Blog source, last-confirmed 2026-06-18.
+- GitHub's Copilot CLI LSP Setup skill configures language servers so the terminal agent can use semantic code-intelligence requests instead of grepping dependencies or decompiling packages. Source: `raw/2026-06-18-web-github-blog-give-github-copilot-cli-real-code-intelligence-with-langua.md`. confidence: 1 GitHub Blog source, last-confirmed 2026-06-18.
+
+### Typed entities
+- specification: MCP 2025-06-18
+- library: MCP C# SDK / `ModelContextProtocol`
+- concept: elicitation
+- concept: structured tool output
+- field: `structuredContent`
+- tool/server: Microsoft Binlog MCP Server
+- file type: MSBuild `.binlog`
+- service: AWS DevOps Agent
+- service: Amazon EKS
+- service: AWS Systems Manager Automation / SSM Automation
+- service: Amazon Bedrock AgentCore Gateway
+- tool/skill: GitHub Copilot CLI LSP Setup skill
+- protocol: Language Server Protocol / LSP
+
+### Explicit relationships
+- Structured tool outputs complement MCP governance by making tool result contracts explicit and machine-checkable.
+- Elicitation adds an interactive server-to-user request path, which depends-on client capability declarations and input validation.
+- Binlog MCP tools translate MSBuild diagnostic structure into agent-readable operations instead of exposing raw binary logs.
+- AWS custom MCP diagnostics bridges an agent visibility gap while SSM Automation mediates host access and auditability.
+- LSP setup complements agent code search by replacing text heuristics with language-server semantics.
+
+### HoneyDrunk implications
+- Prefer MCP tools that publish structured output schemas for durable OpenClaw/Honeyclaw integrations; free-text tools should be treated as less reliable inputs.
+- For build and runner diagnostics, expose bounded diagnostic tools and run receipts rather than giving agents direct shell or host access by default.
+- Add LSP-backed code intelligence to the agent-tooling watchlist for repositories where agents repeatedly misread APIs or dependencies.
+
+### Quality notes
+- Microsoft, AWS, and GitHub sources are vendor-authored but concrete. Validate package versions, authentication behavior, telemetry settings, and host-access boundaries before implementation.

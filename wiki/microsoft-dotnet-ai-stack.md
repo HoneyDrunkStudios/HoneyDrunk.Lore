@@ -473,3 +473,39 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 
 ### Quality notes
 - The API-versioning source is a .NET Blog guest post with concrete code and comments; verify package versions at implementation time. Microsoft Architecture Center sources are useful Azure-centered patterns, not a mandate to adopt Azure control planes.
+
+## 2026-06-18 compile additions: MSBuild MCP diagnostics, MCP C# SDK updates, and Azure AI technology selection
+
+### Source-backed claims
+- Microsoft Binlog MCP Server gives AI assistants direct MCP access to MSBuild binary logs through tools for overview, errors, warnings, search, projects, properties, items, imports, property explanation, embedded file reading/search, performance hot spots, and two-build comparison. Source: `raw/2026-06-18-web-devblogs-microsoft-com-ai-powered-msbuild-investigation-with-the-micro.md`. confidence: 1 official .NET Blog source, last-confirmed 2026-06-18.
+- The Binlog MCP Server is distributed through the `dotnet-msbuild` plugin in the .NET Agent Skills repository and can also be wired directly as a stdio MCP server with `dotnet tool run Microsoft.AITools.BinlogMcp`. Source: `raw/2026-06-18-web-devblogs-microsoft-com-ai-powered-msbuild-investigation-with-the-micro.md`. confidence: 1 source, last-confirmed 2026-06-18.
+- The MCP C# SDK update adds support for MCP protocol version 2025-06-18, including elicitation, structured tool output, resource links, metadata improvements, and tool titles. Source: `raw/2026-06-18-web-devblogs-microsoft-com-mcp-c-sdk-gets-major-update-support-for-protoco.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 official .NET Blog source, last-confirmed 2026-06-18.
+- Microsoft Architecture Center's AI services selection page groups Foundry Agent Service, Foundry Models, observability, RAG components, targeted language processing, speech, image/video processing, content safety, custom Azure Machine Learning models, and Foundry Local/on-device inference as distinct technology choices. Source: `raw/2026-06-18-web-learn-microsoft-com-choose-an-azure-ai-technology-azure-architecture-c.md`. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-18.
+
+### Typed entities
+- tool/server: Microsoft Binlog MCP Server
+- plugin: `dotnet-msbuild`
+- tool: `Microsoft.AITools.BinlogMcp`
+- file type: `.binlog`
+- library: MCP C# SDK
+- service: Foundry Agent Service
+- service: Foundry Models
+- service: Azure AI Search
+- service: Azure Document Intelligence
+- service: Azure Content Understanding
+- service: Foundry Local
+- platform: Azure Machine Learning
+
+### Explicit relationships
+- Binlog MCP diagnostics complement .NET build troubleshooting by exposing structured MSBuild state to coding agents.
+- Structured MCP output in the C# SDK complements .NET agent tools by reducing free-text parsing and clarifying result contracts.
+- Foundry prebuilt services complement custom Azure Machine Learning when workloads need low-setup intelligent functions; custom ML supersedes prebuilt services when exclusive data, custom model types, lineage, or training control dominate.
+- Foundry Local complements cloud Foundry services when privacy, latency, offline behavior, or cost makes on-device inference preferable.
+
+### HoneyDrunk implications
+- For .NET build failures, consider capturing `.binlog` files and using structured analysis before asking agents to infer MSBuild behavior from console output alone.
+- Any HoneyDrunk MCP server written in C# should target structured outputs and explicit auth/resource boundaries where the current SDK supports them.
+- Use Azure AI service-selection guidance as a decision checklist, not a default architecture: prebuilt service, custom ML, RAG, local inference, and content-safety needs should be chosen per workload.
+
+### Quality notes
+- Microsoft Learn and .NET Blog are authoritative for Microsoft tooling direction but time-sensitive for package versions and preview status.

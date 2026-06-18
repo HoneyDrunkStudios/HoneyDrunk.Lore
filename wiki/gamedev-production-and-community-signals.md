@@ -337,3 +337,34 @@ The game-development community feed produced a mix of process advice, tooling ex
 
 ### Quality notes
 - Source is practitioner/trade press. The lesson is useful as production guidance, not a universal rule.
+
+## 2026-06-18 compile additions: Epic Lore version control and UE6 interoperability direction
+
+### Source-backed claims
+- Epic's Lore version control system is described as an open-source, centralized, content-addressed system optimized for projects that combine code with large binary assets, using Merkle trees, immutable revision chains, binary-first storage, deduplication, and sparse/on-demand hydration. Source: `raw/2026-06-18-web-80-lv-epic-games-presented-open-sourced-version-control-system.md`. confidence: 1 trade-press source quoting Epic positioning, last-confirmed 2026-06-18.
+- Epic positions Lore against Git-plus-LFS and proprietary binary-asset systems by emphasizing first-class chunked storage, offline/sparse workflows, multi-tenant isolation, open specifications, and extensibility across C/C++, C#, Rust, Go, Python, and JavaScript. Source: `raw/2026-06-18-web-80-lv-epic-games-presented-open-sourced-version-control-system.md`. confidence: 1 source, last-confirmed 2026-06-18.
+- Game Developer reports Epic's UE6 direction as merging UE5 and UEFN into a unified engine, shifting toward Verse, interoperable content/code/economies, AI pipeline features, first-class glTF/USD formats, and open specifications where standards do not exist; early access is described for late 2027. Source: `raw/2026-06-18-web-gamedeveloper-com-unreal-engine-6-will-merge-ue5-and-uefn-into-one-eng.md`. confidence: 1 trade-press source, last-confirmed 2026-06-18.
+
+### Typed entities
+- product: Epic Lore version control
+- engine: Unreal Engine 6 / UE6
+- tool/platform: Unreal Editor for Fortnite / UEFN
+- language: Verse
+- standard: glTF
+- standard: USD
+- concept: binary-first version control
+- concept: smart asset interoperability
+- concept: cross-game economy portability
+
+### Explicit relationships
+- Binary-first version control depends-on content-addressed chunk storage, deduplication, sparse hydration, and locking/replication workflows for large asset teams.
+- Epic Lore complements or competes with Git LFS and proprietary game-asset version-control systems.
+- UE6 interoperability depends-on Verse APIs, asset conventions, open formats, and ecosystem/economy rules, not only renderer/editor features.
+- Fortnite integration may complement UE6 distribution for some projects while contradicting a fully platform-neutral strategy for others.
+
+### HoneyDrunk implications
+- Keep Epic Lore on the watchlist for future large-binary game/film repositories, but do not migrate without testing Windows workflows, locking, offline behavior, Git interop, hosting, backups, and editor integration.
+- Treat UE6/Verse/UEFN convergence as strategic direction, not immediate production guidance. Any HoneyDrunk Unreal planning should preserve exit options until tooling, licensing, and interoperability details are concrete.
+
+### Quality notes
+- 80 Level and Game Developer are trade-press sources summarizing Epic announcements. Validate against Epic's primary docs before tool or engine commitments.

@@ -1,0 +1,231 @@
+---
+source: "https://android-developers.googleblog.com/2026/06/Android-17.html"
+title: "Android Developers Blog: Android 17 is here"
+author: "Android Developers Blog"
+date_published: "unknown"
+date_clipped: "2026-06-18"
+category: "AI / LLM Research & Tooling"
+source_type: "web"
+---
+
+# Android Developers Blog: Android 17 is here
+
+Source: https://android-developers.googleblog.com/2026/06/Android-17.html
+
+Android Developers Blog: Android 17 is here
+☰
+Android Developers Blog
+The latest Android and Google Play news for app and game
+developers.
+🔍
+Android Developers →
+Jetpack
+Kotlin
+Docs
+News
+Platform
+Android Studio
+Google Play
+Jetpack
+Kotlin
+Docs
+News
+Platform
+Android Studio
+Google Play
+Jetpack
+Kotlin
+Docs
+News
+More
+|
+16 June 2026
+Android 17 is here
+LinkedIn
+Twitter
+Facebook
+Email
+Copy link
+Link copied to clipboard
+Posted by Matthew McCullough, VP of Product Management, Android Developer
+Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
+Android 17 marks the start of our transition to an intelligence system, putting your apps at the center. It's shifting to an adaptive-first development standard by introducing mandatory large-screen resizability, all while delivering next-generation privacy, security, media, camera, and performance. We'll cover all that in this post, as well as how we're bringing together next generation tools, libraries, and agent skills to help your apps embrace the opportunity.
+Throughout the past year, from our Canary channel to our Beta releases, we’ve collaborated with you in the developer community to build a platform you and your users can trust. To that end, this moment marks the availability of the source code at the Android Open Source Project (AOSP). This allows you to examine the source code for a deeper understanding of how Android works.
+Let's dive deeper into Android 17.
+An intelligence system
+With deep integration between hardware, software and AI, we’re transforming Android from an operating system to an intelligence system. It's about delivering new helpful experiences that anticipate user needs, and it brings more opportunities for engagement with your apps. To that end, Android 17 expands the capabilities of AppFunctions, a platform API with a corresponding Jetpack library. It allows you to contribute your app's unique capabilities as orchestratable "tools" for Android MCP, the on-device equivalent of the Model Context Protocol . AI agents and assistants (like Google Gemini) can discover and execute AppFunctions to perform workflows on behalf of the user with direct access to the app's local state.
+The Jetpack library, currently in alpha, makes adding AppFunctions as easy as annotating a class and adding KDoc comments.
+/**
+* A note app's [AppFunction]s.
+*/
+class NoteFunctions(
+private val noteRepository: NoteRepository
+) {
+/**
+* Adds a new note to the app.
+*
+* @param appFunctionContext The execution context.
+* @param title The title of the note.
+* @param content The note's content.
+*/
+@AppFunction(isDescribedByKDoc = true)
+suspend fun createNote(
+appFunctionContext: AppFunctionContext,
+title: String,
+content: String
+): Note {
+return noteRepository.createNote(title, content)
+}
+}
+We’ve also launched an AppFunctions agent skill that analyzes your app’s key workflows, automatically generates the required Kotlin code, optimizes your KDocs for LLM tool-calling, and provides ADB commands for testing and debugging.
+The Gemini integration is currently in a private preview with trusted testers, but you can begin preparing your apps now. In addition to ADB commands to execute your AppFunctions, we've provided a test agent app that includes an interface to discover and execute your app functions and simulate an AI agent integration. Join our integration early access program at goo.gle/eap-af for a chance to be among the first apps to deploy AppFunctions to production.
+Adaptive-first
+Your users no longer rely on a single form factor; they transition between phones, foldables, tablets, laptops, automotive displays, and immersive XR environments. Now, with over 580 million large screen devices in the hands of users and the forthcoming launch of Googlebooks , the next generation of ChromeOS built on the Android stack, adaptive is no longer just a technical goal. It’s a massive opportunity to reach highly engaged users, which is one of the reasons we're shifting to an adaptive-first development standard .
+No resizability/orientation restrictions on large screens
+To ensure apps deliver a premium experience across all form factors, including mobile devices running in desktop mode on connected displays, Android 17 (API level 37) removes the developer opt-out for orientation and resizability restrictions on large screen devices (sw > 600 dp) for apps targeting API level 37. The system will ignore legacy manifest attributes and runtime APIs, including screenOrientation, setRequestedOrientation(), resizeableActivity=false, and aspect ratio constraints (minAspectRatio/maxAspectRatio). Games (based on app category in Google Play) remain exempt. Your app must be ready to adapt to any window size, respect the user's preferred device posture, and support free-form windowing natively.
+Next-gen multitasking: App Bubbles, Bubble Bar, and desktop interactive PiP
+Android 17 introduces powerful new windowing capabilities that redefine how users multitask, demanding even greater layout flexibility from your apps:
+App Bubbles: Moving beyond the messaging bubbles API, users can now transform any app into a floating bubble by long-pressing its icon on the launcher. This feature is available across phones, foldables, and tablets, enabling lightweight multitasking for any workflow.
+The Bubble Bar: On large screens (tablets and foldables), the system taskbar now includes a dedicated Bubble Bar to organize, transition between, and dock these floating app bubbles.
+Desktop interactive PiP: In desktop environments, Android 17 introduces interactive Picture-in-Picture (PiP). Unlike traditional PiP windows which are read-only, these pinned windows remain fully interactive while staying always-on-top of other application windows.
+App Bubbles and Bubble Bar in action
+Activity recreation updates
+To prevent disruptive state loss and stutter, Android 17 updates the default behavior for Activity recreation. The system will no longer restart activities by default for typical configuration changes that do not require a full UI redraw (including CONFIG_KEYBOARD , CONFIG_KEYBOARD_HIDDEN , CONFIG_NAVIGATION , CONFIG_TOUCHSCREEN , and CONFIG_COLOR_MODE ).
+Instead, running activities will receive these updates via onConfigurationChanged(), enabling smooth transitions. If your application explicitly relies on a full restart to reload resources for these changes, you must now explicitly opt-in using the new android:recreateOnConfigChanges manifest attribute.
+Continue On
+Android 17 adds Continue On to help users seamlessly transition a task between Android devices. The user sees a suggestion for the most recently opened app from their mobile device in their tablet taskbar, providing a one-tap affordance to launch the app and deep-link where they left off. Continue on can support app-to-web transitions, including falling back to using the web if the app isn't installed.
+Handoff Suggestion on a Tablet
+class MyHandoffActivity : Activity() {
+...
+override fun onCreate(savedInstanceState: Bundle?) {
+super.onCreate(savedInstanceState)
+// Do stuff
+...
+// Enable handoff
+setHandoffEnabled(true, null)
+}
+// Override and implement onHandoffActivityDataRequested
+override fun onHandoffActivityDataRequested(handoffRequestInfo: HandoffActivityDataRequestInfo) : HandoffActivityData {
+// Create and return handoff data
+}
+}
+Go adaptive-first with Jetpack Compose
+To help you adapt your apps to meet the new Android 17 requirements, we've launched the Jetpack Compose adaptive skill . This AI-powered developer workflow helps you implement the best adaptive practices:
+Adaptive navigation: Automatically transition between bottom navigation bars on mobile and edge-anchored navigation rails on large screens using NavigationSuiteScaffold from the Material 3 Adaptive library.
+Multi-pane layouts: Implement list-detail and supporting pane layouts natively using Navigation 3 Scenes (ListDetailSceneStrategy and SupportingPaneSceneStrategy) instead of fragile fragment transactions.
+FlexBox & Grid APIs: Utilize Compose 1.11's dynamic layout components to easily adjust row and column spans on the fly, ensuring your content always fills the space beautifully.
+Advanced non-touch input: Leverage Compose 1.11's enhanced trackpad and mouse support, including native focus rings and new APIs (like TrackpadInjectionScope and performTrackpadInput) to easily test and deliver a true "laptop-class" experience on Googlebooks and Desktop Mode.
+Dynamic window states: Leverage Compose's reactive state model to seamlessly adapt your UI when the app transitions from full screen to a floating App Bubble or an interactive Desktop PiP window, ensuring a premium experience even at minimal dimensions.
+Android is Compose-first
+Compose offers the easiest way to build adaptive apps, and that's just one of the many reasons we believe that all Android UI should be built with Compose. To that end, Android development is now Compose-first . All new Android APIs, libraries, tools, and developer guidance will be built exclusively for Jetpack Compose. Legacy View components (in the android.widget package) and View-based Jetpack libraries (like Fragments, RecyclerView, and ViewPager) are now in maintenance mode. They will receive only critical bug fixes, and no new features.
+TIP
+Ready to migrate? Use our AI-driven XML to Compose Migration Skill to automatically analyze your legacy View layouts and convert them into highly-adaptive Compose code.
+Performance & efficiency
+App performance means a smooth user interface, fast app start times, and efficient multitasking; Android 17 has impactful improvements in all of these areas.
+App memory limits
+Memory usage is one of the silent foundations of overall performance. When a foreground app or service grows unchecked, memory management spikes CPU and battery utilization and eventually leads to the termination of other well-behaved cached apps and background jobs, ultimately forcing slower cold starts and impaired multitasking.
+Starting in Android 17, the system will enforce strict app memory limits based on a device's total RAM, abruptly terminating offending processes. New things to help you navigate these tighter requirements:
+R8 Optimizer: The R8 optimizer significantly reduces your app's bytecode memory footprint by shrinking classes, methods, and fields into shorter names, and stripping out unused code and resources. Use R8 in full mode along with the new R8 configuration analyzer to make sure your app is getting the most from R8.
+The R8 Configuration Analyzer LeakCanary in Android Studio Panda: The profiler now features native LeakCanary integration as a dedicated task, fully integrated with your IDE and source code.
+ApplicationExitInfo: If your app is terminated by these limits, getDescription() from ApplicationExitInfo will return "MemoryLimiter:AnonSwap".
+On-Device Anomaly Detection: Part of ProfilingManager, you can leverage trigger-based profiling using TRIGGER_TYPE_ANOMALY to automatically capture heap dumps when the memory limit is reached.
+val profilingManager = applicationContext
+.getSystemService(ProfilingManager::class.java)
+val triggers = ArrayList<ProfilingTrigger>().apply {
+add(ProfilingTrigger.Builder(
+ProfilingTrigger.TRIGGER_TYPE_ANOMALY).build())
+}
+profilingManager.addProfilingTriggers(triggers)
+And, we're working to surface more in-field memory metrics to you within Google Play Console.
+Generational garbage collection
+Android 17 introduces more frequent, less resource-intensive young-generation collections to ART 's Concurrent Mark-Compact garbage collector (GC). By separating short-lived objects from stable, long-lived ones, the system runs frequent, lightweight "young-generation" sweeps rather than expensive full-heap scans, drastically reducing CPU usage, power drain, and UI stutter. Our testing has shown significant improvements in GC interference with application threads and a reduction in the maximum memory resident set size (RSS). ART improvements are also available to over a billion devices running Android 12 (API level 31) and higher through Google Play System updates.
+Lock-Free MessageQueue
+For apps targeting SDK 37 or higher, the core android.os.MessageQueue now implements a lock-free architecture, significantly reducing missed frames, improving app startup time, and radically improving the performance of busy queues in multithreaded scenarios. Note: This can break apps that use reflection on private MessageQueue fields and methods.  The peekWhen and poll APIs have been added to TestLooperManager for instrumentation testing without relying on MessageQueue internals.
+Static final fields now truly final
+Starting from Android 17, apps targeting SDK 37 or higher won’t be able to modify “static final” fields, allowing the runtime to apply performance optimizations more aggressively. An attempt to do so via reflection (or deep reflection) will lead to an IllegalAccessException being thrown. Modifying them via JNI’s SetStatic<Type>Field methods family will immediately crash the application.
+Custom notification view restrictions
+To reduce memory usage we are further restricting the size of custom notification views . This update closes a loophole that allows apps to bypass existing limits using URIs. This behavior is gated by the target SDK version and takes effect for apps targeting API 37 and higher.
+Privacy & Security
+Maintaining user trust is at the heart of the Android ecosystem. Android 17 introduces robust features that protect sensitive data while simplifying user experiences.
+Privacy-preserving choices
+Historically, apps required broad, permanent permissions to access information like contacts, precise location and media files. Android 17 continues the shift toward privacy-preserving choices that grant temporary, session-based access only to the data the user explicitly selects:
+System-Level Contact Picker: Utilizing ACTION_PICK_CONTACTS , apps can request temporary access only to specific fields (e.g., email or phone number) chosen by the user, eliminating the need for the broad READ_CONTACTS permission. It also fully supports work/personal profile separation.
+Customizable Photo Picker aspect ratio:  Using PhotoPickerUiCustomizationParams , you can customize the system photo picker to show thumbnails in portrait mode. This is perfect for apps that always display photos and videos in portrait such as video based social media apps.
+System-rendered Location Button: A new system-rendered location button that you can embed in your app grants precise location access for the current session only.
+EyeDropper API: A new system-level API, ACTION_OPEN_EYE_DROPPER , allows your app to create a system-powered eyedropper enabling the user to select color from any pixel on the display. This provides a secure, privacy-preserving color-picking experience that eliminates the need for broad, sensitive screen capture or media projection permissions.
+val eyeDropperLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+if (result.resultCode == Activity.RESULT_OK) {
+val color = result.data?.getIntExtra(Intent.EXTRA_COLOR, Color.BLACK)
+// Use the picked color in your app
+}
+}
+fun launchColorPicker() {
+val intent = Intent(Intent.ACTION_OPEN_EYE_DROPPER)
+eyeDropperLauncher.launch(intent)
+}
+Picking a color from anywhere on the screen with the system EyeDropper Local network access
+Apps targeting Android 17 now either require the ACCESS_LOCAL_NETWORK runtime permission or the use of system-mediated, privacy-preserving device pickers for local network communication, such as talking to smart home devices or casting receivers. Because ACCESS_LOCAL_NETWORK falls under the existing NEARBY_DEVICES permission group, users who have already granted other NEARBY_DEVICES permissions will not be prompted again.
+SMS OTP protection
+Android 17 expands SMS one-time-password (OTP) protection by delaying access to SMS messages for three hours:
+WebOTP Format: Delayed for all apps that are not the intended recipient (domain mismatch) .
+Standard SMS OTP: Delayed for all apps targeting SDK 37+ .
+Exemptions: Default SMS, assistant, and connected companion apps are exempt. Apps are strongly encouraged to migrate to the SMS Retriever or SMS User Consent APIs .
+Post-Quantum Cryptography (PQC)
+Android 17 is ready for the next generation of cryptographic security:
+Keystore Integration: Supported devices can generate ML-DSA (Module-Lattice-Based Digital Signature Algorithm) keys in secure hardware to produce quantum-safe signatures, exposed via standard JCA APIs.
+Hybrid APK Signing: Introducing the v3.2 APK Signature Scheme, which combines classical signatures with ML-DSA signatures to secure app delivery.
+Safer native dynamic code loading
+If your app targets SDK 37 or higher, the Safer Dynamic Code Loading (DCL) protection introduced in Android 14 for DEX and JAR files now extends to native libraries. All native files loaded using System.load must be marked as read-only. Otherwise, the system throws UnsatisfiedLinkError
+Smarter password protection for physical inputs
+With Android 17, we're making it safer to enter passwords, PINs, and other secrets when using a physical keyboard by no longer showing the last typed character by default.
+Users can still easily customize these display settings to match their preferences (availability may vary by device manufacturer).
+These enhanced privacy protections are automatically supported byAndroid's built-in SDK components and will be supported in Compose 1.12 for SecureTextFields.
+Smarter password protection for physical inputs
+Media and camera features that empower creators and delight users
+Android 17 introduces new creator features that give access to pro-quality cameras and media, all while improving the experience for consumers.
+Eclipsa Video : HDR video standard built upon the SMPTE ST 2094-50 specification that introduces new metadata to help devices adapt content for their display headroom and ambient light conditions, as well as improve the simultaneous display of standard and HDR content.
+RAW14 image format: New support for the RAW14 image format provides a way for your professional camera app to capture the highest level of detail and color depth from compatible camera sensors.
+Vendor-defined camera extensions: Vendor-defined extensions enable hardware partners to define and implement custom camera extension modes, providing access to the best and latest camera features.
+Extended HE-AAC software encoder: A new system-provided Extended HE-AAC software encoder, supports both low and high bitrates using unified speech and audio coding, providing significantly better audio quality for voice messages in low-bandwidth conditions, including support for loudness metadata.
+Versatile Video Coding (H.266) : Enables OEMs to add codec support by defining the video/vvc MIME type in MediaFormat , adding new VVC profiles in MediaCodecInfo , and integrating support into MediaExtractor .
+Camera device type: New APIs that query the underlying device type to identify if a camera is built-in hardware, an external USB webcam, or a virtual camera.
+Constant Quality for Video Recording: SetVideoEncodingQuality in MediaRecorder configures a constant quality (CQ) mode for video encoders to ensure uniform visual fidelity across the entire video.
+Better support for hearing aids
+Bluetooth LE Audio hearing aid support: Android now includes a specific device category for Bluetooth Low Energy (BLE) Audio hearing aids with the new AudioDeviceInfo.TYPE_BLE_HEARING_AID constant, so your app can distinguish hearing aids from regular headsets to provide a tailored experience for users with assistive listening devices.
+Granular audio routing for hearing aids: Android 17 allows users to independently manage where specific system sounds are played. They can choose to route notifications, ringtones, and alarms to connected hearing aids or the device's built-in speaker, helping to avoid unwanted in-ear interruptions while maintaining a Bluetooth connection for hearing aid management apps.
+CameraX and Media3
+CameraX and Media3 have been updated for Android 17. They are there to do the heavy lifting, smoothing the rough edges of media development and simplifying building reliable camera capture, smooth media playback, and creative and complex editing experiences.
+We've released an agent skill that can migrate legacy Android camera implementations (Camera1 or raw Camera2 APIs) to CameraX.
+Note: You'll need to update your CameraX version to either 1.5.2 or 1.6.0+ to avoid a crash related to an added dynamic range mode on Android 17 devices.
+Get your apps, libraries, tools, and game engines ready!
+If you develop an Android SDK, library, tool, or game engine, it's critical to prepare any necessary updates now to prevent your downstream app and game developers from being blocked by compatibility issues and allow them to target the latest SDK features. Please let your downstream developers know if updates are needed to fully support Android 17.
+Testing involves installing your production app or a test app making use of your library or engine using Google Play or other means onto a device or emulator running Android 17 Beta 4. Work through all your app's flows and look for functional or UI issues. Each release of Android contains platform changes that improve privacy, security, and overall user experience; review the app impacting behavior changes for apps running on and targeting Android 17 to focus your testing, including the following:
+Resizability on large screens: Once you target Android 17 (SDK 37), you can no longer opt out of maintaining orientation, resizability and aspect ratio constraints on large screens .
+Dynamic code loading: If your app targets SDK 37 or higher, the Safer Dynamic Code Loading (DCL) protection introduced in Android 14 for DEX and JAR files now extends to native libraries. All native files loaded using System.load() must be marked as read-only. Otherwise, the system throws UnsatisfiedLinkError.
+Enable CT by default: Certificate transparency (CT) is enabled by default. (On Android 16, CT is available but apps had to opt in .)
+Local network protections: Apps targeting SDK 37 or higher have local network access blocked by default . Switch to using privacy preserving pickers if possible, and use the new ACCESS_LOCAL_NETWORK permission for broad, persistent access.
+Background audio hardening: Starting in Android 17, the audio framework enforces restrictions on background audio interactions including audio playback, audio focus requests, and volume change APIs. Based on your feedback, we’ve made some changes since beta 2, including targetSDK gating while-in-use FGS enforcement and exempting alarm audio. Full details available in the updated guidance .
+NPU access declaration: Apps targeting Android 17 that need to directly access the NPU must declare  FEATURE_NEURAL_PROCESSING_UNIT in their manifest to avoid being blocked from accessing the NPU. This includes apps that use the LiteRT NPU delegate , vendor-specific SDKs, as well as the deprecated NNAPI .
+Get started with Android 17
+Your Pixel device should get Android 17 shortly if you haven't already been on the Android Beta. If you don’t have a Pixel device, you can use the 64-bit system images with the Android Emulator in Android Studio. If you are currently on Android 17 Beta 4.1 and have not yet taken an Android 17 QPR1 beta, you can opt out of the program and you will then be offered the release version of Android 17 over the air.
+Getting the Android 17 beta on partner devices
+Android 17 is available in beta on handset, tablet, and foldable form factors from partners including Honor, iQOO, Lenovo, OnePlus, OPPO, Realme, Sharp, vivo, and Xiaomi.
+For the best development experience with Android 17, we recommend that you use the latest Canary build of Android Studio Quail . Once you’re set up, here are some of the things you should do:
+Test your current app for compatibility, learn whether your app is affected by changes in Android 17 , and install your app onto a device or Android Emulator running Android 17 and extensively test it.
+Thank you again to everyone who participated in our Android developer preview and beta program. We're looking forward to seeing how your apps take advantage of the updates in Android 17, and have plans to bring you updates in a fast-paced release cadence going forward.
+For complete information on Android 17 please visit the Android 17 developer site .
+Newer post
+Older post
+Google developers blog
+Google Developers Blog
+Connect
+Android Developers
+Google Play
+Feed
+Newsletter
+Privacy
+|
+License
+|
+Brand guidelines
+Get news and tips by email

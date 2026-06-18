@@ -790,3 +790,37 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - Anthropic and Microsoft sources are platform-authored; PRINCE is a strong case study but domain-specific and regulated. No private data or credentials were copied.
+
+## 2026-06-18 compile additions: harness layers, diagnostics subagents, and semantic tool setup
+
+### Source-backed claims
+- The System Design Newsletter frames an agent harness around the model/tool loop, state split between context window and external stores, multi-agent patterns such as planner/executor, router/specialist, and map-reduce, and operational layers for configuration, capability, orchestration, guardrails, and observability. Source: `raw/2026-06-18-web-newsletter-systemdesign-one-30-core-agentic-engineering-concepts-expla.md`. confidence: 1 explanatory newsletter source, last-confirmed 2026-06-18.
+- Greptile's TREX architecture uses an orchestrator reviewer agent that scopes one execution subagent per issue, with subagents running in disposable sandbox environments and returning evidence artifacts to the main review. Source: `raw/2026-06-18-web-greptile-com-building-trex-code-execution-and-artifact-generation-for-.md`. confidence: 1 vendor engineering source, last-confirmed 2026-06-18.
+- AWS DevOps Agent custom MCP diagnostics follows a collect/status/errors/search/correlate/read/summarize workflow where structured node-diagnostic tools feed the agent's investigation loop. Source: `raw/2026-06-18-web-aws-amazon-com-diagnose-eks-node-issues-faster-with-aws-devops-agent-a.md`. confidence: 1 AWS DevOps Blog source, last-confirmed 2026-06-18.
+- GitHub's LSP Setup skill is a reusable workflow that detects language/OS, installs an LSP server, writes/merges JSON configuration, verifies the binary, and enables semantic code intelligence for Copilot CLI. Source: `raw/2026-06-18-web-github-blog-give-github-copilot-cli-real-code-intelligence-with-langua.md`. confidence: 1 GitHub Blog source, last-confirmed 2026-06-18.
+
+### Typed entities
+- concept: agent loop
+- concept: context window
+- pattern: planner/executor
+- pattern: router/specialist
+- pattern: map-reduce agent review
+- system: Greptile TREX
+- service: AWS DevOps Agent
+- workflow: collect/status/errors/search/correlate/read/summarize
+- skill: LSP Setup
+- config file: `lsp-config.json`
+
+### Explicit relationships
+- Agent harnesses depend-on tool-call validation, state management, permissions, sandboxing, logging, and replayable evidence.
+- Issue-scoped execution subagents complement orchestrator review by limiting context and making runtime checks parallelizable.
+- Diagnostic MCP tools complement incident agents when outputs are structured and composable across investigation steps.
+- Reusable setup skills complement project config by activating task-specific capabilities only when needed.
+
+### HoneyDrunk implications
+- Keep OpenClaw/Honeyclaw harness documentation separated into always-on rules, task skills, tool catalogs, guardrails, and observability rather than one growing prompt.
+- Use issue-scoped subagents for evidence collection only when the parent agent can merge results and the sandbox boundary is explicit.
+- Add replay/log requirements before increasing automated diagnostics or review fan-out.
+
+### Quality notes
+- Sources are explanatory/vendor-authored. They reinforce harness design patterns but require local measurement for throughput, reliability, and review quality.

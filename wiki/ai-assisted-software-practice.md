@@ -611,3 +611,38 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Sources are practitioner essays and commentary. They are strong process-shaping evidence, but HoneyDrunk should validate with local review load, defect, rework, and cost data.
+
+## 2026-06-18 compile additions: semantic agent assistance and execution-backed review
+
+### Source-backed claims
+- GitHub says Copilot CLI without language-server support often falls back to dependency extraction and text search, while an LSP-backed setup can answer definition, reference, hover, type, and dependency questions through semantic language-server requests. Source: `raw/2026-06-18-web-github-blog-give-github-copilot-cli-real-code-intelligence-with-langua.md`. confidence: 1 GitHub Blog source, last-confirmed 2026-06-18.
+- Greptile's TREX design treats code execution as a first-class review primitive: the main reviewer agent identifies issues worth investigating, then issue-scoped execution subagents run code in disposable sandboxes and return artifacts such as screenshots, logs, API traces, scripts, and videos. Source: `raw/2026-06-18-web-greptile-com-building-trex-code-execution-and-artifact-generation-for-.md`. confidence: 1 vendor engineering source, last-confirmed 2026-06-18.
+- Greptile says evidence artifacts are necessary because plain bullet summaries are too hard to verify and can hide setup failures, hallucinated coverage, or test-step ambiguity. Source: `raw/2026-06-18-web-greptile-com-building-trex-code-execution-and-artifact-generation-for-.md`. confidence: 1 source, last-confirmed 2026-06-18.
+- The System Design Newsletter's agentic-engineering summary frames practical agent work as configuration, capability, orchestration, guardrails, and observability layers, and recommends starting with project config, MCP/live docs, default sandboxing, and subagents for read-heavy work. Source: `raw/2026-06-18-web-newsletter-systemdesign-one-30-core-agentic-engineering-concepts-expla.md`. confidence: 1 explanatory newsletter source, last-confirmed 2026-06-18.
+
+### Typed entities
+- tool: GitHub Copilot CLI
+- protocol: Language Server Protocol / LSP
+- concept: semantic code intelligence
+- product/system: Greptile TREX
+- concept: execution-backed code review
+- artifact: screenshot
+- artifact: API trace
+- artifact: execution script
+- artifact: video capture
+- concept: agentic engineering layers
+- control: default sandbox
+
+### Explicit relationships
+- LSP-backed agents complement grep/search by giving agents structured semantic facts about source and dependencies.
+- Execution-backed review complements static AI review by testing runtime behavior that is invisible in a diff.
+- Review artifacts make agent findings auditable by connecting a conclusion to reproducible evidence.
+- Agentic engineering practice depends-on configuration, tool capability, orchestration, guardrails, and observability working together rather than one prompt.
+
+### HoneyDrunk implications
+- When agents repeatedly misread project APIs, prefer adding semantic code-intelligence tooling over increasing prompt prose.
+- For UI, integration, and race-condition-prone changes, require execution artifacts before treating an AI review as high-confidence.
+- OpenClaw/Grid review comments should prefer specific evidence links or run receipts over unsupported prose conclusions.
+
+### Quality notes
+- GitHub and Greptile are vendor-authored sources. The newsletter is explanatory synthesis. Use them to shape local experiments, not as proof that any specific product should be adopted.

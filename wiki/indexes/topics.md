@@ -675,3 +675,25 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 ### Game engines, Houdini, and technical art
 - [[unity-3d-and-realtime-vfx-patterns]] - 43 sources - last-confirmed 2026-06-17
 - [[technical-art-community-and-talent-signals]] - 28 sources - last-confirmed 2026-06-16
+
+## 2026-06-18 topic additions
+
+### Agent harnesses, MCP governance, and semantic tools
+- [[ai-agent-harnesses]] - 105 sources - last-confirmed 2026-06-18
+- [[mcp-tool-governance-and-app-surfaces]] - 55 sources - last-confirmed 2026-06-18
+- [[microsoft-dotnet-ai-stack]] - 49 sources - last-confirmed 2026-06-18
+
+### Agent security, AI gateways, and plugin supply chain
+- [[ai-coding-agent-security]] - 79 sources - last-confirmed 2026-06-18
+- [[openai-frontier-models-and-codex-2026]] - 7 sources - last-confirmed 2026-06-18
+
+### AI-assisted software practice and evaluation
+- [[ai-assisted-software-practice]] - 54 sources - last-confirmed 2026-06-18
+- [[agent-evaluation-and-benchmarks]] - 25 sources - last-confirmed 2026-06-18
+
+### Cloud AI service selection and operations agents
+- [[azure-agent-automation-and-identity]] - 22 sources - last-confirmed 2026-06-18
+
+### Mobile and game production platforms
+- [[mobile-ai-and-react-native-2026]] - 2 sources - last-confirmed 2026-06-18
+- [[gamedev-production-and-community-signals]] - 30 sources - last-confirmed 2026-06-18

@@ -181,3 +181,35 @@ OpenAI's June 11 raw sources add two durable signals for HoneyDrunk: GPT-5.5 is 
 
 ### Quality notes
 - Official OpenAI docs are authoritative for API shape as captured. The page is time-sensitive; verify SDK and API behavior before code changes.
+
+## 2026-06-18 compile additions: Codex 0.141.0 remote execution, plugin, and Windows fixes
+
+### Source-backed claims
+- OpenAI's Codex changelog for `@openai/codex@0.141.0` says remote executors now use authenticated, end-to-end encrypted Noise relay channels. Source: `raw/2026-06-18-web-developers-openai-com-changelog-codex-openai-developers.md`. confidence: 1 official OpenAI changelog source, last-confirmed 2026-06-18.
+- The same Codex release preserves executor-native working directories and shells across app-server and exec-server boundaries, including filesystem permission paths. Source: `raw/2026-06-18-web-developers-openai-com-changelog-codex-openai-developers.md`. confidence: 1 source, last-confirmed 2026-06-18.
+- Codex plugin discovery and activation now include selected executor-plugin stdio MCP servers, created-by-me marketplace support, auth-specific curated catalogs, deduplication, and capability-aware routing/order preservation. Source: `raw/2026-06-18-web-developers-openai-com-changelog-codex-openai-developers.md`. confidence: 1 source, last-confirmed 2026-06-18.
+- Windows-related fixes include stale sandbox credential recovery, more time for PowerShell commands before backgrounding, PowerShell in Wine test harnesses, and Windows ARM64 packaging on x64. Source: `raw/2026-06-18-web-developers-openai-com-changelog-codex-openai-developers.md`. confidence: 1 source, last-confirmed 2026-06-18.
+
+### Typed entities
+- package/version: `@openai/codex@0.141.0`
+- protocol: Noise relay channel
+- component: remote executor
+- component: app-server
+- component: exec-server
+- component: selected executor plugin
+- component: stdio MCP server
+- platform: Windows sandbox
+- platform: PowerShell
+
+### Explicit relationships
+- Remote-executor security depends-on authenticated encrypted transport plus correct path/cwd/shell preservation across service boundaries.
+- Plugin MCP activation depends-on authentication mode, selected-plugin precedence, and duplicate declaration handling.
+- Windows sandbox reliability depends-on credential freshness and command-yield behavior, especially for PowerShell-heavy workflows.
+
+### HoneyDrunk implications
+- Track Codex release versions in OpenClaw/Honeyclaw run receipts when remote execution or plugin MCP behavior affects reproducibility.
+- Re-test Windows PowerShell workflows after Codex runtime upgrades because executor cwd, shell, and sandbox fixes can change failure modes.
+- Treat plugin-provided MCP activation as a governance point: selected plugins may expand the tool surface inside an executor thread.
+
+### Quality notes
+- Official changelog source. It is implementation-signal material rather than product documentation; verify behavior in the installed runtime before relying on it.

@@ -351,3 +351,34 @@ Azure's May 2026 agent/developer tooling signal is that agent automation is movi
 
 ### Quality notes
 - Microsoft Learn is authoritative for Microsoft architectural guidance, but current service limits, role behavior, and region support must be checked before implementation.
+
+## 2026-06-18 compile additions: Azure service-selection checklist and AWS MCP diagnostics pattern
+
+### Source-backed claims
+- Microsoft Architecture Center recommends prebuilt AI services and Foundry Tools/Models for many intelligent workload features, while Azure Machine Learning is the custom-model path when existing services cannot support the required function or exclusive data/model control. Source: `raw/2026-06-18-web-learn-microsoft-com-choose-an-azure-ai-technology-azure-architecture-c.md`. confidence: 1 Microsoft Learn source, last-confirmed 2026-06-18.
+- The same source identifies Foundry Local as an on-device inference option for performance, privacy, customization, and cost cases. Source: `raw/2026-06-18-web-learn-microsoft-com-choose-an-azure-ai-technology-azure-architecture-c.md`. confidence: 1 source, last-confirmed 2026-06-18.
+- AWS DevOps Agent can be extended through custom MCP servers for diagnostic data outside native integrations; the EKS node diagnostics pattern uses SSM Automation to collect node logs, stores/extracts them through S3, pre-indexes findings, and exposes structured tools through AgentCore Gateway. Source: `raw/2026-06-18-web-aws-amazon-com-diagnose-eks-node-issues-faster-with-aws-devops-agent-a.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 AWS DevOps Blog source, last-confirmed 2026-06-18.
+
+### Typed entities
+- service: Foundry Tools
+- service: Foundry Models
+- service: Foundry Local
+- service: Azure Machine Learning
+- service: AWS DevOps Agent
+- service: Amazon EKS
+- service: AWS Systems Manager Automation / SSM Automation
+- service: Amazon Bedrock AgentCore Gateway
+- concept: diagnostic MCP bridge
+- control: non-interactive audited execution
+
+### Explicit relationships
+- Azure prebuilt services complement custom ML by reducing setup for common capabilities; custom ML supersedes them when capability or data-control requirements exceed prebuilt offerings.
+- On-device inference complements cloud AI services when privacy, latency, offline behavior, customization, or recurring cost dominate.
+- AWS diagnostic MCP bridges agent visibility gaps while SSM Automation mediates the host boundary.
+
+### HoneyDrunk implications
+- For AI service choices, write the workload need first: agent, RAG, targeted language, speech, image/video, content safety, custom model, or local inference.
+- If HoneyDrunk builds operations agents, copy the pattern of structured diagnostic tools plus auditable host mediation rather than broad shell access.
+
+### Quality notes
+- Microsoft and AWS sources are platform-authored architecture/product guidance. Validate current service availability, pricing, auth, and operational constraints before adopting.

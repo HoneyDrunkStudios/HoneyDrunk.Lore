@@ -915,3 +915,46 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 ### Privacy and quality notes
 - Privacy filter: Google IPI examples and OWASP incident details were summarized by category; no prompt payloads, C2 indicators, commands, or destructive instructions were copied.
 - Quality posture: Google security and Docker sources are strong for their own observations/products. OWASP AST10 is useful taxonomy guidance but the project is incubating; source-claimed incident metrics should be corroborated before operational decisions rely on exact numbers.
+
+## 2026-06-18 compile additions: developer plugin theft, AI gateway takeover, and enterprise search exfiltration
+
+### Source-backed claims
+- BleepingComputer/Aikido report at least 15 malicious JetBrains Marketplace plugins impersonating AI coding, code-review, Git, and DeepSeek/OpenAI-style tools that exfiltrate AI provider API keys entered into plugin settings; the campaign reportedly reached about 70,000 installs, though download counts can be manipulated. Source: `raw/2026-06-18-web-bleepingcomputer-com-malicious-jetbrains-marketplace-plugins-steal-ai-.md`. confidence: 1 security-news source citing Aikido plus independent confirmation for one plugin, last-confirmed 2026-06-18.
+- The JetBrains plugin campaign reinforces that IDE/plugin marketplaces are agent-era credential boundaries: plugins that look like coding assistants can collect API keys at configuration time while still appearing functional. Source: `raw/2026-06-18-web-bleepingcomputer-com-malicious-jetbrains-marketplace-plugins-steal-ai-.md`. confidence: 1 source, last-confirmed 2026-06-18.
+- The Hacker News/Obsidian report a LiteLLM proxy vulnerability chain allowing low-privilege users to escalate to proxy admin and reach server-side code execution, exposing model-provider keys, stored credential material, prompts, responses, and potentially MCP/tool credentials. Source: `raw/2026-06-18-web-thehackernews-com-litellm-vulnerability-chain-lets-low-privilege-users.md`. confidence: 1 security-news source citing Obsidian/VulnCheck/X41 details, last-confirmed 2026-06-18.
+- The LiteLLM report states the full fix set landed in `v1.83.14-stable`; it also warns that proxy-admin access should be treated as host-level access because LiteLLM can run callbacks and stdio MCP servers. Source: `raw/2026-06-18-web-thehackernews-com-litellm-vulnerability-chain-lets-low-privilege-users.md`. confidence: 1 source, last-confirmed 2026-06-18.
+- Varonis reports SearchLeak, remediated by Microsoft as CVE-2026-42824, chained parameter-to-prompt injection in Microsoft 365 Copilot Enterprise Search, an HTML streaming/rendering race, and an allowlisted Bing server-side fetch path to exfiltrate data from content the victim could access after one link click. Source: `raw/2026-06-18-web-varonis-com-searchleak-how-we-turned-m365-copilot-into-a-one-click-dat.md`. confidence: 1 security-research source, last-confirmed 2026-06-18.
+- SearchLeak shows AI search surfaces can combine classic web bugs with AI-native instruction interpretation, so render-time sanitization and CSP allowlist review matter for AI-generated streaming output. Source: `raw/2026-06-18-web-varonis-com-searchleak-how-we-turned-m365-copilot-into-a-one-click-dat.md`. confidence: 1 source, last-confirmed 2026-06-18.
+
+### Typed entities
+- marketplace: JetBrains Marketplace
+- threat: malicious IDE plugin
+- credential class: AI provider API key
+- project: LiteLLM
+- role: `proxy_admin`
+- vulnerability: CVE-2026-47101
+- vulnerability: CVE-2026-47102
+- vulnerability: CVE-2026-40217
+- patched version: LiteLLM `v1.83.14-stable`
+- vulnerability: SearchLeak / CVE-2026-42824
+- product: Microsoft 365 Copilot Enterprise Search
+- threat class: parameter-to-prompt injection / P2P
+- control: render-time output sanitization
+- control: CSP allowlist review
+
+### Explicit relationships
+- Malicious IDE plugins use marketplace trust to capture credentials at setup time before source-code or CI controls can see the leak.
+- AI gateway compromise has larger blast radius than a single model key because the gateway holds provider credentials, prompts/responses, callbacks, and sometimes MCP/tool credentials.
+- Proxy-admin roles in AI gateways can imply code execution when callbacks, custom guardrails, or stdio MCP servers are available.
+- SearchLeak combines AI instruction interpretation with web rendering and SSRF-style server-side fetch behavior; each layer is necessary for the chain.
+- Streaming AI output contradicts post-processing-only sanitizer assumptions because browsers can act on partial output before final wrapping.
+
+### HoneyDrunk implications
+- Maintain an approved plugin list for developer IDEs and agent harnesses; treat AI plugin installation as credential-risk work, not personal preference.
+- Audit any LiteLLM or similar model gateway before use: version, admin accounts, callbacks, custom guardrails, MCP servers, provider-key storage, and external exposure.
+- Treat AI/search URLs with long natural-language query parameters as potential prompt carriers; monitoring should inspect encoded prompts, not only domains.
+- For HoneyDrunk AI UIs, sanitize streamed HTML before render, review CSP allowlists for server-side fetch behavior, and assume model output is untrusted content.
+
+### Privacy and quality notes
+- Privacy filter: exploit payloads, attacker infrastructure details, and shell payload mechanics were summarized at control level rather than copied as reusable instructions.
+- Quality posture: these are security-research/news sources. Recheck vendor advisories and current patched versions before incident response or implementation work.
