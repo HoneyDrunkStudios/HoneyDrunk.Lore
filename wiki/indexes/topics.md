@@ -697,3 +697,23 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 ### Mobile and game production platforms
 - [[mobile-ai-and-react-native-2026]] - 2 sources - last-confirmed 2026-06-18
 - [[gamedev-production-and-community-signals]] - 30 sources - last-confirmed 2026-06-18
+
+## 2026-06-19 topic additions
+
+### Agent discovery, harnesses, MCP governance, and Azure execution
+- [[google-agent-platform-and-gemini-api-2026]] - 18 sources - last-confirmed 2026-06-19
+- [[mcp-tool-governance-and-app-surfaces]] - 60 sources - last-confirmed 2026-06-19
+- [[azure-agent-automation-and-identity]] - 24 sources - last-confirmed 2026-06-19
+- [[microsoft-dotnet-ai-stack]] - 51 sources - last-confirmed 2026-06-19
+
+### Agent evaluation, AI-assisted software, and privacy
+- [[agent-evaluation-and-benchmarks]] - 28 sources - last-confirmed 2026-06-19
+- [[ai-assisted-software-practice]] - 57 sources - last-confirmed 2026-06-19
+- [[ai-coding-agent-security]] - 84 sources - last-confirmed 2026-06-19
+
+### GitHub Actions and CI/CD security
+- [[github-actions-platform-operations]] - 31 sources - last-confirmed 2026-06-19
+
+### Creator/product and technical-art production
+- [[creator-business-models]] - 2 sources - last-confirmed 2026-06-19
+- [[technical-art-community-and-talent-signals]] - 29 sources - last-confirmed 2026-06-19

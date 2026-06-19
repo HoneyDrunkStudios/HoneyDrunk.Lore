@@ -656,3 +656,41 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - Microsoft, AWS, and GitHub sources are vendor-authored but concrete. Validate package versions, authentication behavior, telemetry settings, and host-access boundaries before implementation.
+
+## 2026-06-19 compile additions: ARD discovery, AGT .NET governance, and Azure session controls
+
+### Source-backed claims
+- Agentic Resource Discovery / ARD publishes capability catalogs under an organization's domain and lets registries return matching capabilities plus trust metadata before the client connects directly through the capability's native protocol. Source: `raw/2026-06-19-web-developers-googleblog-com-announcing-the-agentic-resource-discovery-specification-goog.md`; page: [[google-agent-platform-and-gemini-api-2026]]. confidence: 1 Google Developers source, last-confirmed 2026-06-19.
+- Microsoft.AgentGovernance exposes a .NET governance path for MCP tool calls through `McpSecurityScanner`, `McpGateway`, `McpResponseSanitizer`, and `GovernanceKernel`, with YAML policy, audit events, and OpenTelemetry metrics. Source: `raw/2026-06-19-web-devblogs-microsoft-com-governing-mcp-tool-calls-in-net-with-the-agent-governance-toolk.md`; page: [[microsoft-dotnet-ai-stack]]. confidence: 1 .NET Blog source, last-confirmed 2026-06-19.
+- AGT examples scan tool definitions for prompt-injection text, tool-name typosquatting, credential leakage, and exfiltration-oriented URLs, then gate tool registration or calls by risk score and policy. Source: `raw/2026-06-19-web-devblogs-microsoft-com-governing-mcp-tool-calls-in-net-with-the-agent-governance-toolk.md`. confidence: 1 source, last-confirmed 2026-06-19.
+- Azure SRE Agent network controls can route agent egress through an Azure VNet, use private DNS for private endpoints, or selectively send categories such as remote MCP server access, package registries, code repositories, and custom hosts through a managed path. Source: `raw/2026-06-19-web-learn-microsoft-com-configure-network-controls-for-azure-sre-agent.md`; page: [[azure-agent-automation-and-identity]]. confidence: 1 Microsoft Learn source with access warning in capture, last-confirmed 2026-06-19.
+- Azure Container Apps code interpreter sessions expose REST endpoints for executions and file transfer in Hyper-V-isolated sessions; Microsoft warns that session identifiers are sensitive and must be scoped so users or tenants cannot access each other's sessions. Source: `raw/2026-06-19-web-learn-microsoft-com-serverless-code-interpreter-sessions-in-azure-container-apps.md`; page: [[azure-agent-automation-and-identity]]. confidence: 1 Microsoft Learn source with access warning in capture, last-confirmed 2026-06-19.
+
+### Typed entities
+- specification: Agentic Resource Discovery / ARD
+- artifact: `ai-catalog.json`
+- framework: Microsoft Agent Governance Toolkit / AGT
+- component: `McpGateway`
+- component: `McpSecurityScanner`
+- component: `McpResponseSanitizer`
+- component: `GovernanceKernel`
+- policy format: YAML governance policy
+- service: Azure SRE Agent
+- service: Azure Container Apps code interpreter sessions
+- control: VNet egress routing
+- control: session identifier isolation
+
+### Explicit relationships
+- ARD complements MCP catalogs by separating resource discovery and publisher verification from the protocol used after connection.
+- AGT MCP governance uses policy, scanner, sanitizer, identity, audit, and metrics controls around tool definitions and tool calls.
+- Tool-definition scanning complements catalog approval because a tool can drift or be poisoned after initial discovery.
+- Azure SRE Agent VNet routing depends-on delegated subnets and private DNS zone linking for private endpoint access.
+- Code interpreter session isolation depends-on Entra authorization, session identifiers, and tenant/user scoping, not only Hyper-V boundaries.
+
+### HoneyDrunk implications
+- Treat ARD-discovered tools as untrusted until publisher identity, spec pinning, tool list, egress, and auth scope are reviewed.
+- For .NET MCP servers, keep AGT-style policy files and scanner thresholds under version control with tests for expected false positives.
+- If Azure SRE Agent or ACA code interpreter sessions are evaluated, record egress mode, session-id custody, file upload/download policy, logging gaps, and per-tenant authorization before use.
+
+### Quality notes
+- Microsoft and Google sources are vendor-authored. The Azure Learn captures included authorization warnings, so verify current docs and preview status before implementation.

@@ -509,3 +509,36 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 
 ### Quality notes
 - Microsoft Learn and .NET Blog are authoritative for Microsoft tooling direction but time-sensitive for package versions and preview status.
+
+## 2026-06-19 compile additions: AGT MCP governance and Copilot modernization assessment
+
+### Source-backed claims
+- The .NET Agent Governance Toolkit examples show MCP governance as a pipeline around tool definitions, tool-call decisions, response sanitization, YAML policy, audit events, and OpenTelemetry metrics. Source: `raw/2026-06-19-web-devblogs-microsoft-com-governing-mcp-tool-calls-in-net-with-the-agent-governance-toolk.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 .NET Blog source, last-confirmed 2026-06-19.
+- The captured AGT .NET source says the package targets .NET 8.0+, is MIT-licensed, has a direct `YamlDotNet` dependency in the examples, and requires no external services for local examples. Source: `raw/2026-06-19-web-devblogs-microsoft-com-governing-mcp-tool-calls-in-net-with-the-agent-governance-toolk.md`. confidence: 1 source, last-confirmed 2026-06-19.
+- GitHub Copilot modernization for .NET and Java follows an Assess -> Plan -> Execute workflow where assessment documents drive later infrastructure planning, IaC, containerization, and deployment decisions. Source: `raw/2026-06-19-web-devblogs-microsoft-com-your-migration-s-source-of-truth-the-modernization-assessment.md`. confidence: 1 .NET Blog source, last-confirmed 2026-06-19.
+- Modernization assessment reports are stored under `.github/modernize/assessment/`, each run creates an independent report, and reports can be exported, imported, compared, and used as the bridge into plan files and task lists under `.github/modernize/{plan-name}/`. Source: `raw/2026-06-19-web-devblogs-microsoft-com-your-migration-s-source-of-truth-the-modernization-assessment.md`. confidence: 1 source, last-confirmed 2026-06-19.
+
+### Typed entities
+- framework: Microsoft Agent Governance Toolkit / AGT
+- component: `GovernanceKernel`
+- package dependency: `YamlDotNet`
+- product: GitHub Copilot modernization
+- artifact directory: `.github/modernize/assessment/`
+- artifact directory: `.github/modernize/{plan-name}/`
+- artifact: `plan.md`
+- artifact: `tasks.json`
+- migration phase: Assess -> Plan -> Execute
+
+### Explicit relationships
+- AGT MCP governance complements the MCP C# SDK by adding policy, audit, and sanitizer layers around tool use.
+- YAML policy files allow governance decisions to change without scattering security rules through application code.
+- Copilot modernization assessment documents feed downstream IaC, containerization, and deployment planning.
+- Independent assessment reports create migration history and enable side-by-side target-compute comparison.
+
+### HoneyDrunk implications
+- For .NET agent apps, keep governance policy, scanner thresholds, and audit sinks as first-class code review artifacts.
+- Treat modernization-agent outputs as generated proposals: require review of assessment findings before allowing plan execution or IaC/container changes.
+- If HoneyDrunk migrates legacy .NET apps, preserve assessment reports in-repo only after checking for secrets, internal topology, and customer data.
+
+### Quality notes
+- Microsoft sources are implementation/product guidance. Validate package names, licensing, extension behavior, and generated artifact schemas before adopting in active repos.

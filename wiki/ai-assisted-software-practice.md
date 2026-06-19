@@ -646,3 +646,32 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - GitHub and Greptile are vendor-authored sources. The newsletter is explanatory synthesis. Use them to shape local experiments, not as proof that any specific product should be adopted.
+
+## 2026-06-19 compile additions: agent-optimized tool surfaces and production evaluation discipline
+
+### Source-backed claims
+- Hugging Face argues library maintainers should test whether agents can use their APIs efficiently, because clunky APIs or stale docs can cause agents to spend more tokens, write longer scripts, or bypass intended library surfaces. Source: `raw/2026-06-19-web-huggingface-co-is-it-agentic-enough-benchmarking-open-models-on-your-own-tooling.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 Hugging Face source, last-confirmed 2026-06-19.
+- The Transformers case study suggests CLI commands, curated skills, and self-contained task examples can improve agent behavior for large models, but can also confuse smaller models if documentation implies a callable tool that does not actually exist. Source: `raw/2026-06-19-web-huggingface-co-is-it-agentic-enough-benchmarking-open-models-on-your-own-tooling.md`. confidence: 1 source, last-confirmed 2026-06-19.
+- Thoughtworks frames AI-agent evaluation as a continuous discipline across development, UAT, and production, with personas and judges refined from business-user and production feedback over time. Source: `raw/2026-06-19-web-thoughtworks-com-evaluating-ai-agents-in-production-a-practical-framework.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 Thoughtworks source, last-confirmed 2026-06-19.
+
+### Typed entities
+- practice: agent-optimized library surface
+- artifact: CLI
+- artifact: Skill
+- artifact: task-specific example
+- practice: production AI evaluation
+- evaluator: LLM judge
+- signal: business-user feedback
+
+### Explicit relationships
+- Agent-optimized tools depend-on discoverable docs, clear commands, and examples that match real execution affordances.
+- Skills complement tool surfaces only when they reduce ambiguity; they can contradict smaller-model assumptions if they look like unavailable tools.
+- Production AI evaluation uses production traces and feedback to update offline scenarios and judges.
+
+### HoneyDrunk implications
+- For HoneyDrunk libraries and CLIs, include agent-facing examples that are executable as written and verify them with smaller as well as stronger models.
+- Review skill text for affordance ambiguity: explicitly distinguish shell commands, MCP tools, functions, docs-only guidance, and non-callable examples.
+- Make UAT/operator feedback a source for future regression cases rather than one-off comments.
+
+### Quality notes
+- Sources are practice/research guidance. Reproduce on HoneyDrunk codebases before adding broad agent-facing surface changes.

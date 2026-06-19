@@ -370,3 +370,42 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - LangChain/Fireworks and Greptile are vendor-authored sources. Treat reported accuracy/cost as spike hypotheses until reproduced on HoneyDrunk traces.
+
+## 2026-06-19 compile additions: agent-use benchmarks, production eval layers, and privacy leakage
+
+### Source-backed claims
+- Hugging Face's `agent-eval` harness evaluates whether agents can use a tool effectively by measuring match rate, median time, token use, error rate, and behavior markers across model, repository revision, task, and context tier (`bare`, `clone`, `skill`). Source: `raw/2026-06-19-web-huggingface-co-is-it-agentic-enough-benchmarking-open-models-on-your-own-tooling.md`. confidence: 1 Hugging Face source, last-confirmed 2026-06-19.
+- The same source reports that adding a Transformers CLI plus Skill reduced time for large open models but increased or harmed smaller-model behavior in some settings, including a Qwen3-14B case where the Skill was mistaken for a directly callable tool. Source: `raw/2026-06-19-web-huggingface-co-is-it-agentic-enough-benchmarking-open-models-on-your-own-tooling.md`. confidence: 1 source, last-confirmed 2026-06-19.
+- Thoughtworks recommends a three-layer AI-agent evaluation architecture: persona-based multi-turn simulations, functional unit evals for agents or conversations, and production observability over traces, feedback, latency, cost, retrieval quality, and failure patterns. Source: `raw/2026-06-19-web-thoughtworks-com-evaluating-ai-agents-in-production-a-practical-framework.md`. confidence: 1 Thoughtworks practice source, last-confirmed 2026-06-19.
+- MosaicLeaks defines a deep-research privacy benchmark where private local facts can leak through cumulative public web-query logs; the reported base Qwen3-4B strict-chain success was 48.7% with 34.0% answer/full-information leakage, while task-only RL improved success to 59.3% but worsened leakage to 51.7%. Source: `raw/2026-06-19-web-huggingface-co-mosaicleaks-can-your-research-agent-keep-a-secret.md`; page: [[ai-coding-agent-security]]. confidence: 1 Hugging Face/ServiceNow research source, last-confirmed 2026-06-19.
+- Privacy-Aware Deep Research / PA-DR combines situational task rewards with learned privacy rewards, reporting 58.7% strict-chain success and 9.9% answer/full-information leakage on the MosaicLeaks setup. Source: `raw/2026-06-19-web-huggingface-co-mosaicleaks-can-your-research-agent-keep-a-secret.md`. confidence: 1 source, last-confirmed 2026-06-19.
+
+### Typed entities
+- harness/tool: `agent-eval`
+- coding agent: pi
+- library: Transformers
+- model: Qwen3-4B
+- model: Qwen3-14B
+- benchmark: MosaicLeaks
+- method: Privacy-Aware Deep Research / PA-DR
+- metric: strict chain success
+- metric: answer/full-information leakage
+- evaluation layer: persona-based testing
+- evaluation layer: functional unit evals
+- evaluation layer: operational observability
+
+### Explicit relationships
+- Agent-use evaluation depends-on process metrics and behavior markers, not only final-answer correctness.
+- Skills can complement agent performance for strong models while contradicting smaller-model expectations when documentation looks like a callable tool.
+- Production agent evaluation depends-on offline tests, multi-turn persona simulation, and live observability feeding back into the eval set.
+- Deep-research privacy depends-on how public queries are constructed across a chain, not only whether private documents are excluded from final answers.
+- Task-only optimization can contradict privacy goals by teaching agents to pack more private context into external queries.
+
+### HoneyDrunk implications
+- For HoneyDrunk tool and skill changes, run evals across model sizes and record whether the change reduces turns/time without increasing ambiguity or token bloat.
+- Add behavior markers to local evals: CLI adoption, direct shell use, fallback to hand-written scripts, unsupported tool-call attempts, and silent failures.
+- For Lore/RAG agents that mix private notes with web search, evaluate query leakage explicitly; prompt-only "do not leak" guidance is weak evidence.
+- Treat production eval as a loop: traces and user/operator corrections should create new regression cases.
+
+### Quality notes
+- Hugging Face/ServiceNow and Thoughtworks sources are research/practice sources. Reported benchmark numbers are source snapshots and should be reproduced on HoneyDrunk tasks before routing or training decisions.

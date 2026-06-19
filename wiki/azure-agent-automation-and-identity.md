@@ -382,3 +382,37 @@ Azure's May 2026 agent/developer tooling signal is that agent automation is movi
 
 ### Quality notes
 - Microsoft and AWS sources are platform-authored architecture/product guidance. Validate current service availability, pricing, auth, and operational constraints before adopting.
+
+## 2026-06-19 compile additions: Azure SRE Agent networking and code interpreter sessions
+
+### Source-backed claims
+- Azure SRE Agent supports egress modes including Unrestricted, Limited, and Azure VNet; selecting Azure VNet routes agent traffic through a delegated subnet and disables the other mode cards until the VNet is disconnected. Source: `raw/2026-06-19-web-learn-microsoft-com-configure-network-controls-for-azure-sre-agent.md`. confidence: 1 Microsoft Learn source with access warning in capture, last-confirmed 2026-06-19.
+- Azure SRE Agent VNet integration requires a `/28` or larger subnet delegated to `Microsoft.App/environments`, Network Contributor-equivalent subnet join permission, and SRE Agent Administrator permission on the agent resource. Source: `raw/2026-06-19-web-learn-microsoft-com-configure-network-controls-for-azure-sre-agent.md`. confidence: 1 source, last-confirmed 2026-06-19.
+- Azure Container Apps code interpreter sessions provide Hyper-V-isolated Python execution sessions for LLM-generated or user-submitted code, with session pools controlling maximum concurrency and idle stop behavior. Source: `raw/2026-06-19-web-learn-microsoft-com-serverless-code-interpreter-sessions-in-azure-container-apps.md`. confidence: 1 Microsoft Learn source with access warning in capture, last-confirmed 2026-06-19.
+- Code interpreter session access uses Microsoft Entra tokens for identities with Azure ContainerApps Session Executor and Contributor roles on the session pool, and direct API calls require an audience claim of `https://dynamicsessions.io`. Source: `raw/2026-06-19-web-learn-microsoft-com-serverless-code-interpreter-sessions-in-azure-container-apps.md`. confidence: 1 source, last-confirmed 2026-06-19.
+- Code interpreter sessions expose file upload/download/list metadata endpoints and execution endpoints; file uploads are stored under `/mnt/data`, individual executions are capped at 220 seconds, and service metrics are returned in response headers rather than Log Analytics. Source: `raw/2026-06-19-web-learn-microsoft-com-serverless-code-interpreter-sessions-in-azure-container-apps.md`. confidence: 1 source, last-confirmed 2026-06-19.
+
+### Typed entities
+- service: Azure SRE Agent
+- egress mode: Azure VNet
+- subnet delegation: `Microsoft.App/environments`
+- service: Azure Container Apps code interpreter sessions
+- resource: session pool
+- role: Azure ContainerApps Session Executor
+- role: Contributor
+- endpoint: `dynamicsessions.io`
+- directory: `/mnt/data`
+
+### Explicit relationships
+- Azure SRE Agent private endpoint access depends-on VNet integration and private DNS zone linking.
+- Managed-path toggles complement VNet egress by allowing specific public service categories such as package registries or code repositories.
+- Code interpreter sessions depend-on session identifiers for reuse; session identifiers must be scoped to user, tenant, or conversation boundaries.
+- ACA session-pool APIs use Entra authorization and role assignments rather than raw shared API keys in the captured code-interpreter path.
+
+### HoneyDrunk implications
+- If Azure SRE Agent is tested, document whether remote MCP, package registry, and code repository traffic use VNet egress or managed paths.
+- If ACA code interpreter sessions are evaluated for OpenClaw/Honeyclaw, define session-id derivation, tenant isolation, file retention, cleanup calls, response-header metric capture, and app-side request/response logging first.
+- Do not assume Log Analytics has full execution traces for code interpreter sessions; collect request IDs, inputs, outputs, and metrics at the calling application boundary where policy permits.
+
+### Quality notes
+- The captures include Microsoft Learn authorization warnings and may reflect preview/protected documentation. Verify current public docs, API versions, pricing, and telemetry before implementation.

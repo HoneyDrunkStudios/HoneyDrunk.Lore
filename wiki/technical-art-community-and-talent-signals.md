@@ -436,3 +436,33 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - Official weekly update source. It is change-list evidence, not a stable-release adoption recommendation.
+
+## 2026-06-19 compile additions: environment art co-development structure
+
+### Source-backed claims
+- The 80 Level/Virtuos environment-art co-development source argues that narrow asset-count briefs often produce technically correct but creatively disconnected work because environment art also carries lighting, set dressing, narrative logic, and world-believability decisions. Source: `raw/2026-06-19-web-80-lv-you-re-having-the-wrong-conversation-about-environment-art.md`. confidence: 1 trade/vendor source, last-confirmed 2026-06-19.
+- The source describes three engagement levels for environment-art co-development: asset and prop production, modular kit building, and full end-to-end level art ownership, with scope expanding only as mutual trust and shared context grow. Source: `raw/2026-06-19-web-80-lv-you-re-having-the-wrong-conversation-about-environment-art.md`. confidence: 1 source, last-confirmed 2026-06-19.
+- The source identifies common co-development failure modes as joining too late, art-direction drift, and underestimating the internal senior creative bandwidth required for review and alignment. Source: `raw/2026-06-19-web-80-lv-you-re-having-the-wrong-conversation-about-environment-art.md`. confidence: 1 source, last-confirmed 2026-06-19.
+
+### Typed entities
+- company: Virtuos
+- project: Subnautica 2
+- project: Dune: Awakening
+- project: Kena: Bridge of Spirits
+- workflow: environment art co-development
+- workflow: modular kit building
+- workflow: full end-to-end level art ownership
+- concept: art direction drift
+
+### Explicit relationships
+- Environment art co-development depends-on shared style guides, lookdev, modular language, and regular art-director alignment.
+- Modular kit building complements asset production by leaving reusable infrastructure after the engagement ends.
+- Full level-art ownership depends-on trust and embedded creative dialogue; it should not supersede smaller-scope onboarding for a new partner.
+
+### HoneyDrunk implications
+- For game/interactive-world work, judge art partners by creative translation and pipeline fit, not only asset throughput.
+- Plan internal art-direction review bandwidth before outsourcing or co-development; review time is part of the production cost.
+- Use modular kit and lookdev deliverables as early gates before committing to large-scale environment production.
+
+### Quality notes
+- Source is vendor/trade content with portfolio examples. Useful as production-structure signal, not neutral procurement evidence.

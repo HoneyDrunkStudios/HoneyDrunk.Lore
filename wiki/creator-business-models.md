@@ -37,3 +37,34 @@ The Acquired NFL episode is a business-history source, not a tooling source. The
 ## Confidence and quality notes
 - Quality posture: good for strategic analogy and business-model pattern language; weak for operational sports-industry facts without full episode/transcript/source review.
 - Privacy filter: no private data copied.
+
+## 2026-06-19 compile additions: reusable SaaS plumbing and usage-based billing
+
+### Source-backed claims
+- An Indie Hackers BuildBase post frames reusable SaaS plumbing as a runway-preservation pattern: auth, billing, workspaces, RBAC, notifications, email, usage metering, and feature flags can consume weeks before a new product idea is actually tested. Source: `raw/2026-06-19-web-indiehackers-com-i-rebuilt-the-same-saas-plumbing-four-times-so-i-built-the-thing-i-wi.md`. confidence: 1 founder/community source, last-confirmed 2026-06-19.
+- The source positions usage-based billing as the difficult wedge for modern AI/SaaS products, because idempotency, concurrent counters, quota enforcement, resets, retries, overages, and Stripe reconciliation are easy to get subtly wrong. Source: `raw/2026-06-19-web-indiehackers-com-i-rebuilt-the-same-saas-plumbing-four-times-so-i-built-the-thing-i-wi.md`. confidence: 1 source, last-confirmed 2026-06-19.
+- The source states BuildBase is early, React/Next.js-only at the client layer, backed by Node/Mongo/Redis/BullMQ, bring-your-own-Stripe, and still missing clean export/migration hardening. Source: `raw/2026-06-19-web-indiehackers-com-i-rebuilt-the-same-saas-plumbing-four-times-so-i-built-the-thing-i-wi.md`. confidence: 1 self-reported founder source, last-confirmed 2026-06-19.
+
+### Typed entities
+- product: BuildBase
+- framework: React / Next.js
+- runtime: Node
+- database: MongoDB database-per-organization
+- queue: Redis / BullMQ
+- service: Stripe
+- concept: reusable SaaS plumbing
+- concept: usage-based billing
+- control: idempotent usage recording
+- control: server-side quota enforcement
+
+### Explicit relationships
+- Reusable SaaS plumbing complements idea validation by reducing repeated setup cost before product-market tests.
+- Usage billing depends-on idempotent event recording, quota enforcement, retry behavior, concurrency control, and payment reconciliation.
+- Export/migration tooling complements adoption trust because reusable plumbing can become lock-in without a clear exit path.
+
+### HoneyDrunk implications
+- For NovOutbox/HoneyDrunk product scaffolding, treat usage metering and billing as correctness-critical infrastructure, not template glue.
+- Any reusable SaaS base should have an exit story, test suite, tenant-isolation model, and payment reconciliation story before broad reuse.
+
+### Quality notes
+- Single self-reported community source; useful as product-pattern signal only. Do not treat product maturity or architecture claims as validated without independent review.

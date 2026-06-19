@@ -241,3 +241,34 @@ Google's 2026 agent developer surface is converging on production plumbing: Agen
 
 ### Quality notes
 - Google sources are authoritative for Google product transition dates and feature positioning. Model/API availability remains time-sensitive and should be checked before implementation.
+
+## 2026-06-19 compile additions: A2A and Agentic Resource Discovery
+
+### Source-backed claims
+- Google describes Agent-to-Agent / A2A as a protocol for secure black-box handoff between specialized agents, preserving proprietary data and implementation details inside the receiving agent while returning task outputs to the requester. Source: `raw/2026-06-19-web-developers-googleblog-com-how-a2a-is-building-a-world-of-collaborative-agents-google-d.md`. confidence: 1 Google Developers source, last-confirmed 2026-06-19.
+- Google says official A2A SDKs have Python and Go at 1.0 GA, Java in beta, .NET in preview, and JavaScript/TypeScript on a stable v0.3 line while tracking the 1.0 spec. Source: `raw/2026-06-19-web-developers-googleblog-com-how-a2a-is-building-a-world-of-collaborative-agents-google-d.md`. confidence: 1 source, last-confirmed 2026-06-19.
+- Agentic Resource Discovery / ARD is an open Apache 2.0 specification for publishing, discovering, and verifying AI capabilities through domain-hosted catalogs and federated registries, independent of underlying protocol or provider. Source: `raw/2026-06-19-web-developers-googleblog-com-announcing-the-agentic-resource-discovery-specification-goog.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 Google Developers source, last-confirmed 2026-06-19.
+- Google positions Agent Registry in Gemini Enterprise Agent Platform as an enterprise ARD implementation with globally unique namespaced URNs, egress policy enforcement, tool/spec pinning, and Agent Identity trust-manifest verification. Source: `raw/2026-06-19-web-developers-googleblog-com-announcing-the-agentic-resource-discovery-specification-goog.md`. confidence: 1 source, last-confirmed 2026-06-19.
+
+### Typed entities
+- protocol: Agent-to-Agent / A2A
+- specification: Agentic Resource Discovery / ARD
+- artifact: `ai-catalog.json`
+- resource type: ARD catalog
+- resource type: ARD registry
+- product: Gemini Enterprise Agent Platform Agent Registry
+- concept: Agent Identity trust manifest
+
+### Explicit relationships
+- A2A complements MCP and OpenAPI by modeling peer-agent collaboration rather than only deterministic tool calls.
+- A2A black-box handoff depends-on the receiving agent preserving its own secure environment and internal state.
+- ARD uses domain-hosted catalogs and registries to discover MCP servers, A2A agents, OpenAPI tools, and nested catalogs.
+- Agent Registry uses ARD metadata, Agent Identity, egress policy, and spec/tool pinning to govern runtime resource discovery.
+
+### HoneyDrunk implications
+- Treat A2A as a watchlist protocol for specialized internal agents only after run receipts, handoff audit logs, and data-sharing boundaries are explicit.
+- If HoneyDrunk publishes agent resources, prefer a domain-owned catalog with provenance, auth, and version metadata rather than ad hoc prompt instructions or private notes.
+- Do not let dynamic discovery bypass OpenClaw/Honeyclaw tool-profile governance; discovered capabilities still need allowlists, trust verification, and egress policy.
+
+### Quality notes
+- Google sources are platform/spec announcements. Use as interoperability scouting evidence until ARD/A2A specs and SDK maturity are validated locally.

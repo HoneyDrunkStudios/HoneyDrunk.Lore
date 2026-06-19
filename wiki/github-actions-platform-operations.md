@@ -405,3 +405,38 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ### Quality notes
 - GitHub changelog sources are authoritative for GitHub product timing and pricing as captured. Billing and availability can change; recheck before procurement or org-wide enablement.
+
+## 2026-06-19 compile additions: trigger admission, Copilot review instructions, and unsafe checkout defaults
+
+### Source-backed claims
+- GitHub workflow execution protections are in public preview for enterprises, organizations, and repositories, using rulesets to allow or block workflow triggers by actor and event before a run starts. Source: `raw/2026-06-19-web-github-blog-control-who-and-what-triggers-github-actions-workflows.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-19.
+- Actor rules can distinguish users, repository roles, GitHub Apps, Copilot, and Dependabot; event rules can permit or block events such as `push`, `pull_request`, `pull_request_target`, and `workflow_dispatch`. Source: `raw/2026-06-19-web-github-blog-control-who-and-what-triggers-github-actions-workflows.md`. confidence: 1 source, last-confirmed 2026-06-19.
+- `actions/checkout` v7 refuses fork pull request head or merge commits in `pull_request_target` and selected fork-PR `workflow_run` contexts by default, with an explicit `allow-unsafe-pr-checkout` opt-out for reviewed exceptions. Source: `raw/2026-06-19-web-github-blog-safer-pull-request-target-defaults-for-github-actions-checkout.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-19.
+- GitHub says same-repository pull requests and ordinary `pull_request` event behavior are not changed by the `actions/checkout` v7 protection, and manual checkout of untrusted code with `git` or `gh` remains outside the protection. Source: `raw/2026-06-19-web-github-blog-safer-pull-request-target-defaults-for-github-actions-checkout.md`. confidence: 1 source, last-confirmed 2026-06-19.
+- Copilot code review now reads root-level `AGENTS.md` files automatically and uses relevant instructions when generating review feedback; the change is generally available. Source: `raw/2026-06-19-web-github-blog-copilot-code-review-agents-md-support-and-ui-improvements.md`; page: [[github-copilot-and-app-token-changes]]. confidence: 1 GitHub changelog source, last-confirmed 2026-06-19.
+
+### Typed entities
+- feature: GitHub workflow execution protections
+- framework: GitHub rulesets
+- rule type: actor rule
+- rule type: event rule
+- event: `pull_request_target`
+- event: `workflow_dispatch`
+- action: `actions/checkout` v7
+- input: `allow-unsafe-pr-checkout`
+- file: `AGENTS.md`
+- product: Copilot code review
+
+### Explicit relationships
+- Workflow execution protections use central rulesets to supersede per-workflow trigger trust for covered actor/event admission.
+- `actions/checkout` v7 prevents one common pwn-request pattern but does not block all untrusted code execution inside privileged events.
+- `allow-unsafe-pr-checkout` creates an explicit review marker for privileged fork-PR checkout exceptions.
+- Copilot code review depends-on repository-level `AGENTS.md` context for convention-aware review feedback.
+
+### HoneyDrunk implications
+- Put workflow execution protections into evaluate mode for HoneyDrunk org/repo policies before enforcement so blocked runs are visible without breaking CI.
+- Search for `pull_request_target`, `workflow_run`, `github.event.pull_request.head.sha`, `refs/pull/`, and `allow-unsafe-pr-checkout` before July 2026 backport behavior changes affect workflows.
+- Treat `AGENTS.md` as review-runtime policy because GitHub Copilot now consumes it directly.
+
+### Quality notes
+- GitHub changelog sources are authoritative for feature existence. Public-preview controls and checkout backport behavior should be verified live before org-wide policy changes.

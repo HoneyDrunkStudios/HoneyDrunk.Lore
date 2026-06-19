@@ -958,3 +958,46 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 ### Privacy and quality notes
 - Privacy filter: exploit payloads, attacker infrastructure details, and shell payload mechanics were summarized at control level rather than copied as reusable instructions.
 - Quality posture: these are security-research/news sources. Recheck vendor advisories and current patched versions before incident response or implementation work.
+
+## 2026-06-19 compile additions: research-agent query leakage, DCT retirement, and CI trigger hardening
+
+### Source-backed claims
+- MosaicLeaks shows that deep-research agents can leak private local-document facts through sequences of ordinary-looking public web queries; the leakage channel is the cumulative query log, not the final answer alone. Source: `raw/2026-06-19-web-huggingface-co-mosaicleaks-can-your-research-agent-keep-a-secret.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 Hugging Face/ServiceNow research source, last-confirmed 2026-06-19.
+- The MosaicLeaks source reports that adding a prompt warning against leaky web queries lowered leakage only modestly for some models and could reduce task success, while task-only RL made leakage worse. Source: `raw/2026-06-19-web-huggingface-co-mosaicleaks-can-your-research-agent-keep-a-secret.md`. confidence: 1 source, last-confirmed 2026-06-19.
+- Docker is retiring Docker Content Trust / Notary v1 with write brownouts on 2026-07-14 and 2026-07-15, read brownouts on 2026-08-10 and 2026-08-12, and full shutdown on 2026-12-08. Source: `raw/2026-06-19-web-docker-com-docker-content-trust-retirement-and-migration-guidance.md`. confidence: 1 Docker source, last-confirmed 2026-06-19.
+- Docker recommends replacing DCT workflows with digest pinning for repeatability and modern OCI-native signing/enforcement paths such as Sigstore/Cosign, Notation, Kyverno, Ratify/Gatekeeper, and Docker Hardened Images. Source: `raw/2026-06-19-web-docker-com-docker-content-trust-retirement-and-migration-guidance.md`. confidence: 1 source, last-confirmed 2026-06-19.
+- GitHub `actions/checkout` v7 refuses common `pull_request_target` and fork-PR `workflow_run` pwn-request checkout patterns by default, with enforcement backported to supported major versions on 2026-07-16 unless workflows are pinned to exact SHA/minor/patch versions. Source: `raw/2026-06-19-web-github-blog-safer-pull-request-target-defaults-for-github-actions-checkout.md`; page: [[github-actions-platform-operations]]. confidence: 1 GitHub changelog source, last-confirmed 2026-06-19.
+- GitHub workflow execution protections are in public preview, letting admins define actor and event allowlists through rulesets before workflow runs are admitted. Source: `raw/2026-06-19-web-github-blog-control-who-and-what-triggers-github-actions-workflows.md`; page: [[github-actions-platform-operations]]. confidence: 1 GitHub changelog source, last-confirmed 2026-06-19.
+
+### Typed entities
+- benchmark: MosaicLeaks
+- threat: query-log privacy leakage
+- method: Privacy-Aware Deep Research / PA-DR
+- product/control: Docker Content Trust / DCT
+- service: Notary v1 / `notary.docker.io`
+- signing tool: Sigstore / Cosign
+- signing tool: Notation
+- control: digest pinning
+- action: `actions/checkout` v7
+- input: `allow-unsafe-pr-checkout`
+- feature: GitHub workflow execution protections
+- control: actor rule
+- control: event rule
+
+### Explicit relationships
+- Query-log privacy leakage is caused by private facts being carried into external search terms across a multi-hop task.
+- PA-DR mitigates leakage by penalizing the planning decision that makes the cumulative query log more revealing.
+- DCT retirement supersedes Notary v1-based trust assumptions for Docker Hub workflows after the 2026 shutdown schedule.
+- Digest pinning provides content repeatability but does not prove publisher identity; signatures and admission enforcement complement digest pinning.
+- `actions/checkout` v7 blocks a common privileged-event checkout pattern but does not supersede review of other untrusted code execution paths.
+- Workflow execution protections complement workflow-file review by moving trigger admission into central rulesets.
+
+### HoneyDrunk implications
+- Treat Lore/OpenClaw research queries as an exfiltration surface when private repo notes or internal docs influence web searches.
+- Inventory Docker workflows for `DOCKER_CONTENT_TRUST=1`, `docker trust` commands, DCT admission policies, and DCT-signed publisher flows before July 2026 brownouts.
+- Audit `pull_request_target`, `workflow_run`, and comment-triggered CI for untrusted checkout or manual `git`/`gh` fetches that bypass checkout safeguards.
+- Use workflow execution protections in evaluate mode first when available, then enforce actor/event rules for privileged workflows.
+
+### Privacy and quality notes
+- Privacy filter: MosaicLeaks examples were summarized at benchmark/control level. No private synthetic enterprise facts beyond the source's high-level example were promoted as HoneyDrunk facts.
+- Quality posture: GitHub and Docker sources are authoritative for product timelines as captured; recheck before enforcement or incident response.
