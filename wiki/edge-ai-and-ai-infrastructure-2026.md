@@ -601,3 +601,42 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - Sources are technical blog/research/vendor sources. Use them for modeling and spike design; confirm hardware specs, serving-engine behavior, and task traffic locally.
+
+## 2026-06-20 compile additions: open-weight model and AI data-center infrastructure signals
+
+### Source-backed claims
+- Simon Willison reports Z.ai released GLM-5.2 open weights under an MIT license on 2026-06-16; the captured source describes it as a 753B-parameter text-only MoE model with about 40B active parameters and a 1M-token context window. Source: `raw/2026-06-20-web-simon-willison-glm-5-2-is-probably-the-most-powerful-text-only-open-we.md`. confidence: 1 practitioner/model-watch source, last-confirmed 2026-06-20.
+- The same source cites Artificial Analysis ranking GLM-5.2 as the leading open-weight model on its Intelligence Index snapshot, while also noting higher output-token use per task than several peer open-weight models; it also reports a high Code Arena WebDev rank despite text-only input. Source: `raw/2026-06-20-web-simon-willison-glm-5-2-is-probably-the-most-powerful-text-only-open-we.md`. confidence: 1 source with third-party benchmark references, last-confirmed 2026-06-20.
+- System Design Newsletter's AI data-center explainer frames AI scaling as constrained by power, cooling, space, memory/storage hierarchy, and networking rather than model code alone; GPU compute stalls when data movement, synchronization, or thermal/power limits dominate. Source: `raw/2026-06-20-web-system-design-newsletter-the-secret-architecture-behind-ai-data-center.md`. confidence: 1 explanatory newsletter source, last-confirmed 2026-06-20.
+- The same infrastructure source highlights HBM/GPU memory, CPU RAM, NVMe, parallel filesystems, object storage, NVLink, InfiniBand/RoCE, RDMA, GPUDirect, and zero-copy pipelines as the architecture layers that keep large GPU clusters fed. Source: `raw/2026-06-20-web-system-design-newsletter-the-secret-architecture-behind-ai-data-center.md`. confidence: 1 source, last-confirmed 2026-06-20.
+- DigitalOcean's Server-Side Tools public preview makes web access, knowledge bases, MCP servers, and coding-agent-like tools available inside DigitalOcean Inference Engine requests, reinforcing that inference infrastructure is expanding upward into tool hosting and agent runtime support. Source: `raw/2026-06-20-web-digitalocean-server-side-tools-are-now-available-for-digitalocean-infe.md`; page: [[ai-agent-harnesses]]. confidence: 1 DigitalOcean source, last-confirmed 2026-06-20.
+
+### Typed entities
+- model: GLM-5.2
+- company/lab: Z.ai
+- architecture: Mixture of Experts / MoE
+- benchmark/provider: Artificial Analysis
+- benchmark: Code Arena WebDev
+- platform: OpenRouter
+- hardware: GPU
+- memory: HBM
+- storage: NVMe
+- filesystem: Lustre / GPFS
+- network: NVLink
+- network: InfiniBand / RoCE
+- technique: RDMA
+- technique: GPUDirect
+- platform: DigitalOcean Inference Engine
+
+### Explicit relationships
+- Open-weight model usefulness depends-on context length, active-parameter cost, output-token behavior, hosting availability, license, and benchmark/task fit.
+- AI infrastructure performance depends-on feeding GPUs through memory, storage, and networking layers; FLOPS alone do not predict throughput.
+- Hosted inference platforms increasingly combine model serving with retrieval/tool execution, blurring the boundary between inference and agent harness.
+
+### HoneyDrunk implications
+- Treat GLM-5.2 as a candidate for model scouting only after checking hardware/hosting cost, output-token inflation, license fit, and HoneyDrunk task quality.
+- For self-hosted or rented GPU work, record power/cooling constraints, memory bandwidth, storage tier, network topology, and synchronization overhead; model selection alone is insufficient.
+- When comparing inference providers, include tool-hosting trust boundaries and per-tool billing, not just token price.
+
+### Quality notes
+- Simon Willison is a strong model-watching source but not a local benchmark. System Design Newsletter is explanatory and partly teaser/paywalled. DigitalOcean is vendor-authored.

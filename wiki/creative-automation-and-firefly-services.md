@@ -37,3 +37,30 @@ Adobe Photoshop API v2 in Firefly Services is now a production-oriented creative
 ## Confidence and quality notes
 - Quality posture: high for API capability and migration-date claims because the source is Adobe documentation; local feasibility still depends on Adobe account terms, costs, storage model, and pipeline needs.
 - Privacy filter: no credentials or private project data were present in the source.
+
+## 2026-06-20 compile additions: event-driven Photoshop API workflows
+
+### Source-backed claims
+- Adobe's workflow article demonstrates Photoshop/Lightroom-style API automation as an event-driven pipeline: a Dropbox folder trigger in Pipedream gets an input link, creates a temporary Dropbox upload URL, obtains an Adobe access token, calls the Lightroom AutoTone API, and writes the corrected output to a separate Dropbox folder. Source: `raw/2026-06-20-web-adobe-developer-blog-automating-image-workflows-with-the-photoshop-api.md`. confidence: 1 Adobe developer blog source, last-confirmed 2026-06-20.
+- The source reinforces that production creative automation needs job submission, polling/status handling, output routing, error handling, and human QA decisions rather than blindly overwriting source assets. Source: `raw/2026-06-20-web-adobe-developer-blog-automating-image-workflows-with-the-photoshop-api.md`. confidence: 1 source, last-confirmed 2026-06-20.
+
+### Typed entities
+- API: Photoshop API
+- API: Lightroom AutoTone API
+- platform: Pipedream
+- platform: Dropbox
+- concept: event-driven creative workflow
+- auth flow: Adobe access token / JWT exchange
+- artifact: temporary upload URL
+
+### Explicit relationships
+- Pipedream uses Dropbox triggers to start Photoshop API workflows.
+- Photoshop/Lightroom API jobs depend-on input and output URLs, token exchange, asynchronous job status, and post-processing policy.
+- Automated image correction complements, but does not supersede, human visual review and source-asset retention.
+
+### HoneyDrunk implications
+- For marketing or screenshot pipelines, preserve originals and write generated variants to separate folders with review status.
+- Treat storage links and Adobe credentials as sensitive workflow infrastructure; agents should receive scoped handles, not durable secrets.
+
+### Quality notes
+- Adobe source is an older developer example clipped on 2026-06-20. Use it as workflow-shape evidence, while checking current Photoshop/Firefly Services docs before implementation.

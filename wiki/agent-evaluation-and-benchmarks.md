@@ -409,3 +409,33 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - Hugging Face/ServiceNow and Thoughtworks sources are research/practice sources. Reported benchmark numbers are source snapshots and should be reproduced on HoneyDrunk tasks before routing or training decisions.
+
+## 2026-06-20 compile additions: vulnerability harness evaluation metrics
+
+### Source-backed claims
+- Cloudflare's vulnerability harness measures usefulness as a filtering funnel, not speculative recall: raw candidates are validated, deduplicated, judged for production reachability, and converted into actionable findings with tests and patches. Source: `raw/2026-06-20-web-cloudflare-build-your-own-vulnerability-harness-20-minute-read.md`; page: [[ai-coding-agent-security]]. confidence: 1 Cloudflare source, last-confirmed 2026-06-20.
+- The Cloudflare source reports lifetime funnel examples including 20,799 raw VDH candidates, about 12,057 surviving validation, 13,841 total findings in VVS, 5,442 deduplicated findings, and 7,245 actionable findings for engineering teams; treat these as source-reported operational metrics, not a benchmark transferable to HoneyDrunk. Source: `raw/2026-06-20-web-cloudflare-build-your-own-vulnerability-harness-20-minute-read.md`. confidence: 1 source, last-confirmed 2026-06-20.
+- Cloudflare's design uses health signals such as suspiciously fast hunts, zero-finding shallow runs, coverage cells by area and attack class, held-out repository prompt tests, fail-to-pass patch tests, and different models for discovery versus validation. Source: `raw/2026-06-20-web-cloudflare-build-your-own-vulnerability-harness-20-minute-read.md`. confidence: 1 source, last-confirmed 2026-06-20.
+
+### Typed entities
+- system: Vulnerability Discovery Harness / VDH
+- system: Vulnerability Validation System / VVS
+- metric: validation rejection rate
+- metric: high-integrity finding share
+- metric: actionable finding count
+- metric: area x attack-class coverage cell
+- metric: shallow run
+- control: held-out repository prompt test
+- control: fail-to-pass regression gate
+
+### Explicit relationships
+- Vulnerability-agent evaluation depends-on candidate funnel quality, deduplication, reachability judgment, test evidence, and patch validation rather than raw finding volume.
+- Different-model validation complements discovery because it reduces single-model assumption lock-in.
+- Zero findings can indicate either clean code or a shallow/crashed run; harness health checks distinguish those cases.
+
+### HoneyDrunk implications
+- For HoneyDrunk security-agent evals, report raw candidates, validation survivors, duplicates, wrong-repo/low-risk findings, actionable findings, false-positive review time, and fail-to-pass patch success.
+- Do not optimize for maximum findings. Optimize for verified, reproducible, reachable issues with bounded human review burden.
+
+### Quality notes
+- Cloudflare metrics are operational self-reporting. They are valuable for eval design, but not external proof of expected HoneyDrunk yield.

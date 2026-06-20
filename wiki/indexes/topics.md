@@ -717,3 +717,27 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 ### Creator/product and technical-art production
 - [[creator-business-models]] - 2 sources - last-confirmed 2026-06-19
 - [[technical-art-community-and-talent-signals]] - 29 sources - last-confirmed 2026-06-19
+
+## 2026-06-20 topic additions
+
+### Agent security, evaluation, credentials, and harnesses
+- [[ai-coding-agent-security]] - 89 sources - last-confirmed 2026-06-20
+- [[agent-evaluation-and-benchmarks]] - 29 sources - last-confirmed 2026-06-20
+- [[ai-agent-harnesses]] - 109 sources - last-confirmed 2026-06-20
+- [[multi-agent-architectures]] - 22 sources - last-confirmed 2026-06-20
+- [[mcp-tool-governance-and-app-surfaces]] - 64 sources - last-confirmed 2026-06-20
+
+### Generative UI and agent app surfaces
+- [[generative-ui-and-a2ui]] - 3 sources - last-confirmed 2026-06-20
+
+### AI infrastructure and model operations
+- [[edge-ai-and-ai-infrastructure-2026]] - 45 sources - last-confirmed 2026-06-20
+- [[claude-platform-2026]] - 34 sources - last-confirmed 2026-06-20
+
+### Game engines, Unity content delivery, and creative automation
+- [[gamedev-production-and-community-signals]] - 31 sources - last-confirmed 2026-06-20
+- [[unity-3d-and-realtime-vfx-patterns]] - 44 sources - last-confirmed 2026-06-20
+- [[creative-automation-and-firefly-services]] - 2 sources - last-confirmed 2026-06-20
+
+### Commerce and machine payments
+- [[agentic-commerce-and-machine-payments]] - 1 source - last-confirmed 2026-06-20

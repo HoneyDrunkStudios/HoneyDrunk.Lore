@@ -71,3 +71,33 @@ A2UI v0.9 is Google's framework-agnostic generative UI standard for letting agen
 
 ### Quality notes
 - Codex Sites are preview product claims; availability, hosting boundaries, sharing permissions, and data retention need verification before private HoneyDrunk use.
+
+## 2026-06-20 compile additions: A2UI plus MCP Apps
+
+### Source-backed claims
+- Google positions A2UI and MCP Apps as complementary rather than mutually exclusive: A2UI is declarative, host-rendered, secure-by-default, and design-system-native; MCP Apps allow custom HTML/CSS/JS in iframes for complex stateful experiences but can create visual, performance, and security boundaries. Source: `raw/2026-06-20-web-google-developers-blog-a2ui-mcp-apps-combining-the-best-of-declarative.md`. confidence: 1 Google Developers source, last-confirmed 2026-06-20.
+- A2UI-over-MCP can serve static/prescriptive UI through MCP Resources and dynamic/templated UI through MCP Tool calls using `application/a2ui+json`; A2UI-over-A2A remains the more open-ended generative option when full conversational context should drive UI construction. Source: `raw/2026-06-20-web-google-developers-blog-a2ui-mcp-apps-combining-the-best-of-declarative.md`. confidence: 1 source, last-confirmed 2026-06-20.
+- The hybrid patterns include event/state synchronization where embedded MCP Apps emit key state transitions through a bridge and the host/agent rehydrates native A2UI components without exposing all micro-state to the broader agent context. Source: `raw/2026-06-20-web-google-developers-blog-a2ui-mcp-apps-combining-the-best-of-declarative.md`. confidence: 1 source, last-confirmed 2026-06-20.
+
+### Typed entities
+- framework/spec: A2UI
+- concept: MCP Apps
+- protocol: MCP
+- protocol: A2A
+- MIME type: `application/a2ui+json`
+- URI scheme: `a2ui://`
+- concept: embedded resource
+- concept: App Bridge
+- concept: state synchronization
+
+### Explicit relationships
+- A2UI complements MCP by making tool responses renderable through native component catalogs.
+- MCP Apps complement A2UI when bespoke client-side logic is necessary.
+- A2UI-over-MCP depends-on host support for A2UI resource handling; A2UI-inside-MCP-App can bridge legacy/non-A2UI hosts.
+
+### HoneyDrunk implications
+- For Lore/Grid dashboards, model simple forms, tables, charts, and review cards as declarative components; use iframed app surfaces only for high-interaction tools.
+- Keep agent-visible state coarse and intentional. Do not stream raw DOM/app micro-state into model context unless it is decision-relevant.
+
+### Quality notes
+- Vendor architecture guidance; useful for design direction, but A2UI/MCP Apps interoperability should be validated against real host clients before adoption.

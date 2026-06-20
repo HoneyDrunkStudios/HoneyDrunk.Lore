@@ -138,3 +138,39 @@ Multi-agent systems are warranted only when a single agent hits hard limits: con
 
 ### Quality notes
 - Microsoft Learn sources are architecture guidance, not local performance evidence. Use them as vocabulary and gating criteria, then validate on HoneyDrunk workflows.
+
+## 2026-06-20 compile additions: cloud-native multi-agent operations
+
+### Source-backed claims
+- CNCF/Orange Innovation describes an internal security-operations multi-agent platform where each agent is deployed as its own Kubernetes workload with resource limits, identity, restart policy, rollout controls, and namespace isolation instead of being one in-process module. Source: `raw/2026-06-20-web-cncf-why-cloud-native-belongs-at-the-heart-of-agentic-ai-lessons-from-.md`. confidence: 1 CNCF community source, last-confirmed 2026-06-20.
+- The same source recommends direct per-agent mTLS with cert-manager and CiliumNetworkPolicy for A2A/MCP traffic, deterministic policy-as-code through OPA/Kyverno instead of prompt-based safety reasoning, A2A `trace_id` propagation for observability, GitOps-managed agent CRDs/configuration, and a classical Isolation Forest prefilter to keep LLM fan-out bounded. Source: `raw/2026-06-20-web-cncf-why-cloud-native-belongs-at-the-heart-of-agentic-ai-lessons-from-.md`. confidence: 1 source, last-confirmed 2026-06-20.
+
+### Typed entities
+- platform: Kubernetes
+- protocol: A2A
+- protocol: MCP
+- framework: LangGraph
+- tool: Falco
+- technology: eBPF
+- broker: Kafka
+- model: Isolation Forest
+- tool: cert-manager
+- CNI/tool: Cilium
+- tool: Cilium Hubble
+- policy engine: OPA
+- policy engine: Kyverno
+- GitOps tool: Argo CD
+- chatops tool: Mattermost
+
+### Explicit relationships
+- Multi-agent production systems can use Kubernetes deployment primitives for isolation, rollout, scaling, and recovery.
+- A2A trace IDs connect agent reasoning, MCP/tool calls, logs, token usage, metrics, and network flow evidence.
+- Policy-as-code supersedes prompt-only reviewer instructions when a proposed action needs a deterministic safety verdict.
+- Classical anomaly prefilters complement LLM agents by reducing event volume and controlling cost/latency.
+
+### HoneyDrunk implications
+- If OpenClaw/Honeyclaw moves toward hosted multi-agent operations, model each agent as a separately permissioned workload with explicit network paths, identity, traces, and Git-reviewed configuration.
+- Human-in-the-loop should be a protocol terminal state with escalation criteria, not a cultural promise that someone can intervene.
+
+### Quality notes
+- CNCF source is a practitioner/community writeup about an active rollout, not a neutral benchmark. Use it as architecture guidance requiring local Kubernetes and security validation.

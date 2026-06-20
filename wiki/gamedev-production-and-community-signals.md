@@ -368,3 +368,33 @@ The game-development community feed produced a mix of process advice, tooling ex
 
 ### Quality notes
 - 80 Level and Game Developer are trade-press sources summarizing Epic announcements. Validate against Epic's primary docs before tool or engine commitments.
+
+## 2026-06-20 compile additions: UE6 reaction signal
+
+### Source-backed claims
+- 80 Level's State of Unreal reaction roundup reinforces that Epic's UE6 direction is being interpreted as a production-ecosystem shift, not only an engine feature release: UE5/UEFN convergence, Verse, interoperable content, MCP/AI editor workflows, Epic Lore version control, faster iteration, lower cook times, and broader mobile/Fortnite-connected distribution are grouped as one strategic direction. Source: `raw/2026-06-20-web-80-level-state-of-unreal-ue6-reactions-hype-skepticism-and-what-it-mea.md`. confidence: 1 trade-press reaction roundup, last-confirmed 2026-06-20.
+- The same roundup records skepticism around Blueprint/Actor deprecation, Verse/Scene Graph migration, accessibility for non-programmer creators, authorship expectations, and disruption to existing Unreal teams; Epic's roadmap language says early UE6 versions keep Actors and Blueprints while conversion tools mature, with early access targeted for late 2027. Source: `raw/2026-06-20-web-80-level-state-of-unreal-ue6-reactions-hype-skepticism-and-what-it-mea.md`. confidence: 1 source, last-confirmed 2026-06-20.
+
+### Typed entities
+- engine: Unreal Engine 6 / UE6
+- platform: Unreal Editor for Fortnite / UEFN
+- language/runtime: Verse
+- framework: Scene Graph
+- feature: Blueprints
+- feature: Actors
+- protocol/tooling: Model Context Protocol / MCP
+- product/tool: Epic Lore version control
+- concept: interoperable content
+- concept: AI-assisted editor workflow
+
+### Explicit relationships
+- UE6 depends-on Verse, Scene Graph, interoperable content conventions, and UEFN convergence to become a unified creation ecosystem.
+- Blueprint deprecation contradicts Unreal's existing accessibility story unless conversion tools, editor affordances, and training paths preserve creator productivity.
+- MCP-powered editor workflows complement engine automation but increase the need for source-control, authorship, and production-policy decisions.
+
+### HoneyDrunk implications
+- Treat UE6 as a late-2027+ strategic watchlist item. Do not anchor current production plans on UE6-specific promises without primary Epic docs and migration tests.
+- If HoneyDrunk evaluates Unreal for future work, include Verse readiness, Blueprint migration, Epic Lore/Git interop, AI tool policy, and non-programmer workflow impact in the spike criteria.
+
+### Quality notes
+- 80 Level is secondary/trade-press reaction coverage. Useful for sentiment and risk mapping, not sufficient for engine migration decisions.

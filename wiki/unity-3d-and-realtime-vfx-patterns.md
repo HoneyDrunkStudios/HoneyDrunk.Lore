@@ -688,3 +688,37 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - 80 Level is secondary/practitioner reporting with useful workflow detail. Render timings and hardware limits are anecdotal and should be reproduced before production planning.
+
+## 2026-06-20 compile additions: Addressables bundle splitting and compression
+
+### Source-backed claims
+- GameDev Tool Lab's Unity Addressables guide emphasizes that labels select requested assets, but AssetBundles are the actual downloaded, cached, updated, and loaded units; clean label design alone does not prevent unrelated assets from downloading together. Source: `raw/2026-06-20-web-gamedev-tool-lab-a-practical-guide-to-unity-addressables-bundle-splitt.md`. confidence: 1 practitioner source, last-confirmed 2026-06-20.
+- The guide recommends grouping many small files used together, such as VN/adventure scenario text, by chapter/event/language/delivery unit, while splitting large assets with clear addition/update/sales units such as characters, costumes, stages, VFX, and voice packs. Source: `raw/2026-06-20-web-gamedev-tool-lab-a-practical-guide-to-unity-addressables-bundle-splitt.md`. confidence: 1 source, last-confirmed 2026-06-20.
+- The same source separates bundle granularity from compression choice: LZMA is easier to recommend when one bundle is effectively one asset and the whole bundle is loaded, while LZ4 should be the default for multi-asset bundles or cases where stable load-time and partial access matter. Source: `raw/2026-06-20-web-gamedev-tool-lab-a-practical-guide-to-unity-addressables-bundle-splitt.md`. confidence: 1 source, last-confirmed 2026-06-20.
+
+### Typed entities
+- Unity package/system: Addressables
+- artifact: AssetBundle
+- setting: Pack Together
+- setting: Pack Separately
+- setting: Pack Together By Label
+- compression: LZ4
+- compression: LZMA
+- concept: bundle splitting
+- concept: download unit
+- concept: update unit
+- concept: shared dependency bundle
+
+### Explicit relationships
+- Addressables labels depend-on AssetBundle layout to determine real download/update behavior.
+- Pack Together By Label depends-on disciplined label responsibility; mixed management/search/event/runtime labels can create unintended bundle layouts.
+- LZ4 complements grouped multi-asset bundles because chunked access reduces whole-stream decompression risk.
+- LZMA complements one-asset bundles when download size is the binding constraint and full-bundle reads are expected.
+
+### HoneyDrunk implications
+- For Unity prototypes with downloadable content, design labels and bundles together; document whether each label may affect bundle layout.
+- Measure download size, load time, memory, file count, dependency duplication, and cache behavior on real devices before locking Addressables policy.
+- For character/content-heavy games, split by future addition/update unit early so post-release content does not force large bundle churn.
+
+### Quality notes
+- Practitioner guidance; decision-useful as a checklist, but final settings require profiling with HoneyDrunk assets and target devices.

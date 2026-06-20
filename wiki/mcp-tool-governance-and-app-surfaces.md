@@ -694,3 +694,38 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - Microsoft and Google sources are vendor-authored. The Azure Learn captures included authorization warnings, so verify current docs and preview status before implementation.
+
+## 2026-06-20 compile additions: A2UI over MCP, runtime credentials, and server-side tools
+
+### Source-backed claims
+- Google describes three hybrid A2UI/MCP Apps patterns: serving A2UI payloads over MCP resources or tool calls, embedding MCP Apps inside A2UI components, and running an A2UI renderer inside an MCP App for non-A2UI hosts. Source: `raw/2026-06-20-web-google-developers-blog-a2ui-mcp-apps-combining-the-best-of-declarative.md`; page: [[generative-ui-and-a2ui]]. confidence: 1 Google Developers source, last-confirmed 2026-06-20.
+- A2UI-over-MCP uses structured resources with `application/a2ui+json` and `a2ui://` URIs, letting MCP provide backend tool/data access while the host renders declarative UI through native components instead of raw iframe UI. Source: `raw/2026-06-20-web-google-developers-blog-a2ui-mcp-apps-combining-the-best-of-declarative.md`. confidence: 1 source, last-confirmed 2026-06-20.
+- Vercel Connect provides runtime credential exchange for agent/tool access: connectors are registered once, apps prove identity with deployment OIDC, and tasks request short-lived provider credentials scoped to app/user, environment, installation, repository, permission, or provider-specific authorization details. Source: `raw/2026-06-20-web-vercel-vercel-connect-8-minute-read.md`; page: [[ai-coding-agent-security]]. confidence: 1 Vercel source, last-confirmed 2026-06-20.
+- DigitalOcean Inference Engine Server-Side Tools supports MCP servers, DigitalOcean Knowledge Bases, web search/fetch, and compatible Anthropic/OpenAI tool definitions directly in inference requests, making hosted tool support a model-provider feature rather than only an app-owned harness feature. Source: `raw/2026-06-20-web-digitalocean-server-side-tools-are-now-available-for-digitalocean-infe.md`; page: [[ai-agent-harnesses]]. confidence: 1 DigitalOcean source, last-confirmed 2026-06-20.
+
+### Typed entities
+- MIME type: `application/a2ui+json`
+- URI scheme: `a2ui://`
+- protocol: Model Context Protocol / MCP
+- framework/spec: A2UI
+- concept: MCP Apps
+- control: App Bridge
+- product: Vercel Connect
+- auth mechanism: OIDC
+- connector examples: Slack, GitHub, Linear, Discord, Notion, Salesforce, Figma, Snowflake
+- feature: trigger forwarding
+- platform: DigitalOcean Inference Engine Server-Side Tools
+
+### Explicit relationships
+- A2UI-over-MCP separates backend tool/data access from native UI rendering.
+- MCP Apps-in-A2UI use iframe delegation for complex stateful widgets while native A2UI components preserve host design and macro-state synchronization.
+- Runtime credential exchange supersedes long-lived shared bot tokens for many agent connector flows.
+- Provider-hosted server-side tools complement app-owned MCP profiles but shift governance questions to provider trust, per-tool scope, and auditability.
+
+### HoneyDrunk implications
+- For agent UI surfaces, prefer structured UI payloads and known components for standard forms/charts/cards; reserve iframe apps for complex custom interactions with explicit state synchronization.
+- Catalog MCP and connector tools by auth model: static secret, OIDC runtime exchange, user-delegated token, API key, or provider-hosted tool.
+- Do not expose hosted bash/computer-use/apply-patch style tools to private HoneyDrunk context until provider sandbox, logging, and approval controls are documented.
+
+### Quality notes
+- Sources are vendor-authored product/architecture announcements. Verify active specs, SDK versions, pricing, token retention, and connector limitations before implementation.

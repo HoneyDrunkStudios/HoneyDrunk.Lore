@@ -1,82 +1,81 @@
 # OpenClaw Lore Ingest - Last Run
 
-Timestamp: 2026-06-19T10:06:48-04:00
+Timestamp: 2026-06-20T10:07:29-04:00
 Mode: ingest/compile
 
 ## Raw sources ingested
 
 Count: 15
 
-- raw/2026-06-19-web-80-lv-you-re-having-the-wrong-conversation-about-environment-art.md
-- raw/2026-06-19-web-devblogs-microsoft-com-governing-mcp-tool-calls-in-net-with-the-agent-governance-toolk.md
-- raw/2026-06-19-web-devblogs-microsoft-com-your-migration-s-source-of-truth-the-modernization-assessment.md
-- raw/2026-06-19-web-developers-googleblog-com-announcing-the-agentic-resource-discovery-specification-goog.md
-- raw/2026-06-19-web-developers-googleblog-com-how-a2a-is-building-a-world-of-collaborative-agents-google-d.md
-- raw/2026-06-19-web-docker-com-docker-content-trust-retirement-and-migration-guidance.md
-- raw/2026-06-19-web-github-blog-control-who-and-what-triggers-github-actions-workflows.md
-- raw/2026-06-19-web-github-blog-copilot-code-review-agents-md-support-and-ui-improvements.md
-- raw/2026-06-19-web-github-blog-safer-pull-request-target-defaults-for-github-actions-checkout.md
-- raw/2026-06-19-web-huggingface-co-is-it-agentic-enough-benchmarking-open-models-on-your-own-tooling.md
-- raw/2026-06-19-web-huggingface-co-mosaicleaks-can-your-research-agent-keep-a-secret.md
-- raw/2026-06-19-web-indiehackers-com-i-rebuilt-the-same-saas-plumbing-four-times-so-i-built-the-thing-i-wi.md
-- raw/2026-06-19-web-learn-microsoft-com-configure-network-controls-for-azure-sre-agent.md
-- raw/2026-06-19-web-learn-microsoft-com-serverless-code-interpreter-sessions-in-azure-container-apps.md
-- raw/2026-06-19-web-thoughtworks-com-evaluating-ai-agents-in-production-a-practical-framework.md
+- raw/2026-06-20-web-80-level-state-of-unreal-ue6-reactions-hype-skepticism-and-what-it-mea.md
+- raw/2026-06-20-web-adobe-developer-blog-automating-image-workflows-with-the-photoshop-api.md
+- raw/2026-06-20-web-anthropic-claude-code-now-supports-artifacts-5-minute-read.md
+- raw/2026-06-20-web-cloudflare-build-your-own-vulnerability-harness-20-minute-read.md
+- raw/2026-06-20-web-cncf-why-cloud-native-belongs-at-the-heart-of-agentic-ai-lessons-from-.md
+- raw/2026-06-20-web-credrelay-getting-a-cve-without-shipping-slop-4-minute-read.md
+- raw/2026-06-20-web-digitalocean-server-side-tools-are-now-available-for-digitalocean-infe.md
+- raw/2026-06-20-web-gamedev-tool-lab-a-practical-guide-to-unity-addressables-bundle-splitt.md
+- raw/2026-06-20-web-google-deepmind-securing-the-future-of-ai-agents-7-minute-read.md
+- raw/2026-06-20-web-google-developers-blog-a2ui-mcp-apps-combining-the-best-of-declarative.md
+- raw/2026-06-20-web-simon-willison-glm-5-2-is-probably-the-most-powerful-text-only-open-we.md
+- raw/2026-06-20-web-system-design-newsletter-the-secret-architecture-behind-ai-data-center.md
+- raw/2026-06-20-web-thoughtworks-the-reality-of-agentic-commerce-moving-from-passive-ai-co.md
+- raw/2026-06-20-web-vercel-introducing-eve-12-minute-read.md
+- raw/2026-06-20-web-vercel-vercel-connect-8-minute-read.md
 
 ## Wiki pages created/updated
 
 Created:
 
-- None
+- wiki/agentic-commerce-and-machine-payments.md
 
 Updated:
 
 - wiki/agent-evaluation-and-benchmarks.md
-- wiki/ai-assisted-software-practice.md
+- wiki/ai-agent-harnesses.md
 - wiki/ai-coding-agent-security.md
-- wiki/azure-agent-automation-and-identity.md
-- wiki/creator-business-models.md
-- wiki/github-actions-platform-operations.md
-- wiki/google-agent-platform-and-gemini-api-2026.md
+- wiki/claude-platform-2026.md
+- wiki/creative-automation-and-firefly-services.md
+- wiki/edge-ai-and-ai-infrastructure-2026.md
+- wiki/gamedev-production-and-community-signals.md
+- wiki/generative-ui-and-a2ui.md
 - wiki/indexes/gaps.md
 - wiki/indexes/sources.md
 - wiki/indexes/topics.md
 - wiki/mcp-tool-governance-and-app-surfaces.md
-- wiki/microsoft-dotnet-ai-stack.md
-- wiki/technical-art-community-and-talent-signals.md
+- wiki/multi-agent-architectures.md
+- wiki/unity-3d-and-realtime-vfx-patterns.md
 
 ## Contradictions resolved
 
-- None. New sources extended existing themes and added upcoming timelines, but did not supersede existing wiki claims.
+- None. The June 20 sources strengthened existing claims around agent security, harnesses, MCP/UI surfaces, cloud-native operations, Unity content delivery, and UE6 watchlist risks without superseding prior wiki claims.
 
 ## Gaps logged
 
-Count: 8
+Count: 7
 
-- ARD publishing/consumption trust policy.
-- A2A black-box handoff audit and data-boundary requirements.
-- HoneyDrunk-local agent-use benchmarks across model sizes.
-- Mosaic query-leakage controls for Lore/OpenClaw research.
-- Docker Content Trust / Notary v1 migration inventory.
-- GitHub privileged-trigger and unsafe-checkout audit.
-- Azure Container Apps code interpreter session-isolation evaluation.
-- Reusable SaaS foundation usage-metering, billing, tenant-isolation, and migration hardening.
+- Proof-first security-agent evaluation suite.
+- Runtime-scoped credential migration candidates and controls.
+- A2UI-over-MCP Lore/Grid dashboard prototype requirements.
+- Vercel eve/filesystem-first framework evaluation.
+- Machine-payment event controls for cost-causing agent actions.
+- UE6/Verse/Blueprint/Epic Lore watchlist spike.
+- Unity Addressables bundle/compression policy and device measurements.
 
 ## Crystallization
 
-- Existing `output/query-*.md` files were scanned. No query output newer than the already compiled set was present, and no query output was promoted as a separate exploration source in this pass.
+- Existing `output/query-*.md` files were checked against the current query output set. No new durable query output beyond already-compiled historical query files was promoted in this pass.
 
 ## Blockers
 
 - None for content quality.
-- Existing local changes outside this ingest scope were left unstaged: `.obsidian/graph.json` and `tools/openclaw-lore-signal-review-prompt.md`.
-- `output/openclaw-sourcing-last-run.md` predates this ingest pass and describes the raw-source batch; it was reviewed as provenance and included as a related sourcing change candidate.
+- Existing local changes outside this ingest scope were left untouched and should be reviewed separately before any publish decision: `.obsidian/graph.json`, `output/openclaw-sourcing-last-run.md`, `tools/openclaw-lore-signal-review-prompt.md`, and `tools/openclaw_lore_source_public.py`.
+- `git diff --cached --check` reports trailing whitespace inside newly added raw captures only. The maintained wiki/output/index layer passes `git diff --cached --check -- output wiki`; raw source captures were preserved rather than rewritten.
 
 ## Quality posture
 
-- Pages use source citations, confidence notes, typed entities, relationship language, and HoneyDrunk decision implications.
-- Security-sensitive sources were summarized at control, policy, and timeline level without reusable exploit steps, credential values, private data, or destructive payloads.
-- Vendor-authored claims are marked as platform/scouting evidence and require local validation before adoption.
-- Time-sensitive GitHub, Docker, Azure, Microsoft AGT, A2A, and ARD details should be rechecked before implementation, procurement, or incident response.
-- Privacy filter found no secrets or unsafe PII to preserve in wiki pages.
-- Raw files were treated as immutable source inputs; none were edited or deleted.
+- Pages include source citations, confidence notes, typed entities, explicit relationship language, and HoneyDrunk implications.
+- Security-sensitive sources were summarized at control, policy, validation, and metric level. Reusable exploit code, payloads, and contact details were not copied into wiki pages.
+- Vendor/product sources are marked as product or platform evidence and require local validation before implementation, procurement, or routing decisions.
+- Privacy filter found no secrets or unsafe PII requiring preservation in wiki pages; raw files were treated as immutable and were not edited.
+- Decision-usefulness is strong for agent security/harness direction and moderate for product announcements; UE6, A2UI/MCP Apps, eve, DigitalOcean Server-Side Tools, and Vercel Connect remain watchlist/prototype candidates until primary docs and local tests confirm fit.

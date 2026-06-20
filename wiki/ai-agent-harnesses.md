@@ -824,3 +824,43 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - Sources are explanatory/vendor-authored. They reinforce harness design patterns but require local measurement for throughput, reliability, and review quality.
+
+## 2026-06-20 compile additions: eve, server-side tools, and cloud-native harness shape
+
+### Source-backed claims
+- Vercel introduced eve as an open-source filesystem-first TypeScript agent framework where an agent is a directory of files for `agent.ts`, `instructions.md`, tools, skills, subagents, channels, schedules, and connections; the framework supplies durable execution, sandboxes, approvals, subagents, tracing, evals, channels, and schedules. Source: `raw/2026-06-20-web-vercel-introducing-eve-12-minute-read.md`. confidence: 1 Vercel product source, last-confirmed 2026-06-20.
+- eve's production model reinforces several harness primitives: checkpointed durable sessions, isolated agent sandboxes, per-action approval rules, MCP/OpenAPI connection files, multi-channel adapters, OpenTelemetry spans for model/tool/sandbox activity, CI-runnable evals, and preview/rollback through normal Git/Vercel deployment. Source: `raw/2026-06-20-web-vercel-introducing-eve-12-minute-read.md`. confidence: 1 source, last-confirmed 2026-06-20.
+- DigitalOcean Inference Engine Server-Side Tools public preview lets inference requests call web search/fetch, DigitalOcean Knowledge Bases, MCP servers, and supported Anthropic/OpenAI-style tools such as bash, text editor, computer use, function calling, apply patch, and local shell without separate customer-operated tool infrastructure. Source: `raw/2026-06-20-web-digitalocean-server-side-tools-are-now-available-for-digitalocean-infe.md`. confidence: 1 DigitalOcean product source, last-confirmed 2026-06-20.
+- CNCF/Orange Innovation reinforces that production agent harnesses can be operated as cloud-native workloads: agent configuration as CRDs in Git, A2A trace propagation, policy-as-code gates, metrics/logs/flows, and capacity controls around event prefiltering. Source: `raw/2026-06-20-web-cncf-why-cloud-native-belongs-at-the-heart-of-agentic-ai-lessons-from-.md`; page: [[multi-agent-architectures]]. confidence: 1 source, last-confirmed 2026-06-20.
+
+### Typed entities
+- framework: Vercel eve
+- package: `eve`
+- file: `agent/agent.ts`
+- file: `agent/instructions.md`
+- directory: `agent/tools/`
+- directory: `agent/skills/`
+- directory: `agent/subagents/`
+- directory: `agent/channels/`
+- directory: `agent/schedules/`
+- control: durable execution
+- control: human-in-the-loop approval
+- control: sandbox adapter
+- platform: DigitalOcean Inference Engine
+- feature: Server-Side Tools
+- tool category: Web Search / Web Fetch
+- product: DigitalOcean Knowledge Bases
+
+### Explicit relationships
+- Filesystem-first agent frameworks use directory structure to make capabilities reviewable as code.
+- Durable sessions depend-on checkpointed workflow state so agents can pause, survive deploys/crashes, and resume.
+- Server-side tool hosting can reduce customer plumbing but concentrates trust in the inference provider's tool execution, credential, logging, and sandbox model.
+- OpenTelemetry spans complement run receipts by making model calls, tool calls, sandbox commands, and retries replayable.
+
+### HoneyDrunk implications
+- For HoneyDrunk agent framework design, prefer repo-visible files for prompts, tools, skills, channels, schedules, evals, and connections over dashboard-only configuration.
+- Treat provider-hosted server-side tools as high-trust runtime components; evaluate logs, egress, token custody, sandbox isolation, and disable/approval controls before using them with private repos.
+- Use eve as a framework-shape reference even if HoneyDrunk keeps OpenClaw/Honeyclaw on a different runtime.
+
+### Quality notes
+- Vercel and DigitalOcean are product sources. Claims are useful architecture signals, but local feasibility depends on package maturity, hosting terms, Windows/dev ergonomics, cost, and security controls.

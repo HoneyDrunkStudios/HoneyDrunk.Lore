@@ -301,3 +301,31 @@ Anthropic's 2026 platform direction is enterprise/workflow-heavy: Claude Opus 4.
 
 ### Quality notes
 - Anthropic is a primary source for its own posture but is also a party to the dispute. Government reasoning was not independently available in the raw source. No jailbreak technique or exploitable detail was copied.
+
+## 2026-06-20 compile additions: Claude Code artifacts
+
+### Source-backed claims
+- Anthropic announced Claude Code artifacts as beta live, shareable web pages generated from a Claude Code session's full context, including codebase context, connectors, conversation, reasoning, diffs, dashboards, PR walkthroughs, incident timelines, release checklists, and design variations. Source: `raw/2026-06-20-web-anthropic-claude-code-now-supports-artifacts-5-minute-read.md`. confidence: 1 Anthropic product source, last-confirmed 2026-06-20.
+- Artifacts update in place at the same link with version history, are private to the author by default, can be shared inside the organization, cannot be made public, and are governed by org-level toggles, role-based scoping, retention policies, and compliance API visibility. Source: `raw/2026-06-20-web-anthropic-claude-code-now-supports-artifacts-5-minute-read.md`. confidence: 1 source, last-confirmed 2026-06-20.
+
+### Typed entities
+- product: Claude Code
+- feature: artifacts
+- artifact type: PR walkthrough
+- artifact type: incident page
+- artifact type: release checklist
+- control: organization-only sharing
+- control: retention policy
+- control: compliance API
+
+### Explicit relationships
+- Claude Code artifacts complement agent-run receipts by turning session state and evidence into a shared review surface.
+- Artifact sharing depends-on organization authentication, role scoping, retention policy, and version history.
+- Live artifacts can reduce status handoff cost but do not supersede source citations, test evidence, or repo-local run summaries for durable HoneyDrunk records.
+
+### HoneyDrunk implications
+- If Claude Code artifacts are used for HoneyDrunk reviews/incidents, keep canonical evidence in repo/GitHub/run summaries and use artifacts as collaborative views.
+- Treat artifact retention and access as data-governance settings before sharing private repo or incident context.
+
+### Quality notes
+- Vendor product announcement. Availability, retention, export, and compliance behavior should be verified in the active Anthropic tenant before operational use.

@@ -1001,3 +1001,46 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 ### Privacy and quality notes
 - Privacy filter: MosaicLeaks examples were summarized at benchmark/control level. No private synthetic enterprise facts beyond the source's high-level example were promoted as HoneyDrunk facts.
 - Quality posture: GitHub and Docker sources are authoritative for product timelines as captured; recheck before enforcement or incident response.
+
+## 2026-06-20 compile additions: AI control, proof-first vulnerability work, and security harnesses
+
+### Source-backed claims
+- Google DeepMind's AI Control Roadmap treats powerful internal agents as potentially misaligned insider-like principals and layers monitoring, supervision, prevention, response, and capability-scaled controls on top of alignment, sandboxing, endpoint security, and prompt-injection resistance. Source: `raw/2026-06-20-web-google-deepmind-securing-the-future-of-ai-agents-7-minute-read.md`. confidence: 1 Google DeepMind source, last-confirmed 2026-06-20.
+- DeepMind maps controls to two capability axes: detection evasion capability drives detection levels, while attack execution capability drives prevention/response levels; high-risk actions require synchronous blocking rather than delayed review. Source: `raw/2026-06-20-web-google-deepmind-securing-the-future-of-ai-agents-7-minute-read.md`. confidence: 1 source, last-confirmed 2026-06-20.
+- Cloudflare's vulnerability harness article argues that enterprise security scanning needs persistent state, model-agnostic stages, adversarial validation, deduplication, cross-repo tracing, proof-of-concept tests against untouched code, and patch/test artifacts before findings reach humans. Source: `raw/2026-06-20-web-cloudflare-build-your-own-vulnerability-harness-20-minute-read.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 Cloudflare security engineering source, last-confirmed 2026-06-20.
+- CredRelay's ASUS CVE writeup reinforces a smaller-scale version of the same rule: LLM-assisted reversing is useful only when the human can read the generated C, force a working proof of concept, understand the root cause, and rewrite noisy AI reports before vendor submission. Source: `raw/2026-06-20-web-credrelay-getting-a-cve-without-shipping-slop-4-minute-read.md`. confidence: 1 practitioner source, last-confirmed 2026-06-20.
+- Vercel Connect replaces long-lived app-stored provider tokens with runtime credential exchange: a deployment proves identity via OIDC and receives short-lived task-scoped credentials, optionally scoped by user, repository, permission, installation, project, and environment. Source: `raw/2026-06-20-web-vercel-vercel-connect-8-minute-read.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 Vercel product source, last-confirmed 2026-06-20.
+
+### Typed entities
+- framework: Google DeepMind AI Control Roadmap
+- framework: MITRE ATT&CK
+- concept: insider-threat model for agents
+- control: supervisor AI
+- control: synchronous response
+- system: Cloudflare Vulnerability Discovery Harness / VDH
+- system: Cloudflare Vulnerability Validation System / VVS
+- control: adversarial validator
+- control: proof-of-concept test
+- control: fail-to-pass patch gate
+- tool: Ghidra MCP
+- vulnerability: CVE-2026-3508
+- vulnerability: CVE-2026-6737
+- product: Vercel Connect
+- control: OIDC runtime credential exchange
+- control: task-scoped token
+
+### Explicit relationships
+- AI control treats alignment as necessary but insufficient; system-level monitoring and blocking complement model behavior.
+- Vulnerability harnesses depend-on externalized state and independent validators because single-session agents lose context and tend to validate their own theories.
+- Working PoCs and tests supersede prose vulnerability claims for vendor-grade reporting.
+- Runtime credential exchange mitigates leaked-token blast radius by narrowing duration, subject, environment, repository, and permission scope.
+- Short-lived tokens complement but do not supersede policy gates, human approvals, and provider-side revocation behavior.
+
+### HoneyDrunk implications
+- For OpenClaw/Honeyclaw security work, require findings to include threat model, affected boundary, source evidence, reproducible test/PoC, proposed patch, and validation status before filing as actionable.
+- Treat high-impact agent actions as capability-dependent: delayed audit is acceptable for reversible/low-risk work, but production writes, destructive changes, and external communication need pre-execution gates.
+- Prefer runtime-scoped credentials over environment-wide bot tokens for agents; record subject, scope, and expiry in run receipts where possible.
+
+### Privacy and quality notes
+- Privacy filter: exploit mechanics were reduced to control and validation requirements. Device names/CVE IDs are public; no reusable exploit code or contact details were copied.
+- Quality posture: DeepMind, Cloudflare, and Vercel are vendor/platform-authored; CredRelay is practitioner evidence. Use as architecture/control guidance and verify product APIs before implementation.
