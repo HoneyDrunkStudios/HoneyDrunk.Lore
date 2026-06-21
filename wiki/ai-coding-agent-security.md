@@ -1044,3 +1044,42 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 ### Privacy and quality notes
 - Privacy filter: exploit mechanics were reduced to control and validation requirements. Device names/CVE IDs are public; no reusable exploit code or contact details were copied.
 - Quality posture: DeepMind, Cloudflare, and Vercel are vendor/platform-authored; CredRelay is practitioner evidence. Use as architecture/control guidance and verify product APIs before implementation.
+
+## 2026-06-21 compile additions: hardened images, audit hooks, and telemetry denial risk
+
+### Source-backed claims
+- Docker's hardened-images explainer defines hardened images as minimal, patched, policy-aligned container bases intended to reduce attack surface, CVE noise, and supply-chain uncertainty; this reinforces the earlier Docker Hardened Images/SBOM/VEX guidance. Source: `raw/2026-06-21-web-docker-hardened-images-explained.md`. confidence: 1 Docker source, last-confirmed 2026-06-21.
+- iPurple Team describes a Windows QoS policy abuse path where an elevated actor can throttle outbound traffic for an EDR process, reducing the agent's ability to send telemetry to the cloud console. Source: `raw/2026-06-21-web-ipurple-team-qos-policies.md`. confidence: 1 purple-team source, last-confirmed 2026-06-21.
+- Anzenna's Birdclaw signal positions AI audit hooks as a layer that links a prompt to commands, files, MCP destinations, OAuth grants, and named identities; treat as product/watchlist signal until primary documentation is captured. Source: `raw/2026-06-20-birdclaw-x-x-signal-anzennahq-edr-sees-a-python-process-we-see-what-the-agent-was-told-to-d.md`. confidence: 1 low-engagement social source, last-confirmed 2026-06-20.
+- ARC Terminal social promotion frames "cryptographically verifiable AI" as a proof layer for model/output/action claims; this is a watchlist idea, not a verified security control without primary specs and threat-model review. Source: `raw/2026-06-20-birdclaw-x-x-signal-bjauhi-arc-terminal-breakdown-what-exactly-is-this-project-to-put-it-si.md`. confidence: 1 social source, last-confirmed 2026-06-20.
+- Social posts around AI trading subaccounts and free model-router API keys reinforce a practical agent-security boundary: when agents can trade, spend tokens, or hold API keys, account isolation, withdrawal blocks, quota limits, and provider/key provenance become part of the harness threat model. Source: `wiki/early-social-ai-agent-signals-2026.md`. confidence: low social-source cluster, last-confirmed 2026-06-20.
+
+### Typed entities
+- product: Docker Hardened Images
+- control: minimal base image
+- artifact: SBOM
+- artifact: VEX
+- Windows feature: QoS policy
+- threat: EDR telemetry throttling
+- concept: prompt-to-command audit
+- concept: cryptographically verifiable AI
+- concept: AI trading subaccount
+- concept: model-router API key provenance
+- page: [[early-social-ai-agent-signals-2026]]
+
+### Explicit relationships
+- Hardened images complement agent sandboxing by reducing baseline OS/package attack surface before generated services are deployed.
+- Telemetry denial can be caused by endpoint/network policy manipulation, so agent/security monitoring depends-on local health checks as well as cloud-received events.
+- Prompt-to-command audit complements process telemetry by linking human/agent intent to filesystem, command, MCP, and OAuth effects.
+- Cryptographic AI proof claims depend-on concrete protocols, attestations, verifier access, and threat-model coverage before they can replace ordinary audit.
+- AI trading and API-router workflows depend-on scoped accounts, withdrawal/spend limits, and revocation paths.
+
+### HoneyDrunk implications
+- Prefer hardened, attestable base images for agent-created services, but verify scanner/VEX behavior in CI before trusting reduced CVE counts.
+- Add EDR/runner telemetry health to security thinking: "no alert" can mean no event, or a blocked/throttled reporting path.
+- For agent audit work, capture prompt, tool call, command, file diff, MCP destination, credential scope, and actor identity in run receipts where feasible.
+- Do not let agents use promotional free API routers or trading accounts without provenance, budget, and account-isolation review.
+
+### Privacy and quality notes
+- Privacy filter: attack mechanics are summarized at control level; no reusable bypass commands or payloads were copied.
+- Docker is vendor-authored; iPurple is security-practitioner content; Birdclaw items are watchlist-only.

@@ -729,3 +729,32 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - Sources are vendor-authored product/architecture announcements. Verify active specs, SDK versions, pricing, token retention, and connector limitations before implementation.
+
+## 2026-06-21 compile additions: social MCP expansion and codebase memory watchlist
+
+### Source-backed claims
+- Birdclaw social sources on 2026-06-20 surfaced several MCP/tool-surface leads: codebase-memory-mcp, public MCP server browsing, Solana tools exposed over MCP, and a claimed study of 177,436 public MCP tools. These should be treated as discovery leads until primary repositories, papers, or catalogs are reviewed. Source: `wiki/early-social-ai-agent-signals-2026.md`. confidence: low social-source cluster, last-confirmed 2026-06-20.
+- The codebase-memory-mcp post claims a C/MIT-licensed tool indexes codebases into a graph using tree-sitter and JSON-RPC, with a token-reduction positioning for coding assistants; this is unverified social/source-author promotion until the repository is inspected. Source: `raw/2026-06-20-birdclaw-x-x-signal-janifica-deusdata-codebase-memory-mcp-why-it-s-trending-this-new-open-s.md`. confidence: 1 social source, last-confirmed 2026-06-20.
+- The MCP public-tool growth post claims a sharp increase in public MCP tools and AI co-authored MCP servers; the numbers require primary study verification before operational use. Source: `raw/2026-06-20-birdclaw-x-x-signal-vbkotecha-a-new-study-analyzed-177-436-public-mcp-tools-and-found-that.md`. confidence: 1 social source citing an unnamed study in the capture, last-confirmed 2026-06-20.
+
+### Typed entities
+- project/tool: codebase-memory-mcp
+- parser framework: tree-sitter
+- protocol: JSON-RPC 2.0
+- protocol: Model Context Protocol / MCP
+- concept: public MCP server catalog
+- concept: MCP tool growth
+- concept: AI co-authored tool surface
+- page: [[early-social-ai-agent-signals-2026]]
+
+### Explicit relationships
+- Codebase memory graphs complement text search and embeddings when they preserve symbol/AST relationships for agents.
+- Public MCP server growth increases tool-supply value but also increases provenance, typosquatting, prompt-injection, and permission-review burden.
+- Social tool claims depend-on repository inspection, license review, security review, and local benchmark before catalog promotion.
+
+### HoneyDrunk implications
+- Add codebase-memory-mcp to the retrieval/tooling watchlist only after repo inspection confirms build, license, language coverage, and security posture.
+- Treat public MCP catalogs as untrusted indexes. Approved HoneyDrunk profiles still need explicit server provenance, version/hash, permissions, and network/secret review.
+
+### Quality notes
+- Low-confidence social-source batch. No MCP server should be promoted to approved catalog from this evidence alone.

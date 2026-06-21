@@ -466,3 +466,22 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - Source is vendor/trade content with portfolio examples. Useful as production-structure signal, not neutral procurement evidence.
+
+## 2026-06-21 compile additions: Blender weekly signal
+
+### Source-backed claims
+- Blender Devtalk's 2026-06-08 weekly update is a low-weight technical-art signal covering ongoing Blender development work; promote only specific stable release-note items or measured workflow impacts into production guidance. Source: `raw/2026-06-21-web-blender-devtalk-8-june-2026.md`. confidence: 1 official forum weekly source, last-confirmed 2026-06-21.
+
+### Typed entities
+- DCC/tool: Blender
+- source: Blender Devtalk weekly update
+- concept: technical-art weekly signal
+
+### Explicit relationships
+- Blender weekly updates complement release notes by showing near-term development movement, but they do not supersede stable documentation.
+
+### HoneyDrunk implications
+- Keep Blender weekly updates as scouting input for technical-art tooling; wait for release notes or local tests before changing workflow defaults.
+
+### Quality notes
+- Official forum source, but still weekly/status material rather than stable adoption guidance.

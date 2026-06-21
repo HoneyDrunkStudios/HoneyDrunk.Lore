@@ -640,3 +640,35 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - Simon Willison is a strong model-watching source but not a local benchmark. System Design Newsletter is explanatory and partly teaser/paywalled. DigitalOcean is vendor-authored.
+
+## 2026-06-21 compile additions: GLM-5.2 official long-horizon source and XR agent infrastructure
+
+### Source-backed claims
+- Z.AI's Hugging Face article describes GLM-5.2 as a 753B-parameter MoE model with roughly 40B active parameters, a 1M-token context window, coding/agentic benchmark positioning, effort controls, and architecture changes such as IndexShare and MTP/KV sharing. Source: `raw/2026-06-21-web-z-ai-hugging-face-glm-5-2-built-for-long-horizon-tasks.md`. confidence: 1 vendor/model-release source, last-confirmed 2026-06-21.
+- The same source frames GLM-5.2 training and evaluation around long-horizon coding, tool use, agentic RL, rollout infrastructure, anti-hacking controls, and large-context serving optimizations. Source: `raw/2026-06-21-web-z-ai-hugging-face-glm-5-2-built-for-long-horizon-tasks.md`. confidence: 1 source, last-confirmed 2026-06-21.
+- NVIDIA XR AI positions AR glasses and XR devices as agent clients that combine real-time vision, voice interaction, GPU-accelerated AI services, enterprise data access, and tool integration. Source: `raw/2026-06-21-web-nvidia-building-ai-agents-for-ar-glasses-and-xr-devices-with-nvidia-xr.md`. confidence: 1 vendor developer source, last-confirmed 2026-06-21.
+
+### Typed entities
+- model: GLM-5.2
+- organization: Z.AI
+- architecture: Mixture of Experts / MoE
+- technique: IndexShare
+- technique: MTP / multi-token prediction
+- technique: KV sharing
+- concept: agentic RL
+- control: anti-hacking module
+- platform: NVIDIA XR AI
+- device class: AR glasses / XR
+
+### Explicit relationships
+- GLM-5.2 reinforces that open-weight model competitiveness depends-on architecture, serving infrastructure, context length, effort controls, and anti-reward-hacking evaluation, not only parameter count.
+- Long-context serving depends-on KV-cache capacity, cache transfer, scheduling, and CPU/GPU pipeline efficiency.
+- XR agent infrastructure depends-on low-latency multimodal inference and tool/data access under device privacy constraints.
+
+### HoneyDrunk implications
+- Keep GLM-5.2 on the model scouting queue, but benchmark output-token use, latency, cost, context behavior, and task quality on HoneyDrunk work before routing changes.
+- For any agentic-RL or benchmark work, inspect anti-hacking controls; reward gaming can corrupt both training and eval evidence.
+- XR/AR agents are future-client scouting only until HoneyDrunk has a concrete device/workflow use case.
+
+### Quality notes
+- Z.AI and NVIDIA are vendor sources. Treat benchmark claims as candidate-selection evidence, not local proof.

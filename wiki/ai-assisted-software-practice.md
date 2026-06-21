@@ -675,3 +675,33 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Sources are practice/research guidance. Reproduce on HoneyDrunk codebases before adding broad agent-facing surface changes.
+
+## 2026-06-21 compile additions: social-loop practice signals
+
+### Source-backed claims
+- Andy Matuschak reports that heavy coding-agent users appear happiest in two poles: controlled one-to-two minute loops where the human remains in full control, or delegated slow loops where agents work in the background with little attention. He describes the middle ground of partial technical control as creating parallelism, context switching, working-memory churn, and poor comprehension. Source: `raw/2026-06-20-birdclaw-x-x-signal-andy-matuschak-of-my-friends-who-use-coding-agents-heavily-the-happiest.md`. confidence: 1 practitioner social source, last-confirmed 2026-06-20.
+- Birdclaw social posts from 2026-06-20 reinforce that agentic coding discourse is shifting from "chatbot writes code" toward loop design, dynamic workflows, memory, background sessions, and agent scaffolding. Because many posts are promotional or anecdotal, treat them as adoption signals rather than proof of productivity. Source: `wiki/early-social-ai-agent-signals-2026.md`. confidence: low social-source cluster, last-confirmed 2026-06-20.
+- Practitioner anecdotes in the same batch include both enthusiasm for replacing ordinary chatbot use with Codex/Claude Code and skepticism that app-building claims prove durable engineering quality. Source: `wiki/early-social-ai-agent-signals-2026.md`. confidence: low social-source cluster, last-confirmed 2026-06-20.
+
+### Typed entities
+- person: Andy Matuschak
+- source cluster: Birdclaw X signals
+- concept: controlled fast loop
+- concept: delegated slow loop
+- concept: partial technical control
+- concept: working-memory churn
+- concept: agent workflow scaffolding
+- page: [[early-social-ai-agent-signals-2026]]
+
+### Explicit relationships
+- Coding-agent productivity depends-on loop shape and human attention model, not only model capability.
+- Partial-control workflows can contradict both full human oversight and full delegation when they increase context switching without enough autonomous verification.
+- Social adoption signals complement but do not supersede local validation, tests, review quality, or user-visible outcomes.
+
+### HoneyDrunk implications
+- Keep OpenClaw/Honeyclaw tasks either tight enough for human comprehension or delegated enough to produce auditable artifacts before review.
+- Avoid expanding parallel agent work unless a supervisor explicitly owns synthesis and review evidence.
+- Treat social "one prompt built X" posts as sourcing leads, not product-readiness evidence.
+
+### Quality notes
+- Social posts are weak evidence. The Andy Matuschak post is decision-useful practice commentary; the rest of the batch remains low-confidence trend signal.

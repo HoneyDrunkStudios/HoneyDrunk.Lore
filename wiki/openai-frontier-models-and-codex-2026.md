@@ -213,3 +213,28 @@ OpenAI's June 11 raw sources add two durable signals for HoneyDrunk: GPT-5.5 is 
 
 ### Quality notes
 - Official changelog source. It is implementation-signal material rather than product documentation; verify behavior in the installed runtime before relying on it.
+
+## 2026-06-21 compile additions: Agents SDK and beneficial RL
+
+### Source-backed claims
+- OpenAI's Agents SDK evolution source positions the SDK as a more capable agent harness for inspecting files, running commands, editing code, and working on long-horizon tasks inside controlled sandbox environments. Source: `raw/2026-06-21-web-openai-the-next-evolution-of-the-agents-sdk.md`. confidence: 1 OpenAI product source, last-confirmed 2026-06-21.
+- OpenAI's beneficial-RL alignment source reports that reinforcement learning on realistic scenarios targeting beneficial traits can generalize improvements across benchmark families measuring aligned and beneficial behavior. Source: `raw/2026-06-21-web-openai-reinforcement-learning-towards-broadly-and-persistently-benefic.md`. confidence: 1 OpenAI research/alignment source, last-confirmed 2026-06-21.
+
+### Typed entities
+- product/framework: OpenAI Agents SDK
+- concept: controlled sandbox environment
+- concept: long-horizon task
+- method: reinforcement learning / RL
+- concept: beneficial traits
+- concept: alignment generalization
+
+### Explicit relationships
+- Agents SDK capabilities depend-on sandbox, tool, file, command, approval, and telemetry boundaries outside the model.
+- Beneficial RL complements model-alignment work by shaping behavior across realistic scenarios, but does not supersede application-level evals or policy controls.
+
+### HoneyDrunk implications
+- Treat Agents SDK changes as harness-shape signals for OpenClaw/Codex work; local adoption still needs SDK/API verification and retention/cost review.
+- Do not assume general alignment improvements cover HoneyDrunk-specific risks. Keep task-level evals, sandboxing, and approval gates.
+
+### Quality notes
+- Official OpenAI sources. Product/API behavior and research conclusions should be checked against current docs/papers before implementation or model-routing changes.

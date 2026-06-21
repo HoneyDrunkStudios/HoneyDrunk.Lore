@@ -329,3 +329,29 @@ Anthropic's 2026 platform direction is enterprise/workflow-heavy: Claude Opus 4.
 
 ### Quality notes
 - Vendor product announcement. Availability, retention, export, and compliance behavior should be verified in the active Anthropic tenant before operational use.
+
+## 2026-06-21 compile additions: Claude Design brand controls and workload identity federation
+
+### Source-backed claims
+- Anthropic says Claude Design can now stay on brand for daily work by using brand assets, style guidance, and reusable design context when producing work artifacts; treat as product-positioning evidence until tenant behavior and export controls are tested. Source: `raw/2026-06-21-web-anthropic-claude-design-now-stays-on-brand-for-daily-work.md`. confidence: 1 Anthropic product source, last-confirmed 2026-06-21.
+- Anthropic announced Workload Identity Federation as generally available on the Claude Platform, reducing reliance on long-lived static API keys for workloads that can exchange identity assertions for platform access. Source: `raw/2026-06-21-web-anthropic-workload-identity-federation-wif-is-now-generally-available-.md`. confidence: 1 Anthropic product source, last-confirmed 2026-06-21.
+
+### Typed entities
+- product: Claude Design
+- concept: brand-context reuse
+- feature: Workload Identity Federation / WIF
+- concept: workload identity
+- credential pattern: static API key
+- credential pattern: federated token exchange
+
+### Explicit relationships
+- Claude Design brand controls depend-on curated brand assets and style context; they do not supersede human brand review for public-facing assets.
+- Workload Identity Federation supersedes static API keys for supported automation where workload identity can be asserted and scoped.
+- Federated workload access complements existing agent credential guidance by moving secret custody from stored keys toward short-lived derived credentials.
+
+### HoneyDrunk implications
+- If Claude Design is used for HoneyDrunk brand work, keep source assets, review approvals, dimensions, and final artifacts in repo or asset storage; generated work is not canonical by itself.
+- Prefer WIF-style authentication for shared Claude automation where supported, but document subject, audience, scope, expiry, logs, and fallback behavior.
+
+### Quality notes
+- Anthropic product sources are authoritative for feature positioning, but tenant availability, billing, retention, and exact identity-provider support should be verified before automation changes.

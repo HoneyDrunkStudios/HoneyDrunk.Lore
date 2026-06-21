@@ -42,3 +42,29 @@ This page tracks durable patterns for agent-readable, human-readable knowledge s
 
 ### Quality notes
 - Official Google Cloud/spec announcement. Use as compatibility scouting evidence until the OKF repository/spec is reviewed directly and stability is proven.
+
+## 2026-06-21 compile additions: agent memory as wiki-adjacent retrieval
+
+### Source-backed claims
+- Elastic's agent-memory source describes a persistent memory layer with hybrid retrieval, reranking, supersession, decay, and document-level security. Although it is not a markdown wiki format, it reinforces Lore's need to preserve source provenance, supersession, and access boundaries if retrieval infrastructure is added later. Source: `raw/2026-06-21-web-elastic-agent-memory-on-elasticsearch-hybrid-retrieval-and-dls-elastic.md`. confidence: 1 vendor engineering source, last-confirmed 2026-06-21.
+- Thoughtworks' organizational-memory source argues that useful agent memory must encode the organization's implicit patterns, decisions, and context rather than only retrieve documents. Source: `raw/2026-06-21-web-thoughtworks-the-agent-unconscious-embedding-organizational-memory-in-.md`. confidence: 1 practice source, last-confirmed 2026-06-21.
+
+### Typed entities
+- product: Elasticsearch
+- concept: agent memory
+- concept: hybrid retrieval
+- concept: document-level security
+- concept: supersession
+- concept: retention decay
+- concept: organizational memory
+
+### Explicit relationships
+- Agent memory systems complement LLM wikis when they preserve provenance, security trimming, supersession, and stale-claim decay.
+- Organizational memory depends-on explicit capture of decisions and conventions; raw embeddings alone do not make knowledge decision-usable.
+
+### HoneyDrunk implications
+- If Lore adds BM25/vector/graph retrieval, keep markdown pages as the semantic source of truth and treat indexes as derived infrastructure.
+- Preserve confidence, last-confirmed dates, supersession, and privacy filtering in any future machine-readable export or memory index.
+
+### Quality notes
+- Elastic is vendor-authored and Thoughtworks is practice guidance. Use them to shape future Lore retrieval experiments, not as a mandate to adopt Elasticsearch.

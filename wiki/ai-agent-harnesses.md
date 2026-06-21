@@ -864,3 +864,41 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - Vercel and DigitalOcean are product sources. Claims are useful architecture signals, but local feasibility depends on package maturity, hosting terms, Windows/dev ergonomics, cost, and security controls.
+
+## 2026-06-21 compile additions: agent memory, OpenClaw anatomy, and SDK harness shape
+
+### Source-backed claims
+- Elastic describes a persistent multi-tenant agent-memory layer on Elasticsearch using three indices, hybrid retrieval with reciprocal rank fusion and reranking, supersession, decay, and document-level security; the source reports R@10 of 0.89 across 168 questions and zero tenant leaks in its test setup. Source: `raw/2026-06-21-web-elastic-agent-memory-on-elasticsearch-hybrid-retrieval-and-dls-elastic.md`. confidence: 1 vendor engineering source, last-confirmed 2026-06-21.
+- Thoughtworks frames organizational memory for agents as an "agent unconscious": implicit organizational context, prior decisions, naming, and patterns must be intentionally embedded into agent systems rather than assumed to transfer through prompts alone. Source: `raw/2026-06-21-web-thoughtworks-the-agent-unconscious-embedding-organizational-memory-in-.md`. confidence: 1 practice source, last-confirmed 2026-06-21.
+- OpenAI's Agents SDK evolution source reinforces the harness pattern around controlled sandbox environments where agents can inspect files, run commands, edit code, and work on long-horizon tasks. Source: `raw/2026-06-21-web-openai-the-next-evolution-of-the-agents-sdk.md`. confidence: 1 OpenAI product source, last-confirmed 2026-06-21.
+- The System Design Newsletter's OpenClaw article describes OpenClaw as an autonomous local-machine agent that connects to messaging apps and performs tasks rather than only drafting text; treat this as secondary explanatory coverage until primary OpenClaw docs are captured. Source: `raw/2026-06-21-web-system-design-newsletter-the-anatomy-of-openclaw.md`. confidence: 1 explanatory newsletter source, last-confirmed 2026-06-21.
+- NVIDIA XR AI positions AR/XR agents around real-time visual and voice interaction, GPU-accelerated services, enterprise data access, and tool integration for glasses/headsets. Source: `raw/2026-06-21-web-nvidia-building-ai-agents-for-ar-glasses-and-xr-devices-with-nvidia-xr.md`. confidence: 1 vendor developer source, last-confirmed 2026-06-21.
+
+### Typed entities
+- product: Elasticsearch
+- concept: persistent agent memory
+- concept: hybrid retrieval
+- concept: reciprocal rank fusion / RRF
+- concept: document-level security / DLS
+- concept: supersession
+- concept: memory decay
+- concept: organizational memory
+- product/framework: OpenAI Agents SDK
+- product/tool: OpenClaw
+- platform: NVIDIA XR AI
+- device class: AR glasses / XR headset
+
+### Explicit relationships
+- Agent memory depends-on retrieval quality, tenant isolation, supersession, decay, and security trimming, not only vector search.
+- Organizational memory complements explicit instructions because agents need durable context about decisions, conventions, and working patterns.
+- Agent SDKs and OpenClaw-style harnesses depend-on sandboxed execution, tool permissioning, and stateful task orchestration.
+- XR agents add real-time vision, voice, and device-context constraints to the normal model/tool loop.
+
+### HoneyDrunk implications
+- For Lore/OpenClaw memory work, evaluate hybrid retrieval, security trimming, supersession, and decay together; retrieval recall without tenant/data isolation is incomplete.
+- Keep organizational conventions in repo-visible, cited artifacts where possible so agents can retrieve them as evidence rather than relying on transient chat memory.
+- Treat OpenClaw secondary explainers as discovery sources; prefer primary docs or local behavior before changing runner architecture.
+- For XR or companion-device experiments, require latency, privacy, recording, and tool-action policies before exposing HoneyDrunk workflows.
+
+### Quality notes
+- Elastic, OpenAI, and NVIDIA are vendor sources. Thoughtworks is practice guidance. The OpenClaw article is secondary/explanatory and should be verified against primary project material.

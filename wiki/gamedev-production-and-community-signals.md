@@ -398,3 +398,22 @@ The game-development community feed produced a mix of process advice, tooling ex
 
 ### Quality notes
 - 80 Level is secondary/trade-press reaction coverage. Useful for sentiment and risk mapping, not sufficient for engine migration decisions.
+
+## 2026-06-21 compile additions: Epic Lore primary repository reinforcement
+
+### Source-backed claims
+- The GitHub capture for `EpicGames/lore` reinforces the prior Epic Lore entry with a primary repository surface: Epic describes Lore as an open-source next-generation version-control system. Source: `raw/2026-06-21-web-epic-games-github-epicgames-lore-lore-is-a-next-generation-open-source.md`. confidence: 1 primary repository capture, last-confirmed 2026-06-21.
+
+### Typed entities
+- repository: `EpicGames/lore`
+- product: Epic Lore version control
+- platform: GitHub
+
+### Explicit relationships
+- The primary GitHub repository complements the earlier 80 Level/trade-press source for Epic Lore, but repository maturity, docs, releases, hosting, and client tooling still require direct inspection before adoption.
+
+### HoneyDrunk implications
+- If large-binary version control becomes relevant, inspect the Epic Lore repository directly rather than relying on trade-press summaries.
+
+### Quality notes
+- Primary repository capture is stronger than trade press for project existence, but adoption still needs local workflow testing.

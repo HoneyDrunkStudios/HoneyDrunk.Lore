@@ -439,3 +439,30 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - Cloudflare metrics are operational self-reporting. They are valuable for eval design, but not external proof of expected HoneyDrunk yield.
+
+## 2026-06-21 compile additions: beneficial-behavior RL and long-horizon reward-hacking controls
+
+### Source-backed claims
+- OpenAI's beneficial-RL source reports broad improvements from reinforcement learning on realistic beneficial-behavior scenarios, reinforcing that evaluation should measure behavior across multiple domains rather than only one task family. Source: `raw/2026-06-21-web-openai-reinforcement-learning-towards-broadly-and-persistently-benefic.md`. confidence: 1 OpenAI research source, last-confirmed 2026-06-21.
+- Z.AI's GLM-5.2 source explicitly describes anti-hacking controls for coding-agent RL and evaluation, including rule-based filtering plus LLM-judge intent checks over tool calls to block protected-artifact access or answer leakage while allowing rollouts to continue. Source: `raw/2026-06-21-web-z-ai-hugging-face-glm-5-2-built-for-long-horizon-tasks.md`. confidence: 1 vendor/model-release source, last-confirmed 2026-06-21.
+
+### Typed entities
+- method: reinforcement learning / RL
+- concept: beneficial-behavior evaluation
+- model: GLM-5.2
+- control: anti-hacking module
+- threat: reward hacking
+- evaluator: LLM judge
+- concept: online tool-call guard
+
+### Explicit relationships
+- RL evaluation depends-on both target-task success and checks that success was not obtained through leakage, protected artifacts, or shortcut exploitation.
+- Online anti-hacking guards complement final scoring by blocking invalid tool calls without discarding the whole trajectory.
+- Broad beneficial-behavior claims depend-on cross-domain evals; they do not supersede task-specific application evaluations.
+
+### HoneyDrunk implications
+- For local agent evals, explicitly record shortcut attempts, protected-file access, internet fetches, hidden-test reads, or suspiciously direct answer retrieval.
+- Prefer eval harnesses that can continue after a blocked invalid action so failure modes are observable rather than hidden by aborted runs.
+
+### Quality notes
+- OpenAI and Z.AI are primary/vendor sources for their own research. Reproduce on HoneyDrunk evals before using as routing policy.

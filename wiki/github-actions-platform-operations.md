@@ -440,3 +440,24 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ### Quality notes
 - GitHub changelog sources are authoritative for feature existence. Public-preview controls and checkout backport behavior should be verified live before org-wide policy changes.
+
+## 2026-06-21 compile additions: custom image layering
+
+### Source-backed claims
+- GitHub Actions custom images can now be built from other custom images, enabling layered runner-image workflows where teams maintain a shared base image and build team-specific images on top. Source: `raw/2026-06-21-web-github-changelog-actions-build-custom-images-from-custom-images-github.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-21.
+
+### Typed entities
+- platform: GitHub Actions
+- feature: custom images from custom images
+- concept: layered runner image
+- concept: shared base image
+
+### Explicit relationships
+- Layered custom images complement runner standardization by separating shared tooling from team-specific dependencies.
+- Custom runner images depend-on image-generation pipeline governance, provenance, patch cadence, and storage/cost controls.
+
+### HoneyDrunk implications
+- If HoneyDrunk adopts custom GitHub-hosted images, define base-image ownership, rebuild cadence, vulnerability scanning, and per-team layering rules before broad rollout.
+
+### Quality notes
+- GitHub changelog source is authoritative for feature existence; live availability, pricing, and enterprise plan constraints should be verified before implementation.

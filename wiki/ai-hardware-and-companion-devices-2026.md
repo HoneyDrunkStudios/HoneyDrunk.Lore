@@ -33,3 +33,26 @@ AI hardware rumors/signals in this batch are still early and weakly evidenced, b
 - Quality posture: early scouting only; single newsletter article citing analyst reporting.
 - Weak spots: no primary OpenAI hardware spec, SDK, privacy model, distribution terms, or launch confirmation in this source.
 - Privacy filter: raw public client config/site JavaScript was not copied into this page.
+
+## 2026-06-21 compile additions: XR agent device surface
+
+### Source-backed claims
+- NVIDIA XR AI frames AR glasses and XR devices as future agent surfaces that combine real-time camera understanding, voice interaction, enterprise data access, and tool invocation through GPU-accelerated services. Source: `raw/2026-06-21-web-nvidia-building-ai-agents-for-ar-glasses-and-xr-devices-with-nvidia-xr.md`. confidence: 1 vendor developer source, last-confirmed 2026-06-21.
+
+### Typed entities
+- platform: NVIDIA XR AI
+- device class: AR glasses
+- device class: XR headset
+- modality: real-time vision
+- modality: voice interaction
+- concept: agent-first wearable device
+
+### Explicit relationships
+- XR agent devices complement phone/desktop/web agents by adding always-near visual context, voice, and spatial interaction.
+- Wearable agent workflows depend-on privacy, recording indicators, latency, battery/thermal limits, and scoped tool authority.
+
+### HoneyDrunk implications
+- Track XR agents as a future client surface only; any HoneyDrunk workflow exposed to glasses/headsets needs explicit camera/privacy and action-approval policy.
+
+### Quality notes
+- Vendor developer source; useful for scouting, not procurement or product commitment.

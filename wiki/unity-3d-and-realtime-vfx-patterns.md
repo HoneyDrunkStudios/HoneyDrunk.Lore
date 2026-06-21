@@ -722,3 +722,25 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - Practitioner guidance; decision-useful as a checklist, but final settings require profiling with HoneyDrunk assets and target devices.
+
+## 2026-06-21 compile additions: 2D sprite volume through normal maps
+
+### Source-backed claims
+- 80 Level's Astral Hearts tutorial source shows a Unity 2D lighting workflow where normal maps can give flat sprites a stronger sense of volume under scene lighting. Source: `raw/2026-06-21-web-80-level-learn-how-to-add-sense-of-volume-to-your-2d-sprites-in-unity.md`. confidence: 1 trade/practitioner source, last-confirmed 2026-06-21.
+
+### Typed entities
+- engine: Unity
+- technique: 2D sprite normal maps
+- concept: 2D lighting
+- project: Hellcrown
+- source/community: Astral Hearts
+
+### Explicit relationships
+- Normal maps complement 2D sprite art by letting lighting imply volume without replacing sprites with 3D meshes.
+- Sprite normal workflows depend-on art direction, light setup, texture authoring quality, and runtime/mobile performance.
+
+### HoneyDrunk implications
+- For stylized 2D prototypes, test normal-mapped sprites early if lighting mood is central; validate on target devices before committing the art pipeline.
+
+### Quality notes
+- 80 Level is a trade source surfacing a tutorial. Use as practical technique lead, not as performance evidence.

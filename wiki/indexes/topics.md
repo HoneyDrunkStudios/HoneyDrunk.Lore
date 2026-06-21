@@ -741,3 +741,28 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 
 ### Commerce and machine payments
 - [[agentic-commerce-and-machine-payments]] - 1 source - last-confirmed 2026-06-20
+
+## 2026-06-21 topic additions
+
+### Social signal, AI-assisted software, and source quality
+- [[early-social-ai-agent-signals-2026]] - 30 sources - last-confirmed 2026-06-20
+- [[ai-assisted-software-practice]] - 60 sources - last-confirmed 2026-06-21
+
+### Agent harnesses, memory, and MCP
+- [[ai-agent-harnesses]] - 114 sources - last-confirmed 2026-06-21
+- [[llm-wiki-and-knowledge-formats]] - 3 sources - last-confirmed 2026-06-21
+- [[mcp-tool-governance-and-app-surfaces]] - 68 sources - last-confirmed 2026-06-21
+
+### Agent security, identity, and model operations
+- [[ai-coding-agent-security]] - 94 sources - last-confirmed 2026-06-21
+- [[claude-platform-2026]] - 36 sources - last-confirmed 2026-06-21
+- [[openai-frontier-models-and-codex-2026]] - 16 sources - last-confirmed 2026-06-21
+- [[agent-evaluation-and-benchmarks]] - 31 sources - last-confirmed 2026-06-21
+- [[edge-ai-and-ai-infrastructure-2026]] - 48 sources - last-confirmed 2026-06-21
+
+### Game engines, technical art, and GitHub operations
+- [[unity-3d-and-realtime-vfx-patterns]] - 45 sources - last-confirmed 2026-06-21
+- [[gamedev-production-and-community-signals]] - 32 sources - last-confirmed 2026-06-21
+- [[technical-art-community-and-talent-signals]] - 30 sources - last-confirmed 2026-06-21
+- [[github-actions-platform-operations]] - 32 sources - last-confirmed 2026-06-21
+- [[ai-hardware-and-companion-devices-2026]] - 2 sources - last-confirmed 2026-06-21
