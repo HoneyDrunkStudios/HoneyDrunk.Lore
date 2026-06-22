@@ -207,3 +207,25 @@ The 2026-05-03 through 2026-05-07 X-list and Discord clipper snapshots are low-y
 ### Explicit relationships
 - Duplicated body fragments increase compile noise but do not necessarily block source use when key takeaways are present.
 - Navigation/sidebar boilerplate requires body-boundary extraction before claims are promoted with confidence.
+
+## 2026-06-22 compile additions
+
+### Claims
+- The Pluto Security raw capture titled "Inside Claude Managed Agents" did not contain decision-grade managed-agent reverse-engineering content in the captured body; it mostly surfaced an unrelated/teaser-style "Is Vibe Coding Safe?" page fragment, so Lore retained it as title/body mismatch evidence rather than promoting security claims. confidence: 1 low-yield capture, last-confirmed 2026-06-22. [source: raw/2026-06-22-rss-pluto-security-inside-claude-managed-agents-reverse-engineering-the-se.md]
+
+### Typed entities
+- source family: Pluto Security pages
+- concept: title/body mismatch
+- concept: low-yield capture
+- article topic mentioned but not promoted: Claude managed-agent reverse engineering
+
+### Explicit relationships
+- Title/body mismatch contradicts title-level claim promotion when article body evidence is absent.
+- Low-yield captures can still improve sourcing quality by identifying extraction failures and missing follow-up questions.
+
+### HoneyDrunk implications
+- Add a sourcing check for title/body mismatch before ingesting article claims from RSS captures.
+- For security research articles, prefer primary article body capture before promoting exploit, architecture, or vulnerability claims.
+
+### Quality notes
+- Source retained only as extraction-quality evidence. No security claims or potentially reusable reverse-engineering details were promoted from this capture.

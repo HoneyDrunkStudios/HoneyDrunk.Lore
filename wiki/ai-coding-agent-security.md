@@ -1083,3 +1083,36 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 ### Privacy and quality notes
 - Privacy filter: attack mechanics are summarized at control level; no reusable bypass commands or payloads were copied.
 - Docker is vendor-authored; iPurple is security-practitioner content; Birdclaw items are watchlist-only.
+
+## 2026-06-22 compile additions: hooks, temporary accounts, and post-quantum readiness
+
+### Source-backed claims
+- Zarar's agent-hooks source argues that prompt instructions are not reliable enforcement and that agent lifecycle hooks are the appropriate layer for rules such as blocking unsafe edits before tool execution or requiring tests before a session can stop. Source: `raw/2026-06-22-rss-zarar-dev-do-not-rely-on-instructions-use-agent-hooks-to-enforce-guard.md`. confidence: 1 practitioner source, last-confirmed 2026-06-22.
+- The same source warns that hooks must be tested as code: JSON-path mistakes, silent nulls, and missing `stop_hook_active` handling can make guards ineffective or create infinite loops. Source: `raw/2026-06-22-rss-zarar-dev-do-not-rely-on-instructions-use-agent-hooks-to-enforce-guard.md`. confidence: 1 source, last-confirmed 2026-06-22.
+- Cloudflare Temporary Accounts create disposable deployment authority for agents, which reduces signup friction but creates a new security boundary around temporary account scope, token lifetime, billing/quota behavior, claim links, and cleanup evidence. Source: `raw/2026-06-22-rss-blog-cloudflare-com-temporary-cloudflare-accounts-for-ai-agents.md`. confidence: 1 Cloudflare product source plus compile judgment, last-confirmed 2026-06-22.
+- Cloudflare's code-mode MCP source reinforces that keeping credentials out of model context is a security control, but it does not remove the need for scoped runtime credentials, audit logs, and tool-level authorization. Source: `raw/2026-06-22-rss-blog-cloudflare-com-introducing-the-cloudflare-one-stack-agent-powered.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 Cloudflare product source, last-confirmed 2026-06-22.
+- Post-quantum migration signals from Brandon Rozek's source indicate SSH, TLS, and VPN stacks are moving at different speeds; see [[post-quantum-security-and-cryptography]] for the dedicated cryptography page. Source: `raw/2026-06-22-rss-brandonrozek-com-on-post-quantum-security-adoption.md`. confidence: 1 practitioner source, last-confirmed 2026-06-22.
+
+### Typed entities
+- control: agent lifecycle hook
+- control: `PreToolUse` hook
+- control: `Stop` hook
+- risk: silent JSON-path null
+- product: Cloudflare Temporary Accounts
+- command: `wrangler deploy --temporary`
+- control: scoped runtime credential
+- page: [[post-quantum-security-and-cryptography]]
+
+### Explicit relationships
+- Agent hooks enforce workflow policy before or after tool calls; they complement but do not supersede sandboxing, identity scoping, and code review.
+- Tested hooks can supersede memory-only reminders when the same rule recurs across agent runs.
+- Temporary accounts reduce ambient-account reuse but depend-on expiry, quotas, claim controls, and audit logs to avoid becoming disposable untracked infrastructure.
+- Runtime credential custody complements MCP governance by preventing raw secrets from entering prompts or wiki pages.
+
+### HoneyDrunk implications
+- Promote durable agent safety rules into hooks where available, and validate hooks with positive and negative fixtures before trusting them.
+- Treat temporary deployment accounts as infrastructure principals. Run summaries should record account scope, expiry, deployed resource, cleanup/claim status, and any generated URL.
+- Add post-quantum readiness to infrastructure/security inventory work, but verify current protocol support before making migration decisions.
+
+### Privacy and quality notes
+- No hook payloads, secrets, tokens, or executable bypass details were copied. Sources are practitioner/vendor guidance and require local runtime testing.

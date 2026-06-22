@@ -349,3 +349,33 @@ OpenTelemetry is becoming the practical neutral observability layer for LLM/agen
 
 ### Quality notes
 - Microsoft source is architecture guidance and Azure-centered. The telemetry categories are broadly useful; product-specific dashboards should not drive HoneyDrunk architecture unless local needs justify Azure Monitor/Application Insights.
+
+## 2026-06-22 compile additions: OTAP/Arrow dataflow for high-volume telemetry
+
+### Source-backed claims
+- OpenTelemetry Arrow Phase 2 positions OTAP/Arrow as more than a wire transport: Arrow becomes an in-pipeline columnar representation inside a Rust Dataflow Engine with batched telemetry, bounded channels, backpressure, shared-nothing thread-per-core execution, and live reconfiguration. Source: `raw/2026-06-22-rss-opentelemetry-io-otel-arrow-phase-2-from-efficient-transport-to-effici.md`. confidence: 1 official OpenTelemetry source, last-confirmed 2026-06-22.
+- The source reports benchmark examples where rule-processing CPU stayed near flat under high log volume compared with a much higher Collector OTLP path, and it reports 10-20x throughput gains for OTAP over OTLP in the same runtime; treat those as source benchmark snapshots, not HoneyDrunk capacity evidence. Source: `raw/2026-06-22-rss-opentelemetry-io-otel-arrow-phase-2-from-efficient-transport-to-effici.md`. confidence: 1 official source, last-confirmed 2026-06-22.
+- The Dataflow Engine is described as incubation-stage, so the strategic signal is future high-volume telemetry architecture rather than an immediate production default. Source: `raw/2026-06-22-rss-opentelemetry-io-otel-arrow-phase-2-from-efficient-transport-to-effici.md`. confidence: 1 official source, last-confirmed 2026-06-22.
+
+### Typed entities
+- protocol/project: OpenTelemetry Arrow / OTAP
+- data format: Apache Arrow
+- component: Rust Dataflow Engine
+- concept: columnar telemetry
+- control: bounded channel
+- control: backpressure
+- execution model: thread-per-core shared-nothing
+- protocol: OTLP
+
+### Explicit relationships
+- OTAP/Arrow complements OTLP by optimizing high-volume telemetry transport and in-pipeline processing.
+- Columnar batched telemetry can reduce repeated parsing/allocation work compared with row-oriented processing.
+- Backpressure and bounded channels complement telemetry reliability by making overload behavior explicit.
+- Incubation status means OTAP/Arrow does not supersede stable Collector pipelines yet.
+
+### HoneyDrunk implications
+- Keep OTAP/Arrow on the watchlist for high-volume agent traces, logs, and event streams, especially if OpenClaw/Grid telemetry volume outgrows simple Collector pipelines.
+- Do not adopt incubation telemetry infrastructure without local load tests, fallback path, operational ownership, and privacy/redaction parity.
+
+### Quality notes
+- Official OpenTelemetry source. Benchmark numbers are useful directional evidence but require local reproduction on HoneyDrunk trace/log shapes.

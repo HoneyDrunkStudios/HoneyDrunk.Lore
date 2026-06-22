@@ -758,3 +758,36 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - Low-confidence social-source batch. No MCP server should be promoted to approved catalog from this evidence alone.
+
+## 2026-06-22 compile additions: Cloudflare stack skills, Datadog MCP, and shared action surfaces
+
+### Source-backed claims
+- Cloudflare One stack skills package Zero Trust/SASE migration, evaluation, deployment, management, and troubleshooting knowledge as agent-consumable skill files, including vendor-to-Cloudflare mapping logic for Zscaler, Palo Alto, and Netskope concepts. Source: `raw/2026-06-22-rss-blog-cloudflare-com-introducing-the-cloudflare-one-stack-agent-powered.md`. confidence: 1 Cloudflare product source, last-confirmed 2026-06-22.
+- Cloudflare's code-mode MCP server gives agents a typed Cloudflare API interface while keeping credentials out of model context, reinforcing the pattern that MCP tools should mediate API access instead of exposing secrets or raw dashboards to the agent. Source: `raw/2026-06-22-rss-blog-cloudflare-com-introducing-the-cloudflare-one-stack-agent-powered.md`. confidence: 1 source, last-confirmed 2026-06-22.
+- Datadog MCP Server GA exposes observability and operations data to AWS DevOps Agent workflows, including logs, metrics, traces, dashboards, monitors, incidents, APM, security scanning, database monitoring, and CI/CD. Source: `raw/2026-06-22-rss-aws-amazon-com-production-ready-autonomous-incident-resolution-with-aw.md`. confidence: 1 AWS/Datadog product signal, last-confirmed 2026-06-22.
+- Builder.io's Agent-Native framework exposes the same action definition through MCP, A2A, HTTP, UI, CLI, and agents, turning action contracts into a shared app surface rather than separate agent-only tool schemas. Source: `raw/2026-06-22-rss-github-com-agent-native.md`. confidence: 1 project/repository source, last-confirmed 2026-06-22.
+
+### Typed entities
+- product: Cloudflare One
+- skill file: `cloudflare-one`
+- skill file: `cloudflare-one-migration`
+- MCP server: Cloudflare code-mode MCP server
+- product: Datadog MCP Server
+- service: AWS DevOps Agent
+- framework: Agent-Native
+- API: `defineAction`
+- protocol: A2A
+
+### Explicit relationships
+- Cloudflare One skills complement MCP tools by encoding migration/domain knowledge that the API alone does not provide.
+- Typed MCP API interfaces reduce prompt/context exposure of credentials but still depend-on runtime credential custody and scoped permissions.
+- Datadog MCP tools connect incident agents to observability data, so tool profiles must distinguish read-only diagnosis from mutating incident/remediation actions.
+- Shared action definitions can supersede duplicated tool schemas when UI, HTTP, MCP, A2A, CLI, and agent behavior should stay consistent.
+
+### HoneyDrunk implications
+- When creating HoneyDrunk MCP profiles, pair tools with skills only when the skill encodes reviewable domain process, not when it merely repeats API docs.
+- For Cloudflare or Datadog-like integrations, classify tools by capability: docs/read, account read, diagnostic query, mutating config, incident action, and deployment.
+- Prefer typed, source-controlled action contracts for internal tools so the same permission, validation, and audit path applies to humans and agents.
+
+### Quality notes
+- Sources are vendor/product/project-authored. Validate active APIs, auth behavior, logging, and per-tool permissions before profile approval.

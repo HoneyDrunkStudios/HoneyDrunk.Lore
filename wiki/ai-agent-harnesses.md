@@ -902,3 +902,49 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - Elastic, OpenAI, and NVIDIA are vendor sources. Thoughtworks is practice guidance. The OpenClaw article is secondary/explanatory and should be verified against primary project material.
+
+## 2026-06-22 compile additions: incident agents, agent-native apps, memory, and workflow hooks
+
+### Source-backed claims
+- AWS DevOps Agent is now positioned as a production incident agent for triage, investigation, prevention, mitigation planning, and report generation across AWS, multicloud, and on-premises contexts. The Datadog MCP Server GA signal reinforces that incident agents need governed observability tools for logs, metrics, traces, dashboards, monitors, incidents, APM, security scanning, database monitoring, and CI/CD. Source: `raw/2026-06-22-rss-aws-amazon-com-production-ready-autonomous-incident-resolution-with-aw.md`. confidence: 1 AWS product source, last-confirmed 2026-06-22.
+- Cloudflare Temporary Accounts let agents run `wrangler deploy --temporary`, receive a short-lived account and API token, deploy a Worker without a prior signup flow, and claim or expire the account after about one hour. Source: `raw/2026-06-22-rss-blog-cloudflare-com-temporary-cloudflare-accounts-for-ai-agents.md`. confidence: 1 Cloudflare product source, last-confirmed 2026-06-22.
+- Builder.io's Agent-Native framework uses one shared `defineAction` abstraction to expose actions to UI, HTTP, MCP, A2A, CLI, and agents, with SQL-backed state, identity, tools, skills, jobs, observability, and UI surfaces. Source: `raw/2026-06-22-rss-github-com-agent-native.md`. confidence: 1 project/repository source, last-confirmed 2026-06-22.
+- Perplexity Brain describes self-improving agent memory that stores corrections, sources, and work history, builds a context graph, links entries back to sources, and performs overnight review; reported benchmark gains should be treated as vendor-reported Research Preview evidence. Source: `raw/2026-06-22-rss-perplexity-ai-self-improving-memory-for-agents.md`; page: [[llm-wiki-and-knowledge-formats]]. confidence: 1 vendor product source, last-confirmed 2026-06-22.
+- Zarar's agent-hooks source argues that guardrails should run in the agent workflow itself, such as `PreToolUse` hooks that block edits and `Stop` hooks that refuse session completion until required tests pass; prompt instructions alone do not enforce behavior. Source: `raw/2026-06-22-rss-zarar-dev-do-not-rely-on-instructions-use-agent-hooks-to-enforce-guard.md`; page: [[ai-coding-agent-security]]. confidence: 1 practitioner source, last-confirmed 2026-06-22.
+- n8n's LLM routing source frames model routing as harness infrastructure for selecting models by task, cost, quality, provider health, user tier, fallback behavior, and observability rather than static provider selection. Source: `raw/2026-06-22-rss-blog-n8n-io-llm-routing-from-strategy-selection-to-production-architec.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 product/practice source, last-confirmed 2026-06-22.
+
+### Typed entities
+- service: AWS DevOps Agent
+- service: Datadog MCP Server
+- platform: Agent Spaces
+- product: Cloudflare Temporary Accounts
+- command: `wrangler deploy --temporary`
+- framework: Agent-Native
+- API: `defineAction`
+- protocol: Model Context Protocol / MCP
+- protocol: Agent2Agent / A2A
+- product: Perplexity Brain
+- concept: self-improving agent memory
+- concept: context graph
+- control: `PreToolUse` hook
+- control: `Stop` hook
+- pattern: LLM routing
+- product: n8n
+
+### Explicit relationships
+- Incident-response agents depend-on structured observability tools, scoped runtime authority, audit logs, and human-reviewable mitigation plans.
+- Temporary cloud accounts complement agent deploy/verify loops by giving agents disposable infrastructure, but they depend-on expiry, claim, quota, and audit controls.
+- Agent-native apps use shared action definitions to reduce drift between UI commands, API endpoints, MCP tools, A2A methods, CLI commands, and agent skills.
+- Self-improving memory complements Lore-style wiki compilation when source links, corrections, supersession, and review cadence remain explicit.
+- Agent hooks complement prompts by enforcing policy at tool-call and session-lifecycle boundaries.
+- LLM routing depends-on telemetry and evaluation data; routing without quality/cost feedback is only provider indirection.
+
+### HoneyDrunk implications
+- Treat incident agents as operators that need bounded tool profiles, run receipts, approval gates, and post-incident reports before allowing unattended remediation.
+- Temporary account deployment is attractive for preview apps and agent QA, but HoneyDrunk should define allowed resources, expiry behavior, billing limits, and cleanup evidence before using it broadly.
+- For internal agent apps, prefer one typed action contract that can be exposed through UI, API, CLI, MCP, or A2A instead of parallel implementations.
+- For OpenClaw/Honeyclaw, promote repeated "always do this" instructions into hooks or deterministic gates when the runtime supports it.
+- Start model routing only where there is a measured cost, latency, reliability, or quality problem; routing logic should emit model choice, fallback cause, latency, token cost, and outcome.
+
+### Quality notes
+- AWS, Cloudflare, Perplexity, and n8n are vendor/product sources; Builder.io is a project source; Zarar is practitioner guidance. Claims are useful architecture signals but need local validation before changing production harnesses.

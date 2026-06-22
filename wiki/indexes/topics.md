@@ -766,3 +766,23 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 - [[technical-art-community-and-talent-signals]] - 30 sources - last-confirmed 2026-06-21
 - [[github-actions-platform-operations]] - 32 sources - last-confirmed 2026-06-21
 - [[ai-hardware-and-companion-devices-2026]] - 2 sources - last-confirmed 2026-06-21
+
+## 2026-06-22 topic additions
+
+### Agent harnesses, MCP governance, memory, and model routing
+- [[ai-agent-harnesses]] - 120 sources - last-confirmed 2026-06-22
+- [[mcp-tool-governance-and-app-surfaces]] - 72 sources - last-confirmed 2026-06-22
+- [[llm-wiki-and-knowledge-formats]] - 4 sources - last-confirmed 2026-06-22
+- [[agent-evaluation-and-benchmarks]] - 34 sources - last-confirmed 2026-06-22
+
+### Agent security, temporary credentials, and post-quantum readiness
+- [[ai-coding-agent-security]] - 99 sources - last-confirmed 2026-06-22
+- [[post-quantum-security-and-cryptography]] - 1 source - last-confirmed 2026-06-22
+
+### Observability and telemetry pipelines
+- [[opentelemetry-genai-observability-and-ecosystem]] - 16 sources - last-confirmed 2026-06-22
+
+### Game development, technical art, and source quality
+- [[technical-art-community-and-talent-signals]] - 33 sources - last-confirmed 2026-06-22
+- [[gamedev-production-and-community-signals]] - 33 sources - last-confirmed 2026-06-22
+- [[browser-snapshot-source-quality]] - 101 sources - last-confirmed 2026-06-22

@@ -485,3 +485,35 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - Official forum source, but still weekly/status material rather than stable adoption guidance.
+
+## 2026-06-22 compile additions: painterly shaders and DCC bridge constraints
+
+### Source-backed claims
+- 80 Level's Lotus Design watercolor lantern source is a stylized technical-art reference: a Blender scene uses a watercolor shader, vertex paint, and multicolored hand-painted-like shadows to create a painterly 3D look. Source: `raw/2026-06-22-rss-80-lv-check-out-painterly-3d-lantern-created-with-a-watercolor-shader-.md`. confidence: 1 trade/art source, last-confirmed 2026-06-22.
+- A Tech-Artists.org FBX Python SDK thread surfaces a DCC export limitation: `EXP_FBX_EMBEDDED` globally embeds media, while selectively excluding specific `FbxVideo` assets without losing filenames/relative filenames is not straightforward through the Python SDK. Source: `raw/2026-06-22-rss-tech-artists-org-fbx-python-sdk-selective-embedding.md`. confidence: 1 forum/practitioner source, last-confirmed 2026-06-22.
+- A Tech-Artists.org post announces a free Maya-Blender Asset Bridge with a GitHub link, but the capture contains too little detail to evaluate license, quality, security, or pipeline fit. Source: `raw/2026-06-22-rss-tech-artists-org-free-maya-blender-asset-bridge.md`. confidence: 1 low-detail forum source, last-confirmed 2026-06-22.
+
+### Typed entities
+- DCC/tool: Blender
+- technique: watercolor shader
+- technique: vertex paint
+- concept: painterly 3D lighting
+- SDK: FBX Python SDK
+- class/entity: `FbxVideo`
+- export flag: `EXP_FBX_EMBEDDED`
+- DCC/tool: Maya
+- DCC/tool: Blender
+- tool: Maya-Blender Asset Bridge
+
+### Explicit relationships
+- Painterly 3D looks depend-on shader design, vertex-paint data, lighting, and art direction, not only texture assets.
+- FBX media embedding depends-on SDK-level export behavior; missing selective embedding support can force risky filesystem or C++/binary-level workarounds.
+- DCC bridge tools complement manual export/import workflows but depend-on license, version support, data fidelity, and security review before pipeline adoption.
+
+### HoneyDrunk implications
+- Preserve watercolor shader, vertex-paint shadow coloration, and painterly 3D as stylized-look research terms.
+- For asset-pipeline automation, validate FBX media-reference behavior before relying on embedded files in build/release tools.
+- Inspect the Maya-Blender bridge repository, license, supported data types, and failure modes before treating it as usable tooling.
+
+### Quality notes
+- 80 Level is visual-reference/trade evidence. Tech-Artists threads are practitioner discovery sources and need follow-up before production use.

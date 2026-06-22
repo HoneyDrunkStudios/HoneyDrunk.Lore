@@ -466,3 +466,37 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - OpenAI and Z.AI are primary/vendor sources for their own research. Reproduce on HoneyDrunk evals before using as routing policy.
+
+## 2026-06-22 compile additions: security triage context, model routing, and memory evals
+
+### Source-backed claims
+- Parsia's long-running LLM security-triage benchmark tested 26 model/effort combinations across two vulnerability cases, whole-file versus function-level context, and repeated runs; the source reports that function-level context was dramatically more useful than whole-file context for at least one case, and full end-to-end solves remained rare. Source: `raw/2026-06-22-rss-parsiya-net-brain-the-size-of-a-planet-are-llms-thonking-too-hard.md`. confidence: 1 practitioner benchmark source, last-confirmed 2026-06-22.
+- The same benchmark reports that higher reasoning effort generally helped but was not monotonic; some medium-effort runs beat higher-effort runs, and content filtering/refusal behavior could increase with higher effort. Source: `raw/2026-06-22-rss-parsiya-net-brain-the-size-of-a-planet-are-llms-thonking-too-hard.md`. confidence: 1 source, last-confirmed 2026-06-22.
+- Parsia's failed experiments show evaluation isolation matters: tool access and answer files in the workspace can taint results if an agent can inspect benchmark answers or upstream files. Source: `raw/2026-06-22-rss-parsiya-net-brain-the-size-of-a-planet-are-llms-thonking-too-hard.md`. confidence: 1 source, last-confirmed 2026-06-22.
+- n8n's LLM routing source frames routing evaluation around task classification, fallback behavior, provider health, cost, latency, model quality, user tier, and observability; routers should not be introduced without outcome telemetry. Source: `raw/2026-06-22-rss-blog-n8n-io-llm-routing-from-strategy-selection-to-production-architec.md`. confidence: 1 product/practice source, last-confirmed 2026-06-22.
+- Perplexity Brain reports improvements on historical-context tasks from self-improving memory, but these are vendor-reported preview metrics and should be reproduced on HoneyDrunk tasks before use as evidence for memory architecture. Source: `raw/2026-06-22-rss-perplexity-ai-self-improving-memory-for-agents.md`; page: [[llm-wiki-and-knowledge-formats]]. confidence: 1 vendor product source, last-confirmed 2026-06-22.
+
+### Typed entities
+- benchmark: Parsia security triage benchmark
+- concept: whole-file context
+- concept: function-level context
+- concept: eval isolation
+- pattern: LLM routing
+- product: n8n
+- product: Perplexity Brain
+- concept: historical-context task
+
+### Explicit relationships
+- Security-triage evaluation depends-on context segmentation, model/effort setting, repetition, judging method, and workspace isolation.
+- More reasoning effort does not supersede targeted context and clean harness design.
+- Model routing depends-on eval traces because static rules cannot prove that cost, latency, fallback, or quality improved.
+- Agent memory claims depend-on task-specific historical-context evals, not only vendor preview benchmarks.
+
+### HoneyDrunk implications
+- For Grid/OpenClaw security evals, test same vulnerability tasks under narrow-context, broad-context, diff-only, and tainted-workspace conditions.
+- Keep protected answer files and upstream reproduction material out of agent-accessible workspaces during evals.
+- If HoneyDrunk adds an LLM router, every route should log the selected model, reason, fallback path, latency, token cost, failure mode, and human/operator correction.
+- Memory evals should include cold-start, repeated-session, correction-after-error, and source-citation tasks before architecture promotion.
+
+### Quality notes
+- Parsia is practitioner evidence with explicit cost and harness discussion. n8n and Perplexity are vendor/product sources. Treat all reported numbers as source snapshots requiring local reproduction.

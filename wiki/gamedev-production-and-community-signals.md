@@ -417,3 +417,28 @@ The game-development community feed produced a mix of process advice, tooling ex
 
 ### Quality notes
 - Primary repository capture is stronger than trade press for project existence, but adoption still needs local workflow testing.
+
+## 2026-06-22 compile additions: small-scope market signal
+
+### Source-backed claims
+- Game Developer reports that `Thank You For Your Application`, an indie narrative interview simulator, recouped its five-figure development/localization/marketing budget within about 22 hours and had roughly 135,000 Steam wishlists at launch. Source: `raw/2026-06-22-rss-gamedeveloper-com-larger-budgets-and-longer-schedules-do-not-lead-to-b.md`. confidence: 1 trade-press/interview source, last-confirmed 2026-06-22.
+- The same source uses the game as a counter-signal to the assumption that larger budgets and longer schedules automatically produce better outcomes; treat it as a single-case market signal, not a general indie revenue rule. Source: `raw/2026-06-22-rss-gamedeveloper-com-larger-budgets-and-longer-schedules-do-not-lead-to-b.md`. confidence: 1 source, last-confirmed 2026-06-22.
+
+### Typed entities
+- game: `Thank You For Your Application`
+- genre: narrative interview simulator
+- platform: Steam
+- metric: wishlist count
+- concept: small-scope indie production
+- concept: budget recoup timing
+
+### Explicit relationships
+- Small-scope games can outperform budget expectations when concept, market timing, wishlists, and launch visibility align.
+- One successful indie launch does not supersede the need for market validation, scope control, localization cost planning, and platform strategy.
+
+### HoneyDrunk implications
+- For small game concepts, prioritize a sharp playable premise, wishlist/marketing validation, and scope control over expanding budget or schedule by default.
+- Track launch metrics such as wishlist count, conversion, budget, localization cost, and recoup window when evaluating comparable indie opportunities.
+
+### Quality notes
+- Trade-press/interview source. Useful as market-signal evidence, but not enough to forecast HoneyDrunk launch performance.

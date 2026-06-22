@@ -68,3 +68,30 @@ This page tracks durable patterns for agent-readable, human-readable knowledge s
 
 ### Quality notes
 - Elastic is vendor-authored and Thoughtworks is practice guidance. Use them to shape future Lore retrieval experiments, not as a mandate to adopt Elasticsearch.
+
+## 2026-06-22 compile additions: self-improving agent memory
+
+### Source-backed claims
+- Perplexity Brain describes a self-improving memory system for agents that stores work history, corrections, sources, and user feedback, links memories back to sources, builds a context graph, and performs periodic review. Source: `raw/2026-06-22-rss-perplexity-ai-self-improving-memory-for-agents.md`. confidence: 1 vendor product source, last-confirmed 2026-06-22.
+- The source says Brain uses a sandboxed LLM wiki-style store and incremental updates from sessions, connectors, source documents, and corrections; this reinforces Lore's crystallization model where episodic outputs can become durable semantic pages when cited and decision-useful. Source: `raw/2026-06-22-rss-perplexity-ai-self-improving-memory-for-agents.md`. confidence: 1 vendor product source, last-confirmed 2026-06-22.
+- Perplexity reports improved correctness, recall, and cost on historical-context tasks, but these are vendor preview metrics and should be reproduced on Lore/OpenClaw tasks before architecture changes. Source: `raw/2026-06-22-rss-perplexity-ai-self-improving-memory-for-agents.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 vendor product source, last-confirmed 2026-06-22.
+
+### Typed entities
+- product: Perplexity Brain
+- concept: self-improving memory
+- concept: context graph
+- concept: source-linked memory
+- pattern: LLM wiki
+- concept: correction-derived memory
+
+### Explicit relationships
+- Self-improving memory complements LLM wikis when entries retain source links, correction provenance, and review cadence.
+- Corrections can strengthen or supersede prior memory only when the supporting source and date are preserved.
+- Vendor memory metrics do not supersede local memory evals on Lore/OpenClaw tasks.
+
+### HoneyDrunk implications
+- Lore should keep citations, confidence, supersession, and run summaries as first-class memory fields before adding vector/graph retrieval.
+- A local memory spike should test whether corrections and previous decisions are retrieved accurately without polluting unrelated tasks.
+
+### Quality notes
+- Vendor product source. Useful as a pattern signal, not proof that Perplexity's reported metrics transfer to HoneyDrunk.
