@@ -43,3 +43,28 @@ Azure SDK for Rust reached a stable production-ready milestone in May 2026 for c
 - Quality posture: decision-usable for language/runtime scouting and service-coverage checks.
 - Weak spots: vendor-authored release announcement; validate crate versions/docs and sovereign-cloud behavior before production.
 - Privacy filter: sample URLs/placeholders retained only as public/example patterns; no credentials copied.
+
+## 2026-06-23 compile additions
+
+### Source-backed claims
+- Azure SDK May 2026 confirms Azure SDK for Rust 1.0.0 GA across Core, Core AMQP, Core OpenTelemetry, Identity, Storage Blob/Queue, and Key Vault Secrets/Keys/Certificates crates. Source: `raw/2026-06-23-rss-azure-blog-azure-sdk-release-may-2026.md`; page: [[microsoft-dotnet-ai-stack]]. confidence: 1 Microsoft Azure SDK release source, last-confirmed 2026-06-23.
+
+### Typed entities
+- crate: Azure Core
+- crate: Azure Core AMQP
+- crate: Azure Core OpenTelemetry
+- crate: Azure Identity
+- crate: Azure Storage Blob
+- crate: Azure Storage Queue
+- crate: Azure Key Vault Secrets
+- crate: Azure Key Vault Keys
+- crate: Azure Key Vault Certificates
+
+### Explicit relationships
+- Azure SDK for Rust now has GA coverage for the storage, identity, telemetry, AMQP core, and Key Vault primitives named in the May 2026 release.
+
+### HoneyDrunk implications
+- Re-evaluate Rust Azure worker feasibility for Blob, Queue, Key Vault, and telemetry tasks where earlier crate maturity was the blocker.
+
+### Quality notes
+- Microsoft release-source claim. Verify exact crate names, semver, and service gaps before implementation.

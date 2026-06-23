@@ -542,3 +542,36 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 
 ### Quality notes
 - Microsoft sources are implementation/product guidance. Validate package names, licensing, extension behavior, and generated artifact schemas before adopting in active repos.
+
+## 2026-06-23 compile additions: Azure SDK May 2026 agentic retrieval and Rust GA
+
+### Source-backed claims
+- The Azure SDK May 2026 release reports general availability for Azure SDK for Rust 1.0.0 crates covering Core, Identity, Key Vault Secrets/Keys/Certificates, and Storage Blobs/Queues. Source: `raw/2026-06-23-rss-azure-blog-azure-sdk-release-may-2026.md`. confidence: 1 Microsoft Azure SDK source, last-confirmed 2026-06-23.
+- The same release says Azure AI Search .NET 12.0.0 and Python `azure-search-documents` 12.0.0 add knowledge bases and a `KnowledgeBaseRetrievalClient` for agentic retrieval over sources such as Blob storage, search indexes, OneLake, and the web on service version 2026-04-01. Source: `raw/2026-06-23-rss-azure-blog-azure-sdk-release-may-2026.md`. confidence: 1 source, last-confirmed 2026-06-23.
+- The release also announces preview Azure AI Agent Server libraries, including .NET `Azure.AI.AgentServer.Core` and Python `azure-ai-agentserver-core`, with an `AgentServerHost` hosting model, health probes, graceful shutdown, request-ID middleware, and centralized platform headers. Source: `raw/2026-06-23-rss-azure-blog-azure-sdk-release-may-2026.md`. confidence: 1 source, last-confirmed 2026-06-23.
+
+### Typed entities
+- SDK: Azure SDK for Rust
+- crate/package: Azure Core
+- crate/package: Azure Identity
+- service: Azure Key Vault
+- service: Azure Storage Blobs/Queues
+- library: Azure AI Search .NET
+- library: `azure-search-documents`
+- API/client: `KnowledgeBaseRetrievalClient`
+- library: `Azure.AI.AgentServer.Core`
+- concept: agentic retrieval
+- concept: `AgentServerHost`
+
+### Explicit relationships
+- Azure AI Search knowledge bases complement Lore-style retrieval by turning multiple source backends into a managed agentic retrieval surface.
+- Agent Server preview libraries complement custom .NET agent hosts when health, shutdown, request correlation, and platform headers need first-class hosting hooks.
+- Rust GA SDK support broadens Azure automation/runtime language choices, but does not supersede .NET for HoneyDrunk service implementation by itself.
+
+### HoneyDrunk implications
+- For future Azure-backed Lore/Knowledge work, evaluate AI Search knowledge bases as a managed retrieval option against flat-file/BM25/vector/graph needs.
+- If HoneyDrunk builds .NET hosted agents, track Agent Server preview maturity but do not adopt without package/API stability checks.
+- For Rust workers or tooling, Azure SDK Rust is now worth a spike where Key Vault or Storage access previously required custom REST or non-Rust wrappers.
+
+### Quality notes
+- Microsoft release notes are authoritative for release direction but time-sensitive. Verify package versions and preview status before implementation.

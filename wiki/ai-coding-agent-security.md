@@ -1116,3 +1116,42 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 
 ### Privacy and quality notes
 - No hook payloads, secrets, tokens, or executable bypass details were copied. Sources are practitioner/vendor guidance and require local runtime testing.
+
+## 2026-06-23 compile additions: telemetry injection and AI cyber pipelines
+
+### Source-backed claims
+- The New Stack/Tenet report describes "agentjacking" through Sentry-backed MCP workflows: a public write-only Sentry DSN can let an attacker place crafted error data into the queue an AI coding agent later reads as trusted remediation context. Source: `raw/2026-06-23-rss-tldr-infosec-a-public-sentry-key-is-all-it-takes-to-hijack-claude-code.md`. confidence: 1 security-news source citing vendor research, last-confirmed 2026-06-23.
+- The same report says the practical risk is not Sentry alone; any MCP integration that returns externally influenced data to an agent can become an instruction/data confusion path unless the runtime gates actions sourced from tool output. Source: `raw/2026-06-23-rss-tldr-infosec-a-public-sentry-key-is-all-it-takes-to-hijack-claude-code.md`. confidence: 1 source, last-confirmed 2026-06-23.
+- The Tenet-reported validation claims Claude Code, Cursor, and Codex acted on injected Sentry errors in controlled tests, with the article reporting an 85% success rate and more than 100 confirmed executions; treat those numbers as vendor-reported controlled-test results, not independent measurements. Source: `raw/2026-06-23-rss-tldr-infosec-a-public-sentry-key-is-all-it-takes-to-hijack-claude-code.md`. confidence: 1 vendor-cited report, last-confirmed 2026-06-23.
+- GitHub's secret-scanning source says it added context-aware LLM reasoning to reduce false positives for AI-detected generic secrets by analyzing high-signal usage context rather than whole files; the reported false-positive reduction was 75.76% against a 65% target on customer-confirmed false positives. Source: `raw/2026-06-23-rss-tldr-infosec-making-secret-scanning-more-trustworthy-reducing-false-po.md`. confidence: 1 GitHub security source, last-confirmed 2026-06-23.
+- The TestingCatalog/TLDR OpenAI cyber source reports a Daybreak/Codex Security direction that moves from vulnerability discovery into scanning, validation, patching, reporting, SARIF/CodeQL export, expert review, and Patch the Planet maintainer support; treat it as secondary reporting until primary OpenAI material is captured. Source: `raw/2026-06-23-rss-tldr-ai-openai-launches-new-security-tools-and-updates-gpt-5-5-cyber-2.md`. confidence: 1 secondary source, last-confirmed 2026-06-23.
+
+### Typed entities
+- attack class: agentjacking
+- service: Sentry
+- credential type: Sentry DSN
+- protocol: Model Context Protocol / MCP
+- tools: Claude Code, Cursor, Codex
+- control: agent runtime action gate
+- control: secret-scanning context classifier
+- product: GitHub secret scanning
+- product: Codex Security
+- initiative: Patch the Planet
+- product/program: Daybreak
+
+### Explicit relationships
+- Public telemetry-write credentials can become agent input channels when agents read monitoring data through MCP.
+- Agentjacking is caused by untrusted external data being reinterpreted as tool or shell instructions inside a trusted agent workflow.
+- Runtime action gates complement prompt instructions because prompts did not reliably separate untrusted tool output from instructions in the reported tests.
+- Secret-scanning LLM verification complements deterministic detectors by adding usage-context judgment after candidate detection.
+- AI cyber pipelines depend-on human validation, duplicate removal, severity review, patch tests, and disclosure workflow before fixes are actionable.
+
+### HoneyDrunk implications
+- Treat issue trackers, logs, telemetry, crash reports, user tickets, and monitoring dashboards as untrusted input when agents consume them.
+- Before wiring agents to Sentry or similar tools, require tool-output sanitization, provenance labels, command-source checks, and approval gates for commands derived from external records.
+- For HoneyDrunk secret scanning, prefer systems that keep broad detection coverage but add context-aware false-positive reduction and auditable reasoning.
+- Do not treat secondary model/security product reporting as procurement-grade; capture primary docs or run local evals before changing security workflows.
+
+### Privacy and quality notes
+- Privacy filter: exploit details were summarized at control level. No payload strings, executable commands, secrets, or target identifiers were copied.
+- Quality posture: Tenet sells agent-runtime defenses and the OpenAI cyber source is secondary reporting; both are useful signals but require primary-source or local validation.

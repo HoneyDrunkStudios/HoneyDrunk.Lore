@@ -517,3 +517,28 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - 80 Level is visual-reference/trade evidence. Tech-Artists threads are practitioner discovery sources and need follow-up before production use.
+
+## 2026-06-23 compile additions: beginner Blender learning and Materialist shelf
+
+### Source-backed claims
+- The Polycount "Learning Blender and Texturing" capture is a large forum page with heavy scaffolding and discussion noise; it is useful mainly as a community-learning/source-quality signal rather than a specific production technique. Source: `raw/2026-06-23-rss-polycount-learning-blender-and-texturing.md`. confidence: 1 noisy forum capture, last-confirmed 2026-06-23.
+- A Tech-Artists.org post announces Materialist, a free Maya material-manager shelf; the capture is short and should be treated as discovery only until the linked tool, license, compatibility, and workflow behavior are inspected. Source: `raw/2026-06-23-rss-tech-artists-org-free-tool-materialist-a-material-manager-shelf-for-ma.md`. confidence: 1 low-detail forum source, last-confirmed 2026-06-23.
+
+### Typed entities
+- DCC/tool: Blender
+- community: Polycount
+- DCC/tool: Maya
+- tool: Materialist
+- concept: material manager shelf
+- concept: noisy forum capture
+
+### Explicit relationships
+- Forum captures complement technical-art scouting by revealing learning pain points and tool discovery, but they rarely supersede tool docs or measured pipeline tests.
+- Material-management shelves complement DCC workflow automation, but depend-on license, version support, dependency review, and data-fidelity tests.
+
+### HoneyDrunk implications
+- Keep beginner Blender/texturing friction in mind for onboarding and documentation, but do not promote the Polycount capture into workflow guidance.
+- Inspect Materialist directly before adding it to any Maya pipeline watchlist or automation backlog.
+
+### Quality notes
+- Both sources are community/forum captures; one is noisy and one is low-detail.

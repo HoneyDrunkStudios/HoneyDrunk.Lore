@@ -705,3 +705,31 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Social posts are weak evidence. The Andy Matuschak post is decision-useful practice commentary; the rest of the batch remains low-confidence trend signal.
+
+## 2026-06-23 compile additions: review gates for AI-written code
+
+### Source-backed claims
+- Architecture Notes #106 reports Amazon tightened internal review around AI-written code after high-blast-radius incidents, requiring senior sign-off for junior or mid-level AI-assisted changes; this is newsletter-summary evidence and should be verified against primary Amazon material before strong claims. Source: `raw/2026-06-23-rss-architecture-notes-arc-notes-weekly-106-arrowhead.md`. confidence: 1 secondary newsletter source, last-confirmed 2026-06-23.
+- The same newsletter says The New York Times used AI tools under strict human review to raise coverage from 28% to 83% while reducing effort by an estimated 70%; treat as a practice signal, not a HoneyDrunk forecast. Source: `raw/2026-06-23-rss-architecture-notes-arc-notes-weekly-106-arrowhead.md`. confidence: 1 secondary newsletter source, last-confirmed 2026-06-23.
+- Architecture Notes #106 also surfaces Bassim Eledath's "8 levels of agentic engineering" and Yoav Aviram's principles for coding agents, reinforcing that teams are turning agent practice into explicit maturity models and review heuristics. Source: `raw/2026-06-23-rss-architecture-notes-arc-notes-weekly-106-arrowhead.md`. confidence: 1 secondary newsletter source, last-confirmed 2026-06-23.
+
+### Typed entities
+- organization: Amazon
+- organization: The New York Times
+- person: Bassim Eledath
+- person: Yoav Aviram
+- concept: AI-assisted code review sign-off
+- concept: agentic engineering maturity model
+- concept: strict human review
+
+### Explicit relationships
+- AI-assisted software practice depends-on review gates that scale with author experience, code blast radius, and generated-code risk.
+- Human review complements agent throughput when the task touches production, security, public content, or long-lived architecture.
+- Maturity models can help classify workflows, but do not supersede local validation, tests, and explicit ownership.
+
+### HoneyDrunk implications
+- Keep HoneyDrunk's current PR publishing rule: explicit review before commit/push is a practical guard for AI-assisted changes.
+- For junior/automation-heavy work, increase sign-off requirements when blast radius includes production, credentials, public workflows, security, or shared libraries.
+
+### Quality notes
+- Architecture Notes is secondary newsletter evidence. It is useful practice signal but requires primary-source follow-up for formal policy claims.

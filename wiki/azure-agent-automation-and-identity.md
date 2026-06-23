@@ -416,3 +416,32 @@ Azure's May 2026 agent/developer tooling signal is that agent automation is movi
 
 ### Quality notes
 - The captures include Microsoft Learn authorization warnings and may reflect preview/protected documentation. Verify current public docs, API versions, pricing, and telemetry before implementation.
+
+## 2026-06-23 compile additions: Azure AI Search knowledge bases and Agent Server preview
+
+### Source-backed claims
+- Azure SDK May 2026 says Azure AI Search .NET 12.0.0 and Python `azure-search-documents` 12.0.0 add knowledge bases and `KnowledgeBaseRetrievalClient` support for agentic retrieval over Blob storage, search indexes, OneLake, and web sources on service version 2026-04-01. Source: `raw/2026-06-23-rss-azure-blog-azure-sdk-release-may-2026.md`; page: [[microsoft-dotnet-ai-stack]]. confidence: 1 Microsoft Azure SDK release source, last-confirmed 2026-06-23.
+- The same release announces preview Azure AI Agent Server libraries with `AgentServerHost`, health probes, graceful shutdown, request-ID middleware, centralized platform headers, and consolidated .NET hosting extension methods. Source: `raw/2026-06-23-rss-azure-blog-azure-sdk-release-may-2026.md`. confidence: 1 Microsoft Azure SDK release source, last-confirmed 2026-06-23.
+
+### Typed entities
+- service: Azure AI Search
+- concept: knowledge base
+- API/client: `KnowledgeBaseRetrievalClient`
+- source backend: Azure Blob Storage
+- source backend: OneLake
+- library: `Azure.AI.AgentServer.Core`
+- library: `azure-ai-agentserver-core`
+- host abstraction: `AgentServerHost`
+- middleware: request ID middleware
+
+### Explicit relationships
+- Azure AI Search knowledge bases complement agent automation by packaging retrieval sources behind a managed client.
+- Agent Server preview packages complement custom agent hosts with health, shutdown, correlation, and platform-header plumbing.
+- Managed retrieval and hosted-agent packages depend-on identity, network, logging, and preview-stability review before production use.
+
+### HoneyDrunk implications
+- Track Azure AI Search knowledge bases as a possible managed retrieval backend for Lore/Knowledge, but preserve raw/wiki citations as authority.
+- Do not adopt Agent Server preview libraries in production until package stability, auth model, logging, cost, and operational hooks are verified.
+
+### Quality notes
+- Microsoft release notes are authoritative for release direction but time-sensitive. Recheck package/API status before a spike.

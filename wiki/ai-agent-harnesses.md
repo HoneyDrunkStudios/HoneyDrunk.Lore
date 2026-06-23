@@ -948,3 +948,40 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - AWS, Cloudflare, Perplexity, and n8n are vendor/product sources; Builder.io is a project source; Zarar is practitioner guidance. Claims are useful architecture signals but need local validation before changing production harnesses.
+
+## 2026-06-23 compile additions: knowledge agents, orchestration APIs, and multi-session harnesses
+
+### Source-backed claims
+- Wang's "Knowledge Agents" source argues that domain-specific knowledge injection, multi-pass retrieval, and curated concept/thesis documents can let smaller or cheaper models match larger model outputs on specialized tasks; this is a practitioner/self-reported harness pattern, not an audited benchmark. Source: `raw/2026-06-23-rss-tldr-ai-knowledge-agents-beat-frontier-models-with-better-structure-18.md`. confidence: 1 practitioner source, last-confirmed 2026-06-23.
+- The same source distinguishes parametric model knowledge from context-injected domain knowledge and frames the core challenge as retrieving the right specialized context without drowning the model. Source: `raw/2026-06-23-rss-tldr-ai-knowledge-agents-beat-frontier-models-with-better-structure-18.md`; page: [[llm-wiki-and-knowledge-formats]]. confidence: 1 source, last-confirmed 2026-06-23.
+- Sakana's Fugu thread frames an orchestration model as a single OpenAI-compatible API that internally selects, delegates, verifies, and synthesizes across an agent/model pool; claims about matching Fable/Mythos and benchmark performance are vendor social-source claims needing primary blog/paper capture. Source: `raw/2026-06-23-rss-tldr-ai-sakana-fugu-3-minute-read.md`. confidence: 1 vendor social-thread source, last-confirmed 2026-06-23.
+- The Jcode repository describes a coding-agent harness optimized for multi-session workflows, low resource usage, embedded session/memory retrieval, side panels/widgets, swarm messaging, MCP config, provider switching, and resuming Codex/Claude/OpenCode sessions. Source: `raw/2026-06-23-rss-tldr-devops-jcode-github-repo.md`. confidence: 1 project README source, last-confirmed 2026-06-23.
+- The codebase-memory-mcp repository describes a local tree-sitter/LSP-backed code knowledge graph exposed through MCP tools, with claimed fast indexing, structural queries, cross-service graphing, local processing, and signed/static binaries. Source: `raw/2026-06-23-rss-tldr-devops-codebase-memory-mcp-github-repo.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 project README source, last-confirmed 2026-06-23.
+
+### Typed entities
+- pattern: knowledge agent
+- concept: parametric knowledge
+- concept: context-injected knowledge
+- concept: multi-pass retrieval
+- product/model: Sakana Fugu
+- pattern: orchestration model
+- API style: OpenAI-compatible API
+- tool/harness: Jcode
+- tool/server: codebase-memory-mcp
+- parser/runtime: tree-sitter
+- protocol: MCP
+- concept: agent swarm
+
+### Explicit relationships
+- Knowledge agents complement LLMs by supplying curated, task-relevant context and retrieval policy around the model.
+- Orchestration models hide multi-agent delegation behind one endpoint, but depend-on transparent evals, data compliance controls, and failure reporting before operational use.
+- Multi-session harnesses depend-on memory retrieval, conflict detection, messaging, session resume, and resource isolation.
+- Codebase graph MCP tools complement grep/file reads by answering structural code questions with less token spend, but they increase local tool trust and installation risk.
+
+### HoneyDrunk implications
+- Lore itself is a knowledge-agent substrate: keep raw/source citations, concept pages, topic indexes, and run summaries structured enough for retrieval agents to use directly.
+- For agent harness evaluation, measure cost, latency, memory use, session resume reliability, dirty-worktree behavior, tool provenance, and source citations rather than only model quality.
+- Treat new MCP/code-indexing tools as code-execution-capable dependencies: verify signatures/checksums, license, update path, config writes, and network behavior before use in HoneyDrunk repos.
+
+### Quality notes
+- Knowledge Agents is practitioner/self-reported. Fugu is captured through ThreadReader/X and should be followed with the primary Sakana blog/paper before promoting benchmark claims. Jcode and codebase-memory-mcp are project README sources.

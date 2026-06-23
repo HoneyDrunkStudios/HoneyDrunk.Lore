@@ -744,3 +744,30 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - 80 Level is a trade source surfacing a tutorial. Use as practical technique lead, not as performance evidence.
+
+## 2026-06-23 compile additions: Unity Ads and D28 ROAS optimization
+
+### Source-backed claims
+- Unity's Playrix/Township case study says Playrix used Unity Ads, Unity Vector, and D28 IAP ROAS optimization to scale Township campaigns, with Google Play/Android called out as a strong growth area. Source: `raw/2026-06-23-rss-unity-blog-how-playrix-is-growing-township-with-unity-ads-d28-iap-roas.md`; page: [[gamedev-production-and-community-signals]]. confidence: 1 Unity vendor case study, last-confirmed 2026-06-23.
+- The case study frames D28 optimization as useful when longer-term revenue/retention makes higher early CPI acceptable versus D7-only optimization. Source: `raw/2026-06-23-rss-unity-blog-how-playrix-is-growing-township-with-unity-ads-d28-iap-roas.md`. confidence: 1 source, last-confirmed 2026-06-23.
+
+### Typed entities
+- product: Unity Ads
+- product: Unity Vector
+- optimizer: D28 IAP ROAS
+- game: Township
+- company: Playrix
+- platform: Google Play
+- metric: CPI
+- metric: D7 ROAS
+- metric: D28 ROAS
+
+### Explicit relationships
+- Unity monetization/user-acquisition tooling complements engine/runtime technical patterns when live-ops games need acquisition and revenue optimization.
+- D28 ROAS optimization depends-on reliable long-term cohort measurement and does not supersede creative, platform, or budget constraints.
+
+### HoneyDrunk implications
+- If HoneyDrunk evaluates mobile UA, keep D7 and D28 cohort metrics separate and require payback-window assumptions before choosing campaign optimization targets.
+
+### Quality notes
+- Vendor case study. Useful for UA vocabulary and measurement questions, not enough to predict local campaign performance.

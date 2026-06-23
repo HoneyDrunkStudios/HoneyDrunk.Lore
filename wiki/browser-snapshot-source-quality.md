@@ -229,3 +229,33 @@ The 2026-05-03 through 2026-05-07 X-list and Discord clipper snapshots are low-y
 
 ### Quality notes
 - Source retained only as extraction-quality evidence. No security claims or potentially reusable reverse-engineering details were promoted from this capture.
+
+## 2026-06-23 compile additions
+
+### Claims
+- Architecture Notes RSS surfaced older newsletter issues dated 2025-11-23 and 2026-03-15 during the 2026-06-23 sourcing run; the items are useful as retroactive architecture/agent signals but should not be treated as current daily news. confidence: 2 RSS captures, last-confirmed 2026-06-23. [sources: raw/2026-06-23-rss-architecture-notes-arc-notes-weekly-104-telluride.md; raw/2026-06-23-rss-architecture-notes-arc-notes-weekly-106-arrowhead.md]
+- The Game Developer Alien: Isolation 2 capture contains recoverable article/interview body text, but it also includes large navigation, related-topic, and site-boilerplate blocks before and around the article body. confidence: 1 noisy capture, last-confirmed 2026-06-23. [source: raw/2026-06-23-rss-game-developer-how-a-12-year-wait-made-alien-isolation-2-a-better-sequ.md]
+- The Polycount "Learning Blender and Texturing" capture is dominated by forum page scaffolding/discussion structure; it should be used as community-signal evidence rather than a clean tutorial extract. confidence: 1 noisy forum capture, last-confirmed 2026-06-23. [source: raw/2026-06-23-rss-polycount-learning-blender-and-texturing.md]
+- The Sakana Fugu capture came through ThreadReader and contains usable thread text plus share/UI boilerplate and related older thread content; benchmark/product claims should be checked against the primary Sakana blog before promotion. confidence: 1 social-thread capture, last-confirmed 2026-06-23. [source: raw/2026-06-23-rss-tldr-ai-sakana-fugu-3-minute-read.md]
+
+### Typed entities
+- source family: Architecture Notes RSS
+- source family: Game Developer pages
+- source family: Polycount forum pages
+- source family: ThreadReader/X unrolls
+- concept: stale RSS item
+- concept: article-body boundary extraction
+- concept: forum scaffolding
+- concept: social-thread primary-source follow-up
+
+### Explicit relationships
+- Stale RSS items can be ingested as durable knowledge but should not feed daily-news recency claims.
+- Forum and trade-press captures need article/body boundary extraction before high-confidence semantic promotion.
+- ThreadReader captures complement X/Birdclaw-style early signals but do not replace primary blog, paper, docs, or repository evidence.
+
+### HoneyDrunk implications
+- Add or preserve checks for `date_published` older than the sourcing date so daily blast output does not accidentally frame stale items as fresh.
+- Prefer primary Sakana/Fugu release pages over ThreadReader when using model or benchmark claims in decisions.
+
+### Quality notes
+- These findings improve sourcing hygiene; no source content was rejected outright, but confidence was reduced where extraction quality or recency was weak.

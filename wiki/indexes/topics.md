@@ -786,3 +786,26 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 - [[technical-art-community-and-talent-signals]] - 33 sources - last-confirmed 2026-06-22
 - [[gamedev-production-and-community-signals]] - 33 sources - last-confirmed 2026-06-22
 - [[browser-snapshot-source-quality]] - 101 sources - last-confirmed 2026-06-22
+
+## 2026-06-23 topic additions
+
+### AI agents, harnesses, memory, and code intelligence
+- [[ai-agent-harnesses]] - 126 sources - last-confirmed 2026-06-23
+- [[llm-wiki-and-knowledge-formats]] - 6 sources - last-confirmed 2026-06-23
+- [[mcp-tool-governance-and-app-surfaces]] - 75 sources - last-confirmed 2026-06-23
+- [[agent-evaluation-and-benchmarks]] - 37 sources - last-confirmed 2026-06-23
+
+### Agent security, audit, and AI-assisted practice
+- [[ai-coding-agent-security]] - 105 sources - last-confirmed 2026-06-23
+- [[ai-assisted-software-practice]] - 63 sources - last-confirmed 2026-06-23
+
+### Azure, .NET, and Rust SDKs
+- [[azure-sdk-for-rust]] - 2 sources - last-confirmed 2026-06-23
+- [[azure-agent-automation-and-identity]] - 26 sources - last-confirmed 2026-06-23
+- [[microsoft-dotnet-ai-stack]] - 53 sources - last-confirmed 2026-06-23
+
+### Game development, Unity, technical art, and source quality
+- [[technical-art-community-and-talent-signals]] - 35 sources - last-confirmed 2026-06-23
+- [[gamedev-production-and-community-signals]] - 35 sources - last-confirmed 2026-06-23
+- [[unity-3d-and-realtime-vfx-patterns]] - 46 sources - last-confirmed 2026-06-23
+- [[browser-snapshot-source-quality]] - 102 sources - last-confirmed 2026-06-23

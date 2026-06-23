@@ -442,3 +442,35 @@ The game-development community feed produced a mix of process advice, tooling ex
 
 ### Quality notes
 - Trade-press/interview source. Useful as market-signal evidence, but not enough to forecast HoneyDrunk launch performance.
+
+## 2026-06-23 compile additions: mobile UA optimization and survival-horror sequel design
+
+### Source-backed claims
+- Unity's Playrix/Township case study says Unity Ads D28 IAP ROAS optimization helped Playrix scale Township campaigns, especially on Google Play, by accepting higher CPI when longer-term retention/revenue per install supported D28 performance versus D7-only optimization. Source: `raw/2026-06-23-rss-unity-blog-how-playrix-is-growing-township-with-unity-ads-d28-iap-roas.md`. confidence: 1 Unity/vendor case study, last-confirmed 2026-06-23.
+- Game Developer's Alien: Isolation 2 interview reports that Creative Assembly views the long gap after the original game as helpful because the original built a stronger audience over time and the team can return with clearer sequel expectations. Source: `raw/2026-06-23-rss-game-developer-how-a-12-year-wait-made-alien-isolation-2-a-better-sequ.md`. confidence: 1 trade-press interview source, last-confirmed 2026-06-23.
+- The Alien: Isolation 2 capture contains recoverable article/interview content but substantial Game Developer navigation and related-content boilerplate, so production claims should remain interview-signal rather than deep design doctrine until cleaner article extraction is available. Source: `raw/2026-06-23-rss-game-developer-how-a-12-year-wait-made-alien-isolation-2-a-better-sequ.md`; page: [[browser-snapshot-source-quality]]. confidence: 1 source-quality-qualified source, last-confirmed 2026-06-23.
+
+### Typed entities
+- company: Playrix
+- game: Township
+- product: Unity Ads
+- product/optimizer: D28 IAP ROAS optimizer
+- product/platform: Unity Vector
+- metric: D7 ROAS
+- metric: D28 ROAS
+- studio: Creative Assembly
+- game: Alien: Isolation 2
+- genre: survival horror
+
+### Explicit relationships
+- D28 optimization depends-on long-term retention and revenue curves; it can complement D7 optimization when scale and payback windows justify higher early acquisition costs.
+- Survival-horror sequel design depends-on audience memory, franchise expectations, pacing, stealth/action balance, and the original hook's durability.
+- Vendor case studies and trade interviews complement market scouting but do not supersede local game KPI or prototype evidence.
+
+### HoneyDrunk implications
+- For mobile/user-acquisition work, compare D7 and D28 curves before judging campaign success; shorter payback windows may undercount long-term value.
+- For sequel/spiritual-successor thinking, audience buildup and time-between-releases can be an asset when the original concept has durable identity.
+- Treat ad-network case studies as directional; require cohort economics, platform split, creative mix, and budget constraints before applying them.
+
+### Quality notes
+- Unity is a vendor/studio case study. Game Developer is trade/interview content with noisy extraction.

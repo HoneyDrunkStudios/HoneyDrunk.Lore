@@ -95,3 +95,34 @@ This page tracks durable patterns for agent-readable, human-readable knowledge s
 
 ### Quality notes
 - Vendor product source. Useful as a pattern signal, not proof that Perplexity's reported metrics transfer to HoneyDrunk.
+
+## 2026-06-23 compile additions: knowledge-agent structure and codebase graphs
+
+### Source-backed claims
+- Wang's "Knowledge Agents" source describes a source -> concept -> thesis -> primer structure where raw markdown, image/chart descriptions, concept pages, thesis files, and `PRIMER.md` help retrieval agents inject specialized knowledge into smaller or cheaper models. Source: `raw/2026-06-23-rss-tldr-ai-knowledge-agents-beat-frontier-models-with-better-structure-18.md`. confidence: 1 practitioner source, last-confirmed 2026-06-23.
+- The same source reports a multi-pass retrieval pattern that often uses literal search plus embeddings, with local BGE-M3 or OpenAI `text-embedding-3-small`, and may short-circuit easy questions before spending more retrieval/model effort. Source: `raw/2026-06-23-rss-tldr-ai-knowledge-agents-beat-frontier-models-with-better-structure-18.md`; page: [[ai-agent-harnesses]]. confidence: 1 source, last-confirmed 2026-06-23.
+- The codebase-memory-mcp repository turns source code into a persistent local graph of symbols, call chains, routes, services, ADRs, and cross-service relationships exposed through MCP tools. Source: `raw/2026-06-23-rss-tldr-devops-codebase-memory-mcp-github-repo.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 project README source, last-confirmed 2026-06-23.
+
+### Typed entities
+- pattern: source extraction
+- artifact: concept page
+- artifact: thesis file
+- file: `PRIMER.md`
+- model/tool: BGE-M3
+- model/tool: `text-embedding-3-small`
+- tool/server: codebase-memory-mcp
+- concept: code knowledge graph
+- concept: hybrid retrieval
+- protocol: MCP
+
+### Explicit relationships
+- Knowledge-agent retrieval depends-on curated source extraction and concept/thesis organization, not only embedding search.
+- Multi-pass retrieval complements flat indexes when easy questions can be answered cheaply and hard questions need broader context.
+- Code graphs complement LLM wiki pages by representing functions, classes, calls, routes, and architectural relationships as traversable structure.
+
+### HoneyDrunk implications
+- Lore's flat-file raw/output/wiki/index tiers already map to the source/concept/thesis/primer idea; a future retrieval spike should preserve citations and confidence notes rather than replacing them with opaque embeddings.
+- If codebase graphs are adopted, keep generated graph artifacts separate from authoritative source and document freshness, provenance, and tool version.
+
+### Quality notes
+- Knowledge Agents is practitioner/self-reported. codebase-memory-mcp is project README evidence. Both are useful design signals but require local evaluation before infrastructure changes.

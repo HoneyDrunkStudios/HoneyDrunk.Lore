@@ -791,3 +791,33 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - Sources are vendor/product/project-authored. Validate active APIs, auth behavior, logging, and per-tool permissions before profile approval.
+
+## 2026-06-23 compile additions: codebase-memory MCP, Jcode MCP files, and external telemetry risk
+
+### Source-backed claims
+- codebase-memory-mcp is a local MCP code-intelligence server that claims tree-sitter parsing across many languages, selected LSP semantic resolution, persistent graph storage, structural search, trace/impact/dead-code/architecture tools, ADR management, and optional local graph UI. Source: `raw/2026-06-23-rss-tldr-devops-codebase-memory-mcp-github-repo.md`. confidence: 1 project README source, last-confirmed 2026-06-23.
+- The Jcode repository documents MCP configuration files at global `~/.jcode/mcp.json`, project `.jcode/mcp.json`, and fallback `.claude/mcp.json`, along with provider OAuth, session memory, skill injection, browser automation, and cross-harness resume. Source: `raw/2026-06-23-rss-tldr-devops-jcode-github-repo.md`; page: [[ai-agent-harnesses]]. confidence: 1 project README source, last-confirmed 2026-06-23.
+- The New Stack/Tenet Sentry report reinforces an MCP governance rule: outputs from issue trackers, logs, telemetry, and monitoring tools must be treated as untrusted external input even when the tool itself is approved. Source: `raw/2026-06-23-rss-tldr-infosec-a-public-sentry-key-is-all-it-takes-to-hijack-claude-code.md`; page: [[ai-coding-agent-security]]. confidence: 1 security-news source citing vendor research, last-confirmed 2026-06-23.
+
+### Typed entities
+- MCP server: codebase-memory-mcp
+- parser: tree-sitter
+- capability: LSP semantic resolution
+- artifact: `.codebase-memory/graph.db.zst`
+- config file: `~/.jcode/mcp.json`
+- config file: `.jcode/mcp.json`
+- config file: `.claude/mcp.json`
+- attack class: agentjacking
+- service: Sentry
+
+### Explicit relationships
+- MCP code-intelligence servers complement grep/LSP by exposing structural code queries to agents, but depend-on install provenance, index freshness, graph privacy, and write-scope review.
+- Jcode MCP profiles depend-on project and global config files; config writes are part of the trust boundary and should be reviewed like source.
+- Approved MCP tools can still return untrusted records; runtime provenance labels and command-source gates complement server allowlists.
+
+### HoneyDrunk implications
+- Before approving codebase-memory-mcp or Jcode, inspect install scripts, binary signing/checksum claims, license, config writes, secret storage, Windows behavior, network access, and generated artifacts.
+- For observability and issue-tracker MCPs, separate "read external record" from "act on proposed remediation"; actions derived from external data need approval or deterministic validation.
+
+### Quality notes
+- Project README and vendor-cited security-news sources are useful but not enough for tool approval. No exploit payloads or unsafe commands were copied.

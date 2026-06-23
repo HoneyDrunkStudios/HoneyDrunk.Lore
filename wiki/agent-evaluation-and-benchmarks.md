@@ -500,3 +500,33 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - Parsia is practitioner evidence with explicit cost and harness discussion. n8n and Perplexity are vendor/product sources. Treat all reported numbers as source snapshots requiring local reproduction.
+
+## 2026-06-23 compile additions: knowledge-agent, orchestration-model, and cyber-security eval claims
+
+### Source-backed claims
+- Wang's Knowledge Agents source reports that a knowledge-structured harness equalized outputs across several frontier and local/smaller models on specialized tasks, with a three-model frontier judging panel; treat this as self-reported harness evidence needing reproduction. Source: `raw/2026-06-23-rss-tldr-ai-knowledge-agents-beat-frontier-models-with-better-structure-18.md`; page: [[llm-wiki-and-knowledge-formats]]. confidence: 1 practitioner source, last-confirmed 2026-06-23.
+- Sakana's Fugu thread reports benchmark and task examples for an orchestration model that chooses, delegates, verifies, and synthesizes internally; because the capture is a social thread, the numbers should be verified against primary Sakana material before use. Source: `raw/2026-06-23-rss-tldr-ai-sakana-fugu-3-minute-read.md`; page: [[ai-agent-harnesses]]. confidence: 1 vendor social-thread source, last-confirmed 2026-06-23.
+- The TestingCatalog/TLDR OpenAI cyber source reports GPT-5.5-Cyber and Daybreak/Codex Security benchmark/product metrics, including CyberGym, ExploitGym, and SEC-bench Pro comparisons; this is secondary reporting and needs primary OpenAI verification before security-roadmap use. Source: `raw/2026-06-23-rss-tldr-ai-openai-launches-new-security-tools-and-updates-gpt-5-5-cyber-2.md`; page: [[ai-coding-agent-security]]. confidence: 1 secondary source, last-confirmed 2026-06-23.
+- GitHub secret scanning's reported 75.76% false-positive reduction from context-aware LLM reasoning is an eval result tied to customer-confirmed false positives and should be treated as a product-source measurement rather than a general LLM-security benchmark. Source: `raw/2026-06-23-rss-tldr-infosec-making-secret-scanning-more-trustworthy-reducing-false-po.md`. confidence: 1 GitHub source, last-confirmed 2026-06-23.
+
+### Typed entities
+- benchmark/eval: knowledge-agent frontier judging panel
+- model/system: Sakana Fugu
+- model/product: GPT-5.5-Cyber
+- benchmark: CyberGym
+- benchmark: ExploitGym
+- benchmark: SEC-bench Pro
+- product: GitHub secret scanning
+- metric: false-positive reduction
+
+### Explicit relationships
+- Knowledge-structured retrieval can confound pure model comparisons because the harness supplies domain context that the model would otherwise lack.
+- Orchestration-model benchmarks depend-on transparent task setup, model pool, verifier behavior, cost, latency, and failure reporting.
+- Security-model benchmarks complement but do not supersede local proof-of-concept, patch, disclosure, and false-positive evals.
+
+### HoneyDrunk implications
+- Local agent evals should separate base-model capability, retrieval quality, tool quality, and judge reliability.
+- For security automation, measure true positives, false positives, reachable impact, patch correctness, validation cost, and human review burden rather than only benchmark score.
+
+### Quality notes
+- Sources mix practitioner, vendor-social, secondary product news, and GitHub product reporting. Useful as eval-design leads, not as final procurement evidence.
