@@ -809,3 +809,24 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 - [[gamedev-production-and-community-signals]] - 35 sources - last-confirmed 2026-06-23
 - [[unity-3d-and-realtime-vfx-patterns]] - 46 sources - last-confirmed 2026-06-23
 - [[browser-snapshot-source-quality]] - 102 sources - last-confirmed 2026-06-23
+
+## 2026-06-28 topic additions
+
+### Agent security, MCP governance, and A2A
+- [[ai-coding-agent-security]] - 110 sources - last-confirmed 2026-06-28
+- [[mcp-tool-governance-and-app-surfaces]] - 78 sources - last-confirmed 2026-06-28
+- [[multi-agent-architectures]] - 23 sources - last-confirmed 2026-06-28
+
+### Azure automation, inference infrastructure, and GitHub operations
+- [[azure-agent-automation-and-identity]] - 28 sources - last-confirmed 2026-06-28
+- [[edge-ai-and-ai-infrastructure-2026]] - 49 sources - last-confirmed 2026-06-28
+- [[github-actions-platform-operations]] - 34 sources - last-confirmed 2026-06-28
+
+### Knowledge formats and supply-chain compliance
+- [[llm-wiki-and-knowledge-formats]] - 7 sources - last-confirmed 2026-06-28
+- [[container-supply-chain-and-compliance]] - 2 sources - last-confirmed 2026-06-28
+
+### Game development, technical art, and WebXR delivery
+- [[gamedev-production-and-community-signals]] - 36 sources - last-confirmed 2026-06-28
+- [[technical-art-community-and-talent-signals]] - 36 sources - last-confirmed 2026-06-28
+- [[web-3d-runtime-tradeoffs]] - 2 sources - last-confirmed 2026-06-28

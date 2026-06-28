@@ -208,6 +208,9 @@ TLDR_STORY_RE = re.compile(
 def canonical_url(url: str) -> str:
     url = html.unescape(html.unescape(url)).strip()
     parsed = urllib.parse.urlsplit(url)
+    path = parsed.path
+    if path != "/":
+        path = path.rstrip("/")
     query = urllib.parse.parse_qsl(parsed.query, keep_blank_values=True)
     sensitive_query_keys = {
         "access_token",
@@ -230,7 +233,7 @@ def canonical_url(url: str) -> str:
         for k, v in query
         if not k.lower().startswith("utm_") and k.lower() not in sensitive_query_keys
     ]
-    return urllib.parse.urlunsplit((parsed.scheme, parsed.netloc, parsed.path, urllib.parse.urlencode(query), ""))
+    return urllib.parse.urlunsplit((parsed.scheme.lower(), parsed.netloc.lower(), path, urllib.parse.urlencode(query), ""))
 
 
 def parse_tldr_issue(issue_html: str, feed_name: str, category: str, published: str, issue_url: str) -> list[dict]:
@@ -366,7 +369,7 @@ def known_urls() -> set[str]:
         text = md.read_text(encoding="utf-8", errors="ignore")[:2000]
         m = re.search(r"^source:\s*[\"']?([^\"'\n]+)", text, re.M)
         if m:
-            urls.add(m.group(1).strip())
+            urls.add(canonical_url(m.group(1).strip()))
     return urls
 
 
@@ -468,10 +471,11 @@ def main() -> int:
     skipped_dupes = 0
     for item in candidates:
         url = item["url"].strip()
-        if url in known or url in seen:
+        normalized_url = canonical_url(url)
+        if normalized_url in known or normalized_url in seen:
             skipped_dupes += 1
             continue
-        seen.add(url)
+        seen.add(normalized_url)
         item["score"] = score(item)
         if item["score"] >= 1:
             fresh.append(item)
@@ -507,7 +511,7 @@ def main() -> int:
             written.append(path.name)
 
     summary = [
-        "# OpenClaw Lore Sourcing — Last Run",
+        "# Lore Sourcing - Last Run",
         "",
         f"Timestamp: {dt.datetime.now().isoformat(timespec='seconds')}",
         f"Mode: {'dry-run' if args.dry_run else 'write'}",
@@ -524,7 +528,7 @@ def main() -> int:
     summary.extend(["", "## Failures / skips"])
     summary.extend((f"- {failure}" for failure in failures) if failures else ["_None_"])
     if not args.dry_run:
-        (OUTPUT / "openclaw-sourcing-last-run.md").write_text("\n".join(summary) + "\n", encoding="utf-8")
+        (OUTPUT / "lore-sourcing-last-run.md").write_text("\n".join(summary) + "\n", encoding="utf-8")
     else:
         print("\n".join(summary))
 

@@ -1155,3 +1155,40 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 ### Privacy and quality notes
 - Privacy filter: exploit details were summarized at control level. No payload strings, executable commands, secrets, or target identifiers were copied.
 - Quality posture: Tenet sells agent-runtime defenses and the OpenAI cyber source is secondary reporting; both are useful signals but require primary-source or local validation.
+
+## 2026-06-28 compile additions: prompt-injection challenge, MCP threat landscape, and security-solution mapping
+
+### Source-backed claims
+- Simon Willison's link post reports that a public challenge saw about 6,000 attempts by roughly 2,000 participants fail to leak secrets from an OpenClaw test instance through email prompt injection, while cautioning that this does not prove production safety for irreversible actions. Source: `raw/2026-06-28-rss-simon-willison-what-happened-after-2-000-people-tried-to-hack-my-ai-as.md`. confidence: 1 practitioner link/source summary, last-confirmed 2026-06-28.
+- The same source frames frontier-model prompt-injection resistance as improving, but explicitly keeps the deployment rule conservative: do not put irreversible damage behind prompt-only defenses. Source: `raw/2026-06-28-rss-simon-willison-what-happened-after-2-000-people-tried-to-hack-my-ai-as.md`. confidence: 1 source, last-confirmed 2026-06-28.
+- Docker's MCP security source identifies MCP Rug Pull, MCP Shadowing, and Tool Poisoning as emerging tool-metadata and server-response risks, and argues for containerized MCP servers, gateway-style mediation, tool reauthorization on metadata change, and scoped secret injection. Source: `raw/2026-06-28-web-docker-blog-what-s-next-for-mcp-security.md`. confidence: 1 vendor security source, last-confirmed 2026-06-28.
+- The OWASP GenAI AI Security Solutions Landscape capture is a quarterly landing page for mapping agentic AI lifecycle security solutions across DevOps and SecOps tasks; the capture does not contain enough product detail to rank individual tools. Source: `raw/2026-06-28-web-owasp-genai-security-project-ai-security-solutions-landscape-for-agent.md`. confidence: 1 low-detail OWASP landing-page capture, last-confirmed 2026-06-28.
+- Docker's CRA and SBOM sources reinforce that agent-created container artifacts need supply-chain evidence, not only runtime sandboxing; see [[container-supply-chain-and-compliance]]. Sources: `raw/2026-06-28-rss-docker-blog-eu-cyber-resilience-act-cra-overview.md`; `raw/2026-06-28-rss-docker-blog-sbom-generation-for-container-workflows.md`. confidence: 2 related Docker sources, last-confirmed 2026-06-28.
+
+### Typed entities
+- tool/system: OpenClaw test instance
+- model: Claude Opus 4.6
+- threat: prompt injection
+- threat: MCP Rug Pull
+- threat: MCP Shadowing
+- threat: Tool Poisoning
+- control: MCP Gateway
+- control: containerized MCP server
+- resource: OWASP GenAI Security Solutions Landscape
+- page: [[container-supply-chain-and-compliance]]
+
+### Explicit relationships
+- Model-side injection resistance complements but does not supersede execution-layer approval, identity, sandbox, and network controls.
+- MCP Rug Pull is caused by tool metadata changing after approval; reauthorization and pinned tool definitions mitigate the drift.
+- MCP Shadowing and Tool Poisoning are caused by malicious or conflicting tool descriptions influencing agent behavior; gateway scanning and minimal tool profiles reduce exposure.
+- Security-solution landscapes complement local threat models, but low-detail landing pages do not provide enough evidence for procurement or approval.
+- Container SBOM/provenance controls complement coding-agent sandboxing when generated code becomes deployable images.
+
+### HoneyDrunk implications
+- Treat the OpenClaw email challenge as encouraging evidence for model behavior, not a safety boundary for production deletes, credential use, deployment, payments, or external messaging.
+- For MCP tools, record tool descriptions, versions, container image digests, network permissions, and secrets scope so later metadata drift can be detected.
+- Use OWASP solution maps as discovery input only; approval still requires primary docs, local tests, and fit against HoneyDrunk threat boundaries.
+
+### Privacy and quality notes
+- No prompt-injection payloads, command strings, secrets, or reusable bypass details were copied.
+- Simon Willison is a strong practitioner source but summarizes another challenge; Docker is vendor-authored; OWASP capture is low-detail.

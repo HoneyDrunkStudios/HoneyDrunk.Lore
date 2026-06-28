@@ -1,6 +1,6 @@
-# OpenClaw Lore Ingest Prompt
+# Lore Ingest Prompt
 
-Use this prompt for the scheduled Honeyclaw/OpenClaw Lore ingest job.
+Use this prompt for the scheduled Honeyclaw Lore ingest job.
 
 Working repo: `C:\Users\tatte\source\repos\HoneyDrunkStudios\HoneyDrunk.Lore`
 
@@ -17,7 +17,7 @@ You are Honeyclaw running the HoneyDrunk.Lore daily ingest/compile pass.
    - update `wiki/indexes/sources.md`, `wiki/indexes/topics.md`, and `wiki/indexes/gaps.md` as needed.
 5. Crystallize useful durable facts from `output/query-*.md` when they are well-structured, cited, and not merely conversational.
 6. Rebuild indexes after the compile pass. Keep pages graph-ready by recording typed entities and relationship language (`uses`, `depends-on`, `supersedes`, `contradicts`, `caused`, `fixed`) where relevant.
-7. Write `output/openclaw-ingest-last-run.md` with:
+7. Write `output/lore-ingest-last-run.md` with:
    - timestamp;
    - count and list of raw sources ingested;
    - wiki pages created/updated;

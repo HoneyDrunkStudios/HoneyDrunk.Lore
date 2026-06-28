@@ -1,16 +1,16 @@
 # HoneyDrunk.Lore
 
-The compiled research knowledge surface for HoneyDrunk Studios — a flat-file wiki maintained by OpenClaw/Honeyclaw. Humans and sourcing jobs drop raw sources in, Honeyclaw compiles and reconciles them into structured pages, and Obsidian renders the result as a navigable graph.
+The compiled research knowledge surface for HoneyDrunk Studios — a flat-file wiki maintained by Honeyclaw. Humans and sourcing jobs drop raw sources in, Honeyclaw compiles and reconciles them into structured pages, and Obsidian renders the result as a navigable graph.
 
 ## How to use
 
-The wiki has four operations. Ingest/Compile/Lint are OpenClaw/Honeyclaw-owned; Query can be used by Honeyclaw, Claude, or any other agent that reads the compiled `wiki/`. See [`AGENTS.md`](./AGENTS.md) for the full schema.
+The wiki has four operations. Ingest/Compile/Lint are Honeyclaw-owned; Query can be used by Honeyclaw, Claude, Codex, or any other agent that reads the compiled `wiki/`. See [`AGENTS.md`](./AGENTS.md) for the full schema.
 
 ### Use Lore from Claude or another agent
 
 Claude can still use Lore for decision-making. The important split is:
 
-- OpenClaw/Honeyclaw owns scheduled ingestion and wiki maintenance.
+- Honeyclaw owns scheduled ingestion and wiki maintenance.
 - Claude consumes the compiled `wiki/`, `wiki/indexes/`, and `output/query-*.md` files as shared knowledge.
 - Any recommendation based on Lore should cite the wiki/source page and state confidence or gaps.
 
@@ -18,12 +18,32 @@ The legacy [`CLAUDE.md`](./CLAUDE.md) file is intentionally just a pointer to `A
 
 ### Ingest a new source
 1. Drop the source file into `raw/` (markdown, PDF, transcript, repo dump — whatever).
-2. Ask Honeyclaw/OpenClaw to *"ingest the new source in `raw/`"*, or let the daily scheduled ingest run.
+2. Ask Honeyclaw to *"ingest the new source in `raw/`"*, or let the daily scheduled ingest run.
 3. The agent reads the source, updates or creates `wiki/` pages, and adds an entry to `wiki/indexes/sources.md`.
+
+### Optional Birdclaw X lane
+
+Scheduled Lore sourcing stays website/RSS-first. Use Birdclaw only when you intentionally want to capture a targeted X/Twitter signal because the news is breaking there first, the author is a primary source, or the thread is useful enough to preserve before a canonical writeup exists.
+
+Export the selected Birdclaw items as JSON, then convert them into normal `raw/` files:
+
+```powershell
+python tools/lore_source_birdclaw.py path\to\birdclaw-export.json
+```
+
+The converter writes `raw/YYYY-MM-DD-birdclaw-x-*.md`, dedupes by source URL/source id, marks the source as an `early-signal`, and strips secret-like values from captured text. When an official blog, changelog, docs page, transcript, or other durable written source becomes available, prefer clipping that canonical source too; keep the X capture when it remains useful as first-report, author-context, or discussion signal.
+
+The scheduled sourcing lane runs:
+
+```powershell
+python tools/lore_source_birdclaw_recent.py --limit 25 --max-pages 1
+```
+
+That wrapper attempts a live Birdclaw refresh, refuses stale local-cache writes by default, and records health in `output/lore-birdclaw-sourcing-last-run.md`.
 
 ### Daily scheduled ingest
 
-OpenClaw runs a daily Honeyclaw ingest/compile job at **10:00 AM America/New_York** using [`tools/openclaw-lore-ingest-prompt.md`](./tools/openclaw-lore-ingest-prompt.md). It scans unprocessed `raw/` entries, compiles them into `wiki/`, crystallizes durable query outputs, rebuilds indexes, writes `output/openclaw-ingest-last-run.md`, and commits/pushes safe changes.
+Honeyclaw runs a daily Lore ingest/compile job at **10:00 AM America/New_York** using [`tools/lore-ingest-prompt.md`](./tools/lore-ingest-prompt.md). It scans unprocessed `raw/` entries, compiles them into `wiki/`, crystallizes durable query outputs, rebuilds indexes, writes `output/lore-ingest-last-run.md`, and commits/pushes safe changes.
 
 ### Compile the wiki
 - Say *"run a compile pass"*. The agent picks up any unprocessed `raw/` sources, consolidates reinforced claims, resolves contradictions, and rebuilds `wiki/indexes/`.

@@ -1,6 +1,6 @@
 # AGENTS.md — HoneyDrunk.Lore
 
-This file is the schema and operating manual for the Lore wiki. Any OpenClaw/Honeyclaw session pointed at this repo follows the rules below.
+This file is the schema and operating manual for the Lore wiki. Any Honeyclaw or compatible agent session pointed at this repo follows the rules below.
 
 ## Identity
 
@@ -21,14 +21,14 @@ This file is the schema and operating manual for the Lore wiki. Any OpenClaw/Hon
 
 ## Agent compatibility
 
-OpenClaw/Honeyclaw owns ingestion, compile, lint, scheduled maintenance, and safe commits. Claude and other LLM tools may still use Lore for decision-making by reading `wiki/`, `wiki/indexes/`, and `output/query-*.md`.
+Honeyclaw owns ingestion, compile, lint, scheduled maintenance, and safe commits. Claude, Codex, and other LLM tools may still use Lore for decision-making by reading `wiki/`, `wiki/indexes/`, and `output/query-*.md`.
 
 When Claude uses Lore:
 
 1. Treat `AGENTS.md` as the schema/contract, not a Claude-specific instruction file.
 2. Prefer `wiki/indexes/sources.md`, `wiki/indexes/topics.md`, and relevant `wiki/` pages before searching `raw/`.
 3. Use source citations and confidence notes when making recommendations.
-4. If Lore cannot answer, record the missing question in `wiki/indexes/gaps.md` or ask Honeyclaw/OpenClaw to run a Query/Ingest pass.
+4. If Lore cannot answer, record the missing question in `wiki/indexes/gaps.md` or ask Honeyclaw to run a Query/Ingest pass.
 5. Do not mutate `raw/`; raw remains immutable.
 
 Decision support contract: Lore should answer with what is known, how confident it is, which sources support it, and what would change the decision. Do not let uncited wiki prose become authority.
@@ -42,7 +42,7 @@ Lore implements the LLM Wiki v2 ideas incrementally in flat files:
 - **Consolidation tiers:** `raw/` is working evidence, `output/query-*.md` is episodic exploration, `wiki/` is semantic knowledge, and durable workflows belong in `AGENTS.md`/`tools/` as procedural memory.
 - **Typed entities and graph-ready links:** every ingest extracts typed entities (`person`, `project`, `library`, `concept`, `file`, `decision`) and uses explicit relationship language (`uses`, `depends-on`, `supersedes`, `contradicts`, `caused`, `fixed`) so `wiki/graph/` can be generated later.
 - **Hybrid retrieval readiness:** keep human indexes small and useful now; when the wiki passes ~100 pages, add BM25/vector/graph retrieval without changing the wiki content contract.
-- **Event hooks:** OpenClaw scheduled sourcing writes to `raw/`; OpenClaw scheduled ingest compiles to `wiki/`; Query outputs can crystallize back into the wiki; Lint handles health and retention.
+- **Event hooks:** scheduled Lore sourcing writes to `raw/`; scheduled Lore ingest compiles to `wiki/`; Query outputs can crystallize back into the wiki; Lint handles health and retention.
 - **Quality scoring:** generated pages should be structured, cited, internally consistent, and decision-usable. Low-quality pages are rewritten or flagged.
 - **Privacy filter and audit trail:** redact secrets/PII before writing wiki pages and log material ingest/compile decisions in run summaries.
 

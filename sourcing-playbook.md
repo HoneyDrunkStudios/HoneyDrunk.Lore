@@ -1,18 +1,20 @@
 # Lore — Sourcing Playbook
 
-This document defines what content belongs in Lore, where to find it, and how to decide what gets clipped. It governs the sourcing stage of the Lore pipeline. It is read primarily by OpenClaw, which performs scheduled automated sourcing, and occasionally by humans for serendipitous capture.
+This document defines what content belongs in Lore, where to find it, and how to decide what gets clipped. It governs the sourcing stage of the Lore pipeline. It is read primarily by Honeyclaw, which performs scheduled automated sourcing, and occasionally by humans for serendipitous capture.
 
 ---
 
 ## How to use this playbook
 
-**OpenClaw — automated sourcing (every 1–2 days):** OpenClaw runs a scheduled job against website/RSS sources listed below. It does not use X, Discord, podcast feeds, or YouTube feeds by default. Items matching the relevance criteria below land in `raw/` as markdown.
+**Honeyclaw automated sourcing (every 1-2 days):** Honeyclaw runs a scheduled job against website/RSS sources listed below. It does not use X, Discord, podcast feeds, or YouTube feeds by default. Items matching the relevance criteria below land in `raw/` as markdown.
 
-**Web Clipper — serendipitous human capture (anytime):** When you find an article worth keeping during normal reading, hit Quick Clip (Alt+Shift+O). Output lands in `raw/` same as OpenClaw output. The downstream ingestion skill doesn't care which path produced a file.
+**Web Clipper — serendipitous human capture (anytime):** When you find an article worth keeping during normal reading, hit Quick Clip (Alt+Shift+O). Output lands in `raw/` same as scheduled sourcing output. The downstream ingestion skill doesn't care which path produced a file.
+
+**Birdclaw — targeted X capture (operator-invoked only):** When high-signal news is breaking first on X/Twitter, use Birdclaw as a selective capture lane. This is not a default crawler. Capture only explicit targets such as primary-source posts, author threads, launch/debug context, or early discussion that is genuinely useful to HoneyDrunk. Convert Birdclaw JSON exports with `tools/lore_source_birdclaw.py`; the output lands in `raw/` with `source_type: "birdclaw-x"` and `source_role: "early-signal"`.
 
 **Your own explorations are sources too.** When a query session, debug investigation, or research thread yields something worth keeping, crystallize it — write it to `output/` and let the next compile pass pull it into `wiki/`. Treat it exactly like an external article: same relevance criteria, same compile path. This is how the wiki compounds from your own work, not just from the outside world.
 
-> **Out of scope for this playbook:** the daily OpenClaw/Honeyclaw ingest job that reads `raw/` and compiles into `wiki/` is governed separately by `AGENTS.md` and `tools/openclaw-lore-ingest-prompt.md`. This document only defines what gets *into* `raw/`.
+> **Out of scope for this playbook:** the daily Honeyclaw ingest job that reads `raw/` and compiles into `wiki/` is governed separately by `AGENTS.md` and `tools/lore-ingest-prompt.md`. This document only defines what gets *into* `raw/`.
 
 ---
 
@@ -353,7 +355,7 @@ Lore automated sourcing now stays strictly on website/RSS sources that fetch and
 
 Do **not** source these by default:
 
-- X / Twitter — too noisy and browser-dependent.
+- X / Twitter — too noisy and browser-dependent for broad scheduled sourcing. Exception: use the optional Birdclaw lane for targeted operator-selected early signals when X is the useful primary/breaking source.
 - Discord — announcement snapshots were low-yield and often missed substantive announcement bodies.
 - Podcasts — metadata without transcript/body is usually too shallow for Lore.
 - YouTube — metadata/descriptions are usually too shallow for Lore.
@@ -361,7 +363,7 @@ Do **not** source these by default:
 - TikTok / Instagram — no relevant durable technical signal.
 - Real-time event streams / live conferences — wait for official writeups, release notes, docs, or recordings with useful written summaries.
 
-If one of these surfaces reveals something important, prefer finding the canonical website source: official blog, docs page, changelog, support article, transcript, or written release notes.
+If one of these surfaces reveals something important, prefer finding the canonical website source: official blog, docs page, changelog, support article, transcript, or written release notes. Keep a Birdclaw X capture when the post itself is the primary source, contains useful first-report context, or captures discussion that would otherwise disappear from the decision trail.
 
 ---
 
@@ -382,6 +384,7 @@ When in doubt: clip it. It is easier to lint duplicates out than to recover from
 
 | Frequency | Actor | Activity |
 |-----------|-------|----------|
-| Every 1–2 days | OpenClaw (automated) | Walk website/RSS sources in this playbook; drop qualifying items in `raw/` |
-| Daily at 10:00 AM America/New_York | OpenClaw/Honeyclaw ingest job (automated) | Compile unprocessed `raw/` entries into `wiki/` — out of scope here, governed separately |
+| Every 1-2 days | Honeyclaw automated sourcing | Walk website/RSS sources in this playbook; drop qualifying items in `raw/` |
+| As needed | You / operator-invoked Birdclaw | Convert selected X/Twitter early signals to `raw/` with `tools/lore_source_birdclaw.py`; never broad-crawl X by default |
+| Daily at 10:00 AM America/New_York | Honeyclaw ingest job | Compile unprocessed `raw/` entries into `wiki/` - out of scope here, governed separately |
 | Monthly, ~10 min | You | Review this playbook — add new sources, remove dead ones, refine relevance criteria |

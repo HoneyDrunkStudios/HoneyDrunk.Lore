@@ -174,3 +174,37 @@ Multi-agent systems are warranted only when a single agent hits hard limits: con
 
 ### Quality notes
 - CNCF source is a practitioner/community writeup about an active rollout, not a neutral benchmark. Use it as architecture guidance requiring local Kubernetes and security validation.
+
+## 2026-06-28 compile additions: Agent2Agent protocol
+
+### Source-backed claims
+- System Design Newsletter describes Agent2Agent / A2A as an open coordination standard for agents to advertise capabilities, accept delegated tasks, exchange messages, report progress, stream updates, and return artifacts across vendors and frameworks. Source: `raw/2026-06-28-rss-system-design-newsletter-a2a-protocol.md`. confidence: 1 explanatory newsletter source, last-confirmed 2026-06-28.
+- The source says A2A uses Agent Cards for discovery, commonly at `/.well-known/agent-card.json`, describing identity, endpoints, skills, modalities, authentication requirements, and supported features. Source: `raw/2026-06-28-rss-system-design-newsletter-a2a-protocol.md`. confidence: 1 source, last-confirmed 2026-06-28.
+- The source frames A2A tasks as stateful lifecycle objects with states such as submitted, working, input-required, auth-required, completed, failed, canceled, rejected, and unknown, unlike simple function calls. Source: `raw/2026-06-28-rss-system-design-newsletter-a2a-protocol.md`. confidence: 1 source, last-confirmed 2026-06-28.
+- The same source says A2A v1.0 supports JSON-RPC, gRPC, and HTTP REST bindings over one semantic model, and supports synchronous request-response, Server-Sent Events streaming, and push notifications. Source: `raw/2026-06-28-rss-system-design-newsletter-a2a-protocol.md`. confidence: 1 source, last-confirmed 2026-06-28.
+
+### Typed entities
+- protocol: Agent2Agent / A2A
+- artifact: Agent Card
+- URI: `/.well-known/agent-card.json`
+- concept: task lifecycle
+- protocol binding: JSON-RPC 2.0
+- protocol binding: gRPC
+- protocol binding: HTTP REST
+- transport pattern: Server-Sent Events / SSE
+- pattern: centralized orchestrator
+- pattern: decentralized swarm
+
+### Explicit relationships
+- A2A complements MCP by standardizing agent-to-agent task delegation while MCP standardizes agent-to-tool access.
+- Agent Cards depend-on accurate capability, authentication, modality, and endpoint metadata; stale cards can misroute or overexpose work.
+- Stateful tasks complement long-running or human-in-the-loop delegation because progress, auth, artifacts, and cancellation need durable state.
+- Centralized orchestration is easier to debug than decentralized swarms and should be the default until trust, observability, and authorization are mature.
+
+### HoneyDrunk implications
+- Do not add A2A because it is fashionable; use it only where HoneyDrunk has separately owned agents that need black-box delegation and receipts.
+- If A2A is piloted, require Agent Card review, auth model, trace IDs, task-state persistence, artifact retention, and cancellation semantics before production use.
+- Keep A2A and MCP governance separate in diagrams: an agent endpoint can be trusted to receive tasks while still having restricted tool access.
+
+### Quality notes
+- Newsletter source is explanatory and partly subscriber-gated. Use as protocol-scouting vocabulary until primary A2A specs and SDK docs are captured.

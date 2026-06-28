@@ -672,3 +672,37 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - Z.AI and NVIDIA are vendor sources. Treat benchmark claims as candidate-selection evidence, not local proof.
+
+## 2026-06-28 compile additions: HF Jobs vLLM serving
+
+### Source-backed claims
+- Hugging Face describes `hf jobs run` with `--expose` as a way to launch an OpenAI-compatible vLLM server on HF Jobs infrastructure using a container image, selected GPU flavor, and pay-per-second/minute job billing. Source: `raw/2026-06-28-rss-hugging-face-blog-run-a-vllm-server-on-hf-jobs-in-one-command.md`. confidence: 1 Hugging Face source, last-confirmed 2026-06-28.
+- The HF Jobs source says exposed job ports require an HF token with read access to the job namespace; the exposed URL is not a public unauthenticated endpoint. Source: `raw/2026-06-28-rss-hugging-face-blog-run-a-vllm-server-on-hf-jobs-in-one-command.md`. confidence: 1 source, last-confirmed 2026-06-28.
+- The source distinguishes HF Jobs from Inference Endpoints: Jobs provide container-level flexibility for experiments, evals, batch generation, and model trials, while Inference Endpoints are the managed production-oriented path with finer access controls and scale-to-zero. Source: `raw/2026-06-28-rss-hugging-face-blog-run-a-vllm-server-on-hf-jobs-in-one-command.md`. confidence: 1 source, last-confirmed 2026-06-28.
+- The same source shows larger vLLM models may require GPU flavors, tensor parallelism, context-length caps, concurrent-sequence caps, and tool-calling flags to stay inside memory and agent-harness needs. Source: `raw/2026-06-28-rss-hugging-face-blog-run-a-vllm-server-on-hf-jobs-in-one-command.md`. confidence: 1 source, last-confirmed 2026-06-28.
+
+### Typed entities
+- platform: Hugging Face Jobs
+- command: `hf jobs run`
+- command: `hf jobs cancel`
+- server: vLLM OpenAI-compatible server
+- container image: `vllm/vllm-openai`
+- auth token: Hugging Face token
+- product: Hugging Face Inference Endpoints
+- model: Qwen/Qwen3-4B
+- model: Qwen/Qwen3.5-122B-A10B
+- concept: tensor parallelism
+
+### Explicit relationships
+- HF Jobs exposes model-serving as a short-lived container job rather than a durable managed endpoint.
+- OpenAI-compatible vLLM servers complement local agent harnesses by letting clients reuse OpenAI API adapters against rented GPUs.
+- Token-gated job URLs reduce accidental public exposure but do not supersede gateway, audit, or fine-grained authorization for shared services.
+- Inference Endpoints supersede Jobs when scale-to-zero, managed production operations, or public/protected endpoint modes matter more than raw container flexibility.
+
+### HoneyDrunk implications
+- Use HF Jobs for temporary model evals or batch runs where exact image/flags/hardware matter and cleanup is explicit.
+- Record job ID, model, hardware flavor, timeout, exposed URL, token scope, cost per hour, and cleanup command in run summaries.
+- For coding-agent backends, verify tool-call parser behavior, latency, output quality, spend limits, and prompt/data retention before routing real HoneyDrunk work.
+
+### Quality notes
+- Hugging Face source is official product guidance. Hardware prices, model flags, and availability are time-sensitive and should be checked at run time.

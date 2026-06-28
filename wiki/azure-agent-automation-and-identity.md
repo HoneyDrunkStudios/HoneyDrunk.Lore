@@ -445,3 +445,40 @@ Azure's May 2026 agent/developer tooling signal is that agent automation is movi
 
 ### Quality notes
 - Microsoft release notes are authoritative for release direction but time-sensitive. Recheck package/API status before a spike.
+
+## 2026-06-28 compile additions: azd execution, tool management, and Functions MCP
+
+### Source-backed claims
+- Azure Developer CLI releases 1.24.3 through 1.26.0 added an `azd tool` command group for discovering, installing, checking, and upgrading development tools such as language SDKs, Bicep, Docker, GitHub CLI, VS Code extensions, and supported agentic CLI host skills. Source: `raw/2026-06-28-rss-azure-sdk-blog-azure-developer-cli-azd.md`. confidence: 1 Microsoft Azure SDK Blog source, last-confirmed 2026-06-28.
+- The same source introduces `azd exec`, a cross-platform command/script runner that inherits the full `azd` environment, including environment variables and Key Vault secret resolution. Source: `raw/2026-06-28-rss-azure-sdk-blog-azure-developer-cli-azd.md`. confidence: 1 source, last-confirmed 2026-06-28.
+- The `azd` source says parallel `azd up` work required fixes for concurrent map writes, ACR remote-build image contamination, per-request correlation IDs, parallel `.NET` publish races, and service-detail progress rendering. Source: `raw/2026-06-28-rss-azure-sdk-blog-azure-developer-cli-azd.md`. confidence: 1 source, last-confirmed 2026-06-28.
+- `azd pipeline config` now accounts for customized GitHub OIDC subject formats when creating federated credentials, reducing AADSTS700213 mismatch failures for organizations with custom claims. Source: `raw/2026-06-28-rss-azure-sdk-blog-azure-developer-cli-azd.md`. confidence: 1 source, last-confirmed 2026-06-28.
+- Azure Functions MCP Extension adds tool/resource/prompt triggers, MCP Apps, built-in MCP auth, OBO examples, structured content, rich content, and output schemas for Azure-hosted MCP servers. Source: `raw/2026-06-28-rss-azure-sdk-blog-azure-functions-mcp-extension-what-s-new-at-build-2026.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 Microsoft source, last-confirmed 2026-06-28.
+
+### Typed entities
+- CLI: Azure Developer CLI / `azd`
+- command group: `azd tool`
+- command: `azd exec`
+- secret store: Azure Key Vault
+- config field: `dependsOn` in `azure.yaml`
+- service: Azure Container Registry / ACR
+- auth mechanism: GitHub OIDC federated credential
+- error: AADSTS700213
+- product: Azure Functions MCP Extension
+- page: [[mcp-tool-governance-and-app-surfaces]]
+
+### Explicit relationships
+- `azd tool` complements template onboarding by turning prerequisite discovery into a first-class command.
+- `azd exec` depends-on `azd` environment and Key Vault resolution, so scripts run through it inherit a stronger secret boundary than ordinary shell scripts.
+- Parallel deploy speed depends-on per-service artifact isolation, unique upload blobs, thread-safe environment access, and per-request correlation IDs.
+- GitHub OIDC federated credential creation depends-on organization-specific subject claims when defaults are customized.
+- Functions-hosted MCP depends-on Entra/OBO and tool schemas to move from demo server to governed remote tool surface.
+
+### HoneyDrunk implications
+- For HoneyDrunk `azd` workflows, prefer `azd exec` only when the inherited environment and secret resolution are intentional and logged.
+- If using parallel `azd up`, audit services for shared build output paths, shared ACR upload names, and ambiguous progress/log correlation.
+- For GitHub-to-Azure federation, record the exact OIDC subject format rather than assuming GitHub defaults.
+- Functions MCP is a viable Azure-hosted tool surface candidate, but HoneyDrunk should require auth, schema, observability, and per-tool capability review before exposing it to agents.
+
+### Quality notes
+- Microsoft source is authoritative for release notes. Validate installed `azd` version and preview status before relying on a feature in CI.

@@ -126,3 +126,38 @@ This page tracks durable patterns for agent-readable, human-readable knowledge s
 
 ### Quality notes
 - Knowledge Agents is practitioner/self-reported. codebase-memory-mcp is project README evidence. Both are useful design signals but require local evaluation before infrastructure changes.
+
+## 2026-06-28 compile additions: AI knowledge fabric
+
+### Source-backed claims
+- Thoughtworks describes an AI knowledge fabric as a curated, dynamically updated, agent-optimized semantic layer that supplies organizational context, engineering standards, domain boundaries, and integration knowledge to AI agents. Source: `raw/2026-06-28-rss-thoughtworks-insights-build-an-ai-knowledge-fabric-for-your-organizati.md`. confidence: 1 practice source, last-confirmed 2026-06-28.
+- The source proposes three knowledge-fabric layers: engineering knowledge for stack defaults and technical guardrails, industry knowledge for bounded vertical context, and institutional knowledge for product specs, ownership, APIs, access levels, and internal integration patterns. Source: `raw/2026-06-28-rss-thoughtworks-insights-build-an-ai-knowledge-fabric-for-your-organizati.md`. confidence: 1 source, last-confirmed 2026-06-28.
+- Thoughtworks recommends agent-friendly formats such as Markdown, JSON, YAML, schemas, consistent semantic chunks, incremental context unveiling, continuous event-driven updates, ownership/review, and explicit "do not do" guardrails. Source: `raw/2026-06-28-rss-thoughtworks-insights-build-an-ai-knowledge-fabric-for-your-organizati.md`. confidence: 1 source, last-confirmed 2026-06-28.
+- The source cites Open Knowledge Format and LLM-wiki-style approaches as compatible patterns for agent-readable organizational knowledge. Source: `raw/2026-06-28-rss-thoughtworks-insights-build-an-ai-knowledge-fabric-for-your-organizati.md`. confidence: 1 source, last-confirmed 2026-06-28.
+
+### Typed entities
+- concept: AI knowledge fabric
+- layer: engineering knowledge
+- layer: industry knowledge
+- layer: institutional knowledge
+- format: Markdown
+- format: JSON
+- format: YAML
+- specification: Open Knowledge Format / OKF
+- pattern: LLM wiki
+- control: ownership and review process
+- control: explicit anti-pattern guardrails
+
+### Explicit relationships
+- Knowledge fabric complements Lore by turning raw documents and tribal knowledge into curated, cited, agent-consumable context.
+- Engineering defaults and "don'ts" reduce agent freedom where standards matter more than generic model creativity.
+- Event-driven updates complement scheduled compile because stale institutional knowledge can mislead agents faster than public research pages.
+- Ownership and review are required because agent knowledge is operational configuration, not passive documentation.
+
+### HoneyDrunk implications
+- Lore's raw/output/wiki/index tiers already implement much of the knowledge-fabric shape; the next improvement should be ownership, frontmatter compatibility, and freshness signals before heavier infrastructure.
+- Keep HoneyDrunk-specific architecture rules, repo ownership, API contracts, and "do not use legacy path" constraints short, cited, and easy for agents to retrieve.
+- Use the knowledge-fabric framing to distinguish public research pages from institutional operating rules; they should have different confidence and access controls.
+
+### Quality notes
+- Thoughtworks is practice guidance, not a measured HoneyDrunk implementation. Use it to refine Lore schema and update cadence, not as proof that a specific platform is required.

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Browser-backed producer for HoneyDrunk.Lore.
+"""Optional browser-backed producer for HoneyDrunk.Lore.
 
-Uses the OpenClaw managed browser profile to snapshot login-walled sources
-(X list + configured Discord announcement channels) and writes qualifying
-snapshots into raw/ as markdown. This is intentionally conservative: Discord
-channels must be explicit URLs in tools/browser-sources.json so we do not scrape
-DMs/help/chat noise by accident.
+Snapshots configured login-walled sources (X list + configured Discord
+announcement channels) and writes qualifying snapshots into raw/ as markdown.
+This is intentionally conservative: Discord channels must be explicit URLs in
+tools/browser-sources.json so we do not scrape DMs/help/chat noise by accident.
+Set LORE_BROWSER_COMMAND to the browser automation executable before running.
 """
 from __future__ import annotations
 
@@ -15,7 +15,6 @@ import json
 import multiprocessing as mp
 import os
 import re
-import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -24,7 +23,7 @@ REPO = Path(r"C:\Users\tatte\source\repos\HoneyDrunkStudios\HoneyDrunk.Lore")
 RAW = REPO / "raw"
 OUTPUT = REPO / "output"
 CONFIG = REPO / "tools" / "browser-sources.json"
-OPENCLAW = shutil.which("openclaw.cmd") or shutil.which("openclaw") or "openclaw"
+BROWSER_COMMAND = os.environ.get("LORE_BROWSER_COMMAND", "").strip()
 
 KEYWORDS = [
     "agent", "agents", "ai", "llm", "model", "mcp", "tool", "eval", "prompt",
@@ -37,7 +36,7 @@ KEYWORDS = [
 def run(cmd: list[str], timeout: int = 90) -> str:
     """Run a command with a hard timeout.
 
-    subprocess.run(timeout=...) can leave child node/openclaw processes alive on
+    subprocess.run(timeout=...) can leave child browser processes alive on
     Windows when a browser call wedges. Use Popen + taskkill /T so each channel
     scrape is bounded and the scheduled job can continue.
     """
@@ -83,7 +82,9 @@ def sanitize_output(value: str | None) -> str:
 
 
 def browser(profile: str, *args: str, timeout: int = 90) -> str:
-    return run([OPENCLAW, "browser", "--browser-profile", profile, *args], timeout=timeout)
+    if not BROWSER_COMMAND:
+        raise RuntimeError("Browser-backed Lore sourcing requires LORE_BROWSER_COMMAND; public RSS sourcing is the default.")
+    return run([BROWSER_COMMAND, "browser", "--browser-profile", profile, *args], timeout=timeout)
 
 
 def slugify(text: str) -> str:
@@ -115,7 +116,7 @@ def write_raw(source: str, title: str, category: str, source_type: str, body: st
     while path.exists():
         path = RAW / f"{today}-{source_type}-{slugify(suffix)}-{n}.md"
         n += 1
-    content = f'''---\nsource: "{yaml_escape(source)}"\ntitle: "{yaml_escape(title)}"\nauthor: "OpenClaw browser"\ndate_published: "unknown"\ndate_clipped: "{today}"\ncategory: "{yaml_escape(category)}"\nsource_type: "{source_type}"\n---\n\n# {title}\n\nSource: {source}\n\n{body}\n'''
+    content = f'''---\nsource: "{yaml_escape(source)}"\ntitle: "{yaml_escape(title)}"\nauthor: "Lore browser"\ndate_published: "unknown"\ndate_clipped: "{today}"\ncategory: "{yaml_escape(category)}"\nsource_type: "{source_type}"\n---\n\n# {title}\n\nSource: {source}\n\n{body}\n'''
     path.write_text(content, encoding="utf-8")
     return path.name
 
@@ -189,7 +190,7 @@ def source_discord(profile: str, cfg: dict, dry_run: bool, limit: int = 0, chann
     communities = cfg.get("communities") or []
     configured = 0
     processed = 0
-    progress_path = OUTPUT / "openclaw-browser-sourcing-progress.log"
+    progress_path = OUTPUT / "lore-browser-sourcing-progress.log"
     OUTPUT.mkdir(parents=True, exist_ok=True)
     progress_path.write_text("", encoding="utf-8")
 
@@ -244,7 +245,7 @@ def main() -> int:
     args = parser.parse_args()
 
     cfg = json.loads(CONFIG.read_text(encoding="utf-8"))
-    profile = cfg.get("browserProfile", "openclaw")
+    profile = cfg.get("browserProfile", "lore")
     written: list[str] = []
     notes: list[str] = []
     failures: list[str] = []
@@ -270,7 +271,7 @@ def main() -> int:
 
     OUTPUT.mkdir(parents=True, exist_ok=True)
     summary = [
-        "# OpenClaw Lore Browser Sourcing — Last Run",
+        "# Lore Browser Sourcing - Last Run",
         "",
         f"Timestamp: {dt.datetime.now().isoformat(timespec='seconds')}",
         f"Mode: {'dry-run' if args.dry_run else 'write'}",
@@ -285,7 +286,7 @@ def main() -> int:
     summary.extend(["", "## Failures"])
     summary.extend((f"- {failure}" for failure in failures) if failures else ["_None_"])
     if not args.dry_run:
-        (OUTPUT / "openclaw-browser-sourcing-last-run.md").write_text("\n".join(summary) + "\n", encoding="utf-8")
+        (OUTPUT / "lore-browser-sourcing-last-run.md").write_text("\n".join(summary) + "\n", encoding="utf-8")
     else:
         print("\n".join(summary))
     print(f"Browser sourced {len(written)} items; notes {len(notes)}; failures {len(failures)}")

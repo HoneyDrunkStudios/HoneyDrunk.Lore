@@ -1,8 +1,8 @@
-# OpenClaw Lore Browser Sourcing — Last Run
+# Lore Browser Sourcing - Last Run
 
 Timestamp: 2026-05-24T03:02:38
 Mode: write
-Browser profile: openclaw
+Browser profile: lore
 Saved: 0
 
 ## Files written

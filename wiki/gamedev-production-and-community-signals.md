@@ -474,3 +474,35 @@ The game-development community feed produced a mix of process advice, tooling ex
 
 ### Quality notes
 - Unity is a vendor/studio case study. Game Developer is trade/interview content with noisy extraction.
+
+## 2026-06-28 compile additions: Temtem Pioneers genre blend
+
+### Source-backed claims
+- 80 Level's Crema interview says `Temtem: Pioneers` blends survival crafting, creature collection, real-time combat, solo/offline play, and co-op, with bosses adapting to the number of players present. Source: `raw/2026-06-28-rss-80-level-developing-valheim-style-creature-collection-mmo-adventure.md`. confidence: 1 trade/interview source, last-confirmed 2026-06-28.
+- The same source says Crema moved from its prior Temtem style into Unreal Engine 5 and had to adapt pipeline/tooling, open-world design, camera flexibility, higher-detail models, and animations because players can view the world from more angles and distances. Source: `raw/2026-06-28-rss-80-level-developing-valheim-style-creature-collection-mmo-adventure.md`. confidence: 1 source, last-confirmed 2026-06-28.
+- The interview positions player motivation around combat-to-taming loops, biome discovery, traversal mounts, resource gathering support, and community feedback from early backer alpha builds. Source: `raw/2026-06-28-rss-80-level-developing-valheim-style-creature-collection-mmo-adventure.md`. confidence: 1 source, last-confirmed 2026-06-28.
+
+### Typed entities
+- studio: Crema
+- game: Temtem
+- game: Temtem: Pioneers
+- engine: Unreal Engine 5
+- genre: survival crafting
+- genre: creature collection
+- mode: solo/offline
+- mode: co-op
+- concept: adaptive boss scaling
+- milestone: early backer alpha
+
+### Explicit relationships
+- Survival crafting and creature collection complement each other when combat, taming, traversal, and resource gathering reinforce the same exploration loop.
+- Engine migration depends-on pipeline retraining, camera/fidelity expectations, and asset-detail changes.
+- Co-op/solo parity depends-on encounter scaling and shared progression design rather than only network support.
+
+### HoneyDrunk implications
+- For genre-blend prototypes, test the core loop first: why combat, collection, building, and exploration feed each other.
+- Treat engine migration as production-risk work even when the new engine better fits the target game.
+- If co-op is promised, define scaling and offline/solo experience early; adding it late affects combat, pacing, and content cost.
+
+### Quality notes
+- 80 Level is trade/interview evidence. Useful as production-signal scouting, not proof of market performance or engine fit for HoneyDrunk.

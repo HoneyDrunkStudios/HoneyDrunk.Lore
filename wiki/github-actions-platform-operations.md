@@ -461,3 +461,37 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ### Quality notes
 - GitHub changelog source is authoritative for feature existence; live availability, pricing, and enterprise plan constraints should be verified before implementation.
+
+## 2026-06-28 compile additions: parallel steps and runner group controls
+
+### Source-backed claims
+- GitHub Actions now supports first-class parallel step execution through `background: true`, `wait`, `wait-all`, `cancel`, and `parallel`, preserving separate logs and execution instead of relying on shell backgrounding. Source: `raw/2026-06-28-rss-github-changelog-actions-actions-steps-can-now-be-run-in-parallel.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-28.
+- GitHub describes parallel steps as useful for independent builds, background services that are stopped cleanly, and non-blocking work such as telemetry upload while packaging continues. Source: `raw/2026-06-28-rss-github-changelog-actions-actions-steps-can-now-be-run-in-parallel.md`. confidence: 1 source, last-confirmed 2026-06-28.
+- GitHub-hosted runner controls now let organizations disable standard hosted-runner labels such as `ubuntu-latest` and add macOS runners to runner groups with group-level access and concurrency controls. Source: `raw/2026-06-28-rss-github-changelog-actions-more-control-over-your-github-hosted-runners.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-28.
+- The hosted-runner control source says macOS runner groups can limit which organizations, repositories, or workflows use specific macOS runners, enforce concurrency limits, and route jobs through named groups; network configurations are not supported for macOS runners in the captured release. Source: `raw/2026-06-28-rss-github-changelog-actions-more-control-over-your-github-hosted-runners.md`. confidence: 1 source, last-confirmed 2026-06-28.
+
+### Typed entities
+- platform: GitHub Actions
+- workflow keyword: `background`
+- workflow keyword: `wait`
+- workflow keyword: `wait-all`
+- workflow keyword: `cancel`
+- workflow keyword: `parallel`
+- runner label: `ubuntu-latest`
+- runner type: macOS GitHub-hosted runner
+- control: runner group
+- control: runner concurrency limit
+
+### Explicit relationships
+- Parallel steps complement job-level parallelism when independent work should share one job environment but maintain separate logs.
+- Background service steps depend-on explicit `cancel` or wait behavior so long-running helpers do not leak across later workflow phases.
+- Runner groups supersede ungoverned default-label use where cost, security, or capacity policy matters.
+- Disabling standard hosted-runner labels depends-on workflows being updated to target approved runner groups.
+
+### HoneyDrunk implications
+- Use parallel steps only where artifacts, environment variables, caches, and working directories cannot race; backgrounding tests/builds without isolation can create nondeterministic CI failures.
+- Consider runner groups for macOS or high-cost hosted runners so expense and access policy are explicit rather than inherited from default labels.
+- Before disabling default hosted labels, audit all workflows and reusable workflows for direct `runs-on` assumptions.
+
+### Quality notes
+- GitHub changelog sources are authoritative for feature existence. Verify exact YAML behavior in a disposable workflow before broad migration.

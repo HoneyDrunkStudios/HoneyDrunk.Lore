@@ -40,3 +40,35 @@ For browser-first 3D/XR/metaverse-style workloads, the 2026-05-06 DEV.to benchma
 - Quality posture: useful decision frame, weak empirical authority until reproduced.
 - Gap: reproduce a HoneyDrunk-specific browser 3D benchmark with target devices and target scene complexity.
 - Privacy filter: no private data copied.
+
+## 2026-06-28 compile additions: Miris spatial streaming
+
+### Source-backed claims
+- 80 Level's Miris interview reports an internal WebXR car configurator running from a 1.2GB source vehicle asset across desktop browsers, tablets, mobile devices, and headsets without allocating one cloud GPU per viewer. Source: `raw/2026-06-28-rss-80-level-miris-built-a-car-configurator-without-pixel-streaming.md`. confidence: 1 vendor/interview source, last-confirmed 2026-06-28.
+- The source contrasts pixel streaming, local glTF web viewers, and Miris spatial streaming: pixel streaming preserves fidelity but scales GPU cost linearly with viewers, glTF removes server GPU cost but often reduces fidelity through compression, and spatial streaming attempts adaptive on-device rendering from a conditioned source asset. Source: `raw/2026-06-28-rss-80-level-miris-built-a-car-configurator-without-pixel-streaming.md`. confidence: 1 source, last-confirmed 2026-06-28.
+- Miris says its pipeline conditions an OpenUSD-native source asset once, identifies reflective surfaces, allocates more detail near the viewer and less detail farther away, and avoids rendering content behind the viewer within device/network constraints. Source: `raw/2026-06-28-rss-80-level-miris-built-a-car-configurator-without-pixel-streaming.md`. confidence: 1 vendor/interview source, last-confirmed 2026-06-28.
+- The source claims the configurator supports 72 paint/door-state variations and HDR-grade reflections, but those claims need independent performance and visual-quality validation before procurement-grade use. Source: `raw/2026-06-28-rss-80-level-miris-built-a-car-configurator-without-pixel-streaming.md`. confidence: 1 vendor/interview source, last-confirmed 2026-06-28.
+
+### Typed entities
+- platform: Miris spatial streaming
+- standard: WebXR
+- format: OpenUSD
+- format: glTF
+- approach: pixel streaming
+- device: Apple Vision Pro
+- concept: HDR reflections
+- concept: adaptive 3D delivery
+- domain: automotive configurator
+
+### Explicit relationships
+- Pixel streaming depends-on server-side GPU rendering and therefore scales cost with concurrent viewers.
+- Web-native glTF viewers depend-on local GPU rendering and compressed assets, trading reach and cost for potential material-fidelity loss.
+- Spatial streaming complements browser-first 3D by trying to deliver source-asset fidelity adaptively while keeping rendering on device.
+- Vendor demonstrations do not supersede local device, network, thermal, cost, and asset-pipeline tests.
+
+### HoneyDrunk implications
+- For browser/XR product configurators or showrooms, evaluate adaptive asset streaming alongside WebXR/Babylon.js and pixel streaming rather than treating the choice as only app install vs cloud GPU.
+- Require a representative asset test with real target devices, bad-network behavior, material fidelity review, cost model, and fallback plan before relying on Miris or similar platforms.
+
+### Quality notes
+- 80 Level source is an interview with the platform team. It is useful for scouting but not neutral benchmark evidence.

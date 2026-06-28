@@ -821,3 +821,42 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - Project README and vendor-cited security-news sources are useful but not enough for tool approval. No exploit payloads or unsafe commands were copied.
+
+## 2026-06-28 compile additions: Azure Functions MCP, Docker gateway security, and A2A adjacency
+
+### Source-backed claims
+- Azure Functions MCP Extension now supports MCP tools, resources, and prompts across multiple languages, with MCP Apps support through tool/resource combinations and a .NET fluent builder API for declarative tool/resource/prompt configuration. Source: `raw/2026-06-28-rss-azure-sdk-blog-azure-functions-mcp-extension-what-s-new-at-build-2026.md`. confidence: 1 Microsoft Azure SDK Blog source, last-confirmed 2026-06-28.
+- The Azure Functions source says built-in MCP authentication is available with Microsoft Entra ID in samples, includes On-Behalf-Of token exchange examples for downstream APIs, and has a portal preview for configuring MCP auth. Source: `raw/2026-06-28-rss-azure-sdk-blog-azure-functions-mcp-extension-what-s-new-at-build-2026.md`. confidence: 1 source, last-confirmed 2026-06-28.
+- The same source says structured content, rich content blocks, and explicit input/output schemas are supported so MCP clients can consume machine-readable results rather than only free text. Source: `raw/2026-06-28-rss-azure-sdk-blog-azure-functions-mcp-extension-what-s-new-at-build-2026.md`. confidence: 1 source, last-confirmed 2026-06-28.
+- Docker's MCP security source argues that containerized MCP servers and a single MCP Gateway can enforce provenance, isolation, secrets scoping, server allowlists, tool-description scanning, and runtime authorization before messages reach the MCP client. Source: `raw/2026-06-28-web-docker-blog-what-s-next-for-mcp-security.md`. confidence: 1 Docker source, last-confirmed 2026-06-28.
+- System Design Newsletter's A2A source positions A2A as complementary to MCP: MCP connects agents to tools, while A2A standardizes capability discovery, delegation, task lifecycle, messaging, artifacts, streaming, and push notification between agents. Source: `raw/2026-06-28-rss-system-design-newsletter-a2a-protocol.md`; page: [[multi-agent-architectures]]. confidence: 1 explanatory newsletter source, last-confirmed 2026-06-28.
+
+### Typed entities
+- product: Azure Functions MCP Extension
+- primitive: MCP tool
+- primitive: MCP resource
+- primitive: MCP prompt
+- concept: MCP Apps
+- auth mechanism: Microsoft Entra ID
+- flow: On-Behalf-Of / OBO
+- field: `structuredContent`
+- API pattern: explicit input/output schema
+- product: Docker MCP Catalog and Toolkit
+- control: MCP Gateway
+- protocol: Agent2Agent / A2A
+
+### Explicit relationships
+- Azure Functions MCP Extension uses serverless triggers and bindings to expose functions as MCP primitives.
+- Built-in MCP auth depends-on Entra/OBO configuration and does not supersede per-tool authorization or downstream API permission review.
+- Structured tool output complements governance by making result contracts checkable before model consumption.
+- Docker MCP Gateway complements catalog/profile governance by creating one enforcement point for server provenance, tool metadata, secrets, and traffic scanning.
+- A2A complements MCP rather than replacing it: agents use MCP for tools and A2A for delegating work to other agents.
+
+### HoneyDrunk implications
+- If HoneyDrunk hosts remote MCP on Azure Functions, require auth model, OBO scopes, tool/resource/prompt list, output schemas, and audit logging in the profile metadata.
+- Prefer structured output schemas for tools whose results feed automation or follow-up actions.
+- Treat Docker MCP Gateway/catalog claims as a candidate control plane, but validate Windows ergonomics, secret storage, image provenance, and per-tool disabling before adoption.
+- Keep A2A-facing agents separate from MCP tool servers in diagrams and policy; their trust and audit requirements differ.
+
+### Quality notes
+- Microsoft and Docker are vendor-authored; System Design Newsletter is explanatory and partly teaser/paywalled. Verify active specs and SDK versions before implementation.

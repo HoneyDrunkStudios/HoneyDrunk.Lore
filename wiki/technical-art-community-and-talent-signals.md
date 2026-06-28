@@ -542,3 +542,37 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - Both sources are community/forum captures; one is noisy and one is low-detail.
+
+## 2026-06-28 compile additions: alien vegetation workflow
+
+### Source-backed claims
+- 80 Level's Morgane Muller interview describes a student alien-island vegetation workflow using SpeedTree, Substance 3D Designer, WorldCreator, Unreal Engine PCG, Lumen, Movie Render Queue, and reference research into savannah vegetation and geology. Source: `raw/2026-06-28-rss-80-level-setting-up-vegetation-for-alien-planet-in-3d.md`. confidence: 1 trade/interview source, last-confirmed 2026-06-28.
+- The source says the workflow created different plant types with different SpeedTree approaches, used procedural variance for diversity without breaking the overall plant identity, and grouped plants into sub-biomes for Unreal PCG scattering. Source: `raw/2026-06-28-rss-80-level-setting-up-vegetation-for-alien-planet-in-3d.md`. confidence: 1 source, last-confirmed 2026-06-28.
+- The texturing workflow used SpeedTree-derived gradient, RGB element, AO, normal, opacity, noise, and ID maps inside Substance 3D Designer to drive color variation, masks, highlights, and volume cues. Source: `raw/2026-06-28-rss-80-level-setting-up-vegetation-for-alien-planet-in-3d.md`. confidence: 1 source, last-confirmed 2026-06-28.
+- The final scene used Unreal lighting controls including Lumen, directional light, skylight/HDRI, volumetric fog, sky atmosphere, post-processing, black-and-white composition checks, and cinematic aspect framing. Source: `raw/2026-06-28-rss-80-level-setting-up-vegetation-for-alien-planet-in-3d.md`. confidence: 1 source, last-confirmed 2026-06-28.
+
+### Typed entities
+- artist: Morgane Muller
+- tool: SpeedTree
+- tool: Substance 3D Designer
+- tool: WorldCreator
+- engine: Unreal Engine
+- feature: Unreal PCG
+- renderer/lighting: Lumen
+- tool: Movie Render Queue
+- concept: procedural variance
+- concept: sub-biome scattering
+- concept: BMS and Gestalt theory
+
+### Explicit relationships
+- Believable stylized vegetation depends-on real biome research, procedural variation, texture masks, and composition/lighting discipline.
+- SpeedTree-derived maps complement Substance Designer graphs by giving procedural textures plant-structure awareness.
+- Unreal PCG scattering depends-on asset grouping and sub-biome rules, not only random placement.
+
+### HoneyDrunk implications
+- For environment-art studies, capture technical maps and scattering rules as reusable workflow knowledge, not just final renders.
+- Validate whether SpeedTree/Designer/Unreal PCG is overkill for small prototypes; use the workflow as a reference when vegetation diversity matters.
+- For stylized alien biomes, preserve a real-world ecological basis so the scene reads as plausible instead of arbitrary.
+
+### Quality notes
+- 80 Level is trade/interview evidence and the project is educational. Useful as technical-art reference, not production pipeline proof.
