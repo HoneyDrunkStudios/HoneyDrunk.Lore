@@ -830,3 +830,30 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 - [[gamedev-production-and-community-signals]] - 36 sources - last-confirmed 2026-06-28
 - [[technical-art-community-and-talent-signals]] - 36 sources - last-confirmed 2026-06-28
 - [[web-3d-runtime-tradeoffs]] - 2 sources - last-confirmed 2026-06-28
+
+## 2026-07-03 topic additions
+
+### Agent harnesses, MCP governance, and autonomous AI
+- [[ai-agent-harnesses]] - 132 sources - last-confirmed 2026-07-03
+- [[mcp-tool-governance-and-app-surfaces]] - 84 sources - last-confirmed 2026-07-03
+- [[ai-assisted-software-practice]] - 68 sources - last-confirmed 2026-07-03
+- [[multi-agent-architectures]] - 24 sources - last-confirmed 2026-07-03
+
+### Agent security, CI/CD, and GitHub operations
+- [[ai-coding-agent-security]] - 115 sources - last-confirmed 2026-07-03
+- [[github-actions-platform-operations]] - 36 sources - last-confirmed 2026-07-03
+
+### AI platforms, models, and infrastructure
+- [[claude-platform-2026]] - 40 sources - last-confirmed 2026-07-03
+- [[openai-frontier-models-and-codex-2026]] - 18 sources - last-confirmed 2026-06-29
+- [[edge-ai-and-ai-infrastructure-2026]] - 53 sources - last-confirmed 2026-07-03
+
+### Azure, .NET, and graphics runtime
+- [[microsoft-dotnet-ai-stack]] - 57 sources - last-confirmed 2026-07-03
+- [[dotnet-runtime-and-mobile-2026]] - 8 sources - last-confirmed 2026-07-03
+
+### Game development, technical art, and distributed interaction systems
+- [[technical-art-community-and-talent-signals]] - 40 sources - last-confirmed 2026-07-03
+- [[unity-3d-and-realtime-vfx-patterns]] - 48 sources - last-confirmed 2026-06-29
+- [[gamedev-production-and-community-signals]] - 38 sources - last-confirmed 2026-06-29
+- [[distributed-systems-patterns]] - 2 sources - last-confirmed 2026-06-29

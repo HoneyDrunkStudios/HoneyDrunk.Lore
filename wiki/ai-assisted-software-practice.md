@@ -733,3 +733,34 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Architecture Notes is secondary newsletter evidence. It is useful practice signal but requires primary-source follow-up for formal policy claims.
+
+## 2026-06-29 and 2026-07-03 compile additions: persistent instructions, contribution policy, and interaction models
+
+### Source-backed claims
+- System Design Newsletter's Claude-folder source argues persistent agent instructions should store architecture rules, workflow context, and hard boundaries that the model cannot reliably infer from code alone, while avoiding long essays and duplicated docs. Source: `raw/2026-06-29-rss-system-design-newsletter-you-won-t-use-claude-the-same-way-after-under.md`; page: [[ai-agent-harnesses]]. confidence: 1 newsletter/practitioner source, last-confirmed 2026-06-29.
+- The Godot Foundation announced a stricter AI-contribution policy direction: no autonomous AI agent use or vibe coding, no substantial AI-generated code, disclosure for limited AI assistance, no AI-generated human-to-human communication, and human review/approval before merge. Source: `raw/2026-07-03-web-godot-changes-to-our-contribution-policies-godot-engine.md`. confidence: 1 official project-governance source, last-confirmed 2026-07-03.
+- Godot also plans to restrict new contributors with three or fewer merged PRs from adding new features or significant refactors without explicit maintainer permission, framing this as a reviewer-capacity and maintainer-pipeline control. Source: `raw/2026-07-03-web-godot-changes-to-our-contribution-policies-godot-engine.md`. confidence: 1 source, last-confirmed 2026-07-03.
+- ByteByteGo's Thinking Machines interaction-model explainer argues that turn-based language models have a collaboration ceiling because model perception freezes while generating, and real-time human-AI collaboration may need interaction models that can continuously perceive, respond, and adapt. Source: `raw/2026-07-03-web-bytebytego-inside-thinking-machines-interaction-models.md`. confidence: 1 explanatory secondary source, last-confirmed 2026-07-03.
+
+### Typed entities
+- directory: `.claude`
+- project: Godot Engine
+- organization: Godot Foundation
+- policy: AI contribution policy
+- lab: Thinking Machines
+- concept: interaction model
+- concept: continuous human-AI collaboration
+
+### Explicit relationships
+- Persistent instruction files complement repo documentation when they encode behavior-changing rules, but they should stay short enough to remain reliable.
+- Godot's AI policy treats reviewer attention and contributor accountability as scarce resources that AI-generated PR volume can consume.
+- New-contributor feature limits complement AI restrictions by protecting maintainer review capacity and mentorship paths.
+- Interaction models complement autonomous-agent framing by keeping the human in a continuous collaboration loop rather than a handoff-only workflow.
+
+### HoneyDrunk implications
+- Keep HoneyDrunk `AGENTS.md` files concise and behavior-relevant; remove instruction prose that would not change agent behavior.
+- For public or community repos, decide whether AI-assisted contributions need disclosure, human-authorship guarantees, or maintainer permission by blast radius and reviewer capacity.
+- For internal tools, distinguish autonomous delegation from collaborative interaction; not every user workflow benefits from a "go away and finish it" agent.
+
+### Quality notes
+- Godot is an official governance source. System Design and ByteByteGo are explanatory/practitioner sources and should not be treated as primary specs.

@@ -47,3 +47,33 @@ Gossip protocol is a useful distributed-systems pattern when large clusters need
 - Quality posture: useful as a stable architecture primer. The source is an explainer, not a primary paper or implementation manual.
 - Weak spots: exact performance examples are secondary and should be validated in any HoneyDrunk implementation.
 - Privacy filter: no private data or unsafe implementation payloads copied.
+
+## 2026-06-29 compile additions: near-real-time fan reaction aggregation
+
+### Source-backed claims
+- High Scalability's Hotstar emoji architecture source describes a social-feed feature that ingested billions of fan emoji reactions, buffered low-latency HTTP submissions into Kafka-backed infrastructure, computed aggregates with Spark micro-batches, and delivered normalized top emoji streams to clients through PubSub. Source: `raw/2026-06-29-rss-high-scalability-capturing-a-billion-emo-j-i-ons.md`. confidence: 1 architecture case-study source, last-confirmed 2026-06-29.
+- The source says Hotstar chose asynchronous write-to-buffer behavior for the emoji path because rare data loss was acceptable relative to latency, while noting synchronous writes are preferable when data is transactional or cannot tolerate loss. Source: `raw/2026-06-29-rss-high-scalability-capturing-a-billion-emo-j-i-ons.md`. confidence: 1 source, last-confirmed 2026-06-29.
+- Hotstar reports the infrastructure later generalized from emoji swarms to voting, polls, and trivia contests because the shared problem was processing quantifiable user responses in near real time. Source: `raw/2026-06-29-rss-high-scalability-capturing-a-billion-emo-j-i-ons.md`. confidence: 1 source, last-confirmed 2026-06-29.
+
+### Typed entities
+- company/product: Hotstar
+- system: Social Feed Emojis
+- system: PubSub
+- platform: Kafka
+- platform: Spark Streaming
+- language/runtime: Go
+- concept: micro-batching
+- concept: asynchronous ingestion
+- feature: voting
+
+### Explicit relationships
+- Low-latency social reaction systems can trade rare data loss for responsiveness when the data is aggregate sentiment rather than transactional state.
+- Kafka-backed ingestion complements Spark micro-batching when aggregate windows are small but not necessarily per-event synchronous.
+- Voting, polls, trivia, and emoji reactions share a reusable pattern: collect quantifiable user responses, aggregate them over short windows, and broadcast summarized state.
+
+### HoneyDrunk implications
+- For audience/live-event features, decide up front whether each event is telemetry, sentiment, vote, purchase, or authority-bearing state; the allowed loss and consistency model differ.
+- Do not copy the asynchronous loss-tolerant pattern into billing, auth, inventory, or moderation decisions.
+
+### Quality notes
+- Architecture case study is useful pattern evidence but older than the clip date; implementation details should be revalidated against current platform choices.

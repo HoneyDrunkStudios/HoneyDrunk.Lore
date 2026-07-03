@@ -1192,3 +1192,38 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 ### Privacy and quality notes
 - No prompt-injection payloads, command strings, secrets, or reusable bypass details were copied.
 - Simon Willison is a strong practitioner source but summarizes another challenge; Docker is vendor-authored; OWASP capture is low-detail.
+
+## 2026-06-29 and 2026-07-03 compile additions: CI/CD parasites, MCP poisoning, and open-weight cyber evals
+
+### Source-backed claims
+- Novee's Cordyceps source reports a class of GitHub Actions CI/CD supply-chain vulnerabilities across command injection, broken auth logic, artifact poisoning, and privilege escalation; it claims a scan of roughly 30,000 high-impact repositories flagged 654 repositories and confirmed more than 300 exploitable chains. Source: `raw/2026-06-29-rss-tldr-infosec-cordyceps-the-silent-parasite-consuming-your-supply-chain.md`. confidence: 1 vendor security-research source, last-confirmed 2026-06-29.
+- Microsoft Incident Response describes MCP tool-description poisoning as a supply-chain path where changed natural-language tool metadata can cause an agent to retrieve and exfiltrate data beyond the user's visible request. Source: `raw/2026-07-03-web-microsoft-security-securing-ai-agents-when-ai-tools-move-from-reading-to-actin.md`. confidence: 1 Microsoft security source, last-confirmed 2026-07-03.
+- Microsoft recommends treating tool descriptions like system prompts, maintaining approved MCP publisher/server inventories, inspecting metadata changes, applying DLP to tool-call payloads, using human approval for high-impact actions, assigning non-human agent identities, and correlating agent/tool telemetry in Sentinel or equivalent systems. Source: `raw/2026-07-03-web-microsoft-security-securing-ai-agents-when-ai-tools-move-from-reading-to-actin.md`. confidence: 1 source, last-confirmed 2026-07-03.
+- Semgrep reports that GLM-5.2 scored 39% F1 on its IDOR benchmark with a simple Pydantic AI harness, ahead of Claude Code at 32%, while Semgrep's purpose-built multimodal harness scored 53-61% F1. The result is one task and one dataset, not a general model ranking. Source: `raw/2026-07-03-web-semgrep-we-have-mythos-at-home-glm-5-2-beats-claude-in-our-cyber-benchmarks.md`. confidence: 1 vendor benchmark source, last-confirmed 2026-07-03.
+
+### Typed entities
+- attack class: Cordyceps
+- platform: GitHub Actions
+- vulnerability class: artifact poisoning
+- vulnerability class: workflow privilege escalation
+- attack class: MCP tool poisoning
+- control: MCP publisher allowlist
+- control: DLP on tool-call payloads
+- identity: Microsoft Entra Agent ID
+- model: GLM-5.2
+- benchmark: Semgrep IDOR benchmark
+
+### Explicit relationships
+- CI/CD workflow vulnerabilities can be amplified by agentic coding when vulnerable workflow patterns are reproduced quickly across repositories.
+- MCP tool poisoning is caused by treating mutable tool metadata as trusted instructions without a reapproval and inspection path.
+- DLP and human approval complement least privilege because a narrowly permissioned agent can still misuse allowed data if it has too much agency.
+- Security benchmark results depend-on harness structure; endpoint discovery and guided context can outperform raw model prompting.
+
+### HoneyDrunk implications
+- Audit privileged GitHub Actions patterns for issue comments, `pull_request_target`, artifact handoff, approval forgery, and workflow-run cascades before expanding agent-authored workflow changes.
+- For MCP profiles, record tool descriptions and require review when they change, especially for tools with outbound network or sensitive-data access.
+- Treat security-agent results as pipeline outputs requiring reachability, reproduction, patch, and regression evidence; do not rank models from one vendor benchmark.
+
+### Privacy and quality notes
+- Exploit mechanics were summarized at control level. No payloads, target repository names, or reproducible attack steps were copied.
+- Novee and Semgrep are vendors with a security product interest; Microsoft is a primary security guidance source.

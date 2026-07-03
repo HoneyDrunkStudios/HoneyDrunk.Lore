@@ -355,3 +355,37 @@ Anthropic's 2026 platform direction is enterprise/workflow-heavy: Claude Opus 4.
 
 ### Quality notes
 - Anthropic product sources are authoritative for feature positioning, but tenant availability, billing, retention, and exact identity-provider support should be verified before automation changes.
+
+## 2026-06-29 and 2026-07-03 compile additions: Sonnet 5, Claude Science, and talent movement
+
+### Source-backed claims
+- TechCrunch reports that Jonas Adler and Alexander Pritzel left Google for Anthropic and frames this as part of a broader movement of high-profile AI researchers from Google/DeepMind toward Anthropic and OpenAI; this is secondary reporting and should not be used as org-chart truth without primary confirmation. Source: `raw/2026-06-29-rss-tldr-ai-gemini-researchers-join-anthropic-1-minute-read.md`. confidence: 1 secondary news source, last-confirmed 2026-06-29.
+- Anthropic launched Claude Sonnet 5 on 2026-06-30 across Claude plans, Claude Code, and the Claude Platform, positioning it as a more agentic Sonnet-class model close to Opus 4.8 on some tasks at lower price. Source: `raw/2026-07-03-web-anthropic-introducing-claude-sonnet-5.md`. confidence: 1 Anthropic product source, last-confirmed 2026-07-03.
+- Sonnet 5 launches with introductory API pricing of USD 2 per million input tokens and USD 10 per million output tokens through 2026-08-31, then standard pricing of USD 3 input and USD 15 output per million tokens; Anthropic notes tokenizer changes can alter token counts. Source: `raw/2026-07-03-web-anthropic-introducing-claude-sonnet-5.md`. confidence: 1 source, last-confirmed 2026-07-03.
+- Anthropic says Sonnet 5 has lower undesirable-behavior rates than Sonnet 4.6 and lower dangerous cyber capability than Opus/Mythos models, but it still ships with cyber safeguards enabled by default. Source: `raw/2026-07-03-web-anthropic-introducing-claude-sonnet-5.md`. confidence: 1 source, last-confirmed 2026-07-03.
+- Claude Science is a beta app for scientists that combines a coordinating agent, more than 60 curated scientific skills/connectors, specialist agents, reviewer agents, auditable artifacts, local/SSH/HPC execution, Modal compute, and reproducible code/environment traces for scientific figures and analyses. Source: `raw/2026-07-03-web-anthropic-claude-science-an-ai-workbench-for-scientists.md`. confidence: 1 Anthropic product source, last-confirmed 2026-07-03.
+
+### Typed entities
+- model: Claude Sonnet 5
+- model: Claude Opus 4.8
+- product: Claude Science
+- concept: Cyber Verification Program
+- concept: scientific reviewer agent
+- platform: Modal
+- tool/domain: BioNeMo Agent Toolkit
+- person: Jonas Adler
+- person: Alexander Pritzel
+
+### Explicit relationships
+- Sonnet 5 supersedes Sonnet 4.6 as Anthropic's default Sonnet-class model, but does not supersede Opus/Mythos for all high-capability tasks.
+- Sonnet 5 cost planning depends-on both listed token prices and tokenizer-driven token-count changes.
+- Claude Science uses skills, connectors, compute access, and reviewer agents to turn Claude into a domain workbench rather than a generic chat surface.
+- Researcher movement is market/talent signal; it does not directly prove model capability or roadmap success.
+
+### HoneyDrunk implications
+- Rebenchmark Claude routing assumptions when Sonnet 5 is available in the active account; cost neutrality is not guaranteed if tokenization changes workload token counts.
+- Treat Claude Science as a shape reference for Lore/Knowledge workbenches: auditable artifacts, code-backed outputs, reviewer agents, and local/HPC data boundaries are the important patterns.
+- For biomedical/science workflows, require data-residency, connector, compute approval, citation, and reproducibility checks before using Claude Science on sensitive datasets.
+
+### Quality notes
+- Anthropic is authoritative for its own product claims but benchmark and safety claims still need local task validation. TechCrunch is secondary talent reporting.

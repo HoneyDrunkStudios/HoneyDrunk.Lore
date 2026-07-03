@@ -168,3 +168,31 @@
 
 ### Quality notes
 - Microsoft servicing posts are authoritative for release existence, but project-specific urgency depends on package/runtime inventory and exposure.
+
+## 2026-07-03 compile additions: SkiaSharp 4.0 stable
+
+### Source-backed claims
+- SkiaSharp 4.148.0 is the first stable SkiaSharp v4 release, updating the native Skia engine through milestone m148 and adding variable font axes, color font palettes, animated WebP encoding, cleaner retired legacy APIs, and native object lifecycle fixes. Source: `raw/2026-07-03-web-dotnet-skiasharp-4-0-is-here-announcing-the-first-stable-release-net-blog.md`. confidence: 1 .NET Blog source, last-confirmed 2026-07-03.
+- Microsoft reports initial hardware-accelerated OpenGL testing with up to 24% faster rendering for shadow-heavy UI scenes and about 6x faster CPU procedural Perlin-noise shaders, while warning absolute frame rates vary by GPU and driver. Source: `raw/2026-07-03-web-dotnet-skiasharp-4-0-is-here-announcing-the-first-stable-release-net-blog.md`. confidence: 1 vendor benchmark source, last-confirmed 2026-07-03.
+- SkiaSharp now has a more predictable milestone cadence through stable and preview channels, with Uno Platform co-maintenance and Graphite backend work in preview. Source: `raw/2026-07-03-web-dotnet-skiasharp-4-0-is-here-announcing-the-first-stable-release-net-blog.md`. confidence: 1 source, last-confirmed 2026-07-03.
+
+### Typed entities
+- library: SkiaSharp
+- version: 4.148.0
+- engine: Skia m148
+- library: HarfBuzzSharp
+- feature: animated WebP encoding
+- backend: Graphite
+- partner: Uno Platform
+
+### Explicit relationships
+- SkiaSharp 4 supersedes v3 for teams that need the newer Skia engine, cleaned APIs, lifecycle fixes, and predictable milestone cadence.
+- Graphics performance claims depend-on workload, GPU backend, driver, and UI composition.
+- Uno Platform co-maintenance complements Microsoft ownership by adding active downstream renderer pressure.
+
+### HoneyDrunk implications
+- For .NET graphics, MAUI, Blazor, or creative-tool experiments, evaluate SkiaSharp 4 in a branch with visual regression and performance checks before upgrading shared code.
+- Treat Graphite as preview-scouting until package maturity and target-platform behavior are verified.
+
+### Quality notes
+- Microsoft/.NET Blog source is authoritative for release existence. Performance and compatibility need local validation.

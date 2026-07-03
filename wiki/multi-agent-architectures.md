@@ -208,3 +208,27 @@ Multi-agent systems are warranted only when a single agent hits hard limits: con
 
 ### Quality notes
 - Newsletter source is explanatory and partly subscriber-gated. Use as protocol-scouting vocabulary until primary A2A specs and SDK docs are captured.
+
+## 2026-07-03 compile additions: interaction models beyond handoff agents
+
+### Source-backed claims
+- ByteByteGo's Thinking Machines source describes an "interaction model" direction focused on continuous collaboration, where human feedback, interruption, uncertainty, voice, and visual context can shape the model while work is underway rather than after a single turn completes. Source: `raw/2026-07-03-web-bytebytego-inside-thinking-machines-interaction-models.md`. confidence: 1 explanatory secondary source based on public Thinking Machines material, last-confirmed 2026-07-03.
+- The source contrasts collaboration-oriented interaction with the dominant autonomous-agent framing, arguing that many real work sessions benefit from human clarification and redirection during execution. Source: `raw/2026-07-03-web-bytebytego-inside-thinking-machines-interaction-models.md`. confidence: 1 source, last-confirmed 2026-07-03.
+
+### Typed entities
+- lab: Thinking Machines
+- concept: interaction model
+- concept: real-time collaboration
+- modality: voice
+- modality: visual context
+
+### Explicit relationships
+- Interaction models complement multi-agent and autonomous-agent designs by improving the human-agent interface, not by adding more delegated agents.
+- Continuous collaboration contradicts batch-style task delegation when the task depends-on frequent human judgment, taste, or direction changes.
+
+### HoneyDrunk implications
+- For creative, product, and ambiguous design work, prefer interfaces that let the human steer while work is forming instead of only reviewing an agent's final artifact.
+- For background automation, keep interaction overhead low and require auditable checkpoints instead of constant interruptions.
+
+### Quality notes
+- Secondary explanatory source. Capture primary Thinking Machines research before making architecture commitments.

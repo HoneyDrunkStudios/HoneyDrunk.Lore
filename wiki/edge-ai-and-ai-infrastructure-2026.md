@@ -706,3 +706,35 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - Hugging Face source is official product guidance. Hardware prices, model flags, and availability are time-sensitive and should be checked at run time.
+
+## 2026-06-29 and 2026-07-03 compile additions: custom inference silicon and container compute
+
+### Source-backed claims
+- OpenAI's Jalapeno announcement frames custom inference silicon as part of a full-stack compute platform spanning chip architecture, kernels, memory systems, networking, scheduling, deployment systems, and product experience. Source: `raw/2026-06-29-rss-tldr-ai-jalape-o-openai-s-new-chip-7-minute-read.md`; page: [[openai-frontier-models-and-codex-2026]]. confidence: 1 OpenAI source, last-confirmed 2026-06-29.
+- Nathan Lambert's GLM-5.2 analysis argues that GLM-5.2 crossed a practical open-weight coding-agent threshold in harnesses like Claude Code, creating open-model pricing pressure and policy questions around increasingly capable open weights. Source: `raw/2026-06-29-rss-tldr-ai-glm-5-2-is-the-step-change-for-open-agents-11-minute-read.md`. confidence: 1 practitioner/model-watching source, last-confirmed 2026-06-29.
+- Vercel's Dockerfile-on-Vercel source says `Dockerfile.vercel` services can build, store, deploy, and autoscale HTTP containers on Fluid compute with preview deployments, logs/traces/metrics, optimized boot images, stateless process assumptions, and pay-for-active-CPU billing. Source: `raw/2026-07-03-web-vercel-run-any-dockerfile-on-vercel.md`. confidence: 1 Vercel product source, last-confirmed 2026-07-03.
+- Vercel says containers must listen on `$PORT`, defaulting to 80, and should keep persistent state in backing services; durable storage attached to containers is future work in the captured source. Source: `raw/2026-07-03-web-vercel-run-any-dockerfile-on-vercel.md`. confidence: 1 source, last-confirmed 2026-07-03.
+
+### Typed entities
+- chip/platform: Jalapeno
+- model: GLM-5.2
+- concept: open-weight coding agent
+- platform: Vercel Fluid compute
+- file: `Dockerfile.vercel`
+- concept: optimized boot image
+- variable: `$PORT`
+- concept: active CPU pricing
+
+### Explicit relationships
+- Custom AI silicon complements frontier-model serving by reducing inference cost, latency, and reliability bottlenecks.
+- Open-weight model adoption depends-on harness fit, hosting cost, security posture, and regulatory/policy comfort, not benchmark deltas alone.
+- Container-on-serverless platforms complement framework detection when a service needs system libraries or exact runtime packaging.
+- Stateless container scaling depends-on externalized durable state and startup behavior.
+
+### HoneyDrunk implications
+- For agent/service prototypes, Vercel containers are a candidate only when stateless HTTP behavior, cost, and platform constraints fit the workload.
+- Keep GLM-5.2 in benchmark queues for long-horizon coding, Lore, and security tasks, but compare it against current closed models with the same harness and scoring.
+- Keep AI hardware announcements separate from procurement decisions until performance, pricing, availability, and provider lock-in are concrete.
+
+### Quality notes
+- Vendor product sources. Verify current platform limits, pricing, cold-start behavior, and private-network support before implementation.

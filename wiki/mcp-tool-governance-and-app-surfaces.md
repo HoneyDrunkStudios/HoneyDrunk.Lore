@@ -860,3 +860,37 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - Microsoft and Docker are vendor-authored; System Design Newsletter is explanatory and partly teaser/paywalled. Verify active specs and SDK versions before implementation.
+
+## 2026-06-29 and 2026-07-03 compile additions: MCP Apps, Azure Functions hosting, and metadata trust
+
+### Source-backed claims
+- Vercel AI SDK 7 supports MCP Apps, letting MCP servers separate model-visible tools from app-only tools, preserve app metadata, and render app UIs in sandboxed iframes through a JSON-RPC bridge. Source: `raw/2026-06-29-rss-tldr-ai-vercel-launches-ai-sdk-7-with-enhanced-stream-and-tool-orchest.md`. confidence: 1 Vercel product source, last-confirmed 2026-06-29.
+- AI SDK 7's typed tool context lets tools receive non-model-generated inputs such as API keys or settings through a scoped context schema, reducing exposure to other tools in the same agent loop. Source: `raw/2026-06-29-rss-tldr-ai-vercel-launches-ai-sdk-7-with-enhanced-stream-and-tool-orchest.md`. confidence: 1 source, last-confirmed 2026-06-29.
+- Azure Functions can host MCP Apps and MCP servers with tools, resources, secure HTTPS access, Functions keys, built-in MCP auth with OAuth support, Bicep/`azd` deployment, local development, autoscaling, retries, and monitoring. Source: `raw/2026-07-03-web-azure-sdk-mcp-apps-on-azure-functions-quickstart-with-typescript.md`. confidence: 1 Azure SDK Blog source, last-confirmed 2026-07-03.
+- Azure's Foundry Agent integration source describes connecting Azure Functions-hosted MCP servers to Foundry agents with key-based auth, Microsoft Entra agent or project identities, OAuth identity passthrough, or unauthenticated development access. Source: `raw/2026-07-03-web-azure-sdk-give-your-foundry-agent-custom-tools-with-mcp-servers-on-azure-funct.md`. confidence: 1 Azure SDK Blog source, last-confirmed 2026-07-03.
+- Microsoft Security says MCP tool descriptions are part of the agent instruction boundary; production agents should review tool metadata changes with the same rigor as system-prompt changes. Source: `raw/2026-07-03-web-microsoft-security-securing-ai-agents-when-ai-tools-move-from-reading-to-actin.md`. confidence: 1 Microsoft security source, last-confirmed 2026-07-03.
+
+### Typed entities
+- SDK: Vercel AI SDK 7
+- concept: MCP App
+- control: sandboxed iframe
+- protocol: JSON-RPC bridge
+- platform: Azure Functions
+- platform: Microsoft Foundry Agent
+- auth: Microsoft Entra
+- auth: OAuth identity passthrough
+- concept: MCP tool-description metadata
+
+### Explicit relationships
+- MCP Apps complement text-only MCP tools by giving users a review/configuration UI while keeping model-visible tools scoped.
+- Typed tool context reduces cross-tool secret exposure, but it still depends-on runtime secret custody and audit behavior.
+- Azure Functions hosts MCP tools/resources/prompts as serverless endpoints; Foundry agents consume them through configured auth.
+- Tool metadata changes can supersede original trust assumptions unless description diffs trigger reauthorization or review.
+
+### HoneyDrunk implications
+- Remote MCP profiles should document endpoint, auth mode, tool list, resource/UI behavior, allowed app-only tools, output schemas, and metadata-change review.
+- Use OAuth identity passthrough or agent identity for user-context actions; avoid shared project identity for production user-sensitive workflows unless scoped and audited.
+- For MCP Apps, treat the iframe resource and its app-only tool handlers as part of the reviewed attack surface, not just UI decoration.
+
+### Quality notes
+- Microsoft and Vercel sources are vendor-authored. Validate current SDK/package names, auth preview status, and host support before implementation.

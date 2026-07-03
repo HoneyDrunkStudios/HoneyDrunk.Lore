@@ -495,3 +495,32 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ### Quality notes
 - GitHub changelog sources are authoritative for feature existence. Verify exact YAML behavior in a disposable workflow before broad migration.
+
+## 2026-06-29 and 2026-07-03 compile additions: RHEL runners and read-only cache for untrusted triggers
+
+### Source-backed claims
+- GitHub-hosted larger runners now support Red Hat Enterprise Linux 9 and 10 images in public preview for Linux x64 partner images, intended as bases for custom images with required tools and dependencies. Source: `raw/2026-06-29-rss-github-changelog-actions-red-hat-enterprise-linux-runner-images-are-no.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-29.
+- GitHub now issues read-only Actions cache tokens to default-branch cache scopes for untrusted triggers that can be initiated without repository write permission, reducing cache-poisoning paths from `pull_request_target`, `issue_comment`, and fork-PR `workflow_run` cascades. Source: `raw/2026-07-03-web-github-changelog-read-only-actions-cache-for-untrusted-triggers-github-changel.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-07-03.
+- The read-only cache change preserves restores but blocks saves for affected runs; workflows that need cache writes should use trusted events such as `push`, `schedule`, or `workflow_dispatch` to seed caches. Source: `raw/2026-07-03-web-github-changelog-read-only-actions-cache-for-untrusted-triggers-github-changel.md`. confidence: 1 source, last-confirmed 2026-07-03.
+
+### Typed entities
+- runner image: Red Hat Enterprise Linux 9
+- runner image: Red Hat Enterprise Linux 10
+- control: read-only Actions cache token
+- event: `pull_request_target`
+- event: `issue_comment`
+- event: `workflow_run`
+- action: `actions/cache`
+
+### Explicit relationships
+- RHEL hosted images complement custom runner-image strategy when enterprise Linux parity matters.
+- Read-only cache tokens supersede prior broad cache write access for untrusted default-branch contexts.
+- Trusted cache-seeding workflows complement untrusted read-only restore workflows when performance still matters.
+
+### HoneyDrunk implications
+- Do not rely on cache saves from untrusted default-branch contexts; seed caches from trusted workflows if cache performance is needed.
+- Audit any workflow expecting `actions/cache` saves under `pull_request_target`, comment-triggered, or fork `workflow_run` paths.
+- RHEL runners are scouting material unless HoneyDrunk needs Red Hat parity for build, support, or customer environment reasons.
+
+### Quality notes
+- GitHub changelog sources are authoritative for feature existence. Test affected workflow warnings before assuming cache behavior.

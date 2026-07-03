@@ -506,3 +506,31 @@ The game-development community feed produced a mix of process advice, tooling ex
 
 ### Quality notes
 - 80 Level is trade/interview evidence. Useful as production-signal scouting, not proof of market performance or engine fit for HoneyDrunk.
+
+## 2026-06-29 compile additions: Skybound franchise game strategy
+
+### Source-backed claims
+- Game Developer's Skybound podcast capture says Skybound expanded into video games through in-house studio Quarter Up and the release of `Invincible VS.`, treating every franchise entry point as a quality bar rather than only a licensing channel. Source: `raw/2026-06-29-rss-game-developer-inside-skybound-s-video-game-strategy-ft-david-da-alper.md`. confidence: 1 trade/podcast source, last-confirmed 2026-06-29.
+- The same source frames franchise expansion as risky even for known IP because competitive games need production quality, market fit, and international strategy; Brazil is called out as a territory consideration in the captured summary. Source: `raw/2026-06-29-rss-game-developer-inside-skybound-s-video-game-strategy-ft-david-da-alper.md`. confidence: 1 source with noisy extraction, last-confirmed 2026-06-29.
+
+### Typed entities
+- company: Skybound Entertainment
+- studio: Quarter Up
+- game/IP: Invincible
+- game: Invincible VS.
+- person: David Alpert
+- person: Jon Goldman
+- concept: transmedia franchise expansion
+- market: Brazil
+
+### Explicit relationships
+- In-house game studios can complement IP licensing when franchise quality control and long-term capability matter.
+- Known IP does not supersede production execution; adaptation success depends-on gameplay quality and audience fit.
+- International expansion depends-on territory-specific market knowledge, not only global brand recognition.
+
+### HoneyDrunk implications
+- For future HoneyDrunk IP or mascot experiments, treat game adaptation as product strategy, not just content reuse.
+- Require prototype quality and market-fit evidence before assuming an existing audience will carry a game.
+
+### Quality notes
+- Trade/podcast capture includes heavy site boilerplate. Claims are kept to the article summary and high-level strategy, not fine-grained business details.

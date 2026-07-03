@@ -238,3 +238,33 @@ OpenAI's June 11 raw sources add two durable signals for HoneyDrunk: GPT-5.5 is 
 
 ### Quality notes
 - Official OpenAI sources. Product/API behavior and research conclusions should be checked against current docs/papers before implementation or model-routing changes.
+
+## 2026-06-29 compile additions: Jalapeno inference chip and constrained frontier release reporting
+
+### Source-backed claims
+- OpenAI announced Jalapeno, an OpenAI/Broadcom LLM inference accelerator and the first chip in a multi-generation OpenAI compute platform with Broadcom and Celestica; the source says engineering samples are running ML workloads in the lab at target frequency and power. Source: `raw/2026-06-29-rss-tldr-ai-jalape-o-openai-s-new-chip-7-minute-read.md`. confidence: 1 OpenAI product/company source, last-confirmed 2026-06-29.
+- OpenAI positions Jalapeno as a full-stack inference design for ChatGPT, Codex, API, and future agentic products, emphasizing reduced data movement, balanced compute/memory/networking, and better performance per watt than current state of the art, with detailed performance data deferred. Source: `raw/2026-06-29-rss-tldr-ai-jalape-o-openai-s-new-chip-7-minute-read.md`. confidence: 1 source, last-confirmed 2026-06-29.
+- TechCrunch/The Information reporting says OpenAI's GPT 5.6 release may be limited customer-by-customer during preview under US government pressure, with broader release only if the limited phase goes well; this is secondary reporting and requires primary confirmation before operational routing decisions. Source: `raw/2026-06-29-rss-tldr-ai-white-house-asks-openai-to-slow-roll-new-model-release-3-minut.md`. confidence: 1 secondary news source, last-confirmed 2026-06-29.
+
+### Typed entities
+- chip/platform: Jalapeno
+- company: OpenAI
+- company: Broadcom
+- company: Celestica
+- workload: Codex inference
+- model/reporting target: GPT 5.6
+- actor: US government
+- agency: Office of the National Cyber Director
+- agency: Office of Science and Technology Policy
+
+### Explicit relationships
+- OpenAI's model roadmap now depends-on proprietary infrastructure as well as model training and product surfaces.
+- Jalapeno complements model-serving strategy by optimizing the inference substrate for interactive LLM products.
+- Frontier-model release availability can depend-on government review and customer gating, not only provider readiness.
+
+### HoneyDrunk implications
+- Treat OpenAI frontier access as volatile for planning; keep fallback model/provider paths when a new model is customer-gated or delayed.
+- For cost forecasts, track hardware/platform announcements as leading indicators, but wait for published performance and pricing before assuming API savings.
+
+### Quality notes
+- OpenAI's chip source is primary but lacks final performance data. The GPT 5.6 release-limit story is secondary reporting and should be verified before use.

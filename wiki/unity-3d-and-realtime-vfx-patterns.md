@@ -771,3 +771,31 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - Vendor case study. Useful for UA vocabulary and measurement questions, not enough to predict local campaign performance.
+
+## 2026-06-29 compile additions: D7 and D28 IAP ROAS together
+
+### Source-backed claims
+- Unity's D7/D28 source argues that D7 and D28 IAP ROAS campaigns are complementary rather than mutually exclusive: D7 captures fast early revenue signals while D28 captures longer monetization curves. Source: `raw/2026-06-29-rss-unity-blog-d7-or-d28-iap-roas-campaigns-the-answer-is-both.md`. confidence: 1 Unity vendor source, last-confirmed 2026-06-29.
+- Unity reports internal analysis that only 38% of D28 in-app-purchase converters spend in the first week, so D7-only optimization can miss many high-value late spenders. Source: `raw/2026-06-29-rss-unity-blog-d7-or-d28-iap-roas-campaigns-the-answer-is-both.md`. confidence: 1 vendor internal-data claim, last-confirmed 2026-06-29.
+- Unity Vector is positioned as using attributed and unattributed cross-game/cohort behavior to optimize both early and later ROAS windows without the campaigns bidding against each other. Source: `raw/2026-06-29-rss-unity-blog-d7-or-d28-iap-roas-campaigns-the-answer-is-both.md`. confidence: 1 vendor source, last-confirmed 2026-06-29.
+
+### Typed entities
+- product: Unity Ads
+- product: Unity Vector
+- optimizer: D7 IAP ROAS
+- optimizer: D28 IAP ROAS
+- metric: LTV
+- metric: ROAS
+- concept: late monetization cohort
+
+### Explicit relationships
+- D7 and D28 campaign windows complement each other when early converters and late high-value spenders are distinct cohorts.
+- D28 optimization depends-on enough retention and long-window attribution data to learn effectively.
+- Vendor UA optimizers depend-on product economics and measurement quality; they do not supersede local cohort analysis.
+
+### HoneyDrunk implications
+- If HoneyDrunk evaluates mobile UA, collect D1/D7/D28 retention, spend, payback, and creative-level metrics before choosing optimizer windows.
+- Treat Unity's 38% figure as a vendor benchmark, not a forecast for HoneyDrunk titles.
+
+### Quality notes
+- Vendor marketing and internal-data source. Useful for measurement vocabulary and campaign design questions, not for budget commitments.

@@ -576,3 +576,36 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - 80 Level is trade/interview evidence and the project is educational. Useful as technical-art reference, not production pipeline proof.
+
+## 2026-06-29 and 2026-07-03 compile additions: Godot sculpting, open-source character tools, VFX sketches, and Photoshop automation
+
+### Source-backed claims
+- The Polycount Clayform thread describes an experimental GPU-based 3D sculpting tool built in Godot, with core sculpting brushes, masking, brush context panel, symmetry, transforms, undo/redo, mesh import/export, subtools, a `.clay` file format, and tileable texture wrap sculpting. Source: `raw/2026-06-29-rss-polycount-clayform-sculpting-app.md`. confidence: 1 forum/practitioner source, last-confirmed 2026-06-29.
+- RealtimeVFX `Smitaa: Sketch #68` is a low-detail WIP concept for an Unreal Engine 5 Niagara and post-process material effect where a casting character fragments into colored voxel chunks and a particle ghost silhouette. Source: `raw/2026-06-29-rss-realtimevfx-smitaa-sketch-68.md`. confidence: 1 low-detail community WIP source, last-confirmed 2026-06-29.
+- PoseStudio is presented as a free/open-source entry-level 3D character and scene design tool using Vulkan, with the team seeking feedback on posing, rigging, animation, import/export, UI simplicity, documentation, and contribution clarity. Source: `raw/2026-07-03-web-realtimevfx-i-m-working-on-a-new-free-open-source-3d-character-and-scene-desig.md`. confidence: 1 community project source, last-confirmed 2026-07-03.
+- Adobe's Photoshop API Python article shows the REST workflow of exchanging credentials for an access token, using cloud storage URLs, starting a Photoshop API job such as Remove Background, and polling job status until success or failure. Source: `raw/2026-07-03-web-adobe-developer-integrating-the-photoshop-api-with-python.md`. confidence: 1 Adobe Developer Blog source, last-confirmed 2026-07-03.
+
+### Typed entities
+- tool/project: Clayform
+- engine: Godot
+- format: `.clay`
+- technique: tileable texture wrap sculpting
+- engine: Unreal Engine 5
+- system: Niagara
+- tool/project: PoseStudio
+- graphics API: Vulkan
+- API: Adobe Photoshop API
+- language: Python
+
+### Explicit relationships
+- Godot can be used as an application platform for DCC-style tools, not only games, when viewport, materials, post-processing, and UI are useful.
+- Community WIP threads complement technical-art scouting but do not supersede finished tools, licenses, or benchmarks.
+- Photoshop API automation depends-on cloud storage handoff and asynchronous job polling rather than local Photoshop scripting.
+
+### HoneyDrunk implications
+- Clayform and PoseStudio are watchlist tools only until repository, license, build, format compatibility, and export behavior are verified.
+- For automated image pipelines, Photoshop API may fit batch cloud transformations but requires credential custody, storage URL policy, cost, and polling/error handling.
+- Keep stylized fragmentation/particle silhouettes as VFX reference language for future Unreal/Niagara experiments.
+
+### Quality notes
+- Forum/community WIP sources are weak evidence. Adobe is primary API guidance but uses a 2023 article captured in 2026, so current API behavior should be rechecked before implementation.

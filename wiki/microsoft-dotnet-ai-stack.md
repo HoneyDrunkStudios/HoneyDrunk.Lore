@@ -575,3 +575,34 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 
 ### Quality notes
 - Microsoft release notes are authoritative for release direction but time-sensitive. Verify package versions and preview status before implementation.
+
+## 2026-07-03 compile additions: Azure Functions MCP and CI binlog agents
+
+### Source-backed claims
+- Azure Functions MCP Apps with TypeScript use a tool/resource split: server functions expose tool logic such as `getWeather`, while resources return interactive HTML/JavaScript widgets rendered by MCP-compatible clients. Source: `raw/2026-07-03-web-azure-sdk-mcp-apps-on-azure-functions-quickstart-with-typescript.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 Azure SDK Blog source, last-confirmed 2026-07-03.
+- Azure Functions-hosted MCP servers can connect to Foundry Agents using key-based auth, Microsoft Entra identity, OAuth passthrough, or unauthenticated development access; production guidance favors identity-aware approaches over shared keys where user context matters. Source: `raw/2026-07-03-web-azure-sdk-give-your-foundry-agent-custom-tools-with-mcp-servers-on-azure-funct.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 Azure SDK Blog source, last-confirmed 2026-07-03.
+- The .NET Blog CI binlog source describes `microsoft/testfx` using GitHub Agentic Workflows and a containerized Binlog MCP Server to analyze failed PR builds and post a plain-language root cause back to the PR. Source: `raw/2026-07-03-web-dotnet-mcp-beyond-the-chat-window-build-diagnostics-in-ci-net-blog.md`. confidence: 1 .NET Blog source, last-confirmed 2026-07-03.
+- The same source says the Binlog MCP Server surface has expanded beyond the original 15 tools and is distributed through the `dotnet-msbuild` plugin and containerized server patterns for CI. Source: `raw/2026-07-03-web-dotnet-mcp-beyond-the-chat-window-build-diagnostics-in-ci-net-blog.md`. confidence: 1 source, last-confirmed 2026-07-03.
+
+### Typed entities
+- platform: Azure Functions
+- product: Microsoft Foundry Agent
+- tool/server: Microsoft Binlog MCP Server
+- repository: `microsoft/testfx`
+- workflow type: GitHub Agentic Workflow
+- plugin: `dotnet-msbuild`
+- artifact: MSBuild binary log / `.binlog`
+
+### Explicit relationships
+- Azure Functions MCP resources complement tools by shipping app UI alongside callable server logic.
+- Foundry Agent custom tools depend-on MCP endpoint auth and downstream API authorization.
+- CI binlog agents complement build logs by querying structured MSBuild state instead of inferring from text output.
+- Advisory CI agents should post evidence and root cause without mutating code unless a separate approval path exists.
+
+### HoneyDrunk implications
+- For .NET repos, consider emitting binlogs on failing CI paths so agent diagnostics have structured evidence.
+- Treat public GitHub Agentic Workflow examples as reference patterns, not turnkey HoneyDrunk workflow policy.
+- Remote MCP hosting on Azure should include auth mode, OBO scope, tool/resource list, schema, telemetry, and owner metadata.
+
+### Quality notes
+- Microsoft sources are authoritative for examples and package direction, but GitHub Agentic Workflows and MCP hosting behavior should be verified in the active environment.

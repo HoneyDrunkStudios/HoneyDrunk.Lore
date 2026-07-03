@@ -985,3 +985,37 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - Knowledge Agents is practitioner/self-reported. Fugu is captured through ThreadReader/X and should be followed with the primary Sakana blog/paper before promoting benchmark claims. Jcode and codebase-memory-mcp are project README sources.
+
+## 2026-06-29 and 2026-07-03 compile additions: gated pushes, SDK runtimes, and enterprise autonomy
+
+### Source-backed claims
+- The `no-mistakes` project places a local Git proxy in front of the real remote; pushes to the gate run an isolated worktree pipeline for review, tests, docs, lint, push, PR, CI, and safe auto-fixes before forwarding to the configured target. Source: `raw/2026-06-29-rss-tldr-devops-no-mistakes-github-repo.md`. confidence: 1 project README source, last-confirmed 2026-06-29.
+- The System Design Newsletter Claude-folder source maps Claude Code project/user instructions, permissions, reusable commands, and session context into a persistent `.claude` control surface, but the capture is partly promotional and should be treated as practitioner guidance. Source: `raw/2026-06-29-rss-system-design-newsletter-you-won-t-use-claude-the-same-way-after-under.md`. confidence: 1 newsletter/practitioner source, last-confirmed 2026-06-29.
+- Vercel AI SDK 7 adds agent runtime primitives including reasoning controls, typed tool context, runtime context, provider file and skill uploads, MCP Apps, terminal UI, tool approvals, durable `WorkflowAgent`, sandboxing, timeouts, telemetry, real-time voice, and video support. Source: `raw/2026-06-29-rss-tldr-ai-vercel-launches-ai-sdk-7-with-enhanced-stream-and-tool-orchest.md`. confidence: 1 Vercel product source, last-confirmed 2026-06-29.
+- Thoughtworks frames autonomous AI readiness as an architecture and operating-model problem: enforcement, identity, permissions, observability, cost controls, data provenance, and human escalation must live in the runtime instead of being bolted on after successful pilots. Source: `raw/2026-07-03-web-thoughtworks-autonomous-ai-is-here-but-are-enterprises-ready.md`. confidence: 1 Thoughtworks practice source, last-confirmed 2026-07-03.
+
+### Typed entities
+- tool: `no-mistakes`
+- concept: local git proxy
+- artifact: disposable worktree
+- directory: `.claude`
+- SDK: Vercel AI SDK 7
+- class/concept: `WorkflowAgent`
+- control: tool approval
+- control: typed tool context
+- concept: autonomous AI runtime
+
+### Explicit relationships
+- Gated-push tools complement commit/PR policy by moving review, test, and CI checks before the real push target.
+- Persistent agent instruction folders complement repo documentation when they encode durable behavior, but they do not supersede repo-local policy such as `AGENTS.md`.
+- AI SDK 7 turns model calls into a fuller agent harness by adding approval, durability, context, files, skills, MCP Apps, and telemetry around the model.
+- Enterprise autonomous AI depends-on runtime enforcement and operating-model ownership; prompts alone do not provide governance.
+
+### HoneyDrunk implications
+- `no-mistakes` is a useful pattern to watch, but HoneyDrunk already has explicit pre-publish rules; do not insert another push gate without checking branch, PR, and Grid review interactions.
+- Keep durable agent rules in repo-visible files when they affect shared work; user-level agent folders are useful but should not be the only source of truth.
+- For agent SDK adoption, require explicit approval semantics, timeout policy, telemetry, tool context isolation, and sandbox behavior before letting agents perform mutating actions.
+- Treat autonomous-agent pilots as incomplete unless they include owner, identity, permission, audit, cost, and rollback design.
+
+### Quality notes
+- Project README, vendor, newsletter, and practice sources were treated as scouting evidence. No credentials, local personal settings, or executable install commands were copied into recommendations.
