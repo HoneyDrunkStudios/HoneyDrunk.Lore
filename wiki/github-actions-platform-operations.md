@@ -524,3 +524,28 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ### Quality notes
 - GitHub changelog sources are authoritative for feature existence. Test affected workflow warnings before assuming cache behavior.
+
+## 2026-07-04 compile additions: Copilot CLI with `GITHUB_TOKEN`
+
+### Source-backed claims
+- GitHub Copilot CLI can now authenticate inside GitHub Actions using the workflow `GITHUB_TOKEN` instead of a personal access token, provided the workflow grants `copilot-requests: write`. Source: `raw/2026-07-04-web-copilot-cli-no-longer-needs-a-personal-access-token-in-github-actions-github-c.md`; page: [[github-copilot-and-app-token-changes]]. confidence: 1 GitHub changelog source, last-confirmed 2026-07-04.
+- In organization-owned repositories, Copilot CLI usage through this path is billed directly to the organization when the relevant Copilot policy is enabled; user-level budgets do not apply to organization-billed workflow sessions. Source: `raw/2026-07-04-web-copilot-cli-no-longer-needs-a-personal-access-token-in-github-actions-github-c.md`. confidence: 1 source, last-confirmed 2026-07-04.
+
+### Typed entities
+- product: GitHub Copilot CLI
+- token: `GITHUB_TOKEN`
+- permission: `copilot-requests: write`
+- control: organization Copilot policy
+- control: cost center
+- control: session limit
+
+### Explicit relationships
+- Built-in workflow authentication supersedes PAT secret storage for Copilot CLI automation in supported Actions jobs.
+- Copilot CLI Actions usage depends-on both workflow permissions and Copilot org billing policy.
+
+### HoneyDrunk implications
+- Remove PAT-based Copilot CLI Actions patterns where this supported `GITHUB_TOKEN` path works.
+- Before adding Copilot CLI to scheduled or matrix workflows, set a session limit and record org/cost-center ownership.
+
+### Quality notes
+- GitHub source is authoritative for the changelog item. Verify CLI version, policy availability, and permission syntax in a disposable workflow before broad rollout.

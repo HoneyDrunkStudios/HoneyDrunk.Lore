@@ -799,3 +799,37 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - Vendor marketing and internal-data source. Useful for measurement vocabulary and campaign design questions, not for budget commitments.
+
+## 2026-07-04 compile additions: Unity XR hands-first tooling and Android XR glasses
+
+### Source-backed claims
+- Unity XR Hand Capture records live joint data from XRHandSubsystem on device and imports it into the Editor as reusable `XRHandShape` assets for static gesture components or custom detection logic. Source: `raw/2026-07-04-web-hand-tracking-in-unity-xr-hand-capture-simulation.md`. confidence: 1 Unity source, last-confirmed 2026-07-04.
+- Hands Simulation in XR Interaction Simulator adds editor-side hand-tracking development, including built-in and custom gestures, reducing headset-dependent iteration for hands-first interactions. Source: `raw/2026-07-04-web-hand-tracking-in-unity-xr-hand-capture-simulation.md`. confidence: 1 source, last-confirmed 2026-07-04.
+- Unity announced support for XREAL AURA wired XR glasses in the Android XR ecosystem, marking Unity's first XR glasses support and requiring design attention to hands-first input, puck trackpad input, optical see-through display, smaller field of view, and no eye tracking. Source: `raw/2026-07-04-web-unity-adds-xr-glasses-support-for-android.md`. confidence: 1 Unity source, last-confirmed 2026-07-04.
+- Unity's Android XR updates include Spatial Entities, single APK deployment across Galaxy XR and XREAL AURA, SpaceWarp UI improvements for uGUI/TextMeshPro, dimming control, puck trackpad input, and XR Hand Capture. Source: `raw/2026-07-04-web-unity-adds-xr-glasses-support-for-android.md`. confidence: 1 source, last-confirmed 2026-07-04.
+
+### Typed entities
+- package: Unity XR Hands
+- package: XR Interaction Toolkit / XRI
+- feature: XR Hand Capture
+- feature: Hands Simulation
+- class/data: `XRHandSubsystem`
+- asset: `XRHandShape`
+- device: XREAL AURA
+- platform: Android XR
+- feature: Spatial Entities
+- feature: Application SpaceWarp
+- input: puck trackpad
+
+### Explicit relationships
+- XR Hand Capture uses real device joint data to supersede purely manual finger-shape approximation for custom gestures.
+- Hands Simulation complements on-device headset testing by moving earlier hand-interaction iteration into the Unity Editor.
+- XREAL AURA support depends-on Android XR/OpenXR/Vulkan workflows but has device-specific UI, input, field-of-view, and tracking constraints.
+- Single APK deployment complements multi-device Android XR support by reducing build-management overhead when feature detection is handled gracefully.
+
+### HoneyDrunk implications
+- For hands-first XR prototypes, capture gestures from real users/devices early and keep tolerance tuning as a design loop, not just engineering cleanup.
+- Test Unity Android XR content separately on glasses and headset form factors; interaction, UI placement, FOV, dimming, and no-eye-tracking assumptions can change the design.
+
+### Quality notes
+- Unity sources are vendor-authored and useful for platform/tooling scouting. Device availability, package versions, performance, and interaction quality need local target-device validation.

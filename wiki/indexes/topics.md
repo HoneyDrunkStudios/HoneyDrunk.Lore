@@ -857,3 +857,24 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 - [[unity-3d-and-realtime-vfx-patterns]] - 48 sources - last-confirmed 2026-06-29
 - [[gamedev-production-and-community-signals]] - 38 sources - last-confirmed 2026-06-29
 - [[distributed-systems-patterns]] - 2 sources - last-confirmed 2026-06-29
+
+## 2026-07-04 topic additions
+
+### Agent harnesses, workflows, and MCP gateways
+- [[ai-agent-harnesses]] - 137 sources - last-confirmed 2026-07-04
+- [[google-agent-platform-and-gemini-api-2026]] - 25 sources - last-confirmed 2026-07-04
+- [[mcp-tool-governance-and-app-surfaces]] - 85 sources - last-confirmed 2026-07-04
+- [[ai-assisted-software-practice]] - 71 sources - last-confirmed 2026-07-04
+
+### Agent security, cyber safeguards, and cryptography
+- [[ai-coding-agent-security]] - 119 sources - last-confirmed 2026-07-04
+- [[claude-platform-2026]] - 41 sources - last-confirmed 2026-07-04
+- [[post-quantum-security-and-cryptography]] - 2 sources - last-confirmed 2026-07-04
+
+### GitHub automation and .NET platform operations
+- [[github-copilot-and-app-token-changes]] - 31 sources - last-confirmed 2026-07-04
+- [[github-actions-platform-operations]] - 37 sources - last-confirmed 2026-07-04
+- [[dotnet-runtime-and-mobile-2026]] - 10 sources - last-confirmed 2026-07-04
+
+### Unity XR and realtime interaction
+- [[unity-3d-and-realtime-vfx-patterns]] - 50 sources - last-confirmed 2026-07-04

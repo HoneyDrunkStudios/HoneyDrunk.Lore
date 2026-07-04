@@ -764,3 +764,33 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Godot is an official governance source. System Design and ByteByteGo are explanatory/practitioner sources and should not be treated as primary specs.
+
+## 2026-07-04 compile additions: executable workflow discipline and threat-model intuition
+
+### Source-backed claims
+- Martin Fowler's Future of Software Development page is an index of Thoughtworks open-space workshop outputs rather than a new cohesive position paper; it is useful as a curated pointer surface, not a standalone claim source. Source: `raw/2026-07-04-web-bliki-future-of-software-development.md`. confidence: 1 source index page, last-confirmed 2026-07-04.
+- The SGLang source reinforces that agent-assisted engineering works best when the team encodes procedural knowledge into skills, benchmark contracts, review loops, and artifact formats, leaving humans to judge goals, evidence, and production readiness. Source: `raw/2026-07-04-web-agent-assisted-sglang-development-an-initial-exploration.md`; page: [[ai-agent-harnesses]]. confidence: 1 source, last-confirmed 2026-07-04.
+- Soatok's threat-model guide provides a practical minimum question set: assets, adversaries/failures, attack paths, mitigations, asset relationships, assumptions, and deliberately unaddressed threats. Source: `raw/2026-07-04-web-soatok-s-informal-guide-to-threat-models-dhole-moments.md`; page: [[ai-coding-agent-security]]. confidence: 1 practitioner source, last-confirmed 2026-07-04.
+- The same threat-model source argues that threat models should be living documents and that assumptions plus accepted risks are as important as the threat list itself. Source: `raw/2026-07-04-web-soatok-s-informal-guide-to-threat-models-dhole-moments.md`. confidence: 1 source, last-confirmed 2026-07-04.
+
+### Typed entities
+- person: Martin Fowler
+- organization: Thoughtworks
+- project/framework: SGLang
+- concept: threat model
+- concept: assumptions
+- concept: accepted risk
+- concept: asset relationship graph
+- concept: executable engineering skill
+
+### Explicit relationships
+- AI-assisted engineering depends-on explicit workflow contracts when tasks are expensive, long-running, or performance-sensitive.
+- Threat modeling complements AI-assisted practice by making assumptions, assets, and accepted risks reviewable before agents or humans implement controls.
+- Fowler's Future of Software Development page depends-on linked workshop posts for substantive claims; it does not supersede the existing Fowler/Thoughtworks claims in this page.
+
+### HoneyDrunk implications
+- For high-blast-radius agent work, require a small threat-model section in plans or PRs: asset, actor/failure, path, control, assumptions, and accepted risk.
+- Keep agent workflow docs executable where possible. A skill that names commands, evidence, and hard stops is more valuable than a broad essay.
+
+### Quality notes
+- Soatok is practitioner guidance with strong security intuition but informal tone. The wiki retained only decision-useful structure and avoided copying inflammatory or non-decision-relevant passages.

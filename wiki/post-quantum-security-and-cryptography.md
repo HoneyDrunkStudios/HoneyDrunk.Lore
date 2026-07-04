@@ -36,3 +36,33 @@ Track post-quantum cryptography adoption signals that affect HoneyDrunk infrastr
 
 ### Quality notes
 - Practitioner source. Decision-useful as a readiness checklist, but operational dates, browser/CDN percentages, and software behavior should be refreshed from primary docs before implementation.
+
+## 2026-07-04 compile additions: threat-model framing for pure and hybrid PQ
+
+### Source-backed claims
+- Soatok's threat-model guide argues that hybrid post-quantum plus classical key exchange is mainly a hedge against post-quantum algorithm breaks before a cryptography-relevant quantum computer exists; once Q-Day occurs, classical ECDH no longer contributes meaningful long-term confidentiality against harvest-now/decrypt-later attacks. Source: `raw/2026-07-04-web-soatok-s-informal-guide-to-threat-models-dhole-moments.md`. confidence: 1 practitioner cryptography source, last-confirmed 2026-07-04.
+- The same source says objecting to non-hybrid ML-KEM RFC publication does not by itself improve security for users already configured to prefer hybrid KEMs, while it can block organizations that need stable IETF/FIPS/CNSA-aligned references for compliance. Source: `raw/2026-07-04-web-soatok-s-informal-guide-to-threat-models-dhole-moments.md`. confidence: 1 source, last-confirmed 2026-07-04.
+- The source frames PQ+PQ hybrids, optionally with ECDH, as the more intellectually consistent diversity hedge for teams worried about future algorithm breaks in one PQ family. Source: `raw/2026-07-04-web-soatok-s-informal-guide-to-threat-models-dhole-moments.md`. confidence: 1 practitioner source, last-confirmed 2026-07-04.
+
+### Typed entities
+- algorithm: ML-KEM
+- algorithm: HQC
+- primitive: ECDH
+- concept: Q-Day
+- concept: hybrid PQ+ECDH
+- concept: PQ+PQ hybrid
+- standard context: IETF RFC
+- standard context: CNSA 2.0
+- standard context: FIPS 140-3
+
+### Explicit relationships
+- Hybrid PQ+ECDH mitigates migration and pre-Q-Day algorithm-break risk but does not supersede pure PQ once classical key exchange is quantum-broken.
+- PQ+PQ hybrids complement ECDH hybrids when algorithm diversity after Q-Day is the threat model.
+- Compliance publication needs can affect security adoption even when the technical security delta is small for already-hybrid deployments.
+
+### HoneyDrunk implications
+- When tracking PQ readiness, separate three threat models: migration compatibility, pre-Q-Day PQ algorithm failure, and harvest-now/decrypt-later after Q-Day.
+- Do not treat "hybrid" as a single security property; record which primitives are combined and what failure each component is intended to hedge.
+
+### Quality notes
+- Practitioner source with strong opinions. Use as threat-model vocabulary, not as the sole basis for cryptographic standard selection.

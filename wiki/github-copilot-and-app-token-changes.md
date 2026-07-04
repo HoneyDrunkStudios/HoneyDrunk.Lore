@@ -334,3 +334,36 @@ Two GitHub platform changes affect automation cost and compatibility: GitHub App
 
 ### Quality notes
 - GitHub features are public-preview or setup-dependent. Microsoft modernization agent claims are vendor-authored; run on a branch and review generated artifacts before execution.
+
+## 2026-07-04 compile additions: browser tools GA and Actions-token Copilot CLI
+
+### Source-backed claims
+- Browser tools for GitHub Copilot in VS Code are generally available and on by default, allowing agents to open/navigate pages, click, type, hover, drag, handle dialogs, read page content, capture console errors, take screenshots, and run scripted browser flows. Source: `raw/2026-07-04-web-browser-tools-for-github-copilot-in-vs-code-are-generally-available-github-cha.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-07-04.
+- GitHub says user-opened tabs are private until shared with the agent, agent-opened tabs use fresh isolated sessions, parallel agents keep browser tabs private from one another, and sensitive permissions such as camera, microphone, location, notifications, and clipboard reads require explicit approval. Source: `raw/2026-07-04-web-browser-tools-for-github-copilot-in-vs-code-are-generally-available-github-cha.md`. confidence: 1 source, last-confirmed 2026-07-04.
+- Copilot CLI can now run in GitHub Actions using the built-in `GITHUB_TOKEN` with `copilot-requests: write`, eliminating the need for a personal access token for this workflow path. Source: `raw/2026-07-04-web-copilot-cli-no-longer-needs-a-personal-access-token-in-github-actions-github-c.md`; page: [[github-actions-platform-operations]]. confidence: 1 GitHub changelog source, last-confirmed 2026-07-04.
+- Organization-billed Copilot CLI in Actions requires the org Copilot policy allowing Copilot CLI billed to the organization; user-level budgets are not considered for this billing mode, so cost centers, org dashboards, and session limits become the relevant controls. Source: `raw/2026-07-04-web-copilot-cli-no-longer-needs-a-personal-access-token-in-github-actions-github-c.md`. confidence: 1 source, last-confirmed 2026-07-04.
+
+### Typed entities
+- product: GitHub Copilot in VS Code
+- feature: browser tools for agents
+- setting: `workbench.browser.enableChatTools`
+- setting: `chat.agent.allowedNetworkDomains`
+- setting: `chat.agent.deniedNetworkDomains`
+- setting: `chat.agent.networkFilter`
+- product: GitHub Copilot CLI
+- token: `GITHUB_TOKEN`
+- workflow permission: `copilot-requests: write`
+- control: Copilot CLI session limit
+
+### Explicit relationships
+- Browser tools complement coding agents by allowing real web-app inspection and interaction inside VS Code.
+- Browser-agent permissions depend-on tab sharing, isolated sessions, sensitive-permission prompts, workspace trust, and network-domain policy.
+- `GITHUB_TOKEN` supersedes long-lived PATs for supported Copilot CLI-in-Actions workflows.
+- Organization-billed CLI use depends-on org policy and cost governance rather than per-user budgets.
+
+### HoneyDrunk implications
+- Treat browser tools as a QA/runtime action surface: define allowed domains and sensitive-permission policy before using them on private dashboards or production systems.
+- Prefer `GITHUB_TOKEN` over PATs for Copilot CLI Actions jobs, but review the new `copilot-requests: write` permission, billing owner, and session limits before enabling.
+
+### Quality notes
+- GitHub changelog sources are authoritative for feature posture as captured. Verify current VS Code/GitHub plan settings and policy names before rollout.

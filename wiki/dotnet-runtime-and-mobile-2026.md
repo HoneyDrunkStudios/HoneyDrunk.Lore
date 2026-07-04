@@ -196,3 +196,38 @@
 
 ### Quality notes
 - Microsoft/.NET Blog source is authoritative for release existence. Performance and compatibility need local validation.
+
+## 2026-07-04 compile additions: .NET 8/9 support deadline and WinApp CLI package identity
+
+### Source-backed claims
+- .NET 8 and .NET 9 both reach end of support on 2026-11-10; after that date Microsoft will stop servicing updates, security fixes, and technical support for those versions. Source: `raw/2026-07-04-web-net-8-and-net-9-will-reach-end-of-support-on-november-10-2026-net-blog.md`. confidence: 1 .NET Blog source, last-confirmed 2026-07-04.
+- .NET 10 is an LTS release supported through November 2028 and is the recommended upgrade target from .NET 8 or .NET 9 in the captured source. Source: `raw/2026-07-04-web-net-8-and-net-9-will-reach-end-of-support-on-november-10-2026-net-blog.md`. confidence: 1 source, last-confirmed 2026-07-04.
+- WinApp CLI lets .NET desktop applications test package identity through `dotnet run` after `winapp init`, and package applications as signed MSIX with `winapp pack`. Source: `raw/2026-07-04-web-packaging-and-package-identity-for-net-apps-with-winapp-cli-on-windows-net-blo.md`. confidence: 1 .NET Blog source, last-confirmed 2026-07-04.
+- WinApp CLI initialization can add Windows App SDK and WinApp build tooling package references, generate `Package.appxmanifest` and assets, and allow apps to access Windows features gated behind package identity such as notifications, background tasks, file handlers, share target, and Windows AI APIs. Source: `raw/2026-07-04-web-packaging-and-package-identity-for-net-apps-with-winapp-cli-on-windows-net-blo.md`. confidence: 1 source, last-confirmed 2026-07-04.
+
+### Typed entities
+- runtime: .NET 8
+- runtime: .NET 9
+- runtime: .NET 10
+- date: 2026-11-10 .NET 8/9 end of support
+- tool: WinApp CLI
+- command: `winapp init`
+- command: `winapp pack`
+- package: `Microsoft.WindowsAppSDK`
+- package: `Microsoft.Windows.SDK.BuildTools.WinApp`
+- artifact: MSIX
+- file: `Package.appxmanifest`
+- concept: package identity
+
+### Explicit relationships
+- .NET 10 supersedes .NET 8/9 as the supported LTS target after the 2026-11-10 support deadline.
+- Unsupported .NET versions continue to run but no longer receive security servicing, which affects runtime inventory and patch policy.
+- WinApp CLI complements ordinary .NET desktop tooling by registering package identity for local run/debug and generating MSIX distribution artifacts.
+- Package identity enables Windows APIs that are unavailable to unpackaged desktop apps.
+
+### HoneyDrunk implications
+- Inventory HoneyDrunk .NET 8 and .NET 9 targets before 2026-11-10 and plan upgrades to .NET 10 or later.
+- If HoneyDrunk desktop tools need Windows notifications, background tasks, file handlers, or Windows AI APIs, test WinApp CLI on a branch and review generated manifests/assets before adopting.
+
+### Quality notes
+- Microsoft/.NET Blog sources are authoritative for support timing and tooling direction. The Visual Studio installer behavior comment in the raw source was not promoted because it appears as user discussion rather than official guidance.

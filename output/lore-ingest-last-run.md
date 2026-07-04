@@ -1,41 +1,27 @@
 # Lore Ingest - Last Run
 
-Timestamp: 2026-07-03T10:11:25.3093397-04:00
+Timestamp: 2026-07-04T10:10:25.5169554-04:00
 Mode: ingest/compile
 
 ## Raw sources ingested
 
-Count: 29
+Count: 15
 
-- `raw/2026-06-29-rss-game-developer-inside-skybound-s-video-game-strategy-ft-david-da-alper.md`
-- `raw/2026-06-29-rss-github-changelog-actions-red-hat-enterprise-linux-runner-images-are-no.md`
-- `raw/2026-06-29-rss-high-scalability-capturing-a-billion-emo-j-i-ons.md`
-- `raw/2026-06-29-rss-polycount-clayform-sculpting-app.md`
-- `raw/2026-06-29-rss-realtimevfx-smitaa-sketch-68.md`
-- `raw/2026-06-29-rss-system-design-newsletter-you-won-t-use-claude-the-same-way-after-under.md`
-- `raw/2026-06-29-rss-tldr-ai-gemini-researchers-join-anthropic-1-minute-read.md`
-- `raw/2026-06-29-rss-tldr-ai-glm-5-2-is-the-step-change-for-open-agents-11-minute-read.md`
-- `raw/2026-06-29-rss-tldr-ai-jalape-o-openai-s-new-chip-7-minute-read.md`
-- `raw/2026-06-29-rss-tldr-ai-vercel-launches-ai-sdk-7-with-enhanced-stream-and-tool-orchest.md`
-- `raw/2026-06-29-rss-tldr-ai-white-house-asks-openai-to-slow-roll-new-model-release-3-minut.md`
-- `raw/2026-06-29-rss-tldr-devops-no-mistakes-github-repo.md`
-- `raw/2026-06-29-rss-tldr-infosec-cordyceps-the-silent-parasite-consuming-your-supply-chain.md`
-- `raw/2026-06-29-rss-unity-blog-d7-or-d28-iap-roas-campaigns-the-answer-is-both.md`
-- `raw/2026-07-03-web-adobe-developer-integrating-the-photoshop-api-with-python.md`
-- `raw/2026-07-03-web-anthropic-claude-science-an-ai-workbench-for-scientists.md`
-- `raw/2026-07-03-web-anthropic-introducing-claude-sonnet-5.md`
-- `raw/2026-07-03-web-azure-sdk-give-your-foundry-agent-custom-tools-with-mcp-servers-on-azure-funct.md`
-- `raw/2026-07-03-web-azure-sdk-mcp-apps-on-azure-functions-quickstart-with-typescript.md`
-- `raw/2026-07-03-web-bytebytego-inside-thinking-machines-interaction-models.md`
-- `raw/2026-07-03-web-dotnet-mcp-beyond-the-chat-window-build-diagnostics-in-ci-net-blog.md`
-- `raw/2026-07-03-web-dotnet-skiasharp-4-0-is-here-announcing-the-first-stable-release-net-blog.md`
-- `raw/2026-07-03-web-github-changelog-read-only-actions-cache-for-untrusted-triggers-github-changel.md`
-- `raw/2026-07-03-web-godot-changes-to-our-contribution-policies-godot-engine.md`
-- `raw/2026-07-03-web-microsoft-security-securing-ai-agents-when-ai-tools-move-from-reading-to-actin.md`
-- `raw/2026-07-03-web-realtimevfx-i-m-working-on-a-new-free-open-source-3d-character-and-scene-desig.md`
-- `raw/2026-07-03-web-semgrep-we-have-mythos-at-home-glm-5-2-beats-claude-in-our-cyber-benchmarks.md`
-- `raw/2026-07-03-web-thoughtworks-autonomous-ai-is-here-but-are-enterprises-ready.md`
-- `raw/2026-07-03-web-vercel-run-any-dockerfile-on-vercel.md`
+- `raw/2026-07-04-web-agent-assisted-sglang-development-an-initial-exploration.md`
+- `raw/2026-07-04-web-bliki-future-of-software-development.md`
+- `raw/2026-07-04-web-browser-tools-for-github-copilot-in-vs-code-are-generally-available-github-cha.md`
+- `raw/2026-07-04-web-build-agentic-full-stack-apps-with-genkit.md`
+- `raw/2026-07-04-web-contextforge.md`
+- `raw/2026-07-04-web-copilot-cli-no-longer-needs-a-personal-access-token-in-github-actions-github-c.md`
+- `raw/2026-07-04-web-hand-tracking-in-unity-xr-hand-capture-simulation.md`
+- `raw/2026-07-04-web-more-details-on-fable-5-s-cyber-safeguards-and-our-jailbreak-framework.md`
+- `raw/2026-07-04-web-net-8-and-net-9-will-reach-end-of-support-on-november-10-2026-net-blog.md`
+- `raw/2026-07-04-web-packaging-and-package-identity-for-net-apps-with-winapp-cli-on-windows-net-blo.md`
+- `raw/2026-07-04-web-phantom-squatting-ai-hallucinated-domains-as-a-software-supply-chain-vector.md`
+- `raw/2026-07-04-web-soatok-s-informal-guide-to-threat-models-dhole-moments.md`
+- `raw/2026-07-04-web-unity-adds-xr-glasses-support-for-android.md`
+- `raw/2026-07-04-web-vulnerability-and-malware-checks-in-uv.md`
+- `raw/2026-07-04-web-why-we-built-adk-2-0.md`
 
 ## Wiki pages created/updated
 
@@ -49,54 +35,51 @@ Updated:
 - `wiki/ai-assisted-software-practice.md`
 - `wiki/ai-coding-agent-security.md`
 - `wiki/claude-platform-2026.md`
-- `wiki/distributed-systems-patterns.md`
 - `wiki/dotnet-runtime-and-mobile-2026.md`
-- `wiki/edge-ai-and-ai-infrastructure-2026.md`
-- `wiki/gamedev-production-and-community-signals.md`
 - `wiki/github-actions-platform-operations.md`
+- `wiki/github-copilot-and-app-token-changes.md`
+- `wiki/google-agent-platform-and-gemini-api-2026.md`
+- `wiki/indexes/audit.md`
 - `wiki/indexes/gaps.md`
 - `wiki/indexes/sources.md`
 - `wiki/indexes/topics.md`
 - `wiki/mcp-tool-governance-and-app-surfaces.md`
-- `wiki/microsoft-dotnet-ai-stack.md`
-- `wiki/multi-agent-architectures.md`
-- `wiki/openai-frontier-models-and-codex-2026.md`
-- `wiki/technical-art-community-and-talent-signals.md`
+- `wiki/post-quantum-security-and-cryptography.md`
 - `wiki/unity-3d-and-realtime-vfx-patterns.md`
 
 ## Contradictions resolved
 
-- None. New sources extended existing topic pages and added new scouting/gap material. No captured source contradicted a prior durable claim strongly enough to supersede it.
+- Fable 5 availability: the 2026-07-04 Anthropic source says Fable 5 has been redeployed and is available globally, superseding the earlier 2026-06-12 suspension for current availability. The prior suspension remains preserved as model-access volatility history.
 
 ## Gaps logged
 
 Count: 8
 
-- Cordyceps-style GitHub Actions workflow hijack review for HoneyDrunk workflows.
-- MCP tool-description and app-resource metadata-change review process.
-- GLM-5.2 benchmark plan for Lore, code review, and security tasks.
-- Collaborative interaction-model fit versus autonomous handoff agents.
-- Azure Functions/Foundry MCP hosting suitability and auth/schema requirements.
-- Binlog-backed .NET CI diagnostics and advisory-agent PR-comment policy.
-- Primary review of Clayform, PoseStudio, Photoshop API automation, and SkiaSharp 4.
-- Public-repo AI contribution policy for reviewer capacity and human authorship.
+- LLM-suggested domain and URL trust in HoneyDrunk agent/developer workflows.
+- `uv audit` and `UV_MALWARE_CHECK=1` pilot criteria for Python projects.
+- Lightweight threat-model template requirements for agent execution and PR review.
+- ContextForge or equivalent MCP/A2A gateway evaluation gates.
+- GitHub Copilot browser-tool allowed/denied domain and sensitive-permission policy.
+- Copilot CLI `GITHUB_TOKEN` Actions jobs, `copilot-requests: write`, session limits, and org billing controls.
+- .NET 8/9 upgrade inventory and WinApp CLI package identity candidates.
+- Unity Android XR glasses/headset validation spike for hands-first interactions.
 
 ## Crystallization
 
-- Existing `output/query-*.md` files were checked by index/date. No new query output required promotion in this pass.
-- Signal-review outputs were left as episodic reporting artifacts under the current Compile rule.
+- Existing `output/query-*.md` files were checked. No query output required promotion in this pass.
+- Signal-review outputs remain episodic reporting artifacts; no new durable facts were crystallized from them in this compile.
 
 ## Blockers
 
-- No content-quality blocker for the 29-source compile.
-- The worktree already contained pre-existing scheduled-job changes before this pass: `.obsidian/graph.json`, `output/lore-birdclaw-sourcing-last-run.md`, `output/lore-sourcing-last-run.md`, and `output/signal-review-2026-06-28.md`. They were not reverted.
-- Raw sources from 2026-06-29 and 2026-07-03 were untracked at run start and are part of the intended ingest commit.
+- No content-quality blocker for the 15-source compile.
+- The worktree already contained pre-existing scheduled-job changes before this pass: `.obsidian/graph.json`, `output/lore-birdclaw-sourcing-last-run.md`, `output/lore-sourcing-last-run.md`, `output/signal-review-2026-06-28.md`, and `output/signal-review-2026-07-03.md`. They were not reverted.
+- The 2026-07-04 raw sources were untracked at run start and are part of the intended ingest commit.
 
 ## Quality posture
 
 - Raw files were treated as immutable and were not edited.
-- Claims were added with source links, confidence notes, typed entities, explicit relationships, and HoneyDrunk implications.
-- Security sources were summarized at control level. No exploit payloads, credentials, tokens, unsafe PII, target identifiers, or reusable bypass steps were copied into wiki pages.
-- Low-detail forum/community captures and secondary news were marked as weak, watchlist, or scouting evidence instead of promoted to strong operational truth.
-- Privacy redactions: none required beyond not copying credential examples, attack payloads, or personal/private settings.
-- Decision-usefulness is good for backlog shaping and source discovery. Model-routing changes, Azure MCP hosting, CI/CD security conclusions, AI contribution policy, and technical-art tool adoption still require local validation or primary follow-up before implementation.
+- Claims were added with source links, confidence notes, typed entities, explicit relationships, HoneyDrunk implications, and quality caveats.
+- Security sources were summarized at control/policy level. No exploit payloads, credentials, tokens, unsafe PII, unredacted phishing domains, or reusable bypass steps were copied into wiki pages.
+- The Fable 5 availability contradiction was resolved with supersession language instead of overwriting the earlier history.
+- Vendor/project sources were treated as product or scouting evidence requiring tenant/local validation before operational adoption.
+- Decision-usefulness is good for backlog shaping, threat modeling, platform upgrade planning, and source discovery. ContextForge adoption, uv enforcement, Copilot browser policy, Copilot CLI billing controls, .NET upgrades, and Unity Android XR adoption still require local validation before implementation.

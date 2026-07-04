@@ -894,3 +894,33 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - Microsoft and Vercel sources are vendor-authored. Validate current SDK/package names, auth preview status, and host support before implementation.
+
+## 2026-07-04 compile additions: ContextForge gateway/registry surface
+
+### Source-backed claims
+- IBM ContextForge is an open-source registry and proxy that federates MCP servers, A2A agents, REST APIs, and gRPC APIs behind a single governed endpoint. Source: `raw/2026-07-04-web-contextforge.md`. confidence: 1 project README source, last-confirmed 2026-07-04.
+- ContextForge supports MCP, REST, gRPC-to-MCP translation, A2A routing, REST gateway behavior, plugins, Admin UI, built-in auth, retries, rate limiting, Redis-backed federation/caching, and OpenTelemetry tracing. Source: `raw/2026-07-04-web-contextforge.md`. confidence: 1 source, last-confirmed 2026-07-04.
+- ContextForge documentation warns that sample/test MCP servers are not production-hardened and that untrusted MCP servers should run in a sandbox, container, or microVM with restricted capabilities. Source: `raw/2026-07-04-web-contextforge.md`. confidence: 1 source, last-confirmed 2026-07-04.
+
+### Typed entities
+- product/tool: IBM ContextForge
+- package: `mcp-contextforge-gateway`
+- protocol: Model Context Protocol
+- protocol: Agent2Agent / A2A
+- protocol/interface: gRPC reflection to MCP
+- control: Admin UI
+- control: OpenTelemetry tracing
+- control: rate limiting
+- control: Redis-backed federation/cache
+
+### Explicit relationships
+- ContextForge complements MCP catalogs/profiles by providing a runtime gateway and registry layer rather than only static approved-tool lists.
+- Gateway federation depends-on auth, per-tool authorization, observability, and sandboxing because it can aggregate many tool and agent surfaces into one endpoint.
+- Sample MCP servers contradict production trust unless they receive separate session, persistence, multi-tenancy, authentication, and security review.
+
+### HoneyDrunk implications
+- If HoneyDrunk needs an MCP/A2A gateway, evaluate ContextForge against Docker MCP Gateway, Azure Functions MCP, and local profiles for Windows ergonomics, auth, audit, tool metadata review, and secrets custody.
+- Do not let gateway convenience hide per-server risk. Each federated server still needs provenance, version, network, secret, and output-trust labels.
+
+### Quality notes
+- README/project source; useful for candidate discovery, not approval. Validate release maturity, license, install scripts, default security settings, and runtime behavior before adoption.

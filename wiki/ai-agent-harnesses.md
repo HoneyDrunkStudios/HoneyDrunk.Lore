@@ -1019,3 +1019,43 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - Project README, vendor, newsletter, and practice sources were treated as scouting evidence. No credentials, local personal settings, or executable install commands were copied into recommendations.
+
+## 2026-07-04 compile additions: executable skills, full-stack agents, and deterministic workflow runtimes
+
+### Source-backed claims
+- SGLang's agent-assisted development writeup frames skills as executable engineering procedures with preflight checks, benchmark/profile commands, hard failure gates, artifact contracts, reproduction commands, and review requirements rather than prompt tips. Source: `raw/2026-07-04-web-agent-assisted-sglang-development-an-initial-exploration.md`. confidence: 1 project/team source, last-confirmed 2026-07-04.
+- The SGLang source says long-running performance work needs fixed workloads, fair baseline search, profile evidence, failed-attempt tracking, accuracy checks, and artifact manifests before code changes are considered production-ready. Source: `raw/2026-07-04-web-agent-assisted-sglang-development-an-initial-exploration.md`. confidence: 1 source, last-confirmed 2026-07-04.
+- Google Genkit Agents API packages conversational app plumbing around one agent interface, including server-managed or client-managed state, snapshots, streaming state/artifacts, interruptible tools, detach/poll/abort long tasks, remote agents, and subagent delegation. Source: `raw/2026-07-04-web-build-agentic-full-stack-apps-with-genkit.md`; page: [[google-agent-platform-and-gemini-api-2026]]. confidence: 1 Google Developers source, last-confirmed 2026-07-04.
+- Google ADK 2.0 reinforces the workflow-runtime pattern: deterministic graph or dynamic workflow execution should own known business routing, while LLM nodes handle only ambiguous reasoning steps. Source: `raw/2026-07-04-web-why-we-built-adk-2-0.md`; page: [[google-agent-platform-and-gemini-api-2026]]. confidence: 1 Google Developers source, last-confirmed 2026-07-04.
+- IBM ContextForge is an open-source MCP gateway/registry/proxy that federates MCP, A2A, REST, and gRPC APIs with governance, discovery, observability, authentication, rate limiting, plugins, Admin UI, and OpenTelemetry tracing. Source: `raw/2026-07-04-web-contextforge.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 project README source, last-confirmed 2026-07-04.
+
+### Typed entities
+- project/framework: SGLang
+- artifact type: `SKILL.md`
+- workflow: SGLang SOTA Performance Loop
+- workflow: KDA-Pilot
+- framework: Google Genkit Agents API
+- framework: Google ADK 2.0
+- pattern: deterministic workflow runtime
+- platform/tool: IBM ContextForge
+- protocol: MCP
+- protocol: A2A
+- protocol/interface: gRPC-to-MCP translation
+- control: interruptible tool
+- artifact: snapshot
+- artifact: artifact manifest
+
+### Explicit relationships
+- Executable skills complement agent prompts by turning recurring engineering procedures into preflight, validation, evidence, and delivery contracts.
+- Fixed workloads and artifact ledgers prevent performance agents from changing benchmark conditions after seeing results.
+- Genkit uses session stores, snapshots, interrupts, and streaming artifacts to make full-stack conversational agents an application primitive.
+- ADK 2.0 workflows supersede autonomous model orchestration when step order, error handling, or compliance routing is known in code.
+- ContextForge complements MCP profiles by acting as a gateway/registry/proxy layer for federated tool and agent surfaces.
+
+### HoneyDrunk implications
+- For OpenClaw/Grid performance or CI loops, write the invariant parts as executable workflow/skill contracts: fixed workload, artifacts, hard stops, review evidence, and cleanup.
+- Prefer deterministic workflow code for known HoneyDrunk business processes, with LLM calls isolated to reasoning nodes and guarded by schemas.
+- Treat gateway-style MCP aggregation as an infrastructure decision: require auth model, server provenance, per-tool policy, telemetry, and secret-custody review before use.
+
+### Quality notes
+- SGLang and IBM sources are project-authored; Google sources are vendor-authored. Claims are useful architecture signals but still need local validation against HoneyDrunk runtime, cost, Windows behavior, and security requirements.

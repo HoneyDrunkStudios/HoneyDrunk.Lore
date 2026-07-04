@@ -389,3 +389,33 @@ Anthropic's 2026 platform direction is enterprise/workflow-heavy: Claude Opus 4.
 
 ### Quality notes
 - Anthropic is authoritative for its own product claims but benchmark and safety claims still need local task validation. TechCrunch is secondary talent reporting.
+
+## 2026-07-04 compile additions: Fable 5 redeployment and cyber jailbreak severity framework
+
+### Source-backed claims
+- Anthropic states Claude Fable 5 has been redeployed and is available globally for all users, superseding the earlier 2026-06-12 current-availability suspension captured in this page; continue to recheck access before routing production work. Source: `raw/2026-07-04-web-more-details-on-fable-5-s-cyber-safeguards-and-our-jailbreak-framework.md`. confidence: 1 Anthropic source, last-confirmed 2026-07-04.
+- Fable 5's cyber safety classifiers are intended to block prohibited use and high-risk dual-use cyber actions, monitor or sometimes block low-risk dual use as safety margin, and allow benign defensive/IT/security education tasks with monitoring. Source: `raw/2026-07-04-web-more-details-on-fable-5-s-cyber-safeguards-and-our-jailbreak-framework.md`; page: [[ai-coding-agent-security]]. confidence: 1 source, last-confirmed 2026-07-04.
+- Anthropic's proposed Cyber Jailbreak Severity scale grades jailbreaks by capability gain, breadth of capability gain, ease of weaponization, and discoverability, with CJS-0 through CJS-4 levels. Source: `raw/2026-07-04-web-more-details-on-fable-5-s-cyber-safeguards-and-our-jailbreak-framework.md`. confidence: 1 source, last-confirmed 2026-07-04.
+- Anthropic opened a HackerOne program for Fable 5 cyber jailbreak submissions and requested feedback on the framework through a dedicated cyber-safeguards contact path. Source: `raw/2026-07-04-web-more-details-on-fable-5-s-cyber-safeguards-and-our-jailbreak-framework.md`. confidence: 1 source, last-confirmed 2026-07-04.
+
+### Typed entities
+- model: Claude Fable 5
+- framework: Cyber Jailbreak Severity / CJS
+- program: HackerOne Fable 5 cyber jailbreak program
+- category: prohibited use
+- category: high-risk dual use
+- category: low-risk dual use
+- category: benign use
+- concept: safety margin
+
+### Explicit relationships
+- The 2026-07-04 redeployment supersedes the earlier Fable 5 availability suspension for current availability claims, while the suspension remains historically relevant volatility evidence.
+- Cyber classifiers complement access controls, model safety training, and offline monitoring; they do not supersede customer-side sandboxing or authorization.
+- CJS scoring complements ordinary vulnerability severity by focusing on model-enabled offensive uplift and jailbreak reproducibility.
+
+### HoneyDrunk implications
+- Fable 5 may be routeable again, but keep the non-ZDR/retention and volatility notes active until current tenant policy is checked.
+- Use CJS-like scoring when evaluating HoneyDrunk jailbreak or agent-abuse findings so findings include uplift, scope, reproducibility, and publicness.
+
+### Quality notes
+- Anthropic is authoritative for its current Fable 5 posture but is also the model provider. No jailbreak prompts, exploit instructions, or harmful procedural examples were copied.

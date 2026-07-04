@@ -272,3 +272,35 @@ Google's 2026 agent developer surface is converging on production plumbing: Agen
 
 ### Quality notes
 - Google sources are platform/spec announcements. Use as interoperability scouting evidence until ARD/A2A specs and SDK maturity are validated locally.
+
+## 2026-07-04 compile additions: Genkit full-stack agents and ADK 2.0 workflows
+
+### Source-backed claims
+- Genkit Agents API is a preview TypeScript/Go interface for defining server-side agents that can run locally or behind HTTP endpoints through the same `chat()` client model. Source: `raw/2026-07-04-web-build-agentic-full-stack-apps-with-genkit.md`. confidence: 1 Google Developers source, last-confirmed 2026-07-04.
+- Genkit agents support server-managed state through session stores, client-managed state for stateless deployments, snapshots, branching from a snapshot, custom state, artifacts, streamed state/artifact chunks, interruptible tools, detached long-running turns, polling, abort, and subagent delegation middleware. Source: `raw/2026-07-04-web-build-agentic-full-stack-apps-with-genkit.md`. confidence: 1 source, last-confirmed 2026-07-04.
+- ADK 2.0 adds workflow runtime capabilities that separate deterministic execution routing from language-model reasoning, allowing graph or dynamic workflow steps to call tools, agents, and human-in-the-loop controls. Source: `raw/2026-07-04-web-why-we-built-adk-2-0.md`. confidence: 1 Google Developers source, last-confirmed 2026-07-04.
+- Google positions ADK 2.0 workflows as a cost, latency, reliability, and security improvement when business process order is known, because model-driven routing can skip steps, accumulate context bloat, or follow prompt injection paths. Source: `raw/2026-07-04-web-why-we-built-adk-2-0.md`. confidence: 1 source, last-confirmed 2026-07-04.
+
+### Typed entities
+- framework: Genkit Agents API
+- API: `remoteAgent()`
+- concept: server-managed session store
+- concept: client-managed agent state
+- artifact: snapshot
+- control: interruptible tool
+- framework: ADK 2.0
+- runtime: Workflow
+- concept: dynamic workflow
+- control: human-in-the-loop
+
+### Explicit relationships
+- Genkit complements ADK by targeting full-stack app agents with frontend/client protocols, session stores, streaming, artifacts, and interrupts.
+- ADK 2.0 workflows supersede prompt-only step ordering when a process has known route, compliance, or error-handling requirements.
+- Deterministic workflow edges constrain prompt-injection blast radius by making unauthorized tool paths unavailable in the graph.
+
+### HoneyDrunk implications
+- For HoneyDrunk user-facing agent apps, Genkit is a reference shape for session state, artifacts, interrupts, and frontend transport even if the implementation remains elsewhere.
+- For operational workflows such as refunds, deployments, moderation, or scheduled reports, prefer ADK-style deterministic routing with narrow LLM nodes over a single autonomous prompt loop.
+
+### Quality notes
+- Google product sources. Genkit Agents API is preview/beta in the capture, and ADK 2.0 availability/language support should be checked before implementation.
