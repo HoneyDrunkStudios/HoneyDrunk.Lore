@@ -44,3 +44,32 @@ Anthropic's Institute essay argues AI systems are already accelerating AI develo
 ## Confidence and quality notes
 - Quality posture: strategic, lab-internal evidence from a primary AI lab; useful for risk framing and workflow design, not a general productivity benchmark.
 - Privacy filter: public article content only; internal employee quotes were not copied verbatim.
+
+## 2026-07-05 compile additions: autoresearch as outer-loop system maintenance
+
+### Source-backed claims
+- The Introspection autoresearch source describes a shift from model and harness focus toward loops where agents help maintain and improve the primary system using feedback signals, evals, human input, and "agent recipes." Source: `raw/2026-07-05-rss-tldr-ai-autoresearch-the-feedback-loop-behind-self-improving-agents-11.md`; page: [[ai-agent-harnesses]]. confidence: 1 interview/practitioner source, last-confirmed 2026-07-05.
+- The source distinguishes the inner loop that performs user work from the outer autoresearch loop that studies and improves the primary system, with cost control and signal filtering as first-order concerns. Source: `raw/2026-07-05-rss-tldr-ai-autoresearch-the-feedback-loop-behind-self-improving-agents-11.md`. confidence: 1 source, last-confirmed 2026-07-05.
+- Introspection's framing keeps humans inside early autonomy loops because the system must learn tacit preferences, workflows, and decision rules over time rather than assuming all expertise can be captured upfront. Source: `raw/2026-07-05-rss-tldr-ai-autoresearch-the-feedback-loop-behind-self-improving-agents-11.md`. confidence: 1 source, last-confirmed 2026-07-05.
+
+### Typed entities
+- company: Introspection
+- concept: autoresearch
+- concept: outer loop
+- concept: inner loop
+- artifact: agent recipe
+- framework: Pi
+- signal: human feedback
+- control: cost control
+
+### Explicit relationships
+- Autoresearch complements recursive self-improvement by applying improvement loops to deployed agent systems before fully autonomous model-building loops.
+- Agent recipes use evals, judges, failures, and human expertise as durable feedback artifacts.
+- Human feedback remains a dependency for early self-improving systems because tacit organizational knowledge is not fully present in code or Markdown context.
+
+### HoneyDrunk implications
+- Treat OpenClaw/Honeyclaw improvement as an auditable outer loop: every new rule, eval, hook, or skill should trace back to a failure, metric, or human correction.
+- Before letting agents optimize themselves, define which signals matter, which are ignored, cost ceilings, and who approves recipe changes.
+
+### Quality notes
+- Interview/practitioner evidence; useful for workflow design vocabulary, not proof that any specific autoresearch platform is reliable.

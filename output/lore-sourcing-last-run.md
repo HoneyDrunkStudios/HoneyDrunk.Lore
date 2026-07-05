@@ -1,46 +1,55 @@
 # Lore Sourcing - Last Run
 
-Timestamp: 2026-06-28T08:43:09
+Timestamp: 2026-07-05T08:04:43
 Mode: write
-Candidates scanned: 18
-Skipped duplicates: 1
-Saved: 15
+Candidates scanned: 170
+Saved count: 14
+Skipped duplicate count: 42
+Failed source count: 2
 Birdclaw blocker reported: yes
 
-## Selected candidates
-- [Game Development / Unity] 80 Level: Temtem: Developing Massively Multiplayer Creature-Collection Adventure
-- [Azure & Cloud] Azure SDK Blog: Azure Developer CLI (azd) - May and June 2026
-- [Azure & Cloud] Azure SDK Blog: Azure Functions MCP Extension: What's New at Build 2026
-- [DevOps & CI/CD] GitHub Changelog Actions: Actions steps can now be run in parallel
-- [DevOps & CI/CD] GitHub Changelog Actions: More control over your GitHub-hosted runners
-- [DevOps & CI/CD] Docker Blog: How to Generate an SBOM for Container Workflows
-- [Security & Ethical Hacking] Docker Blog: What's Next for MCP Security?
-- [Security & Ethical Hacking] Docker Blog: EU Cyber Resilience Act: Overview, Requirements, and Timelines
-- [Security & Ethical Hacking] OWASP GenAI Security Project: AI Security Solutions Landscape for Agentic AI Q2 2026
-- [AI / LLM Research & Tooling] Hugging Face Blog: Run a vLLM Server on HF Jobs in One Command
-- [AI / LLM Research & Tooling] Simon Willison: What happened after 2,000 people tried to hack my AI assistant
-- [Software Architecture] System Design Newsletter: A2A Protocol - Deep Dive
-- [Software Architecture] Thoughtworks Insights: Build an AI knowledge fabric for your organization
-- [Technical Art & Creator Tools] 80 Level: Miris Built a Car Configurator Without Pixel Streaming: Here's What They Found
-- [Technical Art & Creator Tools] 80 Level: Setting Up Vegetation for Alien Island in 3D
-
 ## Files written
-- raw/2026-06-28-rss-80-level-developing-valheim-style-creature-collection-mmo-adventure.md
-- raw/2026-06-28-rss-azure-sdk-blog-azure-developer-cli-azd.md
-- raw/2026-06-28-rss-azure-sdk-blog-azure-functions-mcp-extension-what-s-new-at-build-2026.md
-- raw/2026-06-28-rss-github-changelog-actions-actions-steps-can-now-be-run-in-parallel.md
-- raw/2026-06-28-rss-github-changelog-actions-more-control-over-your-github-hosted-runners.md
-- raw/2026-06-28-rss-docker-blog-sbom-generation-for-container-workflows.md
-- raw/2026-06-28-web-docker-blog-what-s-next-for-mcp-security.md
-- raw/2026-06-28-rss-docker-blog-eu-cyber-resilience-act-cra-overview.md
-- raw/2026-06-28-web-owasp-genai-security-project-ai-security-solutions-landscape-for-agent.md
-- raw/2026-06-28-rss-hugging-face-blog-run-a-vllm-server-on-hf-jobs-in-one-command.md
-- raw/2026-06-28-rss-simon-willison-what-happened-after-2-000-people-tried-to-hack-my-ai-as.md
-- raw/2026-06-28-rss-system-design-newsletter-a2a-protocol.md
-- raw/2026-06-28-rss-thoughtworks-insights-build-an-ai-knowledge-fabric-for-your-organizati.md
-- raw/2026-06-28-rss-80-level-miris-built-a-car-configurator-without-pixel-streaming.md
-- raw/2026-06-28-rss-80-level-setting-up-vegetation-for-alien-planet-in-3d.md
+- raw/2026-07-05-rss-game-developer-enginefall-developer-red-rover-interactive-is-making-la.md
+- raw/2026-07-05-rss-realtimevfx-check-my-new-material-made-we-my-own-procedural-node-edito.md
+- raw/2026-07-05-rss-tech-artists-org-visual-workflow-builder-for-vfx-animation-pipelines.md
+- raw/2026-07-05-rss-thoughtworks-insights-reshaping-the-economics-of-software-development-.md
+- raw/2026-07-05-rss-tldr-ai-anthropic-exploring-a-samsung-chip-partnership-2-minute-read.md
+- raw/2026-07-05-rss-tldr-ai-autoresearch-the-feedback-loop-behind-self-improving-agents-11.md
+- raw/2026-07-05-rss-tldr-ai-meta-s-watermelon-matches-gpt-5-5-benchmarks-3-minute-read.md
+- raw/2026-07-05-rss-tldr-devops-argo-cd-3-5-tightens-supply-chain-security-with-internal-m.md
+- raw/2026-07-05-rss-tldr-devops-herdr-github-repo.md
+- raw/2026-07-05-rss-tldr-infosec-attackers-seize-exposed-ai-endpoints-to-power-offensive-o.md
+- raw/2026-07-05-rss-tldr-infosec-duneslide-two-critical-rce-vulnerabilities-via-zero-click.md
+- raw/2026-07-05-rss-unity-blog-games-made-with-unity-june-2026-in-review.md
+- raw/2026-07-05-web-cognition-introducing-devin-security-swarm.md
+- raw/2026-07-05-web-devin-agentic-mapreduce.md
 
-## Failures / skips
-- Hugging Face Blog: skipped short or unclean content: https://huggingface.co/blog/ibm-research/cuga-apps
-- Hugging Face Blog: skipped short or unclean content: https://huggingface.co/blog/huggingface-hub-release-ci
+## Saved sources
+- [Game Development / Unity] Enginefall developer Red Rover Interactive is making layoffs - https://www.gamedeveloper.com/business/enginefall-developer-red-rover-interactive-is-making-layoffs
+- [Technical Art & Creator Tools] Check my new material made we my own procedural node editor - https://realtimevfx.com/t/check-my-new-material-made-we-my-own-procedural-node-editor/31225
+- [Technical Art & Creator Tools] Visual Workflow Builder for VFX/Animation Pipelines - https://www.tech-artists.org/t/visual-workflow-builder-for-vfx-animation-pipelines/18433
+- [Software Architecture] Reshaping the economics of software development: Building a future-ready core with Al/works™ - https://www.thoughtworks.com/insights/blog/legacy-modernization/reshaping-the-economics-of-software--building-a-future-ready-cor
+- [AI / LLM Research & Tooling] Anthropic Exploring a Samsung Chip Partnership (2 minute read) - https://techcrunch.com/2026/07/02/anthropic-is-discussing-a-new-custom-chip-with-samsung
+- [AI / LLM Research & Tooling] Autoresearch: The feedback loop behind self-improving agents (11 minute read) - https://www.latent.space/p/autoresearch-introspection
+- [AI / LLM Research & Tooling] Meta's Watermelon Matches GPT-5.5 Benchmarks (3 minute read) - https://letsdatascience.com/news/metas-watermelon-matches-gpt-55-benchmarks-76a9460e
+- [DevOps & CI/CD] Argo CD 3.5 Tightens Supply Chain Security with Internal mTLS and Source Integrity (3 minute read) - https://www.infoq.com/news/2026/06/argocd-supply-chain-security
+- [DevOps & CI/CD] Herdr (GitHub Repo) - https://github.com/ogulcancelik/herdr
+- [Security & Ethical Hacking] Attackers Seize Exposed AI Endpoints to Power Offensive Ops (3 minute read) - https://www.darkreading.com/cloud-security/attackers-hijack-exposed-ai-endpoints-power-offensive-ops
+- [Security & Ethical Hacking] DuneSlide: Two Critical RCE vulnerabilities via Zero-Click Prompt Injection in Cursor IDE (6 minute read) - https://www.catonetworks.com/blog/duneslide-two-critical-rce-vulnerabilities
+- [Game Development / Unity] Games made with Unity: June 2026 in review - https://unity.com/blog/games-made-with-unity-june-2026-releases
+- [AI / LLM Research & Tooling] Introducing Devin Security Swarm - https://cognition.com/blog/introducing-devin-security-swarm
+- [AI / LLM Research & Tooling] Agentic MapReduce - https://devin.ai/blog/agentic-map-reduce
+
+## Failed sources
+- AINews / smol.ai: ParseError: not well-formed (invalid token): line 572, column 927
+- TLDR AI: skipped short content for X-only PorTAL candidate because social/X capture is not allowed in scheduled public sourcing
+
+## Policy skips / replacements
+- Dropped ThreadReader/X-derived Devin Security Swarm capture; replaced with canonical Cognition and Devin written sources.
+- Dropped X-only PorTAL candidate; no canonical non-social written source found during this pass.
+
+## Notes
+- Public website/RSS sourcing only; no raw-to-wiki compile was run.
+- Birdclaw live refresh was blocked; stale local cache conversion was not used.
+- No Discord, podcast, YouTube, browser-backed, or direct X captures were saved.
+- Fresh .NET and Azure candidates were duplicate-saturated against existing raw/index sources in this run.

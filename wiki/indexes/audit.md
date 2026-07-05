@@ -149,3 +149,12 @@ This keeps Lore decision-usable for Honeyclaw, Claude, and future agents.
 - contradictions resolved: Fable 5 availability updated; the 2026-07-04 Anthropic redeployment supersedes the earlier suspension for current availability while preserving the suspension as volatility history.
 - privacy/safety filtering: Unit 42 phantom-domain indicators, phishing-kit details, redacted domains, payload-like paths, and Anthropic cyber jailbreak examples were summarized at policy/control level only; no credentials, tokens, exploit payloads, unredacted IOCs, or unsafe PII were copied.
 - quality posture: Google/GitHub/Microsoft/Unity/Anthropic sources are authoritative for their own product posture but need tenant/local validation; IBM ContextForge and SGLang sources are project-authored scouting evidence; Soatok is practitioner threat-model guidance; uv security features are preview and should be tested before enforcement.
+
+## 2026-07-05 Lore ingest/compile
+- operator: Honeyclaw scheduled ingest
+- raw sources ingested: 14
+- pages created: none
+- pages updated: [[ai-agent-harnesses]], [[ai-assisted-software-practice]], [[ai-coding-agent-security]], [[ai-research-automation-and-recursive-self-improvement]], [[browser-native-gpu-creative-tools]], [[container-supply-chain-and-compliance]], [[edge-ai-and-ai-infrastructure-2026]], [[gamedev-production-and-community-signals]], [[technical-art-community-and-talent-signals]], [[unity-3d-and-realtime-vfx-patterns]], indexes, run output
+- contradictions resolved: none; provisional benchmark/chip claims were kept as scouting evidence with source-quality caveats.
+- privacy/safety filtering: exposed-endpoint abuse and Cursor RCE sources were summarized at risk/control level only; no payload prompts, unsafe commands, endpoint payloads, exploit steps, credentials, tokens, or private personal data were copied.
+- quality posture: Cognition/Devin/Thoughtworks/Unity sources are vendor or practice sources requiring local validation; Herdr is a project README; RealtimeVFX and Tech-Artists are low-detail community discovery; Game Developer and InfoQ are trade sources; Meta/Anthropic chip and model claims are secondary reporting.

@@ -45,3 +45,32 @@ This page tracks container-image supply-chain evidence, SBOM quality, provenance
 - Docker is vendor-authored and promotes Docker products, but the compliance dates and SBOM-quality criteria are decision-useful for build-system planning.
 - Legal applicability still needs counsel or compliance review before HoneyDrunk treats CRA obligations as confirmed for a specific product.
 - Privacy filter: no secrets, customer data, internal hostnames, or exploit details were copied.
+
+## 2026-07-05 compile additions: Argo CD source integrity and internal mTLS
+
+### Source-backed claims
+- InfoQ reports that Argo CD 3.5 release-candidate work adds repo-server internal mTLS, Git commit signature/source integrity validation before sync, and native ApplicationSet UI list/filter/detail/preview support. Source: `raw/2026-07-05-rss-tldr-devops-argo-cd-3-5-tightens-supply-chain-security-with-internal-m.md`. confidence: 1 trade/news source, last-confirmed 2026-07-05.
+- The source says Argo CD Source Integrity can require valid Git signatures through Application spec or CLI configuration, closing a gap where tampered or unsigned manifests could otherwise be deployed if a repository was compromised. Source: `raw/2026-07-05-rss-tldr-devops-argo-cd-3-5-tightens-supply-chain-security-with-internal-m.md`. confidence: 1 source, last-confirmed 2026-07-05.
+- The same source says impersonation and Source Hydrator moved to beta, improving audit trails for server operations and supporting dry-source/rendered-manifest separation in multi-repository GitOps patterns. Source: `raw/2026-07-05-rss-tldr-devops-argo-cd-3-5-tightens-supply-chain-security-with-internal-m.md`. confidence: 1 source, last-confirmed 2026-07-05.
+
+### Typed entities
+- product: Argo CD
+- feature: repo-server mTLS
+- feature: Source Integrity
+- feature: ApplicationSet UI
+- feature: impersonation
+- feature: Source Hydrator
+- concept: Git commit signature verification
+- concept: GitOps supply chain
+
+### Explicit relationships
+- GitOps deployment security depends-on both transport security between controller components and source integrity for manifests.
+- Source Integrity complements SBOM/provenance controls by verifying the Git source that drives cluster state before sync.
+- Source Hydrator supports separation between unhydrated source templates and rendered manifests with different repository access controls.
+
+### HoneyDrunk implications
+- If HoneyDrunk adopts Argo CD, require source-signature policy, internal component trust model, ApplicationSet preview/review flow, and impersonation audit mapping before production use.
+- For any GitOps-style agent deployment, keep dry source, rendered output, signer identity, and sync authority distinct in run receipts.
+
+### Quality notes
+- InfoQ is secondary trade reporting. Verify exact Argo CD version, API fields, and release status against primary Argo CD docs before implementation.

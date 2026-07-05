@@ -72,3 +72,25 @@ Browser-native creative tooling is credible for lightweight indie/artist workflo
 ### HoneyDrunk implications
 - Keep browser-native alpha/texture utilities in the quick-prototyping toolbox, especially for fast VFX masks, decals, UI plates, and rough material studies.
 - Validate output bit depth, alpha handling, color-management assumptions, license, and offline/privacy posture before production asset use.
+
+## 2026-07-05 compile additions: online procedural material editor signal
+
+### Source-backed claims
+- A RealtimeVFX thread shows an online procedural node editor used to make and test a PBR material, with a split between free nodes and premium nodes; the capture is a short community post and not a technical spec. Source: `raw/2026-07-05-rss-realtimevfx-check-my-new-material-made-we-my-own-procedural-node-edito.md`; page: [[technical-art-community-and-talent-signals]]. confidence: 1 low-detail community source, last-confirmed 2026-07-05.
+
+### Typed entities
+- concept/tool: online procedural node editor
+- concept: PBR material generation
+- community: RealtimeVFX
+- concept: browser-native material tooling
+- business model: free and premium nodes
+
+### Explicit relationships
+- Browser-native material tools complement heavier DCC tools when quick procedural graph iteration and sharing matter.
+- Premium node gating affects production suitability because reproducibility may depend on subscription state.
+
+### HoneyDrunk implications
+- Before using online material editors in production, verify export fidelity, graph portability, license, subscription dependency, privacy/no-upload behavior, and offline fallback.
+
+### Quality notes
+- Discovery-only source. Do not treat it as proof of tool quality or production readiness.

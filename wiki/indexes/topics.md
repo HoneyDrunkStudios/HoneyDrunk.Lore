@@ -878,3 +878,23 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 
 ### Unity XR and realtime interaction
 - [[unity-3d-and-realtime-vfx-patterns]] - 50 sources - last-confirmed 2026-07-04
+
+## 2026-07-05 topic additions
+
+### Agent harnesses, autoresearch, and whole-codebase reasoning
+- [[ai-agent-harnesses]] - 142 sources - last-confirmed 2026-07-05
+- [[ai-research-automation-and-recursive-self-improvement]] - 2 sources - last-confirmed 2026-07-05
+
+### Agent security and supply-chain controls
+- [[ai-coding-agent-security]] - 124 sources - last-confirmed 2026-07-05
+- [[container-supply-chain-and-compliance]] - 3 sources - last-confirmed 2026-07-05
+
+### Software practice and AI infrastructure
+- [[ai-assisted-software-practice]] - 72 sources - last-confirmed 2026-07-05
+- [[edge-ai-and-ai-infrastructure-2026]] - 55 sources - last-confirmed 2026-07-05
+
+### Game development, Unity, and technical art
+- [[gamedev-production-and-community-signals]] - 40 sources - last-confirmed 2026-07-05
+- [[unity-3d-and-realtime-vfx-patterns]] - 52 sources - last-confirmed 2026-07-05
+- [[technical-art-community-and-talent-signals]] - 42 sources - last-confirmed 2026-07-05
+- [[browser-native-gpu-creative-tools]] - 3 sources - last-confirmed 2026-07-05

@@ -794,3 +794,33 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Soatok is practitioner guidance with strong security intuition but informal tone. The wiki retained only decision-useful structure and avoided copying inflammatory or non-decision-relevant passages.
+
+## 2026-07-05 compile additions: spec-centric modernization economics
+
+### Source-backed claims
+- Thoughtworks frames enterprise AI software delivery as moving from bolted-on IDE assistance toward AI-native, orchestrated platforms that can decode legacy code, enrich specifications, and generate spec-conforming code across the SDLC. Source: `raw/2026-07-05-rss-thoughtworks-insights-reshaping-the-economics-of-software-development-.md`. confidence: 1 Thoughtworks practice/partner-report source, last-confirmed 2026-07-05.
+- The same source argues that spec-centric development bridges business intent and technical execution through code-to-spec, spec enrichment, and spec-to-code loops, making human work shift toward editing, validation, and governance. Source: `raw/2026-07-05-rss-thoughtworks-insights-reshaping-the-economics-of-software-development-.md`. confidence: 1 source, last-confirmed 2026-07-05.
+- Thoughtworks recommends deterministic orchestrated platforms, adaptive governance, and value/outcome evaluation rather than measuring only coding-speed or short-term cost reduction. Source: `raw/2026-07-05-rss-thoughtworks-insights-reshaping-the-economics-of-software-development-.md`. confidence: 1 source, last-confirmed 2026-07-05.
+
+### Typed entities
+- organization: Thoughtworks
+- platform: AI/works
+- concept: AI-native software delivery platform
+- concept: spec-centric development
+- workflow: code-to-spec
+- workflow: spec enrichment
+- workflow: spec-to-code
+- control: adaptive governance
+
+### Explicit relationships
+- Spec-centric development complements AI-assisted coding by making business intent reviewable before and after code generation.
+- AI-native SDLC platforms depend-on deterministic orchestration, context, security, scalability, and governance rather than standalone editor completions.
+- Human validation supersedes raw generation throughput when the work affects business requirements, legacy modernization, or production risk.
+
+### HoneyDrunk implications
+- For legacy modernization or generated feature work, preserve specs as first-class artifacts, not just generated code diffs.
+- Judge AI delivery loops by validated business outcome, test evidence, review burden, and maintainability, not only generated lines or apparent velocity.
+- Keep governance adaptive but explicit: approvals, traces, rollback, and value metrics should scale with usage and blast radius.
+
+### Quality notes
+- Thoughtworks is a practice/vendor source and cites a Constellation Research report. Treat productivity multipliers and platform-specific claims as vendor-positioned until reproduced with HoneyDrunk workloads.

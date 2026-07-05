@@ -1270,3 +1270,43 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 
 ### Privacy and quality notes
 - Privacy filter: Unit 42 redacted indicators stayed redacted; no phishing domains, payloads, panel paths, or malware procedures were promoted beyond source-level descriptions. Anthropic cyber examples were summarized as policy categories, not bypass techniques.
+
+## 2026-07-05 compile additions: exposed AI endpoints, coding-agent RCE, and security swarms
+
+### Source-backed claims
+- Dark Reading/Zenity reporting says attackers abused exposed Ollama and LiteLLM inference endpoints as model backends for offensive agents; the reported vector required endpoint reachability rather than a software exploit. Source: `raw/2026-07-05-rss-tldr-infosec-attackers-seize-exposed-ai-endpoints-to-power-offensive-o.md`. confidence: 1 security-news source citing vendor honeypots, last-confirmed 2026-07-05.
+- The same source says abused requests included full-agent payloads, tool definitions, unsafe personas, and probes against endpoints such as Ollama API routes and LiteLLM proxy routes; defensive guidance is to avoid Internet exposure, require real authentication, reject placeholder keys, inspect request bodies, and monitor traffic. Source: `raw/2026-07-05-rss-tldr-infosec-attackers-seize-exposed-ai-endpoints-to-power-offensive-o.md`. confidence: 1 source, last-confirmed 2026-07-05.
+- Cato AI Labs reports two Cursor IDE RCE flaws, CVE-2026-50548 and CVE-2026-50549, where zero-click prompt injection delivered through an untrusted MCP server or poisoned web result could escape a terminal sandbox through working-directory parameter manipulation and symlink canonicalization fallback. Source: `raw/2026-07-05-rss-tldr-infosec-duneslide-two-critical-rce-vulnerabilities-via-zero-click.md`. confidence: 1 summarized security-research source, last-confirmed 2026-07-05.
+- Devin Security Swarm is positioned as a security-agent workflow that scans codebase shards in parallel, confirms serious findings at runtime in isolated sandboxes, and opens remediation PRs; benchmark recall and cost numbers are vendor claims needing local reproduction. Source: `raw/2026-07-05-web-cognition-introducing-devin-security-swarm.md`; page: [[ai-agent-harnesses]]. confidence: 1 vendor product source, last-confirmed 2026-07-05.
+- Devin's Agentic MapReduce source says whole-codebase security scans should separate deterministic selector coverage from agent reasoning, then reduce and verify findings before reporting them as confirmed. Source: `raw/2026-07-05-web-devin-agentic-mapreduce.md`. confidence: 1 vendor engineering source, last-confirmed 2026-07-05.
+
+### Typed entities
+- product/server: Ollama
+- product/proxy: LiteLLM
+- endpoint class: exposed inference endpoint
+- attack class: AI infrastructure hijacking
+- product: Cursor IDE
+- vulnerability: CVE-2026-50548
+- vulnerability: CVE-2026-50549
+- attack class: zero-click prompt injection
+- control: endpoint authentication
+- control: request-body inspection
+- product: Devin Security Swarm
+- pattern: Agentic MapReduce
+
+### Explicit relationships
+- Exposed inference endpoints can be abused as attacker-supplied agent backends when authentication, network exposure, and request inspection are weak.
+- Placeholder or optional API keys contradict production AI infrastructure security because attackers can discover and reuse them quickly.
+- Prompt injection can cause classical vulnerability exploitation when the coding-agent runtime lets untrusted content affect working directories, sandbox binaries, or file canonicalization.
+- Runtime verification complements scanner findings by distinguishing confirmed exploitability from static suspicion.
+- Agentic security scanning depends-on selector recall, shard coverage, sandbox reproduction, patch review, and regression evidence before findings become actionable.
+
+### HoneyDrunk implications
+- Inventory any Ollama, LiteLLM, vLLM, model gateway, or local inference endpoint before exposing it beyond loopback; require auth, firewall scope, logs, and placeholder-key rejection.
+- Treat untrusted MCP servers, search results, docs pages, and web content as capable of steering coding agents into runtime exploit paths.
+- Do not route security findings directly to auto-fix PRs unless each finding has reachability, reproduction, severity, patch, and regression evidence.
+- For whole-repo security reviews, prefer finite selector queues and per-shard accounting over open-ended search-agent conclusions.
+
+### Privacy and quality notes
+- Exploit details were summarized at control level. No payload prompts, target names beyond public product/project names, commands, endpoint payloads, or reusable bypass steps were copied.
+- Zenity, Cato, and Cognition have vendor/product interests; use these sources for threat modeling and candidate workflow design, then validate locally.

@@ -833,3 +833,30 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - Unity sources are vendor-authored and useful for platform/tooling scouting. Device availability, package versions, performance, and interaction quality need local target-device validation.
+
+## 2026-07-05 compile additions: Unity June 2026 release breadth and community VFX tooling
+
+### Source-backed claims
+- Unity's June 2026 roundup lists many games launched or showcased as Made with Unity across action, cozy, roguelike, simulation, strategy, survival, and other categories, reinforcing Unity's continued breadth across indie and commercial release surfaces. Source: `raw/2026-07-05-rss-unity-blog-games-made-with-unity-june-2026-in-review.md`; page: [[gamedev-production-and-community-signals]]. confidence: 1 Unity vendor/community roundup source, last-confirmed 2026-07-05.
+- The RealtimeVFX procedural-node-editor source is a low-detail material/VFX tooling signal: node-based browser or online tools are being used for PBR material generation and VFX image creation, but the source does not provide enough detail for pipeline adoption. Source: `raw/2026-07-05-rss-realtimevfx-check-my-new-material-made-we-my-own-procedural-node-edito.md`; page: [[technical-art-community-and-talent-signals]]. confidence: 1 low-detail forum source, last-confirmed 2026-07-05.
+
+### Typed entities
+- engine: Unity
+- event: Day of the Devs Summer Game Fest 2026
+- event: Wholesome Direct 2026
+- game: 33 Immortals
+- game: Zenless Zone Zero
+- concept: procedural node editor
+- concept: PBR material
+- community: RealtimeVFX
+
+### Explicit relationships
+- Unity release breadth complements engine scouting but does not supersede target-platform profiling, team familiarity, or content-pipeline fit.
+- Node-based material tools complement VFX prototyping, but production use depends-on export quality, licensing, versioning, and integration with engine material conventions.
+
+### HoneyDrunk implications
+- When evaluating Unity for a prototype, compare genre/runtime needs against shipped comparable titles, but require local performance and tooling proof.
+- For material/VFX prototyping, preserve node-editor candidates as watchlist items until export and licensing checks are complete.
+
+### Quality notes
+- Unity is vendor-authored; RealtimeVFX is a low-detail community thread. Both are scouting signals.

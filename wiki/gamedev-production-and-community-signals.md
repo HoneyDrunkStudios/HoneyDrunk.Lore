@@ -534,3 +534,35 @@ The game-development community feed produced a mix of process advice, tooling ex
 
 ### Quality notes
 - Trade/podcast capture includes heavy site boilerplate. Claims are kept to the article summary and high-level strategy, not fine-grained business details.
+
+## 2026-07-05 compile additions: Red Rover restructuring and Unity June release surface
+
+### Source-backed claims
+- Game Developer reports that Red Rover Interactive is laying off an undisclosed number of employees across Newcastle and Oslo as part of a restructuring intended to put the company on more sustainable footing during the next development phase for `Enginefall`. Source: `raw/2026-07-05-rss-game-developer-enginefall-developer-red-rover-interactive-is-making-la.md`. confidence: 1 trade/news source, last-confirmed 2026-07-05.
+- The same source says Red Rover had raised USD 5 million when it broke cover and later a USD 15 million Krafton-led investment for `Enginefall`, which is slated for 2026 and had more than 300,000 Steam wishlists in the report. Source: `raw/2026-07-05-rss-game-developer-enginefall-developer-red-rover-interactive-is-making-la.md`. confidence: 1 trade/news source with noisy extraction, last-confirmed 2026-07-05.
+- Unity's June 2026 "Made with Unity" roundup lists broad Unity commercial/community output across Day of the Devs, Wholesome Direct, Steam Next Fest, early-access launches, and full releases including `33 Immortals` and `Zenless Zone Zero` 1.0. Source: `raw/2026-07-05-rss-unity-blog-games-made-with-unity-june-2026-in-review.md`; page: [[unity-3d-and-realtime-vfx-patterns]]. confidence: 1 Unity vendor/community roundup source, last-confirmed 2026-07-05.
+
+### Typed entities
+- studio: Red Rover Interactive
+- game: Enginefall
+- company/investor: Krafton
+- location: Newcastle, UK
+- location: Oslo, Norway
+- platform: Steam
+- engine/platform: Unity
+- event: Day of the Devs Summer Game Fest 2026
+- event: Wholesome Direct 2026
+- game: 33 Immortals
+- game: Zenless Zone Zero
+
+### Explicit relationships
+- Survival/crafting shooter production depends-on financing runway, launch timing, wishlists, and team sustainability, not only visible market interest.
+- Layoffs at a funded studio can contradict surface-level confidence from investment and wishlist metrics.
+- Unity release roundups complement engine-market scouting by showing breadth of shipped titles but do not prove engine fit for a specific HoneyDrunk prototype.
+
+### HoneyDrunk implications
+- Treat wishlist counts and funding as incomplete production-health indicators; monitor burn, scope, launch window, team stability, and partner constraints together.
+- Use Unity roundup lists as genre/market scouting leads, not as proof that Unity is the right runtime for any specific title.
+
+### Quality notes
+- Game Developer capture contains site boilerplate but recoverable article claims. Unity source is vendor-authored and promotional; useful for market-surface scouting only.

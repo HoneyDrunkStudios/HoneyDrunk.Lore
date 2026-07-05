@@ -1059,3 +1059,42 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - SGLang and IBM sources are project-authored; Google sources are vendor-authored. Claims are useful architecture signals but still need local validation against HoneyDrunk runtime, cost, Windows behavior, and security requirements.
+
+## 2026-07-05 compile additions: autoresearch loops, terminal agent fleets, and Agentic MapReduce
+
+### Source-backed claims
+- The Introspection autoresearch source frames production agent improvement as an outer loop where agents study and maintain the primary system using feedback signals, evals, judges, human input, and reusable "agent recipes." Source: `raw/2026-07-05-rss-tldr-ai-autoresearch-the-feedback-loop-behind-self-improving-agents-11.md`; page: [[ai-research-automation-and-recursive-self-improvement]]. confidence: 1 interview/practitioner source, last-confirmed 2026-07-05.
+- The same source says early self-improving systems should treat humans as a core signal source rather than trying to automate away tacit organizational knowledge on day one. Source: `raw/2026-07-05-rss-tldr-ai-autoresearch-the-feedback-loop-behind-self-improving-agents-11.md`. confidence: 1 source, last-confirmed 2026-07-05.
+- The Herdr repository describes a terminal-native multiplexer for coding-agent fleets with real terminal panes, detached server persistence, workspace/tab/pane organization, state detection for blocked/working/done agents, SSH reattach, integrations for common coding agents, and a local socket API agents can drive. Source: `raw/2026-07-05-rss-tldr-devops-herdr-github-repo.md`. confidence: 1 project README source, last-confirmed 2026-07-05.
+- Devin's Agentic MapReduce source argues whole-codebase tasks need deterministic candidate selection, bounded parallel worker shards, and reducer synthesis because search-driven single agents spend too much budget finding work, accumulate context bottlenecks, and lack an explicit coverage boundary. Source: `raw/2026-07-05-web-devin-agentic-mapreduce.md`. confidence: 1 vendor engineering source, last-confirmed 2026-07-05.
+- Cognition says Devin Security Swarm uses parallel agents to inspect codebase segments, compose findings into attack paths, reproduce exploitability in sandboxes, and open remediation PRs for review; benchmark recall and cost claims are vendor self-reported. Source: `raw/2026-07-05-web-cognition-introducing-devin-security-swarm.md`; page: [[ai-coding-agent-security]]. confidence: 1 vendor product source, last-confirmed 2026-07-05.
+
+### Typed entities
+- company: Introspection
+- person: Roland Gavrilescu
+- person: Julian Bright
+- concept: autoresearch
+- concept: agent recipe
+- framework: Pi
+- tool: Herdr
+- concept: agent fleet terminal multiplexer
+- pattern: Agentic MapReduce
+- product: Devin Security Swarm
+- control/artifact: deterministic selector
+- artifact: editable threat model
+
+### Explicit relationships
+- Autoresearch uses feedback loops, evals, judges, human input, and recipes to maintain and improve an agent system over time.
+- Agent recipes complement skills by preserving evals, judges, failures, human expertise, and configuration history behind an agent harness.
+- Herdr complements tmux-style persistence by adding agent state awareness and a socket API that agents can use to orchestrate panes and sessions.
+- Agentic MapReduce depends-on deterministic selectors for coverage, then uses parallel agents only where reasoning is needed.
+- Security Swarm uses Agentic MapReduce to turn whole-codebase security scanning into plan, shard, map, reduce, and runtime-verify stages.
+
+### HoneyDrunk implications
+- For OpenClaw/Grid, separate the inner work loop from the outer improvement loop; record which eval, judge, human correction, or failure caused each workflow change.
+- Agent fleet UIs are useful only if they reduce supervision ambiguity; require session state, owner, blocked reason, and run receipts before expanding parallel agent counts.
+- Use deterministic preselection for whole-repo audits or migrations when completeness matters; an agent saying it searched enough is weaker than a finite candidate queue.
+- Treat vendor benchmark claims for security swarms as scouting. HoneyDrunk adoption needs local recall, false-positive, patch-quality, runtime-proof, and cost evidence.
+
+### Quality notes
+- Introspection is an interview source, Herdr is a project README, and Cognition/Devin sources are vendor-authored. All are useful harness-shape signals, but claims about reliability, recall, cost, and productivity require local validation.

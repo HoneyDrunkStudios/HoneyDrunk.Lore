@@ -738,3 +738,36 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - Vendor product sources. Verify current platform limits, pricing, cold-start behavior, and private-network support before implementation.
+
+## 2026-07-05 compile additions: Anthropic chip discussions and provisional Meta benchmark claims
+
+### Source-backed claims
+- TechCrunch/The Information reporting says Anthropic has discussed a possible custom AI chip collaboration with Samsung, while Anthropic publicly emphasized that a diversified hardware stack across Google, Amazon, and Nvidia remains central to its compute strategy. Source: `raw/2026-07-05-rss-tldr-ai-anthropic-exploring-a-samsung-chip-partnership-2-minute-read.md`. confidence: 1 secondary news source, last-confirmed 2026-07-05.
+- The same source frames AI-lab custom silicon as a response to compute shortages, task-specific efficiency, and partial independence from Nvidia, with OpenAI/Broadcom Jalapeno cited as nearby competitive context. Source: `raw/2026-07-05-rss-tldr-ai-anthropic-exploring-a-samsung-chip-partnership-2-minute-read.md`; page: [[openai-frontier-models-and-codex-2026]]. confidence: 1 source, last-confirmed 2026-07-05.
+- LetsDataScience/Business Insider reporting says Meta's AI chief claimed internally that the unreleased Watermelon model had caught up with GPT-5.5 on unspecified benchmarks, while the article explicitly treats the claim as single-sourced and not reproducible public evaluation evidence. Source: `raw/2026-07-05-rss-tldr-ai-meta-s-watermelon-matches-gpt-5-5-benchmarks-3-minute-read.md`. confidence: 1 secondary/aggregated source, last-confirmed 2026-07-05.
+- The Watermelon source says the more decision-useful signal is Meta's reported compute-scaling trajectory, not the unverified parity claim. Source: `raw/2026-07-05-rss-tldr-ai-meta-s-watermelon-matches-gpt-5-5-benchmarks-3-minute-read.md`. confidence: 1 source, last-confirmed 2026-07-05.
+
+### Typed entities
+- company: Anthropic
+- company: Samsung
+- company: Nvidia
+- company: Google
+- company: Amazon
+- company: Meta
+- model codename: Watermelon
+- model codename: Muse Spark / Avocado
+- model/reporting target: GPT-5.5
+- concept: custom AI silicon
+- concept: internal benchmark claim
+
+### Explicit relationships
+- AI-lab model roadmaps depend-on compute supply, custom silicon options, cloud partnerships, and inference efficiency.
+- Custom AI silicon complements diversified cloud hardware but does not supersede public performance, cost, availability, or lock-in evidence.
+- Internal benchmark claims contradict procurement-grade model evidence until model cards, benchmark methodology, and independent evals are public.
+
+### HoneyDrunk implications
+- Keep provider fallback paths because model access and cost may be shaped by provider-specific hardware supply.
+- Treat unreleased-model parity claims as scouting only; do not change HoneyDrunk model routing until public access and local evals exist.
+
+### Quality notes
+- Both sources are secondary reporting/aggregation. No model or hardware procurement decisions should rely on these claims without primary docs and local benchmarks.

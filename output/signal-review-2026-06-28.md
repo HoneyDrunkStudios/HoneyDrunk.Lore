@@ -3,87 +3,89 @@
 ## Blast summary
 
 - Send to Discord: yes
-- Theme: Agent trust boundaries are today's useful cluster: external tool data, security automation, retrieval structure, and auditability all need sharper controls.
-- Coverage: 15 saved web sources reviewed; no fresh X posts were available from the latest X refresh.
+- Theme: Today's useful cluster is agent and MCP hardening, CI/runtime control, and container compliance evidence for the HoneyHub and NovOutbox lanes.
+- Coverage: 15 saved public web sources and 0 fresh X posts reviewed
 
 ## Top stories
 
-1. Public telemetry can become an agent-injection channel
-   - Main points: A reported "agentjacking" path uses public Sentry write keys to plant crafted error data that coding agents later consume as remediation context. The practical warning is broader than Sentry: logs, tickets, crash reports, and monitoring data become untrusted input once agents can read them and act.
-   - Source: The New Stack
-   - Source URL: https://thenewstack.io/agentjacking-sentry-mcp-attack
-   - HoneyDrunk angle: Gate commands derived from externally influenced records before wiring agents to telemetry, issue, or support systems.
+1. Simon Willison reports a large prompt-injection challenge failed to leak an AI assistant secret
+   - Main points: A public challenge drew roughly 2,000 participants and about 6,000 attempts against an email-fed assistant without leaking the target secret. The useful point is encouraging model-side resistance, but the source is explicit that this does not make prompt-only defenses safe for irreversible production actions.
+   - Source: Simon Willison
+   - Source URL: https://simonwillison.net/2026/Jun/26/hack-my-ai-assistant/
+   - HoneyDrunk angle: Good confidence boost for HoneyHub-style agent workflows, but deletes, deployments, credential use, payments, and external messaging still need execution-layer gates.
 
-2. OpenAI is moving AI security from finding bugs toward landing fixes
-   - Main points: The report says OpenAI expanded its security automation with code scanning, validation, patch generation, reporting, SARIF/CodeQL export, expert review, and open-source maintainer support. The important shift is operational: security models are being packaged as reviewable fix workflows, not just vulnerability detectors.
-   - Source: TestingCatalog
-   - Source URL: https://www.testingcatalog.com/openai-launches-new-security-tools-and-updates-gpt-5-5-cyber
-   - HoneyDrunk angle: Useful direction for security automation, but capture primary docs or run local evals before changing HoneyDrunk gates.
+2. Docker lays out the next MCP security boundary
+   - Main points: Docker frames MCP adoption as moving from direct host execution toward containerized servers, managed catalogs, and gateway mediation. The concrete risk list is useful: rug pulls from changed tool descriptions, tool shadowing, poisoned tool metadata, loose secrets, and uncontrolled egress.
+   - Source: Docker Blog
+   - Source URL: https://www.docker.com/blog/whats-next-for-mcp-security/
+   - HoneyDrunk angle: Directly relevant to HoneyHub tool profiles: record server provenance, image digest, tool descriptions, network reach, and secret scope before trusting an MCP surface.
 
-3. GitHub adds context-aware LLM reasoning to secret scanning
-   - Main points: GitHub is using contextual analysis to reduce false positives from generic secret detections by checking how suspicious values are used, such as API calls, auth headers, database clients, or cloud SDKs. It reports a 75.76% false-positive reduction against a 65% target while keeping upstream detection coverage unchanged.
-   - Source: GitHub Blog
-   - Source URL: https://github.blog/security/making-secret-scanning-more-trustworthy-reducing-false-positives-at-scale
-   - HoneyDrunk angle: Prefer scanners that preserve broad coverage while adding auditable context, not scanners that simply suppress noisy findings.
+3. GitHub Actions now has first-class parallel steps
+   - Main points: GitHub Actions added `background`, `wait`, `wait-all`, `cancel`, and `parallel` so independent work can run concurrently inside one job while keeping separate logs. This replaces fragile shell backgrounding for patterns like parallel builds, temporary services, and non-blocking telemetry uploads.
+   - Source: GitHub Changelog
+   - Source URL: https://github.blog/changelog/2026-06-25-actions-steps-can-now-be-run-in-parallel
+   - HoneyDrunk angle: Useful for speeding CI, but only where build outputs, caches, ports, and environment state cannot race.
 
-4. Knowledge-agent structure may beat bigger-model brute force for specialized domains
-   - Main points: The article argues that source extractions, concept pages, thesis files, primers, hybrid search, and multi-pass retrieval can let smaller or local models perform well on hard specialist tasks. The useful bit is the structure: retrieval quality comes from curated knowledge organization, not embeddings alone.
-   - Source: Weighty Thoughts
-   - Source URL: https://weightythoughts.com/p/knowledge-agents-beat-frontier-models
-   - HoneyDrunk angle: Reinforces keeping Lore source citations, confidence notes, and concept pages as authority before adding heavier retrieval infrastructure.
+4. GitHub adds stronger hosted-runner controls
+   - Main points: Organizations can now disable standard hosted-runner labels such as `ubuntu-latest`, and can put macOS runners into runner groups with access and concurrency limits. The release makes runner selection more governable, especially for costly or sensitive runner classes.
+   - Source: GitHub Changelog
+   - Source URL: https://github.blog/changelog/2026-06-25-more-control-over-your-github-hosted-runners
+   - HoneyDrunk angle: Watch for HoneyDrunk CI policy: default labels are convenient, but named runner groups make cost and access intent explicit.
 
-5. Azure SDK release adds agentic retrieval and agent-hosting previews
-   - Main points: Azure AI Search .NET and Python libraries now add knowledge bases and a retrieval client over sources such as Blob storage, search indexes, OneLake, and the web. The same release previews Agent Server libraries with host, health, shutdown, request-ID, and platform-header plumbing, while Azure SDK for Rust reaches stable 1.0.0 for core identity, storage, and Key Vault crates.
+5. Docker explains why build-time SBOMs beat checkbox SBOMs
+   - Main points: Docker argues that SBOM quality depends on completeness, accuracy, freshness, verifiability, and format compliance. The strongest recommendation is to generate SBOMs at build time and bind them to the image digest as attestations, while treating the SBOM generator itself as privileged build attack surface.
+   - Source: Docker Blog
+   - Source URL: https://www.docker.com/blog/sbom-generation-for-container-workflows/
+   - HoneyDrunk angle: NovOutbox and any containerized beta surface should treat digest-bound SBOMs as release evidence, not loose files saved after the fact.
+
+6. Docker summarizes the EU Cyber Resilience Act timeline for container teams
+   - Main points: The source highlights 2026-09-11 for vulnerability and severe-incident reporting obligations and 2027-12-11 for full CRA enforcement. It also says commercial container images and runtimes distributed into the EU can fall under product-with-digital-elements obligations.
+   - Source: Docker Blog
+   - Source URL: https://www.docker.com/blog/eu-cyber-resilience-act-overview/
+   - HoneyDrunk angle: Watch only until applicability is confirmed, but NovOutbox commercial packaging should not discover support-period, SBOM, or reporting expectations during an incident.
+
+7. Azure Functions MCP extension is becoming a fuller remote tool surface
+   - Main points: The extension now covers tools, resources, prompts, MCP Apps, structured content, rich content, explicit schemas, built-in auth, and On-Behalf-Of examples. Microsoft is signaling that serverless Functions can host production-shaped MCP servers rather than just demo tools.
    - Source: Azure SDK Blog
-   - Source URL: https://devblogs.microsoft.com/azure-sdk/azure-sdk-release-may-2026/
-   - HoneyDrunk angle: Track Azure AI Search knowledge bases for future Lore/Knowledge experiments, but keep flat-file sources as authority.
+   - Source URL: https://devblogs.microsoft.com/azure-sdk/functions-mcp-updates-build-2026/
+   - HoneyDrunk angle: Candidate for HoneyHub remote tools, but only with documented Entra/OBO scopes, schemas, observability, and per-tool capability review.
 
-6. codebase-memory-mcp turns codebases into local structural graphs for agents
-   - Main points: The project indexes repositories into a local graph of symbols, call chains, routes, services, ADRs, and cross-service relationships, exposed to coding agents through structured tools. Its README claims very fast indexing, large token savings, local processing, and broad language support.
-   - Source: GitHub
-   - Source URL: https://github.com/DeusData/codebase-memory-mcp
-   - HoneyDrunk angle: Worth evaluating for HoneyHub agent-cockpit code navigation, but only after security, freshness, and generated-artifact review.
+8. Azure Developer CLI adds stronger agent-operable deployment primitives
+   - Main points: The May/June release train adds `azd tool` for prerequisite management and `azd exec` for command execution with the full `azd` environment, including Key Vault resolution. The notes also include important parallel-deploy fixes around ACR image contamination, correlation IDs, and build artifact races.
+   - Source: Azure SDK Blog
+   - Source URL: https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-may-june-2026/
+   - HoneyDrunk angle: Helpful for agent-run Azure workflows, but inherited secret context must be intentional, logged, and scoped.
 
-7. Jcode frames coding-agent harnesses around multi-session performance and memory
-   - Main points: Jcode positions itself as a coding-agent harness for multi-session work, emphasizing low RAM use, fast startup, semantic memory, side panels, diagrams, and ambient memory consolidation. The useful signal is not the benchmark claims alone; it is the product shape around agent workflow ergonomics.
-   - Source: GitHub
-   - Source URL: https://github.com/1jehuang/jcode
-   - HoneyDrunk angle: Watch as a HoneyHub comparison point for local cockpit responsiveness, memory, and multi-session UI.
+9. Hugging Face shows one-command private vLLM endpoints on Jobs
+   - Main points: Hugging Face Jobs can expose an OpenAI-compatible vLLM server with one command, token-gated access, per-second billing, and quick cleanup. The post positions Jobs for experiments, evals, and batch generation, while Inference Endpoints remain the production-oriented choice.
+   - Source: Hugging Face Blog
+   - Source URL: https://huggingface.co/blog/vllm-jobs
+   - HoneyDrunk angle: Useful for HoneyHub eval experiments or model trials before committing to durable hosting, with budget and token handling called out up front.
 
-8. Claude Code "Extended Thinking" output is not a full audit trail
-   - Main points: The post says local session logs do not expose the actual full reasoning text; they expose signed or summarized reasoning artifacts unless higher-access arrangements apply. That matters for governance because inputs, outputs, tool calls, commands, diffs, and approvals are auditable evidence, while thinking summaries are not the same thing as causality logs.
-   - Source: Patrick McCanna
-   - Source URL: https://patrickmccanna.net/the-text-in-claude-codes-extended-thinking-output-is-not-authentic
-   - HoneyDrunk angle: Treat agent run receipts as action logs, not model-reasoning transcripts.
-
-9. Unity/Playrix case study argues for D28 ROAS evaluation in mobile UA
-   - Main points: Playrix describes scaling Township campaigns with Unity Ads' D28 IAP ROAS optimizer, especially on Google Play, by accepting higher early CPI when longer-term retention and revenue justified it. The signal is that D7-only campaign reads can miss durable payback behavior.
-   - Source: Unity Blog
-   - Source URL: https://unity.com/blog/playrix-township-roas-optimization-vector
-   - HoneyDrunk angle: For any mobile/user-acquisition experiment, compare D7 and D28 curves before judging campaign quality.
-
-10. Alien: Isolation 2 team says the long wait sharpened sequel expectations
-   - Main points: Creative Assembly argues the original game's audience grew over time, making the sequel easier to frame around what players now value about the first game. The source is a trade interview, but the useful production lesson is that time-between-releases can become an asset when the core identity remains durable.
-   - Source: Game Developer
-   - Source URL: https://www.gamedeveloper.com/design/how-a-12-year-wait-made-alien-isolation-2-a-better-sequel
-   - HoneyDrunk angle: Watch only.
+10. A2A is framed as the agent-to-agent layer next to MCP
+   - Main points: The A2A explainer positions MCP as agent-to-tool communication and A2A as agent-to-agent delegation, discovery, task lifecycle, streaming, artifacts, and push notifications. It is most useful as a vocabulary and boundary-setting piece, not as an implementation decision by itself.
+   - Source: System Design Newsletter
+   - Source URL: https://newsletter.systemdesign.one/p/agent-to-agent-protocol
+   - HoneyDrunk angle: Keep HoneyHub diagrams clear: MCP tool servers and A2A-facing agents have different trust, auth, and audit requirements.
 
 ## Top X posts
 
-- No fresh X posts available from the latest refresh; older saved X captures were not reused.
+- No fresh X posts available today. The X refresh did not produce new captured posts, so no stale or fabricated posts were included.
 
 ## Worth watching
 
-- Sakana Fugu's orchestration-model launch is a useful multi-agent sovereignty and long-horizon workflow signal, but today's capture is a ThreadReader/social source and needs primary docs before weighting heavily: https://threadreaderapp.com/thread/2068862070062485867.html
-- Architecture Notes #106 has a useful roundup around AI-written-code incidents, agentic engineering levels, and deny-first agent sandboxing, but it is older roundup material rather than a fresh primary source: https://architecturenotes.co/p/arc-notes-weekly-106-arrowhead
-- Materialist, a free Maya material-manager shelf, is a technical-art discovery item only until the linked repository, license, and workflow behavior are inspected: https://www.tech-artists.org/t/free-tool-materialist-a-material-manager-shelf-for-maya/18429
+- Thoughtworks' AI knowledge fabric article maps closely to the existing Lore direction: concise Markdown/JSON/YAML, ownership, freshness, and explicit "don'ts" for agents. https://www.thoughtworks.com/insights/blog/machine-learning-and-ai/build-AI-knowledge-fabric-for-your-organization
+- Miris' WebXR car configurator is a strong watch item for Curiosities-style interactive 3D: high-fidelity cross-device 3D without one cloud GPU per viewer is commercially interesting if the claims hold. https://80.lv/articles/miris-built-a-car-configurator-without-pixel-streaming-here-s-what-they-found/
+- Crema's Temtem: Pioneers interview is useful game-production signal around genre blending, co-op/solo transitions, and community-backed alpha development. https://80.lv/articles/temtem-developing-massively-multiplayer-creature-collection-adventure/
+- The alien-island vegetation breakdown is good technical-art reference for procedural variation, PCG scattering, SpeedTree/Substance workflows, and readable biome composition. https://80.lv/articles/setting-up-vegetation-for-alien-island-in-3d/
 
 ## Parked / low signal
 
-- Polycount's "Learning Blender and Texturing" capture is mostly community-learning context with heavy forum scaffolding, not a production technique source: https://polycount.com/discussion/238683/learning-blender-and-texturing
-- Architecture Notes #104 is older roundup material and should not outrank newer primary or near-primary sources today: https://architecturenotes.co/p/arc-notes-weekly-104-telluride
+- OWASP's agentic AI security landscape page is a useful pointer, but this capture is too thin to rank individual tools or make procurement decisions. https://genai.owasp.org/resource/ai-security-solutions-landscape-for-agentic-ai-q2-2026/
+- The Azure `azd` release post is very broad; only the agent/deployment/security parts are worth carrying forward today. https://devblogs.microsoft.com/azure-sdk/azure-developer-cli-azd-may-june-2026/
+- The 80 Level vegetation article is craft-useful, but not urgent against HoneyHub, NovOutbox, or Curiosities unless an art pipeline spike is active. https://80.lv/articles/setting-up-vegetation-for-alien-island-in-3d/
 
 ## Review notes
 
-- Files reviewed: latest source summaries, latest X status summary, latest ingest summary, 15 saved web-source captures, 6 relevant compiled wiki pages, current HoneyDrunk focus, and HoneyDrunk charter.
-- Blockers: Fresh X refresh failed because the local X capture command was unavailable; no fresh X posts were converted, so the report intentionally does not include stale X posts.
+- Files reviewed: latest saved web-source summary, latest X status, latest source-reflection summary, 15 fresh saved public sources, current focus, charter, and relevant context pages for security, MCP, CI, Azure, and container compliance.
+- Blockers: Fresh X refresh failed because the local X command was unavailable; no posts were exported, so the X section is intentionally empty.

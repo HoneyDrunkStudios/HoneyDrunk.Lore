@@ -609,3 +609,32 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - Forum/community WIP sources are weak evidence. Adobe is primary API guidance but uses a 2023 article captured in 2026, so current API behavior should be rechecked before implementation.
+
+## 2026-07-05 compile additions: node-based material and VFX pipeline builders
+
+### Source-backed claims
+- A RealtimeVFX forum post shows an online procedural node editor being used to generate a PBR material, with free and premium node tiers; the thread is low-detail community feedback rather than production documentation. Source: `raw/2026-07-05-rss-realtimevfx-check-my-new-material-made-we-my-own-procedural-node-edito.md`. confidence: 1 low-detail forum source, last-confirmed 2026-07-05.
+- A Tech-Artists.org post describes a node-based VFX/animation pipeline framework intended to let TDs design publishing and workflow logic visually while implementation remains in plugins, improving workflow readability, debugging, and extension without core-pipeline changes. Source: `raw/2026-07-05-rss-tech-artists-org-visual-workflow-builder-for-vfx-animation-pipelines.md`. confidence: 1 low-detail forum/source-discovery post, last-confirmed 2026-07-05.
+
+### Typed entities
+- community: RealtimeVFX
+- concept/tool: online procedural node editor
+- concept: PBR material generation
+- community: Tech-Artists.org
+- role: technical director / TD
+- concept/tool: visual workflow builder
+- DCC: Maya
+- language: Python
+- concept: plugin-backed pipeline framework
+
+### Explicit relationships
+- Procedural material editors complement technical-art prototyping when node graphs can generate reusable VFX or PBR texture sources.
+- Visual pipeline builders complement plugin-based DCC pipelines by separating workflow graph design from core implementation.
+- Forum discovery posts depend-on follow-up repository, demo, license, data model, and failure-mode review before production adoption.
+
+### HoneyDrunk implications
+- Keep procedural browser/node editors on the material-prototyping watchlist, but validate export formats, licensing, node restrictions, and offline/privacy posture before use.
+- If HoneyDrunk builds DCC pipeline automation, consider visual workflow graphs for TD readability only after the plugin API and versioning model are stable.
+
+### Quality notes
+- Both sources are community-discovery signals with limited technical depth. They should seed follow-up, not workflow adoption.
