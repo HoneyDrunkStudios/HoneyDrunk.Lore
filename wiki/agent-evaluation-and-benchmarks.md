@@ -530,3 +530,33 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - Sources mix practitioner, vendor-social, secondary product news, and GitHub product reporting. Useful as eval-design leads, not as final procurement evidence.
+
+## 2026-07-06 compile additions: Laguna XS 2.1 benchmark and harness disclosure
+
+### Source-backed claims
+- Poolside's Laguna XS 2.1 release describes a 33B total parameter MoE coding model with 3B activated parameters per token, aimed at local agentic coding and long-horizon work. Source: `raw/2026-07-06-rss-tldr-ai-introducing-laguna-xs-2-1-5-minute-read.md`; page: [[ai-agent-harnesses]]. confidence: 1 vendor/model release source, last-confirmed 2026-07-06.
+- Poolside reports Laguna XS 2.1 improves on Laguna XS.2 across agentic coding benchmarks, especially SWE-bench Multilingual, which it says rose 5.4 points to 63.1%; the exact comparative chart in the raw capture is incomplete/noisy and should not be treated as a full leaderboard. Source: `raw/2026-07-06-rss-tldr-ai-introducing-laguna-xs-2-1-5-minute-read.md`. confidence: 1 vendor-reported benchmark snapshot with capture-quality caveat, last-confirmed 2026-07-06.
+- The release discloses evaluation settings: Harbor Framework agent harness, maximum 500 steps, sandboxed execution, fixed sampling parameters, 256K context for the API/OpenRouter serving path, patched task images/verifiers, and post-hoc reward-hack judging/manual review. Source: `raw/2026-07-06-rss-tldr-ai-introducing-laguna-xs-2-1-5-minute-read.md`. confidence: 1 source, last-confirmed 2026-07-06.
+
+### Typed entities
+- model: Laguna XS 2.1
+- model: Laguna XS.2
+- organization: Poolside
+- architecture: Mixture-of-Experts / MoE
+- harness: Harbor Framework
+- benchmark: SWE-bench Multilingual
+- benchmark: SWE-bench Verified
+- benchmark: SWE-Bench Pro
+- benchmark: Terminal-Bench 2.0
+- control: reward-hack judge
+
+### Explicit relationships
+- Vendor benchmark claims depend-on the disclosed harness, patched task images, sampling parameters, context length, repeats, and judge/review process.
+- Smaller activated-parameter MoE models can complement local coding-agent routing when throughput, VRAM, and license matter, but they do not supersede HoneyDrunk task-specific evals.
+
+### HoneyDrunk implications
+- If HoneyDrunk evaluates Laguna XS 2.1 or similar local coding models, record the same harness facts: steps, sandbox, task image changes, sampling, context, repeat count, and reward-hacking checks.
+- Do not promote the 63.1% vendor SWE-bench Multilingual claim into routing policy without local Lore/code-review/security evals and current leaderboard verification.
+
+### Quality notes
+- Poolside is the model vendor. The release is useful because it exposes harness details, but benchmark and licensing claims need independent or local validation before routing changes.

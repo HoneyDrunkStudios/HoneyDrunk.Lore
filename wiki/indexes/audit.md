@@ -158,3 +158,12 @@ This keeps Lore decision-usable for Honeyclaw, Claude, and future agents.
 - contradictions resolved: none; provisional benchmark/chip claims were kept as scouting evidence with source-quality caveats.
 - privacy/safety filtering: exposed-endpoint abuse and Cursor RCE sources were summarized at risk/control level only; no payload prompts, unsafe commands, endpoint payloads, exploit steps, credentials, tokens, or private personal data were copied.
 - quality posture: Cognition/Devin/Thoughtworks/Unity sources are vendor or practice sources requiring local validation; Herdr is a project README; RealtimeVFX and Tech-Artists are low-detail community discovery; Game Developer and InfoQ are trade sources; Meta/Anthropic chip and model claims are secondary reporting.
+
+## 2026-07-06 Lore ingest/compile
+- operator: Honeyclaw scheduled ingest
+- raw sources ingested: 10
+- pages created: none
+- pages updated: [[agent-evaluation-and-benchmarks]], [[agentic-commerce-and-machine-payments]], [[ai-agent-harnesses]], [[ai-coding-agent-security]], [[azure-agent-automation-and-identity]], [[creative-automation-and-firefly-services]], [[gamedev-production-and-community-signals]], [[github-copilot-and-app-token-changes]], indexes, run output
+- contradictions resolved: none; all new claims extended existing pages and retained vendor/project-source caveats.
+- privacy/safety filtering: repo-forensics scanner examples and security categories were summarized defensively; no payloads, tokens, malicious URLs, or credential patterns were copied.
+- quality posture: GitHub/Microsoft/Adobe/Cloudflare sources are authoritative for their product posture but need tenant/local validation; Poolside/Cloudflare claims are vendor-authored; planning-with-files and repo-forensics are project README sources requiring install/hook review before adoption; Game Developer Carbon coverage requires primary repository/license review.

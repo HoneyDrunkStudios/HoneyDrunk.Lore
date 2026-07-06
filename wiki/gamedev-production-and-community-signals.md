@@ -566,3 +566,33 @@ The game-development community feed produced a mix of process advice, tooling ex
 
 ### Quality notes
 - Game Developer capture contains site boilerplate but recoverable article claims. Unity source is vendor-authored and promotional; useful for market-surface scouting only.
+
+## 2026-07-06 compile additions: EVE Online Carbon open source
+
+### Source-backed claims
+- Game Developer reports that Fenris Creations, formerly CCP Games, has open sourced Carbon, the cross-platform game-engine framework behind EVE Online's persistent universe, player-driven economy, and large-scale PvP battles. Source: `raw/2026-07-06-rss-game-developer-eve-online-s-cross-platform-game-engine-framework-is-no.md`. confidence: 1 trade/news source, last-confirmed 2026-07-06.
+- The report says the open-source release spans more than two dozen Carbon modules, including Destiny for physics simulation/pathfinding, Trinity for graphics, and components for networking, UI, audio, resource management, scripting, scheduling, and scalable-online-experience tooling. Source: `raw/2026-07-06-rss-game-developer-eve-online-s-cross-platform-game-engine-framework-is-no.md`. confidence: 1 source with press-release basis, last-confirmed 2026-07-06.
+- Fenris says it will continue using Carbon for EVE Online and the in-development space survival MMO EVE Frontier. Source: `raw/2026-07-06-rss-game-developer-eve-online-s-cross-platform-game-engine-framework-is-no.md`. confidence: 1 trade/news source, last-confirmed 2026-07-06.
+
+### Typed entities
+- company/studio: Fenris Creations
+- former company name: CCP Games
+- game: EVE Online
+- game: EVE Frontier
+- engine/framework: Carbon
+- module: Destiny
+- module: Trinity
+- concept: persistent virtual world
+- concept: large-scale PvP simulation
+
+### Explicit relationships
+- Carbon uses Destiny and Trinity as major subsystems for simulation/pathfinding and rendering.
+- Open-sourcing Carbon complements prior large-scale MMO architecture signals, but repository maturity, license terms, build tooling, and Windows ergonomics require primary inspection.
+- EVE Online's live-world architecture depends-on specialized simulation, networking, UI, scheduling, and resource-management systems rather than a renderer alone.
+
+### HoneyDrunk implications
+- Treat Carbon as a useful source-reading and architecture reference for persistent-world systems, not as an adoption candidate without deep repository review.
+- If HoneyDrunk studies MMO or large-scale simulation patterns, inspect Carbon modules directly for boundaries between simulation, rendering, tools, and operations.
+
+### Quality notes
+- Game Developer capture contains boilerplate and appears partly press-release based. Claims are useful for discovery; adoption or technical claims need the GitHub repositories and license review.

@@ -898,3 +898,21 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 - [[unity-3d-and-realtime-vfx-patterns]] - 52 sources - last-confirmed 2026-07-05
 - [[technical-art-community-and-talent-signals]] - 42 sources - last-confirmed 2026-07-05
 - [[browser-native-gpu-creative-tools]] - 3 sources - last-confirmed 2026-07-05
+
+## 2026-07-06 topic additions
+
+### Agent harnesses, evaluation, and security
+- [[ai-agent-harnesses]] - 145 sources - last-confirmed 2026-07-06
+- [[agent-evaluation-and-benchmarks]] - 30 sources - last-confirmed 2026-07-06
+- [[ai-coding-agent-security]] - 125 sources - last-confirmed 2026-07-06
+
+### GitHub Copilot and enterprise auditability
+- [[github-copilot-and-app-token-changes]] - 34 sources - last-confirmed 2026-07-06
+
+### Azure, creative automation, and machine payments
+- [[azure-agent-automation-and-identity]] - 29 sources - last-confirmed 2026-07-06
+- [[creative-automation-and-firefly-services]] - 3 sources - last-confirmed 2026-07-06
+- [[agentic-commerce-and-machine-payments]] - 2 sources - last-confirmed 2026-07-06
+
+### Game engine production
+- [[gamedev-production-and-community-signals]] - 41 sources - last-confirmed 2026-07-06

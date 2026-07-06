@@ -40,3 +40,33 @@ Agentic commerce moves AI from passive assistance toward software agents that ca
 ## Confidence and quality notes
 - Thoughtworks is a practice/market signal, not payment-network documentation. Verify product details with primary Mastercard/Visa/processor docs before implementation.
 - Privacy filter: no private payment data or credentials were present in the source.
+
+## 2026-07-06 compile additions: Cloudflare Monetization Gateway and x402
+
+### Source-backed claims
+- Cloudflare announced a Monetization Gateway intended to let customers charge for resources behind Cloudflare, including web pages, datasets, APIs, and MCP tools, with payment verification and enforcement at the edge. Source: `raw/2026-07-06-rss-tldr-devops-announcing-the-monetization-gateway-charge-for-any-resourc.md`. confidence: 1 Cloudflare product source, last-confirmed 2026-07-06.
+- At launch, Cloudflare says payments will settle in stablecoins over x402, an HTTP payment protocol that uses `402 Payment Required` responses containing price/payment instructions, followed by a request carrying proof of payment. Source: `raw/2026-07-06-rss-tldr-devops-announcing-the-monetization-gateway-charge-for-any-resourc.md`. confidence: 1 source, last-confirmed 2026-07-06.
+- Planned gateway capabilities include route/verb-specific pricing, variable pricing for complexity, charging unauthenticated callers by converting some `401 Unauthorized` paths into `402 Payment Required`, dashboard/API/Terraform management, and optional combination with Web Bot Auth. Source: `raw/2026-07-06-rss-tldr-devops-announcing-the-monetization-gateway-charge-for-any-resourc.md`. confidence: 1 product roadmap/source snapshot, last-confirmed 2026-07-06.
+
+### Typed entities
+- product: Cloudflare Monetization Gateway
+- protocol: x402
+- status code: HTTP 402 Payment Required
+- payment rail: stablecoin
+- control: payment rules API
+- control: Web Bot Auth
+- resource type: MCP tool
+- resource type: API endpoint
+- integration surface: Terraform
+
+### Explicit relationships
+- Monetization Gateway uses Cloudflare's proxy position to merge payment validation and request enforcement before origin traffic is served.
+- x402 complements agentic commerce by making payment proof part of the HTTP request/response loop rather than a separate checkout flow.
+- Machine payments depend-on identity, budget, fraud, receipt, reconciliation, and rollback policy; payment rails do not supersede governance.
+
+### HoneyDrunk implications
+- If HoneyDrunk exposes paid APIs, data, or MCP tools to agents, model each paid request as a transaction with actor identity, budget, receipt, tenant scope, and audit trail.
+- Do not let agents consume x402-gated resources without policy for wallet custody, stablecoin risk, spend caps, retries, and failed-payment behavior.
+
+### Quality notes
+- Cloudflare source is product-authored and partly forward-looking. It is strong evidence for market direction but not enough for implementation without current docs, pricing, legal, and settlement review.

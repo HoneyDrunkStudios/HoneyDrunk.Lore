@@ -1,82 +1,68 @@
-# Lore Ingest - Last Run
+# Lore Ingest Last Run
 
-Timestamp: 2026-07-05T08:45:00-04:00
-Mode: ingest/compile
+timestamp: 2026-07-06T10:04:55-04:00
+operator: Honeyclaw scheduled ingest via Codex
+operation: ingest and compile
 
-## Raw sources ingested
+## Raw Sources Ingested
 
-Count: 14
+count: 10
 
-- `raw/2026-07-05-rss-game-developer-enginefall-developer-red-rover-interactive-is-making-la.md`
-- `raw/2026-07-05-rss-realtimevfx-check-my-new-material-made-we-my-own-procedural-node-edito.md`
-- `raw/2026-07-05-rss-tech-artists-org-visual-workflow-builder-for-vfx-animation-pipelines.md`
-- `raw/2026-07-05-rss-thoughtworks-insights-reshaping-the-economics-of-software-development-.md`
-- `raw/2026-07-05-rss-tldr-ai-anthropic-exploring-a-samsung-chip-partnership-2-minute-read.md`
-- `raw/2026-07-05-rss-tldr-ai-autoresearch-the-feedback-loop-behind-self-improving-agents-11.md`
-- `raw/2026-07-05-rss-tldr-ai-meta-s-watermelon-matches-gpt-5-5-benchmarks-3-minute-read.md`
-- `raw/2026-07-05-rss-tldr-devops-argo-cd-3-5-tightens-supply-chain-security-with-internal-m.md`
-- `raw/2026-07-05-rss-tldr-devops-herdr-github-repo.md`
-- `raw/2026-07-05-rss-tldr-infosec-attackers-seize-exposed-ai-endpoints-to-power-offensive-o.md`
-- `raw/2026-07-05-rss-tldr-infosec-duneslide-two-critical-rce-vulnerabilities-via-zero-click.md`
-- `raw/2026-07-05-rss-unity-blog-games-made-with-unity-june-2026-in-review.md`
-- `raw/2026-07-05-web-cognition-introducing-devin-security-swarm.md`
-- `raw/2026-07-05-web-devin-agentic-mapreduce.md`
+- `raw/2026-07-06-rss-adobe-developer-blog-empower-users-to-create-better-content-with-the-a.md`
+- `raw/2026-07-06-rss-azure-blog-azure-sdk-release-june-2026.md`
+- `raw/2026-07-06-rss-game-developer-eve-online-s-cross-platform-game-engine-framework-is-no.md`
+- `raw/2026-07-06-rss-tldr-ai-introducing-laguna-xs-2-1-5-minute-read.md`
+- `raw/2026-07-06-rss-tldr-devops-announcing-the-monetization-gateway-charge-for-any-resourc.md`
+- `raw/2026-07-06-rss-tldr-devops-planning-with-files-github-repo.md`
+- `raw/2026-07-06-rss-tldr-infosec-repo-forensics-github-repo.md`
+- `raw/2026-07-06-web-github-changelog-copilot-agent-session-streaming-is-now-in-public-prev.md`
+- `raw/2026-07-06-web-github-changelog-copilot-vision-is-generally-available.md`
+- `raw/2026-07-06-web-github-changelog-kimi-k2-7-code-is-generally-available-in-github-copil.md`
 
-## Wiki pages created/updated
+## Wiki Pages Created Or Updated
 
-Created:
+created: none
 
-- None.
+updated:
 
-Updated:
-
+- `wiki/agent-evaluation-and-benchmarks.md`
+- `wiki/agentic-commerce-and-machine-payments.md`
 - `wiki/ai-agent-harnesses.md`
-- `wiki/ai-assisted-software-practice.md`
 - `wiki/ai-coding-agent-security.md`
-- `wiki/ai-research-automation-and-recursive-self-improvement.md`
-- `wiki/browser-native-gpu-creative-tools.md`
-- `wiki/container-supply-chain-and-compliance.md`
-- `wiki/edge-ai-and-ai-infrastructure-2026.md`
+- `wiki/azure-agent-automation-and-identity.md`
+- `wiki/creative-automation-and-firefly-services.md`
 - `wiki/gamedev-production-and-community-signals.md`
+- `wiki/github-copilot-and-app-token-changes.md`
 - `wiki/indexes/audit.md`
 - `wiki/indexes/gaps.md`
 - `wiki/indexes/sources.md`
 - `wiki/indexes/topics.md`
-- `wiki/technical-art-community-and-talent-signals.md`
-- `wiki/unity-3d-and-realtime-vfx-patterns.md`
 
-## Contradictions resolved
+## Contradictions Resolved
 
-- None. Provisional claims about Anthropic/Samsung chip discussions and Meta Watermelon benchmark parity were retained as scouting evidence with source-quality caveats, not promoted as confirmed current capability.
+None. New sources extended existing claims. Vendor benchmark, product-roadmap, and project README claims were retained with source-quality caveats rather than promoted as final adoption decisions.
 
-## Gaps logged
+## Gaps Logged
 
-Count: 8
-
-- Exposed model gateways or local inference endpoints needing auth, firewall, logs, and placeholder-key rejection review.
-- Coding-agent runtime exposure to untrusted MCP/search/browser content that could trigger prompt-injection-to-runtime exploit paths.
-- Whole-repo audit pattern using deterministic selectors, bounded shards, reducer synthesis, and runtime proof.
-- Herdr or similar terminal-native multi-agent session manager evaluation gates.
-- Spec-first artifacts required for AI-assisted modernization.
-- GitOps source-signature, dry/rendered source separation, and sync impersonation audit requirements.
-- Game production-health signals beyond funding and wishlist counts.
-- Technical-art node/workflow tools requiring repository, demo, license, and security review.
+- Embedded Adobe Express module suitability and governance for HoneyDrunk creator workflows.
+- Laguna XS 2.1 or local MoE model benchmarking on HoneyDrunk tasks.
+- x402/payment-gated machine-resource policy for agents.
+- File-backed planning adoption and hook opt-out policy for scheduled/one-shot jobs.
+- Pre-install scanner standard for third-party skills/plugins/MCP servers.
+- Copilot visual-input retention and usage-record streaming audit/redaction policy.
 
 ## Crystallization
 
 - Existing `output/query-*.md` files were checked by inventory. No query output required promotion in this pass.
-- Signal-review outputs remain episodic reporting artifacts; no new durable facts were crystallized from them in this compile.
+- `output/signal-review-*.md` files remain episodic reporting artifacts; no new durable facts were crystallized from signal reviews in this compile.
 
 ## Blockers
 
-- No content-quality blocker for the 14-source compile.
-- The worktree already contained pre-existing scheduled-job changes before this pass: `.obsidian/graph.json`, `output/lore-birdclaw-sourcing-last-run.md`, `output/lore-sourcing-last-run.md`, `output/signal-review-2026-06-28.md`, `output/signal-review-2026-07-03.md`, and `output/signal-review-2026-07-04.md`. They were not reverted.
-- The 2026-07-05 raw sources were untracked at run start and are part of the intended ingest commit.
+None for this compile pass.
 
-## Quality posture
+## Quality Posture
 
-- Raw files were treated as immutable and were not edited.
-- Claims were added with source links, confidence notes, typed entities, explicit relationships, HoneyDrunk implications, and quality caveats.
-- Security sources were summarized at control/policy level. No exploit payloads, prompt payloads, endpoint request bodies, unsafe commands, credentials, tokens, unsafe PII, or reusable bypass steps were copied into wiki pages.
-- Vendor, project, trade, and community sources were differentiated: Cognition/Devin/Thoughtworks/Unity sources need local validation; Herdr is project README evidence; RealtimeVFX and Tech-Artists are discovery-only community signals; Meta/Anthropic model and chip reports are secondary scouting evidence.
-- Decision-usefulness is good for backlog shaping around model endpoint exposure, agent security scanning, whole-repo audit design, spec-first modernization, GitOps integrity controls, game production health, and technical-art tool follow-up. Operational adoption still requires local validation.
+- Pages rewritten/flagged: none.
+- Weak claims: Poolside benchmark claims, Cloudflare Monetization Gateway roadmap details, planning-with-files/repo-forensics README claims, and Game Developer Carbon technical details require primary-source or local validation before adoption.
+- Privacy redactions: no secrets, credentials, tokens, unsafe PII, malicious payloads, or reusable exploit instructions were copied into wiki content.
+- Decision usefulness: high for GitHub/Microsoft product posture, useful scouting for Adobe embedding, Cloudflare machine payments, persistent planning, agent-supply-chain scanning, local coding models, and Carbon architecture.

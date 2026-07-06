@@ -1,55 +1,53 @@
 # Lore Sourcing - Last Run
 
-Timestamp: 2026-07-05T08:04:43
+Timestamp: 2026-07-06T08:08:54
 Mode: write
-Candidates scanned: 170
-Saved count: 14
-Skipped duplicate count: 42
-Failed source count: 2
+Candidates scanned: 164
+Saved count: 10
+Skipped duplicate count: 45
+Failed source count: 12
 Birdclaw blocker reported: yes
 
 ## Files written
-- raw/2026-07-05-rss-game-developer-enginefall-developer-red-rover-interactive-is-making-la.md
-- raw/2026-07-05-rss-realtimevfx-check-my-new-material-made-we-my-own-procedural-node-edito.md
-- raw/2026-07-05-rss-tech-artists-org-visual-workflow-builder-for-vfx-animation-pipelines.md
-- raw/2026-07-05-rss-thoughtworks-insights-reshaping-the-economics-of-software-development-.md
-- raw/2026-07-05-rss-tldr-ai-anthropic-exploring-a-samsung-chip-partnership-2-minute-read.md
-- raw/2026-07-05-rss-tldr-ai-autoresearch-the-feedback-loop-behind-self-improving-agents-11.md
-- raw/2026-07-05-rss-tldr-ai-meta-s-watermelon-matches-gpt-5-5-benchmarks-3-minute-read.md
-- raw/2026-07-05-rss-tldr-devops-argo-cd-3-5-tightens-supply-chain-security-with-internal-m.md
-- raw/2026-07-05-rss-tldr-devops-herdr-github-repo.md
-- raw/2026-07-05-rss-tldr-infosec-attackers-seize-exposed-ai-endpoints-to-power-offensive-o.md
-- raw/2026-07-05-rss-tldr-infosec-duneslide-two-critical-rce-vulnerabilities-via-zero-click.md
-- raw/2026-07-05-rss-unity-blog-games-made-with-unity-june-2026-in-review.md
-- raw/2026-07-05-web-cognition-introducing-devin-security-swarm.md
-- raw/2026-07-05-web-devin-agentic-mapreduce.md
+- raw/2026-07-06-rss-adobe-developer-blog-empower-users-to-create-better-content-with-the-a.md
+- raw/2026-07-06-rss-azure-blog-azure-sdk-release-june-2026.md
+- raw/2026-07-06-rss-game-developer-eve-online-s-cross-platform-game-engine-framework-is-no.md
+- raw/2026-07-06-rss-tldr-ai-introducing-laguna-xs-2-1-5-minute-read.md
+- raw/2026-07-06-rss-tldr-devops-announcing-the-monetization-gateway-charge-for-any-resourc.md
+- raw/2026-07-06-rss-tldr-devops-planning-with-files-github-repo.md
+- raw/2026-07-06-rss-tldr-infosec-repo-forensics-github-repo.md
+- raw/2026-07-06-web-github-changelog-copilot-agent-session-streaming-is-now-in-public-prev.md
+- raw/2026-07-06-web-github-changelog-copilot-vision-is-generally-available.md
+- raw/2026-07-06-web-github-changelog-kimi-k2-7-code-is-generally-available-in-github-copil.md
 
 ## Saved sources
-- [Game Development / Unity] Enginefall developer Red Rover Interactive is making layoffs - https://www.gamedeveloper.com/business/enginefall-developer-red-rover-interactive-is-making-layoffs
-- [Technical Art & Creator Tools] Check my new material made we my own procedural node editor - https://realtimevfx.com/t/check-my-new-material-made-we-my-own-procedural-node-editor/31225
-- [Technical Art & Creator Tools] Visual Workflow Builder for VFX/Animation Pipelines - https://www.tech-artists.org/t/visual-workflow-builder-for-vfx-animation-pipelines/18433
-- [Software Architecture] Reshaping the economics of software development: Building a future-ready core with Al/works™ - https://www.thoughtworks.com/insights/blog/legacy-modernization/reshaping-the-economics-of-software--building-a-future-ready-cor
-- [AI / LLM Research & Tooling] Anthropic Exploring a Samsung Chip Partnership (2 minute read) - https://techcrunch.com/2026/07/02/anthropic-is-discussing-a-new-custom-chip-with-samsung
-- [AI / LLM Research & Tooling] Autoresearch: The feedback loop behind self-improving agents (11 minute read) - https://www.latent.space/p/autoresearch-introspection
-- [AI / LLM Research & Tooling] Meta's Watermelon Matches GPT-5.5 Benchmarks (3 minute read) - https://letsdatascience.com/news/metas-watermelon-matches-gpt-55-benchmarks-76a9460e
-- [DevOps & CI/CD] Argo CD 3.5 Tightens Supply Chain Security with Internal mTLS and Source Integrity (3 minute read) - https://www.infoq.com/news/2026/06/argocd-supply-chain-security
-- [DevOps & CI/CD] Herdr (GitHub Repo) - https://github.com/ogulcancelik/herdr
-- [Security & Ethical Hacking] Attackers Seize Exposed AI Endpoints to Power Offensive Ops (3 minute read) - https://www.darkreading.com/cloud-security/attackers-hijack-exposed-ai-endpoints-power-offensive-ops
-- [Security & Ethical Hacking] DuneSlide: Two Critical RCE vulnerabilities via Zero-Click Prompt Injection in Cursor IDE (6 minute read) - https://www.catonetworks.com/blog/duneslide-two-critical-rce-vulnerabilities
-- [Game Development / Unity] Games made with Unity: June 2026 in review - https://unity.com/blog/games-made-with-unity-june-2026-releases
-- [AI / LLM Research & Tooling] Introducing Devin Security Swarm - https://cognition.com/blog/introducing-devin-security-swarm
-- [AI / LLM Research & Tooling] Agentic MapReduce - https://devin.ai/blog/agentic-map-reduce
+- [Technical Art & Creator Tools] Empower Users to Create Better Content with the Adobe Express Embed SDK - https://blog.developer.adobe.com/en/publish/2024/07/empower-users-to-create-better-content-with-the-adobe-express-embed-sdk
+- [Azure & Cloud] Azure SDK Release (June 2026) - https://devblogs.microsoft.com/azure-sdk/azure-sdk-release-june-2026/
+- [Game Development / Unity] EVE Online's cross-platform game engine framework is now fully open source - https://www.gamedeveloper.com/production/eve-online-s-cross-platform-game-engine-framework-is-now-fully-open-source
+- [AI / LLM Research & Tooling] Introducing Laguna XS 2.1 - https://poolside.ai/blog/introducing-laguna-xs-2-1
+- [DevOps & CI/CD] Announcing the Monetization Gateway: charge for any resource behind Cloudflare via x402 - https://blog.cloudflare.com/monetization-gateway
+- [DevOps & CI/CD] Planning-with-files - https://github.com/OthmanAdi/planning-with-files
+- [Security & Ethical Hacking] Repo-forensics - https://github.com/alexgreensh/repo-forensics
+- [Developer Tooling & AI Coding] Copilot agent session streaming is now in public preview - https://github.blog/changelog/2026-07-02-copilot-agent-session-streaming-is-now-in-public-preview
+- [Developer Tooling & AI Coding] Copilot vision is generally available - https://github.blog/changelog/2026-07-01-copilot-vision-is-generally-available
+- [Developer Tooling & AI Coding] Kimi K2.7 Code is generally available in GitHub Copilot - https://github.blog/changelog/2026-07-01-kimi-k2-7-is-now-available-in-github-copilot
 
 ## Failed sources
-- AINews / smol.ai: ParseError: not well-formed (invalid token): line 572, column 927
-- TLDR AI: skipped short content for X-only PorTAL candidate because social/X capture is not allowed in scheduled public sourcing
+- AINews / smol.ai: ParseError: not well-formed (invalid token): line 572, column 927.
+- Blender News: TimeoutError: read operation timed out.
+- Blender Releases: TimeoutError: read operation timed out.
+- TLDR AI: skipped short content for X-only candidate https://x.com/sethkarten/status/2072034978112889328.
+- OpenAI: skipped https://openai.com/index/how-agents-are-transforming-work because the page did not extract cleanly and only produced a short fallback stub.
 
-## Policy skips / replacements
-- Dropped ThreadReader/X-derived Devin Security Swarm capture; replaced with canonical Cognition and Devin written sources.
-- Dropped X-only PorTAL candidate; no canonical non-social written source found during this pass.
+## Policy skips / quality pruning
+- Removed TLDR AI ZCode and PorTAL captures because they resolved to direct X URLs.
+- Removed TLDR AI Devin Security Swarm because it resolved to ThreadReader/X-derived content and the canonical Cognition/Devin sources were already clipped on 2026-07-05.
+- Removed RealtimeVFX MD's VFX Sketchbook because the extracted body was too shallow for durable technical-art knowledge.
+- Removed TestingCatalog Gemini Flash LM Arena item because it was an unconfirmed rumor, not durable technical guidance.
+- Removed Nextgov DHS breach item because it was current-event breach reporting without reusable HoneyDrunk appsec, identity, API, or cloud-security technique.
+- Removed Game Developer Cyberpunk sales newsbrief because it was low-actionability business news rather than game-dev production or tooling guidance.
 
 ## Notes
 - Public website/RSS sourcing only; no raw-to-wiki compile was run.
 - Birdclaw live refresh was blocked; stale local cache conversion was not used.
 - No Discord, podcast, YouTube, browser-backed, or direct X captures were saved.
-- Fresh .NET and Azure candidates were duplicate-saturated against existing raw/index sources in this run.

@@ -1310,3 +1310,37 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 ### Privacy and quality notes
 - Exploit details were summarized at control level. No payload prompts, target names beyond public product/project names, commands, endpoint payloads, or reusable bypass steps were copied.
 - Zenity, Cato, and Cognition have vendor/product interests; use these sources for threat modeling and candidate workflow design, then validate locally.
+
+## 2026-07-06 compile additions: repo-forensics and agent-skill supply-chain scanning
+
+### Source-backed claims
+- `repo-forensics` describes itself as a local, zero-dependency scanner for AI-agent plugins, skills, MCP servers, and repositories, with Claude Code, Codex, OpenClaw, and CLI integration paths. Source: `raw/2026-07-06-rss-tldr-infosec-repo-forensics-github-repo.md`. confidence: 1 project README source, last-confirmed 2026-07-06.
+- The project claims hook-based protection across PreToolUse, PostToolUse, and SessionStart: blocking known malicious packages before execution, scanning after clone/install/update operations, and checking changed plugins/skills/MCP servers at session start. Source: `raw/2026-07-06-rss-tldr-infosec-repo-forensics-github-repo.md`. confidence: 1 project README source, last-confirmed 2026-07-06.
+- The scanner taxonomy covers prompt injection, tool/schema poisoning, MCP security, lifecycle hooks, dependency and lockfile analysis, secrets, taint to network sinks, bytecode/archive/oversize payloads, Git forensics, devcontainer risk, and agent-stack inventory. Source: `raw/2026-07-06-rss-tldr-infosec-repo-forensics-github-repo.md`. confidence: 1 project README source, last-confirmed 2026-07-06.
+- The README's malware campaign counts, test counts, and detection coverage are self-reported project claims; treat them as scouting evidence until independently run on known fixtures or HoneyDrunk-relevant repos. Source: `raw/2026-07-06-rss-tldr-infosec-repo-forensics-github-repo.md`. confidence: 1 source with validation-required caveat, last-confirmed 2026-07-06.
+
+### Typed entities
+- project/tool: repo-forensics
+- hook: PreToolUse
+- hook: PostToolUse
+- hook: SessionStart
+- scanner category: skill threats
+- scanner category: MCP security
+- scanner category: dataflow
+- scanner category: git forensics
+- scanner category: archive scanning
+- scanner category: bytecode poisoning
+- scanner category: dead anchors
+- concept: agent-stack inventory
+
+### Explicit relationships
+- Repo/scanner hooks complement manual plugin review by catching known IOCs and structural supply-chain patterns at clone, install, update, and session boundaries.
+- Agent-skill supply-chain security depends-on scanning prompt text, manifests, tool schemas, install hooks, dependencies, bytecode, archives, and credential paths, not only package names.
+- Self-reported scanner coverage does not supersede local validation against HoneyDrunk threat models and false-positive tolerance.
+
+### HoneyDrunk implications
+- Before installing third-party skills/plugins/MCP servers, require a local audit path that inspects manifests, hooks, network behavior, dependency sources, credentials, and prompt/tool metadata.
+- If HoneyDrunk adopts repo-forensics or a similar scanner, test it on Windows, Codex/OpenClaw plugin directories, private repos, and noisy benign repositories before making it a blocking gate.
+
+### Privacy and quality notes
+- Security examples were summarized at scanner/control level. No malicious package payloads, webhook URLs, executable snippets, or credential patterns were promoted beyond defensive categories.

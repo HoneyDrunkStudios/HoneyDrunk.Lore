@@ -367,3 +367,35 @@ Two GitHub platform changes affect automation cost and compatibility: GitHub App
 
 ### Quality notes
 - GitHub changelog sources are authoritative for feature posture as captured. Verify current VS Code/GitHub plan settings and policy names before rollout.
+
+## 2026-07-06 compile additions: Copilot vision, open-weight model picker, and usage-record streaming
+
+### Source-backed claims
+- GitHub Copilot vision is generally available and supports attaching images and PDFs to chat prompts across VS Code, github.com Copilot Chat, and Copilot CLI. Source: `raw/2026-07-06-web-github-changelog-copilot-vision-is-generally-available.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-07-06.
+- Copilot vision is available on Free, Pro, Pro+, Business, and Enterprise plans by default; Business and Enterprise image/PDF attachments are retained for approximately 24 hours to provide the service. Source: `raw/2026-07-06-web-github-changelog-copilot-vision-is-generally-available.md`. confidence: 1 source, last-confirmed 2026-07-06.
+- Kimi K2.7 Code is generally available in GitHub Copilot as the first open-weight model offered in the Copilot model picker, with initial rollout to individual paid plans and later expansion planned for Business, Enterprise, and more surfaces; Business/Enterprise admins must enable the Kimi policy. Source: `raw/2026-07-06-web-github-changelog-kimi-k2-7-code-is-generally-available-in-github-copil.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-07-06.
+- Copilot agent session streaming/API is in public preview for GitHub Enterprise Cloud customers with enterprise managed users, exposing prompts, responses, and tool-call data across Copilot clients through audit-log streaming or a REST endpoint for the last 48 hours. Source: `raw/2026-07-06-web-github-changelog-copilot-agent-session-streaming-is-now-in-public-prev.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-07-06.
+
+### Typed entities
+- feature: GitHub Copilot vision
+- file type: JPEG / PNG / GIF / WebP / PDF
+- model: Kimi K2.7 Code
+- control: Kimi K2.7 Code policy
+- feature: Copilot Usage Records Streaming
+- feature/API: Copilot Usage Records API
+- endpoint: `GET /enterprises/{enterprise}/copilot/usage-records`
+- destination: Microsoft Purview
+- plan: GitHub Enterprise Cloud with enterprise managed users
+
+### Explicit relationships
+- Copilot vision complements browser and coding-agent surfaces by letting Copilot reason over visual artifacts and PDFs, but attachment retention creates a data-governance consideration.
+- Kimi K2.7 Code adds open-weight model choice inside Copilot, but Business/Enterprise use depends-on admin policy and data-governance review.
+- Copilot usage-record streaming/API complements agent governance by making prompts, responses, and tool calls available for enterprise audit pipelines.
+
+### HoneyDrunk implications
+- Treat images and PDFs passed to Copilot as retained service inputs for at least the captured policy window; avoid unreleased/private visuals unless the retention posture is accepted.
+- Before enabling Kimi K2.7 Code in any HoneyDrunk organization, review open-weight model policy, billing, available surfaces, and expected quality for code review tasks.
+- If HoneyDrunk uses Enterprise Managed Users, Copilot usage-record streaming is a candidate audit layer for agent sessions, subject to redaction, SIEM storage, and access policy.
+
+### Quality notes
+- GitHub changelog sources are authoritative snapshots for feature availability and policy as of 2026-07-06. Verify tenant plan, rollout state, retention wording, and billing before operational changes.

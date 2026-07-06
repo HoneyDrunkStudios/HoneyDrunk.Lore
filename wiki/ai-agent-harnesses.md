@@ -1098,3 +1098,36 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - Introspection is an interview source, Herdr is a project README, and Cognition/Devin sources are vendor-authored. All are useful harness-shape signals, but claims about reliability, recall, cost, and productivity require local validation.
+
+## 2026-07-06 compile additions: persistent planning files and local MoE coding models
+
+### Source-backed claims
+- `planning-with-files` v3.x presents a file-backed planning skill for coding agents that keeps `task_plan.md`, `findings.md`, and `progress.md` on disk, with opt-in autonomous/gated modes, attestation, completion checks, session recovery, and cross-agent install surfaces. Source: `raw/2026-07-06-rss-tldr-devops-planning-with-files-github-repo.md`. confidence: 1 project README source, last-confirmed 2026-07-06.
+- The project added `PLANNING_DISABLED=1` to avoid hijacking one-shot or nested agent runs that merely share a working directory with an incomplete plan, a useful reminder that persistent context hooks need explicit opt-out boundaries. Source: `raw/2026-07-06-rss-tldr-devops-planning-with-files-github-repo.md`. confidence: 1 project README/release-note source, last-confirmed 2026-07-06.
+- Laguna XS 2.1 is a 33B-A3B MoE coding model with local-serving support across vLLM, SGLang, TensorRT-LLM, Transformers, Ollama, and planned llama.cpp/GGUF support, plus FP8/INT4/NVFP4 checkpoints and DFlash speculators intended to improve throughput. Source: `raw/2026-07-06-rss-tldr-ai-introducing-laguna-xs-2-1-5-minute-read.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 vendor/model release source, last-confirmed 2026-07-06.
+
+### Typed entities
+- skill/project: planning-with-files
+- file: `task_plan.md`
+- file: `findings.md`
+- file: `progress.md`
+- control: attestation gate
+- environment variable: `PLANNING_DISABLED`
+- model: Laguna XS 2.1
+- serving runtime: vLLM
+- serving runtime: SGLang
+- serving runtime: NVIDIA TensorRT-LLM
+- serving runtime: Ollama
+- artifact: DFlash speculator model
+
+### Explicit relationships
+- Persistent planning files complement transient todo/context tools by storing execution state outside the model context window.
+- Planning hooks depend-on activation, attestation, and opt-out controls; otherwise shared cwd state can interfere with unrelated one-shot agents.
+- Local coding models complement agent harness work only when the runtime, quantization, context length, throughput, and evaluation harness match the task.
+
+### HoneyDrunk implications
+- For Honeyclaw/OpenClaw long-running tasks, file-backed planning is an attractive pattern, but any hook must avoid surprising scheduled/one-shot jobs and must record when it is active.
+- Evaluate local coding models as a runtime swap only after the harness evidence exists: task set, tools, cost, latency, context, and review burden.
+
+### Quality notes
+- `planning-with-files` is a project README with extensive self-reporting; review install scripts/hooks before use. Laguna XS 2.1 is vendor-authored and requires local evals before routing decisions.

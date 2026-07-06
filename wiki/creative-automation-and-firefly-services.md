@@ -64,3 +64,36 @@ Adobe Photoshop API v2 in Firefly Services is now a production-oriented creative
 
 ### Quality notes
 - Adobe source is an older developer example clipped on 2026-06-20. Use it as workflow-shape evidence, while checking current Photoshop/Firefly Services docs before implementation.
+
+## 2026-07-06 compile additions: embedded Adobe Express creation surfaces
+
+### Source-backed claims
+- Adobe Express Embed SDK lets partner web apps embed Adobe Express editing and AI capabilities through workflow-specific classes for the full editor, quick actions, and modules. Source: `raw/2026-07-06-rss-adobe-developer-blog-empower-users-to-create-better-content-with-the-a.md`. confidence: 1 Adobe developer blog source, last-confirmed 2026-07-06.
+- Adobe Express modules expose narrower, task-focused editing experiences such as Generate Image and Edit Image, including Firefly-powered generation, reference-image influence, background removal, filters, opacity, and Generative Fill. Source: `raw/2026-07-06-rss-adobe-developer-blog-empower-users-to-create-better-content-with-the-a.md`. confidence: 1 source, last-confirmed 2026-07-06.
+- The source says additional modules such as Generate Template, Edit Video, Edit Template, Generate Vector, mobile web support, and native mobile app support are planned, so roadmap-dependent claims should be rechecked before implementation. Source: `raw/2026-07-06-rss-adobe-developer-blog-empower-users-to-create-better-content-with-the-a.md`. confidence: 1 roadmap/source snapshot, last-confirmed 2026-07-06.
+
+### Typed entities
+- SDK: Adobe Express Embed SDK
+- product: Adobe Express
+- model family: Adobe Firefly
+- module: Generate Image
+- module: Edit Image
+- planned module: Generate Template
+- planned module: Edit Video
+- planned module: Edit Template
+- planned module: Generate Vector
+- partner/platform: Kajabi Creator Studio
+- partner/platform: LINE Creative Lab
+- partner/platform: presono
+
+### Explicit relationships
+- Adobe Express Embed SDK complements Photoshop API automation by putting creation/editing controls inside user-facing apps rather than only server-side pipelines.
+- Quick actions and modules reduce integration surface when the host app needs a specific edit rather than a full design editor.
+- Firefly-powered modules depend-on Adobe commercial-use, licensing, and content policy posture before HoneyDrunk can rely on generated outputs.
+
+### HoneyDrunk implications
+- For creator-facing or marketing workflows, evaluate whether embedded Express modules can reduce custom editor work while keeping users inside a HoneyDrunk-owned surface.
+- Treat embedded creation controls as a product UX and governance decision: export rights, brand constraints, review flow, mobile support, and cost need validation.
+
+### Quality notes
+- Adobe source is product-authored and partly roadmap-oriented. Use it for integration-shape scouting, then verify current SDK docs and terms before adoption.

@@ -482,3 +482,30 @@ Azure's May 2026 agent/developer tooling signal is that agent automation is movi
 
 ### Quality notes
 - Microsoft source is authoritative for release notes. Validate installed `azd` version and preview status before relying on a feature in CI.
+
+## 2026-07-06 compile additions: Azure SDK June 2026
+
+### Source-backed claims
+- Azure SDK June 2026 release notes announce Python `azure-ai-transcription` 1.0.0 GA as the first stable client library for Azure AI Transcription. Source: `raw/2026-07-06-rss-azure-blog-azure-sdk-release-june-2026.md`. confidence: 1 Microsoft Azure SDK release source, last-confirmed 2026-07-06.
+- The same release announces Python `azure-planetarycomputer` 1.0.0 GA with richer response models and a breaking rename from `StacOperations.list_collections` to `StacOperations.get_collections`. Source: `raw/2026-07-06-rss-azure-blog-azure-sdk-release-june-2026.md`. confidence: 1 Microsoft source, last-confirmed 2026-07-06.
+- June 2026 initial beta packages include Agent Server - Optimization and AI Discovery for Python plus Discovery and File Shares management libraries, reinforcing that Azure agent/data-plane SDKs are still adding preview surfaces around optimization and discovery. Source: `raw/2026-07-06-rss-azure-blog-azure-sdk-release-june-2026.md`. confidence: 1 release-note source, last-confirmed 2026-07-06.
+
+### Typed entities
+- package: `azure-ai-transcription` 1.0.0
+- package: `azure-planetarycomputer` 1.0.0
+- operation: `StacOperations.get_collections`
+- preview package: Agent Server - Optimization 1.0.0b1
+- preview package: AI Discovery 1.0.0b1
+- management package: Resource Management - Discovery 1.0.0b1
+- management package: Resource Management - File Shares 1.0.0b1
+
+### Explicit relationships
+- Stable Azure SDK clients supersede preview client assumptions for transcription and Planetary Computer integrations.
+- Agent Server optimization and AI Discovery beta packages complement earlier Agent Server preview notes but do not supersede the need for preview-stability review.
+
+### HoneyDrunk implications
+- If HoneyDrunk needs speech transcription or geospatial/planetary data workflows, use the GA Python clients as the baseline and check breaking API names before upgrading.
+- Keep Agent Server optimization and AI Discovery on the watchlist, but do not promote preview SDKs into production agent infrastructure without auth, logging, and package-stability review.
+
+### Quality notes
+- Microsoft release notes are authoritative for package release posture as of 2026-07-06. Recheck package docs before implementation because SDK releases are monthly and preview packages can churn.
