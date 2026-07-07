@@ -924,3 +924,40 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - README/project source; useful for candidate discovery, not approval. Validate release maturity, license, install scripts, default security settings, and runtime behavior before adoption.
+
+## 2026-07-07 compile additions: .NET MCP packaging, tool-call schema discipline, and execution-layer MCP security
+
+### Source-backed claims
+- Microsoft.Extensions.AI treats tools as provider-agnostic function definitions that are serialized into model requests; descriptions and method metadata count against the token budget and should be limited to relevant tools for a conversation. Source: `raw/2026-07-07-web-ai-tool-calling-net.md`; page: [[microsoft-dotnet-ai-stack]]. confidence: 1 Microsoft Learn source, last-confirmed 2026-07-07.
+- Microsoft's .NET MCP server quickstart creates a template app with `Program.cs`, sample tool classes, optional stdio/HTTP transport, client-side Copilot configuration, environment-variable inputs, NuGet package publication, and package-discovery JSON for VS Code. Source: `raw/2026-07-07-web-quickstart-create-a-minimal-mcp-server-and-publish-to-nuget-net.md`; page: [[microsoft-dotnet-ai-stack]]. confidence: 1 Microsoft Learn source, last-confirmed 2026-07-07.
+- n8n's MCP security source groups MCP risks into prompt injection, tool poisoning, confused deputy, token passthrough, session hijacking, excessive permissions, command injection, and SSRF; it argues production deployments need an execution-layer control plane for scoping, credential custody, and logging. Source: `raw/2026-07-07-web-mcp-server-security-how-to-identify-and-mitigate-risks.md`; page: [[ai-coding-agent-security]]. confidence: 1 vendor/practice source, last-confirmed 2026-07-07.
+- The n8n source recommends signing or pinning tool definitions, limiting dynamic registration, accepting only tokens issued to the MCP server, using HTTPS for OAuth URLs, minimizing scopes, and exposing individual tools or sub-workflows rather than whole APIs. Source: `raw/2026-07-07-web-mcp-server-security-how-to-identify-and-mitigate-risks.md`. confidence: 1 source, last-confirmed 2026-07-07.
+- Armin Ronacher's tool-schema source reports that newer Anthropic models sometimes produced semantically correct edit payloads with extra invalid fields for a nested edit schema, while strict tool invocation eliminated the issue in his runs; treat as practitioner evidence about harness/schema fit. Source: `raw/2026-07-07-web-better-models-worse-tools.md`; page: [[ai-agent-harnesses]]. confidence: 1 practitioner source, last-confirmed 2026-07-07.
+
+### Typed entities
+- framework/library: Microsoft.Extensions.AI / MEAI
+- template package: `Microsoft.McpServer.ProjectTemplates`
+- registry/package host: NuGet.org
+- control: execution-layer MCP control plane
+- attack class: prompt injection
+- attack class: MCP tool poisoning
+- attack class: confused deputy
+- attack class: token passthrough
+- control: strict tool invocation / grammar-constrained tool calling
+- concept: dynamic tool registration
+
+### Explicit relationships
+- .NET MCP templates complement custom server code by standardizing project shape, transport selection, NuGet metadata, and Copilot client configuration.
+- Tool descriptions depend-on token budget and metadata trust; more available tools can raise both cost and attack surface.
+- MCP tool poisoning is caused by mutable tool definitions or descriptions changing after approval; signing, pinning, and dynamic-registration review mitigate the drift.
+- Execution-layer gateways/workflows complement protocol-level auth because they can hold credentials, bind parameters, narrow tool surfaces, and log every call.
+- Strict/constrained tool invocation can supersede tolerant parsing when model post-training makes alternative tool schemas brittle.
+
+### HoneyDrunk implications
+- Prefer narrow MCP tools with explicit parameter binding over broad API wrappers, especially for Slack, GitHub, Azure, payments, storage, or production operations.
+- For .NET MCP servers, treat `.mcp/server.json`, NuGet package metadata, environment-variable declarations, and Copilot `mcp.json` snippets as reviewed security artifacts.
+- Record approved MCP server versions, tool descriptions, transport, auth issuer, scopes, and dynamic-registration policy so metadata drift is visible.
+- Where providers support strict schemas, use them for mutating tools or nested object payloads; tolerant harness repair should be deliberate and logged, not accidental.
+
+### Quality notes
+- Microsoft Learn is authoritative for its SDK/templates. n8n is vendor-authored and should be validated against primary MCP/OAuth specs. Ronacher is practitioner evidence from specific model/harness behavior.

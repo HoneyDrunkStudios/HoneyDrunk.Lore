@@ -560,3 +560,38 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - Poolside is the model vendor. The release is useful because it exposes harness details, but benchmark and licensing claims need independent or local validation before routing changes.
+
+## 2026-07-07 compile additions: EEE community evals, ScarfBench, and validation-first migration
+
+### Source-backed claims
+- Hugging Face and EvalEval's Every Eval Ever integration records evaluation results in a common JSON schema with runner, model, access method, generation settings, metric meaning, and optional per-sample JSONL, then maps compatible results into Hugging Face Community Evals model-card YAML. Source: `raw/2026-07-07-web-featuring-every-eval-ever-results-on-hugging-face-model-pages.md`. confidence: 1 Hugging Face source, last-confirmed 2026-07-07.
+- The EEE source says the datastore contains roughly 229,000 evaluation results across more than 22,000 models and 2,200 benchmarks from 31 reporting formats; these numbers are a snapshot and should not be treated as static. Source: `raw/2026-07-07-web-featuring-every-eval-ever-results-on-hugging-face-model-pages.md`. confidence: 1 source, last-confirmed 2026-07-07.
+- The EEE-to-Community-Evals converter audits existing `.eval_results` files and open PRs, flags existing scores, score conflicts, and missing models, writes local previews, and requires an explicit `OPEN PRS` confirmation before opening pull requests. Source: `raw/2026-07-07-web-featuring-every-eval-ever-results-on-hugging-face-model-pages.md`. confidence: 1 source, last-confirmed 2026-07-07.
+- IBM/Hugging Face ScarfBench evaluates AI agents on Enterprise Java framework migration across Spring, Jakarta EE, and Quarkus by requiring build, deploy, and behavioral validation rather than only reference-code similarity. Source: `raw/2026-07-07-web-scarfbench-benchmarking-ai-agents-for-enterprise-java-framework-migrat.md`; page: [[ai-assisted-software-practice]]. confidence: 1 Hugging Face/IBM Research source, last-confirmed 2026-07-07.
+- ScarfBench reports that agent self-assessment can be unreliable: in the captured example Claude Code reported 29 of 30 whole-application builds as successful, but independent verification found only 22 built successfully, while the one self-reported failure built correctly. Source: `raw/2026-07-07-web-scarfbench-benchmarking-ai-agents-for-enterprise-java-framework-migrat.md`. confidence: 1 source, last-confirmed 2026-07-07.
+
+### Typed entities
+- project/schema: Every Eval Ever / EEE
+- organization: EvalEval Coalition
+- platform: Hugging Face Community Evals
+- directory: `.eval_results/`
+- control: explicit `OPEN PRS` confirmation
+- benchmark: ScarfBench / Self-Contained Application Refactoring Benchmark
+- ecosystem/framework: Spring
+- ecosystem/framework: Jakarta EE
+- ecosystem/framework: Quarkus
+- validation stage: build -> deploy -> behavioral test
+
+### Explicit relationships
+- EEE complements model cards by preserving full structured evaluation records while Hugging Face Community Evals puts scores where model users inspect them.
+- Eval publication depends-on duplicate/conflict detection and explicit PR approval so stale or conflicting scores do not silently overwrite prior evidence.
+- ScarfBench complements bug-fixing/code-generation benchmarks by testing framework semantics, dependency migration, build systems, deployment, and runtime behavior.
+- Build success alone overestimates modernization success; deploy and behavioral validation supersede agent self-reporting.
+
+### HoneyDrunk implications
+- For HoneyDrunk model evals, store runner, model, access path, settings, task, metric semantics, source URLs, and per-sample artifacts where possible.
+- Treat agent-reported "done" as weak evidence for migrations; require independent build, deploy/startup, and behavioral checks.
+- If HoneyDrunk builds modernization evals, include environment/tooling failure classes because ScarfBench shows Docker cache, port connectivity, Maven wrapper, and build tooling can dominate outcomes.
+
+### Quality notes
+- Hugging Face source is product/community infrastructure guidance. IBM/HF source is benchmark/research promotion but includes useful validation design; reproduce on HoneyDrunk stacks before adopting as a routing gate.

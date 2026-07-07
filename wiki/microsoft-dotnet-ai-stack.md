@@ -606,3 +606,33 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 
 ### Quality notes
 - Microsoft sources are authoritative for examples and package direction, but GitHub Agentic Workflows and MCP hosting behavior should be verified in the active environment.
+
+## 2026-07-07 compile additions: .NET tool calling and NuGet MCP server template
+
+### Source-backed claims
+- Microsoft.Extensions.AI models tool calling through provider-agnostic `AIFunction`, `AIFunctionFactory`, `IChatClient`, `ChatOptions`, and `FunctionInvokingChatClient` abstractions; tools may wrap .NET methods, external APIs, data stores, or MCP servers. Source: `raw/2026-07-07-web-ai-tool-calling-net.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 Microsoft Learn source, last-confirmed 2026-07-07.
+- `FunctionInvokingChatClient` can run the function-invocation loop and supports parallel function calling when the selected model/provider supports it, reducing manual loop code but still depending on provider/model behavior. Source: `raw/2026-07-07-web-ai-tool-calling-net.md`. confidence: 1 source, last-confirmed 2026-07-07.
+- Microsoft's .NET MCP quickstart uses the preview `Microsoft.McpServer.ProjectTemplates` package, requires .NET 10 or later for the template and `dnx`, supports stdio and HTTP transports, and can publish stdio MCP servers to NuGet with MCP metadata in `.mcp/server.json`. Source: `raw/2026-07-07-web-quickstart-create-a-minimal-mcp-server-and-publish-to-nuget-net.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 Microsoft Learn source, last-confirmed 2026-07-07.
+
+### Typed entities
+- library: Microsoft.Extensions.AI / MEAI
+- type: `AIFunction`
+- type: `AIFunctionFactory`
+- type: `FunctionInvokingChatClient`
+- package/template: `Microsoft.McpServer.ProjectTemplates`
+- command/runtime: `dnx`
+- file: `.mcp/server.json`
+- registry/package host: NuGet.org
+
+### Explicit relationships
+- MEAI tool calling complements MCP by letting .NET applications expose local methods and MCP-backed operations through one chat-client abstraction.
+- `FunctionInvokingChatClient` supersedes hand-written function-call loops for straightforward cases, but it does not supersede schema validation, authorization, or provider support checks.
+- NuGet package distribution can make .NET MCP servers discoverable by clients, but depends-on package identity, environment-variable declarations, transport choice, and versioned server metadata.
+
+### HoneyDrunk implications
+- For HoneyDrunk .NET agents, keep tool definitions small and task-scoped because tool descriptions consume context and cost.
+- Treat model-generated function arguments as untrusted: the Microsoft source explicitly warns that models may hallucinate arguments not described in definitions.
+- Before publishing a HoneyDrunk MCP server to NuGet, verify .NET 10 availability, `dnx` behavior, package IDs, generated `.mcp/server.json`, environment-variable secrecy, and stdio-vs-HTTP trust boundaries.
+
+### Quality notes
+- Microsoft Learn is authoritative for .NET direction, but package template preview status, .NET 10 SDK behavior, and MCP Registry schema details are time-sensitive.

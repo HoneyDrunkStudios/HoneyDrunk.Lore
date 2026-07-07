@@ -771,3 +771,35 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - Both sources are secondary reporting/aggregation. No model or hardware procurement decisions should rely on these claims without primary docs and local benchmarks.
+
+## 2026-07-07 compile additions: data sovereignty and distributed cloud-native control
+
+### Source-backed claims
+- CNCF's data-sovereignty source argues that sovereignty is jurisdictional control rather than simple data residency: region placement can keep data local while parent-company legal obligations may still create external access risk. Source: `raw/2026-07-07-web-how-data-sovereignty-is-changing-cloud-native-infrastructure-design.md`; page: [[cloud-sovereignty-and-platform-governance]]. confidence: 1 CNCF blog/practice source, last-confirmed 2026-07-07.
+- The source frames Kubernetes, OpenStack, GitOps, policy-as-code, OPA/Gatekeeper, Kyverno, SBOMs, image signing, and local reconciliation as a pattern for sovereign platforms where compliance becomes enforceable platform behavior. Source: `raw/2026-07-07-web-how-data-sovereignty-is-changing-cloud-native-infrastructure-design.md`. confidence: 1 source, last-confirmed 2026-07-07.
+- The source says AI training and federated learning are increasingly evaluated through the same sovereignty lens as data, because training can happen where data resides while only aggregated updates cross jurisdictional boundaries. Source: `raw/2026-07-07-web-how-data-sovereignty-is-changing-cloud-native-infrastructure-design.md`. confidence: 1 source, last-confirmed 2026-07-07.
+
+### Typed entities
+- concept: data sovereignty
+- law/framework: U.S. CLOUD Act
+- proposed framework: EU Cloud and AI Development Act / CADA
+- platform: Kubernetes
+- platform: OpenStack
+- practice: GitOps
+- policy engine: OPA/Gatekeeper
+- policy engine: Kyverno
+- concept: federated learning
+
+### Explicit relationships
+- Data sovereignty depends-on jurisdictional control, operational control, supply-chain transparency, portability, and resilience, not only cloud region.
+- Kubernetes policy enforcement complements OpenStack sovereign infrastructure by joining workload placement policy to operator-controlled compute/storage/network/identity.
+- GitOps complements sovereignty by making per-jurisdiction desired state reviewed, local, auditable, and continuously reconciled.
+- Federated learning complements sovereign AI because it can keep training data local while sharing only approved model updates.
+
+### HoneyDrunk implications
+- If HoneyDrunk handles regulated customer or AI-training data, classify controls by residency, jurisdiction, operator access, supply chain, portability, and audit evidence.
+- Treat "hosted in region X" as insufficient evidence for sovereignty-sensitive workloads unless legal/control-plane ownership and support access are also reviewed.
+- Keep platform policy-as-code and GitOps provenance in mind before moving sensitive workloads to managed services that centralize control outside the required jurisdiction.
+
+### Quality notes
+- CNCF blog is practice guidance and regulatory interpretation; verify legal obligations with counsel before applying to customer commitments.

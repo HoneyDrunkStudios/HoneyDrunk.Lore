@@ -824,3 +824,35 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Thoughtworks is a practice/vendor source and cites a Constellation Research report. Treat productivity multipliers and platform-specific claims as vendor-positioned until reproduced with HoneyDrunk workloads.
+
+## 2026-07-07 compile additions: harness engineering, schema fit, and migration validation
+
+### Source-backed claims
+- Martin Fowler's July 6 fragment says the agentic-development conversation has moved from "whether" toward production practice, with harness engineering, token-cost pressure, and architecture-as-agent-experience becoming recurring topics. Source: `raw/2026-07-07-web-fragments-july-6.md`; page: [[ai-agent-harnesses]]. confidence: 1 practitioner/curator source, last-confirmed 2026-07-07.
+- Fowler records an example workflow: discuss a backlog story with an agent, agree on direction, create an ADR as persistent specification, generate a task list, have the agent complete it, then preserve explanatory documentation or overnight quality reports for humans. Source: `raw/2026-07-07-web-fragments-july-6.md`. confidence: 1 source, last-confirmed 2026-07-07.
+- Ronacher's tool-schema report says newer models may be highly capable at task reasoning while less faithful to alternative nested tool schemas, especially when provider post-training makes one dominant harness shape familiar. Source: `raw/2026-07-07-web-better-models-worse-tools.md`; page: [[ai-agent-harnesses]]. confidence: 1 practitioner source, last-confirmed 2026-07-07.
+- ScarfBench frames enterprise framework migration as a dependency-resolution and runtime-validation problem rather than pure code transformation; compile success consistently exceeded deploy success, which exceeded behavioral success. Source: `raw/2026-07-07-web-scarfbench-benchmarking-ai-agents-for-enterprise-java-framework-migrat.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 benchmark source, last-confirmed 2026-07-07.
+
+### Typed entities
+- concept: harness engineering
+- concept: token-cost pressure
+- artifact: ADR
+- artifact: task list
+- artifact: overnight quality report
+- concept: tool-schema fit
+- benchmark: ScarfBench
+- validation flow: compile -> deploy -> behavioral test
+
+### Explicit relationships
+- Agent productivity depends-on harness, architecture, context cost, and review artifacts, not only model capability.
+- ADRs and task lists complement agent execution by turning discussion into reviewable persistent intent.
+- Strict/constrained tool schemas complement AI-assisted coding because malformed tool calls can block otherwise correct work.
+- Migration tasks depend-on configuration, infrastructure, database, service, and web-layer iteration; source-to-source rewrite alone is insufficient.
+
+### HoneyDrunk implications
+- Preserve design intent and task boundaries before delegation, especially when agent work will outlive the session.
+- Use token cost and change locality as weak-but-useful design-quality signals for agent-maintained codebases.
+- For modernization work, require build, deploy, and behavioral evidence before calling a migration complete.
+
+### Quality notes
+- Fowler and Ronacher are practitioner sources. ScarfBench is benchmark/research evidence. All claims should be turned into local checks before changing HoneyDrunk workflow policy.

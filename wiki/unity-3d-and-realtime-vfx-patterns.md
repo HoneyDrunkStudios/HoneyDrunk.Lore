@@ -860,3 +860,37 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - Unity is vendor-authored; RealtimeVFX is a low-detail community thread. Both are scouting signals.
+
+## 2026-07-07 compile additions: Unity mesh optimization and solo simulation production
+
+### Source-backed claims
+- The Unity mesh optimization source recommends reducing unnecessary geometry, using LODs, modular static meshes, GPU Instancing, SRP Batcher, Static Batching, and rendered vertex density rather than raw polygon count as the primary optimization lens for mobile scenes. Source: `raw/2026-07-07-web-unity-mesh-optimization-guide-reduce-vertex-count-remove-redundant-ver.md`. confidence: 1 practitioner/DEV source, last-confirmed 2026-07-07.
+- The source proposes a practical rendered-vertex-density warning threshold of more than 1,000 rendered vertices per 10,000 pixels and calls out mobile-friendly vertex-to-triangle and triangle-size heuristics. Source: `raw/2026-07-07-web-unity-mesh-optimization-guide-reduce-vertex-count-remove-redundant-ver.md`. confidence: 1 source, last-confirmed 2026-07-07.
+- The same source says unused vertex attributes and unnecessary Read/Write mesh copies can waste memory, and recommends Unity's Optimize Mesh Data plus disabling Read/Write when runtime CPU access is not needed. Source: `raw/2026-07-07-web-unity-mesh-optimization-guide-reduce-vertex-count-remove-redundant-ver.md`. confidence: 1 source, last-confirmed 2026-07-07.
+- 80 Level's `TCG Card Shop Simulator` interview says the solo developer used Unity and Asset Store tools such as I2 Localization and A* Pathfinding Pro, prioritized the shop/restocking, card pack, collection, and customer loops, and treated profiling/culling/rendering reduction as ongoing performance work. Source: `raw/2026-07-07-web-solo-developer-on-creating-a-simulation-game-about-a-local-game-store.md`; page: [[gamedev-production-and-community-signals]]. confidence: 1 trade/interview source, last-confirmed 2026-07-07.
+
+### Typed entities
+- engine: Unity
+- feature/control: Optimize Mesh Data
+- setting: Read/Write Enabled
+- technique: rendered vertex density
+- technique: LOD pipeline
+- technique: GPU Instancing
+- technique: SRP Batcher
+- game: TCG Card Shop Simulator
+- package/tool: I2 Localization
+- package/tool: A* Pathfinding Pro
+
+### Explicit relationships
+- Mesh optimization depends-on visible screen contribution, shader attribute needs, CPU mesh access, and batching behavior rather than polygon count alone.
+- Optimize Mesh Data can remove unused attributes, but depends-on build-time knowledge of all materials/shaders that may be assigned at runtime.
+- Asset Store tools complement solo development when buying commodity localization/pathfinding systems preserves time for core game loops.
+- Simulation-game performance depends-on profiling live scale: items, decorations, customers, workers, cards, loading, and rendering can grow together.
+
+### HoneyDrunk implications
+- For Unity mobile or dense-scene prototypes, add rendered-vertex-density, Read/Write, unused-attribute, and LOD checks to performance review.
+- If runtime material swaps are part of a prototype, verify Optimize Mesh Data does not strip attributes required later.
+- Prefer proven Asset Store or package solutions for commodity systems in solo/small-team prototypes, but review license, maintenance, and platform support.
+
+### Quality notes
+- DEV/community optimization guidance is useful but should be validated on target devices. 80 Level is trade/interview evidence and not a generalized production forecast.

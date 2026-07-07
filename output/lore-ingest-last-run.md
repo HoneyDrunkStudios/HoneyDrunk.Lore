@@ -1,68 +1,80 @@
-# Lore Ingest Last Run
+# Lore ingest last run
 
-timestamp: 2026-07-06T10:04:55-04:00
-operator: Honeyclaw scheduled ingest via Codex
-operation: ingest and compile
+- timestamp: 2026-07-07T08:45:00-04:00
+- operation: scheduled Honeyclaw Lore ingest/compile pass
 
-## Raw Sources Ingested
+## Raw sources ingested
 
-count: 10
+Count: 15
 
-- `raw/2026-07-06-rss-adobe-developer-blog-empower-users-to-create-better-content-with-the-a.md`
-- `raw/2026-07-06-rss-azure-blog-azure-sdk-release-june-2026.md`
-- `raw/2026-07-06-rss-game-developer-eve-online-s-cross-platform-game-engine-framework-is-no.md`
-- `raw/2026-07-06-rss-tldr-ai-introducing-laguna-xs-2-1-5-minute-read.md`
-- `raw/2026-07-06-rss-tldr-devops-announcing-the-monetization-gateway-charge-for-any-resourc.md`
-- `raw/2026-07-06-rss-tldr-devops-planning-with-files-github-repo.md`
-- `raw/2026-07-06-rss-tldr-infosec-repo-forensics-github-repo.md`
-- `raw/2026-07-06-web-github-changelog-copilot-agent-session-streaming-is-now-in-public-prev.md`
-- `raw/2026-07-06-web-github-changelog-copilot-vision-is-generally-available.md`
-- `raw/2026-07-06-web-github-changelog-kimi-k2-7-code-is-generally-available-in-github-copil.md`
+- `raw/2026-07-07-web-ai-tool-calling-net.md`
+- `raw/2026-07-07-web-better-models-worse-tools.md`
+- `raw/2026-07-07-web-featuring-every-eval-ever-results-on-hugging-face-model-pages.md`
+- `raw/2026-07-07-web-fragments-july-6.md`
+- `raw/2026-07-07-web-gas-town.md`
+- `raw/2026-07-07-web-how-data-sovereignty-is-changing-cloud-native-infrastructure-design.md`
+- `raw/2026-07-07-web-how-to-use-ai-agents-better-than-99-of-people.md`
+- `raw/2026-07-07-web-introducing-the-blender-roadmap.md`
+- `raw/2026-07-07-web-mcp-server-security-how-to-identify-and-mitigate-risks.md`
+- `raw/2026-07-07-web-quickstart-create-a-minimal-mcp-server-and-publish-to-nuget-net.md`
+- `raw/2026-07-07-web-scarfbench-benchmarking-ai-agents-for-enterprise-java-framework-migrat.md`
+- `raw/2026-07-07-web-solo-developer-on-creating-a-simulation-game-about-a-local-game-store.md`
+- `raw/2026-07-07-web-the-blind-spot-in-the-watchtower-detections-for-when-someone-attacks-y.md`
+- `raw/2026-07-07-web-unity-mesh-optimization-guide-reduce-vertex-count-remove-redundant-ver.md`
+- `raw/2026-07-07-web-why-ai-agents-need-isolation.md`
 
-## Wiki Pages Created Or Updated
+## Wiki pages created or updated
 
-created: none
+Created:
 
-updated:
+- `wiki/cloud-security-monitoring-and-siem.md`
+- `wiki/cloud-sovereignty-and-platform-governance.md`
+
+Updated:
 
 - `wiki/agent-evaluation-and-benchmarks.md`
-- `wiki/agentic-commerce-and-machine-payments.md`
 - `wiki/ai-agent-harnesses.md`
+- `wiki/ai-assisted-software-practice.md`
 - `wiki/ai-coding-agent-security.md`
-- `wiki/azure-agent-automation-and-identity.md`
-- `wiki/creative-automation-and-firefly-services.md`
+- `wiki/edge-ai-and-ai-infrastructure-2026.md`
 - `wiki/gamedev-production-and-community-signals.md`
-- `wiki/github-copilot-and-app-token-changes.md`
-- `wiki/indexes/audit.md`
 - `wiki/indexes/gaps.md`
 - `wiki/indexes/sources.md`
 - `wiki/indexes/topics.md`
-
-## Contradictions Resolved
-
-None. New sources extended existing claims. Vendor benchmark, product-roadmap, and project README claims were retained with source-quality caveats rather than promoted as final adoption decisions.
-
-## Gaps Logged
-
-- Embedded Adobe Express module suitability and governance for HoneyDrunk creator workflows.
-- Laguna XS 2.1 or local MoE model benchmarking on HoneyDrunk tasks.
-- x402/payment-gated machine-resource policy for agents.
-- File-backed planning adoption and hook opt-out policy for scheduled/one-shot jobs.
-- Pre-install scanner standard for third-party skills/plugins/MCP servers.
-- Copilot visual-input retention and usage-record streaming audit/redaction policy.
+- `wiki/llm-wiki-and-knowledge-formats.md`
+- `wiki/mcp-tool-governance-and-app-surfaces.md`
+- `wiki/microsoft-dotnet-ai-stack.md`
+- `wiki/technical-art-community-and-talent-signals.md`
+- `wiki/unity-3d-and-realtime-vfx-patterns.md`
 
 ## Crystallization
 
-- Existing `output/query-*.md` files were checked by inventory. No query output required promotion in this pass.
-- `output/signal-review-*.md` files remain episodic reporting artifacts; no new durable facts were crystallized from signal reviews in this compile.
+No new `output/query-*.md` files were present for crystallization. Existing query files were older daily signal summaries already represented by current wiki topics.
+
+## Contradictions resolved
+
+None. The July 7 sources reinforced existing themes and added new scoped concepts. No existing wiki claim needed supersession.
+
+## Gaps logged
+
+Count: 8
+
+- Strict/constrained tool invocation fixtures for mutating tools.
+- Docker SBX or equivalent microVM sandbox evaluation on Windows/WSL.
+- MCP execution-layer gateway/wrapper ownership for credentials, static parameters, logs, and authorization.
+- Microsoft Sentinel self-monitoring and out-of-workspace alerting requirements.
+- Sovereignty-sensitive HoneyDrunk workload classification.
+- ScarfBench-style HoneyDrunk modernization benchmark design.
+- Unity target-device mesh optimization checks.
+- Gas Town candidate review criteria.
 
 ## Blockers
 
-None for this compile pass.
+None for wiki compile. Raw sources were readable and no destructive changes to `raw/` were made.
 
-## Quality Posture
+## Quality posture
 
-- Pages rewritten/flagged: none.
-- Weak claims: Poolside benchmark claims, Cloudflare Monetization Gateway roadmap details, planning-with-files/repo-forensics README claims, and Game Developer Carbon technical details require primary-source or local validation before adoption.
-- Privacy redactions: no secrets, credentials, tokens, unsafe PII, malicious payloads, or reusable exploit instructions were copied into wiki content.
-- Decision usefulness: high for GitHub/Microsoft product posture, useful scouting for Adobe embedding, Cloudflare machine payments, persistent planning, agent-supply-chain scanning, local coding models, and Carbon architecture.
+- Pages created/updated are source-cited and use typed entities plus explicit relationship language where the sources support it.
+- Weak claims were marked as vendor-authored, practitioner, sponsored, trade/interview, README, or validation-required where applicable.
+- No secrets, credentials, tokens, exploit payloads, phishing indicators, or reusable attack steps were promoted into wiki pages. Security content was summarized at control and detection-category level.
+- Decision usefulness is strongest for MCP/.NET tool governance, agent sandboxing, Sentinel self-monitoring, migration eval design, and Unity mesh review. It is weaker for Gas Town and Omnigraph until primary repository/docs review happens.

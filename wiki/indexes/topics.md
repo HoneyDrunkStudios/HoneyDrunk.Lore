@@ -916,3 +916,29 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 
 ### Game engine production
 - [[gamedev-production-and-community-signals]] - 41 sources - last-confirmed 2026-07-06
+
+## 2026-07-07 topic additions
+
+### Agent harnesses, memory, and orchestration
+- [[ai-agent-harnesses]] - 150 sources - last-confirmed 2026-07-07
+- [[llm-wiki-and-knowledge-formats]] - 8 sources - last-confirmed 2026-07-07
+- [[multi-agent-architectures]] - 25 sources - last-confirmed 2026-07-07
+- [[mcp-tool-governance-and-app-surfaces]] - 90 sources - last-confirmed 2026-07-07
+
+### Agent security, isolation, and SIEM integrity
+- [[ai-coding-agent-security]] - 129 sources - last-confirmed 2026-07-07
+- [[cloud-security-monitoring-and-siem]] - 1 source - last-confirmed 2026-07-07
+
+### Agent evaluation and AI-assisted software practice
+- [[agent-evaluation-and-benchmarks]] - 32 sources - last-confirmed 2026-07-07
+- [[ai-assisted-software-practice]] - 75 sources - last-confirmed 2026-07-07
+
+### .NET, MCP packaging, and cloud platform governance
+- [[microsoft-dotnet-ai-stack]] - 59 sources - last-confirmed 2026-07-07
+- [[edge-ai-and-ai-infrastructure-2026]] - 56 sources - last-confirmed 2026-07-07
+- [[cloud-sovereignty-and-platform-governance]] - 1 source - last-confirmed 2026-07-07
+
+### Game development, Unity, and technical art
+- [[gamedev-production-and-community-signals]] - 42 sources - last-confirmed 2026-07-07
+- [[unity-3d-and-realtime-vfx-patterns]] - 54 sources - last-confirmed 2026-07-07
+- [[technical-art-community-and-talent-signals]] - 43 sources - last-confirmed 2026-07-07

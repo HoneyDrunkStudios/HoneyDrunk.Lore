@@ -1131,3 +1131,42 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - `planning-with-files` is a project README with extensive self-reporting; review install scripts/hooks before use. Laguna XS 2.1 is vendor-authored and requires local evals before routing decisions.
+
+## 2026-07-07 compile additions: schema-fit harnesses, graph memory, Gas Town, and sandbox kits
+
+### Source-backed claims
+- Armin Ronacher reports that Opus 4.8 and Sonnet 5 sometimes added extra invalid fields to Pi's nested edit-tool schema while older Anthropic models did not; strict tool invocation eliminated the observed failures, and the likely lesson is that harness tool schemas interact with provider post-training and hidden tool encodings. Source: `raw/2026-07-07-web-better-models-worse-tools.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 practitioner source, last-confirmed 2026-07-07.
+- System Design Newsletter's Omnigraph article argues that shared folders and vector databases do not coordinate multi-agent memory writes, while graph-shaped memory can use typed nodes, edges, branches, commits, merges, policy checks, BM25, vector search, graph traversal, and RRF to coordinate agent memory. Source: `raw/2026-07-07-web-how-to-use-ai-agents-better-than-99-of-people.md`; page: [[llm-wiki-and-knowledge-formats]]. confidence: 1 sponsored/practitioner newsletter source, last-confirmed 2026-07-07.
+- Gas Town describes a multi-agent workspace manager for Claude Code, GitHub Copilot, Codex, Gemini, and others, with git-backed hooks for persistent work state, Beads issue tracking, Mayor coordination, worker agents, watchdogs, merge queue, session discovery, and optional telemetry. Source: `raw/2026-07-07-web-gas-town.md`; page: [[multi-agent-architectures]]. confidence: 1 project README source, last-confirmed 2026-07-07.
+- Docker's SBX source says Sandbox Kits can package tools, environment variables, credentials, network rules, files, startup commands, and agent memory instructions into reusable sandbox blueprints, with mixin kits extending existing agents and agent kits defining complete agent environments. Source: `raw/2026-07-07-web-why-ai-agents-need-isolation.md`; page: [[ai-coding-agent-security]]. confidence: 1 Docker vendor source, last-confirmed 2026-07-07.
+- Martin Fowler's July 6 fragment reports that Future of Software Development retreat participants are now discussing production agentic development, harness engineering, token-cost pressure, architectural quality as agent experience, ADR/task-list workflows, overnight quality checks, and explanatory documentation generated at session end. Source: `raw/2026-07-07-web-fragments-july-6.md`; page: [[ai-assisted-software-practice]]. confidence: 1 practitioner/curator source, last-confirmed 2026-07-07.
+
+### Typed entities
+- harness/tool: Pi
+- control: strict tool invocation
+- product: Omnigraph
+- concept: graph-shaped memory
+- concept: record-level merge
+- tool/system: Gas Town
+- work tracker: Beads
+- role: Mayor
+- role: Polecat
+- role: Witness
+- control: Docker Sandbox Kit
+- concept: harness engineering
+
+### Explicit relationships
+- Tool-schema reliability depends-on provider post-training, hidden formatting, strict decoding, and harness repair behavior, not only the human-readable JSON schema.
+- Graph memory complements Lore-style wiki pages when multiple agents need typed relationships, branch/merge review, and coordinated writes.
+- Gas Town uses git-backed hooks and Beads to persist agent work state outside ephemeral model sessions.
+- Sandbox Kits complement sandbox isolation by making approved tools, credentials, domains, files, startup logic, and instructions reusable.
+- Harness engineering and architecture quality reinforce each other because agents rely on code structure, names, modularity, tests, and persistent design records to operate cheaply.
+
+### HoneyDrunk implications
+- Prefer harnesses that expose strict schemas, audit failed tool calls, and can prove whether malformed tool calls were repaired or rejected.
+- Keep Lore's flat-file graph-ready schema moving toward typed entities and explicit relationships before adopting heavier memory infrastructure.
+- Treat Gas Town as a candidate orchestration surface only after repository/license/security review, Windows/WSL ergonomics, hook behavior, and merge-queue interactions are inspected.
+- For long-running agent work, preserve ADRs, task lists, quality reports, and session-end explanatory docs as durable artifacts.
+
+### Quality notes
+- Ronacher and Fowler are strong practitioner sources. Gas Town is a README/project source. Omnigraph article is sponsored/practitioner and should be validated against the project repo before architecture decisions. Docker is vendor-authored.

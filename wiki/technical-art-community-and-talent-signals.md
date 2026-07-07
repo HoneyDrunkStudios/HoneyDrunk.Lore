@@ -638,3 +638,27 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - Both sources are community-discovery signals with limited technical depth. They should seed follow-up, not workflow adoption.
+
+## 2026-07-07 compile additions: Blender roadmap visibility
+
+### Source-backed claims
+- Blender Foundation introduced a public Blender Roadmap as a curated, up-to-date overview of major ongoing projects and recently completed features, with project cards linking to project pages, issues, pull requests, or development blog posts. Source: `raw/2026-07-07-web-introducing-the-blender-roadmap.md`. confidence: 1 Blender Foundation source, last-confirmed 2026-07-07.
+- The roadmap is explicitly not a complete view of Blender development; triage, maintenance, bug fixes, documentation, and module work remain outside the curated featured-project view. Source: `raw/2026-07-07-web-introducing-the-blender-roadmap.md`. confidence: 1 source, last-confirmed 2026-07-07.
+
+### Typed entities
+- organization: Blender Foundation
+- artifact: Blender Roadmap
+- site: `code.blender.org/roadmap/`
+- site: `developer.blender.org/`
+- concept: featured project card
+
+### Explicit relationships
+- Roadmap visibility complements pipeline planning by linking high-level feature direction to technical implementation artifacts.
+- Curated roadmap entries do not supersede module-level issue tracking, maintenance work, or release-note verification.
+
+### HoneyDrunk implications
+- For Blender pipeline scouting, use the roadmap as a first stop for upcoming feature direction, then follow linked project pages/issues before making toolchain assumptions.
+- Treat roadmap absence as non-evidence; maintenance or module work may still affect HoneyDrunk workflows.
+
+### Quality notes
+- Blender Foundation is authoritative for roadmap existence and intent. Feature availability and timelines still need direct project-page or release validation.

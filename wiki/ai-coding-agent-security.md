@@ -1344,3 +1344,41 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 
 ### Privacy and quality notes
 - Security examples were summarized at scanner/control level. No malicious package payloads, webhook URLs, executable snippets, or credential patterns were promoted beyond defensive categories.
+
+## 2026-07-07 compile additions: MCP execution control, sandbox isolation, and SIEM self-monitoring
+
+### Source-backed claims
+- n8n's MCP server security source says production MCP deployments need an orchestration/control layer that scopes tool calls, isolates credentials, and logs every execution; it identifies prompt injection, tool poisoning, confused deputy, token passthrough, session hijacking, excessive permissions, command injection, and SSRF as risk classes. Source: `raw/2026-07-07-web-mcp-server-security-how-to-identify-and-mitigate-risks.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 vendor/practice source, last-confirmed 2026-07-07.
+- Docker's AI-agent isolation source positions Docker SBX as a microVM-based sandbox model for AI workflows with controlled networking, proxy-managed credentials, reusable Sandbox Kits, and cross-platform developer ergonomics for Windows, macOS, and Linux. Source: `raw/2026-07-07-web-why-ai-agents-need-isolation.md`; page: [[ai-agent-harnesses]]. confidence: 1 Docker vendor source, last-confirmed 2026-07-07.
+- Docker says SBX credentials can remain on the host while the sandbox receives sentinel placeholder values and outbound requests pass through a proxy that injects real credentials, reducing direct secret exposure inside the VM. Source: `raw/2026-07-07-web-why-ai-agents-need-isolation.md`. confidence: 1 source, last-confirmed 2026-07-07.
+- The Sentinel self-monitoring source argues SOC teams should monitor the SIEM itself, including analytic-rule edits/deletes, retention/table changes, data connector changes, role assignments, diagnostic setting deletion, security-portal sign-ins, playbooks/watchlists/workbooks, incidents, and workspace/lock deletion. Source: `raw/2026-07-07-web-the-blind-spot-in-the-watchtower-detections-for-when-someone-attacks-y.md`; page: [[cloud-security-monitoring-and-siem]]. confidence: 1 practitioner security source, last-confirmed 2026-07-07.
+- Armin Ronacher's tool-schema source reports a harness failure mode where strong models emitted correct edit content plus invented invalid fields for nested tool schemas, reinforcing that model capability does not guarantee schema-faithful mutating tool calls. Source: `raw/2026-07-07-web-better-models-worse-tools.md`; page: [[ai-agent-harnesses]]. confidence: 1 practitioner source, last-confirmed 2026-07-07.
+
+### Typed entities
+- control: execution-layer MCP control plane
+- product: Docker SBX
+- concept: microVM isolation
+- concept: Sandbox Kit
+- control: proxy-managed credential injection
+- product: Microsoft Sentinel
+- log/table: AzureActivity
+- log/table: SentinelAudit
+- log/table: SentinelHealth
+- control: approved-admin watchlist
+- control: strict tool invocation
+
+### Explicit relationships
+- MCP security depends-on execution-layer custody for credentials, parameters, tool exposure, and logs; protocol metadata alone does not provide governance.
+- MicroVM sandboxing complements container isolation for coding agents that execute untrusted code, install packages, access repositories, or call external services.
+- Proxy-managed credentials reduce sandbox secret exposure, but depend-on correct outbound policy, audit, and placeholder rejection.
+- SIEM self-monitoring complements ordinary detections because attackers may disable rules, feeds, retention, automation, or incidents before performing noisier actions.
+- Strict tool schemas complement sandboxing by preventing malformed mutating actions before they reach filesystem or API execution.
+
+### HoneyDrunk implications
+- For OpenClaw/Grid tool profiles, require credential custody, allowed domains, tool scope, parameter-binding rules, and execution logs before production mutation.
+- Revisit the existing sandboxing gap with Docker SBX as a candidate, but validate Windows behavior, network policies, credential proxy semantics, persistence, and cleanup before adoption.
+- If HoneyDrunk uses Sentinel or similar SIEM, add self-monitoring requirements to the security backlog: rule changes, connector/feed drift, role grants, retention changes, incident tampering, and alert export outside the same workspace.
+- For mutating edit/deploy/payment tools, fail closed on unexpected schema fields unless the repair path is intentional, logged, and covered by fixtures.
+
+### Privacy and quality notes
+- Security controls were summarized without copying reusable exploit payloads or operational bypass steps. Docker and n8n are vendor-authored; Sentinel content is practitioner guidance that should be adapted to local workspace names and identity policy.

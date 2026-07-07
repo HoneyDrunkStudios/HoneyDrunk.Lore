@@ -161,3 +161,35 @@ This page tracks durable patterns for agent-readable, human-readable knowledge s
 
 ### Quality notes
 - Thoughtworks is practice guidance, not a measured HoneyDrunk implementation. Use it to refine Lore schema and update cadence, not as proof that a specific platform is required.
+
+## 2026-07-07 compile additions: graph-shaped shared agent memory
+
+### Source-backed claims
+- System Design Newsletter's Omnigraph article argues that shared folders store text without typed relationships, while vector databases retrieve similar chunks without durable relationships or write coordination. Source: `raw/2026-07-07-web-how-to-use-ai-agents-better-than-99-of-people.md`; page: [[ai-agent-harnesses]]. confidence: 1 sponsored/practitioner newsletter source, last-confirmed 2026-07-07.
+- The source frames shared agent memory as needing three functions: read connected context, write persistent knowledge, and coordinate concurrent agent updates without overwriting work or making unreviewed mistakes globally visible. Source: `raw/2026-07-07-web-how-to-use-ai-agents-better-than-99-of-people.md`. confidence: 1 source, last-confirmed 2026-07-07.
+- Omnigraph is described as a typed graph memory system with object-storage state, branch/commit/merge semantics, policy checks, actor identity, BM25, vector k-NN, graph traversal, and reciprocal-rank fusion for retrieval. Source: `raw/2026-07-07-web-how-to-use-ai-agents-better-than-99-of-people.md`. confidence: 1 source, last-confirmed 2026-07-07.
+
+### Typed entities
+- product/project: Omnigraph
+- concept: shared agent memory
+- concept: typed graph
+- concept: branch/commit/merge memory workflow
+- search method: BM25
+- search method: vector k-NN
+- search method: graph traversal
+- rank fusion: reciprocal rank fusion / RRF
+- storage: Amazon S3 / object storage
+
+### Explicit relationships
+- Typed graph memory complements flat-file LLM wikis when agents need relationship traversal and write coordination.
+- Branch/commit/merge workflows prevent one agent's proposed memory from immediately becoming shared truth.
+- Hybrid retrieval depends-on keyword, semantic, and graph results being fused with provenance and policy checks.
+- Lore's raw/output/wiki/index tiers can supply semantic pages that a future graph layer indexes rather than replacing markdown authority.
+
+### HoneyDrunk implications
+- Keep Lore pages typed and relationship-rich so they can be migrated to BM25/vector/graph retrieval without rewriting content.
+- Before adding shared-write memory infrastructure, define the merge policy: who can promote proposed facts, how conflicts are resolved, and how sources remain attached.
+- Treat graph memory systems as operational databases when agents can write to them; they need auth, policy, rollback, review, and stale-claim handling.
+
+### Quality notes
+- The article is a sponsored/practitioner newsletter and should be validated against the Omnigraph repository and docs. Its architecture framing is useful because it matches Lore's existing graph-ready direction.

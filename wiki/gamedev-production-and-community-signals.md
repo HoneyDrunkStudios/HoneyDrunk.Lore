@@ -596,3 +596,35 @@ The game-development community feed produced a mix of process advice, tooling ex
 
 ### Quality notes
 - Game Developer capture contains boilerplate and appears partly press-release based. Claims are useful for discovery; adoption or technical claims need the GitHub repositories and license review.
+
+## 2026-07-07 compile additions: solo card-shop simulation production
+
+### Source-backed claims
+- 80 Level's interview says `TCG Card Shop Simulator` centers on shop management, card pack opening, card collection, selling, tournaments, trading, decoration, and a playable TCG planned for 1.0. Source: `raw/2026-07-07-web-solo-developer-on-creating-a-simulation-game-about-a-local-game-store.md`; page: [[unity-3d-and-realtime-vfx-patterns]]. confidence: 1 trade/interview source, last-confirmed 2026-07-07.
+- The developer says the core loop was built from item/restocking, pack opening, collection, and customer systems, then expanded feature-by-feature, while Unity Asset Store packages handled commodity needs such as localization and pathfinding. Source: `raw/2026-07-07-web-solo-developer-on-creating-a-simulation-game-about-a-local-game-store.md`. confidence: 1 source, last-confirmed 2026-07-07.
+- The interview identifies performance, loading time, profiling, culling, unnecessary rendering, and porting bandwidth as major constraints; General Arcade helped with porting so the solo developer could focus on the 1.0 playable TCG. Source: `raw/2026-07-07-web-solo-developer-on-creating-a-simulation-game-about-a-local-game-store.md`. confidence: 1 source, last-confirmed 2026-07-07.
+- The developer says Reddit feedback and unplanned YouTuber/streamer pickup drove attention after Early Access, making influencers a future marketing-planning consideration. Source: `raw/2026-07-07-web-solo-developer-on-creating-a-simulation-game-about-a-local-game-store.md`. confidence: 1 source, last-confirmed 2026-07-07.
+
+### Typed entities
+- game: TCG Card Shop Simulator
+- developer: Ding Shen Sia
+- studio/vendor: General Arcade
+- engine: Unity
+- package/tool: I2 Localization
+- package/tool: A* Pathfinding Pro
+- platform/community: Reddit
+- role/channel: YouTubers and streamers
+
+### Explicit relationships
+- Solo simulation games depend-on a tight core loop before feature expansion; shop systems, collection, customers, and automation must reinforce one another.
+- Asset Store packages complement solo development by replacing commodity systems, but do not remove integration/performance responsibility.
+- Porting support can free developer time for core content when launch-platform work would otherwise consume the entire schedule.
+- Influencer pickup can amplify Early Access success, but should be planned rather than treated as guaranteed.
+
+### HoneyDrunk implications
+- For small sim prototypes, define the core reward loop and automation progression before adding secondary features.
+- Track performance and loading while content count is still small enough to fix architecture cheaply.
+- If a prototype has streamer-friendly moments, capture them as marketing assumptions and validate with actual creator feedback.
+
+### Quality notes
+- 80 Level is trade/interview evidence. Useful as production-pattern scouting, not as proof that the concept or marketing path transfers to HoneyDrunk.
