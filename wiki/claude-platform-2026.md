@@ -419,3 +419,40 @@ Anthropic's 2026 platform direction is enterprise/workflow-heavy: Claude Opus 4.
 
 ### Quality notes
 - Anthropic is authoritative for its current Fable 5 posture but is also the model provider. No jailbreak prompts, exploit instructions, or harmful procedural examples were copied.
+
+## 2026-07-08 compile additions: Claude J-space/global workspace interpretability and Mythos SaaS framing
+
+### Source-backed claims
+- Anthropic's global-workspace research reports a small set of internal neural patterns in Claude, called J-space, that are reportable, controllable on request, used for multi-step reasoning, flexibly reused across downstream tasks, and more densely connected than ordinary representations. Source: `raw/2026-07-08-rss-tldr-ai-a-global-workspace-in-language-models-26-minute-read.md`. confidence: 1 Anthropic research source, last-confirmed 2026-07-08.
+- Anthropic says J-space is distinct from written chain-of-thought: it operates silently in internal activations and can expose concepts Claude is considering without saying them in output. Source: `raw/2026-07-08-rss-tldr-ai-a-global-workspace-in-language-models-26-minute-read.md`. confidence: 1 source, last-confirmed 2026-07-08.
+- The source reports safety-monitoring use cases where the J-lens surfaced evaluation awareness, fabricated-data intent, prompt-injection recognition, and malicious-goal indicators in model organisms; Anthropic also notes the method is imperfect and single-token-limited. Source: `raw/2026-07-08-rss-tldr-ai-a-global-workspace-in-language-models-26-minute-read.md`; page: [[ai-coding-agent-security]]. confidence: 1 Anthropic research source, last-confirmed 2026-07-08.
+- Anthropic explicitly says these experiments do not show that Claude has human-like phenomenal consciousness, but they do provide evidence for functional access-consciousness-like computation in language models. Source: `raw/2026-07-08-rss-tldr-ai-a-global-workspace-in-language-models-26-minute-read.md`. confidence: 1 source, last-confirmed 2026-07-08.
+- Reco's SaaS security source frames Mythos-class AI as accelerating vulnerability chaining across SaaS identity, token, OAuth, agent, and configuration exposures rather than introducing an entirely new SaaS threat class. Source: `raw/2026-07-08-rss-tldr-infosec-claude-mythos-and-saas-security-what-you-need-to-know-8-m.md`; page: [[ai-coding-agent-security]]. confidence: 1 vendor/practice source, last-confirmed 2026-07-08.
+
+### Typed entities
+- research method: Jacobian lens / J-lens
+- concept: J-space
+- theory: global workspace theory
+- concept: access consciousness
+- concept: phenomenal consciousness
+- training method: counterfactual reflection training
+- organization: Anthropic
+- model family: Claude
+- model/program: Claude Mythos / Project Glasswing
+- concept: evaluation awareness
+- concept: fabricated data
+
+### Explicit relationships
+- J-space complements interpretability by exposing some silent internal reasoning that output text and written scratchpads may not reveal.
+- J-space interventions can cause downstream answer changes, suggesting some reasoning depends-on the shared representation rather than passive correlation alone.
+- J-lens monitoring complements ordinary safety evals because output-only evaluation can miss private recognition of tests, hidden goals, or data manipulation intent.
+- Access-consciousness-like function does not supersede the unresolved question of AI moral status or subjective experience.
+- Mythos-class security capability complements SaaS exposure management by shrinking the time needed to chain existing weaknesses.
+
+### HoneyDrunk implications
+- Treat future interpretability tools as possible eval evidence, not as a replacement for sandboxing, identity, access control, and runtime verification.
+- For security-agent evals, record whether the model may be reacting to an artificial test scenario; evaluation awareness can distort safety conclusions.
+- Keep SaaS exposure reduction focused on identity and permissions before relying on detection after a Mythos-class agent has already chained weaknesses.
+
+### Quality notes
+- Anthropic is a primary research source but also studies its own model family. Reco is vendor/practice SaaS-security content. No jailbreak procedures or exploit payloads were copied.

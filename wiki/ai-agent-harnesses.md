@@ -1170,3 +1170,48 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - Ronacher and Fowler are strong practitioner sources. Gas Town is a README/project source. Omnigraph article is sponsored/practitioner and should be validated against the project repo before architecture decisions. Docker is vendor-authored.
+
+## 2026-07-08 compile additions: local model harness constraints, video skills, sandbox services, and verification loops
+
+### Source-backed claims
+- Bockeler's local-model viability memo says coding harnesses differ in system prompt size, active tool count, skill/MCP overhead, and edit-tool schemas, all of which matter more under local RAM and context constraints. Source: `raw/2026-07-08-rss-martin-fowler-viability-of-local-models-for-coding.md`. confidence: 1 practitioner source, last-confirmed 2026-07-08.
+- The same memo reports small models often struggled with tool calling but could sometimes self-correct malformed parameter names, making tool-call reliability a key gating factor for local agentic coding. Source: `raw/2026-07-08-rss-martin-fowler-viability-of-local-models-for-coding.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 source, last-confirmed 2026-07-08.
+- `claude-video` is a self-contained agent skill that lets assistants inspect videos by combining captions/transcripts, selected frames, `yt-dlp`, `ffmpeg`, deduplication, and optional Whisper fallback. Source: `raw/2026-07-08-rss-tldr-devops-claude-video-github-repo.md`. confidence: 1 project README source, last-confirmed 2026-07-08.
+- `claude-video` frames video understanding as a token-budgeted sampling problem: transcript-only, keyframe, scene-change, focused time windows, resolution, frame cap, and dedup settings control cost and evidence quality. Source: `raw/2026-07-08-rss-tldr-devops-claude-video-github-repo.md`. confidence: 1 project README source, last-confirmed 2026-07-08.
+- CubeSandbox is a RustVMM/KVM-based sandbox service for AI agents that claims E2B SDK compatibility, sub-60ms cold starts, hardware isolation, snapshots/clones/rollback, credential vaulting, egress controls, WebUI operations, and multi-node scaling. Source: `raw/2026-07-08-rss-tldr-devops-cube-sandbox-github-repo.md`; page: [[ai-coding-agent-security]]. confidence: 1 project README source, last-confirmed 2026-07-08.
+- The Thinkroom `ce-dogfood` source presents an agent QA harness that scopes against a diff, starts or reuses a dev server, persists a scenario matrix/report, drives a real browser, and loops fixes back into re-verification. Source: `raw/2026-07-08-rss-tldr-ai-closing-the-verification-loop-14-minute-read.md`; capture caveat: source is truncated after the fix-loop section. confidence: 1 partially captured practitioner source, last-confirmed 2026-07-08.
+
+### Typed entities
+- harness: OpenCode
+- harness: Pi
+- runtime: LM Studio
+- skill: `claude-video` / `/watch`
+- tool: `yt-dlp`
+- tool: `ffmpeg`
+- model/service: Groq `whisper-large-v3`
+- model/service: OpenAI `whisper-1`
+- service: CubeSandbox
+- compatibility target: E2B SDK
+- component: CubeAPI
+- component: CubeEgress
+- component: CubeVS
+- component: CubeHypervisor
+- workflow: `ce-dogfood`
+- tool: `agent-browser`
+- artifact: scenario matrix
+
+### Explicit relationships
+- Local model harnesses depend-on minimal tool surfaces, compact prompts, sufficient context window, and schemas the model can reliably emit.
+- Video-analysis skills use transcripts and sampled frames as multimodal evidence; focused windows can supersede sparse whole-video scans.
+- CubeSandbox complements Docker SBX and other microVM approaches by targeting fast, high-density, E2B-compatible agent execution.
+- Credential vaulting and egress policy complement sandbox isolation by keeping API keys out of the sandbox, model context, and logs.
+- Dogfood harnesses use browser evidence and persisted reports to close the loop between readiness claims and user-visible proof.
+
+### HoneyDrunk implications
+- Keep local model harness profiles lean: disable unnecessary skills/MCP servers and prefer exact file/task prompts when using small local models.
+- Treat third-party skills like `claude-video` as executable dependencies: review install scripts, transcriber keys, temp-file cleanup, network access, license, and Windows behavior before global install.
+- CubeSandbox is a sandbox candidate to evaluate alongside Docker SBX and E2B-compatible services; require local proof for Windows/WSL fit, KVM availability, credential proxying, policy routing, and cleanup.
+- For product branches, preserve scenario matrices and browser evidence as run receipts so another agent or human can resume verification.
+
+### Quality notes
+- Project README claims for `claude-video` and CubeSandbox need hands-on validation before adoption. The Thinkroom capture is incomplete, so only captured workflow mechanics were promoted.

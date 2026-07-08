@@ -662,3 +662,40 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - Blender Foundation is authoritative for roadmap existence and intent. Feature availability and timelines still need direct project-page or release validation.
+
+## 2026-07-08 compile additions: Houdini UV QA, world-surface blending, and large landscape shortcuts
+
+### Source-backed claims
+- 80 Level reports SideFX Labs' UV Grid Texture COP as a procedural Houdini Copernicus node for testing UV layout quality, orientation, texel density, distortion, seams, and island distribution. Source: `raw/2026-07-08-rss-80-level-new-copernicus-node-for-testing-uv-layouts-on-3d-models.md`; page: [[unity-3d-and-realtime-vfx-patterns]]. confidence: 1 trade/tooling source, last-confirmed 2026-07-08.
+- A Polycount discussion on isometric/top-down Unity environments reinforces that ground, road, sidewalk, gravel, and building workflow choices are context-dependent; modular, unique, tileable, and hybrid approaches can all be right depending on view distance, layout, engine, and content goals. Source: `raw/2026-07-08-rss-polycount-ground-and-buildings-pipeline-workflow-approaches.md`. confidence: 1 community discussion source, last-confirmed 2026-07-08.
+- The same thread points to texture blending through vertex paint, heightmaps, normals, world masks, baked masks, world-aligned textures, and logic-driven masks as likely approaches for natural transitions between roads, grass, mud, leaves, and similar surface details. Source: `raw/2026-07-08-rss-polycount-ground-and-buildings-pipeline-workflow-approaches.md`. confidence: 1 community discussion source, last-confirmed 2026-07-08.
+- A Polycount landscape thread suggests Forest Pack-style scattering, Arnold stand-ins/proxies, camera-dependent LOD, OSL/noise masks, UVW randomization, texture variants, and large unique textures plus close-up foliage coverage as pragmatic options for a 3ds Max/Arnold aerial-to-ground landscape shot. Source: `raw/2026-07-08-rss-polycount-how-to-create-a-realistic-landscape.md`. confidence: 1 community discussion source, last-confirmed 2026-07-08.
+
+### Typed entities
+- tool: Houdini Copernicus
+- toolkit: SideFX Labs
+- node: UV Grid Texture COP
+- tool: UV Visualize SOP
+- engine: Unity
+- tool: Blender
+- tool: Substance
+- tool: 3ds Max 2027
+- renderer: Arnold
+- plugin: Forest Pack
+- shader concept: world-aligned texture
+- shader concept: vertex paint / heightmap / world mask texture
+- shader concept: OSL noise
+
+### Explicit relationships
+- UV-grid procedural textures complement asset QA by surfacing layout defects before material authoring hides them.
+- Environment-surface workflows depend-on camera distance, surface topology, material transitions, procedural variation goals, and engine constraints.
+- Texture blending uses masks and source geometry/terrain data to transition between surfaces more naturally than hard modular tile boundaries.
+- Large landscape shots can trade perfect ground detail for scattering, proxy/LOD strategy, unique broad textures, and foliage coverage near camera.
+
+### HoneyDrunk implications
+- For top-down Unity environment prototypes, decide early whether roads/ground are modular, unique meshes, terrain decals/masks, or hybrids; the decision should come from camera, loading, and generation needs.
+- Keep surface-transition shader/mask tests as technical-art spikes before a procedural map or raid layout depends on them.
+- Treat Polycount advice as scouting language; run small proof scenes in the actual engine/render path before turning it into production workflow.
+
+### Quality notes
+- Community forum sources are useful for terminology and workflow options but low authority. No user images or personal contact details were promoted.

@@ -942,3 +942,24 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 - [[gamedev-production-and-community-signals]] - 42 sources - last-confirmed 2026-07-07
 - [[unity-3d-and-realtime-vfx-patterns]] - 54 sources - last-confirmed 2026-07-07
 - [[technical-art-community-and-talent-signals]] - 43 sources - last-confirmed 2026-07-07
+
+## 2026-07-08 topic additions
+
+### Agent harnesses, local models, and verification
+- [[ai-agent-harnesses]] - 156 sources - last-confirmed 2026-07-08
+- [[ai-assisted-software-practice]] - 80 sources - last-confirmed 2026-07-08
+- [[agent-evaluation-and-benchmarks]] - 37 sources - last-confirmed 2026-07-08
+- [[llm-wiki-and-knowledge-formats]] - 9 sources - last-confirmed 2026-07-08
+- [[mcp-tool-governance-and-app-surfaces]] - 92 sources - last-confirmed 2026-07-08
+
+### Agent security, identity, and Claude interpretability
+- [[ai-coding-agent-security]] - 133 sources - last-confirmed 2026-07-08
+- [[ai-agent-identity-and-workload-auth]] - 1 source - last-confirmed 2026-07-08
+- [[claude-platform-2026]] - 43 sources - last-confirmed 2026-07-08
+
+### AI infrastructure and open-weight models
+- [[edge-ai-and-ai-infrastructure-2026]] - 59 sources - last-confirmed 2026-07-08
+
+### Game development, Unity, and technical art
+- [[unity-3d-and-realtime-vfx-patterns]] - 56 sources - last-confirmed 2026-07-08
+- [[technical-art-community-and-talent-signals]] - 46 sources - last-confirmed 2026-07-08

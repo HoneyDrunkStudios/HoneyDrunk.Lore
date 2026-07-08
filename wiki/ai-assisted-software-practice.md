@@ -856,3 +856,44 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Fowler and Ronacher are practitioner sources. ScarfBench is benchmark/research evidence. All claims should be turned into local checks before changing HoneyDrunk workflow policy.
+
+## 2026-07-08 compile additions: local model coding practice and browser-backed verification
+
+### Source-backed claims
+- Birgitta Bockeler's local-model memo says agentic coding with small local models is not yet plug-and-play: viability depends on hardware, model architecture, quantization, runtime, context size, harness overhead, tool-call schema fit, and task shape. Source: `raw/2026-07-08-rss-martin-fowler-viability-of-local-models-for-coding.md`; page: [[ai-agent-harnesses]]. confidence: 1 practitioner source, last-confirmed 2026-07-08.
+- The follow-up experience report found local Qwen/Gemma-class models usable for small, well-defined tasks and scripts, but unreliable for larger or more discovery-heavy changes; review effort and task framing remain central to whether the local model is worth using. Source: `raw/2026-07-08-rss-martin-fowler-experiences-with-local-models-for-coding.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 practitioner source, last-confirmed 2026-07-08.
+- The same experience report says one automated eval produced materially different outcomes on a 64GB Apple Silicon machine than on a 48GB machine under the same model settings, reinforcing that local-model quality can be sensitive to runtime and hardware constraints, not only model name. Source: `raw/2026-07-08-rss-martin-fowler-experiences-with-local-models-for-coding.md`. confidence: 1 source, last-confirmed 2026-07-08.
+- The Thinkroom verification-loop source argues that agent-delivered branches need proof from real user journeys, not only compilation, review, or page-level checks; its `ce-dogfood` pattern maps flows before scenarios and uses a browser-driven loop to exercise, observe, fix, prove, and re-verify. Source: `raw/2026-07-08-rss-tldr-ai-closing-the-verification-loop-14-minute-read.md`; capture caveat: source is truncated after the fix-loop section and contains large embedded diagram JSON. confidence: 1 partially captured practitioner source, last-confirmed 2026-07-08.
+- The same source separates functional truth from experiential review: browser evidence can prove whether flows work, while persona-based review can surface paper cuts that pass functional checks but still damage the user experience. Source: `raw/2026-07-08-rss-tldr-ai-closing-the-verification-loop-14-minute-read.md`. confidence: 1 partially captured practitioner source, last-confirmed 2026-07-08.
+
+### Typed entities
+- person: Birgitta Bockeler
+- person: Jigar Jani
+- model: Qwen3.6 35B-A3B MoE
+- model: Gemma 4 26B / 31B
+- runtime: LM Studio
+- harness: OpenCode
+- harness: Pi
+- skill/workflow: `ce-dogfood`
+- tool: `agent-browser`
+- artifact: dogfood report
+- concept: local-model agentic coding
+- concept: verification loop
+- concept: persona walk
+- concept: paper cut
+- concept: browser-backed proof
+
+### Explicit relationships
+- Local-model coding viability depends-on hardware memory, context size, runtime, quantization, harness overhead, and task complexity.
+- Small local coding models complement frontier models when work is narrow, file-local, pre-planned, and easy to review.
+- Browser-backed dogfooding complements tests and code review by verifying user journeys and side effects in the product surface.
+- Persona review complements browser instrumentation because experiential friction can pass functional checks.
+- Flow maps supersede page-level checklists when breakage lives between screens, emails, links, or side effects.
+
+### HoneyDrunk implications
+- Use local/open models as scoped executors after a stronger model or human has narrowed the task; avoid broad repo-discovery or ambiguous product work until local evals prove reliability.
+- For HoneyHub and product PRs, treat "works in a real browser flow" as stronger readiness evidence than agent self-reporting or static checks alone.
+- Keep persona assumptions explicit in dogfood reports when product docs do not define the target user.
+
+### Quality notes
+- Fowler/Thoughtworks sources are practitioner evidence with small task samples. The Thinkroom source is useful but partially clipped; promote only the captured durable workflow concepts and keep the capture-quality caveat.

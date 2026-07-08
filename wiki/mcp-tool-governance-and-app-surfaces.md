@@ -961,3 +961,38 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - Microsoft Learn is authoritative for its SDK/templates. n8n is vendor-authored and should be validated against primary MCP/OAuth specs. Ronacher is practitioner evidence from specific model/harness behavior.
+
+## 2026-07-08 compile additions: video skills and local-model tool-schema pressure
+
+### Source-backed claims
+- Bockeler's local-model viability memo notes that coding harnesses expose different edit-tool schemas, such as Pi `old_text`/`new_text`, OpenCode `oldString`/`newString`, and Claude Code `old_string`/`new_string`, which can matter when smaller models are brittle at structured tool calls. Source: `raw/2026-07-08-rss-martin-fowler-viability-of-local-models-for-coding.md`; page: [[ai-agent-harnesses]]. confidence: 1 practitioner source, last-confirmed 2026-07-08.
+- The `claude-video` project packages a multimodal video-analysis skill for Claude Code, Codex, Cursor, Copilot, Gemini CLI, and other skill hosts; it includes host manifests, self-contained scripts, setup checks, and an installer path through the Agent Skills CLI. Source: `raw/2026-07-08-rss-tldr-devops-claude-video-github-repo.md`; page: [[ai-agent-harnesses]]. confidence: 1 project README source, last-confirmed 2026-07-08.
+- The skill can install globally for a user or per-project, uses `yt-dlp` and `ffmpeg`, may call Groq or OpenAI Whisper APIs, writes temporary working files, and includes tests with synthesized clips. Source: `raw/2026-07-08-rss-tldr-devops-claude-video-github-repo.md`. confidence: 1 project README source, last-confirmed 2026-07-08.
+
+### Typed entities
+- harness: Pi
+- harness: OpenCode
+- harness: Claude Code
+- skill/plugin: `claude-video`
+- command: `/watch`
+- CLI: Agent Skills CLI / `npx skills`
+- manifest: `.codex-plugin/plugin.json`
+- manifest: `.claude-plugin/plugin.json`
+- tool: `yt-dlp`
+- tool: `ffmpeg`
+- API key: `GROQ_API_KEY`
+- API key: `OPENAI_API_KEY`
+
+### Explicit relationships
+- Tool-schema drift across harnesses can reduce smaller-model reliability even when a task is semantically simple.
+- Agent skills are executable supply-chain artifacts, not just instructions, when they include scripts, installers, hooks, and API-key paths.
+- Global skill installs widen blast radius compared with per-project installs.
+- Video-analysis skills depend-on downloader/transcoder behavior, transcript source, frame-selection policy, temporary-file cleanup, and external transcription API custody.
+
+### HoneyDrunk implications
+- When testing local or smaller models, prefer stable, simple, strict tool schemas and keep harness differences in the eval report.
+- Before installing third-party skills globally, review scripts, manifests, hooks, transitive tools, config paths, network/API-key usage, and license.
+- For video/screen-recording agent workflows, require policy for local files, third-party video downloads, transcript API keys, frame retention, and cleanup.
+
+### Quality notes
+- `claude-video` is a project README source and needs hands-on install/security review before use. API key names are public config names, not secrets.

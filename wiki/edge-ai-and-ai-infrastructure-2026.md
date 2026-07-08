@@ -803,3 +803,43 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - CNCF blog is practice guidance and regulatory interpretation; verify legal obligations with counsel before applying to customer commitments.
+
+## 2026-07-08 compile additions: AMD training fault tolerance, local GLM-scale hardware, and Hy3
+
+### Source-backed claims
+- PyTorch's Monarch-on-ROCm source describes single-controller distributed training on AMD Instinct GPUs using an actor runtime, process mesh abstraction, supervision tree, tensor sharding, RDMA, RCCL/NCCL integration, and support for SLURM, Kubernetes, and SkyPilot. Source: `raw/2026-07-08-rss-tldr-ai-bringing-pytorch-monarch-to-amd-gpus-single-controller-distrib.md`. confidence: 1 PyTorch/AMD source, last-confirmed 2026-07-08.
+- The source reports Monarch integrated with TorchTitan and TorchFT to recover from node/GPU failures through local restart, peer checkpoint transfer, quorum coordination, and continued training by healthy replicas rather than full job restart from global checkpoints. Source: `raw/2026-07-08-rss-tldr-ai-bringing-pytorch-monarch-to-amd-gpus-single-controller-distrib.md`. confidence: 1 source, last-confirmed 2026-07-08.
+- The same source reports validation on 16-node MI300 and 32-node MI355 AMD clusters with injected failures while training continued and loss convergence remained smooth; treat as vendor/project benchmark evidence until reproduced. Source: `raw/2026-07-08-rss-tldr-ai-bringing-pytorch-monarch-to-amd-gpus-single-controller-distrib.md`. confidence: 1 project/vendor benchmark source, last-confirmed 2026-07-08.
+- James O'Beirne's local LLM guide documents a 4x RTX PRO 6000, 384GB VRAM, PCIe Gen4 switch setup for running very large local models, with BIOS, kernel, ACS, P2P, power-cap, model-weight storage, and Docker runner considerations. Source: `raw/2026-07-08-rss-tldr-ai-jamesob-s-guide-to-running-sota-llms-locally-12-minute-read.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 practitioner source, last-confirmed 2026-07-08.
+- Simon Willison reports Tencent Hy3 as an Apache-2.0 295B-parameter MoE model with 21B active parameters, 3.8B MTP layer parameters, 256K context, 598GB full weights, and a 300GB FP8 quantized variant; treat as model-watch evidence. Source: `raw/2026-07-08-rss-tldr-ai-hy3-1-minute-read.md`. confidence: 1 model-watch source, last-confirmed 2026-07-08.
+
+### Typed entities
+- runtime/project: PyTorch Monarch
+- framework: TorchTitan
+- framework: TorchFT
+- hardware: AMD Instinct MI300 / MI355
+- software stack: ROCm
+- collective library: RCCL
+- pattern: actor runtime
+- pattern: process mesh
+- pattern: supervision tree
+- pattern: quorum allreduce
+- model: GLM-5.2-Int8Mix-NVFP4-REAP-594B
+- model: Tencent Hy3
+- hardware: RTX PRO 6000 Blackwell Workstation
+- interconnect: PCIe Gen4 switch
+- concept: local SOTA LLM rig
+
+### Explicit relationships
+- Large-scale training reliability depends-on fault isolation, local restart, quorum coordination, peer state transfer, and elastic worker recovery, not only periodic global checkpoints.
+- ROCm support complements CUDA-only distributed runtimes by making AMD GPU clusters viable for advanced fault-tolerant training workflows.
+- Local SOTA model serving depends-on VRAM, P2P topology, kernel/BIOS configuration, power budget, storage, and serving-container discipline.
+- Hy3 complements the open-weight MoE watchlist but does not supersede local evals, hosting cost checks, or license review.
+
+### HoneyDrunk implications
+- If HoneyDrunk ever runs distributed training, evaluate fault-tolerance architecture as early as scaling efficiency; wasted checkpoint intervals and idle clusters are cost drivers.
+- For local high-end LLM hardware, require a real workload/cost case before procurement. Operator complexity, power, cooling, Linux/NVIDIA tuning, and model churn can dominate the value.
+- Keep Hy3 on the scouting list for open-weight model comparisons, but benchmark against HoneyDrunk tasks and hosting constraints before routing changes.
+
+### Quality notes
+- PyTorch/AMD and Tencent/Willison sources are current model/infrastructure signals but require live verification for hardware availability, prices, runtime support, model license terms, and benchmark transferability.

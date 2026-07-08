@@ -595,3 +595,41 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - Hugging Face source is product/community infrastructure guidance. IBM/HF source is benchmark/research promotion but includes useful validation design; reproduce on HoneyDrunk stacks before adopting as a routing gate.
+
+## 2026-07-08 compile additions: local-model eval sensitivity and verification evidence
+
+### Source-backed claims
+- Bockeler's local-model evaluation used a viability funnel: fit in RAM, run at usable speed, handle tool calls, build functionally correct code, survive longer conversations/context, handle larger tasks, then produce code quality worth the review effort. Source: `raw/2026-07-08-rss-martin-fowler-experiences-with-local-models-for-coding.md`; page: [[ai-assisted-software-practice]]. confidence: 1 practitioner source, last-confirmed 2026-07-08.
+- Manual and automated local-model evals disagreed on at least one task: a model that looked promising interactively failed repeated one-shot automated attempts, showing that eval mode and allowed self-correction sensors materially change conclusions. Source: `raw/2026-07-08-rss-martin-fowler-experiences-with-local-models-for-coding.md`. confidence: 1 source, last-confirmed 2026-07-08.
+- The same report found task shape dominated model viability: exact file pointers, small edit count, lower discovery burden, tech stack familiarity, and specific instructions produced better results than vague or multi-file work. Source: `raw/2026-07-08-rss-martin-fowler-experiences-with-local-models-for-coding.md`. confidence: 1 source, last-confirmed 2026-07-08.
+- James O'Beirne's local LLM guide is a hardware/operator source for running large open models locally: it documents GPU VRAM, PCIe switch topology, P2P bandwidth, power caps, model-weight storage, Dockerized runners, and a VM-based coding harness. Source: `raw/2026-07-08-rss-tldr-ai-jamesob-s-guide-to-running-sota-llms-locally-12-minute-read.md`; page: [[edge-ai-and-ai-infrastructure-2026]]. confidence: 1 practitioner README source, last-confirmed 2026-07-08.
+- The guide reports a 4x RTX PRO 6000 setup serving GLM-5.2-class local models, but the cost, Linux/NVIDIA-specific tuning, P2P/ACS/kernel changes, and power limitations make it an operator case study rather than a general recommendation. Source: `raw/2026-07-08-rss-tldr-ai-jamesob-s-guide-to-running-sota-llms-locally-12-minute-read.md`. confidence: 1 practitioner source, last-confirmed 2026-07-08.
+- The Thinkroom verification-loop source says branch readiness should be supported by exercised user flows, observed outcomes, fixes with evidence, and re-verification rather than final-answer claims. Source: `raw/2026-07-08-rss-tldr-ai-closing-the-verification-loop-14-minute-read.md`; capture caveat: partially clipped. confidence: 1 partially captured practitioner source, last-confirmed 2026-07-08.
+
+### Typed entities
+- evaluator: local-model viability funnel
+- model: Qwen3.6 35B-A3B MoE
+- model: Gemma 4
+- model: GLM-5.2-Int8Mix-NVFP4-REAP-594B
+- hardware: RTX PRO 6000 Blackwell Workstation
+- tool: vLLM
+- tool: Docker Compose
+- metric: P2P bandwidth
+- metric: review effort
+- validation artifact: browser run receipt
+- concept: one-shot automated eval
+- concept: interactive manual eval
+
+### Explicit relationships
+- Local-model eval results depend-on hardware, harness, task scope, context pressure, tool schema, and whether the model gets interactive correction chances.
+- One-shot evals complement interactive trials but can understate workflows where browser or test sensors allow self-correction.
+- Local hardware benchmarks complement hosted model evals only when cost, power, setup complexity, and operator maintenance are recorded.
+- Verification receipts complement benchmark scores because a passing branch still needs user-visible proof on the changed flow.
+
+### HoneyDrunk implications
+- Any HoneyDrunk local-model benchmark should log machine/RAM/VRAM, model quantization, runtime, context setting, harness, active tools, task scope, repeats, and review burden.
+- Compare interactive and automated modes separately; do not treat one-shot failure as the only local-model signal if the intended workflow allows tool-backed self-correction.
+- Use browser/user-flow receipts as acceptance evidence for UI/product changes, especially where tests and static review cannot cover email, navigation, or visual behavior.
+
+### Quality notes
+- Local-model sources are practitioner evidence. Hardware details are useful for spike planning but not procurement advice without current price, availability, and local workload checks.

@@ -894,3 +894,41 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - DEV/community optimization guidance is useful but should be validated on target devices. 80 Level is trade/interview evidence and not a generalized production forecast.
+
+## 2026-07-08 compile additions: genre-aware Unity mobile profiling and Houdini UV test textures
+
+### Source-backed claims
+- The DEV Unity optimization source argues mobile Unity optimization should start from genre-specific bottlenecks rather than a generic checklist: crowd/swarm games are animation and draw-call bound, match/puzzle games are often overdraw/UI/effect bound, and physics puzzles are timestep/collider bound. Source: `raw/2026-07-08-rss-dev-to-unity-choosing-a-genre-specific-optimization-strategy-for-unity.md`. confidence: 1 practitioner/DEV source, last-confirmed 2026-07-08.
+- For crowd/swarm games, the source recommends GPU instancing plus baked animation/animation texture approaches and distance-based animation update LOD before ordinary pooling/GC cleanup. Source: `raw/2026-07-08-rss-dev-to-unity-choosing-a-genre-specific-optimization-strategy-for-unity.md`. confidence: 1 source, last-confirmed 2026-07-08.
+- For match/puzzle games, the source recommends capping/pooling match effects, consolidating Canvas layers, disabling raycast targets on visual-only UI, and testing worst-case cascades rather than average frames. Source: `raw/2026-07-08-rss-dev-to-unity-choosing-a-genre-specific-optimization-strategy-for-unity.md`. confidence: 1 source, last-confirmed 2026-07-08.
+- For physics-heavy games, the source recommends testing fixed timestep, collider simplification, and `Physics.autoSyncTransforms` behavior against the maximum active rigidbody state rather than a settled scene. Source: `raw/2026-07-08-rss-dev-to-unity-choosing-a-genre-specific-optimization-strategy-for-unity.md`. confidence: 1 source, last-confirmed 2026-07-08.
+- 80 Level reports SideFX Labs' UV Grid Texture COP for Houdini Copernicus can generate customizable procedural test textures for UV layout, orientation, texel density, distortion, seams, and island distribution, previewable through UV Visualize SOP. Source: `raw/2026-07-08-rss-80-level-new-copernicus-node-for-testing-uv-layouts-on-3d-models.md`; page: [[technical-art-community-and-talent-signals]]. confidence: 1 trade/tooling source, last-confirmed 2026-07-08.
+
+### Typed entities
+- engine: Unity
+- platform: Unity mobile
+- technique: GPU instancing
+- technique: animation texture baking
+- API: `Graphics.DrawMeshInstanced`
+- API: `Graphics.RenderMeshIndirect`
+- setting: `Time.fixedDeltaTime`
+- setting: `Physics.autoSyncTransforms`
+- tool: Houdini Copernicus
+- toolkit: SideFX Labs
+- node: UV Grid Texture COP
+- tool: UV Visualize SOP
+
+### Explicit relationships
+- Genre-specific profiling supersedes generic optimization order when a game has a predictable worst-case frame.
+- Crowd games depend-on instancing and animation cost controls as population count grows.
+- Puzzle games depend-on overdraw/effect discipline when cascades and UI layers stack.
+- Physics games depend-on timestep and collider budgets when active rigidbodies peak.
+- UV test textures complement texture and mesh QA by making distortion, orientation, texel density, and seams visible before content integration.
+
+### HoneyDrunk implications
+- For Unity prototypes, define the genre's worst realistic frame and build a profiler scenario for it before optimizing average play.
+- Add genre-specific profiling commands or debug setup to prototype repos so agents and humans can reproduce the actual performance stress case.
+- For technical-art asset review, use UV-grid/test-texture passes before committing production materials to a model.
+
+### Quality notes
+- DEV source is practitioner guidance and should be validated on target devices. SideFX Labs signal is useful tooling discovery; verify Houdini version and node availability before relying on it.

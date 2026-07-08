@@ -1382,3 +1382,46 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 
 ### Privacy and quality notes
 - Security controls were summarized without copying reusable exploit payloads or operational bypass steps. Docker and n8n are vendor-authored; Sentinel content is practitioner guidance that should be adapted to local workspace names and identity policy.
+
+## 2026-07-08 compile additions: agent identity, SaaS exposure, and sandbox credentials
+
+### Source-backed claims
+- Kane Narraway frames three agent identity models: agents can act as the user, act through their own service account/API token, or act as their own workload identity. Each model trades off usability, attribution, long-running operation, lifecycle ownership, and credential blast radius. Source: `raw/2026-07-08-rss-tldr-infosec-three-ways-to-give-an-ai-agent-an-identity-17-minute-read.md`; page: [[ai-agent-identity-and-workload-auth]]. confidence: 1 practitioner source, last-confirmed 2026-07-08.
+- The source argues service-account tokens are often the weakest production pattern because they are long-lived, difficult to inventory, frequently over-privileged, and easily shared across teams; short-lived brokered tokens are the better baseline where available. Source: `raw/2026-07-08-rss-tldr-infosec-three-ways-to-give-an-ai-agent-an-identity-17-minute-read.md`; page: [[ai-agent-identity-and-workload-auth]]. confidence: 1 source, last-confirmed 2026-07-08.
+- The same source describes SPIFFE/SPIRE-style workload identity as the stronger long-term model for attested agents, while noting setup cost and SaaS scoping limits make it impractical for many organizations in the near term. Source: `raw/2026-07-08-rss-tldr-infosec-three-ways-to-give-an-ai-agent-an-identity-17-minute-read.md`; page: [[ai-agent-identity-and-workload-auth]]. confidence: 1 source, last-confirmed 2026-07-08.
+- Reco's Mythos/SaaS security source argues Mythos-class AI mostly accelerates discovery and chaining of existing SaaS exposures: unenforced SSO, orphaned accounts, over-privileged tokens, unmanaged OAuth grants, shadow apps, and agent/service-account permissions. Source: `raw/2026-07-08-rss-tldr-infosec-claude-mythos-and-saas-security-what-you-need-to-know-8-m.md`. confidence: 1 vendor/practice source, last-confirmed 2026-07-08.
+- The Reco source says non-human identities such as service accounts, API keys, OAuth grants, integrations, and AI agents should receive inventory, ownership, least privilege, access review, monitoring, and anomaly detection similar to human users. Source: `raw/2026-07-08-rss-tldr-infosec-claude-mythos-and-saas-security-what-you-need-to-know-8-m.md`. confidence: 1 vendor/practice source, last-confirmed 2026-07-08.
+- CubeSandbox's credential vault keeps keys outside the sandbox while allowing agents to call external APIs through a proxy/gateway path; this is the same control pattern as proxy-managed credentials in other agent sandboxes. Source: `raw/2026-07-08-rss-tldr-devops-cube-sandbox-github-repo.md`; page: [[ai-agent-harnesses]]. confidence: 1 project README source, last-confirmed 2026-07-08.
+
+### Typed entities
+- concept: agent identity model
+- identity pattern: user-delegated session
+- identity pattern: service account/API token
+- identity pattern: workload identity
+- standard: SPIFFE / SPIRE
+- protocol/extension: Identity Assertion Authorization Grant / ID-JAG
+- product/control: Okta Cross App Access
+- product/control: Entra Agent ID
+- product/control: Okta for AI Agents
+- product/control: AWS Bedrock AgentCore Identity
+- product/control: Google Agent Identity
+- threat surface: SaaS misconfiguration
+- identity type: non-human identity / NHI
+- product: CubeSandbox Credential Vault
+
+### Explicit relationships
+- User-delegated agents depend-on human sessions and are easy to start, but long-running workflows and incident attribution become weak.
+- Service-account agents can support team workflows but create NHI sprawl when tokens are long-lived, shared, or outside central governance.
+- Workload identity supersedes static tokens when attestation, short lifetimes, actor chains, and policy control are available.
+- Identity brokers complement all three identity models by minting scoped short-lived tokens at request time.
+- SaaS exposure risk is caused by identities, permissions, integrations, and configuration drift being chainable across applications.
+- Credential vaulting complements sandboxing by preventing secrets from entering the guest filesystem, model context, or logs.
+
+### HoneyDrunk implications
+- For HoneyDrunk agents, label each workflow as acting-as-user, service-account, or workload-identity before granting tool access.
+- Avoid long-lived shared tokens for agents wherever WIF/OBO/brokered short-lived tokens are available.
+- Inventory agent identities, service accounts, OAuth grants, GitHub Apps, MCP connectors, and SaaS integrations together; attackers and agents both cross those boundaries.
+- Treat sandbox credential proxies as required for high-value APIs, but verify egress policy, audit logs, placeholder rejection, and bypass resistance.
+
+### Privacy and quality notes
+- Vendor SaaS-security content was summarized at exposure/control level. No exploit chain, private customer details, or operational bypass instructions were copied.

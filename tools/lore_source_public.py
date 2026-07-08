@@ -20,6 +20,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 REPO = Path(r"C:\Users\tatte\source\repos\HoneyDrunkStudios\HoneyDrunk.Lore")
@@ -99,6 +100,28 @@ HIGH_SIGNAL_TERMS = [
     "codex", "claude code", "karpathy", "anthropic", "openai", "github breach",
     "github breached", "internal repos", "exfiltration", "source code breach",
     "mcp", "agent governance", "supply chain", "rampart",
+]
+
+EXCLUDED_HOSTS = {
+    "x.com",
+    "www.x.com",
+    "twitter.com",
+    "www.twitter.com",
+}
+
+LOW_SIGNAL_TITLE_TERMS = [
+    "layoffs",
+    "laid off",
+    "slams",
+    "grant",
+    "grants program",
+    "might be preparing",
+    "reportedly",
+    "set to launch",
+    "hard to turn into a moneymaker",
+    "is hiring",
+    "data breach impacts",
+    "government logins",
 ]
 
 SOURCE_PRIORITY = {
@@ -234,6 +257,41 @@ def canonical_url(url: str) -> str:
         if not k.lower().startswith("utm_") and k.lower() not in sensitive_query_keys
     ]
     return urllib.parse.urlunsplit((parsed.scheme.lower(), parsed.netloc.lower(), path, urllib.parse.urlencode(query), ""))
+
+
+def is_excluded_url(url: str) -> bool:
+    parsed = urllib.parse.urlsplit(url)
+    return parsed.scheme.lower() not in {"http", "https"} or parsed.netloc.lower() in EXCLUDED_HOSTS
+
+
+def is_low_signal_item(item: dict) -> bool:
+    title = item.get("title", "").lower()
+    if any(term in title for term in LOW_SIGNAL_TITLE_TERMS):
+        return True
+    return False
+
+
+def normalize_date(value: str) -> str:
+    value = (value or "").strip()
+    if not value:
+        return "unknown"
+    iso_match = re.search(r"\b(\d{4}-\d{2}-\d{2})\b", value)
+    if iso_match:
+        return iso_match.group(1)
+    try:
+        return parsedate_to_datetime(value).date().isoformat()
+    except Exception:
+        return "unknown"
+
+
+def birdclaw_blocker_status() -> str:
+    path = OUTPUT / "lore-birdclaw-sourcing-last-run.md"
+    if not path.exists():
+        return "unknown - output/lore-birdclaw-sourcing-last-run.md was not found"
+    text = path.read_text(encoding="utf-8", errors="ignore")
+    if re.search(r"(?mi)^## Blockers\s*$", text) and re.search(r"(?mi)^-\s+", text.split("## Blockers", 1)[-1]):
+        return "yes"
+    return "no"
 
 
 def parse_tldr_issue(issue_html: str, feed_name: str, category: str, published: str, issue_url: str) -> list[dict]:
@@ -472,6 +530,8 @@ def main() -> int:
     for item in candidates:
         url = item["url"].strip()
         normalized_url = canonical_url(url)
+        if is_excluded_url(normalized_url) or is_low_signal_item(item):
+            continue
         if normalized_url in known or normalized_url in seen:
             skipped_dupes += 1
             continue
@@ -490,6 +550,7 @@ def main() -> int:
         for item in selected:
             source_type = item.get("source_type", "rss")
             body = article_body(item["url"], item.get("summary", ""))
+            body = "\n".join(line.rstrip() for line in body.splitlines()).strip()
             min_len = 300
             if len(body) < min_len:
                 failures.append(f"{item['feed']}: skipped short content: {item['url']}")
@@ -500,7 +561,7 @@ def main() -> int:
             while path.exists():
                 path = RAW / f"{today}-{source_type}-{slugify(item['feed'] + '-' + item['title'])}-{n}.md"
                 n += 1
-            published = item.get("published") or "unknown"
+            published = normalize_date(item.get("published") or "unknown")
             extra_meta = ""
             if item.get("discovered_via"):
                 extra_meta += f'discovered_via: "{yaml_escape(item["discovered_via"])}"\n'
@@ -519,6 +580,7 @@ def main() -> int:
         f"Skipped duplicates: {skipped_dupes}",
         f"Selected: {len(selected)}",
         f"Saved: {len(written)}",
+        f"Birdclaw blocker reported: {birdclaw_blocker_status()}",
         "",
         "## Selected candidates",
     ]

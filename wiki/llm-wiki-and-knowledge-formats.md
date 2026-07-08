@@ -193,3 +193,28 @@ This page tracks durable patterns for agent-readable, human-readable knowledge s
 
 ### Quality notes
 - The article is a sponsored/practitioner newsletter and should be validated against the Omnigraph repository and docs. Its architecture framing is useful because it matches Lore's existing graph-ready direction.
+
+## 2026-07-08 compile additions: verification reports as crystallizable evidence
+
+### Source-backed claims
+- The Thinkroom verification-loop source says a dogfood matrix/report should be written to disk as soon as scenarios are generated and updated after every scenario and fix, making the report a checkpoint for later agents or teammates. Source: `raw/2026-07-08-rss-tldr-ai-closing-the-verification-loop-14-minute-read.md`; capture caveat: source is clipped after the fix-loop section. confidence: 1 partially captured practitioner source, last-confirmed 2026-07-08.
+- The same source treats scenario reports as more than QA notes: they preserve the changed ref, scoped flows, persona assumptions, browser evidence, failures, fixes, and re-verification state. Source: `raw/2026-07-08-rss-tldr-ai-closing-the-verification-loop-14-minute-read.md`. confidence: 1 partially captured practitioner source, last-confirmed 2026-07-08.
+
+### Typed entities
+- artifact: dogfood report
+- artifact: scenario matrix
+- artifact: browser evidence
+- concept: crystallizable verification evidence
+- workflow: `ce-dogfood`
+
+### Explicit relationships
+- Dogfood reports complement LLM wiki outputs by turning episodic branch verification into durable, resumable evidence.
+- Crystallization should only promote verification findings when the report is cited, scoped, and decision-useful rather than a transient checklist.
+- Persona assumptions depend-on source docs such as `STRATEGY.md`, `VISION.md`, or explicitly labeled inference.
+
+### HoneyDrunk implications
+- Lore can ingest durable verification reports when they reveal reusable workflow facts, recurring product risks, or long-lived decision evidence.
+- Keep run reports structured enough to support future retrieval: ref, base, flows, scenarios, persona assumptions, evidence links, fixes, unresolved gaps, and final readiness.
+
+### Quality notes
+- Source is incomplete but the captured report/checkpoint pattern is consistent with Lore's output-to-wiki crystallization contract.
