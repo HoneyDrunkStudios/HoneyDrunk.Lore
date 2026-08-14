@@ -1215,3 +1215,126 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - Project README claims for `claude-video` and CubeSandbox need hands-on validation before adoption. The Thinkroom capture is incomplete, so only captured workflow mechanics were promoted.
+
+## 2026-08-12 compile additions: conductor supervision, instruction hygiene, multimodal plugins, and Unity agent roles
+
+### Source-backed claims
+- The "conductor developer" source says multi-agent development shifts work toward orchestration: assigning tasks, injecting context, monitoring parallel agents, evaluating output, and deciding when the next step is ready. Source: `raw/2026-08-12-rss-martin-fowler-the-conductor-developer.md`; page: [[ai-assisted-software-practice]]. confidence: 1 Thoughtworks practitioner source, last-confirmed 2026-08-12.
+- The instructions-hygiene source recommends scoping instruction content repo-wide, path-specific, or linked to separate docs, and reviewing instructions with keep/remove/move/verify decisions as engineering-maintained artifacts. Source: `raw/2026-08-12-rss-net-blog-instructions-hygiene-what-frontier-models-still-need-you-to-s.md`. confidence: 1 practitioner/.NET Blog source, last-confirmed 2026-08-12.
+- Qwen-MM-Plugins is a project README source for multimodal agent plugins targeting hosts such as Claude Code, Codex, Qoder, OpenClaw, Qwen Code, and Gemini CLI, with independently installable skill/MCP capabilities for images, video, documents, code/data, 3D, search, video memory/editing, Blender, FreeCAD, and education workflows. Source: `raw/2026-08-12-rss-tldr-ai-qwen-mm-plugins-github-repo.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 project README source, last-confirmed 2026-08-12.
+- The Qwen-MM-Plugins source uses `uv`/`uvx`, optional API-backed capabilities, external applications, shared user config, and installer scripts; those traits make it an executable supply-chain artifact rather than pure documentation. Source: `raw/2026-08-12-rss-tldr-ai-qwen-mm-plugins-github-repo.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 README source, last-confirmed 2026-08-12.
+- Unity's Copilot workflow source recommends splitting work across main chat orchestration, coding agents, validation agents, project-specific instructions, and domain skills for shaders, UI Toolkit, and game systems. Source: `raw/2026-08-12-rss-unity-blog-5-tips-for-using-github-copilot-with-unity.md`; page: [[unity-3d-and-realtime-vfx-patterns]]. confidence: 1 Unity-authored source, last-confirmed 2026-08-12.
+
+### Typed entities
+- role concept: conductor developer
+- artifact: instruction file
+- review operation: keep/remove/move/verify
+- project: Qwen-MM-Plugins
+- model family: Qwen
+- host: Codex
+- host: OpenClaw
+- host: Claude Code
+- host: Gemini CLI
+- tool/runtime: `uv` / `uvx`
+- capability: multimodal skill
+- capability: MCP server
+- application: Blender
+- application: FreeCAD
+- engine: Unity
+- role: validation agent
+
+### Explicit relationships
+- Multi-agent harness value depends-on human supervision capacity and durable context, not just number of concurrent agents.
+- Instruction hygiene complements harness quality by making model-visible context shorter, more specific, and easier to verify.
+- Multimodal plugins extend agent capability but widen supply-chain, credential, network, and local-application blast radius.
+- Skill + MCP packaging overlaps-with plugin governance because a single install can add instructions, tools, scripts, and API-key paths.
+- Unity background agents depend-on project instructions and validation roles so parallel work does not become unreviewed code churn.
+
+### HoneyDrunk implications
+- Before installing Qwen-MM-Plugins or similar multimodal plugin bundles, review repository provenance, installer behavior, license, config paths, API-key custody, temp files, model/service calls, and Windows compatibility.
+- Keep agent instruction reviews recurring: remove generic text, move deep background into linked docs, and verify the shortest validation path still works.
+- Treat parallel background agents as bounded work queues with explicit reviewer attention, not an unlimited throughput knob.
+
+### Quality notes
+- Qwen-MM-Plugins is README-level evidence. Installer commands and API setup details were not promoted as recommendations until repository/security review is performed.
+
+## 2026-08-13 compile additions: research agents, Paperclip, and plugin packaging
+
+### Source-backed claims
+- System Design Newsletter frames a research agent as a loop that decomposes a complex question, runs focused sub-question workers over tools, reads and filters sources, synthesizes a cited report, and evaluates the trajectory rather than only the final answer. Source: `raw/2026-08-13-rss-system-design-newsletter-how-to-build-an-ai-research-agent.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 newsletter/practitioner source, last-confirmed 2026-08-13.
+- The same source says agent runs need explicit stop conditions: a completion signal, iteration cap, and budget cap, with cap hits treated as a signal of broken tools or a mismatched task/agent design. Source: `raw/2026-08-13-rss-system-design-newsletter-how-to-build-an-ai-research-agent.md`. confidence: 1 source, last-confirmed 2026-08-13.
+- Paperclip is a Node.js/React open-source control plane for orchestrating teams of AI agents across goals, org charts, budgets, tasks, approvals, heartbeats, workspaces, secrets, audit logs, plugins, and multi-company isolation. Source: `raw/2026-08-13-rss-tldr-devops-paperclip-github-repo.md`; page: [[multi-agent-architectures]]. confidence: 1 project README source, last-confirmed 2026-08-13.
+- The Paperclip README claims atomic task checkout, persistent agent state, runtime skill injection, governance with rollback, goal ancestry, secret scrubbing for company export/import, telemetry controls, and adapter support for agents such as OpenClaw, Claude Code, Codex, Cursor, Bash, and HTTP/webhook bots. Source: `raw/2026-08-13-rss-tldr-devops-paperclip-github-repo.md`. confidence: 1 README source, last-confirmed 2026-08-13.
+- Agent Plugins 1.0.0 is an open, vendor-neutral package format for bundling Agent Skills and MCP servers into one portable directory with fixed locations for `plugin.json`, `skills/`, `mcp.json`, and client-specific reverse-domain extension folders. Source: `raw/2026-08-13-web-agent-plugins-package-your-skills-tools-and-more.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 Google Developers source, last-confirmed 2026-08-13.
+
+### Typed entities
+- pattern: research agent
+- pattern: orchestrator-worker
+- pattern: parallel-and-synthesize
+- control: completion signal
+- control: iteration cap
+- control: budget cap
+- project: Paperclip
+- platform/runtime: Node.js server and React UI
+- adapter target: OpenClaw
+- adapter target: Codex
+- adapter target: Claude Code
+- specification: Agent Plugins 1.0.0
+- manifest: `plugin.json`
+- manifest: `mcp.json`
+- directory: `skills/`
+
+### Explicit relationships
+- Research agents depend-on tool design, loop termination, trajectory logs, citation checks, and post-run evaluation.
+- Paperclip complements lower-level agent runtimes by managing work assignment, budgets, approval gates, secrets, workspaces, and audit trails above them.
+- Heartbeats and atomic checkout reduce duplicate work and lost context in recurring multi-agent operations.
+- Agent Plugins package Skills and MCP servers together but do not provide installation, permissions, sandboxing, provenance, or distribution by themselves.
+
+### HoneyDrunk implications
+- Lore Query/Compile agents should keep completion, iteration, and budget caps explicit so failed research does not silently become expensive wandering.
+- Paperclip is a control-plane candidate only after repository/license/security review, Windows/dev-server behavior, secret storage, telemetry defaults, and data-isolation claims are verified.
+- Treat Agent Plugins as packaging infrastructure, not a trust decision; installation and permission policy still belong to the host/runtime.
+
+### Quality notes
+- System Design Newsletter and Paperclip are useful architecture/project signals but need local validation. Installer commands from Paperclip were not copied as recommended adoption steps.
+
+## 2026-08-14 compile additions: multi-agent failure modes, software factories, and routing harnesses
+
+### Source-backed claims
+- Anthropic's multi-agent research reports that coordinated vulnerability-finding swarms and independent parallel agents found largely complementary vulnerabilities, while software-project swarms showed model-dependent coordination tradeoffs between PR merge rate and shared-code collaboration. Source: `raw/2026-08-14-rss-tldr-ai-how-ai-agents-could-fail-at-scale-14-minute-read.md`; page: [[multi-agent-architectures]]. confidence: 1 primary research source via TLDR, last-confirmed 2026-08-14.
+- The same source identifies systemic multi-agent failure modes: low-variance conformity, premature consensus, weak handling of deceptive or unreliable peers, hidden-profile information loss, literal goal pursuit, and escalation when agents receive incompatible objectives in shared environments. Source: `raw/2026-08-14-rss-tldr-ai-how-ai-agents-could-fail-at-scale-14-minute-read.md`; page: [[ai-coding-agent-security]]. confidence: 1 source, last-confirmed 2026-08-14.
+- Cloudflare's Astro automation case study describes an issue-triage "software factory" that uses a reusable agent skill, isolated sequential subagents, GitHub issue labels as a state machine, sandbox reproduction, preview releases, reporter verification, and then PR creation after fix verification. Source: `raw/2026-08-14-rss-tldr-web-dev-how-we-built-a-software-factory-to-drive-astro-s-github-i.md`. confidence: 1 vendor/project case-study source, last-confirmed 2026-08-14.
+- Code-Graph-RAG is a project that parses multi-language code with Tree-sitter and ast-grep, stores structure in Memgraph, supports natural-language Cypher-backed queries, structural search/replace, data-flow `FLOWS_TO` edges, MCP serving, and diff-preview editing. Source: `raw/2026-08-14-rss-tldr-devops-code-graph-rag-github-repo.md`. confidence: 1 project README source, last-confirmed 2026-08-14.
+- NVIDIA NeMo Switchyard is a pre-alpha Rust proxy/library for LLM traffic that translates between OpenAI Chat, OpenAI Responses, and Anthropic Messages formats, routes traffic across providers/backends, and exposes Prometheus metrics; its README explicitly warns it is experimental and not for production use. Source: `raw/2026-08-14-rss-tldr-devops-switchyard-github-repo.md`. confidence: 1 project README source, last-confirmed 2026-08-14.
+- Databricks Unity AI Gateway Smart Routing uses task-aware model and harness routing for coding-agent sessions, reporting internal/public benchmark cost reductions while warning that opening prompts, reused sessions, cache-hit behavior, and mid-session task drift make routing a harness-design and evaluation problem. Source: `raw/2026-08-14-rss-tldr-devops-smart-routing-in-unity-ai-gateway-match-frontier-quality-w.md`. confidence: 1 vendor engineering source, last-confirmed 2026-08-14.
+
+### Typed entities
+- organization/source: Anthropic Frontier Red Team
+- workflow: multi-agent vulnerability swarm
+- workflow: software factory
+- framework: Flue
+- repository/action: `triagebot-action`
+- project: Code-Graph-RAG
+- graph database: Memgraph
+- parser: Tree-sitter
+- tool: ast-grep
+- project: NVIDIA NeMo Switchyard
+- platform: Databricks Unity AI Gateway
+- harness: Omnigent
+
+### Explicit relationships
+- Multi-agent swarms depend-on coordination mechanisms, shared-resource policy, variance, reputation/trust modeling, and human intervention paths.
+- Sequential isolated subagents complement issue triage by reducing phase-contamination between reproduction, diagnosis, verification, and fixing.
+- GitHub issue labels can act as durable workflow state when comments and logs provide the audit trail.
+- Code graph RAG complements text/vector code retrieval by preserving structural, call/reference, and data-flow relationships.
+- LLM routing proxies depend-on protocol translation correctness, provider credential handling, fallback behavior, telemetry, and maturity gates.
+- Task-aware routing supersedes naive per-request routing for long coding sessions when cache efficiency and harness context dominate cost.
+
+### HoneyDrunk implications
+- Do not run autonomous agents with incompatible goals in the same writable environment unless branch, identity, process, and account boundaries are enforced.
+- For issue automation, prefer a label/state-machine workflow with isolated phases, reproduction evidence, preview artifacts, and reporter/human verification before PR creation.
+- Treat Code-Graph-RAG and Switchyard as scouting candidates only: review licenses, local services, Docker/Memgraph footprint, MCP surface, credential paths, Windows behavior, and maturity before adoption.
+- If HoneyDrunk adds model routing for coding agents, start with machine-scoped tasks such as reviews, subagent launches, batch migrations, and scheduled jobs where task statements are explicit.
+
+### Quality notes
+- Anthropic source is primary research but experimental. Cloudflare and Databricks are vendor case studies. README-sourced projects require local install/security review and were not promoted as approved dependencies.

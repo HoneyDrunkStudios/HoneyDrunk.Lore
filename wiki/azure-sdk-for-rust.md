@@ -68,3 +68,27 @@ Azure SDK for Rust reached a stable production-ready milestone in May 2026 for c
 
 ### Quality notes
 - Microsoft release-source claim. Verify exact crate names, semver, and service gaps before implementation.
+
+## 2026-08-12 compile additions: storage SAS crate
+
+### Source-backed claims
+- Azure SDK July 2026 release notes announced Rust `azure_storage_sas` 0.1.0 as an initial stable release for building service SAS and user-delegation SAS values for Azure Storage Blob, Queue, and related storage services. Source: `raw/2026-08-12-rss-azure-blog-azure-sdk-release-july-2026.md`. confidence: 1 Microsoft Azure SDK release source, last-confirmed 2026-08-12.
+- The source frames user-delegation SAS as a way to grant scoped, time-limited storage access without sharing account keys. Source: `raw/2026-08-12-rss-azure-blog-azure-sdk-release-july-2026.md`; page: [[azure-agent-automation-and-identity]]. confidence: 1 source, last-confirmed 2026-08-12.
+
+### Typed entities
+- crate: `azure_storage_sas`
+- credential pattern: user-delegation SAS
+- service: Azure Storage Blob
+- service: Azure Storage Queue
+- secret type: storage account key
+
+### Explicit relationships
+- User-delegation SAS complements managed identity and Entra-backed storage access by narrowing delegated storage permissions and time windows.
+- `azure_storage_sas` depends-on the rest of the Rust Azure storage/identity stack when used in production workers.
+
+### HoneyDrunk implications
+- For Rust storage tooling, prefer user-delegation SAS over account-key distribution when a short-lived delegated link is the right access model.
+- Review SAS generation code for scope, expiry, clock skew, logging, and accidental token persistence before automation emits links.
+
+### Quality notes
+- Microsoft release notes are authoritative for package existence. Validate crate docs and storage-service support before implementation.

@@ -699,3 +699,94 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - Community forum sources are useful for terminology and workflow options but low authority. No user images or personal contact details were promoted.
+
+## 2026-08-12 compile additions: ComfyUI material sync and Blender 4.5 LTS
+
+### Source-backed claims
+- A Tech-Artists.org discovery post reports ComfyUI-MaterialSync as a custom ComfyUI node that sends generated PBR texture maps to Blender, Maya, and Unreal Engine, then creates or assigns materials automatically. Source: `raw/2026-08-12-rss-tech-artists-org-comfyui-materialsync-for-blender-maya-and-unrealengin.md`. confidence: 1 low-detail community discovery source, last-confirmed 2026-08-12.
+- The post lists Blender, Maya, and Unreal support, automatic PBR map detection, material creation/texture assignment, and one-click sync from ComfyUI as current features, but does not provide enough captured detail to assess repository quality, license, or security. Source: `raw/2026-08-12-rss-tech-artists-org-comfyui-materialsync-for-blender-maya-and-unrealengin.md`. confidence: 1 low-detail source, last-confirmed 2026-08-12.
+- Blender 4.5 LTS was initially released on July 15, 2025, is supported until July 2027, and is positioned by Blender as an LTS release with full Vulkan support and quality-of-life improvements. Source: `raw/2026-08-12-web-blender-4-5-lts.md`. confidence: 1 Blender Foundation source, last-confirmed 2026-08-12.
+- The captured Blender 4.5 LTS page lists maintenance releases through 4.5.12 on July 21, 2026, indicating active LTS servicing. Source: `raw/2026-08-12-web-blender-4-5-lts.md`. confidence: 1 Blender Foundation source, last-confirmed 2026-08-12.
+
+### Typed entities
+- project: ComfyUI-MaterialSync
+- tool: ComfyUI
+- application: Blender
+- application: Maya
+- engine: Unreal Engine
+- material type: PBR texture maps
+- release: Blender 4.5 LTS
+- graphics API: Vulkan
+- date: 2025-07-15 initial Blender 4.5 LTS release
+- date: 2027-07 support horizon
+
+### Explicit relationships
+- ComfyUI-MaterialSync connects generative texture workflows to DCC/engine material assignment, but depends-on repository, license, installer, and security review before pipeline use.
+- Blender 4.5 LTS supersedes earlier non-LTS assumptions for Blender pipeline scouting when long support windows and Vulkan support matter.
+- LTS maintenance releases complement production-pipeline stability, but add-on compatibility still depends-on project-specific testing.
+
+### HoneyDrunk implications
+- Treat ComfyUI-MaterialSync as a technical-art lead, not an approved dependency, until the source repository, license, installer behavior, file/network access, and supported host versions are reviewed.
+- For Blender-based tools, prefer 4.5 LTS as the current stable baseline candidate, then validate add-ons, Python scripts, GPU/Vulkan behavior, and export paths on actual project assets.
+
+### Quality notes
+- Blender Foundation is authoritative for Blender release posture. The MaterialSync source is low-detail forum evidence and needs primary repository review.
+
+## 2026-08-13 compile additions: stylized 3D environment workflow
+
+### Source-backed claims
+- 80 Level's Angelo Ciervo interview describes a stylized environment workflow moving from 2D concept and mood boards into Unreal Engine blockout, Blender modular asset breakdown, mid-poly production, Substance 3D Designer/Painter texturing, trimsheets, decals, World Creator terrain, and final composition/lighting work. Source: `raw/2026-08-13-web-breakdown-turning-a-2d-concept-into-a-detailed-stylized-3d-scene.md`; page: [[unity-3d-and-realtime-vfx-patterns]]. confidence: 1 trade/interview source, last-confirmed 2026-08-13.
+- The workflow emphasizes production organization: consistent naming across Blender and Unreal, reusable modular pieces, texel-density management, plugin-assisted export, and treating reusable materials/trim sheets/foliage as long-term assets. Source: `raw/2026-08-13-web-breakdown-turning-a-2d-concept-into-a-detailed-stylized-3d-scene.md`. confidence: 1 source, last-confirmed 2026-08-13.
+- The source frames painterly look development as a combination of brush-stroke texture alphas, roughness/color variation, vertex painting, decals, fog/cloud cards, foliage shaders, and controlled foreground/midground/background detail. Source: `raw/2026-08-13-web-breakdown-turning-a-2d-concept-into-a-detailed-stylized-3d-scene.md`. confidence: 1 source, last-confirmed 2026-08-13.
+
+### Typed entities
+- artist: Angelo Ciervo
+- engine: Unreal Engine
+- DCC/tool: Blender
+- tool: Substance 3D Designer
+- tool: Substance 3D Painter
+- tool: ZBrush
+- tool: World Creator
+- plugin/tool: Blender For Unreal Engine
+- concept: stylized environment art
+- artifact: trimsheet
+- technique: painterly material texturing
+
+### Explicit relationships
+- Stylized environment production depends-on concept translation, modular asset planning, organized naming, reusable materials, and engine-context lighting checks.
+- Painterly material style uses texture, shader, roughness, decal, and composition controls together rather than one texture pass alone.
+- Technical-art organization complements art direction because large environments fail when assets, UVs, folders, and material variants are not controlled.
+
+### HoneyDrunk implications
+- For stylized environment prototypes, keep blockout, naming, trimsheet, reusable foliage/material, and engine round-trip rules explicit before asset count grows.
+- Treat 80 Level workflow interviews as reference language and checklist seeds; validate performance, licensing, and engine-specific constraints in actual prototype scenes.
+
+### Quality notes
+- Trade/interview source. Useful for workflow vocabulary and art-direction references, not proof of HoneyDrunk pipeline fit.
+
+## 2026-08-14 compile additions: Photoshop Workfront Fusion module deprecation
+
+### Source-backed claims
+- Adobe Workfront Fusion documentation says some legacy Adobe Photoshop modules stop working after 2026-07-30 because of Photoshop API deprecations; affected scenarios should migrate to updated modules such as `Create or edit a composite`, `Execute Photoshop actions, scripts, and transformations`, and `Generate a manifest`. Source: `raw/2026-08-14-web-adobe-help-center-adobe-photoshop-modules-for-workfront-fusion.md`. confidence: 1 Adobe documentation source, last-confirmed 2026-08-14.
+- The Photoshop connector requires an active Photoshop account, Firefly Services license, and Adobe Developer Console credentials; connection setup may use JWT or server-to-server credentials depending on configuration. Source: `raw/2026-08-14-web-adobe-help-center-adobe-photoshop-modules-for-workfront-fusion.md`. confidence: 1 source, last-confirmed 2026-08-14.
+
+### Typed entities
+- product: Adobe Workfront Fusion
+- connector: Adobe Photoshop connector
+- API: Adobe Photoshop API
+- license: Firefly Services
+- module: `Create or edit a composite`
+- module: `Execute Photoshop actions, scripts, and transformations`
+- module: `Generate a manifest`
+- deprecated module family: Photoshop legacy modules
+
+### Explicit relationships
+- Updated Photoshop modules supersede legacy Fusion modules after the 2026-07-30 API deprecation deadline.
+- Photoshop automation depends-on Adobe account/license state and credential custody, not only scenario design.
+
+### HoneyDrunk implications
+- If HoneyDrunk automates Photoshop through Workfront Fusion, inventory scenarios for legacy module names before assuming existing automations still run.
+- Treat Adobe connector credentials as production secrets and prefer server-to-server setup where it fits lifecycle and audit needs.
+
+### Quality notes
+- Adobe documentation is authoritative for the connector. No credential values or private workflow details were present in the raw source.

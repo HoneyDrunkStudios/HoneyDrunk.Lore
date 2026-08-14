@@ -549,3 +549,84 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ### Quality notes
 - GitHub source is authoritative for the changelog item. Verify CLI version, policy availability, and permission syntax in a disposable workflow before broad rollout.
+
+## 2026-08-12 compile additions: held public workflow runs and same-repository action references
+
+### Source-backed claims
+- GitHub Actions now automatically holds certain potentially malicious workflow runs in public repositories on github.com before they start, requiring a write collaborator to review and approve through an authenticated web session. Source: `raw/2026-08-12-rss-github-changelog-actions-github-actions-holds-potentially-malicious-wo.md`; page: [[ai-coding-agent-security]]. confidence: 1 GitHub changelog source, last-confirmed 2026-08-12.
+- The held-workflow control applies to public repositories on github.com and does not apply to GitHub Enterprise Server in the captured changelog. Source: `raw/2026-08-12-rss-github-changelog-actions-github-actions-holds-potentially-malicious-wo.md`. confidence: 1 source, last-confirmed 2026-08-12.
+- GitHub Actions can reference same-repository actions and reusable workflows with `uses: $/...`; GitHub resolves the reference to the workflow's own repository at the exact commit being executed and does not require a checkout for resolution. Source: `raw/2026-08-12-rss-github-changelog-actions-reference-same-repository-actions-with-self-r.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-08-12.
+- The `$` same-repository reference is available wherever workspace-relative `./` action syntax works, including workflow steps, composite action steps, nested composition, and reusable workflow calls, and requires Actions runner 2.336.0 or newer. Source: `raw/2026-08-12-rss-github-changelog-actions-reference-same-repository-actions-with-self-r.md`. confidence: 1 source, last-confirmed 2026-08-12.
+
+### Typed entities
+- platform: GitHub Actions
+- control: held potentially malicious workflow run
+- reviewer role: write collaborator
+- repository class: public repository on github.com
+- syntax: `uses: $/...`
+- syntax: workspace-relative `./`
+- runtime: Actions runner 2.336.0+
+- artifact: reusable workflow
+- artifact: composite action
+
+### Explicit relationships
+- Held workflow runs complement fork and untrusted-trigger controls by adding a pre-start review gate for suspicious public-repository executions.
+- Same-repository `$` references supersede brittle checkout-relative patterns when a workflow wants the action/reusable workflow from its own exact commit.
+- `$` references complement SHA-pinning policy because they avoid branch/tag drift while keeping internal composition readable.
+
+### HoneyDrunk implications
+- For public HoneyDrunk repos, document who reviews held workflow runs and what evidence is needed before approval.
+- Consider `$` references for same-repo internal actions/reusable workflows after runner versions are confirmed; this may reduce self-reference drift in shared workflow composition.
+- Do not assume the held-workflow control protects private repositories or GHES without direct product verification.
+
+### Quality notes
+- GitHub changelog sources are authoritative for feature existence. Validate behavior in representative workflows before sweeping YAML migrations.
+
+## 2026-08-13 compile additions: CodeQL default setup configuration at scale
+
+### Source-backed claims
+- GitHub code scanning default setup can now merge a repository property named `github-codeql-config-file` with built-in defaults, allowing teams to add CodeQL queries, exclude paths, and set threat models without maintaining an Actions workflow in every repository. Source: `raw/2026-08-13-web-customize-code-scanning-default-setup-at-scale-github-changelog.md`; page: [[ai-coding-agent-security]]. confidence: 1 GitHub changelog source, last-confirmed 2026-08-13.
+- Repository properties can provide organization-wide defaults and control whether repositories may override the config-file reference, including references to configuration files in another repository. Source: `raw/2026-08-13-web-customize-code-scanning-default-setup-at-scale-github-changelog.md`. confidence: 1 source, last-confirmed 2026-08-13.
+- Private central configuration repositories can be made available to default setup through an organization `Git Source` private registry instead of a workflow-managed token. Source: `raw/2026-08-13-web-customize-code-scanning-default-setup-at-scale-github-changelog.md`. confidence: 1 source, last-confirmed 2026-08-13.
+
+### Typed entities
+- product: GitHub code scanning default setup
+- tool: CodeQL
+- repository property: `github-codeql-config-file`
+- config: CodeQL configuration file
+- control: organization repository properties
+- access mechanism: `Git Source` private registry
+
+### Explicit relationships
+- `github-codeql-config-file` complements default setup by adding advanced configuration without per-repo workflow files.
+- Organization repository properties supersede ad hoc per-repo CodeQL configuration where a central baseline is needed.
+- Private CodeQL config access depends-on registry-style Git Source authorization rather than broad workflow token plumbing.
+
+### HoneyDrunk implications
+- If HoneyDrunk centralizes CodeQL policy, prefer a reviewed shared config repository and repository-property rollout over duplicated workflow YAML.
+- Decide which repos may override central CodeQL config before enforcement; exceptions should carry owner and reason metadata.
+
+### Quality notes
+- GitHub changelog is authoritative for feature existence. Verify API/UI behavior and GHES timing before org-wide rollout.
+
+## 2026-08-14 compile additions: MTP GitHub reporting
+
+### Source-backed claims
+- Microsoft.Testing.Platform's `--report-gh` can emit GitHub Actions annotations, log groups, and job summaries so failed tests surface on the workflow and PR without downloading artifacts. Source: `raw/2026-08-14-rss-net-blog-test-reporting-in-microsoft-testing-platform-from-red-build-t.md`; page: [[microsoft-dotnet-ai-stack]]. confidence: 1 .NET Blog source, last-confirmed 2026-08-14.
+
+### Typed entities
+- option: `--report-gh`
+- platform: Microsoft.Testing.Platform
+- provider: GitHub Actions
+- artifact: workflow annotation
+- artifact: job summary
+
+### Explicit relationships
+- GitHub-native test annotations complement artifact reports by moving failure evidence into reviewer-visible surfaces.
+- MTP reporting complements agent-assisted CI triage by reducing log scraping and exposing structured failure context to reviewers.
+
+### HoneyDrunk implications
+- For .NET GitHub Actions CI, evaluate MTP `--report-gh` on one test project before repo-wide rollout so annotation noise and report usefulness are visible.
+
+### Quality notes
+- Microsoft source is authoritative for the MTP feature. Verify package compatibility in representative workflows.

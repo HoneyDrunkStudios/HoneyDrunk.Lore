@@ -897,3 +897,105 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Fowler/Thoughtworks sources are practitioner evidence with small task samples. The Thinkroom source is useful but partially clipped; promote only the captured durable workflow concepts and keep the capture-quality caveat.
+
+## 2026-08-12 compile additions: conductor developers, instruction hygiene, and Unity Copilot practice
+
+### Source-backed claims
+- Rachel Laycock's "conductor developer" article argues that AI-assisted development shifts the bottleneck from typing code toward human attention: developers increasingly orchestrate agents, decide task assignment, provide context, evaluate output, and determine readiness for the next iteration. Source: `raw/2026-08-12-rss-martin-fowler-the-conductor-developer.md`; page: [[ai-agent-harnesses]]. confidence: 1 Thoughtworks practitioner source, last-confirmed 2026-08-12.
+- The same source reports developers running multiple agents in parallel and says management, energy, attention, and context-switching become explicit developer skill concerns when parallel agent count rises. Source: `raw/2026-08-12-rss-martin-fowler-the-conductor-developer.md`. confidence: 1 practitioner source, last-confirmed 2026-08-12.
+- The .NET Blog instructions-hygiene source says durable AI instructions should contain the smallest high-signal information that changes model outcome: non-obvious system facts, shortest reliable validation paths, local choices code cannot settle, hard constraints, expensive mistakes, and source-of-truth pointers. Source: `raw/2026-08-12-rss-net-blog-instructions-hygiene-what-frontier-models-still-need-you-to-s.md`; page: [[ai-agent-harnesses]]. confidence: 1 practitioner/.NET Blog source, last-confirmed 2026-08-12.
+- The same instructions-hygiene source says generic engineering advice, exhaustive directory inventories, tool-enforced rules, duplicated docs, model-specific coaxing folklore, and diaries of old fixed failures should usually be removed or moved out of instruction files. Source: `raw/2026-08-12-rss-net-blog-instructions-hygiene-what-frontier-models-still-need-you-to-s.md`. confidence: 1 source, last-confirmed 2026-08-12.
+- Unity's Copilot workflow source recommends main chat for orchestration, focused background agents for implementation and validation, `.github` custom instructions/agents/skills for Unity project context, `/plan` before implementation, and treating generated code like a reviewed PR. Source: `raw/2026-08-12-rss-unity-blog-5-tips-for-using-github-copilot-with-unity.md`; pages: [[unity-3d-and-realtime-vfx-patterns]], [[ai-agent-harnesses]]. confidence: 1 Unity-authored source, last-confirmed 2026-08-12.
+- Fowler's August 4 fragments include a low-confidence practice signal where AI-generated JavaScript helped extract package data from a closed UI after database access paths had stalled; treat it as an AI-assisted data-liberation pattern needing a fuller primary writeup. Source: `raw/2026-08-12-rss-martin-fowler-fragments-august-4.md`. confidence: 1 practitioner/curator source, last-confirmed 2026-08-12.
+
+### Typed entities
+- role concept: conductor developer
+- concept: human attention bottleneck
+- artifact: AI instruction file
+- artifact: `.github` custom instructions
+- workflow command: `/plan`
+- engine: Unity
+- tool: GitHub Copilot
+- agent role: coding agent
+- agent role: validation agent
+- practice: UI-backed data extraction
+
+### Explicit relationships
+- Parallel agent throughput depends-on human attention, evaluation discipline, context management, and handoff quality.
+- Instruction files complement codebase structure when they encode non-obvious constraints and validation paths that tools cannot infer.
+- Generic advice and stale incident diaries should be moved or removed when they do not change model behavior.
+- Unity-specific agents and skills depend-on accurate project context such as engine version, render pipeline, architecture patterns, shaders, UI Toolkit, and game systems.
+- AI-generated data extraction uses UI automation as a workaround when direct database access is unavailable, but depends-on permission, auditability, and result validation.
+
+### HoneyDrunk implications
+- Treat agent orchestration as an explicit engineering workload: define how many parallel agents a human can supervise before review quality drops.
+- Review repo and user-level instruction files like code: keep constraints, source pointers, and validation commands; prune generic or obsolete prompt text.
+- For Unity work, preserve `/plan` output, focused agent roles, and review evidence before accepting generated game-system or shader changes.
+- Do not use UI scraping or generated extraction scripts against third-party or production systems without authorization, rate limits, audit logs, and data-quality checks.
+
+### Quality notes
+- Thoughtworks/Fowler and Unity sources are practitioner/vendor evidence. The UI extraction example is under-specified, so it is kept as a weak pattern rather than a general recommendation.
+
+## 2026-08-13 compile additions: TDD inside the agent loop
+
+### Source-backed claims
+- Birgitta Boeckeler's exploratory TDD-in-agent-loop evaluation found no clearly discernable quality difference between TDD and non-TDD agent workflows in a small set of greenfield business-logic tasks; in several batches the non-TDD solutions were judged slightly better on design or tests. Source: `raw/2026-08-13-rss-martin-fowler-tdd-inside-the-agent-loop-theater-or-actual-value.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 small practitioner evaluation source, last-confirmed 2026-08-13.
+- The source reports that TDD runs used several times more recorded tokens than non-TDD runs, while mutation scores did not show a meaningful advantage for TDD solutions in the captured experiment. Source: `raw/2026-08-13-rss-martin-fowler-tdd-inside-the-agent-loop-theater-or-actual-value.md`. confidence: 1 source with explicit small-sample caveats, last-confirmed 2026-08-13.
+- The analysis hypothesizes that non-TDD/test-first runs often performed more up-front design, while strict incremental TDD could lock agents into locally minimal early design choices that were not revisited. Source: `raw/2026-08-13-rss-martin-fowler-tdd-inside-the-agent-loop-theater-or-actual-value.md`. confidence: 1 practitioner hypothesis, last-confirmed 2026-08-13.
+- The source recommends focusing less on process theater and more on outcome signals such as regression-test quality, mutation testing, static analysis, structure/modularity reviews, approved scenarios, and trend signals like files touched or tokens per change. Source: `raw/2026-08-13-rss-martin-fowler-tdd-inside-the-agent-loop-theater-or-actual-value.md`. confidence: 1 practitioner source, last-confirmed 2026-08-13.
+
+### Typed entities
+- practice: test-driven development / TDD
+- concept: agent-loop TDD
+- metric: mutation score
+- metric: token usage
+- practice: mutation testing
+- practice: approved scenarios
+- model: Sonnet 4.6
+- model/judge: Opus 4.8
+- person: Birgitta Boeckeler
+- person: Ivett Ordog
+
+### Explicit relationships
+- Agent-loop TDD does not automatically supersede up-front design, mutation testing, or scenario approval as confidence mechanisms.
+- Regression quality depends-on tests that fail for the right reason, not only tests written before implementation.
+- More prescriptive process prompts can increase token and maintenance cost without proving better outcomes.
+
+### HoneyDrunk implications
+- Do not require agents to perform full TDD internally as a blanket rule unless a local eval proves value for the task class.
+- Prefer clear specs, review checkpoints, mutation/coverage evidence where appropriate, and approved user scenarios over process-only TDD transcripts.
+- Keep human checkpoints around test intent when tests define business behavior or safety-critical expectations.
+
+### Quality notes
+- The source is candidly small-sample and exploratory; treat it as hypothesis-generating, not settled evidence against TDD for all agent workflows.
+
+## 2026-08-14 compile additions: prompt engineering as context engineering
+
+### Source-backed claims
+- The System Design Newsletter prompt-engineering source frames good prompts as composed artifacts: task, context, constraints, examples, conversation history, retrieved documents, and desired output format should be separated so weak outputs can be diagnosed by component instead of rewriting the whole prompt. Source: `raw/2026-08-14-rss-system-design-newsletter-prompt-engineering-a-deep-dive.md`; page: [[ai-agent-harnesses]]. confidence: 1 newsletter/practitioner source, last-confirmed 2026-08-14.
+- The source emphasizes that relevance matters more than raw context volume because examples, retrieved documents, instructions, and generated tokens all share the same context window and can compete for attention. Source: `raw/2026-08-14-rss-system-design-newsletter-prompt-engineering-a-deep-dive.md`. confidence: 1 source, last-confirmed 2026-08-14.
+- For tool-augmented reasoning, the source recommends explicit decision rules: when to call tools, what information is still missing, whether a result answered the need, when to vary a query, a maximum number of tool calls, and when to stop instead of guessing. Source: `raw/2026-08-14-rss-system-design-newsletter-prompt-engineering-a-deep-dive.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 source, last-confirmed 2026-08-14.
+
+### Typed entities
+- concept: prompt engineering
+- concept: context engineering
+- technique: zero-shot prompting
+- technique: few-shot prompting
+- technique: chain-of-thought prompting
+- technique: ReAct
+- capability: tool calling
+- capability: retrieval-augmented generation / RAG
+- risk: tool loop
+- risk: retrieval overload
+
+### Explicit relationships
+- Prompt engineering depends-on context selection, retrieval, memory, tool rules, output schemas, and evaluation; it is not only phrasing.
+- Few diverse examples can supersede many redundant examples when context budget and pattern coverage matter.
+- Explicit stop rules reduce repeated tool calls and complement budget caps in agent loops.
+
+### HoneyDrunk implications
+- For reusable prompts or skills, encode tool-use rules, stop limits, and failure wording near the tool instructions rather than relying on vague "use the tool" language.
+- During instruction hygiene reviews, diagnose weak behavior by missing component: task, context, constraints, examples, output format, retrieval source, or stop condition.
+
+### Quality notes
+- Newsletter source is useful practice vocabulary but not primary research. Promote as prompt-review heuristics, not as a benchmarked framework.

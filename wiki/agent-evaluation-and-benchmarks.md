@@ -633,3 +633,37 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - Local-model sources are practitioner evidence. Hardware details are useful for spike planning but not procurement advice without current price, availability, and local workload checks.
+
+## 2026-08-14 compile additions: Specula and autonomous model-checking loops
+
+### Source-backed claims
+- Murat Demirbas's Specula review describes Specula as an agentic system that derives TLA+ specifications from system code/artifacts, validates traces against the spec, model-checks the spec for concurrency bugs, and reproduces candidate bugs at the code layer through integration tests with precise timing. Source: `raw/2026-08-14-rss-tldr-ai-specula-scaling-formal-specifications-for-autonomous-model-che.md`; page: [[ai-agent-harnesses]]. confidence: 1 expert paper-review source via TLDR, last-confirmed 2026-08-14.
+- The review reports Specula was evaluated on slices of 48 distributed/concurrent open-source systems across seven languages and found 249 bugs, 207 reportedly new, with end-to-end checks taking 1.4 to 9.8 hours and median token cost of $57 per system. Source: `raw/2026-08-14-rss-tldr-ai-specula-scaling-formal-specifications-for-autonomous-model-che.md`. confidence: 1 secondary expert review of paper claims, last-confirmed 2026-08-14.
+- A key reported mechanism is the pairing of trace validation and model checking: trace validation pulls the inferred spec toward observed code behavior, while model checking pushes back with counterexamples that expose illegal states or reward-hacked relaxed specs. Source: `raw/2026-08-14-rss-tldr-ai-specula-scaling-formal-specifications-for-autonomous-model-che.md`. confidence: 1 review source, last-confirmed 2026-08-14.
+- The review is explicitly cautious: deriving specs from buggy code is circular, only a minority of invariants are protocol-level, scenario-model reductions can be heuristic, convergence assumes agents improve with iteration, and per-module models do not prove cross-service composition guarantees. Source: `raw/2026-08-14-rss-tldr-ai-specula-scaling-formal-specifications-for-autonomous-model-che.md`. confidence: 1 critical review source, last-confirmed 2026-08-14.
+
+### Typed entities
+- system: Specula
+- specification language: TLA+
+- technique: trace validation
+- technique: model checking
+- artifact: invariant
+- concept: protocol-level invariant
+- concept: code-level invariant
+- risk: reward hacking
+- risk: circular specification inference
+- risk: composition gap
+
+### Explicit relationships
+- Runtime feedback loops complement LLM tool knowledge: the review says Claude Code plus TLA+ tools found far fewer bugs than Specula because the latter supplies iterative counterexamples and reproduction pressure.
+- Model checking and trace validation constrain each other; either alone can be fooled by code/spec mismatch or relaxed invariants.
+- Inferred specs do not supersede independent requirements because implementation artifacts can encode the same bug the system is trying to find.
+- Per-module verification does not imply system-level guarantees when cross-service interactions are mocked or sliced away.
+
+### HoneyDrunk implications
+- For agentic verification tools, evaluate the feedback loop and reproduction path, not only whether the agent can invoke a formal-methods tool.
+- Treat automatically inferred specs as bug-finding artifacts, not durable architecture contracts, unless a human or independent requirements source validates intent.
+- If HoneyDrunk uses model checking for multi-service systems, require an explicit composition story before treating per-module results as deployment assurance.
+
+### Quality notes
+- Source is an expert review of a paper, not the paper itself. Promote the mechanism and caveats as scouting evidence until primary paper/repo review and local reproduction are done.

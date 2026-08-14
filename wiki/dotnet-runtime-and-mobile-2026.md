@@ -231,3 +231,74 @@
 
 ### Quality notes
 - Microsoft/.NET Blog sources are authoritative for support timing and tooling direction. The Visual Studio installer behavior comment in the raw source was not promoted because it appears as user discussion rather than official guidance.
+
+## 2026-08-12 compile additions: .NET 11 Preview 7 and August 2026 servicing
+
+### Source-backed claims
+- .NET 11 Preview 7 includes library/runtime/SDK/C#/ASP.NET Core/MAUI/EF Core/F#/Windows Forms updates, including IEEE 754 decimal floating-point types, generic complex support, HTTP request compression, HTTP connection eviction, DNS record resolution APIs, ZIP password-related APIs, and JSON polymorphism inference. Source: `raw/2026-08-12-rss-net-blog-net-11-preview-7-is-now-available.md`. confidence: 1 .NET Blog source, last-confirmed 2026-08-12.
+- The same preview source says NativeAOT CLI support is enabled by default, MSBuild server is default, `dotnet test` gains run-level timeout and max-failed-tests controls, traversal-project support improves, and container publishing prefers platform-native local runtimes. Source: `raw/2026-08-12-rss-net-blog-net-11-preview-7-is-now-available.md`. confidence: 1 source, last-confirmed 2026-08-12.
+- .NET 11 Preview 7 adds C# features such as labeled `break`/`continue`, union patterns, exhaustiveness checks for closed type parameters, Unsafe Evolution compatibility mode, and `nameof` improvements. Source: `raw/2026-08-12-rss-net-blog-net-11-preview-7-is-now-available.md`. confidence: 1 source, last-confirmed 2026-08-12.
+- ASP.NET Core preview items include automatic pausing of Blazor circuits, `CacheView` SSR output caching, QuickGrid scrolling updates, OpenAPI 3.2 server-sent-events description support, and SignalR client auth refresh after redirects. Source: `raw/2026-08-12-rss-net-blog-net-11-preview-7-is-now-available.md`. confidence: 1 source, last-confirmed 2026-08-12.
+- MAUI preview items include cross-platform passkey authentication, XAML incremental Hot Reload, route templates, AOT-safe RelativeSource improvements, and third-party backend support. Source: `raw/2026-08-12-rss-net-blog-net-11-preview-7-is-now-available.md`. confidence: 1 source, last-confirmed 2026-08-12.
+- Microsoft August 2026 servicing posts provide security and non-security fixes for .NET 10.0.11, 9.0.19, and 8.0.30, with multiple CVEs affecting supported .NET trains and separate .NET Framework security updates. Source: `raw/2026-08-12-web-dotnet-framework-august-2026-servicing-updates.md`; page: [[dotnet-dependency-security-and-nuget]]. confidence: 1 Microsoft servicing source, last-confirmed 2026-08-12.
+
+### Typed entities
+- runtime: .NET 11 Preview 7
+- runtime: .NET 10.0.11
+- runtime: .NET 9.0.19
+- runtime: .NET 8.0.30
+- feature: IEEE 754 decimal floating-point types
+- feature: NativeAOT CLI default
+- tool behavior: MSBuild server default
+- command: `dotnet test`
+- framework: ASP.NET Core
+- framework: .NET MAUI
+- component: Windows Forms
+- vulnerability class: information disclosure
+- vulnerability class: security feature bypass
+- vulnerability class: denial of service
+- vulnerability class: elevation of privilege
+- vulnerability class: remote code execution
+
+### Explicit relationships
+- .NET 11 Preview 7 previews future runtime and SDK direction but does not supersede supported production release trains.
+- August 2026 servicing supersedes earlier .NET 10/9/8 patch levels for security posture.
+- NativeAOT, MSBuild server, and test-run controls affect CI/runtime behavior and should be treated as toolchain changes, not only language/runtime changes.
+
+### HoneyDrunk implications
+- Inventory HoneyDrunk .NET 8/9/10 runtimes for August 2026 servicing uptake, especially internet-facing services and build images.
+- Keep .NET 11 Preview 7 experimentation isolated from production branches until APIs, SDK defaults, and hosting behavior are validated.
+- Before adopting NativeAOT or MSBuild server defaults broadly, verify build determinism, diagnostics, and CI worker behavior.
+
+### Quality notes
+- Microsoft release and servicing sources are authoritative for release existence. CVE-specific urgency depends on HoneyDrunk runtime inventory and exposure.
+
+## 2026-08-14 compile additions: Microsoft.Testing.Platform report surface
+
+### Source-backed claims
+- Microsoft.Testing.Platform 2.3+ reporting can produce inline failure annotations, provider job summaries, live Azure DevOps result publishing, crash-resilient TRX files, HTML/JUnit/CTRF reports, and schema-versioned JSON test discovery. Source: `raw/2026-08-14-rss-net-blog-test-reporting-in-microsoft-testing-platform-from-red-build-t.md`; page: [[microsoft-dotnet-ai-stack]]. confidence: 1 .NET Blog source, last-confirmed 2026-08-14.
+- Azure DevOps-only history options can annotate failures as known-flaky or regression-like, demote known flakes to warnings, and detect slow tests against historical runtime; these options require REST API access through the pipeline token. Source: `raw/2026-08-14-rss-net-blog-test-reporting-in-microsoft-testing-platform-from-red-build-t.md`. confidence: 1 source, last-confirmed 2026-08-14.
+- MTP suppresses banners, ANSI escapes, and progress animation in agent/LLM environments and defaults stdout/stderr display to failed tests, making command output easier for automated tooling to consume. Source: `raw/2026-08-14-rss-net-blog-test-reporting-in-microsoft-testing-platform-from-red-build-t.md`. confidence: 1 source, last-confirmed 2026-08-14.
+
+### Typed entities
+- platform: Microsoft.Testing.Platform
+- version: 2.3+
+- reporter: GitHub Actions
+- reporter: Azure DevOps
+- report: TRX
+- report: JUnit XML
+- report: CTRF JSON
+- file: `testconfig.json`
+- file: `Directory.Build.props`
+
+### Explicit relationships
+- Structured test reports complement coding agents by replacing terminal scraping with versioned test metadata and source-linked failure annotations.
+- Crash-resilient TRX reporting preserves partial evidence when a test host fails before normal serialization.
+- Repo-level testconfig and MSBuild properties supersede per-developer shell-history settings for consistent local/CI reporting.
+
+### HoneyDrunk implications
+- For .NET repositories, consider centralizing MTP report settings once one-project validation confirms useful annotations and artifact shape.
+- Keep GitHub and Azure DevOps reporter feature differences explicit; do not assume flaky-history triage exists on GitHub Actions yet.
+
+### Quality notes
+- Microsoft source is authoritative for MTP direction. Preview reporters and framework adapter requirements should be verified per repository.

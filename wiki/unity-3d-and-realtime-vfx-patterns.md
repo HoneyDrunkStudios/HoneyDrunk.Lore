@@ -932,3 +932,108 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - DEV source is practitioner guidance and should be validated on target devices. SideFX Labs signal is useful tooling discovery; verify Houdini version and node availability before relying on it.
+
+## 2026-08-12 compile additions: Unity Copilot workflow and generated material sync
+
+### Source-backed claims
+- Unity's Copilot guidance recommends structuring work around context-window limits: keep a main chat for orchestration, use focused background agents for coding and validation, and iterate after review rather than accepting generated changes blindly. Source: `raw/2026-08-12-rss-unity-blog-5-tips-for-using-github-copilot-with-unity.md`; page: [[ai-assisted-software-practice]]. confidence: 1 Unity-authored source, last-confirmed 2026-08-12.
+- The same Unity source recommends project setup through `.github` custom instructions, agents, and skills that include Unity version, render pipeline, architecture patterns, shaders, UI Toolkit, and game-system context. Source: `raw/2026-08-12-rss-unity-blog-5-tips-for-using-github-copilot-with-unity.md`; page: [[ai-agent-harnesses]]. confidence: 1 source, last-confirmed 2026-08-12.
+- Unity recommends using `/plan` before implementation, treating AI-generated code like a PR, using explain/review loops, and using AI as a tutor for unfamiliar Unity concepts such as Shader Graph. Source: `raw/2026-08-12-rss-unity-blog-5-tips-for-using-github-copilot-with-unity.md`. confidence: 1 source, last-confirmed 2026-08-12.
+- A Tech-Artists.org discovery post reports ComfyUI-MaterialSync can send generated PBR texture maps to Unreal Engine, Blender, and Maya; Unity is not listed in the captured feature set, so it is adjacent DCC/pipeline scouting rather than direct Unity support. Source: `raw/2026-08-12-rss-tech-artists-org-comfyui-materialsync-for-blender-maya-and-unrealengin.md`; page: [[technical-art-community-and-talent-signals]]. confidence: 1 low-detail community source, last-confirmed 2026-08-12.
+
+### Typed entities
+- engine: Unity
+- tool: GitHub Copilot
+- artifact: `.github` custom instructions
+- workflow command: `/plan`
+- Unity domain: render pipeline
+- Unity domain: Shader Graph
+- Unity domain: UI Toolkit
+- agent role: coding agent
+- agent role: validation agent
+- project: ComfyUI-MaterialSync
+- engine: Unreal Engine
+- application: Blender
+- application: Maya
+
+### Explicit relationships
+- Unity agent workflows depend-on engine/version/render-pipeline context because generated code often needs project-specific assumptions.
+- Planning and review loops complement background agents by preserving intent and catching Unity-specific regressions before merge.
+- Domain-specific skills can complement broad project instructions when shader, UI Toolkit, or gameplay-system detail would otherwise overload the context window.
+- DCC material-sync tools can complement Unity asset pipelines indirectly, but direct engine support should not be inferred without primary evidence.
+
+### HoneyDrunk implications
+- For Unity repos, keep concise project instructions with Unity version, render pipeline, packages, architecture, validation commands, and scene/test entry points.
+- Use separate implementation and validation agents only when the review target and playable/profiling evidence are explicit.
+- Do not route Unity material workflows through ComfyUI-MaterialSync until a primary repository confirms Unity support or a DCC-to-Unity bridge is tested.
+
+### Quality notes
+- Unity source is vendor-authored but directly relevant to Unity workflow setup. MaterialSync remains low-detail scouting.
+
+## 2026-08-13 compile additions: Grabbit 2 editor physics and stylized environment references
+
+### Source-backed claims
+- Grabbit 2 is described as a Unity 6 editor plugin that runs a physics simulation in edit mode for level design and set dressing without requiring pre-existing colliders or Rigidbodies on selected objects. Source: `raw/2026-08-13-web-how-grabbit-2-simulates-physics-inside-the-unity-editor.md`. confidence: 1 80 Level interview/source, last-confirmed 2026-08-13.
+- The source says Grabbit 2 isolates editor-time simulation by manually stepping Unity physics, disabling/restoring other Rigidbodies and project physics settings, using spatial caches to limit nearby objects, pooling temporary colliders, and recovering interrupted sessions. Source: `raw/2026-08-13-web-how-grabbit-2-simulates-physics-inside-the-unity-editor.md`. confidence: 1 source, last-confirmed 2026-08-13.
+- Grabbit 2 uses automatic convex decomposition with Balance, Precision, and Performance collider strategies, can bake generated convex colliders for runtime, and exposes five editor modes: Select, Create, Place, Arrange, and Scatter. Source: `raw/2026-08-13-web-how-grabbit-2-simulates-physics-inside-the-unity-editor.md`. confidence: 1 source, last-confirmed 2026-08-13.
+- The 80 Level stylized environment source reinforces a cross-engine environment workflow: concept translation, modular pieces, organized naming, trimsheets, painterly textures, foreground/midground/background composition, and reusable foliage/material assets. Source: `raw/2026-08-13-web-breakdown-turning-a-2d-concept-into-a-detailed-stylized-3d-scene.md`; page: [[technical-art-community-and-talent-signals]]. confidence: 1 trade/interview source, last-confirmed 2026-08-13.
+
+### Typed entities
+- engine: Unity 6
+- plugin/tool: Grabbit 2
+- prior tool: Grabbit 1
+- concept: editor-time physics simulation
+- technique: convex decomposition
+- mode: Select
+- mode: Create
+- mode: Place
+- mode: Arrange
+- mode: Scatter
+- protocol/integration: Model Context Protocol
+- engine/reference: Unreal Engine
+- artifact: trimsheet
+
+### Explicit relationships
+- Editor-time physics set dressing depends-on simulation isolation, non-destructive state restore, undo support, collider generation, and spatial performance controls.
+- Convex decomposition complements Unity physics constraints by approximating concave meshes with multiple convex pieces.
+- Baked generated colliders can supersede temporary editor-only colliders when runtime collision is needed.
+- Optional MCP hooks complement Unity editor tools by letting an assistant call real placement/scatter operations instead of guessing transforms.
+
+### HoneyDrunk implications
+- If HoneyDrunk builds Unity set-dressing tools, use Grabbit 2 as a reference for recovery, undo, spatial caching, collider strategies, and scene-toolbar workflow expectations.
+- Treat MCP-enabled editor operations as mutating project tools: require opt-in, editor-only scope, clear previews/undo, and logged commands before agent use.
+- For stylized scenes, define modularity, trimsheets, naming, and reuse rules early so generated or hand-authored assets remain maintainable.
+
+### Quality notes
+- 80 Level/interview evidence is useful for product/workflow scouting. Validate plugin license, Unity version support, performance, generated collider quality, and MCP behavior before adoption.
+
+## 2026-08-14 compile additions: Unity 3D-as-2D sample
+
+### Source-backed claims
+- Unity's Bunny Blitz sample demonstrates Unity 6.3+ 3D-as-2D workflows where projects using the URP 2D Renderer can render and sort compatible 3D elements alongside sprites, receive 2D lighting, and use 2D masks. Source: `raw/2026-08-14-web-unity-blog-the-3d-as-2d-sample-project-bunny-blitz-is-available-now.md`. confidence: 1 Unity source, last-confirmed 2026-08-14.
+- The sample uses Sorting Group, perspective camera depth, Z-axis positioning, custom 2D Renderer injection for out-of-focus blur, Shader Graph sprite-based shaders with 3D-as-2D compatibility, 2D Lights, Tilemaps, Sprite Shapes, VFX Graph, MatCap materials, and 2D physics gameplay. Source: `raw/2026-08-14-web-unity-blog-the-3d-as-2d-sample-project-bunny-blitz-is-available-now.md`. confidence: 1 source, last-confirmed 2026-08-14.
+
+### Typed entities
+- engine: Unity 6.3+
+- sample project: Bunny Blitz
+- renderer: URP 2D Renderer
+- workflow: 3D-as-2D
+- component: Sorting Group
+- tool: Shader Graph
+- tool: VFX Graph
+- feature: 2D Lights
+- feature: Tilemaps
+- feature: Sprite Shapes
+- feature: 2D physics
+
+### Explicit relationships
+- 3D-as-2D workflows complement sprite-based games by adding 3D characters/props while preserving 2D sorting, lighting, masks, and physics.
+- Perspective camera depth and Z-positioning can supersede flat sprite layering when a 2D game needs stronger environmental depth.
+- Shader compatibility depends-on 3D-as-2D support in the material/shader path, not just placing a 3D object in a 2D scene.
+
+### HoneyDrunk implications
+- For 2D Unity prototypes with high animation or camera-depth needs, evaluate Bunny Blitz before building custom sprite/3D sorting rules.
+- If using 3D-as-2D, document render pipeline, shader compatibility, sorting layers, physics boundary, and mask/lighting expectations for agents and artists.
+
+### Quality notes
+- Unity source is authoritative for sample availability and workflow direction. Validate package/Unity version, performance, platform targets, and asset license before production use.

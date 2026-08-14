@@ -1,9 +1,9 @@
 # Lore Birdclaw Sourcing - Last Run
 
-Timestamp: 2026-07-08T08:01:02
+Timestamp: 2026-08-14T17:01:04
 Mode: write
 Resource: home
-Since: 2026-07-07
+Since: 2026-08-13
 Limit: 25
 Live sync attempted: yes
 Live sync succeeded: no
@@ -18,6 +18,7 @@ Items exported for conversion: 0
   "availableTransport": "local",
   "statusText": "xurl not installed. local mode active."
 }
+Command timed out after 30 seconds: C:\nvm4w\nodejs\birdclaw.cmd auth status --json
 ```
 
 ## Sync output

@@ -996,3 +996,116 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - `claude-video` is a project README source and needs hands-on install/security review before use. API key names are public config names, not secrets.
+
+## 2026-08-12 compile additions: azd MCP-capable extensions and multimodal skill/MCP bundles
+
+### Source-backed claims
+- Azure Developer CLI extension framework GA includes extension types that can add MCP tools, validation providers, provisioning providers, lifecycle handlers, custom command namespaces, and custom service targets to `azd` workflows. Source: `raw/2026-08-12-rss-azure-blog-azure-developer-cli-extension-framework-is-ga-build-dev-wor.md`; page: [[azure-agent-automation-and-identity]]. confidence: 1 Microsoft Azure Blog source, last-confirmed 2026-08-12.
+- The `azd` extension source describes official, private, development, nightly, and bundle-based extension sources, meaning extension provenance and channel policy matter before a project depends on an extension. Source: `raw/2026-08-12-rss-azure-blog-azure-developer-cli-extension-framework-is-ga-build-dev-wor.md`. confidence: 1 source, last-confirmed 2026-08-12.
+- Qwen-MM-Plugins packages multimodal capabilities as skills and optional MCP servers for multiple agent hosts; capabilities include local media/document/code/data/3D processing, API-backed multimodal calls, web/image search, video memory/editing, Blender, FreeCAD, and education agents. Source: `raw/2026-08-12-rss-tldr-ai-qwen-mm-plugins-github-repo.md`; page: [[ai-agent-harnesses]]. confidence: 1 project README source, last-confirmed 2026-08-12.
+- Qwen-MM-Plugins depends on host integration, user-level shared config, optional provider credentials, `uv`/`uvx`, and external applications or binaries for some capabilities. Source: `raw/2026-08-12-rss-tldr-ai-qwen-mm-plugins-github-repo.md`. confidence: 1 README source, last-confirmed 2026-08-12.
+
+### Typed entities
+- platform: Azure Developer CLI extension framework
+- extension source: official
+- extension source: private
+- extension source: development
+- extension source: nightly
+- extension packaging: bundle install
+- tool surface: MCP tool
+- project: Qwen-MM-Plugins
+- capability package: Skill
+- capability package: MCP server
+- config path: user-level Qwen-MM-Plugins config
+- tool/runtime: `uv` / `uvx`
+- application: Blender
+- application: FreeCAD
+
+### Explicit relationships
+- `azd` extension sources depend-on provenance, channel, version, and ownership policy before use in CI or project templates.
+- MCP-capable `azd` extensions complement Azure automation but inherit MCP governance concerns around metadata, auth, tool scope, and logs.
+- Multimodal skill/MCP bundles are executable supply-chain artifacts because they can install scripts, invoke local binaries, call hosted APIs, and process local media.
+- User-level shared config widens blast radius compared with per-repo configuration.
+
+### HoneyDrunk implications
+- Record allowed `azd` extension channels and owners before project-level `azd` extension requirements become part of a template contract.
+- Require pre-install review for multimodal plugin bundles: manifests, scripts, transitive binaries, API-key references, local file access, temp cleanup, and network destinations.
+- Prefer per-project installation and narrow capability enablement until a plugin bundle has passed repository/license/security review.
+
+### Quality notes
+- Microsoft source is authoritative for `azd` framework release posture. Qwen-MM-Plugins remains README-level scouting material; no installer command was copied into the wiki as an adoption path.
+
+## 2026-08-13 compile additions: Agent Plugins, stateless MCP, and remote MCP samples
+
+### Source-backed claims
+- Agent Plugins 1.0.0 defines a small portable directory format for packaging Agent Skills and MCP servers together; it uses `plugin.json` for package metadata, `skills/` for Agent Skills, `mcp.json` for MCP server declarations, and reverse-domain directories for client-specific extensions. Source: `raw/2026-08-13-web-agent-plugins-package-your-skills-tools-and-more.md`; page: [[ai-agent-harnesses]]. confidence: 1 Google Developers source, last-confirmed 2026-08-13.
+- The Agent Plugins source explicitly says v1 defines no install mechanism, distribution protocol, permission model, sandboxing requirement, trust/provenance verification, or user experience. Source: `raw/2026-08-13-web-agent-plugins-package-your-skills-tools-and-more.md`. confidence: 1 source, last-confirmed 2026-08-13.
+- Google's MCP stateless-update source says the 2026-07-28 MCP specification release candidate removes protocol-level HTTP session management, handshake state, and `Mcp-Session-Id`, moving protocol/client metadata into each request and enabling ordinary load balancing, serverless deployment, and failover. Source: `raw/2026-08-13-web-scaling-ai-agent-infrastructure-with-the-mcp-stateless-updates.md`. confidence: 1 Google Developers source, last-confirmed 2026-08-13.
+- The same MCP source describes standardized HTTP headers for protocol version, method, and tool/resource name, plus header/body mismatch rejection, cache-control-like list freshness fields, multi-round-trip `InputRequiredResult` flows, a Tasks extension for long-running tools, issuer verification, resource indicators, JSON Schema 2020-12 support, and a formal deprecation policy. Source: `raw/2026-08-13-web-scaling-ai-agent-infrastructure-with-the-mcp-stateless-updates.md`. confidence: 1 source, last-confirmed 2026-08-13.
+- Azure Developer CLI July 2026 templates include remote MCP Functions samples, including JavaScript remote MCP Functions with Entra auth and .NET Durable Functions long-running MCP tools with a start-and-poll pattern. Source: `raw/2026-08-13-rss-azure-blog-azure-developer-cli-azd-july-2026.md`; page: [[azure-agent-automation-and-identity]]. confidence: 1 Microsoft source, last-confirmed 2026-08-13.
+
+### Typed entities
+- specification: Agent Plugins 1.0.0
+- specification: MCP 2026-07-28 release candidate
+- file: `plugin.json`
+- file: `mcp.json`
+- directory: `skills/`
+- header: `MCP-Protocol-Version`
+- header: `Mcp-Method`
+- header: `Mcp-Name`
+- deprecated feature: roots
+- deprecated feature: sampling
+- deprecated feature: logging
+- security standard: RFC 9207 issuer verification
+- security standard: RFC 8707 resource indicators
+- schema: JSON Schema 2020-12
+- platform: Azure Functions remote MCP
+- workflow: Durable Functions long-running MCP tools
+
+### Explicit relationships
+- Agent Plugins package Skills and MCP servers but depend-on host-level install, provenance, permission, sandbox, and approval controls.
+- Stateless MCP removes transport-session affinity, allowing load balancers or serverless platforms to route each request independently.
+- HTTP routing headers complement gateways by enabling routing, rate limits, and audit without body inspection.
+- Multi-round-trip input requests and Tasks extension move resumable state into application-level request state or task stores instead of transport sessions.
+- Resource indicators and issuer verification mitigate confused-deputy and session-hijack risks in multi-server MCP deployments.
+
+### HoneyDrunk implications
+- If HoneyDrunk adopts Agent Plugins, keep plugin review separate from plugin loading: manifest validity is not provenance or permission approval.
+- For remote MCP services, prefer stateless-capable implementations and require header/body consistency checks, issuer/resource validation, task-state storage, audit logs, and OpenTelemetry.
+- Treat MCP roots, sampling, and protocol logging as deprecated surfaces to avoid in new HoneyDrunk MCP work unless compatibility requires them.
+- Azure Functions MCP samples are relevant for long-running tools only if HoneyDrunk can validate Entra auth, Durable state, polling semantics, and cost behavior.
+
+### Quality notes
+- Google and Microsoft sources are authoritative for their implementation direction. The MCP source discusses a release candidate; verify final spec status and SDK support before production migration.
+
+## 2026-08-14 compile additions: long-running MCP tools on Azure Functions
+
+### Source-backed claims
+- Azure SDK guidance for long-running MCP tools says synchronous `tools/call` request/response behavior breaks down when workflows exceed client-specific timeouts, which are often around 30-60 seconds and are not standardized by MCP clients. Source: `raw/2026-08-14-rss-azure-blog-how-to-build-long-running-mcp-tools-on-azure-functions.md`; page: [[azure-agent-automation-and-identity]]. confidence: 1 Microsoft Azure SDK Blog source, last-confirmed 2026-08-14.
+- The MCP Tasks extension lets a server return an asynchronous task handle from a tool call, then use `tasks/get`, `tasks/update`, and `tasks/cancel` for status polling, input-required continuation, and cancellation; broad client and SDK support is still in progress in the captured source. Source: `raw/2026-08-14-rss-azure-blog-how-to-build-long-running-mcp-tools-on-azure-functions.md`. confidence: 1 source, last-confirmed 2026-08-14.
+- Microsoft's current Azure Functions sample uses Durable Functions as a compatibility pattern: a `start_*` tool starts orchestration, waits briefly for inline completion, returns a workflow ID if still running, and a separate `get_*_result` tool returns `running`, `completed`, `failed`, or `not_found` with poll guidance. Source: `raw/2026-08-14-rss-azure-blog-how-to-build-long-running-mcp-tools-on-azure-functions.md`. confidence: 1 implementation source, last-confirmed 2026-08-14.
+
+### Typed entities
+- platform: Azure Functions
+- framework: Durable Functions
+- protocol extension: MCP Tasks
+- method: `tasks/get`
+- method: `tasks/update`
+- method: `tasks/cancel`
+- state: `input_required`
+- state: `completed`
+- state: `failed`
+- state: `cancelled`
+- identifier: workflow ID
+
+### Explicit relationships
+- MCP Tasks supersede ad hoc workflow-ID polling only after client and SDK support is available.
+- Durable Functions complement current MCP clients by externalizing long-running tool state into an orchestration store.
+- Polling tools depend-on reliable workflow IDs, not-found semantics, retry timing, and agent memory of the returned handle.
+
+### HoneyDrunk implications
+- For HoneyDrunk long-running MCP tools, prefer a task-state model with durable IDs, status, cancellation, and input-required paths even before full Tasks support lands.
+- Do not rely on prompt instructions alone for polling order; make follow-up tool schemas require the returned ID and return explicit next-action metadata.
+
+### Quality notes
+- Microsoft source is authoritative for the Azure sample. MCP Tasks support remains ecosystem-dependent and should be verified against the final spec and target clients.

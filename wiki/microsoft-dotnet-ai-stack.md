@@ -636,3 +636,67 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 
 ### Quality notes
 - Microsoft Learn is authoritative for .NET direction, but package template preview status, .NET 10 SDK behavior, and MCP Registry schema details are time-sensitive.
+
+## 2026-08-13 compile additions: Foundry Local live speech-to-text
+
+### Source-backed claims
+- The .NET Blog Foundry Local sample uses `Microsoft.AI.Foundry.Local.WinML`, `NAudio`, and the `nemotron-speech-streaming-en-0.6b` catalog model to transcribe microphone audio locally from a C# console app, emitting interim and final transcription results. Source: `raw/2026-08-13-web-beyond-chat-live-speech-to-text-with-foundry-local-and-c-net-blog.md`. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-08-13.
+- The sample uses Foundry Local to resolve, download, cache, load, and unload the model and execution providers, rather than manually downloading model files or requiring an API key. Source: `raw/2026-08-13-web-beyond-chat-live-speech-to-text-with-foundry-local-and-c-net-blog.md`. confidence: 1 source, last-confirmed 2026-08-13.
+- The source distinguishes `Microsoft.Extensions.AI` abstractions such as `IChatClient` from provider-specific SDKs: live transcription uses Foundry Local's native `AudioClient` because raw PCM streaming and interim results are provider capabilities. Source: `raw/2026-08-13-web-beyond-chat-live-speech-to-text-with-foundry-local-and-c-net-blog.md`. confidence: 1 source, last-confirmed 2026-08-13.
+
+### Typed entities
+- service/runtime: Foundry Local
+- SDK/package: `Microsoft.AI.Foundry.Local.WinML`
+- library: `NAudio`
+- model: `nemotron-speech-streaming-en-0.6b`
+- API/client: `AudioClient`
+- abstraction: `Microsoft.Extensions.AI` / `IChatClient`
+- audio format: 16-kHz 16-bit mono PCM
+
+### Explicit relationships
+- Foundry Local complements cloud speech services when privacy, offline behavior, latency, or API-key avoidance matters.
+- Provider-native SDK capabilities supersede provider-agnostic chat abstractions when the workload needs live audio streaming.
+- Local speech transcription depends-on platform audio APIs, model-cache management, backpressure handling, and cleanup paths.
+
+### HoneyDrunk implications
+- If HoneyDrunk builds local voice tooling, evaluate Foundry Local for privacy-sensitive prototypes, but validate Windows-only assumptions, model size, CPU/GPU behavior, microphone permissions, and graceful shutdown.
+- Keep `Microsoft.Extensions.AI` for chat-style scenarios and use provider SDKs only where the specialized capability is worth the tighter coupling.
+
+### Quality notes
+- Microsoft source is implementation guidance for a sample. Validate SDK version, hardware support, model availability, and platform coverage before adoption.
+
+## 2026-08-14 compile additions: Microsoft.Extensions.AI routing, failover, and test reporting
+
+### Source-backed claims
+- `Microsoft.Extensions.AI` 10.9.0 ships experimental routing and failover chat-client types: `RoutingChatClient`, `SemanticRoutingChatClient`, `FailoverChatClient`, and `OrderedFailoverChatClient`, all marked with diagnostic ID `MEAI001`. Source: `raw/2026-08-14-rss-net-blog-routing-and-failover-for-microsoft-extensions-ai.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 .NET Blog source, last-confirmed 2026-08-14.
+- The routing source distinguishes request-level option shaping from route-level options and warns that switching providers mid-conversation can strand provider-specific reasoning artifacts or lose prompt-cache benefits; sticky route selection should use an application-owned session ID, not a provider conversation ID. Source: `raw/2026-08-14-rss-net-blog-routing-and-failover-for-microsoft-extensions-ai.md`. confidence: 1 source, last-confirmed 2026-08-14.
+- `FailoverChatClient` retries only before output is committed to the caller; after streaming output starts, failure is terminal for that response. `OnRoutingUpdateAsync` exposes attempt metrics such as duration, time to first update, exception, completion, and output-committed state. Source: `raw/2026-08-14-rss-net-blog-routing-and-failover-for-microsoft-extensions-ai.md`. confidence: 1 source, last-confirmed 2026-08-14.
+- Microsoft.Testing.Platform reporting now provides CI annotations and summaries for GitHub Actions and Azure DevOps, crash-resilient TRX reporting, multiple report formats, schema-versioned JSON test discovery, and agent-friendly console output; Azure DevOps-only history features can label flaky-vs-regression failures when token access is provided. Source: `raw/2026-08-14-rss-net-blog-test-reporting-in-microsoft-testing-platform-from-red-build-t.md`; page: [[dotnet-runtime-and-mobile-2026]]. confidence: 1 .NET Blog source, last-confirmed 2026-08-14.
+
+### Typed entities
+- package: `Microsoft.Extensions.AI`
+- version: 10.9.0
+- type: `RoutingChatClient`
+- type: `SemanticRoutingChatClient`
+- type: `FailoverChatClient`
+- type: `OrderedFailoverChatClient`
+- diagnostic: `MEAI001`
+- platform: Microsoft.Testing.Platform / MTP
+- option: `--report-gh`
+- option: `--report-azdo`
+- option: `--report-trx`
+- format: CTRF
+
+### Explicit relationships
+- MEAI routing complements AI gateways by making routing and failover composable through `IChatClient`.
+- Sticky routing depends-on application session state because provider conversation IDs and cache artifacts are not portable across clients.
+- Failover cannot recover a partially streamed response because output has already been committed to the caller.
+- MTP reporting complements agent-assisted CI triage by producing structured reports, source-linked annotations, and JSON discovery instead of log scraping.
+
+### HoneyDrunk implications
+- Treat MEAI routing APIs as experimental until version and diagnostics policy are acceptable for production code.
+- For multi-provider chat in .NET, make route stickiness, cache cost, stream-commit behavior, and per-attempt observability explicit in the design.
+- For .NET CI, evaluate `--report-gh` first where GitHub Actions annotations can shorten failure triage; use Azure DevOps history features only where pipeline tokens and policy are already controlled.
+
+### Quality notes
+- Microsoft sources are authoritative for release direction. APIs are experimental and CI reporter packages include preview components, so package versions and provider support need live validation.

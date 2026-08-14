@@ -48,3 +48,38 @@
 Typed entities added: ecosystem: npm; control: staged publishing; control: install source allowlist.
 
 Relationship added: npm staged publishing complements OIDC trusted publishing; install-source allowlists complement package cooldown/proxy and NuGet audit/pruning by reducing dependency-source ambiguity.
+
+## 2026-08-12 cross-reference note
+
+- Microsoft August 2026 servicing updates include security fixes for .NET 10.0.11, 9.0.19, and 8.0.30 across information disclosure, security feature bypass, denial of service, elevation of privilege, and remote code execution classes. confidence: 1 Microsoft servicing source, last-confirmed 2026-08-12. [source: raw/2026-08-12-web-dotnet-framework-august-2026-servicing-updates.md; page: [[dotnet-runtime-and-mobile-2026]]]
+
+Typed entities added: runtime: .NET 10.0.11; runtime: .NET 9.0.19; runtime: .NET 8.0.30; concept: runtime servicing inventory.
+
+Relationship added: runtime servicing complements NuGet audit because project security posture depends on both package graph and installed/shared runtime patch level.
+
+## 2026-08-13 compile additions: NuGet API key lifetime reduction
+
+### Source-backed claims
+- Microsoft says new NuGet.org API keys will be limited to a 30-day maximum duration starting 2026-08-17, and new 365-day API keys will no longer be available. Source: `raw/2026-08-13-web-strengthening-nuget-supply-chain-security-reducing-api-key-lifetime-ne.md`. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-08-13.
+- Microsoft says NuGet.org API keys created before 2026-08-17 will expire on 2026-11-01, so existing package-publishing automation needs inventory and rotation or migration before that date. Source: `raw/2026-08-13-web-strengthening-nuget-supply-chain-security-reducing-api-key-lifetime-ne.md`. confidence: 1 source, last-confirmed 2026-08-13.
+- The source recommends NuGet Trusted Publishing, where CI authenticates to NuGet.org with OIDC and NuGet issues short-lived publishing credentials for the operation rather than relying on long-lived repository secrets. Source: `raw/2026-08-13-web-strengthening-nuget-supply-chain-security-reducing-api-key-lifetime-ne.md`; page: [[ai-coding-agent-security]]. confidence: 1 source, last-confirmed 2026-08-13.
+
+### Typed entities
+- ecosystem: NuGet.org
+- credential: NuGet API key
+- control: NuGet Trusted Publishing
+- protocol: OpenID Connect / OIDC
+- date: 2026-08-17 new API key lifetime change
+- date: 2026-11-01 pre-change key expiration
+
+### Explicit relationships
+- NuGet Trusted Publishing supersedes long-lived NuGet API keys for supported CI publishing workflows.
+- Shorter API key lifetime reduces disclosure blast radius but depends-on automation that can rotate keys safely when OIDC is not available.
+- Package publishing credentials complement package-graph auditing because compromised publishing can create malicious versions even when dependencies are otherwise clean.
+
+### HoneyDrunk implications
+- Inventory any HoneyDrunk NuGet publishing workflows before 2026-08-17 and migrate GitHub Actions/GitLab workflows to Trusted Publishing where possible.
+- If an API key remains necessary, scope it narrowly, rotate within 30 days, keep it out of logs, and confirm expiration alerts reach an actively monitored account.
+
+### Quality notes
+- Microsoft source is authoritative for NuGet.org policy direction. Verify current Trusted Publishing provider support before changing release pipelines.

@@ -509,3 +509,78 @@ Azure's May 2026 agent/developer tooling signal is that agent automation is movi
 
 ### Quality notes
 - Microsoft release notes are authoritative for package release posture as of 2026-07-06. Recheck package docs before implementation because SDK releases are monthly and preview packages can churn.
+
+## 2026-08-12 compile additions: azd extension framework GA and July SDK management releases
+
+### Source-backed claims
+- Azure Developer CLI extension framework is GA as of the captured Azure Blog source, with stabilized extension interfaces, lifecycle/provider integration points, project-level extension requirements, and authoring/publishing support through `azd x developer`. Source: `raw/2026-08-12-rss-azure-blog-azure-developer-cli-extension-framework-is-ga-build-dev-wor.md`. confidence: 1 Microsoft Azure Blog source, last-confirmed 2026-08-12.
+- The GA framework lets extensions add command namespaces, lifecycle handlers, custom service targets, language/framework support, provisioning providers, validation providers, and MCP tools; the GA posture applies to the extension framework rather than automatically production-hardening every extension built on it. Source: `raw/2026-08-12-rss-azure-blog-azure-developer-cli-extension-framework-is-ga-build-dev-wor.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 source, last-confirmed 2026-08-12.
+- Azure SDK July 2026 release notes announced GA Python management packages for App Service Domain Registration, App Service Certificate Registration, Resource Health, and Data Boundaries, including tenant-level data boundary management for EU Data Boundary compliance workflows. Source: `raw/2026-08-12-rss-azure-blog-azure-sdk-release-july-2026.md`. confidence: 1 Microsoft Azure SDK release source, last-confirmed 2026-08-12.
+
+### Typed entities
+- CLI: Azure Developer CLI / `azd`
+- framework: Azure Developer CLI extension framework
+- command group: `azd x developer`
+- concept: project-level extension requirement
+- integration point: lifecycle handler
+- integration point: provisioning provider
+- integration point: validation provider
+- tool surface: MCP tool
+- package family: Python App Service Domain Registration
+- package family: Python App Service Certificate Registration
+- package family: Python Resource Health
+- package family: Python Data Boundaries
+- compliance concept: EU Data Boundary
+
+### Explicit relationships
+- `azd` extensions depend-on project-level requirements and version constraints when a template needs a repeatable toolchain.
+- Extension lifecycle and provider hooks complement `azd exec` and `azd tool` by moving custom workflow behavior into a governed CLI extension surface.
+- Data Boundaries management complements Azure governance by making tenant-level data-boundary configuration programmable.
+- MCP-capable `azd` extensions overlap-with [[mcp-tool-governance-and-app-surfaces]] and should inherit the same provenance, auth, logging, and approval controls as other agent tools.
+
+### HoneyDrunk implications
+- Treat `azd` extension authoring as a viable packaging path for HoneyDrunk Azure workflows, but require owner, version, source, and capability review before project templates depend on an extension.
+- If EU Data Boundary concerns appear in HoneyDrunk Azure tenants, prefer the GA management package as a governance automation candidate after a tenant-scope permissions review.
+- Keep private/dev/nightly extension sources out of unattended CI unless their source registry, signature or checksum posture, and rollback path are explicit.
+
+### Quality notes
+- Microsoft sources are authoritative for release posture. Validate installed `azd` and SDK package versions before using these features in production automation.
+
+## 2026-08-13 compile additions: azd July 2026 releases
+
+### Source-backed claims
+- Azure Developer CLI July 2026 shipped releases 1.27.0 through 1.29.0, adding `azd tool uninstall`, direct extension install from registry locations with `-s/--source`, `--no-dependencies`, Azure AI Foundry modeling in `azure.yaml`, container deployment for Azure App Service, provider-agnostic provision validation, and automatic non-interactive mode in CI/CD or AI-agent environments. Source: `raw/2026-08-13-rss-azure-blog-azure-developer-cli-azd-july-2026.md`. confidence: 1 Microsoft Azure SDK Blog source, last-confirmed 2026-08-13.
+- The same release renamed the `azd tool` `--host` flag to `--agent`, changed JSON output shape for installed skills, and fixed several extension/tool behaviors including functional host probing, uninstall handling, Windows extension replacement file locks, serialized `azure.yaml` writes, and project extension requirement resolution. Source: `raw/2026-08-13-rss-azure-blog-azure-developer-cli-azd-july-2026.md`. confidence: 1 source, last-confirmed 2026-08-13.
+- July 2026 `azd` templates include Azure Functions Timer and Durable Functions fan-out/fan-in quickstarts across several languages, remote MCP Functions samples with Entra auth and Durable Functions long-running MCP tools, and secure-by-default managed identity/VNet patterns. Source: `raw/2026-08-13-rss-azure-blog-azure-developer-cli-azd-july-2026.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 source, last-confirmed 2026-08-13.
+
+### Typed entities
+- CLI: Azure Developer CLI / `azd`
+- version range: `azd` 1.27.0-1.29.0
+- command: `azd tool uninstall`
+- flag: `--agent`
+- former flag: `--host`
+- flag: `--no-dependencies`
+- option: `-s` / `--source`
+- config file: `azure.yaml`
+- service host: Azure App Service containers
+- host/resource: Azure AI Foundry project and agent
+- environment: CI/CD or AI-agent environment
+- sample: Remote MCP Functions
+- auth mechanism: Microsoft Entra
+- workflow: Durable Functions long-running MCP tool
+
+### Explicit relationships
+- `azd tool uninstall` completes the install/upgrade/uninstall lifecycle introduced by earlier `azd tool` releases.
+- Direct extension-source installation depends-on provenance review because URL/local-path sources become persisted extension sources.
+- Automatic non-interactive mode complements scheduled and AI-agent automation by failing fast instead of waiting on prompts.
+- The `--agent` rename supersedes `--host` for `azd tool` scripts and JSON consumers.
+- Remote MCP Functions samples connect Azure Functions, Entra auth, Durable Functions, and `azd` deployment into an MCP hosting path.
+
+### HoneyDrunk implications
+- Audit any HoneyDrunk scripts that call `azd tool --host` or parse `azd tool list --output json` before upgrading to these releases.
+- For unattended `azd` runs, rely on non-interactive failure behavior but keep explicit validation and rollback around destructive operations such as `azd down`.
+- Do not allow arbitrary extension `--source` URLs/paths in CI without owner, checksum/signature, channel, and dependency policy.
+- Remote MCP Functions templates are worth a scoped spike only when Entra auth, long-running task polling, observability, and cost controls are part of the acceptance criteria.
+
+### Quality notes
+- Microsoft release notes are authoritative for feature existence. Validate installed `azd` version, runner environment detection, and breaking-output changes before migration.

@@ -963,3 +963,81 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 ### Game development, Unity, and technical art
 - [[unity-3d-and-realtime-vfx-patterns]] - 56 sources - last-confirmed 2026-07-08
 - [[technical-art-community-and-talent-signals]] - 46 sources - last-confirmed 2026-07-08
+
+## 2026-08-12 topic additions
+
+### Azure automation, SDKs, and cloud governance
+- [[azure-agent-automation-and-identity]] - 31 sources - last-confirmed 2026-08-12
+- [[azure-sdk-for-rust]] - 3 sources - last-confirmed 2026-08-12
+
+### GitHub Actions and CI/CD supply chain
+- [[github-actions-platform-operations]] - 41 sources - last-confirmed 2026-08-12
+- [[ai-coding-agent-security]] - 139 sources - last-confirmed 2026-08-12
+
+### AI-assisted software practice and agent harnesses
+- [[ai-assisted-software-practice]] - 84 sources - last-confirmed 2026-08-12
+- [[ai-agent-harnesses]] - 160 sources - last-confirmed 2026-08-12
+- [[mcp-tool-governance-and-app-surfaces]] - 95 sources - last-confirmed 2026-08-12
+
+### .NET runtime, servicing, and dependency posture
+- [[dotnet-runtime-and-mobile-2026]] - 14 sources - last-confirmed 2026-08-12
+- [[dotnet-dependency-security-and-nuget]] - 3 sources - last-confirmed 2026-08-12
+
+### Technical art, DCC, Unity, and VFX
+- [[technical-art-community-and-talent-signals]] - 48 sources - last-confirmed 2026-08-12
+- [[unity-3d-and-realtime-vfx-patterns]] - 58 sources - last-confirmed 2026-08-12
+
+### AI infrastructure and multimodal tooling
+- [[edge-ai-and-ai-infrastructure-2026]] - 60 sources - last-confirmed 2026-08-12
+
+### Cloud/RAG and malware infrastructure security
+- [[cloud-vector-storage-security]] - 1 source - last-confirmed 2026-08-12
+- [[malware-infrastructure-and-resilient-c2]] - 1 source - last-confirmed 2026-08-12
+
+## 2026-08-13 topic additions
+
+### Agent harnesses, MCP packaging, and multi-agent control planes
+- [[ai-agent-harnesses]] - 165 sources - last-confirmed 2026-08-13
+- [[mcp-tool-governance-and-app-surfaces]] - 99 sources - last-confirmed 2026-08-13
+- [[multi-agent-architectures]] - 26 sources - last-confirmed 2026-08-13
+
+### AI-assisted software practice and evaluation
+- [[ai-assisted-software-practice]] - 85 sources - last-confirmed 2026-08-13
+- [[agent-evaluation-and-benchmarks]] - 38 sources - last-confirmed 2026-08-13
+
+### Azure, .NET, GitHub, and NuGet operations
+- [[azure-agent-automation-and-identity]] - 32 sources - last-confirmed 2026-08-13
+- [[microsoft-dotnet-ai-stack]] - 60 sources - last-confirmed 2026-08-13
+- [[dotnet-dependency-security-and-nuget]] - 4 sources - last-confirmed 2026-08-13
+- [[github-actions-platform-operations]] - 42 sources - last-confirmed 2026-08-13
+
+### Agent security and package/secret controls
+- [[ai-coding-agent-security]] - 141 sources - last-confirmed 2026-08-13
+
+### Local multimodal models and technical art
+- [[edge-ai-and-ai-infrastructure-2026]] - 61 sources - last-confirmed 2026-08-13
+- [[technical-art-community-and-talent-signals]] - 49 sources - last-confirmed 2026-08-13
+- [[unity-3d-and-realtime-vfx-patterns]] - 60 sources - last-confirmed 2026-08-13
+
+## 2026-08-14 topic additions
+
+### Agent harnesses, orchestration, and evaluation
+- [[ai-agent-harnesses]] - 172 sources - last-confirmed 2026-08-14
+- [[multi-agent-architectures]] - 27 sources - last-confirmed 2026-08-14
+- [[agent-evaluation-and-benchmarks]] - 39 sources - last-confirmed 2026-08-14
+- [[ai-assisted-software-practice]] - 87 sources - last-confirmed 2026-08-14
+
+### MCP, .NET, CI, and routing
+- [[mcp-tool-governance-and-app-surfaces]] - 100 sources - last-confirmed 2026-08-14
+- [[microsoft-dotnet-ai-stack]] - 62 sources - last-confirmed 2026-08-14
+- [[dotnet-runtime-and-mobile-2026]] - 15 sources - last-confirmed 2026-08-14
+- [[github-actions-platform-operations]] - 43 sources - last-confirmed 2026-08-14
+
+### Agent security, identity, and autonomous security research
+- [[ai-coding-agent-security]] - 145 sources - last-confirmed 2026-08-14
+- [[ai-agent-identity-and-workload-auth]] - 2 sources - last-confirmed 2026-08-14
+
+### Unity, technical art, and creative automation
+- [[unity-3d-and-realtime-vfx-patterns]] - 61 sources - last-confirmed 2026-08-14
+- [[technical-art-community-and-talent-signals]] - 50 sources - last-confirmed 2026-08-14
+- [[creative-automation-and-firefly-services]] - 4 sources - last-confirmed 2026-08-14

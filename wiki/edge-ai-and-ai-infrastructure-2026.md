@@ -843,3 +843,64 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - PyTorch/AMD and Tencent/Willison sources are current model/infrastructure signals but require live verification for hardware availability, prices, runtime support, model license terms, and benchmark transferability.
+
+## 2026-08-12 compile additions: multimodal plugin stack and AI infrastructure market watch
+
+### Source-backed claims
+- Qwen-MM-Plugins positions Qwen-family multimodal capabilities as installable agent skills and optional MCP servers for image, video, document, code/data, 3D, search, video-memory, video-editing, Blender, FreeCAD, and education workflows. Source: `raw/2026-08-12-rss-tldr-ai-qwen-mm-plugins-github-repo.md`; page: [[ai-agent-harnesses]]. confidence: 1 project README source, last-confirmed 2026-08-12.
+- The Qwen-MM-Plugins source claims some core local processing works without an API key while other capabilities depend on external APIs, search providers, local binaries, and DCC applications; this makes environment shape part of capability assessment. Source: `raw/2026-08-12-rss-tldr-ai-qwen-mm-plugins-github-repo.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 README source, last-confirmed 2026-08-12.
+- Fowler's August 4 fragments mention market commentary around AI infrastructure financing and memory-stock exposure; the captured source is useful as market-watch context but does not establish a technical adoption decision. Source: `raw/2026-08-12-rss-martin-fowler-fragments-august-4.md`. confidence: 1 practitioner/curator source, last-confirmed 2026-08-12.
+
+### Typed entities
+- project: Qwen-MM-Plugins
+- model family: Qwen
+- capability: multimodal local processing
+- capability: API-backed multimodal inference
+- capability: reverse image search
+- application: Blender
+- application: FreeCAD
+- concept: AI infrastructure financing
+- concept: memory-chip supply exposure
+
+### Explicit relationships
+- Multimodal plugin stacks depend-on both model capability and host environment: local binaries, DCC installs, API keys, search providers, and shared config.
+- Agent multimodality complements local/open model strategy but does not supersede security review of executable plugins.
+- AI infrastructure market commentary is a weak signal for capacity planning unless paired with primary pricing, availability, and workload data.
+
+### HoneyDrunk implications
+- Treat Qwen-MM-Plugins as scouting material for multimodal local-agent workflows; run security/install review before any global setup.
+- Keep market/infrastructure commentary separate from technical routing decisions unless HoneyDrunk has workload, cost, and availability data.
+
+### Quality notes
+- README and commentary sources are not enough for procurement or routing decisions. Promote only after local install, security, license, and task-quality validation.
+
+## 2026-08-13 compile additions: Muse Glimmer local multimodal model
+
+### Source-backed claims
+- Hugging Face's Muse Glimmer source presents Meta Muse Glimmer as a 30B-parameter Apache-2.0 multimodal model with a 2B vision encoder, 28B text decoder, local/private deployment positioning, and day-0 support across Transformers, llama.cpp, vLLM, Inference Endpoints, and related tooling. Source: `raw/2026-08-13-web-meta-is-back-with-muse-glimmer-local-agentic-multimodal-and-open-sourc.md`. confidence: 1 Hugging Face blog/source source, last-confirmed 2026-08-13.
+- The model supports text, image, video-without-audio, multimodal tool calling, open-ended object detection, speculative decoding through a DFlash drafter, GGUF/llama.cpp serving, and OpenAI-compatible hosted endpoints. Source: `raw/2026-08-13-web-meta-is-back-with-muse-glimmer-local-agentic-multimodal-and-open-sourc.md`. confidence: 1 source, last-confirmed 2026-08-13.
+- The source includes benchmark claims across agentic, coding, multimodal, safety, and reasoning tasks; treat the numbers as vendor/model-release evidence until reproduced with HoneyDrunk harnesses. Source: `raw/2026-08-13-web-meta-is-back-with-muse-glimmer-local-agentic-multimodal-and-open-sourc.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 source with local-validation caveat, last-confirmed 2026-08-13.
+
+### Typed entities
+- model: Muse Glimmer 30B
+- company: Meta
+- organization/platform: Hugging Face
+- license: Apache 2.0
+- runtime: Transformers
+- runtime: llama.cpp
+- runtime: vLLM
+- service: Hugging Face Inference Endpoints
+- technique: DFlash speculative decoding
+- artifact: GGUF quantization
+
+### Explicit relationships
+- Muse Glimmer complements local/open model strategy by combining multimodal inputs, coding-agent use, and OpenAI-compatible deployment paths.
+- DFlash speculative decoding complements serving performance but depends-on additional memory and correctness validation.
+- Hosted Inference Endpoints and local llama.cpp serving provide different trust, cost, latency, and operations boundaries for the same model family.
+
+### HoneyDrunk implications
+- Add Muse Glimmer to local/open multimodal model eval queues only after checking license, exact model availability, hardware needs, tool-call behavior, safety posture, and endpoint cost.
+- For private image/video/code workflows, compare local GGUF serving against managed endpoints with the same prompts, tools, and validation harness before routing work.
+
+### Quality notes
+- Hugging Face source is useful release evidence but includes benchmark and demo positioning. Do not change routing without local evals.

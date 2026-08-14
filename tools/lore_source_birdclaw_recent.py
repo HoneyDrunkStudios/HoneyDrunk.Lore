@@ -23,17 +23,27 @@ BIRDCLAW = shutil.which("birdclaw.cmd") or shutil.which("birdclaw.exe") or shuti
 
 
 def run(command: list[str], *, input_text: str | None = None, timeout: int = 120) -> subprocess.CompletedProcess[str]:
-    return subprocess.run(
-        command,
-        input=input_text,
-        cwd=str(REPO),
-        text=True,
-        encoding="utf-8",
-        errors="replace",
-        stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT,
-        timeout=timeout,
-    )
+    try:
+        return subprocess.run(
+            command,
+            input=input_text,
+            cwd=str(REPO),
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            timeout=timeout,
+        )
+    except subprocess.TimeoutExpired as exc:
+        output = exc.stdout or ""
+        if isinstance(output, bytes):
+            output = output.decode("utf-8", errors="replace")
+        output = output.strip()
+        message = f"Command timed out after {timeout} seconds: {' '.join(command)}"
+        return subprocess.CompletedProcess(command, 124, output + ("\n" if output else "") + message)
+    except FileNotFoundError as exc:
+        return subprocess.CompletedProcess(command, 127, f"Command unavailable: {exc}")
 
 
 def birdclaw_command(*args: str) -> list[str]:

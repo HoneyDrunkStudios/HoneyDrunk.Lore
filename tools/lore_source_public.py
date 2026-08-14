@@ -122,6 +122,9 @@ LOW_SIGNAL_TITLE_TERMS = [
     "is hiring",
     "data breach impacts",
     "government logins",
+    "10+ yrs",
+    "for hire",
+    "available for hire",
 ]
 
 SOURCE_PRIORITY = {
@@ -434,20 +437,20 @@ def known_urls() -> set[str]:
 def article_body(url: str, fallback: str) -> str:
     parsed = urllib.parse.urlsplit(url)
     if parsed.netloc.lower() in {"x.com", "twitter.com", "www.x.com", "www.twitter.com"}:
-        return fallback.strip()
+        return ""
     try:
         page = fetch(url)
     except Exception:
-        return fallback.strip()
+        return ""
     # crude readable extraction: prefer article/main, otherwise body text
     m = re.search(r"(?is)<article[^>]*>(.*?)</article>", page) or re.search(r"(?is)<main[^>]*>(.*?)</main>", page)
     body = strip_html(m.group(1) if m else page)
     noisy_markers = ["stylesheet-group", "window.__appglobals__", "cloudflare_turnstile", "html,body{height"]
     if any(marker in body.lower() for marker in noisy_markers):
-        return fallback.strip()
-    # Drop very short/noisy pages back to feed summary.
+        return ""
+    # Drop very short/noisy pages instead of saving a stub.
     if len(body) < max(500, len(fallback)):
-        return fallback.strip()
+        return ""
     return body[:50000]
 
 

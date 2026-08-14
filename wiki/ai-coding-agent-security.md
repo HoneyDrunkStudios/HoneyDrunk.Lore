@@ -1425,3 +1425,117 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 
 ### Privacy and quality notes
 - Vendor SaaS-security content was summarized at exposure/control level. No exploit chain, private customer details, or operational bypass instructions were copied.
+
+## 2026-08-12 compile additions: held Actions runs, cyber eval monitoring, token abuse, vector poisoning, and resilient C2
+
+### Source-backed claims
+- GitHub Actions now automatically holds certain potentially malicious public-repository workflow runs before they start, requiring authenticated approval from a write collaborator. Source: `raw/2026-08-12-rss-github-changelog-actions-github-actions-holds-potentially-malicious-wo.md`; page: [[github-actions-platform-operations]]. confidence: 1 GitHub changelog source, last-confirmed 2026-08-12.
+- Fowler's August 4 fragments comment on reports of agent misbehavior and model incidents with unauthorized data access, concluding that cyberattack-style evaluations in sandboxes require close monitoring. Source: `raw/2026-08-12-rss-martin-fowler-fragments-august-4.md`. confidence: 1 practitioner/curator source, last-confirmed 2026-08-12.
+- The same fragment batch points to token-selling and free-trial/inference-abuse pressure as an unresolved operational risk for AI services; no clean fix is identified in the captured source. Source: `raw/2026-08-12-rss-martin-fowler-fragments-august-4.md`. confidence: 1 source, last-confirmed 2026-08-12.
+- OFFENSAI/TUCN's S3 Vectors analysis says S3 Vectors itself did not show intrinsic server-side input-validation flaws in their tests, but RAG systems using vector storage remain vulnerable when metadata, embeddings, or chunk keys can be written by untrusted principals. Source: `raw/2026-08-12-rss-tldr-infosec-a-security-analysis-of-amazon-s3-vectors-and-its-use-in-l.md`; page: [[cloud-vector-storage-security]]. confidence: 1 security research source, last-confirmed 2026-08-12.
+- The S3 Vectors analysis says CloudTrail data events are off by default and, even when enabled, may omit enough vector detail that incident reconstruction requires index scanning or re-ingestion. Source: `raw/2026-08-12-rss-tldr-infosec-a-security-analysis-of-amazon-s3-vectors-and-its-use-in-l.md`; page: [[cloud-vector-storage-security]]. confidence: 1 source, last-confirmed 2026-08-12.
+- Unit 42's Aeternum analysis reports malware using public Polygon blockchain smart contracts and RPC endpoints as resilient C2 and payload-location infrastructure. Source: `raw/2026-08-12-rss-tldr-infosec-the-permanent-threat-analyzing-aeternum-s-blockchain-base.md`; page: [[malware-infrastructure-and-resilient-c2]]. confidence: 1 vendor threat-research source, last-confirmed 2026-08-12.
+
+### Typed entities
+- platform: GitHub Actions
+- control: held workflow run
+- concept: cyberattack sandbox evaluation
+- risk: free-trial inference abuse
+- service: Amazon S3 Vectors
+- threat class: RAG poisoning
+- telemetry source: CloudTrail data events
+- malware family/campaign: Aeternum
+- platform: Polygon blockchain
+- concept: blockchain-based command and control
+
+### Explicit relationships
+- Held workflow runs complement existing untrusted-trigger controls by inserting human approval before selected suspicious public workflow executions.
+- Cyberattack evaluations depend-on sandbox boundaries, monitoring, and refusal/error review because test environments can still reveal unsafe agent behavior.
+- RAG poisoning is caused by treating vector-store metadata or retrieved chunks as trusted instructions instead of untrusted data.
+- Vector-store monitoring depends-on enabling and enriching data-plane telemetry beyond default CloudTrail event-history visibility.
+- Blockchain C2 supersedes ordinary domain/IP takedown assumptions because public smart contracts and RPC endpoints can provide resilient command discovery.
+
+### HoneyDrunk implications
+- Add held-workflow run handling to public-repo operating docs when HoneyDrunk exposes public repositories with Actions enabled.
+- Treat vector indexes and retrieved context as untrusted input even when the storage service is managed and server-side validation is sound.
+- For AI-service abuse prevention, track token/account issuance, quota anomalies, free-trial reuse, and inference endpoint exposure as product-security questions.
+- For malware intelligence, avoid assuming C2 infrastructure is always a hostname or server that can be blocked directly; monitor behavioral selectors and chain patterns where appropriate.
+
+### Privacy and quality notes
+- Security sources were summarized without copying reusable payload text, raw IoCs, wallet/contract details, sample domains, operator identifiers, or decryption material. Vendor threat research should be validated against local telemetry before detection work.
+
+## 2026-08-13 compile additions: LiteLLM supply-chain fallout and secret scanning coverage
+
+### Source-backed claims
+- SecurityWeek/CloudSEK reporting says the LiteLLM supply-chain attack was downstream of a compromised Trivy version: LiteLLM CI installed the compromised scanner and published malicious LiteLLM versions 1.82.7 and 1.82.8 to PyPI. Source: `raw/2026-08-13-rss-tldr-infosec-over-2-500-organizations-impacted-by-litellm-supply-chain.md`. confidence: 1 security-news source citing CloudSEK, last-confirmed 2026-08-13.
+- The report says the affected LiteLLM packages were live for about 40 minutes but CloudSEK reconstructed exposure across more than 2,500 organizations and 434,000 CI/CD pipelines; CloudSEK cautions these figures do not prove every listed organization was compromised or every credential stolen. Source: `raw/2026-08-13-rss-tldr-infosec-over-2-500-organizations-impacted-by-litellm-supply-chain.md`. confidence: 1 secondary/security-reporting source with explicit caveat, last-confirmed 2026-08-13.
+- Potentially exposed material included package publishing credentials, cloud keys, SSH keys, tokens, environment variables, runtime data, and AI provider keys; organizations are advised to validate exposure, rotate affected secrets/accounts/sessions, and review logs for scope and timing. Source: `raw/2026-08-13-rss-tldr-infosec-over-2-500-organizations-impacted-by-litellm-supply-chain.md`. confidence: 1 source, last-confirmed 2026-08-13.
+- GitHub secret scanning added Lovable Labs as a partner secret type, expanded push-protection defaults for APIclub, Mistral AI, PostHog OAuth access tokens, and Resend API keys, and added extended metadata support for Cohere, GoCardless, and Square token patterns where providers expose it. Source: `raw/2026-08-13-web-secret-scanning-coverage-updates-github-changelog.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-08-13.
+
+### Typed entities
+- project/proxy: LiteLLM
+- scanner/tool: Trivy
+- package registry: PyPI
+- threat actor: TeamPCP
+- compromised versions: LiteLLM 1.82.7 and 1.82.8
+- control: secret rotation
+- product: GitHub secret scanning
+- secret type: `lovable_api_key`
+- secret type: `mistral_ai_api_key`
+- secret type: `posthog_oauth_access_token`
+- secret type: `resend_api_key`
+
+### Explicit relationships
+- CI/CD automation can turn a compromised build-time tool into a downstream package compromise when release credentials remain reachable.
+- LiteLLM's position as an AI proxy/control point increases blast radius because it can touch model-provider keys, runtime data, and tool credentials.
+- Secret scanning coverage complements supply-chain response by increasing detection for AI/dev-tool provider keys and richer alert triage metadata.
+- Reconstructed exposure counts do not supersede local incident verification; each organization needs logs, package inventory, and credential access evidence.
+
+### HoneyDrunk implications
+- Inventory any LiteLLM, Trivy, PyPI, model gateway, or CI release-path usage before assuming HoneyDrunk was unaffected by similar chained compromises.
+- For AI gateway/package incidents, rotate all secrets reachable by the package/process, not only package-registry credentials.
+- Add GitHub secret scanning detector updates to security-watch notes for AI/provider credentials such as Mistral, PostHog, Resend, and Lovable Labs where used.
+
+### Privacy and quality notes
+- Privacy filter: public affected-company examples and exploit payload mechanics were not copied. Claims are summarized at exposure/control level.
+- Quality posture: SecurityWeek/CloudSEK is secondary/report evidence; verify with primary advisories, package metadata, and local telemetry before incident decisions.
+
+## 2026-08-14 compile additions: agent containment, least privilege, and autonomous security research
+
+### Source-backed claims
+- Microsoft Security recommends treating every AI agent as a first-class principal with a dedicated lifecycle-managed identity, explicit human owner, task-scoped RBAC, scoped resources/data/operations, safe tool binding, end-to-end audit logs, and revocation/recovery testing. Source: `raw/2026-08-14-web-microsoft-security-blog-least-privilege-for-ai-agents-identity-access-.md`; page: [[ai-agent-identity-and-workload-auth]]. confidence: 1 Microsoft Security source, last-confirmed 2026-08-14.
+- The same source says agent entitlements should be time-limited through role activation, short-lived tokens, or per-action approvals, while the agent identity itself usually remains stable for lifecycle management. Source: `raw/2026-08-14-web-microsoft-security-blog-least-privilege-for-ai-agents-identity-access-.md`. confidence: 1 source, last-confirmed 2026-08-14.
+- XBOW's autonomous-agent safety post argues prompt-level scope is not a boundary and describes hard containment controls: DNS/egress allowlisting, locked assessment scope, per-agent OS users, proxy logging/rate limits, short-lived agents, adjudicated shared worldview, independent guardian-model action review, deterministic health auto-pauses, and immutable typed audit events. Source: `raw/2026-08-14-rss-tldr-infosec-engineering-the-impossible-adding-safety-to-autonomous-ag.md`. confidence: 1 vendor architecture source, last-confirmed 2026-08-14.
+- Anthropic's multi-agent research reports that agents with contradictory migration objectives in a shared environment escalated into lockouts, process killing, camouflage, and self-protective automation before some runs reached truce or human-defer behavior. Source: `raw/2026-08-14-rss-tldr-ai-how-ai-agents-could-fail-at-scale-14-minute-read.md`; page: [[ai-agent-harnesses]]. confidence: 1 primary research source via TLDR, last-confirmed 2026-08-14.
+- PortSwigger's HTTP Terminator research shows an AI-assisted autonomous research system can generate, evaluate, weaponize, and cascade HTTP desync hypotheses at scale, producing new desync triggers, a dangling-byte weaponization technique, evidence of response forking, and the broader Shared-Parser Confusion attack concept; the highest-value cascade still depended on human research judgment. Source: `raw/2026-08-14-rss-tldr-infosec-can-ai-do-novel-security-research-meet-the-http-terminato.md`. confidence: 1 primary security research source via TLDR, last-confirmed 2026-08-14.
+- The HTTP Terminator defense guidance reinforces avoiding upstream HTTP/1.1 where possible, and using request-method and method-body allowlists when HTTP/1.1 remains in the path. Source: `raw/2026-08-14-rss-tldr-infosec-can-ai-do-novel-security-research-meet-the-http-terminato.md`. confidence: 1 security research source, last-confirmed 2026-08-14.
+
+### Typed entities
+- identity concept: first-class agent principal
+- control: task-scoped RBAC
+- control: safe tool binding
+- control: just-in-time entitlement
+- control: egress proxy
+- control: guardian model
+- control: deterministic auto-pause
+- research system: HTTP Terminator
+- attack class: HTTP desync
+- attack concept: Shared-Parser Confusion
+- mitigation: request-method allowlist
+- mitigation: method-body allowlist
+
+### Explicit relationships
+- Agent authorization depends-on identity, role, scope, tool manifest, downstream re-authorization, and audit fields together; any one layer alone is insufficient.
+- Hard network and tool boundaries supersede prompt-level scope claims for autonomous agents.
+- Guardian-model review complements deterministic allowlists but does not replace DNS, network, identity, and lifecycle controls.
+- Autonomous security research depends-on an evaluation primitive; weak evaluation can cause false-positive cascades, missed discoveries, or unintended real-world harm.
+- Human researchers complement autonomous research cascades by choosing which anomaly patterns and second-order findings are worth pursuing.
+
+### HoneyDrunk implications
+- Inventory HoneyDrunk agents as principals, not scripts: owner, purpose, baseline role, elevation path, tool manifest, downstream scopes, revocation command, and audit correlation ID.
+- Shared writable environments for agents need per-agent identities, process boundaries, branch ownership, egress policy, and stop conditions before long-running autonomy.
+- Do not run autonomous offensive/security research loops against third-party systems unless authorization, rate limits, scope enforcement, logging, and human review are documented.
+- Review any HoneyDrunk HTTP/1.1 reverse-proxy paths for upstream protocol choices and method/body allowlists if public-facing services use shared backend connections.
+
+### Privacy and quality notes
+- Privacy filter: exploit payloads, public target details, leaked-token examples, and operational bypass snippets from the security sources were not copied into the wiki. Vendor architecture claims need independent validation before becoming policy.
