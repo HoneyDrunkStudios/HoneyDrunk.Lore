@@ -31,7 +31,7 @@ Count: 0
 
 ## Crystallization from output/query-*.md
 
-- No new durable `output/query-*.md` artifacts were promoted during this pass. Existing query outputs were sampled and point to already compiled wiki pages or source-backed gaps rather than unrepresented durable facts.
+- No new durable `output/query-*.md` artifacts were promoted during this pass. All 13 existing query outputs were scanned; their raw citations exist, their wiki links resolve when present, and they point to already compiled wiki pages or source-backed gaps rather than unrepresented durable facts.
 - `output/signal-review-*.md` files remain run receipts, not `query-*.md` crystallization inputs.
 
 ## Blockers
@@ -49,6 +49,6 @@ Count: 0
 
 - Read `AGENTS.md` and followed the Ingest/Compile contract.
 - Compared `raw/` against `wiki/indexes/sources.md`; no currently present raw source is unrepresented.
-- Reviewed `output/query-*.md` crystallization posture; no unrepresented durable facts were identified in the sampled artifacts.
+- Reviewed all 13 `output/query-*.md` artifacts for crystallization posture; raw references exist, wiki links resolve when present, and no unrepresented durable facts were identified.
 - Preserved `raw/` immutability; no files under `raw/` were edited.
 - Performed a scoped content/code-review pass before publishing.
