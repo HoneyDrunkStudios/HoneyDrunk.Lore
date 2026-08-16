@@ -1,9 +1,9 @@
 # Lore Birdclaw Sourcing - Last Run
 
-Timestamp: 2026-08-14T17:01:04
+Timestamp: 2026-08-16T08:35:17
 Mode: write
 Resource: home
-Since: 2026-08-13
+Since: 2026-08-15
 Limit: 25
 Live sync attempted: yes
 Live sync succeeded: no

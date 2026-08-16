@@ -1539,3 +1539,43 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 
 ### Privacy and quality notes
 - Privacy filter: exploit payloads, public target details, leaked-token examples, and operational bypass snippets from the security sources were not copied into the wiki. Vendor architecture claims need independent validation before becoming policy.
+
+## 2026-08-16 compile additions: OWASP AI Agent Security Cheat Sheet
+
+### Source-backed claims
+- OWASP frames AI-agent security risks as broader than prompt injection, including tool abuse and privilege escalation, data exfiltration, memory poisoning, goal hijacking, excessive autonomy, high-impact action abuse, approval manipulation, multi-agent cascading failures, malicious AI console configuration, denial of wallet, sensitive-data exposure, and tool/data supply-chain attacks. Source: `raw/2026-08-16-web-ai-agent-security-cheat-sheet.md`. confidence: 1 OWASP Cheat Sheet source, last-confirmed 2026-08-16.
+- OWASP recommends least-privilege tool assignment, per-tool permission scoping, trust-level-specific tool sets, explicit authorization for sensitive operations, and allowlisted rather than wildcard MCP/tool configuration. Source: `raw/2026-08-16-web-ai-agent-security-cheat-sheet.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 source, last-confirmed 2026-08-16.
+- For high-impact actions, OWASP recommends separating decision-making from execution, binding approval to exact actor/tool/target/parameters/timestamp/expiry, using short-lived authorization artifacts with replay protection, requiring step-up authentication for critical actions, making actions idempotent where possible, and failing closed when classification, approval, policy lookup, or audit logging fails. Source: `raw/2026-08-16-web-ai-agent-security-cheat-sheet.md`. confidence: 1 source, last-confirmed 2026-08-16.
+- OWASP recommends memory/context controls including validation before persistence, user/session isolation, expiration and size limits, sensitive-data scanning/redaction, injection-pattern sanitization, and integrity checks for long-term memory. Source: `raw/2026-08-16-web-ai-agent-security-cheat-sheet.md`. confidence: 1 source, last-confirmed 2026-08-16.
+- OWASP recommends structured monitoring of decisions, tool calls, outcomes, cost/token use, anomalous tool-call frequency, repeated approval bypass attempts, elevated privilege usage, and spikes in high-risk actions. Source: `raw/2026-08-16-web-ai-agent-security-cheat-sheet.md`. confidence: 1 source, last-confirmed 2026-08-16.
+- For multi-agent systems, OWASP recommends explicit trust boundaries, authenticated/signed inter-agent messages, recipient/type authorization, payload sanitization, replay protection, execution isolation, and circuit breakers to prevent cascading failures. Source: `raw/2026-08-16-web-ai-agent-security-cheat-sheet.md`; page: [[multi-agent-architectures]]. confidence: 1 source, last-confirmed 2026-08-16.
+- OWASP recommends adversarial test suites before production and after material changes to prompts, tools, memory, retrieval, policies, or model providers, with CI/CD release gates covering prompt override, tool misuse, privilege escalation, memory poisoning, data exfiltration, recursive tool abuse, approval bypass, and multi-agent chaining. Source: `raw/2026-08-16-web-ai-agent-security-cheat-sheet.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 source, last-confirmed 2026-08-16.
+
+### Typed entities
+- standard/source: OWASP AI Agent Security Cheat Sheet
+- risk: denial of wallet / DoW
+- risk: memory poisoning
+- risk: goal hijacking
+- risk: approval manipulation
+- control: parameter-bound approval
+- control: step-up authentication
+- control: replay protection
+- control: circuit breaker
+- control: inter-agent message signature
+- control: adversarial agent test suite
+
+### Explicit relationships
+- Tool authorization depends-on runtime policy enforcement, not only model instruction or tool descriptions.
+- High-impact action approval depends-on exact normalized parameters and expiry; generic approval prompts do not supersede execution-layer validation.
+- Memory security complements prompt-injection defense because persisted malicious content can influence future sessions.
+- Monitoring and adversarial tests complement least privilege by detecting drift, bypass attempts, and regression after prompt/tool/provider changes.
+- Multi-agent trust boundaries reduce cascading failures by preventing one compromised agent from expanding another agent's authority.
+
+### HoneyDrunk implications
+- Treat OWASP's matrix as the baseline checklist for HoneyDrunk agent release gates: tool policy, approval binding, memory isolation, cost limits, monitoring, and adversarial fixtures.
+- Add denial-of-wallet and recursive tool-chain limits to agent design reviews, not just security reviews.
+- For mutating tools, require policy/execution components to re-check scope and approval before the operation runs.
+- Keep red-team fixtures version controlled but scrubbed of secrets, live customer data, and reusable offensive payloads.
+
+### Privacy and quality notes
+- Privacy filter: example code and payload-like details were summarized at control level; no credential patterns, real secrets, or reusable attack material were promoted. OWASP is a defensive guidance source and should be adapted to local HoneyDrunk architecture.

@@ -167,3 +167,12 @@ This keeps Lore decision-usable for Honeyclaw, Claude, and future agents.
 - contradictions resolved: none; all new claims extended existing pages and retained vendor/project-source caveats.
 - privacy/safety filtering: repo-forensics scanner examples and security categories were summarized defensively; no payloads, tokens, malicious URLs, or credential patterns were copied.
 - quality posture: GitHub/Microsoft/Adobe/Cloudflare sources are authoritative for their product posture but need tenant/local validation; Poolside/Cloudflare claims are vendor-authored; planning-with-files and repo-forensics are project README sources requiring install/hook review before adoption; Game Developer Carbon coverage requires primary repository/license review.
+
+## 2026-08-16 Lore ingest/compile
+- operator: Honeyclaw scheduled ingest
+- raw sources ingested: 13
+- pages created: none
+- pages updated: [[openai-frontier-models-and-codex-2026]], [[ai-agent-harnesses]], [[mcp-tool-governance-and-app-surfaces]], [[microsoft-dotnet-ai-stack]], [[agent-evaluation-and-benchmarks]], [[ai-coding-agent-security]], [[claude-platform-2026]], [[ai-assisted-software-practice]], [[github-copilot-and-app-token-changes]], indexes, run output
+- contradictions resolved: none; all new claims extended existing source-backed pages without superseding prior claims.
+- privacy/safety filtering: OWASP/security material was summarized defensively; no credentials, tokens, exploit payloads, private personal data, or reusable offensive procedures were promoted. Claude watermarking was summarized as provenance policy evidence without user-identifying data.
+- quality posture: OpenAI/GitHub/Microsoft/Anthropic sources are authoritative for their own products but require tenant/local validation; OWASP is defensive baseline guidance; Thoughtworks is strategic framing rather than benchmark evidence.

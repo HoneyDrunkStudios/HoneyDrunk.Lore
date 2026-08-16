@@ -1,41 +1,47 @@
 # Lore Sourcing - Last Run
 
-Timestamp: 2026-08-14T17:13:46
+Timestamp: 2026-08-16T08:42:33
 Mode: write
-Candidates scanned: 172
-Saved count: 15
-Skipped duplicate count: 41
+Candidates scanned: 18
+Skipped duplicates: 2
+Saved: 13
 Birdclaw blocker reported: yes
 
 ## Files written
-- raw/2026-08-14-rss-azure-blog-how-to-build-long-running-mcp-tools-on-azure-functions.md
-- raw/2026-08-14-rss-net-blog-routing-and-failover-for-microsoft-extensions-ai.md
-- raw/2026-08-14-rss-net-blog-test-reporting-in-microsoft-testing-platform-from-red-build-t.md
-- raw/2026-08-14-rss-system-design-newsletter-prompt-engineering-a-deep-dive.md
-- raw/2026-08-14-rss-tldr-ai-how-ai-agents-could-fail-at-scale-14-minute-read.md
-- raw/2026-08-14-rss-tldr-ai-specula-scaling-formal-specifications-for-autonomous-model-che.md
-- raw/2026-08-14-rss-tldr-devops-code-graph-rag-github-repo.md
-- raw/2026-08-14-rss-tldr-devops-smart-routing-in-unity-ai-gateway-match-frontier-quality-w.md
-- raw/2026-08-14-rss-tldr-devops-switchyard-github-repo.md
-- raw/2026-08-14-rss-tldr-infosec-can-ai-do-novel-security-research-meet-the-http-terminato.md
-- raw/2026-08-14-rss-tldr-infosec-engineering-the-impossible-adding-safety-to-autonomous-ag.md
-- raw/2026-08-14-rss-tldr-web-dev-how-we-built-a-software-factory-to-drive-astro-s-github-i.md
-- raw/2026-08-14-web-adobe-help-center-adobe-photoshop-modules-for-workfront-fusion.md
-- raw/2026-08-14-web-microsoft-security-blog-least-privilege-for-ai-agents-identity-access-.md
-- raw/2026-08-14-web-unity-blog-the-3d-as-2d-sample-project-bunny-blitz-is-available-now.md
+- raw/2026-08-16-web-agent-plugins-1-0-in-vs-code-copilot-cli-and-the-copilot-app.md
+- raw/2026-08-16-web-github-copilot-weekly-releases-august-10.md
+- raw/2026-08-16-web-how-claude-s-text-watermarking-works.md
+- raw/2026-08-16-web-harness-engineering-leveraging-codex-in-an-agent-first-development-wor.md
+- raw/2026-08-16-web-unrolling-the-codex-agent-loop.md
+- raw/2026-08-16-web-net-ai-essentials-the-core-building-blocks-explained.md
+- raw/2026-08-16-web-announcing-v2-0-of-the-official-mcp-c-sdk.md
+- raw/2026-08-16-web-building-your-first-mcp-server-with-net-and-publishing-to-nuget.md
+- raw/2026-08-16-web-release-v1-0-of-the-official-mcp-c-sdk.md
+- raw/2026-08-16-web-exploring-new-agent-quality-and-nlp-evaluators-for-net-ai-applications.md
+- raw/2026-08-16-web-mcp-as-easy-as-1-2-3-introducing-the-fluent-api-for-mcp-apps.md
+- raw/2026-08-16-web-ai-agent-security-cheat-sheet.md
+- raw/2026-08-16-web-preparing-for-agentic-transformation.md
+
+## Skipped duplicates
+- https://www.anthropic.com/news/claude-sonnet-5
+- https://owasp.org/www-project-mcp-top-10/
 
 ## Failed sources
-- Polycount: HTTPError: HTTP Error 403: Forbidden
-- TLDR AI/OpenAI: skipped short content: https://openai.com/index/previewing-ultrafast
-- TLDR AI/Claude Chrome: skipped short content: https://claude.com/claude-in-chrome
-- TLDR AI/Qwen model card: skipped short content: https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B
-- Tech-Artists.org: skipped short content: https://www.tech-artists.org/t/art-of-technical-art/18491
+- skipped unreadable or short content: https://huggingface.co/blog/state-of-open-models-summer-2026
+- skipped unreadable or short content: https://huggingface.co/blog/LiquidAI/lfm2-5-2-6b
+- skipped unreadable or short content: https://openai.com/index/gpt-5-6/
 
-## Rejected / pruned after review
-- Ars Technica/Financial Times Anthropic IPO valuation: rejected after review as finance speculation rather than technical source
-- Corma homepage: rejected after review as marketing/product-launch page without enough technical detail
-- RealtimeVFX paid Unity VFX artist post: rejected after review as job post
-- GitHub Xcode 27 runner image: pruned to keep the run at 15 higher-priority items
-- System Design Newsletter 10 solutions list: pruned as less specific than retained architecture/agent sources
-- setup-java v5.5.0 changelog: pruned to keep the run at 15 higher-priority items
-- CNCF Buildpacks graduation announcement: pruned to keep the run at 15 higher-priority items
+## Selected qualifying sources
+- [Developer Tooling & AI Coding] Agent Plugins 1.0 in VS Code, Copilot CLI, and the Copilot app - https://github.blog/changelog/2026-08-12-agent-plugins-1-0-in-vs-code-copilot-cli-and-the-copilot-app/
+- [Developer Tooling & AI Coding] GitHub Copilot weekly releases - August 10 - https://github.blog/changelog/2026-08-13-github-copilot-weekly-releases-august-10/
+- [AI / LLM Research & Tooling] How Claude's text watermarking works - https://www.anthropic.com/news/claude-text-watermark
+- [Developer Tooling & AI Coding] Harness engineering: leveraging Codex in an agent-first development workflow - https://openai.com/index/harness-engineering/
+- [Developer Tooling & AI Coding] Unrolling the Codex agent loop - https://openai.com/index/unrolling-the-codex-agent-loop/
+- [.NET Ecosystem] .NET AI Essentials - The Core Building Blocks Explained - https://devblogs.microsoft.com/dotnet/dotnet-ai-essentials-the-core-building-blocks-explained/
+- [.NET Ecosystem] Announcing v2.0 of the official MCP C# SDK - https://devblogs.microsoft.com/dotnet/announcing-v20-of-the-official-mcp-csharp-sdk/
+- [.NET Ecosystem] Building Your First MCP Server with .NET and Publishing to NuGet - https://devblogs.microsoft.com/dotnet/mcp-server-dotnet-nuget-quickstart/
+- [.NET Ecosystem] Release v1.0 of the official MCP C# SDK - https://devblogs.microsoft.com/dotnet/release-v10-of-the-official-mcp-csharp-sdk/
+- [.NET Ecosystem] Exploring new Agent Quality and NLP evaluators for .NET AI applications - https://devblogs.microsoft.com/dotnet/exploring-agent-quality-and-nlp-evaluators/
+- [Azure & Cloud] MCP as Easy as 1-2-3: Introducing the Fluent API for MCP Apps - https://devblogs.microsoft.com/azure-sdk/mcp-as-easy-as-1-2-3-introducing-the-fluent-api-for-mcp-apps/
+- [Security & Ethical Hacking] AI Agent Security Cheat Sheet - https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html
+- [Software Architecture] Preparing for agentic transformation - https://www.thoughtworks.com/insights/looking-glass/looking-glass-2026/preparing-for-agentic-transformation

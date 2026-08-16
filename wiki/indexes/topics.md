@@ -1041,3 +1041,20 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 - [[unity-3d-and-realtime-vfx-patterns]] - 61 sources - last-confirmed 2026-08-14
 - [[technical-art-community-and-talent-signals]] - 50 sources - last-confirmed 2026-08-14
 - [[creative-automation-and-firefly-services]] - 4 sources - last-confirmed 2026-08-14
+
+## 2026-08-16 topic additions
+
+### Codex, Copilot, and agent harness operation
+- [[openai-frontier-models-and-codex-2026]] - 36 sources - last-confirmed 2026-08-16
+- [[ai-agent-harnesses]] - 176 sources - last-confirmed 2026-08-16
+- [[github-copilot-and-app-token-changes]] - 36 sources - last-confirmed 2026-08-16
+- [[ai-assisted-software-practice]] - 88 sources - last-confirmed 2026-08-16
+
+### MCP, .NET AI, and evaluation
+- [[mcp-tool-governance-and-app-surfaces]] - 105 sources - last-confirmed 2026-08-16
+- [[microsoft-dotnet-ai-stack]] - 67 sources - last-confirmed 2026-08-16
+- [[agent-evaluation-and-benchmarks]] - 40 sources - last-confirmed 2026-08-16
+
+### Agent security and provenance
+- [[ai-coding-agent-security]] - 146 sources - last-confirmed 2026-08-16
+- [[claude-platform-2026]] - 44 sources - last-confirmed 2026-08-16

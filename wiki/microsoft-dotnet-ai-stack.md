@@ -700,3 +700,47 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 
 ### Quality notes
 - Microsoft sources are authoritative for release direction. APIs are experimental and CI reporter packages include preview components, so package versions and provider support need live validation.
+
+## 2026-08-16 compile additions: .NET AI building blocks, agent evaluators, and MCP SDK milestones
+
+### Source-backed claims
+- Microsoft frames the current .NET AI stack around four building blocks: `Microsoft.Extensions.AI` for unified LLM access, `Microsoft.Extensions.VectorData` for semantic search and persisted embeddings, Microsoft Agent Framework for agentic workflows, and MCP for interoperability. Source: `raw/2026-08-16-web-net-ai-essentials-the-core-building-blocks-explained.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-08-16.
+- `Microsoft.Extensions.AI` provides `IChatClient` abstractions over providers such as OpenAI, Azure OpenAI, and OllamaSharp, standardizes chat options and usage details, supports typed structured outputs, and can add logging/OpenTelemetry middleware through builder patterns. Source: `raw/2026-08-16-web-net-ai-essentials-the-core-building-blocks-explained.md`. confidence: 1 source, last-confirmed 2026-08-16.
+- The .NET AI Essentials source says MEAI content abstractions include text, error, user-input requests, function calls, hosted files, URI content, and `DataContent` for multimodal byte payloads such as images. Source: `raw/2026-08-16-web-net-ai-essentials-the-core-building-blocks-explained.md`. confidence: 1 source, last-confirmed 2026-08-16.
+- `Microsoft.Extensions.AI.Evaluation.Quality` now includes `IntentResolutionEvaluator`, `TaskAdherenceEvaluator`, and `ToolCallAccuracyEvaluator` for conversational tool-use agent quality, while `Microsoft.Extensions.AI.Evaluation.NLP` adds BLEU, GLEU, and F1 evaluators that do not require an LLM. Source: `raw/2026-08-16-web-exploring-new-agent-quality-and-nlp-evaluators-for-net-ai-applications.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-08-16.
+- The evaluator source says agent-quality evaluator prompts were tuned and tested against OpenAI model families such as GPT-4o and GPT-4.1, and that smaller/local models may perform poorly as evaluator models. Source: `raw/2026-08-16-web-exploring-new-agent-quality-and-nlp-evaluators-for-net-ai-applications.md`. confidence: 1 source, last-confirmed 2026-08-16.
+- The MCP C# SDK v1.0 and v2.0 sources show the SDK tracking protocol revisions: v1.0 covered the 2025-11-25 spec with OAuth/elicitation/sampling/task improvements, while v2.0 implements the 2026-07-28 stateless/MRTR revision while keeping stable v1 APIs compiling except for experimental Tasks migration. Sources: `raw/2026-08-16-web-release-v1-0-of-the-official-mcp-c-sdk.md`; `raw/2026-08-16-web-announcing-v2-0-of-the-official-mcp-c-sdk.md`. confidence: 2 Microsoft .NET Blog sources, last-confirmed 2026-08-16.
+- Microsoft says .NET 10 MCP templates and NuGet.org MCP Server package type support creating, packaging, discovering, and installing .NET MCP servers through template projects, `.mcp/server.json`, package metadata, and generated MCP client configuration. Source: `raw/2026-08-16-web-building-your-first-mcp-server-with-net-and-publishing-to-nuget.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 source, last-confirmed 2026-08-16.
+
+### Typed entities
+- library: `Microsoft.Extensions.AI`
+- library: `Microsoft.Extensions.VectorData`
+- framework: Microsoft Agent Framework
+- protocol: MCP
+- interface: `IChatClient`
+- content type: `DataContent`
+- evaluator: `IntentResolutionEvaluator`
+- evaluator: `TaskAdherenceEvaluator`
+- evaluator: `ToolCallAccuracyEvaluator`
+- evaluator: `BLEUEvaluator`
+- evaluator: `GLEUEvaluator`
+- evaluator: `F1Evaluator`
+- SDK/package: ModelContextProtocol C# SDK
+- template: `dotnet new mcpserver`
+- registry: NuGet.org MCP Server package type
+
+### Explicit relationships
+- MEAI abstracts provider chat access but does not supersede provider-native SDKs when specialized capabilities such as live audio streaming are required.
+- Tool-use evaluation depends-on tool definitions, conversation history, evaluator-model quality, persisted reports, and cache settings.
+- Deterministic NLP evaluators complement LLM-as-judge evaluators for similarity and retrieval checks where reference text exists.
+- MCP C# SDK version choice depends-on target protocol revision, stateful/stateless transport needs, task compatibility, and client support.
+- NuGet distribution complements MCP server reuse but introduces supply-chain and secret-declaration review obligations.
+
+### HoneyDrunk implications
+- For HoneyDrunk .NET agents, use MEAI for provider portability only after recording provider-specific gaps such as reasoning state, multimodal support, streaming, and tool-call behavior.
+- Add .NET agent-quality evaluators to the eval toolbox for tool-use conversations, but calibrate them against HoneyDrunk human labels before treating scores as release gates.
+- Use BLEU/GLEU/F1 only for tasks with stable reference outputs; they are weak for open-ended synthesis or code-review quality.
+- Before upgrading MCP C# SDK users to v2, inventory experimental Tasks usage, stateful-only callbacks, roots/sampling/logging reliance, and client compatibility.
+
+### Quality notes
+- Microsoft sources are authoritative for their stack, but several APIs and package/template behaviors are preview or version-sensitive. Validate package versions, diagnostics, model support, and NuGet publishing posture before implementation.

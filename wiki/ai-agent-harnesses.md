@@ -1338,3 +1338,42 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - Anthropic source is primary research but experimental. Cloudflare and Databricks are vendor case studies. README-sourced projects require local install/security review and were not promoted as approved dependencies.
+
+## 2026-08-16 compile additions: Codex legibility, agentic transformation, and Copilot agent workflow controls
+
+### Source-backed claims
+- OpenAI's Codex harness-engineering source says agent-first repositories need application state, UI, logs, metrics, traces, plans, architecture docs, and quality grades available inside the repository/runtime so agents can inspect and validate work directly. Source: `raw/2026-08-16-web-harness-engineering-leveraging-codex-in-an-agent-first-development-wor.md`; page: [[openai-frontier-models-and-codex-2026]]. confidence: 1 official OpenAI source, last-confirmed 2026-08-16.
+- The source says documentation alone did not keep a fully agent-generated codebase coherent; custom linters, structural tests, boundary parsing, dependency-direction checks, logging/naming/file-size invariants, and remediation-oriented lint messages were used to enforce architecture and taste mechanically. Source: `raw/2026-08-16-web-harness-engineering-leveraging-codex-in-an-agent-first-development-wor.md`. confidence: 1 source, last-confirmed 2026-08-16.
+- OpenAI reports recurring background Codex tasks for "garbage collection": scanning deviations from golden principles, updating quality grades, and opening targeted refactoring PRs so bad patterns are corrected before they spread. Source: `raw/2026-08-16-web-harness-engineering-leveraging-codex-in-an-agent-first-development-wor.md`. confidence: 1 source, last-confirmed 2026-08-16.
+- Thoughtworks frames agentic transformation as moving from isolated AI experiments to redesigned workflows where agents operate with transparency, guardrails, continuous improvement, embedded governance, AI-ready data, and human oversight of intelligent systems. Source: `raw/2026-08-16-web-preparing-for-agentic-transformation.md`; page: [[ai-assisted-software-practice]]. confidence: 1 Thoughtworks strategy source, last-confirmed 2026-08-16.
+- GitHub's Copilot weekly release says Copilot CLI can manage subagents and tasks through `/tasks`, queue prompts/shell/slash commands while a turn runs, combine `--plan` with `--mode autopilot` in headless mode, use `/rewind` to restore Copilot changes without git or discarding user edits, and preserve session/folder context when opening the Copilot app. Source: `raw/2026-08-16-web-github-copilot-weekly-releases-august-10.md`; page: [[github-copilot-and-app-token-changes]]. confidence: 1 GitHub changelog source, last-confirmed 2026-08-16.
+
+### Typed entities
+- product/runtime: Codex
+- control: structural lint
+- control: worktree-local app instance
+- control: remediation-oriented lint message
+- practice: repository-local knowledge base
+- practice: background cleanup agent
+- product: GitHub Copilot CLI
+- command: `/tasks`
+- command: `/rewind`
+- option: `--plan`
+- option: `--mode autopilot`
+- concept: agentic transformation
+- concept: embedded AI governance
+
+### Explicit relationships
+- Agent autonomy depends-on legible application state and mechanical invariants; prompt instructions alone do not keep high-throughput codebases coherent.
+- Background cleanup agents complement feature agents by continuously removing drift, duplicated patterns, and weak invariants.
+- Copilot `/rewind` complements git-based recovery but does not supersede source control, review, or staged-diff discipline.
+- Enterprise agentic transformation depends-on workflow redesign and governance embedded into operations, not only model deployment.
+
+### HoneyDrunk implications
+- For HoneyHub/OpenClaw, prioritize agent-legible sensors and structural lints before relaxing review gates or increasing parallelism.
+- Treat cleanup agents as scheduled maintenance with narrow scopes, reviewable diffs, and quality-grade evidence.
+- Before adopting Copilot CLI subagent/task queues in HoneyDrunk repos, define ownership, queued-command policy, restore semantics, and review handoff.
+- Use Thoughtworks' transformation framing as a strategy checklist: AI-ready data, transparent decisions, guardrails, ROI measurement, and human oversight need owners before broad autonomy.
+
+### Quality notes
+- OpenAI and GitHub claims are product/vendor-authored. Thoughtworks is a strategy source. All are useful for workflow design, but local policies and evals should decide HoneyDrunk autonomy levels.

@@ -212,6 +212,40 @@ Two GitHub platform changes affect automation cost and compatibility: GitHub App
 ### Quality notes
 - Both GitHub features are plan/preview dependent. Verify availability, billing, branch permissions, and enterprise policy controls before enabling in HoneyDrunk repos.
 
+## 2026-08-16 compile additions: Agent Plugins GA and Copilot weekly workflow updates
+
+### Source-backed claims
+- GitHub says Agent Plugins 1.0 support is generally available in VS Code, Copilot CLI, the GitHub Copilot SDK, and the GitHub Copilot app on all Copilot plans. Source: `raw/2026-08-16-web-agent-plugins-1-0-in-vs-code-copilot-cli-and-the-copilot-app.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 GitHub changelog source, last-confirmed 2026-08-16.
+- GitHub says Copilot Business and Enterprise customers can govern plugins across supported clients with managed settings, including `enabledPlugins`, `extraKnownMarketplaces`, `strictKnownMarketplaces`, team overrides, and MCP allowlists by URL, command, or name. Source: `raw/2026-08-16-web-agent-plugins-1-0-in-vs-code-copilot-cli-and-the-copilot-app.md`. confidence: 1 source, last-confirmed 2026-08-16.
+- GitHub's August 10 weekly release says Kimi K3 is rolling out to Copilot plans and MAI-Code-1.1-Flash is rolling out with native image understanding and improvements in coding quality, instruction following, tool use, and performance. Source: `raw/2026-08-16-web-github-copilot-weekly-releases-august-10.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-08-16.
+- The same weekly release adds Copilot app plugin version/update management and side chats for agent questions; Copilot CLI adds `/tasks`, command/prompt queueing during active turns, headless `--plan` plus `--mode autopilot`, `/rewind`, and context-preserving `/app`; JetBrains adds Copilot memory and Ollama BYOK support. Source: `raw/2026-08-16-web-github-copilot-weekly-releases-august-10.md`; page: [[ai-agent-harnesses]]. confidence: 1 source, last-confirmed 2026-08-16.
+
+### Typed entities
+- specification: Agent Plugins 1.0
+- product: GitHub Copilot SDK
+- product: GitHub Copilot app
+- product: Copilot CLI
+- model: Kimi K3
+- model: MAI-Code-1.1-Flash
+- command: `/tasks`
+- command: `/rewind`
+- command: `/app`
+- feature: Copilot memory for JetBrains
+- provider: Ollama BYOK
+
+### Explicit relationships
+- Agent Plugins portability depends-on host-side managed settings and MCP allowlists for enterprise governance.
+- Copilot CLI task queues and autopilot mode increase agent throughput but depend-on review, command policy, and rollback semantics.
+- BYOK/local-model support complements Copilot model choice but does not supersede task-specific evals or data policy checks.
+
+### HoneyDrunk implications
+- If HoneyDrunk uses Copilot plugins, manage plugin and MCP allowlists together so a package install does not silently expand tool execution.
+- Treat new Copilot models as routing candidates only after HoneyDrunk task evals, especially for image-understanding or local-Ollama workflows.
+- Define when `/rewind` is acceptable versus git-based rollback, and preserve reviewable diff state for any queued/autopilot work.
+
+### Quality notes
+- GitHub changelog sources are authoritative for rollout intent but plan/tenant availability can vary. Verify features in the actual HoneyDrunk Copilot environment before policy changes.
+
 ## 2026-06-08 compile additions
 
 ### Claims

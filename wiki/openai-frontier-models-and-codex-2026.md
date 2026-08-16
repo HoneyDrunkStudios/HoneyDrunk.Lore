@@ -268,3 +268,45 @@ OpenAI's June 11 raw sources add two durable signals for HoneyDrunk: GPT-5.5 is 
 
 ### Quality notes
 - OpenAI's chip source is primary but lacks final performance data. The GPT 5.6 release-limit story is secondary reporting and should be verified before use.
+
+## 2026-08-16 compile additions: Codex harness engineering and agent-loop mechanics
+
+### Source-backed claims
+- OpenAI's harness-engineering source reports an internal product built under a "no manually-written code" constraint, with Codex generating application code, tests, CI, documentation, observability, and tooling; the source says the team reached roughly one million lines and about 1,500 merged pull requests over five months with a small human team steering agents. Source: `raw/2026-08-16-web-harness-engineering-leveraging-codex-in-an-agent-first-development-wor.md`. confidence: 1 official OpenAI engineering source, last-confirmed 2026-08-16.
+- The same source frames the engineer role as designing environments, specifying intent, building feedback loops, and making application state legible to agents through worktree-local app instances, Chrome DevTools Protocol access, screenshots, navigation skills, logs, metrics, and traces. Source: `raw/2026-08-16-web-harness-engineering-leveraging-codex-in-an-agent-first-development-wor.md`; page: [[ai-agent-harnesses]]. confidence: 1 source, last-confirmed 2026-08-16.
+- OpenAI's Codex agent-loop source explains that Codex sends requests to a configurable Responses API endpoint and that Codex CLI can target ChatGPT auth, OpenAI API-key auth, local `gpt-oss` through Ollama/LM Studio-compatible Responses endpoints, or cloud-provider Responses endpoints such as Azure. Source: `raw/2026-08-16-web-unrolling-the-codex-agent-loop.md`. confidence: 1 official OpenAI engineering source, last-confirmed 2026-08-16.
+- The source says Codex inserts sandbox permission instructions for the built-in shell tool, optional developer instructions, aggregated `AGENTS.md`/skill instructions, environment context, and user input into Responses API input items; MCP-provided tools are not sandboxed by Codex's shell sandbox and must enforce their own guardrails. Source: `raw/2026-08-16-web-unrolling-the-codex-agent-loop.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 source, last-confirmed 2026-08-16.
+- Codex does not use `previous_response_id` today in the described loop, primarily to keep requests stateless and support Zero Data Retention; prompt caching depends on exact prefix matches, so changing tool order, model, sandbox, approval mode, or current working directory can cause cache misses. Source: `raw/2026-08-16-web-unrolling-the-codex-agent-loop.md`. confidence: 1 source, last-confirmed 2026-08-16.
+- Codex automatically compacts conversations when `auto_compact_limit` is exceeded using the `/responses/compact` endpoint, which returns replacement input items including an encrypted compaction item that preserves model state while freeing context window. Source: `raw/2026-08-16-web-unrolling-the-codex-agent-loop.md`. confidence: 1 source, last-confirmed 2026-08-16.
+
+### Typed entities
+- product/runtime: Codex CLI
+- product/runtime: Codex Cloud
+- product/runtime: Codex VS Code extension
+- API: Responses API
+- endpoint: `https://api.openai.com/v1/responses`
+- endpoint: `https://chatgpt.com/backend-api/codex/responses`
+- model/runtime: `gpt-oss`
+- config: `model_instructions_file`
+- config: `auto_compact_limit`
+- file: `AGENTS.md`
+- protocol/tooling: MCP server
+- feature: prompt caching
+- feature: `/responses/compact`
+- data mode: Zero Data Retention / ZDR
+
+### Explicit relationships
+- Codex throughput depends-on repository-local knowledge, validation tools, app/log/metric legibility, structural lints, agent review loops, and human prioritization rather than model capability alone.
+- Codex shell sandboxing applies to Codex-provided shell execution but does not supersede guardrails in MCP servers or other tools.
+- Stateless Responses requests complement ZDR support, while prompt caching mitigates the repeated-prefix cost of sending growing conversation history.
+- Conversation compaction complements context-window management by replacing long histories with compacted input items and encrypted model-state material.
+- Repository-local documentation and mechanical invariants supersede one large instruction manual when agent navigation, freshness, and verifiability matter.
+
+### HoneyDrunk implications
+- Treat OpenAI's harness writeup as a reference architecture for Honeyclaw/OpenClaw: invest in worktree-local app boot, UI sensors, logs, metrics, traces, review loops, and small indexed docs before increasing agent autonomy.
+- Keep MCP tool governance outside the assumption of Codex shell sandboxing; each server needs its own permissions, logging, secrets, and egress controls.
+- For long Codex runs, avoid mid-thread tool-list churn and model/sandbox/cwd changes unless the cache miss and context-reset cost are intentional.
+- Preserve compacted-run receipts and task summaries so Lore/agent decisions do not depend on inaccessible prior conversation state.
+
+### Quality notes
+- Official OpenAI engineering sources are decision-useful for harness design but describe OpenAI's environment and product constraints. Treat throughput and autonomy claims as architecture signal, not as a guarantee that the same merge posture is safe in HoneyDrunk repos.

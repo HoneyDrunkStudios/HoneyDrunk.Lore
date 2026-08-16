@@ -1109,3 +1109,52 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - Microsoft source is authoritative for the Azure sample. MCP Tasks support remains ecosystem-dependent and should be verified against the final spec and target clients.
+
+## 2026-08-16 compile additions: Agent Plugins in Copilot, MCP C# SDK 2.0, and .NET MCP publishing
+
+### Source-backed claims
+- GitHub says Agent Plugins 1.0 support is generally available in VS Code, Copilot CLI, GitHub Copilot SDK, and the GitHub Copilot app on all Copilot plans, allowing one package to expose supported skills and MCP server configuration across compatible clients. Source: `raw/2026-08-16-web-agent-plugins-1-0-in-vs-code-copilot-cli-and-the-copilot-app.md`; page: [[github-copilot-and-app-token-changes]]. confidence: 1 GitHub changelog source, last-confirmed 2026-08-16.
+- GitHub's migration guidance says portable plugins should add `$schema` to `plugin.json`, keep skills under `skills/`, MCP configuration in `mcp.json`, and move Copilot-specific files into `com.github.copilot/`; organizations can govern plugins with `enabledPlugins`, `extraKnownMarketplaces`, `strictKnownMarketplaces`, and MCP allowlists by URL, command, or name. Source: `raw/2026-08-16-web-agent-plugins-1-0-in-vs-code-copilot-cli-and-the-copilot-app.md`. confidence: 1 source, last-confirmed 2026-08-16.
+- The MCP C# SDK v2.0 implements the 2026-07-28 MCP specification with stateless HTTP transport by default, removal of protocol-level session affinity for new clients, standardized routing headers such as `Mcp-Method` and `Mcp-Name`, header/body mismatch rejection, and backward-compatible legacy handshakes for older clients. Source: `raw/2026-08-16-web-announcing-v2-0-of-the-official-mcp-c-sdk.md`; page: [[microsoft-dotnet-ai-stack]]. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-08-16.
+- MCP C# SDK v2.0 introduces Multi Round-Trip Requests so stateless tools can return `input_required`, carry opaque request state, collect elicitation/sampling/roots-style input from the client, and retry without a live session; older stateful clients can use an SDK bridge, but session-less down-level clients cannot be prompted. Source: `raw/2026-08-16-web-announcing-v2-0-of-the-official-mcp-c-sdk.md`. confidence: 1 source, last-confirmed 2026-08-16.
+- The v2 SDK makes Apps and Tasks opt-in extension packages; Tasks replaced the experimental v1 task extension and requires migration planning for adopters of the preview task API/protocol. Source: `raw/2026-08-16-web-announcing-v2-0-of-the-official-mcp-c-sdk.md`. confidence: 1 source, last-confirmed 2026-08-16.
+- The MCP C# SDK v1.0 source covered the 2025-11-25 spec with protected-resource metadata discovery, incremental OAuth scope consent, URL-mode elicitation for sensitive out-of-band input, tool calling in sampling, Client ID Metadata Documents, long-running HTTP polling with SSE stream stores, and experimental Tasks. Source: `raw/2026-08-16-web-release-v1-0-of-the-official-mcp-c-sdk.md`; page: [[microsoft-dotnet-ai-stack]]. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-08-16.
+- Microsoft's .NET/NuGet quickstart says NuGet.org can host and search MCP servers built with the ModelContextProtocol C# SDK, using the MCP Server package type, `.mcp/server.json` metadata, environment-variable declarations, and generated VS Code/Visual Studio MCP configuration using `dnx`. Source: `raw/2026-08-16-web-building-your-first-mcp-server-with-net-and-publishing-to-nuget.md`; page: [[microsoft-dotnet-ai-stack]]. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-08-16.
+- Azure Functions MCP Apps Fluent API promotes an MCP tool to a UI-backed MCP App by wiring a view, title, permissions, Content Security Policy, static assets, visibility, synthetic resource metadata, and `text/html;profile=mcp-app` response details. Source: `raw/2026-08-16-web-mcp-as-easy-as-1-2-3-introducing-the-fluent-api-for-mcp-apps.md`; page: [[azure-agent-automation-and-identity]]. confidence: 1 Microsoft Azure SDK Blog source, last-confirmed 2026-08-16.
+
+### Typed entities
+- specification: Agent Plugins 1.0
+- setting: `enabledPlugins`
+- setting: `extraKnownMarketplaces`
+- setting: `strictKnownMarketplaces`
+- directory: `com.github.copilot/`
+- SDK/package: ModelContextProtocol C# SDK v2.0
+- specification: MCP 2026-07-28
+- result type: `input_required`
+- feature: Multi Round-Trip Requests / MRTR
+- header: `Mcp-Method`
+- header: `Mcp-Name`
+- package: `ModelContextProtocol.Extensions.Tasks`
+- package: `ModelContextProtocol.Extensions.Apps`
+- file: `.mcp/server.json`
+- runtime: `dnx`
+- package type: MCP Server on NuGet
+- API: Azure Functions MCP Apps Fluent API
+- permission: clipboard read/write
+- policy: Content Security Policy / CSP
+
+### Explicit relationships
+- Agent Plugins package skills and MCP servers, while Copilot enterprise settings and MCP allowlists govern installation and server exposure.
+- Stateless MCP supersedes default transport-session affinity for new HTTP MCP deployments, but application state still depends-on explicit handles, request state, task stores, or durable backends.
+- MRTR supersedes server-initiated session callbacks for stateless interactivity while requiring clients to participate in retry/input-response flows.
+- NuGet distribution improves .NET MCP discoverability but depends-on package identity, metadata accuracy, secret-safe environment declarations, and installation trust.
+- MCP Apps complement text tools by exposing UI resources, but depend-on CSP, permission flags, static asset hygiene, and visibility controls.
+
+### HoneyDrunk implications
+- For HoneyDrunk plugin policy, combine plugin marketplace allowlists with MCP server allowlists; approving a plugin package should not automatically approve every server command or URL inside it.
+- Prefer MCP C# SDK v2 stateless defaults for new HTTP servers, but design explicit state handles, MRTR compatibility behavior, task persistence, and telemetry before production.
+- If publishing internal .NET MCP servers to NuGet or a feed, require package ID ownership, `.mcp/server.json` review, environment-variable secrecy classification, version pinning, and Trusted Publishing where applicable.
+- UI-backed MCP Apps need the same security review as embedded web apps: CSP, static asset source maps, clipboard permissions, storage/cookie domain, and model visibility.
+
+### Quality notes
+- GitHub and Microsoft sources are authoritative for their products and SDKs. Spec and SDK behavior are time-sensitive; verify current protocol version, client compatibility, and package versions before migration or publication.

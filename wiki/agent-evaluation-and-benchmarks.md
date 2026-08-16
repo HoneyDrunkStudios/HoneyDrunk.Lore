@@ -667,3 +667,32 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - Source is an expert review of a paper, not the paper itself. Promote the mechanism and caveats as scouting evidence until primary paper/repo review and local reproduction are done.
+
+## 2026-08-16 compile additions: .NET agent-quality and NLP evaluators
+
+### Source-backed claims
+- `Microsoft.Extensions.AI.Evaluation.Quality` adds agent-quality evaluators for tool-use conversations: `IntentResolutionEvaluator`, `TaskAdherenceEvaluator`, and `ToolCallAccuracyEvaluator`. Source: `raw/2026-08-16-web-exploring-new-agent-quality-and-nlp-evaluators-for-net-ai-applications.md`; page: [[microsoft-dotnet-ai-stack]]. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-08-16.
+- `Microsoft.Extensions.AI.Evaluation.NLP` adds non-LLM text-similarity evaluators: BLEU, GLEU, and F1, using tokenization and n-gram analysis rather than model calls. Source: `raw/2026-08-16-web-exploring-new-agent-quality-and-nlp-evaluators-for-net-ai-applications.md`. confidence: 1 source, last-confirmed 2026-08-16.
+- The sample persists evaluation results to disk and can generate an HTML report with `dotnet aieval`, while agent-quality scenarios can cache evaluator LLM responses for unchanged inputs. Source: `raw/2026-08-16-web-exploring-new-agent-quality-and-nlp-evaluators-for-net-ai-applications.md`. confidence: 1 source, last-confirmed 2026-08-16.
+
+### Typed entities
+- evaluator: `IntentResolutionEvaluator`
+- evaluator: `TaskAdherenceEvaluator`
+- evaluator: `ToolCallAccuracyEvaluator`
+- evaluator: `BLEUEvaluator`
+- evaluator: `GLEUEvaluator`
+- evaluator: `F1Evaluator`
+- tool: `dotnet aieval`
+- artifact: disk-based evaluation report
+
+### Explicit relationships
+- Tool-call accuracy evaluation depends-on the evaluated conversation and the tool definitions available to the agent.
+- NLP similarity metrics complement LLM-as-judge evaluation when reference answers exist, but do not supersede task-specific correctness checks.
+- Persisted evaluation reports complement CI and human review by leaving inspectable artifacts beyond a pass/fail test result.
+
+### HoneyDrunk implications
+- For .NET agent evals, start with small labeled tool-use scenarios and compare evaluator scores against human review before making them blocking.
+- Use report artifacts as durable evidence in PRs or release gates, especially when evaluator prompts, model deployments, or tool definitions change.
+
+### Quality notes
+- Microsoft evaluator guidance is product documentation. Evaluator prompts are tuned for selected OpenAI models, so local/smaller evaluator models require calibration.

@@ -999,3 +999,35 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Newsletter source is useful practice vocabulary but not primary research. Promote as prompt-review heuristics, not as a benchmarked framework.
+
+## 2026-08-16 compile additions: agentic transformation as workflow redesign
+
+### Source-backed claims
+- Thoughtworks argues that enterprise AI maturity is shifting from deploying models and proofs of concept toward rewiring core workflows so agents can operate across them with transparency, guardrails, and continuous improvement. Source: `raw/2026-08-16-web-preparing-for-agentic-transformation.md`; page: [[ai-agent-harnesses]]. confidence: 1 Thoughtworks strategy source, last-confirmed 2026-08-16.
+- The source identifies key trends: agentic workflows and autonomous operations, embedded AI governance, AI-enhanced co-decision systems, AI-ready data infrastructure, synthetic/federated data ecosystems, and real-time multimodal translation for global collaboration. Source: `raw/2026-08-16-web-preparing-for-agentic-transformation.md`. confidence: 1 source, last-confirmed 2026-08-16.
+- Thoughtworks recommends making AI part of talent strategy, defining and tracking AI ROI, and ensuring transparency plus human oversight in co-decision systems, with RAG and inspectable evidence used to keep agent reasoning within verifiable boundaries. Source: `raw/2026-08-16-web-preparing-for-agentic-transformation.md`. confidence: 1 source, last-confirmed 2026-08-16.
+- The source cautions that multi-agent systems need sufficiently robust data resources and that organizations should remain alert to "agent-washing" when evaluating agentic AI claims. Source: `raw/2026-08-16-web-preparing-for-agentic-transformation.md`; page: [[multi-agent-architectures]]. confidence: 1 source, last-confirmed 2026-08-16.
+
+### Typed entities
+- concept: agentic transformation
+- practice: embedded AI governance
+- practice: AI ROI measurement
+- practice: AI-ready data infrastructure
+- practice: human-AI co-decision system
+- risk: agent-washing
+- technique: retrieval-augmented generation / RAG
+- technique: federated learning
+- technique: synthetic data
+
+### Explicit relationships
+- Agentic transformation depends-on workflow design, governance, data readiness, measurement, and talent adaptation, not only model access.
+- Co-decision systems depend-on inspectable reasoning, evidence, and human oversight when decisions carry business or user impact.
+- Multi-agent adoption depends-on robust data resources and governance; agent labels do not supersede proof of workflow value.
+
+### HoneyDrunk implications
+- For HoneyDrunk roadmap work, separate "agent feature" from "agentic workflow": the latter needs state, metrics, review points, and operational ownership.
+- Use ROI only after correctness, safety, and trace evidence are measurable; otherwise productivity claims can mask review debt.
+- Treat claims of autonomous enterprise workflows as scouting signals until validated against HoneyDrunk data, permissions, and accountability boundaries.
+
+### Quality notes
+- Thoughtworks is a strategy/practitioner source. It is useful for decision framing but not a benchmark or implementation guarantee.

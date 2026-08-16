@@ -456,3 +456,37 @@ Anthropic's 2026 platform direction is enterprise/workflow-heavy: Claude Opus 4.
 
 ### Quality notes
 - Anthropic is a primary research source but also studies its own model family. Reco is vendor/practice SaaS-security content. No jailbreak procedures or exploit payloads were copied.
+
+## 2026-08-16 compile additions: Claude text watermarking
+
+### Source-backed claims
+- Anthropic says future Claude models will generate text with a watermark to support EU AI Act transparency requirements and that Anthropic plans to apply the watermark globally at launch because it does not yet have durable region scoping. Source: `raw/2026-08-16-web-how-claude-s-text-watermarking-works.md`; page: [[ai-policy-and-governance-2026]]. confidence: 1 Anthropic source, last-confirmed 2026-08-16.
+- Anthropic describes the text watermark as a SynthID-Text-style method that changes the randomness source for low-stakes word choices, leaving a statistical pattern detectable with Anthropic's key but invisible to readers, with no hidden characters or added tokens. Source: `raw/2026-08-16-web-how-claude-s-text-watermarking-works.md`. confidence: 1 source, last-confirmed 2026-08-16.
+- Anthropic says the watermark carries no user, organization, or chat-identifying information; it can estimate whether Claude was involved in a passage but cannot prove human authorship, identify another AI provider, or distinguish original Claude writing from heavy Claude editing. Source: `raw/2026-08-16-web-how-claude-s-text-watermarking-works.md`. confidence: 1 source, last-confirmed 2026-08-16.
+- Anthropic says watermark detection works poorly on small samples, exact factual passages, grammar-only proofreading, and code-heavy outputs because there are fewer low-stakes token choices for the watermark to act on. Source: `raw/2026-08-16-web-how-claude-s-text-watermarking-works.md`. confidence: 1 source, last-confirmed 2026-08-16.
+- For supported files such as PNG, JPG, and SVG, Anthropic says Claude will attach C2PA content credentials in file metadata rather than an embedded watermark, indicating Claude involvement without identifying user or organization details. Source: `raw/2026-08-16-web-how-claude-s-text-watermarking-works.md`. confidence: 1 source, last-confirmed 2026-08-16.
+
+### Typed entities
+- model family: Claude
+- method: SynthID-Text-style watermark
+- regulation: EU AI Act
+- standard: EU Code of Practice on Transparency of AI-Generated Content
+- standard: C2PA
+- artifact type: PNG
+- artifact type: JPG
+- artifact type: SVG
+- planned API: watermark detection API
+
+### Explicit relationships
+- Claude watermarking is caused by AI-generated-content transparency obligations and provider Code of Practice commitments.
+- Text watermarking depends-on statistical token-choice patterns and does not supersede provenance review, authorship judgment, or policy compliance checks.
+- C2PA content credentials complement text watermarking for file outputs by storing signed provenance metadata.
+- Watermark detection confidence depends-on sample length, amount of Claude-authored text, and whether the output domain has many equivalent token choices.
+
+### HoneyDrunk implications
+- Do not use Claude watermark presence or absence as a sole authorship, ownership, or policy decision; treat it as probabilistic provenance evidence.
+- For generated assets, preserve metadata where provenance matters and avoid pipeline steps that strip C2PA credentials unless intentional.
+- If HoneyDrunk policies require AI-use disclosure, account for edge cases: edited human text, short excerpts, translations, code, and heavily rewritten outputs.
+
+### Quality notes
+- Anthropic is authoritative for its watermarking design but has provider incentives. Detection API details were not yet final in the captured source.
