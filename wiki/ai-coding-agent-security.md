@@ -1579,3 +1579,44 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 
 ### Privacy and quality notes
 - Privacy filter: example code and payload-like details were summarized at control level; no credential patterns, real secrets, or reusable attack material were promoted. OWASP is a defensive guidance source and should be adapted to local HoneyDrunk architecture.
+
+## 2026-08-17 compile additions: Agent Baseline security outcomes
+
+### Source-backed claims
+- Docker, Snyk, and Keycard published Agent Baseline v1.0-draft as an open blueprint for enterprise agent deployments, organized around six security outcomes: Discover, Constrain, Authorize, Observe, Validate, and Respond. Source: `raw/2026-08-17-web-a-new-security-baseline-for-enterprise-agentic-adoption.md`. confidence: 1 Docker-authored launch/source source, last-confirmed 2026-08-17.
+- The baseline frames runtime-programmable agents as systems that can change effective capabilities through model, prompt, tool, MCP server, credential, and permission changes; current runtime evidence matters more than stale approval records. Source: `raw/2026-08-17-web-a-new-security-baseline-for-enterprise-agentic-adoption.md`. confidence: 1 source, last-confirmed 2026-08-17.
+- The baseline requires agent inventory, runtime/data/tool/network/compute/duration constraints, short-lived task-bound authority, traceable run IDs, configuration-specific validation, and response actions such as stop, revoke, quarantine, preserve evidence, and scope impact. Source: `raw/2026-08-17-web-a-new-security-baseline-for-enterprise-agentic-adoption.md`. confidence: 1 source, last-confirmed 2026-08-17.
+- Docker's practical example shows a prompt-injected support-ticket agent contained by isolation, deny-by-default network policy, task-scoped database authority, correlated run evidence, prompt-injection validation, grant revocation, and manual fallback rather than by trusting the model to refuse. Source: `raw/2026-08-17-web-a-new-security-baseline-for-enterprise-agentic-adoption.md`. confidence: 1 source, last-confirmed 2026-08-17.
+
+### Typed entities
+- framework: Agent Baseline v1.0-draft
+- organization: Docker
+- organization: Snyk
+- organization: Keycard
+- outcome: Discover
+- outcome: Constrain
+- outcome: Authorize
+- outcome: Observe
+- outcome: Validate
+- outcome: Respond
+- control: stable run ID
+- control: task-scoped authority
+- control: deny-by-default network policy
+- product: Docker AI Governance
+- product: Docker MCP Gateway
+- product: Docker Sandboxes
+
+### Explicit relationships
+- Agent Baseline complements OWASP guidance by grouping controls into operational outcomes for deployed enterprise agents.
+- Agent discovery depends-on current runtime inventory across model, tools, credentials, policies, components, owner, purpose, and effective access.
+- Agent authorization depends-on distinct identity, task, target, scope, and validity period rather than broad standing credentials.
+- Observation uses stable run IDs to connect intent, policy, identity, tool use, downstream actions, and outcomes.
+- Response depends-on the ability to stop agents, revoke grants, quarantine components, preserve evidence, and continue critical work through fallback paths.
+
+### HoneyDrunk implications
+- Use Agent Baseline as the runbook shape for HoneyDrunk agent production readiness: inventory, constraints, scoped authority, run traces, validation fixtures, and revocation drills.
+- For support, coding, or operations agents, require run-scoped evidence that proves what the agent could reach and what it actually did.
+- Treat Docker's related products as implementation candidates only after comparing them with HoneyDrunk sandbox, identity, MCP, and audit requirements.
+
+### Privacy and quality notes
+- Security material was summarized defensively at control/outcome level. No exploit payloads, external addresses, credentials, tokens, private data, or reusable offensive procedures were copied. Docker is a vendor source and should be validated against the published draft and local controls before becoming policy.

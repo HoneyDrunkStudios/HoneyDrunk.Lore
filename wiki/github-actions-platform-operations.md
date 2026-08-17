@@ -630,3 +630,33 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ### Quality notes
 - Microsoft source is authoritative for the MTP feature. Verify package compatibility in representative workflows.
+
+## 2026-08-17 compile additions: Kubernetes microservice CI/CD controls
+
+### Source-backed claims
+- Microsoft Learn's AKS microservices CI/CD article recommends path-filtered validation builds, fuller PR builds with SAST and image scans, per-microservice release branches, versioned container images and Helm charts, explicit approvals, and independent release pipelines per service. Source: `raw/2026-08-17-web-microservices-ci-cd-pipeline-on-kubernetes-with-azure-devops-and-helm.md`; page: [[kubernetes-platform-governance-and-cicd]]. confidence: 1 Microsoft Learn architecture source, last-confirmed 2026-08-17.
+- The same source says GitHub Actions is a viable alternative to Azure Pipelines for AKS CI/CD and specifically calls out OIDC authentication, environments/protection rules, container scanning actions, and deployment branches as relevant controls. Source: `raw/2026-08-17-web-microservices-ci-cd-pipeline-on-kubernetes-with-azure-devops-and-helm.md`. confidence: 1 source, last-confirmed 2026-08-17.
+
+### Typed entities
+- platform: GitHub Actions
+- platform: Azure Pipelines
+- service: Azure Kubernetes Service / AKS
+- deployment package: Helm chart
+- control: OIDC authentication
+- control: GitHub environments
+- control: deployment branches
+- scanner: Trivy
+- scanner/control: Microsoft Defender for DevOps
+
+### Explicit relationships
+- Per-service path filters and release branches complement monorepo CI by reducing unrelated build/deploy triggers.
+- Full PR builds depend-on SAST, unit tests, container-image build, and image vulnerability scans before merge.
+- GitHub Actions OIDC supersedes stored Azure secrets for AKS deployment workflows when configured correctly.
+- GitHub environments and protection rules complement Kubernetes deployment approvals by binding reviewer gates to deployment targets.
+
+### HoneyDrunk implications
+- If HoneyDrunk uses GitHub Actions for AKS, prefer OIDC and environment protection rules over long-lived Azure deployment secrets.
+- Keep release images and Helm charts versioned by immutable tags or digests; avoid `latest` in production deployment paths.
+
+### Quality notes
+- Microsoft Learn is architecture guidance. Validate exact workflow syntax, permission names, and GitHub plan support before migration.

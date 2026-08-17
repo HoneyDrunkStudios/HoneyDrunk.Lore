@@ -1058,3 +1058,22 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 ### Agent security and provenance
 - [[ai-coding-agent-security]] - 146 sources - last-confirmed 2026-08-16
 - [[claude-platform-2026]] - 44 sources - last-confirmed 2026-08-16
+
+## 2026-08-17 topic additions
+
+### Open-weight models, Copilot, and local serving
+- [[edge-ai-and-ai-infrastructure-2026]] - 63 sources - last-confirmed 2026-08-17
+- [[github-copilot-and-app-token-changes]] - 38 sources - last-confirmed 2026-08-17
+- [[ai-agent-harnesses]] - 177 sources - last-confirmed 2026-08-17
+
+### Agent security and enterprise governance
+- [[ai-coding-agent-security]] - 149 sources - last-confirmed 2026-08-17
+- [[kubernetes-platform-governance-and-cicd]] - 2 sources - last-confirmed 2026-08-17
+
+### Kubernetes governance and CI/CD
+- [[kubernetes-platform-governance-and-cicd]] - 2 sources - last-confirmed 2026-08-17
+- [[cloud-sovereignty-and-platform-governance]] - 2 sources - last-confirmed 2026-08-17
+- [[github-actions-platform-operations]] - 44 sources - last-confirmed 2026-08-17
+
+### Distributed systems architecture
+- [[distributed-systems-patterns]] - 3 sources - last-confirmed 2026-08-17

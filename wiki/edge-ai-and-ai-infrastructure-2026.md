@@ -904,3 +904,40 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - Hugging Face source is useful release evidence but includes benchmark and demo positioning. Do not change routing without local evals.
+
+## 2026-08-17 compile additions: Kimi K3 routing and local model workstations
+
+### Source-backed claims
+- Thoughtworks frames Moonshot AI's Kimi K3 as a frontier-capable open-weight MoE model that pressures single-vendor LLM architectures toward multi-model routing, especially where token cost, data sovereignty, and control matter. Source: `raw/2026-08-17-rss-thoughtworks-insights-kimi-k3-are-we-entering-a-new-multi-model-era.md`; page: [[github-copilot-and-app-token-changes]]. confidence: 1 Thoughtworks strategy source, last-confirmed 2026-08-17.
+- The same source describes a heterogeneous agentic stack pattern: cheap/fast models for intake and formatting, with complex reasoning or coding routed to self-hosted or locally operated open-weight models when the workload justifies operational cost. Source: `raw/2026-08-17-rss-thoughtworks-insights-kimi-k3-are-we-entering-a-new-multi-model-era.md`. confidence: 1 source, last-confirmed 2026-08-17.
+- Thoughtworks also warns that open-weight deployment removes vendor refusal mechanisms and shifts guardrail responsibility to the application, network, sandboxing, RBAC, fine-tuning, and monitoring layers. Source: `raw/2026-08-17-rss-thoughtworks-insights-kimi-k3-are-we-entering-a-new-multi-model-era.md`; page: [[ai-coding-agent-security]]. confidence: 1 source, last-confirmed 2026-08-17.
+- Unsloth positions its desktop/studio/core stack as local run, fine-tune, RAG, OpenAI-compatible serving, MCP, and agent-bridge tooling for models including Kimi K3 and other open/local models. Source: `raw/2026-08-17-rss-tldr-devops-unsloth-github-repo.md`; page: [[ai-agent-harnesses]]. confidence: 1 project README source, last-confirmed 2026-08-17.
+- The Unsloth README says remote access can expose local model servers over LAN or Cloudflare HTTPS tunnels and warns that anyone with the link and API key can use server-side tools, including code execution, unless tools are disabled. Source: `raw/2026-08-17-rss-tldr-devops-unsloth-github-repo.md`; page: [[ai-coding-agent-security]]. confidence: 1 README source, last-confirmed 2026-08-17.
+
+### Typed entities
+- model: Kimi K3
+- company/lab: Moonshot AI
+- pattern: multi-model routing
+- product/project: Unsloth
+- product: Unsloth Desktop
+- product: Unsloth Studio
+- package/runtime: Unsloth Core
+- protocol/API: OpenAI-compatible API
+- protocol/tooling: Model Context Protocol
+- service/path: Cloudflare HTTPS tunnel
+- concept: local model workstation
+
+### Explicit relationships
+- Kimi K3 complements proprietary frontier APIs by creating an open-weight option for long-context coding and agentic workloads.
+- Multi-model routing depends-on cost, latency, quality, data-governance, guardrail, and hosting telemetry rather than a static preferred model.
+- Open-weight self-hosting supersedes vendor-hosted refusal mechanisms only when application-layer security, sandboxing, identity, and monitoring are in place.
+- Unsloth uses local serving and compatibility APIs to connect local/open models to coding agents such as Codex, Claude Code, and OpenClaw.
+- Public tunnel access expands the trust boundary of a local model server and depends-on API-key custody, tool disabling, egress policy, and audit.
+
+### HoneyDrunk implications
+- Add Kimi K3 and Unsloth-backed local serving to the model-evaluation watchlist, but benchmark against HoneyDrunk coding, Lore, security-review, and multimodal tasks before routing real work.
+- For local model workstations, document hardware, model quantization, API compatibility, tool-calling behavior, cost, latency, network exposure, and cleanup.
+- Do not expose local model servers with code-execution tools over public tunnels unless API keys, network scope, server-side tools, and audit evidence are explicitly controlled.
+
+### Quality notes
+- Thoughtworks is architecture strategy evidence, not a benchmark. Unsloth is README/project-authored evidence. Verify current model availability, license terms, hardware support, tunnel behavior, and security defaults before adoption.

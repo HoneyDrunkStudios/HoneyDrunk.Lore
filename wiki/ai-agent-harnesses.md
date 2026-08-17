@@ -1377,3 +1377,32 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - OpenAI and GitHub claims are product/vendor-authored. Thoughtworks is a strategy source. All are useful for workflow design, but local policies and evals should decide HoneyDrunk autonomy levels.
+
+## 2026-08-17 compile additions: local model bridge tooling
+
+### Source-backed claims
+- Unsloth Start is positioned as a one-command bridge that can connect local models to agent clients including Claude Code, Codex, Hermes, OpenClaw, OpenCode, and similar tools through compatible APIs. Source: `raw/2026-08-17-rss-tldr-devops-unsloth-github-repo.md`; page: [[edge-ai-and-ai-infrastructure-2026]]. confidence: 1 project README source, last-confirmed 2026-08-17.
+- The Unsloth README says agent clients can keep their current model and use Unsloth as a local subagent, making local/open models an auxiliary harness component rather than only a full provider replacement. Source: `raw/2026-08-17-rss-tldr-devops-unsloth-github-repo.md`. confidence: 1 README source, last-confirmed 2026-08-17.
+- Unsloth exposes MCP control endpoints for compatible clients to manage models, training, recipes, checkpoints, and exports, which makes it both a model-serving surface and an agent tool surface. Source: `raw/2026-08-17-rss-tldr-devops-unsloth-github-repo.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 README source, last-confirmed 2026-08-17.
+
+### Typed entities
+- project/tool: Unsloth
+- command family: Unsloth Start
+- agent client: Codex
+- agent client: Claude Code
+- agent client: OpenClaw
+- agent client: OpenCode
+- capability: local subagent
+- protocol/tooling: MCP control endpoint
+
+### Explicit relationships
+- Unsloth Start complements agent harnesses by routing selected work to local/open models without replacing the whole client.
+- Local subagents depend-on the same evaluation, security, tool-call, and data-governance controls as primary model providers.
+- MCP control endpoints overlap-with agent tool governance because model-management actions can mutate local model state, training outputs, and exported artifacts.
+
+### HoneyDrunk implications
+- If Unsloth is trialed, record it as a harness component with owner, local model, hardware, exposed endpoints, tool permissions, and rollback/cleanup steps.
+- Treat local subagent routing as an experiment until it passes HoneyDrunk task evals and security review.
+
+### Quality notes
+- README evidence only. Verify installed behavior, licenses, MCP permissions, network exposure, and local model quality before operational use.

@@ -77,3 +77,39 @@ Gossip protocol is a useful distributed-systems pattern when large clusters need
 
 ### Quality notes
 - Architecture case study is useful pattern evidence but older than the clip date; implementation details should be revalidated against current platform choices.
+
+## 2026-08-17 compile additions: common system-design scaling patterns
+
+### Source-backed claims
+- System Design Newsletter describes cache-aside as a read-performance pattern where the application checks an in-memory cache before querying the database, populating cache entries on misses for data that can tolerate staleness. Source: `raw/2026-08-17-rss-system-design-newsletter-10-system-design-solutions-explained-in-15-mi.md`. confidence: 1 newsletter/explainer source, last-confirmed 2026-08-17.
+- The same source frames read replicas as a read-scaling pattern where writes go to the primary database and acceptable eventually consistent reads are routed to replicas, with read-after-write operations kept on the primary when freshness is required. Source: `raw/2026-08-17-rss-system-design-newsletter-10-system-design-solutions-explained-in-15-mi.md`. confidence: 1 source, last-confirmed 2026-08-17.
+- The source describes sharding as a write-scaling pattern that distributes records across database nodes by partition key, increasing write capacity but making resharding, cross-shard queries, hot partitions, and partition-key changes operationally expensive. Source: `raw/2026-08-17-rss-system-design-newsletter-10-system-design-solutions-explained-in-15-mi.md`. confidence: 1 source, last-confirmed 2026-08-17.
+- The source describes message queues as an asynchronous buffering pattern where producers enqueue work and consumers process at their own pace, absorbing bursts and decoupling services but requiring idempotent consumers, dead-letter handling, queue-depth monitoring, and user-facing async status semantics. Source: `raw/2026-08-17-rss-system-design-newsletter-10-system-design-solutions-explained-in-15-mi.md`. confidence: 1 source, last-confirmed 2026-08-17.
+
+### Typed entities
+- pattern: cache-aside
+- pattern: read replica
+- pattern: database sharding
+- pattern: message queue
+- concept: Time-to-Live / TTL
+- concept: read-after-write consistency
+- concept: partition key
+- concept: hot partition
+- control: idempotent consumer
+- control: dead-letter queue
+- metric: queue depth
+
+### Explicit relationships
+- Cache-aside uses TTL and application-controlled population to trade freshness and memory cost for lower read latency.
+- Read replicas complement primary databases when reads can tolerate replication lag.
+- Read-after-write freshness contradicts blind replica routing immediately after writes.
+- Sharding depends-on partition-key quality; bad keys cause hot partitions and expensive repartitioning.
+- Message queues decouple producers and consumers but shift completion semantics from synchronous response to asynchronous state.
+
+### HoneyDrunk implications
+- For each HoneyDrunk service, classify the scaling bottleneck before choosing a pattern: repeated reads, high read volume, high write volume, or bursty asynchronous work.
+- Do not introduce sharding until partition keys, cross-shard query requirements, resharding cost, and hot-key monitoring are understood.
+- Require idempotency and dead-letter handling before queueing customer-impacting work.
+
+### Quality notes
+- The source is a concise newsletter primer and only exposes the first five sections of a paid article. Use it as basic architecture reinforcement, not as implementation guidance.

@@ -176,3 +176,12 @@ This keeps Lore decision-usable for Honeyclaw, Claude, and future agents.
 - contradictions resolved: none; all new claims extended existing source-backed pages without superseding prior claims.
 - privacy/safety filtering: OWASP/security material was summarized defensively; no credentials, tokens, exploit payloads, private personal data, or reusable offensive procedures were promoted. Claude watermarking was summarized as provenance policy evidence without user-identifying data.
 - quality posture: OpenAI/GitHub/Microsoft/Anthropic sources are authoritative for their own products but require tenant/local validation; OWASP is defensive baseline guidance; Thoughtworks is strategic framing rather than benchmark evidence.
+
+## 2026-08-17 Lore ingest/compile
+- operator: Honeyclaw scheduled ingest
+- raw sources ingested: 7
+- pages created: [[kubernetes-platform-governance-and-cicd]]
+- pages updated: [[edge-ai-and-ai-infrastructure-2026]], [[ai-agent-harnesses]], [[github-copilot-and-app-token-changes]], [[ai-coding-agent-security]], [[distributed-systems-patterns]], [[cloud-sovereignty-and-platform-governance]], [[github-actions-platform-operations]], indexes, run output
+- contradictions resolved: none; all new claims extended existing pages or created a new Kubernetes governance/CI-CD canonical page.
+- privacy/safety filtering: Unsloth remote-access and agent-security material was summarized at control level; no API keys, tokens, credentials, exploit payloads, external target addresses, or private personal data were promoted.
+- quality posture: GitHub and Microsoft Learn sources are authoritative for product/architecture posture but require tenant/local validation; Thoughtworks is strategy framing; Unsloth is project README evidence; System Design Newsletter is a primer, not implementation guidance.

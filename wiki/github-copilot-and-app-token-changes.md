@@ -433,3 +433,33 @@ Two GitHub platform changes affect automation cost and compatibility: GitHub App
 
 ### Quality notes
 - GitHub changelog sources are authoritative snapshots for feature availability and policy as of 2026-07-06. Verify tenant plan, rollout state, retention wording, and billing before operational changes.
+
+## 2026-08-17 compile additions: Kimi K3 availability in Copilot
+
+### Source-backed claims
+- GitHub says Kimi K3 is generally available in GitHub Copilot, hosted by GitHub on Fireworks AI, billed at provider list pricing under usage-based billing, and rolling out across Copilot Pro, Pro+, Max, Business, and Enterprise surfaces. Source: `raw/2026-08-17-web-kimi-k3-is-now-available-in-github-copilot.md`; page: [[edge-ai-and-ai-infrastructure-2026]]. confidence: 1 GitHub changelog source, last-confirmed 2026-08-17.
+- GitHub says Kimi K3 can be selected in VS Code, Visual Studio, Copilot CLI, Copilot cloud agent, Copilot app, github.com, GitHub Mobile, JetBrains, Xcode, and Eclipse as rollout reaches users. Source: `raw/2026-08-17-web-kimi-k3-is-now-available-in-github-copilot.md`. confidence: 1 source, last-confirmed 2026-08-17.
+- Kimi K3 is off by default for Copilot Business and Enterprise; administrators must enable the Kimi K3 policy before organization users can select it. Source: `raw/2026-08-17-web-kimi-k3-is-now-available-in-github-copilot.md`. confidence: 1 source, last-confirmed 2026-08-17.
+- The GitHub source notes an August 6, 2026 rollout pause tied to a GitHub Actions incident and later resumption, so Kimi K3 availability should be treated as rollout- and incident-sensitive. Source: `raw/2026-08-17-web-kimi-k3-is-now-available-in-github-copilot.md`. confidence: 1 source, last-confirmed 2026-08-17.
+
+### Typed entities
+- model: Kimi K3
+- host/provider: Fireworks AI
+- product: GitHub Copilot
+- control: Kimi K3 policy
+- billing: provider list pricing
+- surface: Copilot cloud agent
+- surface: Copilot CLI
+- incident context: GitHub Actions rollout pause
+
+### Explicit relationships
+- Kimi K3 in Copilot depends-on plan rollout, administrator policy, and usage-based billing.
+- Copilot open-weight model enablement depends-on security, compliance, and data-governance review before Business or Enterprise use.
+- The Kimi K3 rollout pause/resumption reinforces that model availability can depend-on adjacent platform incidents, not only model quality.
+
+### HoneyDrunk implications
+- Keep Kimi K3 disabled in any Business/Enterprise tenant until data-governance, cost, allowed surfaces, model quality, and incident posture are reviewed.
+- If enabled, compare Kimi K3 against existing Copilot models on HoneyDrunk PR review, coding-agent, and documentation tasks with the same prompts and review rubric.
+
+### Quality notes
+- GitHub is authoritative for Copilot rollout posture as captured. Live tenant availability, pricing, and policy wording should be verified before enabling the model.

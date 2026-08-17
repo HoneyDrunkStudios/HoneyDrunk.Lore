@@ -41,3 +41,28 @@ Cloud sovereignty captures jurisdictional, operational, supply-chain, portabilit
 
 ### Quality notes
 - CNCF blog is practice guidance with legal/regulatory interpretation. Use it as architecture framing and verify obligations with current primary legal sources before commitments.
+
+## 2026-08-17 compile additions: Kubernetes governance as enforceable platform control
+
+### Source-backed claims
+- Microsoft Learn's AKS/EKS governance comparison reinforces that Kubernetes governance should be automated across clusters and applications through policy-as-code, admission controls, GitOps, cloud governance scopes, and multicluster reporting rather than manual review. Source: `raw/2026-08-17-web-governance-options-for-a-kubernetes-cluster-eks-to-aks.md`; page: [[kubernetes-platform-governance-and-cicd]]. confidence: 1 Microsoft Learn architecture source, last-confirmed 2026-08-17.
+
+### Typed entities
+- page: [[kubernetes-platform-governance-and-cicd]]
+- platform: Kubernetes
+- policy engine: OPA/Gatekeeper
+- policy engine: Kyverno
+- policy engine: Kubewarden
+- practice: GitOps
+- control: Azure Policy initiative
+- control: AWS Config conformance pack
+
+### Explicit relationships
+- Kubernetes governance complements cloud sovereignty by turning residency, access, supply-chain, and runtime rules into admission, audit, and reconciliation controls.
+- Multicloud governance depends-on mapping provider scopes such as AWS Organizations/accounts and Azure management groups/subscriptions to Kubernetes cluster/namespace/application policy scopes.
+
+### HoneyDrunk implications
+- Treat Kubernetes policy-as-code as a sovereignty-adjacent control whenever customer commitments involve tenant isolation, region control, supply-chain proof, or operator-access limits.
+
+### Quality notes
+- Microsoft Learn is platform-authored guidance. Verify legal and customer-specific sovereignty requirements separately.
