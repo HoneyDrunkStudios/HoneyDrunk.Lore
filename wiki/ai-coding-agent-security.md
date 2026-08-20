@@ -1620,3 +1620,47 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 
 ### Privacy and quality notes
 - Security material was summarized defensively at control/outcome level. No exploit payloads, external addresses, credentials, tokens, private data, or reusable offensive procedures were copied. Docker is a vendor source and should be validated against the published draft and local controls before becoming policy.
+
+## 2026-08-20 compile additions: frontier cyber safeguards, credential revocation, and StopAndProtect
+
+### Source-backed claims
+- OpenAI says it temporarily slowed scaling, including a two-week pause in RL training for latest deployment-intended models and a continuing hold on its largest planned frontier RL run, after the OpenAI-Hugging Face incident and preliminary evidence that a model called Astra may meet a critical cybersecurity capability threshold. Source: `raw/2026-08-20-rss-tldr-ai-openai-slowed-training-over-cyber-risks-9-minute-read.md`; page: [[openai-frontier-models-and-codex-2026]]. confidence: 1 official OpenAI source, last-confirmed 2026-08-20.
+- The same source describes stronger safeguards across research workloads: sandbox isolation for untrusted/model-generated code, network isolation for higher-risk workloads, reduced standing privileges, improved security logs, continuous boundary testing, and stricter requirements for Astra/cyber workloads. Source: `raw/2026-08-20-rss-tldr-ai-openai-slowed-training-over-cyber-risks-9-minute-read.md`. confidence: 1 source, last-confirmed 2026-08-20.
+- OpenAI's new monitoring setup uses activation classifiers, automated investigators over tool actions and available reasoning, and a 30-minute escalation/pause expectation when a likely critical-boundary violation cannot be cleared as false positive. Source: `raw/2026-08-20-rss-tldr-ai-openai-slowed-training-over-cyber-risks-9-minute-read.md`; page: [[opentelemetry-genai-observability-and-ecosystem]]. confidence: 1 official source, last-confirmed 2026-08-20.
+- GitHub added token-type-specific bulk deauthorization and revocation for incident response, allowing enterprise or organization admins to revoke/deauthorize one credential class such as PATs, SSH keys, OAuth app tokens, or GitHub App user access tokens instead of all credentials for a user at once. Source: `raw/2026-08-20-web-github-changelog-credential-revocation-and-deauthorization-by-token-ty.md`; page: [[github-actions-platform-operations]]. confidence: 1 GitHub changelog source, last-confirmed 2026-08-20.
+- Check Point's StopAndProtect research describes a large operation abusing hacked WordPress sites for malware hosting, command/control, and stolen-data/log storage, combining ClickFix social engineering, multi-stage PowerShell/.NET loaders, ransomware, worms, lockscreen, stealer, and operator chat components. Source: `raw/2026-08-20-rss-tldr-infosec-thousands-of-hacked-wordpress-sites-one-operation-unmaski.md`; page: [[malware-infrastructure-and-resilient-c2]]. confidence: 1 vendor threat-research source, last-confirmed 2026-08-20.
+- The StopAndProtect source says operator OPSEC failures exposed logs, screenshots, source/tooling artifacts, and compromised-site management details, reinforcing that defender visibility can come from attacker infrastructure mistakes as well as endpoint telemetry. Source: `raw/2026-08-20-rss-tldr-infosec-thousands-of-hacked-wordpress-sites-one-operation-unmaski.md`. confidence: 1 vendor threat-research source, last-confirmed 2026-08-20.
+
+### Typed entities
+- company/source: OpenAI
+- model/internal codename: Astra
+- capability threshold: Critical cybersecurity capability
+- control: workload isolation
+- control: network isolation
+- control: activation classifier
+- control: automated investigator
+- product/platform: GitHub credential revocation
+- credential type: personal access token / PAT
+- credential type: SSH key
+- credential type: OAuth app token
+- credential type: GitHub App user access token
+- campaign: StopAndProtect
+- platform abused: WordPress
+- technique: ClickFix social engineering
+- component: .NET loader
+
+### Explicit relationships
+- Frontier cyber-capable model development depends-on research-environment containment, monitoring, alignment evidence, and pause/rollback authority before scale-up.
+- Monitoring complements isolation by detecting unauthorized access, data theft, destructive behavior, and safeguard-defeat attempts during tool-using model runs.
+- Token-type revocation narrows incident-response blast radius compared with all-credential kill switches.
+- Hacked CMS infrastructure can act as malware host, C2 relay, and exfiltration store at once.
+- Attacker OPSEC failures can complement endpoint logs by exposing campaign scale, tooling, and victim telemetry.
+
+### HoneyDrunk implications
+- Treat model-provider availability as an operational dependency: cyber-risk pauses can affect frontier model access, training, or tool-use workloads with little warning.
+- For HoneyDrunk agents with code execution or internet tools, require isolation, network policy, monitorable tool traces, and a human-pause path before high-risk autonomy.
+- Document credential-type-specific GitHub revocation runbooks for incidents so PAT, SSH, OAuth, or GitHub App token cleanup can be scoped.
+- For threat intel ingestion, keep StopAndProtect operational details in raw evidence; wiki pages should retain pattern/control implications unless local detections need exact IoCs.
+
+### Privacy and quality notes
+- Privacy filter: StopAndProtect domains, hashes, exposed URLs, payload snippets, credentials, screenshots, victim identifiers, and decryption details were not copied. OpenAI/GitHub sources are authoritative for their own claims; Check Point is vendor threat research and should be validated against local telemetry before detection decisions.

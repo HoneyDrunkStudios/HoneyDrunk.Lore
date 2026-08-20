@@ -941,3 +941,41 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - Thoughtworks is architecture strategy evidence, not a benchmark. Unsloth is README/project-authored evidence. Verify current model availability, license terms, hardware support, tunnel behavior, and security defaults before adoption.
+
+## 2026-08-20 compile additions: Miles post-training and Inkling model architecture
+
+### Source-backed claims
+- Miles v0.1 is presented as a full-stack production post-training system built around asynchronous RL loops with SGLang rollout engines, isolated agentic environments, trainer backends, and optimized weight synchronization. Source: `raw/2026-08-20-rss-tldr-ai-miles-v0-1-production-level-post-training-20-minute-read.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 project/ecosystem source, last-confirmed 2026-08-20.
+- Miles supports agentic rollouts with multi-turn sessions, tool execution, sandboxed environments, token-faithful trajectory capture through Token-In-Token-Out, rollout routing replay for MoE training, low-precision recipes, CPU/NVMe optimizer offload, P2P/delta weight updates, LoRA RL, on-policy distillation, diffusion RL, and NVIDIA/AMD GPU support. Source: `raw/2026-08-20-rss-tldr-ai-miles-v0-1-production-level-post-training-20-minute-read.md`. confidence: 1 source, last-confirmed 2026-08-20.
+- ByteByteGo's Inkling architecture explainer reports Thinking Machines' open-weights Inkling model as a 975B-parameter sparse MoE with roughly 41B active parameters, a one-million-token context design mixing sliding-window and full-attention layers, relative position encoding, image/audio support without large separately pretrained encoders, and trained reasoning-effort control. Source: `raw/2026-08-20-rss-tldr-ai-the-new-american-ai-model-designed-to-be-customized-26-minute-.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 secondary architecture explainer citing public sources, last-confirmed 2026-08-20.
+- The Inkling explainer says the Apache-2.0 weights and quantized checkpoint lower customization barriers relative to closed models, but training data, training code, and exact recipe remain private and safety behavior can change when users retrain the model. Source: `raw/2026-08-20-rss-tldr-ai-the-new-american-ai-model-designed-to-be-customized-26-minute-.md`; page: [[ai-coding-agent-security]]. confidence: 1 secondary source, last-confirmed 2026-08-20.
+
+### Typed entities
+- platform/framework: Miles v0.1
+- inference engine: SGLang
+- technique: fully asynchronous RL
+- technique: Token-In-Token-Out / TITO
+- technique: Rollout Routing Replay / R3
+- training backend: NVIDIA Megatron-LM
+- training backend: PyTorch FSDP
+- hardware: NVIDIA GB300
+- hardware/platform: AMD ROCm
+- model: Inkling
+- company/lab: Thinking Machines
+- architecture: mixture of experts / MoE
+- license: Apache 2.0
+- setting: reasoning effort
+
+### Explicit relationships
+- Agentic post-training depends-on rollout, environment, reward, trainer, and weight-sync systems working as one loop.
+- Token-faithful trajectory capture complements RL correctness because parsing/tool/chat-template reserialization can otherwise change the training context.
+- Open-weight MoE models complement local/custom model strategy but do not supersede application guardrails or local evals.
+- Reasoning-effort controls turn benchmark scores into token/cost/quality curves rather than a single fixed model property.
+
+### HoneyDrunk implications
+- Treat Miles as infrastructure-watch material for agentic RL, not an adoption target, unless HoneyDrunk has model-training needs, hardware, and verifier environments.
+- For local/open model routing, add Inkling to the watchlist only after verifying primary model card details, license, hardware floor, serving support, tool-call behavior, and safety/guardrail posture.
+- If HoneyDrunk compares reasoning models, record effort settings and token limits as first-class eval variables.
+
+### Quality notes
+- Miles is project/ecosystem-authored. Inkling source is a secondary explainer via TLDR; verify against Thinking Machines primary model card/docs before procurement or routing decisions.

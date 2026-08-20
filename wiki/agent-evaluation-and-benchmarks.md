@@ -696,3 +696,35 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - Microsoft evaluator guidance is product documentation. Evaluator prompts are tuned for selected OpenAI models, so local/smaller evaluator models require calibration.
+
+## 2026-08-20 compile additions: external harnesses and agent-read coverage
+
+### Source-backed claims
+- Liquid AI's tokenizer-trainer experiment says toy-unit-test success was misleading: production-scale data exposed file encoding, memory, parallelization, regex, rank-order, duplicate-merge, and numeric-tokenization failures invisible in small tests. Source: `raw/2026-08-20-rss-tldr-ai-building-production-grade-agent-loops-9-minute-read.md`; page: [[ai-agent-harnesses]]. confidence: 1 primary-via-TLDR engineering source, last-confirmed 2026-08-20.
+- The source says the operator did not read the generated code and relied on real corpus execution plus third-party `tiktoken` and Hugging Face tokenizer checks that the agent could not edit. Source: `raw/2026-08-20-rss-tldr-ai-building-production-grade-agent-loops-9-minute-read.md`. confidence: 1 source, last-confirmed 2026-08-20.
+- Trail of Bits `agentcov` can produce JSON, LCOV, gcov, HTML, summary, and unread-file reports showing agent read/search coverage and task attribution, with unknown events surfaced when command shapes cannot be confidently mapped. Source: `raw/2026-08-20-rss-tldr-infosec-agentcov-github-repo.md`; page: [[ai-assisted-software-practice]]. confidence: 1 project README source, last-confirmed 2026-08-20.
+- The Miles v0.1 source reports maintained end-to-end recipes for agentic coding and terminal tasks, with isolated per-episode sandboxes and verifier-produced rewards; treat this as infrastructure evidence for how frontier agent-training evals are operationalized. Source: `raw/2026-08-20-rss-tldr-ai-miles-v0-1-production-level-post-training-20-minute-read.md`; page: [[edge-ai-and-ai-infrastructure-2026]]. confidence: 1 project/ecosystem source, last-confirmed 2026-08-20.
+
+### Typed entities
+- artifact: production corpus
+- artifact: third-party compatibility harness
+- failure class: toy-test false confidence
+- project/tool: `agentcov`
+- report: unread-file report
+- platform: Miles v0.1
+- environment: isolated agentic sandbox
+- reward source: verifier-produced reward
+
+### Explicit relationships
+- Agent evaluation depends-on scale, messiness, and external checks when production behavior differs from toy fixtures.
+- Third-party harnesses can substitute for line-by-line human code reading only when the artifact's correctness is fully and independently observable.
+- Agent-read coverage complements human review by revealing whether the agent actually inspected relevant code before making or judging changes.
+- Agentic RL evals depend-on isolated environments and verifier rewards so training signals reflect task completion rather than transcript plausibility.
+
+### HoneyDrunk implications
+- For Lore and code-agent evals, include at least one full-scale fixture per task class; small clean fixtures should not be the only acceptance evidence.
+- Treat "agent did not read file X" as useful review context, especially when the diff crosses ownership or architecture boundaries.
+- Do not use external harness-only acceptance for work where product semantics, security intent, or maintainability cannot be fully captured by the harness.
+
+### Quality notes
+- `agentcov` and Miles are project-authored evidence. Liquid AI is strong practice evidence for loop design but still one organization/task class.

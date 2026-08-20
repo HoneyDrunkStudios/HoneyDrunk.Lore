@@ -1406,3 +1406,43 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - README evidence only. Verify installed behavior, licenses, MCP permissions, network exposure, and local model quality before operational use.
+
+## 2026-08-20 compile additions: production agent loops, memory continuity, and agentic telemetry demos
+
+### Source-backed claims
+- Liquid AI's production agent-loop source says coding agents did not zero-shot a production-scale BPE tokenizer trainer, but a loop against real production data and an external compatibility harness converged on a shippable artifact. Source: `raw/2026-08-20-rss-tldr-ai-building-production-grade-agent-loops-9-minute-read.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 primary-via-TLDR engineering source, last-confirmed 2026-08-20.
+- The same source says the effective loop used a short outcome/constraint specification, full-scale production data, and third-party verification through `tiktoken` and Hugging Face tokenizers rather than agent-editable tests alone. Source: `raw/2026-08-20-rss-tldr-ai-building-production-grade-agent-loops-9-minute-read.md`. confidence: 1 source, last-confirmed 2026-08-20.
+- Rachel Laycock's "Citizens Build, Agents Execute, Experts Govern" argues that AI increases the number of people who can create software, but enterprise production use still depends on expert judgment around architecture, security, resilience, operability, compliance, cost, and trust. Source: `raw/2026-08-20-rss-martin-fowler-citizens-build-agents-execute-experts-govern.md`; page: [[ai-assisted-software-practice]]. confidence: 1 Thoughtworks practitioner source, last-confirmed 2026-08-20.
+- The `ai-memory` README describes a plain-markdown, git-backed long-term memory system for coding agents that uses lifecycle hooks, MCP, sanitized observations, session summaries, handoffs, project isolation, entity-assisted recall, and optional managed cross-harness workstreams across Claude Code, Codex, OpenClaw, Kimi Code, and other clients. Source: `raw/2026-08-20-rss-tldr-devops-ai-memory-github-repo.md`; page: [[llm-wiki-and-knowledge-formats]]. confidence: 1 project README source, last-confirmed 2026-08-20.
+- The OpenTelemetry Demo 3.0 source adds an agentic demo with a LangGraph ReAct agent, MCP server, chatbot UI, LLM response caching, and OTel instrumentation across tool calls, LLM interactions, reasoning steps, and downstream microservice calls. Source: `raw/2026-08-20-web-opentelemetry-blog-we-broke-the-otel-demo.md`; page: [[opentelemetry-genai-observability-and-ecosystem]]. confidence: 1 official OpenTelemetry source, last-confirmed 2026-08-20.
+
+### Typed entities
+- organization/source: Liquid AI
+- project: `toktoktok`
+- artifact: external verification harness
+- library/tool: `tiktoken`
+- library/tool: Hugging Face tokenizers
+- concept: production-grade agent loop
+- role concept: citizens build, agents execute, experts govern
+- project/tool: `ai-memory`
+- capability: cross-agent handoff
+- protocol/tooling: MCP
+- project: OpenTelemetry Demo 3.0
+- framework: LangGraph ReAct agent
+- component: chatbot UI
+
+### Explicit relationships
+- Production-grade agent loops depend-on real-scale execution, external verification, and repeated diagnosis against the real environment.
+- Short outcome specifications complement agent background knowledge when the artifact is independently checkable.
+- Expert governance complements citizen-built and agent-executed software by deciding whether software is safe to trust in production.
+- Long-term memory systems complement agent harnesses by preserving sanitized session observations, decisions, and handoffs across tools.
+- Agentic telemetry demos use MCP and OTel instrumentation together to make reasoning, tool calls, and downstream service effects observable.
+
+### HoneyDrunk implications
+- For Honeyclaw/OpenClaw autonomous jobs, prefer loops whose success criteria are outside the agent's control: real data, real build/test/browser/telemetry checks, or third-party compatibility harnesses.
+- Treat weekend-app/citizen-builder output as valid discovery, but require expert governance before production integration.
+- If HoneyDrunk evaluates `ai-memory`, review hook capture scope, sanitized storage, auth, project isolation, Windows behavior, and cross-harness handoff quality before installation.
+- Use the OTel Demo 3.0 agentic stack as a reference for what traceable agent + MCP + UI workflows should expose, not as a direct architecture mandate.
+
+### Quality notes
+- Liquid AI and OpenTelemetry are engineering/project sources; `ai-memory` is README evidence. No private transcript content, bearer tokens, hook payloads, or install credentials were promoted.

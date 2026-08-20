@@ -790,3 +790,25 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - Adobe documentation is authoritative for the connector. No credential values or private workflow details were present in the raw source.
+
+## 2026-08-20 compile additions: browser-native particle/VFX authoring
+
+### Source-backed claims
+- A RealtimeVFX community/product post describes NixieFX as a browser-based particle editor for web-game VFX with engine-style authoring features, local JSON projects, Three.js and PixiJS runtimes, and diagnostics for export/runtime limitations. Source: `raw/2026-08-20-rss-realtimevfx-nixiefx-a-browser-based-particle-editor-for-three-js-and-p.md`; page: [[browser-native-gpu-creative-tools]]. confidence: 1 community/product post, last-confirmed 2026-08-20.
+
+### Typed entities
+- tool/product: NixieFX
+- runtime/library: Three.js
+- runtime/library: PixiJS
+- artifact format: JSON
+- workflow: web-game VFX authoring
+
+### Explicit relationships
+- Browser-native VFX authoring complements technical-art workflows when effects need source-controllable data and runtime diagnostics.
+- Separate Three.js and PixiJS render paths mean technical-art QA still needs runtime-specific visual checks.
+
+### HoneyDrunk implications
+- Evaluate browser VFX tools with representative effects, target browsers/devices, export diffs, licensing, and runtime parity checks before using them in production prototypes.
+
+### Quality notes
+- Community source. Useful scouting signal; verify implementation, license, export schema, and runtime behavior before adoption.

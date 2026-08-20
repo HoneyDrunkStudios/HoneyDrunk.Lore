@@ -218,3 +218,34 @@ This page tracks durable patterns for agent-readable, human-readable knowledge s
 
 ### Quality notes
 - Source is incomplete but the captured report/checkpoint pattern is consistent with Lore's output-to-wiki crystallization contract.
+
+## 2026-08-20 compile additions: ai-memory as hook-driven LLM wiki
+
+### Source-backed claims
+- The `ai-memory` README describes a shared persistent wiki for coding agents compiled from sanitized lifecycle observations, with session-end summaries, handoffs, supersession chains, git-versioned markdown, source-linked pages, and no mandatory vector database. Source: `raw/2026-08-20-rss-tldr-devops-ai-memory-github-repo.md`; page: [[ai-agent-harnesses]]. confidence: 1 project README source, last-confirmed 2026-08-20.
+- The project supports per-project isolation, optional per-operator memory slots, entity-assisted recall, authority-aware retrieval, and a read-only web/API surface for browsing project memory. Source: `raw/2026-08-20-rss-tldr-devops-ai-memory-github-repo.md`. confidence: 1 README source, last-confirmed 2026-08-20.
+- The README distinguishes historical memory from live code intelligence: memory should preserve prior decisions, rationale, procedures, failures, and handoffs, while current checkout/build/tests/runtime behavior remain operational truth. Source: `raw/2026-08-20-rss-tldr-devops-ai-memory-github-repo.md`; page: [[ai-assisted-software-practice]]. confidence: 1 README source, last-confirmed 2026-08-20.
+
+### Typed entities
+- project/tool: `ai-memory`
+- pattern: hook-driven LLM wiki
+- artifact: session handoff
+- feature: supersession chain
+- feature: entity-assisted recall
+- feature: authority-aware retrieval
+- feature: per-project isolation
+- client/runtime: Codex
+- client/runtime: Claude Code
+- client/runtime: OpenClaw
+
+### Explicit relationships
+- Hook-driven memory complements Lore-style wiki compilation by turning runtime observations into sanitized, cited, resumable context.
+- Entity and authority signals complement keyword retrieval but do not turn historical evidence into current source truth.
+- Memory systems depend-on capture exclusions, privacy controls, auth, and explicit scope boundaries when multiple projects or users share a server.
+
+### HoneyDrunk implications
+- Lore already uses raw/output/wiki/index tiers; `ai-memory` is useful as a comparison point for session capture, handoff acceptance, entity indexing, and authority ranking.
+- If trialed, keep `ai-memory` separate from Lore authority until contamination, privacy, retention, and project-scope behavior are verified.
+
+### Quality notes
+- README evidence. No captured prompts, bearer tokens, project memories, or install secrets were promoted.

@@ -379,3 +379,39 @@ OpenTelemetry is becoming the practical neutral observability layer for LLM/agen
 
 ### Quality notes
 - Official OpenTelemetry source. Benchmark numbers are useful directional evidence but require local reproduction on HoneyDrunk trace/log shapes.
+
+## 2026-08-20 compile additions: OpenTelemetry Demo 3.0 agentic stack
+
+### Source-backed claims
+- OpenTelemetry Demo 3.0 intentionally renamed custom telemetry attributes from `app.*` to `demo.*`, breaking existing dashboards but resolving namespace conflict with OpenTelemetry semantic conventions. Source: `raw/2026-08-20-web-opentelemetry-blog-we-broke-the-otel-demo.md`. confidence: 1 official OpenTelemetry source, last-confirmed 2026-08-20.
+- Demo 3.0 adds an agentic AI stack with a LangGraph ReAct agent, MCP server, chatbot UI, multi-turn requests, LLM response caching, and traces covering chatbot-to-agent-to-MCP-to-microservice flow. Source: `raw/2026-08-20-web-opentelemetry-blog-we-broke-the-otel-demo.md`; page: [[ai-agent-harnesses]]. confidence: 1 source, last-confirmed 2026-08-20.
+- The demo adds a GenAI normalizer processor to convert Traceloop/OpenLLMetry telemetry into official `gen_ai.*` semantic conventions. Source: `raw/2026-08-20-web-opentelemetry-blog-we-broke-the-otel-demo.md`. confidence: 1 source, last-confirmed 2026-08-20.
+- Demo 3.0 also adds continuous profiling, OpAMP server visibility for Collector state/config/health, mixed instrumentation examples, SQLCommenter support, a k6-based load generator with OTLP metrics, telemetry sanity tests, and a major vulnerability-backlog cleanup. Source: `raw/2026-08-20-web-opentelemetry-blog-we-broke-the-otel-demo.md`. confidence: 1 source, last-confirmed 2026-08-20.
+
+### Typed entities
+- project: OpenTelemetry Demo 3.0
+- attribute namespace: `demo.*`
+- deprecated namespace: `app.*`
+- semantic convention: `gen_ai.*`
+- processor: GenAI normalizer processor
+- framework: LangGraph
+- protocol/tooling: MCP
+- protocol: OpAMP
+- tool: k6
+- extension: `xk6-otel`
+- feature: continuous profiling
+- feature: SQLCommenter
+
+### Explicit relationships
+- Semantic-convention alignment can supersede backward-compatible dashboards when a reference demo needs long-term correctness.
+- Agentic observability depends-on tracing UI, agent reasoning/tool selection, MCP calls, model latency/cache behavior, and downstream service effects together.
+- Telemetry sanity tests complement dependency cleanup by making broad upgrades reviewable.
+- OpAMP complements Collector observability by exposing active Collector state, version, configuration, and health.
+
+### HoneyDrunk implications
+- Use the Demo 3.0 changes as a reminder to namespace HoneyDrunk custom telemetry carefully before dashboards become expensive to migrate.
+- For agent products, instrument the full user request path across UI, planner/agent, MCP/tools, model calls, cache, and downstream services.
+- Add telemetry sanity tests before large dependency or collector-pipeline migrations; otherwise observability changes can quietly break dashboards.
+
+### Quality notes
+- Official OpenTelemetry source. It is reference-demo evidence; validate exact Collector processors, semconv names, and compatibility against local package versions.

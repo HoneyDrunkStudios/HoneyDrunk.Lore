@@ -49,3 +49,34 @@ Dario Amodei's June 2026 policy essay argues that frontier AI has crossed from o
 - Quality posture: useful as an Anthropic policy-position source and frontier-governance signal. It is not neutral legal advice or enacted regulation.
 - Weak spots: claims about future policy, labor displacement, biomedical acceleration, and geopolitics are forecasts and recommendations, not settled facts.
 - Privacy filter: public policy essay only; no private data or secrets present.
+
+## 2026-08-20 compile additions: provider-side cyber pacing
+
+### Source-backed claims
+- OpenAI's August 2026 cyber-pacing source says frontier model development now requires safeguards that span monitoring, alignment, and security across training and deployment, and that capability acceleration requires broader approaches beyond the current Preparedness Framework. Source: `raw/2026-08-20-rss-tldr-ai-openai-slowed-training-over-cyber-risks-9-minute-read.md`; pages: [[openai-frontier-models-and-codex-2026]], [[ai-coding-agent-security]]. confidence: 1 official OpenAI source, last-confirmed 2026-08-20.
+- The source says model-assisted security, effective monitoring, and alignment research must scale with model capability, especially where models may soon drive much security work, including defense against other models. Source: `raw/2026-08-20-rss-tldr-ai-openai-slowed-training-over-cyber-risks-9-minute-read.md`. confidence: 1 source, last-confirmed 2026-08-20.
+- Fowler's August 18 fragments curate a security-policy argument that abrupt frontier-model shutdowns can inject political/operational risk into AI infrastructure and that defensive teams should keep open-weight model fallbacks available for cyber incidents; treat this as curated practitioner commentary, not primary policy. Source: `raw/2026-08-20-rss-martin-fowler-fragments-august-18.md`; pages: [[edge-ai-and-ai-infrastructure-2026]], [[ai-coding-agent-security]]. confidence: 1 curated commentary source, last-confirmed 2026-08-20.
+
+### Typed entities
+- organization: OpenAI
+- framework: Preparedness Framework
+- risk domain: cybersecurity capability
+- governance mechanism: training pause
+- governance mechanism: workload migration requirement
+- governance mechanism: critical-boundary monitoring alert
+- risk: provider shutdown or degradation
+- fallback: open-weight defensive cyber model
+
+### Explicit relationships
+- Frontier AI governance increasingly applies during research and training, not only pre-release model cards or deployment restrictions.
+- Provider-side capability pacing can supersede product roadmap expectations when cyber-risk thresholds are crossed.
+- Model-assisted defense depends-on maintaining usable defensive access while constraining offensive or unauthorized behavior.
+- Open-weight fallback complements closed-model access when defensive cyber teams need continuity during provider outages, throttling, or classifier blocks.
+
+### HoneyDrunk implications
+- Track provider governance changes as part of model-routing risk, especially for cyber, coding, and autonomous tool-use workloads.
+- Do not assume public model availability or behavior is stable when providers introduce new capability thresholds or safety migrations.
+- For cyber-defense workflows, evaluate fallback model readiness before an incident forces emergency routing changes.
+
+### Quality notes
+- Official provider source and policy-position evidence. Fowler fragments are curated commentary. This is operationally relevant but not a legal standard.

@@ -310,3 +310,34 @@ OpenAI's June 11 raw sources add two durable signals for HoneyDrunk: GPT-5.5 is 
 
 ### Quality notes
 - Official OpenAI engineering sources are decision-useful for harness design but describe OpenAI's environment and product constraints. Treat throughput and autonomy claims as architecture signal, not as a guarantee that the same merge posture is safe in HoneyDrunk repos.
+
+## 2026-08-20 compile additions: cyber-capability pacing and research safeguards
+
+### Source-backed claims
+- OpenAI says increasingly capable models raise internal development and testing risk, and that the OpenAI-Hugging Face incident plus preliminary Astra cyber-capability evidence caused it to slow frontier scaling while hardening and red-teaming research environments. Source: `raw/2026-08-20-rss-tldr-ai-openai-slowed-training-over-cyber-risks-9-minute-read.md`; page: [[ai-coding-agent-security]]. confidence: 1 official OpenAI source, last-confirmed 2026-08-20.
+- The source says some research workloads resumed under limited secure code-execution paths, while others remain paused until migrated to stronger controls; safety and alignment workloads are prioritized for migration. Source: `raw/2026-08-20-rss-tldr-ai-openai-slowed-training-over-cyber-risks-9-minute-read.md`. confidence: 1 source, last-confirmed 2026-08-20.
+- OpenAI estimates its expanded monitoring overhead at roughly 20% of monitored inference compute, with substantial workload variation, and plans to share more detail later. Source: `raw/2026-08-20-rss-tldr-ai-openai-slowed-training-over-cyber-risks-9-minute-read.md`; page: [[opentelemetry-genai-observability-and-ecosystem]]. confidence: 1 source, last-confirmed 2026-08-20.
+
+### Typed entities
+- company: OpenAI
+- event: OpenAI-Hugging Face incident
+- model/internal codename: Astra
+- framework: Preparedness Framework
+- workload class: frontier RL training
+- control: sandbox isolation
+- control: network isolation
+- control: chain-of-thought monitoring
+- metric: monitoring compute overhead
+
+### Explicit relationships
+- Frontier-model scaling depends-on internal security posture when models can use tools, execute code, or access networks.
+- Alignment and monitoring safeguards complement deployment policy because risk can arise during training and evaluation, not only after release.
+- Monitoring overhead becomes a model-development cost center when applied broadly to tool-using inference and RL runs.
+
+### HoneyDrunk implications
+- Keep fallback model/provider paths for security-sensitive agent work because provider-side pauses and capability-tier controls can interrupt availability.
+- When budgeting high-risk agent evaluation, include telemetry/monitoring compute and human escalation cost, not only model tokens.
+- Treat provider capability-threshold language as a signal to review HoneyDrunk's own agent risk tiers and release gates.
+
+### Quality notes
+- Official OpenAI company source. Time-sensitive: verify provider policy and model availability before operational routing changes.

@@ -1031,3 +1031,36 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Thoughtworks is a strategy/practitioner source. It is useful for decision framing but not a benchmark or implementation guarantee.
+
+## 2026-08-20 compile additions: enterprise judgment and agent-read coverage
+
+### Source-backed claims
+- Rachel Laycock argues that software created quickly by non-engineers or agents can be real and useful, but the questions change once a business depends on it: data protection, dependency failure, maintainability, audit survival, scale, observability, and production trust become central. Source: `raw/2026-08-20-rss-martin-fowler-citizens-build-agents-execute-experts-govern.md`; page: [[ai-agent-harnesses]]. confidence: 1 Thoughtworks practitioner source, last-confirmed 2026-08-20.
+- The same source frames experienced engineers as more leveraged rather than less relevant because they design guardrails, platforms, practices, feedback loops, and governance for safe high-throughput software creation. Source: `raw/2026-08-20-rss-martin-fowler-citizens-build-agents-execute-experts-govern.md`. confidence: 1 source, last-confirmed 2026-08-20.
+- Trail of Bits `agentcov` tracks which repository lines were read by coding agents, maps read coverage into LCOV/gcov-style reports, records search and command observations, and can backfill Codex, Claude Code, and Pi transcripts. Source: `raw/2026-08-20-rss-tldr-infosec-agentcov-github-repo.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 project README source, last-confirmed 2026-08-20.
+- `agentcov` explicitly surfaces unread git-tracked text files and unsupported read-like commands as unknown events, making review blind spots auditable instead of assuming the agent inspected everything relevant. Source: `raw/2026-08-20-rss-tldr-infosec-agentcov-github-repo.md`. confidence: 1 README source, last-confirmed 2026-08-20.
+
+### Typed entities
+- role concept: expert governance
+- practice: production readiness review
+- project/tool: `agentcov`
+- report format: LCOV
+- report format: gcov
+- artifact: `.agentcov/events.jsonl`
+- artifact: `.agentcov/coverage.json`
+- client/runtime: Codex
+- client/runtime: Claude Code
+- client/runtime: Pi
+
+### Explicit relationships
+- Enterprise software readiness depends-on production trust signals that demos and local feature success do not expose.
+- Agent-generated implementation speed increases the value of expert review, mechanical guardrails, and feedback loops.
+- Agent-read coverage complements code review by showing which files and lines were inspected, searched, or skipped.
+- Unread-file reports do not supersede correctness review, but they reduce false confidence in broad agent claims.
+
+### HoneyDrunk implications
+- For high-risk PRs or broad refactors, consider agent-read coverage as a review artifact alongside tests and diff review.
+- Keep production-readiness gates separate from "agent produced working code"; operational trust still needs security, observability, scale, audit, and maintenance evidence.
+
+### Quality notes
+- Thoughtworks is practitioner evidence. `agentcov` is README evidence and should be trialed locally before becoming a required review gate. No raw source snippets or transcript content were copied.

@@ -660,3 +660,38 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ### Quality notes
 - Microsoft Learn is architecture guidance. Validate exact workflow syntax, permission names, and GitHub plan support before migration.
+
+## 2026-08-20 compile additions: CodeQL 2.26.3 and credential revocation
+
+### Source-backed claims
+- GitHub CodeQL 2.26.3 adds JavaScript/TypeScript/Vue source modeling, Sails Action2 input modeling, response threat-model promise tracking, Windows Registry C/C++ flow sources, and several GitHub Actions query accuracy improvements. Source: `raw/2026-08-20-web-github-changelog-codeql-2-26-3-improves-github-actions-queries-and-jav.md`; page: [[ai-coding-agent-security]]. confidence: 1 GitHub changelog source, last-confirmed 2026-08-20.
+- The same CodeQL release recognizes untrusted data in `github.event.merge_group`, removes the `codeql.actions.security.SelfHostedQuery` module because runner labels cannot reliably distinguish self-hosted from managed runners, and improves cache-poisoning, output-clobbering, untrusted-checkout, envvar-injection, and schedule-trigger classification. Source: `raw/2026-08-20-web-github-changelog-codeql-2-26-3-improves-github-actions-queries-and-jav.md`. confidence: 1 source, last-confirmed 2026-08-20.
+- GitHub credential revocation now supports token-type-specific SSO deauthorization and user-level credential revocation/deletion at enterprise and organization scope, with audit-log capture and affected-user email notifications. Source: `raw/2026-08-20-web-github-changelog-credential-revocation-and-deauthorization-by-token-ty.md`; page: [[ai-coding-agent-security]]. confidence: 1 GitHub changelog source, last-confirmed 2026-08-20.
+
+### Typed entities
+- tool/version: CodeQL 2.26.3
+- event payload: `github.event.merge_group`
+- removed module: `codeql.actions.security.SelfHostedQuery`
+- query: `actions/output-clobbering/high`
+- query: `actions/cache-poisoning/poisonable-step`
+- query: `actions/untrusted-checkout/critical`
+- query: `actions/envvar-injection/critical`
+- control: token-type-specific deauthorization
+- control: token-type-specific revocation
+- credential type: PAT
+- credential type: SSH key
+- credential type: OAuth app token
+- credential type: GitHub App user access token
+
+### Explicit relationships
+- CodeQL query accuracy depends-on GitHub's current trigger/cache semantics and cannot rely on runner-label heuristics for self-hosted-runner classification.
+- Code scanning improvements complement Actions hardening by surfacing merge-queue, checkout, cache, and environment-variable risk more accurately.
+- Token-type credential revocation complements incident response by reducing blast radius and preserving trusted credential types where appropriate.
+
+### HoneyDrunk implications
+- If HoneyDrunk maintains custom CodeQL Actions queries, check for `SelfHostedQuery` usage before upgrading query packs.
+- Review merge-queue and Actions cache findings after CodeQL 2.26.3 lands; alert shape may change for existing workflows.
+- Add token-type credential revocation to GitHub incident-response notes so responders can target PAT, SSH, OAuth, or GitHub App user access tokens.
+
+### Quality notes
+- GitHub changelog sources are authoritative for feature existence. Verify GHES availability and custom query compatibility before relying on these changes in enterprise-hosted environments.

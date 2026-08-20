@@ -1,73 +1,89 @@
 # Lore Ingest - Last Run
 
-Timestamp: 2026-08-17T10:04:47-04:00
+Timestamp: 2026-08-20T10:08:21-04:00
 
 ## Raw sources ingested
 
-Count: 7
+Count: 13
 
-- `raw/2026-08-17-rss-system-design-newsletter-10-system-design-solutions-explained-in-15-mi.md`
-- `raw/2026-08-17-rss-thoughtworks-insights-kimi-k3-are-we-entering-a-new-multi-model-era.md`
-- `raw/2026-08-17-rss-tldr-devops-unsloth-github-repo.md`
-- `raw/2026-08-17-web-a-new-security-baseline-for-enterprise-agentic-adoption.md`
-- `raw/2026-08-17-web-governance-options-for-a-kubernetes-cluster-eks-to-aks.md`
-- `raw/2026-08-17-web-kimi-k3-is-now-available-in-github-copilot.md`
-- `raw/2026-08-17-web-microservices-ci-cd-pipeline-on-kubernetes-with-azure-devops-and-helm.md`
+- `raw/2026-08-20-rss-martin-fowler-citizens-build-agents-execute-experts-govern.md`
+- `raw/2026-08-20-rss-martin-fowler-fragments-august-18.md`
+- `raw/2026-08-20-rss-realtimevfx-nixiefx-a-browser-based-particle-editor-for-three-js-and-p.md`
+- `raw/2026-08-20-rss-tldr-ai-building-production-grade-agent-loops-9-minute-read.md`
+- `raw/2026-08-20-rss-tldr-ai-miles-v0-1-production-level-post-training-20-minute-read.md`
+- `raw/2026-08-20-rss-tldr-ai-openai-slowed-training-over-cyber-risks-9-minute-read.md`
+- `raw/2026-08-20-rss-tldr-ai-the-new-american-ai-model-designed-to-be-customized-26-minute-.md`
+- `raw/2026-08-20-rss-tldr-devops-ai-memory-github-repo.md`
+- `raw/2026-08-20-rss-tldr-infosec-agentcov-github-repo.md`
+- `raw/2026-08-20-rss-tldr-infosec-thousands-of-hacked-wordpress-sites-one-operation-unmaski.md`
+- `raw/2026-08-20-web-github-changelog-codeql-2-26-3-improves-github-actions-queries-and-jav.md`
+- `raw/2026-08-20-web-github-changelog-credential-revocation-and-deauthorization-by-token-ty.md`
+- `raw/2026-08-20-web-opentelemetry-blog-we-broke-the-otel-demo.md`
 
 ## Wiki pages created/updated
 
 Created:
-- `wiki/kubernetes-platform-governance-and-cicd.md`
+- None.
 
 Updated:
-- `wiki/edge-ai-and-ai-infrastructure-2026.md`
 - `wiki/ai-agent-harnesses.md`
-- `wiki/github-copilot-and-app-token-changes.md`
+- `wiki/ai-assisted-software-practice.md`
+- `wiki/agent-evaluation-and-benchmarks.md`
 - `wiki/ai-coding-agent-security.md`
-- `wiki/distributed-systems-patterns.md`
-- `wiki/cloud-sovereignty-and-platform-governance.md`
+- `wiki/openai-frontier-models-and-codex-2026.md`
+- `wiki/ai-policy-and-governance-2026.md`
+- `wiki/edge-ai-and-ai-infrastructure-2026.md`
+- `wiki/llm-wiki-and-knowledge-formats.md`
+- `wiki/opentelemetry-genai-observability-and-ecosystem.md`
 - `wiki/github-actions-platform-operations.md`
+- `wiki/browser-native-gpu-creative-tools.md`
+- `wiki/malware-infrastructure-and-resilient-c2.md`
+- `wiki/technical-art-community-and-talent-signals.md`
 - `wiki/indexes/sources.md`
 - `wiki/indexes/topics.md`
 - `wiki/indexes/gaps.md`
-- `wiki/indexes/audit.md`
+- `output/lore-ingest-last-run.md`
 
 ## Contradictions resolved
 
-- None. The 2026-08-17 source set extended existing claims around open-weight model routing, Copilot Kimi availability, enterprise agent security, Kubernetes governance, CI/CD, and distributed-systems patterns without conflicting with prior compiled claims.
+- None. The 2026-08-20 source set extended existing claims around production agent loops, expert governance, frontier cyber safeguards, open-weight/post-training infrastructure, agent memory, agent-read coverage, GitHub security operations, malware infrastructure, OpenTelemetry agentic observability, and browser-native VFX tooling.
 
 ## Gaps logged
 
-Count: 6
+Count: 8
 
-- Kimi K3 Copilot enablement policy and data/cost/incident review.
-- Kimi K3 and Unsloth local-serving benchmark criteria.
-- Agent Baseline production-agent runbook mapping.
-- Kubernetes policy-engine standardization and exception workflow.
-- HoneyDrunk workload classification for caching, replicas, sharding, queues, and async processing.
-- Kubernetes deployment model choice across push, GitOps, OIDC, signing, SBOMs, Helm, and approvals.
+- External verification harness requirements for autonomous agent task classes.
+- `agentcov` trial criteria and how to interpret unread-file/read-coverage reports.
+- `ai-memory` evaluation criteria alongside Lore/OpenClaw memory.
+- Fallback and escalation policy for model-provider cyber-capability pauses or gating.
+- GitHub token-type credential revocation/deauthorization runbook updates.
+- CMS/WordPress hidden must-use plugin, file-integrity, and ClickFix detection controls.
+- OpenTelemetry Demo 3.0 as an agent + MCP + UI tracing reference and semconv migration input.
+- NixieFX/browser particle editor evaluation criteria for web-game/VFX prototypes.
 
 ## Crystallization from output/query-*.md
 
 - No new durable `output/query-*.md` artifacts were promoted during this pass. Existing query outputs are historical daily syntheses whose cited raw sources and wiki pages are already represented.
-- `output/signal-review-*.md` files remain run receipts/news blasts, not `query-*.md` crystallization inputs.
+- Existing `output/signal-review-*.md` files were not crystallized because they are signal-review receipts rather than `query-*.md` crystallization inputs.
 
 ## Blockers
 
-- None.
+- None for ingest quality.
+- Publishing note: pre-existing unrelated worktree changes were present before this pass (`.obsidian/graph.json`, sourcing run summaries, and signal-review outputs). They were not modified or staged by this ingest pass.
 
 ## Quality posture
 
-- Pages rewritten/flagged: none; edits were append-only dated compile sections plus one canonical page for Kubernetes platform governance and CI/CD.
-- Weak claims: Thoughtworks is strategy framing, Unsloth is README/project-authored evidence, System Design Newsletter is a primer, and Microsoft/GitHub/Docker sources are vendor-authored. All require tenant/local validation before operational adoption.
-- Privacy redactions: no credentials, tokens, API keys, private personal data, exploit payloads, public tunnel secrets, or reusable offensive procedures were copied. Security and remote-access material was summarized at control level.
-- Decision-usefulness: the pass strengthened decision surfaces for open-weight model routing, Kimi K3 Copilot policy, local model workstations, enterprise agent security baselines, Kubernetes governance, microservice CI/CD, and basic distributed-systems pattern selection.
+- Pages rewritten/flagged: none; edits were append-only dated compile sections on existing canonical pages.
+- Weak claims: README/project-authored evidence (`ai-memory`, `agentcov`, Miles), secondary architecture explanation (Inkling/ByteByteGo), community/product scouting (NixieFX), and vendor/product sources require local validation before operational adoption.
+- Privacy redactions: no credentials, tokens, API keys, private personal data, victim screenshots, phone numbers, compromised domains, hashes, payload snippets, PowerShell commands, operator identifiers, decryption material, or reusable offensive procedures were copied into wiki content.
+- Decision-usefulness: the pass strengthened decision surfaces for production agent-loop verification, expert governance, agent memory and review coverage, frontier cyber risk operations, GitHub incident response, CodeQL query changes, malware infrastructure detection, agentic observability, and browser-native VFX tooling.
 
 ## Validation
 
 - Read `AGENTS.md` and followed the Ingest/Compile contract.
-- Compared current raw additions against `wiki/indexes/sources.md`; 7 unrepresented raw sources were ingested.
+- Compared current raw additions against `wiki/indexes/sources.md`; 13 unrepresented raw sources were ingested.
 - Reviewed `output/query-*.md` crystallization posture; no new durable query artifacts required promotion.
 - Preserved `raw/` immutability; no files under `raw/` were edited.
 - Rebuilt source/topic/gap indexes in the existing append-only style.
+- Performed privacy filtering while compiling security and memory-tooling sources.
 - Performed a scoped content/code-review pass before publishing.

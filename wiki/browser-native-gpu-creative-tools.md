@@ -94,3 +94,33 @@ Browser-native creative tooling is credible for lightweight indie/artist workflo
 
 ### Quality notes
 - Discovery-only source. Do not treat it as proof of tool quality or production readiness.
+
+## 2026-08-20 compile additions: NixieFX browser particle editor
+
+### Source-backed claims
+- A RealtimeVFX post describes NixieFX as a free browser-based particle/VFX editor focused on web games using Three.js and PixiJS, with multi-emitter timelines, curves, gradients, shape emission, velocity/forces, noise, plane collision, flipbooks, trails, sub-emitters, and a node-based material workflow. Source: `raw/2026-08-20-rss-realtimevfx-nixiefx-a-browser-based-particle-editor-for-three-js-and-p.md`; page: [[unity-3d-and-realtime-vfx-patterns]]. confidence: 1 community/product post, last-confirmed 2026-08-20.
+- The source says projects remain plain JSON in a local folder and exports include backend diagnostics so runtime limitations are visible before integration. Source: `raw/2026-08-20-rss-realtimevfx-nixiefx-a-browser-based-particle-editor-for-three-js-and-p.md`. confidence: 1 source, last-confirmed 2026-08-20.
+- NixieFX's PixiJS and Three.js runtimes share deterministic simulation but use separate rendering paths, with portability treated as practical compatibility rather than identical 2D/3D rendering. Source: `raw/2026-08-20-rss-realtimevfx-nixiefx-a-browser-based-particle-editor-for-three-js-and-p.md`; page: [[technical-art-community-and-talent-signals]]. confidence: 1 source, last-confirmed 2026-08-20.
+
+### Typed entities
+- tool/product: NixieFX
+- runtime/library: Three.js
+- runtime/library: PixiJS
+- artifact format: plain JSON
+- workflow: browser particle editor
+- feature: multi-emitter timeline
+- feature: node-based material workflow
+- feature: deterministic simulation
+- feature: backend diagnostics
+
+### Explicit relationships
+- NixieFX complements browser-native material/texture tools by extending browser-local authoring into particle/VFX timelines.
+- Shared deterministic simulation complements cross-runtime portability, but separate render paths mean visual parity still depends-on runtime-specific validation.
+- Plain JSON projects complement source control and agent review because effect data can be inspected and diffed.
+
+### HoneyDrunk implications
+- For web-game or lightweight VFX prototypes, NixieFX is a scouting candidate if JSON export, licensing, offline/local-folder behavior, and runtime diagnostics fit the project.
+- Validate Three.js/PixiJS render parity on representative effects before using one runtime preview as proof for the other.
+
+### Quality notes
+- Community/product post with early feedback. Verify license, source/repo availability, export schema stability, browser support, and production runtime behavior before adoption.

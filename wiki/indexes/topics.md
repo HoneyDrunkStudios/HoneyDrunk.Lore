@@ -1077,3 +1077,26 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 
 ### Distributed systems architecture
 - [[distributed-systems-patterns]] - 3 sources - last-confirmed 2026-08-17
+
+## 2026-08-20 topic additions
+
+### Agent loops, memory, and software practice
+- [[ai-agent-harnesses]] - 182 sources - last-confirmed 2026-08-20
+- [[ai-assisted-software-practice]] - 91 sources - last-confirmed 2026-08-20
+- [[agent-evaluation-and-benchmarks]] - 44 sources - last-confirmed 2026-08-20
+- [[llm-wiki-and-knowledge-formats]] - 10 sources - last-confirmed 2026-08-20
+
+### Frontier models, post-training, and governance
+- [[edge-ai-and-ai-infrastructure-2026]] - 65 sources - last-confirmed 2026-08-20
+- [[openai-frontier-models-and-codex-2026]] - 37 sources - last-confirmed 2026-08-20
+- [[ai-policy-and-governance-2026]] - 2 sources - last-confirmed 2026-08-20
+
+### Agent security, GitHub operations, and malware infrastructure
+- [[ai-coding-agent-security]] - 153 sources - last-confirmed 2026-08-20
+- [[github-actions-platform-operations]] - 46 sources - last-confirmed 2026-08-20
+- [[malware-infrastructure-and-resilient-c2]] - 2 sources - last-confirmed 2026-08-20
+
+### Observability and browser-native creative tools
+- [[opentelemetry-genai-observability-and-ecosystem]] - 17 sources - last-confirmed 2026-08-20
+- [[browser-native-gpu-creative-tools]] - 4 sources - last-confirmed 2026-08-20
+- [[technical-art-community-and-talent-signals]] - 51 sources - last-confirmed 2026-08-20
