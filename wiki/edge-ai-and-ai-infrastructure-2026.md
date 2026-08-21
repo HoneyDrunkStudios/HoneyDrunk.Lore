@@ -979,3 +979,29 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - Miles is project/ecosystem-authored. Inkling source is a secondary explainer via TLDR; verify against Thinking Machines primary model card/docs before procurement or routing decisions.
+
+## 2026-08-21 compile additions: cheaper AI creation modes as access infrastructure
+
+### Source-backed claims
+- Replit says Free Mode is powered by OpenAI GPT-5.6 Luna and lets Core subscribers create up to 30x more than before for everyday tasks, with usage limits that reset every five hours and higher limits for Pro users. Source: `raw/2026-08-21-rss-tldr-ai-replit-introduces-free-mode-4-minute-read.md`; page: [[ai-assisted-software-practice]]. confidence: 1 vendor/product source, last-confirmed 2026-08-21.
+- The source positions Replit's mode routing as an access/cost layer: Free Mode for fast everyday tasks, Power Mode as the renamed cost-optimized mode for everyday agent work, and Max Mode for larger changes, deeper reasoning, and longer builds. Source: `raw/2026-08-21-rss-tldr-ai-replit-introduces-free-mode-4-minute-read.md`. confidence: 1 source, last-confirmed 2026-08-21.
+
+### Typed entities
+- product: Replit Agent
+- mode: Free Mode
+- mode: Power Mode
+- mode: Max Mode
+- model: GPT-5.6 Luna
+- control: usage-limit reset
+- concept: task-to-mode routing
+
+### Explicit relationships
+- AI creation access depends-on model cost and mode routing as much as raw model capability.
+- Free/cheap modes complement frontier modes when the harness can detect task complexity and escalate deliberately.
+
+### HoneyDrunk implications
+- Treat "cheap enough to use freely" as an infrastructure change: it can increase agent volume, review load, and cloud/workspace churn even when per-task model cost drops.
+- If HoneyDrunk adopts tiered agent modes, log which mode handled each task so quality, cost, and review burden can be compared.
+
+### Quality notes
+- Vendor access and plan claims are time-sensitive. Verify current Replit pricing, data handling, and model routing before adopting the pattern.

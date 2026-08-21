@@ -728,3 +728,37 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - `agentcov` and Miles are project-authored evidence. Liquid AI is strong practice evidence for loop design but still one organization/task class.
+
+## 2026-08-21 compile additions: layered truth contracts and workflow outcome scoring
+
+### Source-backed claims
+- Thoughtworks' reliability operating model says end-to-end agent evaluation can miss failures where terminology, routing, intent interpretation, semantic metadata, execution, and result checks each look plausible in isolation but collectively produce a wrong business answer. Source: `raw/2026-08-21-rss-thoughtworks-insights-an-operating-model-for-enterprise-ai-agent-relia.md`; page: [[ai-agent-harnesses]]. confidence: 1 Thoughtworks practice source, last-confirmed 2026-08-21.
+- The source recommends executable contract tests for truth contracts, covering positive cases, ambiguity, boundaries, and regression cases, with failure codes assigned during system design so violations route to the right owner and response. Source: `raw/2026-08-21-rss-thoughtworks-insights-an-operating-model-for-enterprise-ai-agent-relia.md`. confidence: 1 source, last-confirmed 2026-08-21.
+- System Design Newsletter's durable-agent source separates execution success from outcome success: a workflow system can show what completed, retried, waited, or replayed, but human feedback, business outcomes, or evaluator scores still need to measure whether the result was good. Source: `raw/2026-08-21-rss-system-design-newsletter-how-to-build-ai-agents-that-don-t-start-over-.md`. confidence: 1 newsletter/practitioner source, last-confirmed 2026-08-21.
+
+### Typed entities
+- framework: reliability ladder
+- artifact/control: truth contract
+- artifact/control: contract test
+- registry: failure taxonomy
+- test type: terminology test
+- test type: routing test
+- test type: semantic metadata test
+- test type: intent test
+- test type: execution test
+- test type: result test
+- metric: workflow outcome score
+- concept: execution success
+- concept: outcome success
+
+### Explicit relationships
+- Agent evaluation depends-on layer-specific tests when semantic failures can occur before final answer generation.
+- Failure taxonomy complements evaluation by assigning owner, severity, expected response, and durable regression behavior to contract violations.
+- Outcome scoring complements workflow execution traces because a completed run may still fail user, business, or domain truth requirements.
+
+### HoneyDrunk implications
+- For Lore Query/Compile and future business agents, include both execution receipts and output-quality checks; a completed run summary is not proof that the synthesized facts are correct.
+- When agent failures are found, add a regression case tied to the affected layer rather than only adjusting a prompt.
+
+### Quality notes
+- Thoughtworks and newsletter sources are practice evidence. Promote the model as an evaluation design pattern, not a benchmark result.

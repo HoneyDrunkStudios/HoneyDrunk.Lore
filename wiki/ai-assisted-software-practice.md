@@ -1064,3 +1064,41 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Thoughtworks is practitioner evidence. `agentcov` is README evidence and should be trialed locally before becoming a required review gate. No raw source snippets or transcript content were copied.
+
+## 2026-08-21 compile additions: always-on coding agents and AI creation access
+
+### Source-backed claims
+- Cursor's cloud-agent changelog says cloud agents can subscribe to PRs, Slack threads, and scheduled tasks, automatically follow PRs they create, fix CI, address bot comments, and use `/goal` for long-lived objectives. Source: `raw/2026-08-21-rss-tldr-ai-cloud-agents-and-cursor-harness-improvements-2-minute-read.md`; page: [[ai-agent-harnesses]]. confidence: 1 product changelog source, last-confirmed 2026-08-21.
+- The same source adds custom modes that pin a skill as an always-on behavior mode, subagents running on separate virtual machines with isolated project copies, and steering messages that wait for the next tool call instead of interrupting active work. Source: `raw/2026-08-21-rss-tldr-ai-cloud-agents-and-cursor-harness-improvements-2-minute-read.md`. confidence: 1 source, last-confirmed 2026-08-21.
+- Replit's Free Mode source frames cheaper/faster AI creation modes as reducing usage-friction for everyday chat, ideation, analysis, and smaller tasks while routing complex or higher-value work to paid Power or Max modes. Source: `raw/2026-08-21-rss-tldr-ai-replit-introduces-free-mode-4-minute-read.md`; page: [[edge-ai-and-ai-infrastructure-2026]]. confidence: 1 vendor/product source, last-confirmed 2026-08-21.
+- Replit claims context continuity across chat, creation, and projects, positioning software creation as a single workspace where users can ideate, build, launch, and grow without switching among AI tools; treat access and plan claims as product-specific and time-sensitive. Source: `raw/2026-08-21-rss-tldr-ai-replit-introduces-free-mode-4-minute-read.md`. confidence: 1 vendor/product source, last-confirmed 2026-08-21.
+
+### Typed entities
+- product: Cursor cloud agents
+- feature: PR subscription
+- feature: Slack-thread subscription
+- feature: scheduled task subscription
+- feature: custom mode
+- feature: isolated subagent VM
+- command: `/goal`
+- product: Replit Agent
+- mode: Replit Free Mode
+- mode: Replit Power Mode
+- mode: Replit Max Mode
+- model: GPT-5.6 Luna
+- plan: Replit Core
+- plan: Replit Pro
+
+### Explicit relationships
+- Always-on coding agents depend-on durable wake conditions, isolated environments, CI feedback, bot-comment handling, and human steering semantics.
+- Skill-pinned custom modes complement prompt instructions by keeping a playbook active across agent work.
+- Cheap/free everyday modes complement higher-performance modes when task routing distinguishes quick analysis from complex builds.
+- Context continuity across chat and build surfaces reduces handoff friction but does not supersede review, tests, security checks, or cost controls.
+
+### HoneyDrunk implications
+- For HoneyDrunk agent work, subscriptions and long-lived goals should be scoped to specific repos, branches, CI states, and review owners before enabling unattended loops.
+- Use cheap/fast modes for ideation or low-risk narrow tasks only if outputs still pass the same production gates before merge or deployment.
+- Treat vendor plan and model claims as live-product facts; verify current pricing, limits, retention, and model routing before changing workflow defaults.
+
+### Quality notes
+- Cursor and Replit sources are product-authored. They are useful market/workflow signals, not independent evidence that these modes are safe or cost-effective for HoneyDrunk production work.

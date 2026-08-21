@@ -1100,3 +1100,23 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 - [[opentelemetry-genai-observability-and-ecosystem]] - 17 sources - last-confirmed 2026-08-20
 - [[browser-native-gpu-creative-tools]] - 4 sources - last-confirmed 2026-08-20
 - [[technical-art-community-and-talent-signals]] - 51 sources - last-confirmed 2026-08-20
+
+## 2026-08-21 topic additions
+
+### Agent reliability, durable execution, and software practice
+- [[ai-agent-harnesses]] - 185 sources - last-confirmed 2026-08-21
+- [[agent-evaluation-and-benchmarks]] - 46 sources - last-confirmed 2026-08-21
+- [[ai-assisted-software-practice]] - 93 sources - last-confirmed 2026-08-21
+- [[distributed-systems-patterns]] - 5 sources - last-confirmed 2026-08-21
+
+### GitHub Actions, Code Quality, and Git storage
+- [[github-actions-platform-operations]] - 48 sources - last-confirmed 2026-08-21
+- [[git-storage-and-version-control-infrastructure]] - 1 source - last-confirmed 2026-08-21
+
+### Agent security and cloud execution-path monitoring
+- [[ai-coding-agent-security]] - 155 sources - last-confirmed 2026-08-21
+- [[cloud-security-monitoring-and-siem]] - 2 sources - last-confirmed 2026-08-21
+
+### AI access, infrastructure, and governance
+- [[edge-ai-and-ai-infrastructure-2026]] - 66 sources - last-confirmed 2026-08-21
+- [[ai-policy-and-governance-2026]] - 3 sources - last-confirmed 2026-08-21

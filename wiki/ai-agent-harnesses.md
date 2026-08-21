@@ -1446,3 +1446,52 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - Liquid AI and OpenTelemetry are engineering/project sources; `ai-memory` is README evidence. No private transcript content, bearer tokens, hook payloads, or install credentials were promoted.
+
+## 2026-08-21 compile additions: durable execution, truth contracts, and always-on cloud agents
+
+### Source-backed claims
+- System Design Newsletter's durable-agent source argues that long-running agent workflows need durable execution because LLM calls, tool calls, external APIs, side effects, human approvals, and disconnected clients make restart-from-zero retries expensive and potentially incorrect. Source: `raw/2026-08-21-rss-system-design-newsletter-how-to-build-ai-agents-that-don-t-start-over-.md`. confidence: 1 newsletter/practitioner source, last-confirmed 2026-08-21.
+- The same source uses Inngest as a case study for application-code-first durable execution: `step.run()` creates checkpointed units of work, completed step results can be reused on recovery, `step.sleep()` and `step.waitForEvent()` allow waiting without holding compute, and retries happen per step. Source: `raw/2026-08-21-rss-system-design-newsletter-how-to-build-ai-agents-that-don-t-start-over-.md`. confidence: 1 source, last-confirmed 2026-08-21.
+- The durable-agent source says the application still owns idempotent side effects, stable step identities, retry/failure policy, external consistency, and outcome-quality scoring; the execution layer records progress but does not make emails, payments, database writes, or multi-system actions safe by itself. Source: `raw/2026-08-21-rss-system-design-newsletter-how-to-build-ai-agents-that-don-t-start-over-.md`; page: [[distributed-systems-patterns]]. confidence: 1 source, last-confirmed 2026-08-21.
+- Thoughtworks' enterprise-agent reliability source proposes a reliability ladder across terminology, routing, agent intent, semantic context, execution, and result, with truth contracts, executable contract tests, failure taxonomy, and triggers for system changes, truth-definition changes, and production failures. Source: `raw/2026-08-21-rss-thoughtworks-insights-an-operating-model-for-enterprise-ai-agent-relia.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 Thoughtworks practice source, last-confirmed 2026-08-21.
+- The Thoughtworks source argues that a successful final query or plausible output can still be semantically wrong when stale definitions, weak metadata, misrouting, or dropped constraints occur earlier in the pipeline, so reliability must be tested at the layer where truth can fail. Source: `raw/2026-08-21-rss-thoughtworks-insights-an-operating-model-for-enterprise-ai-agent-relia.md`. confidence: 1 source, last-confirmed 2026-08-21.
+- Cursor's cloud-agent changelog adds subscriptions, custom modes, isolated-VM subagents, `/goal`, and non-interrupting steering, reinforcing always-on agent harnesses that can wake on PRs, Slack threads, schedules, and long-lived objectives. Source: `raw/2026-08-21-rss-tldr-ai-cloud-agents-and-cursor-harness-improvements-2-minute-read.md`; page: [[ai-assisted-software-practice]]. confidence: 1 product changelog source, last-confirmed 2026-08-21.
+
+### Typed entities
+- platform: Inngest
+- primitive: `step.run()`
+- primitive: `step.sleep()`
+- primitive: `step.waitForEvent()`
+- concept: durable execution
+- concept: durable endpoint
+- control: idempotency key
+- control: stable step identity
+- control: per-step retry
+- control: outcome score
+- framework: reliability ladder
+- artifact/control: truth contract
+- artifact/control: contract test
+- artifact/control: failure taxonomy
+- trigger: system change
+- trigger: truth-definition change
+- trigger: production failure
+- product: Cursor cloud agents
+- feature: subscriptions
+- feature: custom modes
+- feature: isolated subagent VM
+- command: `/goal`
+
+### Explicit relationships
+- Long-running agent workflows depend-on durable execution, checkpointing, resumability, human-wait semantics, flow control, and execution history.
+- Durable execution complements, but does not supersede, application-level idempotency and external consistency design.
+- Truth contracts complement final-answer evaluation by binding each reliability layer to owner, measurement, tolerance, enforcement, dependencies, and regression tests.
+- Production failures use triggers to strengthen contract tests, causing the observed failure mode to become durable system knowledge.
+- Always-on cloud agents use subscriptions and long-lived goals to keep work moving across external events, but depend-on isolation, budget controls, and review/CI feedback.
+
+### HoneyDrunk implications
+- Model Honeyclaw/Lore scheduled jobs as durable workflows with named step boundaries, resumability expectations, idempotency rules, and side-effect safety before adding more autonomous retries.
+- For enterprise-like agent features, define truth contracts for domain terms, routing, structured intent, semantic views, generated actions, and final outputs instead of relying on end-to-end "looks right" checks.
+- Treat always-on PR/Slack/schedule subscriptions as automation actors: document wake conditions, budget limits, sandbox identity, stop conditions, and who reviews resulting changes.
+
+### Quality notes
+- System Design Newsletter is practitioner/newsletter evidence and Inngest-sponsored; Thoughtworks is practice guidance; Cursor is product-changelog evidence. Use them as architecture patterns requiring local validation, not as procurement decisions.

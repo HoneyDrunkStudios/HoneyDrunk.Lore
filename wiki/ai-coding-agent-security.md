@@ -1664,3 +1664,53 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 
 ### Privacy and quality notes
 - Privacy filter: StopAndProtect domains, hashes, exposed URLs, payload snippets, credentials, screenshots, victim identifiers, and decryption details were not copied. OpenAI/GitHub sources are authoritative for their own claims; Check Point is vendor threat research and should be validated against local telemetry before detection decisions.
+
+## 2026-08-21 compile additions: execution-path security and endpoint agent telemetry
+
+### Source-backed claims
+- "A Closed Network Path Is Not a Closed Execution Path" argues that cloud isolation by firewall, VPC, security group, or Kubernetes NetworkPolicy can still allow privileged actions when event buses, queues, functions, service identities, and cross-account permissions chain into an execution path. Source: `raw/2026-08-21-rss-tldr-infosec-a-closed-network-path-is-not-a-closed-execution-path-6-mi.md`. confidence: 1 practitioner security source, last-confirmed 2026-08-21.
+- The source describes cross-environment event-driven paths such as SQS/Lambda, EventBridge, Pub/Sub/Eventarc, Event Grid, Service Bus, Functions, Workflows, and Logic Apps as normal architecture that becomes risky when each permission is reviewed separately instead of as one trust-crossing execution flow. Source: `raw/2026-08-21-rss-tldr-infosec-a-closed-network-path-is-not-a-closed-execution-path-6-mi.md`. confidence: 1 source, last-confirmed 2026-08-21.
+- The same source recommends graphing service and execution relationships, treating cross-account event sources and targets as ingress or egress at the trust boundary, evaluating workload identities with upstream triggers and downstream privileges, and correlating initiating events to privileged actions. Source: `raw/2026-08-21-rss-tldr-infosec-a-closed-network-path-is-not-a-closed-execution-path-6-mi.md`; page: [[cloud-security-monitoring-and-siem]]. confidence: 1 source, last-confirmed 2026-08-21.
+- The ATEN README describes Agent Telemetry & Event Notation as a background service for Claude Code and Codex that links intent from agent transcripts to host actions from Linux eBPF or Windows ETW, emitting structured JSON events to a file or Windows event log for SIEM collection. Source: `raw/2026-08-21-rss-tldr-infosec-aten-github-repo.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 project README source, last-confirmed 2026-08-21.
+- ATEN attributes process execution, credential-adjacent file access, sensitive file writes, DNS queries, network egress, and local broker/socket access to agent sessions and tool calls, with fields that distinguish whether an identifier came from the user, model output, tool input, or previous tool result. Source: `raw/2026-08-21-rss-tldr-infosec-aten-github-repo.md`. confidence: 1 README source, last-confirmed 2026-08-21.
+- ATEN supports Linux and Windows end to end today, while macOS support is compile/typecheck-plumbed but not runtime-verified because production activation needs Apple EndpointSecurity and NetworkExtension entitlements; the tool observes but does not block. Source: `raw/2026-08-21-rss-tldr-infosec-aten-github-repo.md`. confidence: 1 README source, last-confirmed 2026-08-21.
+
+### Typed entities
+- concept: execution path
+- concept: network path
+- service: AWS SQS
+- service: AWS Lambda
+- service: AWS EventBridge
+- service: Google Pub/Sub
+- service: Google Eventarc
+- service: Azure Event Grid
+- service: Azure Service Bus
+- service: Azure Functions
+- service: Azure Logic Apps
+- project/tool: ATEN
+- schema: Agent Telemetry & Event Notation
+- collector: Linux eBPF
+- collector: Windows ETW
+- collector: macOS EndpointSecurity
+- collector: NetworkExtension
+- client/runtime: Claude Code
+- client/runtime: Codex
+- event type: `credential_access`
+- event type: `network_egress`
+- event type: `local_ipc_access`
+- event type: `collector_status`
+
+### Explicit relationships
+- Cloud security depends-on execution-flow mapping because event triggers can cross trust boundaries without a direct network route.
+- Workload identity risk depends-on both upstream triggers and downstream privileges, not only the role policy in isolation.
+- Path-aware detection complements identity and network controls by linking initiating events to the privileged action they ultimately cause.
+- ATEN complements transcript-only audit and endpoint-only telemetry by correlating model/tool intent with process, file, DNS, network, credential, and local broker actions.
+- Agent telemetry observation does not supersede prevention; SIEM rules, sandboxing, least privilege, and approval gates still have to act on the signal.
+
+### HoneyDrunk implications
+- Review agent and cloud workflow designs as execution graphs: event source, queue/bus, function/workflow, service identity, downstream API, and resulting side effect.
+- Treat cross-account or lower-to-higher-trust event paths as ingress even when VPC diagrams show no route.
+- If ATEN is evaluated for Codex/OpenClaw hosts, test Windows behavior, transcript parsing, event volume/drop telemetry, SIEM mappings, privacy redaction, and false positives before making it a baseline control.
+
+### Privacy and quality notes
+- Security sources were summarized defensively. No exploit payloads, live external targets, credential values, shell commands, or reusable bypass procedures were promoted. ATEN is README evidence and must be verified locally before operational use.

@@ -695,3 +695,37 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ### Quality notes
 - GitHub changelog sources are authoritative for feature existence. Verify GHES availability and custom query compatibility before relying on these changes in enterprise-hosted environments.
+
+## 2026-08-21 compile additions: Code Quality Actions path and Windows 11 arm64 VS2026 runners
+
+### Source-backed claims
+- GitHub Code Quality now has a dedicated GitHub Actions workflow path, `dynamic/github-code-quality/codeql`, and actor, `github-code-quality`, so run history and Actions usage reports can distinguish Code Quality runs from code scanning runs. Source: `raw/2026-08-21-rss-github-changelog-actions-separate-github-actions-path-for-github-code-.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-08-21.
+- GitHub says Code Quality itself does not require repository reconfiguration, but scripts, dashboards, workflow filters, and usage or billing reports that assumed `dynamic/github-code-scanning/codeql` or `github-advanced-security` for Code Quality need updates. Source: `raw/2026-08-21-rss-github-changelog-actions-separate-github-actions-path-for-github-code-.md`; page: [[ai-coding-agent-security]]. confidence: 1 source, last-confirmed 2026-08-21.
+- GitHub's Windows 11 arm64 image with Visual Studio 2026 is generally available on standard and larger GitHub-hosted runners under `runs-on: windows-11-vs2026-arm`. Source: `raw/2026-08-21-rss-github-changelog-actions-windows-11-arm64-vs2026-image-generally-avail.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-08-21.
+- GitHub will gradually move the existing `windows-11-arm` image to Visual Studio 2026 by default from 2026-09-21 through 2026-09-30, and warns that workflows depending on Visual Studio 2022 may break. Source: `raw/2026-08-21-rss-github-changelog-actions-windows-11-arm64-vs2026-image-generally-avail.md`. confidence: 1 source, last-confirmed 2026-08-21.
+
+### Typed entities
+- product: GitHub Code Quality
+- platform: GitHub Actions
+- workflow path: `dynamic/github-code-quality/codeql`
+- prior workflow path: `dynamic/github-code-scanning/codeql`
+- actor: `github-code-quality`
+- prior actor: `github-advanced-security`
+- runner label: `windows-11-vs2026-arm`
+- runner label: `windows-11-arm`
+- toolchain: Visual Studio 2026
+- toolchain: Visual Studio 2022
+- date/decision: 2026-09-21 Windows 11 arm64 VS2026 migration begins
+- date/decision: 2026-09-30 Windows 11 arm64 VS2026 migration completes
+
+### Explicit relationships
+- Code Quality billing and usage reporting now depends-on the dedicated Code Quality Actions path and actor rather than the older code scanning path and Advanced Security actor.
+- `windows-11-vs2026-arm` complements migration testing by letting teams opt into the Visual Studio 2026 arm64 image before `windows-11-arm` changes default behavior.
+- The Visual Studio 2026 arm64 migration supersedes implicit Visual Studio 2022 assumptions on `windows-11-arm` after the rollout window.
+
+### HoneyDrunk implications
+- Update any GitHub usage dashboards or Actions-cost scripts that separate code scanning, Code Quality, and Copilot/code-review runner spend by path or actor.
+- Audit workflows that target `windows-11-arm` or custom arm64 larger runners before 2026-09-21; pin or migrate intentionally if Visual Studio 2022 tooling is required.
+
+### Quality notes
+- GitHub changelog sources are authoritative for captured feature posture. Verify live plan support and hosted-runner image contents before sweeping workflow changes.

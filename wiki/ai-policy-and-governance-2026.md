@@ -80,3 +80,39 @@ Dario Amodei's June 2026 policy essay argues that frontier AI has crossed from o
 
 ### Quality notes
 - Official provider source and policy-position evidence. Fowler fragments are curated commentary. This is operationally relevant but not a legal standard.
+
+## 2026-08-21 compile additions: AI regulation, liability, and data-center externalities
+
+### Source-backed claims
+- James Wang's interview with Bethany Andres-Beck surfaces a policy position that AI regulation should rely more on consumer-protection and liability mechanisms than government selection of approved models, with a named human responsible for each deployment. Source: `raw/2026-08-21-rss-tldr-ai-what-s-the-right-balance-in-regulating-ai-47-minute-read.md`. confidence: 1 interview/policy source, last-confirmed 2026-08-21.
+- The interview argues that data-center policy should price local externalities such as energy, water, land use, and infrastructure buildout rather than subsidizing data-center siting wherever political resistance is weakest. Source: `raw/2026-08-21-rss-tldr-ai-what-s-the-right-balance-in-regulating-ai-47-minute-read.md`. confidence: 1 candidate interview source, last-confirmed 2026-08-21.
+- Andres-Beck opposes government golden-share control of specific AI companies and warns that AI company monopolies could later reprice essential services after users and small businesses become dependent on them. Source: `raw/2026-08-21-rss-tldr-ai-what-s-the-right-balance-in-regulating-ai-47-minute-read.md`. confidence: 1 interview source, last-confirmed 2026-08-21.
+- The interview frames open innovation, open-weight alternatives, and possibly a public foundational model as anti-monopoly ideas, but the public-model claim is explicitly conditional on foundation pretraining/post-training becoming an economic natural monopoly. Source: `raw/2026-08-21-rss-tldr-ai-what-s-the-right-balance-in-regulating-ai-47-minute-read.md`; page: [[edge-ai-and-ai-infrastructure-2026]]. confidence: 1 interview source, last-confirmed 2026-08-21.
+
+### Typed entities
+- person: James Wang
+- person/political candidate: Bethany Andres-Beck
+- policy mechanism: consumer protection law
+- policy mechanism: AI liability regime
+- policy mechanism: named responsible human
+- policy idea: robot tax
+- policy topic: data-center externalities
+- policy topic: golden share
+- policy topic: public foundational model
+- institution concept: Library of Congress
+- risk: AI company monopoly
+- concept: open-weight model
+
+### Explicit relationships
+- AI liability policy depends-on deployment accountability and foreseeable-harm rules rather than only model existence.
+- Data-center governance depends-on energy, water, land-use, infrastructure, and community externalities, not only AI competitiveness.
+- Open-weight alternatives complement anti-monopoly policy by reducing dependence on a few proprietary model providers.
+- A public foundational model would depend-on foundation-model training becoming a natural-monopoly-like public infrastructure problem; this condition is not established by the interview.
+
+### HoneyDrunk implications
+- Track policy risk not only at frontier model release gates, but also at deployment accountability, consumer harm, data-center externalities, and monopoly/provider-dependence surfaces.
+- For HoneyDrunk products, keep a named owner and responsible reviewer for AI deployments even before law requires it; liability regimes tend to ask who deployed and controlled the system.
+- Keep provider abstraction and open/local model evaluation on the roadmap as anti-lock-in controls, not only cost optimizations.
+
+### Quality notes
+- This is a political candidate interview and not enacted law, neutral policy consensus, or legal advice. It is useful as a policy-surface signal and should not be treated as HoneyDrunk policy by itself.

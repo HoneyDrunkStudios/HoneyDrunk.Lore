@@ -113,3 +113,30 @@ Gossip protocol is a useful distributed-systems pattern when large clusters need
 
 ### Quality notes
 - The source is a concise newsletter primer and only exposes the first five sections of a paid article. Use it as basic architecture reinforcement, not as implementation guidance.
+
+## 2026-08-21 compile additions: durable workflows and Git storage consistency
+
+### Source-backed claims
+- System Design Newsletter's durable-agent source reinforces that queues and workflows solve different problems: queues retry work delivery, while durable workflows remember completed steps, waits, retries, and what must happen next. Source: `raw/2026-08-21-rss-system-design-newsletter-how-to-build-ai-agents-that-don-t-start-over-.md`; page: [[ai-agent-harnesses]]. confidence: 1 newsletter/practitioner source, last-confirmed 2026-08-21.
+- Cursor's Git storage source describes a WAL-backed object-store design where S3-compatible storage is the durable source of truth, local Git repositories are warm caches, and ETag freshness checks preserve read consistency even when gossip replication hints are lost. Source: `raw/2026-08-21-rss-tldr-ai-git-at-any-scale-27-minute-read.md`; page: [[git-storage-and-version-control-infrastructure]]. confidence: 1 primary-via-TLDR engineering source, last-confirmed 2026-08-21.
+
+### Typed entities
+- pattern: durable workflow
+- pattern: checkpointing
+- pattern: write-ahead log / WAL
+- storage service: S3-compatible object storage
+- consistency control: ETag freshness check
+- routing method: rendezvous hashing
+- replication mechanism: gossip
+
+### Explicit relationships
+- Durable workflows supersede simple whole-job retries when prior steps are expensive, nondeterministic, or side-effecting.
+- Object-store WALs can complement local cache replicas when the source of truth must be durable, linearizable, and recoverable.
+- Gossip replication depends-on a stronger freshness check when clients require consistent reads.
+
+### HoneyDrunk implications
+- Use queues for independent, idempotent background jobs; use durable workflow semantics when a run must survive waits, partial progress, or side effects.
+- Treat gossip as an accelerator or health/membership mechanism, not a source of truth for security-sensitive or consistency-sensitive state.
+
+### Quality notes
+- Both sources are practitioner/product evidence. Validate exact platform semantics before adopting a durable workflow or WAL-backed storage design.

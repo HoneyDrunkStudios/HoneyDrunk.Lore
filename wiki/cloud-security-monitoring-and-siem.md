@@ -36,3 +36,30 @@ Cloud security monitoring covers detection surfaces, SIEM integrity, and telemet
 
 ### Privacy and quality notes
 - Query patterns were summarized as detection categories rather than copied as operational runbooks. Adapt table names, watchlists, scope, and alert routing to the active tenant before use.
+
+## 2026-08-21 compile additions: execution-path monitoring
+
+### Source-backed claims
+- "A Closed Network Path Is Not a Closed Execution Path" argues that defenders should correlate event-driven cloud execution from initiating message or event through queue/bus, function/workflow, service identity, workload, and privileged downstream action instead of relying only on network reachability diagrams. Source: `raw/2026-08-21-rss-tldr-infosec-a-closed-network-path-is-not-a-closed-execution-path-6-mi.md`; page: [[ai-coding-agent-security]]. confidence: 1 practitioner security source, last-confirmed 2026-08-21.
+- The source says CloudTrail, application logs, mesh logs, flow logs, Lambda/function logs, event-bus rules, and original cross-account events may each record benign-looking pieces of a chain, while no single log source reconstructs the complete execution path for defenders. Source: `raw/2026-08-21-rss-tldr-infosec-a-closed-network-path-is-not-a-closed-execution-path-6-mi.md`. confidence: 1 source, last-confirmed 2026-08-21.
+
+### Typed entities
+- concept: execution-path monitoring
+- log source: CloudTrail
+- log source: application log
+- log source: service mesh log
+- log source: flow log
+- resource: event bus rule
+- resource: queue policy
+- resource: function trigger
+
+### Explicit relationships
+- Execution-path monitoring complements SIEM self-monitoring by treating event subscriptions and workload identities as part of the security boundary.
+- Individual benign audit records can contradict the real attack path when no correlation joins the initiating event to the final privileged action.
+
+### HoneyDrunk implications
+- For cloud agents and event-driven services, preserve correlation IDs across event source, queue/bus, function/workflow, workload identity, and privileged API call.
+- Review detection coverage during design; post-incident log stitching is weaker than predeclared execution-path baselines.
+
+### Quality notes
+- Source is practitioner security guidance. The wiki retained architecture and monitoring implications, not copy-pastable exploit steps.
