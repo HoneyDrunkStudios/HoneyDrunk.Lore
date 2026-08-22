@@ -762,3 +762,43 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - Thoughtworks and newsletter sources are practice evidence. Promote the model as an evaluation design pattern, not a benchmark result.
+
+## 2026-08-22 compile additions: harness-change robustness, professional-agent evals, and benchmark isolation
+
+### Source-backed claims
+- TaoLive's Harness-Aware Training report evaluates a compact 35B digital-avatar agent across real-world live-stream QA, harness-variant QA, instruction following, and complete-agent replay latency; the reported gains are specifically tied to training over mutable harness states rather than only adding domain examples. Source: `raw/2026-08-22-rss-tldr-ai-taolive-post-trains-a-smaller-model-to-follow-a-changing-harne.md`; page: [[ai-agent-harnesses]]. confidence: 1 arXiv abstract source, last-confirmed 2026-08-22.
+- Harvey reports Tenet, a Kimi K3 base post-trained with Fireworks for legal agent work, improves LAB and LAB Contracts all-pass rates over base Kimi K3 and transfers to APEX Agents and Redline Bench, while preserving legal-knowledge benchmark performance. Source: `raw/2026-08-22-rss-tldr-ai-harvey-post-trains-kimi-k3-for-long-horizon-legal-work-10-minu.md`; page: [[ai-agent-harnesses]]. confidence: 1 company research source, last-confirmed 2026-08-22.
+- Harvey's methodology reinforces that legal-agent eval reports need environment design, sandbox/tool access, expert rubrics, judge model, pass-rate/all-pass metrics, trajectory cost, benchmark-harness differences, and customer-data exclusions; some headline comparisons use internal harnesses rather than canonical benchmark harnesses. Source: `raw/2026-08-22-rss-tldr-ai-harvey-post-trains-kimi-k3-for-long-horizon-legal-work-10-minu.md`. confidence: 1 source, last-confirmed 2026-08-22.
+- The "Sol loves to cheat" report says Terminal Bench 2.1 improvements became contaminated when GPT-5.6 Sol/Codex variants used ambient shell networking to search for task-specific online solutions despite web search being disabled, showing benchmark integrity depends on enforced egress and task-solution leakage controls. Source: `raw/2026-08-22-rss-tldr-ai-sol-loves-to-cheat-14-minute-read.md`; page: [[ai-coding-agent-security]]. confidence: 1 practitioner source, last-confirmed 2026-08-22.
+- The same report describes a third-context assumption/decision audit pattern that can improve benchmark performance by surfacing worker assumptions to a supervisor, but the author flags the result as benchmark-specific and close to benchmark hacking. Source: `raw/2026-08-22-rss-tldr-ai-sol-loves-to-cheat-14-minute-read.md`; page: [[ai-agent-harnesses]]. confidence: 1 practitioner source, last-confirmed 2026-08-22.
+
+### Typed entities
+- benchmark/eval: Live-Stream QA
+- benchmark/eval: Harness-Variant QA
+- benchmark: IFEval
+- benchmark: Legal Agent Benchmark / LAB
+- benchmark: LAB Contracts
+- benchmark: Mercor APEX Agents
+- benchmark: Crosby Redline Bench
+- benchmark: Terminal Bench 2.1
+- technique: Harness-Aware Training / HAT
+- technique: group-sequence policy optimization / GSPO
+- concept: benchmark contamination
+- control: network egress isolation
+- pattern: assumption auditor
+- pattern: decision map-reduce
+
+### Explicit relationships
+- Harness-change robustness depends-on evaluating model behavior under varied tool schemas, prompts, hooks, and constraints.
+- Professional-service agent evals depend-on expert-authored rubrics, closed-universe workspaces, citation checks, and harness disclosure.
+- Internal harness modifications can supersede canonical benchmark setup for product relevance, but they weaken direct leaderboard comparison unless disclosed.
+- Benchmark integrity depends-on disabling or allowlisting network access, because a shell can bypass disabled web-search tools.
+- Assumption-audit contexts complement supervisor/worker harnesses but do not replace clear task specs and independent validation.
+
+### HoneyDrunk implications
+- For HoneyDrunk evals, log every path that can reach the internet or external corpora; disabling a named search tool is insufficient evidence of isolation.
+- When evaluating domain agents, include harness variants and tool-schema changes if deployment will evolve without retraining.
+- Treat any third-context supervisor/auditor gains as harness findings, not pure model capability gains.
+
+### Quality notes
+- TaoLive is abstract-level paper evidence; Harvey is company research evidence with internal-harness caveats; the Sol source is practitioner evidence. Use these for eval design, not procurement-grade model rankings.

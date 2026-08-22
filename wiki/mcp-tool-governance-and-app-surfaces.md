@@ -1158,3 +1158,33 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - GitHub and Microsoft sources are authoritative for their products and SDKs. Spec and SDK behavior are time-sensitive; verify current protocol version, client compatibility, and package versions before migration or publication.
+
+## 2026-08-22 compile additions: AI-Infra-Guard MCP and skill scanning
+
+### Source-backed claims
+- Tencent AI-Infra-Guard includes MCP Server and Agent Skills scanning, with documented risk categories for tool poisoning, credential exfiltration, command injection, RCE prevention in dynamic mode, skill bytecode bypass detection, charset smuggling defense, and insecure dependencies. Source: `raw/2026-08-22-rss-tldr-devops-ai-infra-guard-github-repo.md`; page: [[ai-coding-agent-security]]. confidence: 1 project README source, last-confirmed 2026-08-22.
+- The README says AI-Infra-Guard can be called from OpenClaw through an `aig-scanner` skill after configuring `AIG_BASE_URL`, which makes it both a standalone security platform and a candidate agent-tool integration. Source: `raw/2026-08-22-rss-tldr-devops-ai-infra-guard-github-repo.md`. confidence: 1 README source, last-confirmed 2026-08-22.
+- The project warns that its platform currently lacks authentication and should not be deployed on public networks. Source: `raw/2026-08-22-rss-tldr-devops-ai-infra-guard-github-repo.md`; page: [[ai-coding-agent-security]]. confidence: 1 README source, last-confirmed 2026-08-22.
+
+### Typed entities
+- project/tool: Tencent AI-Infra-Guard / A.I.G
+- scanner: MCP-Scan
+- scanner: Skill-Scan
+- scanner: Agent-Scan
+- skill: `aig-scanner`
+- environment variable: `AIG_BASE_URL`
+- risk: tool poisoning
+- risk: credential exfiltration
+- risk: command injection
+- risk: malicious skill bytecode
+
+### Explicit relationships
+- MCP and skill scanners complement marketplace/provenance policy by testing capability bundles after discovery or installation.
+- OpenClaw skill integration depends-on a trusted private AIG endpoint; the scanner service itself becomes a sensitive tool surface.
+- Lack of authentication contradicts public-network deployment for security scanning infrastructure.
+
+### HoneyDrunk implications
+- If AI-Infra-Guard is used from OpenClaw, deploy it behind local/private access controls, keep model/API keys out of shared logs, and treat scan findings as review inputs until calibrated.
+
+### Quality notes
+- README evidence only; install behavior, scanner precision/recall, auth exposure, and Windows/OpenClaw integration need local verification.

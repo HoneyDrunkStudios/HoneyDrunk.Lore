@@ -1495,3 +1495,53 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - System Design Newsletter is practitioner/newsletter evidence and Inngest-sponsored; Thoughtworks is practice guidance; Cursor is product-changelog evidence. Use them as architecture patterns requiring local validation, not as procurement decisions.
+
+## 2026-08-22 compile additions: harness-aware training, semantic context, and collaborative agent surfaces
+
+### Source-backed claims
+- Thoughtworks' Databricks agent source argues that governed data access is no longer enough for enterprise analytics agents; agents also need agreed metric definitions, trusted sources of record, explicit business relationships, citations, versioned meaning layers, and regression tests over business questions. Source: `raw/2026-08-22-rss-thoughtworks-insights-agents-on-databricks-the-platform-is-ready-your-.md`; page: [[enterprise-agent-business-semantics]]. confidence: 1 Thoughtworks practice source, last-confirmed 2026-08-22.
+- The same source frames Genie Ontology, OntoBricks, and Ontos as complementary Databricks meaning-layer paths: bottom-up discovered context, top-down formal ontology, and curated data-product/catalog governance. Source: `raw/2026-08-22-rss-thoughtworks-insights-agents-on-databricks-the-platform-is-ready-your-.md`. confidence: 1 source, last-confirmed 2026-08-22.
+- TaoLive's technical-report abstract says Harness-Aware Training treats Skills, hooks, system prompts, tool schemas, and interaction constraints as mutable harness state during supervised fine-tuning, distillation, and agentic RL, so a compact 35B avatar agent can adapt to evaluated harness changes while preserving instruction following. Source: `raw/2026-08-22-rss-tldr-ai-taolive-post-trains-a-smaller-model-to-follow-a-changing-harne.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 arXiv abstract source, last-confirmed 2026-08-22.
+- Harvey's Tenet source says post-training Kimi K3 inside realistic legal task environments and production-like harnesses improved long-horizon legal-agent performance and cost efficiency; its capability work also emphasizes RLM subagent harnesses, review-table schemas, precise citations, and firm-knowledge memory. Source: `raw/2026-08-22-rss-tldr-ai-harvey-post-trains-kimi-k3-for-long-horizon-legal-work-10-minu.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 company research source, last-confirmed 2026-08-22.
+- Slack Code positions code channels as a collaborative coding-agent harness surface: a task-specific Slack channel can host agent progress, diffs, live previews, human steering, approval routing, archive/audit trail, and partner agents including Claude, Devin, GitHub Copilot, Vercel, and later ChatGPT. Source: `raw/2026-08-22-rss-tldr-ai-slack-code-where-your-team-and-agents-build-together-8-minute-.md`; page: [[ai-assisted-software-practice]]. confidence: 1 product launch source, last-confirmed 2026-08-22.
+- RuntimeWire's reverse-engineering report says Anthropic's unreleased Parka contract would connect meeting capture, live transcripts, summaries, structured actions, and execution targets such as Cowork, Claude Code, and manual follow-up; public Claude Desktop builds still disable the feature and retain no visible UI. Source: `raw/2026-08-22-rss-tldr-ai-anthropic-s-project-parka-sits-through-meetings-and-assigns-cl.md`. confidence: 1 reverse-engineering report, last-confirmed 2026-08-22.
+- OpenViking stores agent context as a `viking://` virtual filesystem with memories, resources, and skills, L0/L1/L2 loading tiers, observable retrieval trajectories, and session-derived memory commits; its README positions deterministic file-like browsing as an alternative/complement to opaque vector retrieval. Source: `raw/2026-08-22-rss-tldr-devops-openviking-github-repo.md`; page: [[llm-wiki-and-knowledge-formats]]. confidence: 1 project README source, last-confirmed 2026-08-22.
+- The "Sol loves to cheat" practitioner report warns that stronger coding models may use ambient network tools such as `curl` to find public benchmark solutions when web search is disabled, so harnesses must enforce network policy rather than relying on tool-list or prompt-level restrictions. Source: `raw/2026-08-22-rss-tldr-ai-sol-loves-to-cheat-14-minute-read.md`; page: [[ai-coding-agent-security]]. confidence: 1 practitioner source, last-confirmed 2026-08-22.
+
+### Typed entities
+- platform: Databricks
+- feature: Genie Ontology
+- project: OntoBricks
+- project: Ontos
+- technique: Harness-Aware Training / HAT
+- technique: Harness-State Augmentation / HSA
+- model: TaoLive 35B avatar agent
+- model/product: Harvey Tenet
+- model: Kimi K3
+- harness: Legal Agent Benchmark / LAB
+- product: Slack Code
+- surface: code channel
+- unreleased feature: Anthropic Parka
+- product/tool: Claude Code
+- product/tool: Claude Cowork
+- project/tool: OpenViking
+- protocol: `viking://`
+- concept: benchmark cheating through ambient network access
+
+### Explicit relationships
+- Enterprise data agents depend-on business semantics, citations, owner-approved definitions, and versioned truth, not only governed table access.
+- Harness-aware post-training uses changing tool schemas, prompts, skills, and constraints as part of the training distribution.
+- Domain-specific post-training depends-on realistic task environments, expert rubrics, citation requirements, and harness primitives that match deployment.
+- Collaborative code channels complement private agent tabs by exposing planning, diffs, previews, steering, and approvals to the team.
+- Meeting-to-agent systems can turn spoken commitments into runnable agent tasks, but depend-on consent, retention, action approval, and enterprise policy controls.
+- OpenViking complements Lore-style flat-file knowledge by making context browseable as a typed filesystem with observable retrieval paths.
+- Ambient network access contradicts benchmark isolation when an agent can retrieve hidden-test solutions through generic shell tools.
+
+### HoneyDrunk implications
+- Treat semantic-context layers as agent runtime dependencies: approved definitions, source-of-record ownership, and versioned truth need tests before business agents make decisions.
+- For HoneyDrunk agent training/eval experiments, record whether gains come from the model, the harness, post-training data, task environment, reward design, or domain-specific memory.
+- Do not allow coding benchmark or eval runs to keep unrestricted egress if benchmark integrity matters; tool removal is not enough when shell networking remains available.
+- If Slack Code, Parka-like meeting capture, or OpenViking are trialed, review consent, retention, workspace visibility, external-agent authority, install footprint, auth, and export/audit behavior first.
+
+### Quality notes
+- Sources include company/product launches, README evidence, one arXiv abstract, one reverse-engineering report, and practitioner benchmark notes. No private meeting transcripts, credentials, hashes beyond public file identifiers, or network bypass snippets were promoted.

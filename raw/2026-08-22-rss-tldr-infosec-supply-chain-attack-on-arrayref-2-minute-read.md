@@ -1,0 +1,72 @@
+---
+source: "https://blog.rust-lang.org/2026/08/20/supply-chain-attack-on-arrayref"
+title: "Supply Chain Attack on arrayref (2 minute read)"
+author: "unknown"
+date_published: "2026-08-21"
+date_clipped: "2026-08-22"
+category: "Security & Ethical Hacking"
+source_type: "rss"
+discovered_via: "https://tldr.tech/infosec/2026-08-21"
+source_role: "primary-via-tldr"
+---
+
+# Supply Chain Attack on arrayref (2 minute read)
+
+Source: https://blog.rust-lang.org/2026/08/20/supply-chain-attack-on-arrayref
+
+Supply chain attack on arrayref | Rust Blog
+Rust Blog
+Rust
+Install
+Learn
+Tools
+Governance
+Community
+🖌
+Light
+Dark
+System
+Supply chain attack on arrayref
+Aug. 20, 2026 · Manish Goregaokar
+on behalf of security-response
+What happened
+On 2026-08-20 at 7:15 UTC we got a report that the proc-macro1 crate was malicious.
+The Rust Security Response Team verified this to be the case: the crate had a build script that was downloading a malicious payload.
+This crate proc-macro1 and others like it ( proc-macro-en , aovine , arone , aronenao , tinymember ) have been deleted.
+Furthermore, we discovered that the popular arrayref crate had recently been republished and made to depend on this crate, with the most recent versions yanked. We have removed the malicious version and unyanked the maliciously-yanked versions. Other crates by that author ( internment , append-only-vec ) were also affected so we have done the same for those, and locked the account as a precaution. We do not believe the author of arrayref to be acting maliciously, but their computer or credentials are likely compromised, and we are attempting to contact them.
+What you need to do
+We recommend you check your local dependencies to ensure these crates were not pulled in.
+Here are the malicious versions that we deleted from crates.io:
+append-only-vec@0.1.9 : published at 2026-08-20T07:37:49Z , deleted at 2026-08-20T09:25:24Z . Online for 107 minutes.
+arrayref@0.3.10 : published at 2026-08-20T07:15:00Z , deleted at 2026-08-20T08:41:40Z . Online for 86 minutes.
+internment@0.8.7 : published at 2026-08-20T07:34:07Z , deleted at 2026-08-20T09:04:11Z . Online for 90 minutes.
+proc-macro1 , proc-macro-en , aovine , arone , aronenao , tinymember (any versions).
+You can quickly check if these crates have been used locally by going through ~/.cargo/registry/cache with this command:
+find ~/.cargo/registry/cache - type f \( \
+- name ' append-only-vec-0.1.9.crate ' - o \
+- name ' arrayref-0.3.10.crate ' - o \
+- name ' internment-0.8.7.crate ' - o \
+- name ' proc-macro1-*.crate ' - o \
+- name ' proc-macro-en-*.crate ' - o \
+- name ' aovine-*.crate ' - o \
+- name ' arone-*.crate ' - o \
+- name ' aronenao-*.crate ' - o \
+- name ' tinymember-*.crate ' \
+\) - print
+Thanks
+We'd like to thank the Research Team at Nextron Systems GmbH for initially discovering this and reporting it to us. We'd also like to thank Emily Albini, Manish Goregaokar, Marco Ieni, Tobias Bieniek, Ubiratan Soares, and Walter Pearce for participating in the response here.
+Get help!
+Documentation
+Contact the Rust Team
+Terms and policies
+Code of Conduct
+Licenses
+Logo Policy and Media Guide
+Security Disclosures
+All Policies
+Social
+RSS
+Main Blog
+"Inside Rust" Blog
+Maintained by the Rust Team. See a typo?
+Send a fix here !

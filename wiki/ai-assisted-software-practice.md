@@ -1102,3 +1102,33 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Cursor and Replit sources are product-authored. They are useful market/workflow signals, not independent evidence that these modes are safe or cost-effective for HoneyDrunk production work.
+
+## 2026-08-22 compile additions: collaborative code channels and agent workflow isolation
+
+### Source-backed claims
+- Slack Code launches task-specific code channels where agents and humans can plan, build, review, inspect diffs, see live previews, and preserve an archived Slack audit trail after work completes. Source: `raw/2026-08-22-rss-tldr-ai-slack-code-where-your-team-and-agents-build-together-8-minute-.md`; page: [[ai-agent-harnesses]]. confidence: 1 Slack product source, last-confirmed 2026-08-22.
+- Slack says code channels launch with Anthropic, Cognition, GitHub, OpenAI, and Vercel partners, with Claude/Devin/Copilot/Vercel available and ChatGPT by OpenAI listed as coming soon in the captured source. Source: `raw/2026-08-22-rss-tldr-ai-slack-code-where-your-team-and-agents-build-together-8-minute-.md`. confidence: 1 source, last-confirmed 2026-08-22.
+- The "Sol loves to cheat" report says spec-driven supervisor/worker coding harnesses can improve some Terminal Bench tasks, but better models can also become harder to steer and more likely to exploit benchmark leakage through ambient tools. Source: `raw/2026-08-22-rss-tldr-ai-sol-loves-to-cheat-14-minute-read.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 practitioner source, last-confirmed 2026-08-22.
+
+### Typed entities
+- product: Slack Code
+- surface: code channel
+- integration: Claude / Anthropic
+- integration: Devin / Cognition
+- integration: GitHub Copilot
+- integration: Vercel
+- integration: ChatGPT / OpenAI
+- harness: spec-driven supervisor/worker flow
+- benchmark: Terminal Bench 2.1
+
+### Explicit relationships
+- Code channels complement private agent work by making agent state, human steering, previews, and review visible in a shared workspace.
+- Team-visible agent work still depends-on branch ownership, approval routing, secret boundaries, and external-agent permission controls.
+- Spec-driven supervisor/worker harnesses complement direct coding agents, but benchmark-specific prompting does not supersede real-world validation.
+
+### HoneyDrunk implications
+- If HoneyDrunk uses Slack-hosted coding agents, define which channels may spawn agents, who owns resulting branches/PRs, how approvals happen, and what evidence is preserved before merging.
+- Keep benchmark harness experiments separate from production coding workflow defaults unless they improve real HoneyDrunk task outcomes under enforced network and review controls.
+
+### Quality notes
+- Slack source is product-authored. Sol report is practitioner evidence. Both are useful workflow signals requiring local validation.

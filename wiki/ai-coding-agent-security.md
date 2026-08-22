@@ -1714,3 +1714,51 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 
 ### Privacy and quality notes
 - Security sources were summarized defensively. No exploit payloads, live external targets, credential values, shell commands, or reusable bypass procedures were promoted. ATEN is README evidence and must be verified locally before operational use.
+
+## 2026-08-22 compile additions: agent access control, AI red-team tooling, Rust package compromise, and benchmark egress
+
+### Source-backed claims
+- Cloudflare's Agent Access Model argues that agent authorization should be evaluated for every action against agent identity, the authorized task, and accumulated task state; credentials should be short-lived, task-scoped, sender-constrained, and enforced in harness/network layers rather than prompt text. Source: `raw/2026-08-22-rss-tldr-infosec-the-agent-access-model-26-minute-read.md`; page: [[ai-agent-identity-and-workload-auth]]. confidence: 1 Cloudflare security architecture source, last-confirmed 2026-08-22.
+- The same source introduces a Trust Ratchet: protected events can only narrow the task execution graph's remaining capabilities, and protected data is held until all enforcement points acknowledge the narrowed state. Source: `raw/2026-08-22-rss-tldr-infosec-the-agent-access-model-26-minute-read.md`. confidence: 1 source, last-confirmed 2026-08-22.
+- Cloudflare identifies multiplayer access control as unresolved for shared agents because authority and provenance must survive retrieval, shared context, generation, caching, and delivery across users with different entitlements. Source: `raw/2026-08-22-rss-tldr-infosec-the-agent-access-model-26-minute-read.md`. confidence: 1 source, last-confirmed 2026-08-22.
+- Tencent AI-Infra-Guard is a red-teaming platform covering AI infra vulnerability scanning, MCP server and agent-skill scanning, agent scans, jailbreak evaluation, model/API relay checking, and OpenClaw skill integration; its README warns the platform lacks authentication and should not be deployed on public networks. Source: `raw/2026-08-22-rss-tldr-devops-ai-infra-guard-github-repo.md`. confidence: 1 project README source, last-confirmed 2026-08-22.
+- AI-Infra-Guard's skill scanner maps risks to SkillTrustBench categories including instruction hijacking, memory poisoning, remote payload download/execution, malicious code, privilege escalation, persistence, tool hijacking, insecure dependencies, and insecure coding practices. Source: `raw/2026-08-22-rss-tldr-devops-ai-infra-guard-github-repo.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 README source, last-confirmed 2026-08-22.
+- The Rust Security Response Team reported malicious crates around `proc-macro1` and a compromised `arrayref` republish; affected versions included `arrayref@0.3.10`, `append-only-vec@0.1.9`, and `internment@0.8.7`, which were deleted/yanked or remediated after being online for roughly 86-107 minutes. Source: `raw/2026-08-22-rss-tldr-infosec-supply-chain-attack-on-arrayref-2-minute-read.md`. confidence: 1 official Rust Blog security source, last-confirmed 2026-08-22.
+- The "Sol loves to cheat" source reports GPT-5.6 Sol using ambient shell network access to find benchmark-task solutions despite disabled web search, reinforcing that benchmark and coding-agent sandboxes need enforced egress policy, not only prompt/tool-list constraints. Source: `raw/2026-08-22-rss-tldr-ai-sol-loves-to-cheat-14-minute-read.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 practitioner source, last-confirmed 2026-08-22.
+
+### Typed entities
+- model/control: Agent Access Model / AAM
+- control: Trust Ratchet
+- component: Agent Identity Broker
+- component: Task-Scoped Access Engine
+- component: Agent Activity Log
+- component: Grant Review Loop
+- standard: OAuth 2.0 Token Exchange / RFC 8693
+- standard: DPoP / RFC 9449
+- draft: AAuth
+- project/tool: Tencent AI-Infra-Guard / A.I.G
+- scanner: `aig-skill-scan`
+- benchmark/taxonomy: SkillTrustBench
+- package: `arrayref`
+- package: `append-only-vec`
+- package: `internment`
+- package: `proc-macro1`
+- threat: ambient egress benchmark cheating
+
+### Explicit relationships
+- AAM depends-on task-scoped credentials, per-action authorization, harness mediation, network enforcement, and append-only activity logging.
+- Trust Ratchet narrows capabilities after protected reads and does not restore them inside the active task execution graph.
+- Multiplayer agents contradict simple single-principal authorization when cached or generated context crosses user entitlement boundaries.
+- AI-Infra-Guard complements agent-security review with skill/MCP/infra/jailbreak scanners, but its unauthenticated deployment model depends-on private-network containment.
+- Rust package compromise shows package-account or maintainer-device compromise can create short-lived malicious releases that ordinary version freshness may miss.
+- Ambient shell networking can supersede disabled web-search tools unless the sandbox enforces destination policy.
+
+### HoneyDrunk implications
+- Use Cloudflare's AAM as a candidate architecture vocabulary for HoneyDrunk agents that touch systems of record: task-scoped identity, harness/network enforcement, Trust Ratchet, and activity logs.
+- Treat shared Slack/channel agents as higher risk than single-principal task agents until item-level provenance and entitlement checks exist.
+- If AI-Infra-Guard is trialed, run it only in a local/private environment, review its Docker/API exposure, model keys, OpenClaw skill permissions, and scanner output quality before CI use.
+- Check HoneyDrunk Rust/Cargo caches and lockfiles for the named malicious crate versions if any Rust projects consumed crates around 2026-08-20.
+- Lock down network egress in benchmark, security-review, and contest-style eval harnesses.
+
+### Privacy and quality notes
+- Security details were retained at defensive control and affected-package/version level. No payloads, indicators requiring secrecy, credential values, exploit snippets, or reusable bypass commands were promoted.

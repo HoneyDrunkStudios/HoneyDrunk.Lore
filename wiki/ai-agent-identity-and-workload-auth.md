@@ -49,3 +49,31 @@ Agent identity is now a first-order security design choice. An agent can act as 
 ## Confidence and quality notes
 - Quality posture: decision-usable for identity-model vocabulary and tradeoffs. This is practitioner analysis, not a primary standard. Verify current vendor feature names, API behavior, pricing, and availability before implementation.
 - Privacy filter: public product names and architecture patterns retained; no private credentials, customer identities, or implementation secrets copied.
+
+## 2026-08-22 compile additions: Agent Access Model
+
+### Source-backed claims
+- Cloudflare's Agent Access Model treats a task-scoped agent run as the authorization unit and says credentials should expire with the task, be sender-constrained, and retain attribution to the initiating principal and current actor. Source: `raw/2026-08-22-rss-tldr-infosec-the-agent-access-model-26-minute-read.md`; page: [[ai-coding-agent-security]]. confidence: 1 Cloudflare security architecture source, last-confirmed 2026-08-22.
+- The model expects an Agent Identity Broker to issue a verifiable task credential and a Task-Scoped Access Engine to decide each request against the task grant, resource, operation, and accumulated state. Source: `raw/2026-08-22-rss-tldr-infosec-the-agent-access-model-26-minute-read.md`. confidence: 1 source, last-confirmed 2026-08-22.
+- Cloudflare maps existing standards to part of the design: OAuth 2.0 Token Exchange can narrow delegated credentials and preserve actor chains, while DPoP can bind a token to a harness-held proof key; neither standard alone defines the task template, Trust Ratchet, or cross-layer enforcement. Source: `raw/2026-08-22-rss-tldr-infosec-the-agent-access-model-26-minute-read.md`. confidence: 1 source, last-confirmed 2026-08-22.
+
+### Typed entities
+- model/control: Agent Access Model / AAM
+- component: Agent Identity Broker
+- component: Task-Scoped Access Engine
+- control: sender-constrained token
+- claim: actor chain
+- standard: OAuth 2.0 Token Exchange / RFC 8693
+- standard: DPoP / RFC 9449
+- draft: AAuth
+
+### Explicit relationships
+- Task-scoped credentials supersede standing service-account credentials for short-lived agent work where infrastructure can issue them.
+- Sender-constrained credentials depend-on the harness holding proof material outside model context.
+- Actor-chain attribution complements workload identity by preserving who initiated or delegated the work.
+
+### HoneyDrunk implications
+- For any HoneyDrunk agent that can reach production data, define the task template, initiating principal, credential lifetime, allowed resources, and actor-chain logging before enabling unattended execution.
+
+### Quality notes
+- Cloudflare is a vendor/security-architecture source. Use as design vocabulary and verify standards support against actual identity providers before implementation.

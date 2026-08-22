@@ -249,3 +249,37 @@ This page tracks durable patterns for agent-readable, human-readable knowledge s
 
 ### Quality notes
 - README evidence. No captured prompts, bearer tokens, project memories, or install secrets were promoted.
+
+## 2026-08-22 compile additions: OpenViking context database
+
+### Source-backed claims
+- OpenViking represents agent context as a `viking://` virtual filesystem containing resources, memories, skills, and peers so agents can browse context with file-like commands instead of relying only on opaque vector search. Source: `raw/2026-08-22-rss-tldr-devops-openviking-github-repo.md`; page: [[ai-agent-harnesses]]. confidence: 1 project README source, last-confirmed 2026-08-22.
+- The project writes L0 abstracts, L1 overviews, and L2 details for entries and directories, allowing agents to load summaries first and full detail only when needed. Source: `raw/2026-08-22-rss-tldr-devops-openviking-github-repo.md`. confidence: 1 README source, last-confirmed 2026-08-22.
+- OpenViking preserves retrieval trajectories and can commit session-derived preferences or agent experience into long-term memory after a session, making recall behavior inspectable rather than a black-box search result. Source: `raw/2026-08-22-rss-tldr-devops-openviking-github-repo.md`. confidence: 1 README source, last-confirmed 2026-08-22.
+- The README reports benchmark improvements on LoCoMo and tau2-bench with reduced tokens/latency, but those are project-reported results tied to its integrations, models, and benchmark setup. Source: `raw/2026-08-22-rss-tldr-devops-openviking-github-repo.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 README source, last-confirmed 2026-08-22.
+
+### Typed entities
+- project/tool: OpenViking
+- protocol: `viking://`
+- artifact: L0 abstract
+- artifact: L1 overview
+- artifact: L2 details
+- feature: observable retrieval trajectory
+- feature: session memory commit
+- integration: Codex
+- integration: Claude Code
+- integration: OpenClaw
+- benchmark: LoCoMo
+- benchmark: tau2-bench
+
+### Explicit relationships
+- OpenViking complements flat-file LLM wikis by adding a service/API layer, deterministic URI structure, tiered context loading, and retrieval trace inspection.
+- Tiered context loading depends-on write-time summarization quality; weak abstracts or overviews can hide relevant detail from agents.
+- Session-derived memory depends-on privacy filters, scope boundaries, source links, and review/merge policy before it becomes shared truth.
+
+### HoneyDrunk implications
+- Lore should preserve its markdown authority and citations even if OpenViking or a similar context database is trialed as an index/service layer.
+- If OpenViking is evaluated, test Windows setup, AGPL/commercial licensing fit, server authentication, provider keys, memory contamination, OpenClaw/Codex integration behavior, and whether retrieval trajectories improve auditability.
+
+### Quality notes
+- README evidence only. No configuration secrets, API keys, or memory contents were promoted.

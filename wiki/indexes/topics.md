@@ -1120,3 +1120,23 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 ### AI access, infrastructure, and governance
 - [[edge-ai-and-ai-infrastructure-2026]] - 66 sources - last-confirmed 2026-08-21
 - [[ai-policy-and-governance-2026]] - 3 sources - last-confirmed 2026-08-21
+
+## 2026-08-22 topic additions
+
+### Agent harnesses, post-training, and collaborative work surfaces
+- [[ai-agent-harnesses]] - 193 sources - last-confirmed 2026-08-22
+- [[agent-evaluation-and-benchmarks]] - 49 sources - last-confirmed 2026-08-22
+- [[ai-assisted-software-practice]] - 96 sources - last-confirmed 2026-08-22
+
+### Agent security, identity, MCP governance, and supply chain
+- [[ai-coding-agent-security]] - 159 sources - last-confirmed 2026-08-22
+- [[ai-agent-identity-and-workload-auth]] - 3 sources - last-confirmed 2026-08-22
+- [[mcp-tool-governance-and-app-surfaces]] - 106 sources - last-confirmed 2026-08-22
+
+### Knowledge formats and business semantics
+- [[llm-wiki-and-knowledge-formats]] - 11 sources - last-confirmed 2026-08-22
+- [[enterprise-agent-business-semantics]] - 1 source - last-confirmed 2026-08-22
+- [[ai-for-financial-research-and-investment]] - 1 source - last-confirmed 2026-08-22
+
+### AI infrastructure and model operations
+- [[edge-ai-and-ai-infrastructure-2026]] - 69 sources - last-confirmed 2026-08-22
