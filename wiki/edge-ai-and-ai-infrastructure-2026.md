@@ -1005,3 +1005,47 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - Vendor access and plan claims are time-sensitive. Verify current Replit pricing, data handling, and model routing before adopting the pattern.
+
+## 2026-08-23 compile additions: Muse Video, paged KV memory, and DeepSeek-V4-Pro serving profiles
+
+### Source-backed claims
+- TestingCatalog reports early closed-beta access to Meta Muse Video, with 10-second generated videos, native-audio support, strong detail and temporal-consistency claims, and no confirmed public release date. Source: `raw/2026-08-23-rss-tldr-ai-early-outputs-of-muse-video-model-from-meta-3-minute-read.md`; page: [[creative-automation-and-firefly-services]]. confidence: 1 secondary/product-access report, last-confirmed 2026-08-23.
+- The Muse Video source says likely distribution paths include Meta AI, the Meta AI app, Meta's Vibes feed, Instagram, Facebook, and potentially Meta Edits, but pricing, limits, and release timing remain unknown. Source: `raw/2026-08-23-rss-tldr-ai-early-outputs-of-muse-video-model-from-meta-3-minute-read.md`. confidence: 1 source, last-confirmed 2026-08-23.
+- The PagedAttention explainer describes PagedAttention as virtual memory for LLM KV cache: fixed-size KV blocks, request block tables, shared physical block pools, and copy-on-write for shared prefixes reduce internal/external fragmentation during inference serving. Source: `raw/2026-08-23-rss-tldr-ai-pagedattention-virtual-memory-for-the-kv-cache-15-minute-read.md`. confidence: 1 educational/practitioner source citing vLLM/SOSP paper, last-confirmed 2026-08-23.
+- The PagedAttention source says KV-cache utilization in naive serving can waste most reserved memory, while paged allocation and prefix sharing can substantially increase concurrent requests per GPU without changing model outputs; exact throughput/memory gains need workload validation. Source: `raw/2026-08-23-rss-tldr-ai-pagedattention-virtual-memory-for-the-kv-cache-15-minute-read.md`. confidence: 1 source, last-confirmed 2026-08-23.
+- LMSYS's DeepSeek-V4-Pro serving source argues frontier MoE serving needs multiple measured profiles for prefill, low-latency decode, and high-throughput decode rather than one universal deployment topology. Source: `raw/2026-08-23-rss-tldr-ai-pushing-the-limits-of-serving-deepseek-v4-pro-28-minute-read.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 engineering source, last-confirmed 2026-08-23.
+- The DeepSeek-V4-Pro source reports H20-focused optimizations including Humming MXFP4AFP8, Online C128, PP2/PP4 prefill profiles, PP2-TP8 low-latency decode, DP16/DP32 expert-parallel decode, DSpark speculative decoding, and routing-shape-tuned MoE kernels. Source: `raw/2026-08-23-rss-tldr-ai-pushing-the-limits-of-serving-deepseek-v4-pro-28-minute-read.md`. confidence: 1 source, last-confirmed 2026-08-23.
+
+### Typed entities
+- product/model: Meta Muse Video
+- product/model: Muse Image
+- product: Meta AI
+- product/surface: Vibes
+- product: Instagram
+- product: Meta Edits
+- technique: PagedAttention
+- data structure: KV cache
+- inference engine: vLLM
+- inference engine: SGLang
+- technique: copy-on-write prefix sharing
+- model: DeepSeek-V4-Pro
+- hardware: NVIDIA H20
+- hardware: NVIDIA B300
+- technique: Humming MXFP4AFP8
+- technique: Online C128
+- technique: DSpark speculative decoding
+
+### Explicit relationships
+- Muse Video complements Meta's open/local multimodal and consumer distribution strategy, but beta access does not supersede public availability, pricing, or rights review.
+- PagedAttention uses operating-system-style paging to decouple logical request context from physical KV memory layout.
+- Copy-on-write prefix sharing complements PagedAttention when many requests share system prompts or prompt prefixes.
+- DeepSeek-V4-Pro serving depends-on workload-specific topology because prefill, latency-sensitive decode, and high-throughput decode bind different resources.
+- MoE serving optimization depends-on measured routing skew, communication/computation overlap, KV capacity, and SLO-specific tradeoffs.
+
+### HoneyDrunk implications
+- If HoneyDrunk self-hosts LLMs, evaluate KV-cache management, prefix caching, and workload-specific serving profiles before buying more GPU capacity.
+- For creative video workflows, treat Muse Video as a scouting signal only; rights, retention, prompt/content policy, audio sync, pricing, and export quality need public-product validation.
+- Benchmark serving systems with HoneyDrunk context lengths and concurrency, because hardware peak compute alone is weak evidence for actual agent throughput.
+
+### Quality notes
+- Muse Video evidence is a secondary closed-beta report. PagedAttention is educational but cites primary systems work. DeepSeek-V4-Pro serving numbers are engineering-source measurements and should be reproduced before capacity planning.

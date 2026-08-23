@@ -97,3 +97,30 @@ Adobe Photoshop API v2 in Firefly Services is now a production-oriented creative
 
 ### Quality notes
 - Adobe source is product-authored and partly roadmap-oriented. Use it for integration-shape scouting, then verify current SDK docs and terms before adoption.
+
+## 2026-08-23 compile additions: Meta Muse Video beta signal
+
+### Source-backed claims
+- TestingCatalog reports early partner beta access to Meta Muse Video, with 10-second generation, native-audio support, and strong claimed detail and temporal consistency in sampled outputs. Source: `raw/2026-08-23-rss-tldr-ai-early-outputs-of-muse-video-model-from-meta-3-minute-read.md`; page: [[edge-ai-and-ai-infrastructure-2026]]. confidence: 1 secondary/product-access report, last-confirmed 2026-08-23.
+- The source says public release date, pricing, generation limits, and final distribution are unconfirmed, while Meta AI, Vibes, Instagram, Facebook, and Meta Edits are plausible future surfaces. Source: `raw/2026-08-23-rss-tldr-ai-early-outputs-of-muse-video-model-from-meta-3-minute-read.md`. confidence: 1 source, last-confirmed 2026-08-23.
+
+### Typed entities
+- product/model: Meta Muse Video
+- product/model: Muse Image
+- product: Meta AI
+- product/surface: Vibes
+- product: Instagram
+- product: Facebook
+- product: Meta Edits
+- capability: native-audio video generation
+
+### Explicit relationships
+- Muse Video complements creative automation by moving generative video toward consumer and creator distribution surfaces.
+- Closed beta access does not supersede licensing, export, safety, availability, or brand-review requirements.
+
+### HoneyDrunk implications
+- Track Muse Video as a potential creative ideation and short-form video source, but wait for public terms and run representative prompt/output QA before pipeline reliance.
+- Include audio sync, temporal consistency, rights, retention, watermark/provenance, moderation, and export controls in any future evaluation.
+
+### Quality notes
+- Secondary beta report. No generated media, user prompts beyond generic examples, private creator data, or account-specific access details were promoted.

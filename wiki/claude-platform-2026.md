@@ -490,3 +490,32 @@ Anthropic's 2026 platform direction is enterprise/workflow-heavy: Claude Opus 4.
 
 ### Quality notes
 - Anthropic is authoritative for its watermarking design but has provider incentives. Detection API details were not yet final in the captured source.
+
+## 2026-08-23 compile additions: Claude Opus 5 in AWS GovCloud
+
+### Source-backed claims
+- AWS says Claude Opus 5 is available in AWS GovCloud (US) through Amazon Bedrock, with access through the `bedrock-runtime` endpoint in both AWS GovCloud (US) regions and the `bedrock-mantle` endpoint in AWS GovCloud (US-West). Source: `raw/2026-08-23-rss-tldr-devops-claude-opus-5-is-now-available-in-aws-govcloud-us-2-minute.md`. confidence: 1 AWS announcement source, last-confirmed 2026-08-23.
+- AWS positions Claude Opus 5 for coding, long-running agents, codebase navigation, production-quality code, complex professional work, long documents, and document-heavy enterprise analysis, with zero data retention enabled by default in Bedrock. Source: `raw/2026-08-23-rss-tldr-devops-claude-opus-5-is-now-available-in-aws-govcloud-us-2-minute.md`. confidence: 1 source, last-confirmed 2026-08-23.
+- The AWS source says Bedrock keeps data within AWS infrastructure with regional data residency and integrates AWS-managed features such as Guardrails and Knowledge Bases. Source: `raw/2026-08-23-rss-tldr-devops-claude-opus-5-is-now-available-in-aws-govcloud-us-2-minute.md`. confidence: 1 source, last-confirmed 2026-08-23.
+
+### Typed entities
+- model: Claude Opus 5
+- platform: Amazon Bedrock
+- region class: AWS GovCloud (US)
+- endpoint: `bedrock-runtime`
+- endpoint: `bedrock-mantle`
+- control: zero data retention / ZDR
+- feature: Bedrock Guardrails
+- feature: Bedrock Knowledge Bases
+
+### Explicit relationships
+- Claude Opus 5 availability in GovCloud complements regulated/sovereign deployment options for Claude workloads.
+- ZDR and regional residency complement, but do not supersede, customer-side classification, prompt/data handling, IAM, audit, and approval controls.
+- Bedrock Guardrails and Knowledge Bases can mediate Claude use inside AWS-controlled infrastructure.
+
+### HoneyDrunk implications
+- If HoneyDrunk needs regulated Claude workloads, GovCloud Bedrock is a candidate route, but current account access, model ID, pricing, ZDR terms, logging, IAM, and region constraints must be verified before use.
+- Treat Opus 5 capability claims as provider positioning until benchmarked on HoneyDrunk coding, document, and long-agent tasks.
+
+### Quality notes
+- AWS is authoritative for its availability announcement. Live Bedrock regional availability, quotas, pricing, model IDs, and retention terms are time-sensitive.

@@ -802,3 +802,42 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - TaoLive is abstract-level paper evidence; Harvey is company research evidence with internal-harness caveats; the Sol source is practitioner evidence. Use these for eval design, not procurement-grade model rankings.
+
+## 2026-08-23 compile additions: cognitive assessment, harnessed RL, retrieval benchmarks, and serving methodology
+
+### Source-backed claims
+- Quanta's interview with Melanie Mitchell argues AI cognitive assessment should avoid anthropomorphic bias, use control experiments, test novel benchmark variations for robustness/generalization, probe systems instead of treating them only as black boxes, distinguish performance from competence, and analyze failure types and negative results. Source: `raw/2026-08-23-rss-tldr-ai-are-we-thinking-correctly-about-ai-intelligence-44-minute-read.md`. confidence: 1 science/interview source, last-confirmed 2026-08-23.
+- The Quanta source frames machine cognition as "alien intelligence" whose behavior may look human-like while using different mechanisms, so benchmark success should not automatically imply job-level competence or human-like reasoning. Source: `raw/2026-08-23-rss-tldr-ai-are-we-thinking-correctly-about-ai-intelligence-44-minute-read.md`. confidence: 1 source, last-confirmed 2026-08-23.
+- Agent Lightning v1.0 reports harnessed agentic RL results on instruction-following, search, and coding agents, including a Qwen3.5-9B SWE-bench Verified improvement from 41.8% to 56.4%; the result depends on the harnessed training pipeline and should be reviewed as a system result, not a pure model result. Source: `raw/2026-08-23-rss-tldr-ai-agent-lightning-v1-0-towards-harnessed-agentic-rl-1-minute-rea.md`; page: [[ai-agent-harnesses]]. confidence: 1 arXiv abstract source, last-confirmed 2026-08-23.
+- Mistral reports Agentic Search benchmark gains on FinanceBench and OfficeQA Pro, but the claim depends on the retrieval harness, available navigation tools, corpus parsing, model choice, scoring, token use, and latency measurements. Source: `raw/2026-08-23-rss-tldr-ai-mistral-replaces-one-shot-document-retrieval-with-a-navigable-.md`; page: [[agentic-retrieval-and-search]]. confidence: 1 vendor/product source, last-confirmed 2026-08-23.
+- LMSYS's DeepSeek-V4-Pro serving source frames serving performance as profile-specific methodology: workload, SLO, context length, concurrency, hardware, memory capacity, topology, and execution path must be reported together because no single serving profile covers all operating points. Source: `raw/2026-08-23-rss-tldr-ai-pushing-the-limits-of-serving-deepseek-v4-pro-28-minute-read.md`; page: [[edge-ai-and-ai-infrastructure-2026]]. confidence: 1 engineering source, last-confirmed 2026-08-23.
+
+### Typed entities
+- person: Melanie Mitchell
+- institution: Santa Fe Institute
+- concept: anthropomorphic cognitive bias
+- concept: control experiment
+- concept: robustness/generalization variation
+- concept: performance versus competence
+- concept: failure-type analysis
+- framework/project: Agent Lightning v1.0
+- benchmark: SWE-bench Verified
+- benchmark: FinanceBench
+- benchmark: OfficeQA Pro
+- model: DeepSeek-V4-Pro
+- metric: time to first token / TTFT
+- metric: time per output token / TPOT
+
+### Explicit relationships
+- Cognitive assessment depends-on controls, novel variants, probes, and failure analysis rather than only fluent outputs.
+- Benchmark performance does not supersede competence evidence when the real-world job is open-ended, embodied, social, or operationally broader than the test.
+- Harnessed RL and retrieval benchmarks depend-on harness disclosure because tools, context, navigation, and reward collection can change measured capability.
+- Serving benchmarks depend-on scenario-specific profiles; context-length and concurrency constraints can contradict a single "fastest" topology claim.
+
+### HoneyDrunk implications
+- For HoneyDrunk model reports, include failure taxonomy and benchmark variants, not only pass rates.
+- Treat model-routing claims from retrieval, RL, or serving sources as system claims: record model, harness, tools, corpus, budget, topology, and validation method.
+- Do not translate benchmark success into role automation without checking open-ended workflow coverage, supervision requirements, and human review burden.
+
+### Quality notes
+- Quanta is interview/science communication evidence; Agent Lightning is abstract-level research evidence; Mistral and LMSYS include source-side benchmark claims. Use these to improve eval design and require local validation before routing changes.

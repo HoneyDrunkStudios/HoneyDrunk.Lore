@@ -1,37 +1,36 @@
 # Lore Ingest Last Run
 
-Timestamp: 2026-08-22T10:04:53.9669327-04:00
+Timestamp: 2026-08-23T10:02:43.1694961-04:00
 
 ## Raw sources ingested
 
-Count: 11
+Count: 9
 
-- `raw/2026-08-22-rss-thoughtworks-insights-agents-on-databricks-the-platform-is-ready-your-.md`
-- `raw/2026-08-22-rss-thoughtworks-insights-the-alpha-playbook-ai-for-investment-professiona.md`
-- `raw/2026-08-22-rss-tldr-ai-anthropic-s-project-parka-sits-through-meetings-and-assigns-cl.md`
-- `raw/2026-08-22-rss-tldr-ai-harvey-post-trains-kimi-k3-for-long-horizon-legal-work-10-minu.md`
-- `raw/2026-08-22-rss-tldr-ai-slack-code-where-your-team-and-agents-build-together-8-minute-.md`
-- `raw/2026-08-22-rss-tldr-ai-sol-loves-to-cheat-14-minute-read.md`
-- `raw/2026-08-22-rss-tldr-ai-taolive-post-trains-a-smaller-model-to-follow-a-changing-harne.md`
-- `raw/2026-08-22-rss-tldr-devops-ai-infra-guard-github-repo.md`
-- `raw/2026-08-22-rss-tldr-devops-openviking-github-repo.md`
-- `raw/2026-08-22-rss-tldr-infosec-supply-chain-attack-on-arrayref-2-minute-read.md`
-- `raw/2026-08-22-rss-tldr-infosec-the-agent-access-model-26-minute-read.md`
+- `raw/2026-08-23-rss-tldr-ai-agent-lightning-v1-0-towards-harnessed-agentic-rl-1-minute-rea.md`
+- `raw/2026-08-23-rss-tldr-ai-are-we-thinking-correctly-about-ai-intelligence-44-minute-read.md`
+- `raw/2026-08-23-rss-tldr-ai-early-outputs-of-muse-video-model-from-meta-3-minute-read.md`
+- `raw/2026-08-23-rss-tldr-ai-mistral-replaces-one-shot-document-retrieval-with-a-navigable-.md`
+- `raw/2026-08-23-rss-tldr-ai-pagedattention-virtual-memory-for-the-kv-cache-15-minute-read.md`
+- `raw/2026-08-23-rss-tldr-ai-pushing-the-limits-of-serving-deepseek-v4-pro-28-minute-read.md`
+- `raw/2026-08-23-rss-tldr-devops-claude-opus-5-is-now-available-in-aws-govcloud-us-2-minute.md`
+- `raw/2026-08-23-rss-tldr-devops-github-com-incident-5-minute-read.md`
+- `raw/2026-08-23-rss-tldr-infosec-project-blacksea-github-repo.md`
 
 ## Wiki pages created/updated
 
 Created:
-- `wiki/enterprise-agent-business-semantics.md`
-- `wiki/ai-for-financial-research-and-investment.md`
+- `wiki/agentic-retrieval-and-search.md`
 
 Updated:
 - `wiki/ai-agent-harnesses.md`
 - `wiki/agent-evaluation-and-benchmarks.md`
+- `wiki/edge-ai-and-ai-infrastructure-2026.md`
+- `wiki/claude-platform-2026.md`
+- `wiki/creative-automation-and-firefly-services.md`
+- `wiki/github-actions-platform-operations.md`
+- `wiki/distributed-systems-patterns.md`
 - `wiki/ai-coding-agent-security.md`
-- `wiki/ai-agent-identity-and-workload-auth.md`
-- `wiki/ai-assisted-software-practice.md`
 - `wiki/llm-wiki-and-knowledge-formats.md`
-- `wiki/mcp-tool-governance-and-app-surfaces.md`
 - `wiki/indexes/sources.md`
 - `wiki/indexes/topics.md`
 - `wiki/indexes/gaps.md`
@@ -39,22 +38,20 @@ Updated:
 
 ## Contradictions resolved
 
-- None. The 2026-08-22 source set extended existing claims around agent harnesses, post-training, eval isolation, agent identity, MCP/skill scanning, business semantics, knowledge formats, and supply-chain security.
+- None. The 2026-08-23 source set extended existing claims around harnessed agentic RL, model-cognition evaluation, agentic retrieval, LLM serving, creative video generation, Claude GovCloud availability, GitHub incident recovery, and active honeypot governance.
 
 ## Gaps logged
 
-Count: 10
+Count: 8
 
-- Task-scoped credential and Trust Ratchet candidates for HoneyDrunk agents touching systems of record.
-- Versioned business meaning layer and golden-question tests for operational agents.
-- Slack Code/shared coding-agent channel trial criteria.
-- Meeting-capture-to-agent workflow policy.
-- OpenViking trial criteria.
-- AI-Infra-Guard trial criteria.
-- Rust/Cargo affected-crate audit criteria.
-- Benchmark/production egress enforcement for agents.
-- Harness-variant eval design.
-- Financial/investment-research AI boundaries.
+- Harnessed agentic RL evaluation and validation requirements.
+- Navigable retrieval criteria for Lore/HoneyDrunk knowledge tasks.
+- Cognitive-assessment controls for model-evaluation reports.
+- PagedAttention/prefix-cache/serving-profile benchmark criteria.
+- Muse Video creative-pipeline evaluation requirements.
+- Claude Opus 5 GovCloud/ZDR adoption evidence requirements.
+- CI/CD, token-client, retry, sidecar, and GitHub dependency resilience follow-up.
+- Legal/ethical/safety policy for active honeypot and canary-bait systems.
 
 ## Crystallization from output/query-*.md
 
@@ -64,21 +61,21 @@ Count: 10
 ## Blockers
 
 - None for ingest quality.
-- Publishing note: pre-existing unrelated worktree changes were present before this pass (`.obsidian/graph.json`, sourcing run summaries, signal-review outputs, and `tools/lore_source_public.py`). They were not edited by this ingest pass. The ingest commit will stage only intended ingest files plus the new raw sources.
+- Publishing note: pre-existing unrelated worktree changes were present before this pass (`.obsidian/graph.json`, sourcing run summaries, signal-review outputs, and `tools/lore_source_public.py`). This ingest pass did not edit those unrelated files. The intended commit should stage only the 2026-08-23 raw sources plus the wiki/output files listed above.
 
 ## Quality posture
 
-- Pages rewritten/flagged: none; edits were append-only dated compile sections plus two new canonical pages.
-- Weak claims: Slack/Parka/OpenViking/AI-Infra-Guard product or README evidence, RuntimeWire reverse-engineering evidence, TaoLive abstract-level paper evidence, Harvey company research evidence, and the Sol practitioner report all need local/current validation before operational adoption.
-- Privacy redactions: no credentials, tokens, API keys, private personal data, meeting transcripts, exploit payloads, live targets, reusable bypass procedures, or unsafe PII were copied into wiki content.
-- Decision-usefulness: the pass strengthened decision surfaces for agent access architecture, harness-aware evals, collaborative agent coding surfaces, context databases, skill/MCP scanning, business semantic context, investment-research AI boundaries, and Rust supply-chain response.
+- Pages rewritten/flagged: none; edits were append-only dated compile sections plus one new canonical retrieval page.
+- Weak claims: Muse Video is a secondary closed-beta report; Agent Lightning is abstract-level research evidence; Mistral and DeepSeek serving benchmark numbers are source-side claims; PagedAttention source is educational/practitioner evidence; Blacksea is README evidence and legally sensitive; AWS/GitHub are authoritative for their own platform announcements/incidents but live availability and policy can drift.
+- Privacy redactions: no credentials, tokens, sample token-looking values, private personal data, subscription contact form details, bait commands, payload mechanics, deployment instructions, exploit snippets, live targets, beacon formats, or reusable offensive procedures were copied into wiki content.
+- Decision-usefulness: the pass strengthened decision surfaces for harness-dependent RL/eval design, source-location-aware retrieval, LLM serving capacity planning, creative video scouting, regulated Claude routing, CI/token retry resilience, and defensive deception governance.
 
 ## Validation
 
 - Read `AGENTS.md` and followed the Ingest/Compile contract.
-- Compared current raw additions against `wiki/indexes/sources.md`; 11 unrepresented raw sources were ingested. `.gitkeep` was intentionally ignored as a sentinel.
+- Compared current raw additions against `wiki/indexes/sources.md`; 9 unrepresented raw sources were ingested. `.gitkeep` was intentionally ignored as a sentinel.
 - Reviewed `output/query-*.md` crystallization posture; no new durable query artifacts required promotion.
 - Preserved `raw/` immutability; no files under `raw/` were edited.
 - Rebuilt source/topic/gap indexes in the existing append-only style.
-- Performed privacy filtering while compiling security, meeting-capture, and financial sources.
+- Performed privacy filtering while compiling security, incident, model-serving, retrieval, and creative-video sources.
 - Performed a scoped content/code-review pass before publishing.

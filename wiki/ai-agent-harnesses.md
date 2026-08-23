@@ -1545,3 +1545,37 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - Sources include company/product launches, README evidence, one arXiv abstract, one reverse-engineering report, and practitioner benchmark notes. No private meeting transcripts, credentials, hashes beyond public file identifiers, or network bypass snippets were promoted.
+
+## 2026-08-23 compile additions: harnessed RL and navigable retrieval
+
+### Source-backed claims
+- Agent Lightning v1.0 frames modern agent post-training as harnessed agentic RL: the deploy-time harness owns tools, context, and environment interaction while the trainer observes LLM request/response sequences. Source: `raw/2026-08-23-rss-tldr-ai-agent-lightning-v1-0-towards-harnessed-agentic-rl-1-minute-rea.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 arXiv abstract source, last-confirmed 2026-08-23.
+- The paper abstract says harnessed agentic RL introduces training-stability challenges around retokenization, sample merging, advantage calculation, loss normalization, and backend scheduling because the harness and trainer are separated. Source: `raw/2026-08-23-rss-tldr-ai-agent-lightning-v1-0-towards-harnessed-agentic-rl-1-minute-rea.md`. confidence: 1 source, last-confirmed 2026-08-23.
+- The Agent Lightning v1.0 abstract reports a reproducible coding-agent RL pipeline that improved Qwen3.5-9B on SWE-bench Verified from 41.8% to 56.4% using 6K examples and modest compute; treat as paper-abstract evidence until paper/code review. Source: `raw/2026-08-23-rss-tldr-ai-agent-lightning-v1-0-towards-harnessed-agentic-rl-1-minute-rea.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 source, last-confirmed 2026-08-23.
+- Mistral Agentic Search reinforces retrieval as a harness loop: models can search, open, navigate, read, and grep inside documents instead of answering from a one-shot top-k chunk set. Source: `raw/2026-08-23-rss-tldr-ai-mistral-replaces-one-shot-document-retrieval-with-a-navigable-.md`; page: [[agentic-retrieval-and-search]]. confidence: 1 vendor/product source, last-confirmed 2026-08-23.
+
+### Typed entities
+- framework/project: Agent Lightning v1.0
+- concept: harnessed agentic RL
+- model: Qwen3.5-9B
+- benchmark: SWE-bench Verified
+- product/tooling: Mistral Agentic Search
+- tool: search
+- tool: open
+- tool: navigate
+- tool: read
+- tool: grep
+- concept: one-shot RAG
+
+### Explicit relationships
+- Harnessed agentic RL depends-on the deploy-time harness because the environment loop, tools, context, and control flow shape the training distribution.
+- Trainer-side reward and loss calculation depend-on faithful capture of harness request/response trajectories.
+- Agentic retrieval complements agent harnesses by making source inspection an explicit tool loop rather than hidden retrieval middleware.
+- One-shot RAG contradicts tasks that require following references, inspecting tables, or reconciling evidence across multiple documents.
+
+### HoneyDrunk implications
+- If HoneyDrunk explores agent fine-tuning or RL, record the exact harness state, tools, prompts, tokenization, reward source, and scheduler behavior; model-only training notes are not enough.
+- For Lore retrieval, evaluate whether hard queries need navigable search/read/grep tools with citation receipts rather than larger top-k chunk windows.
+
+### Quality notes
+- Agent Lightning is arXiv abstract evidence and Mistral is vendor benchmark/product evidence. Both are useful architecture signals but need primary-paper/code and local-corpus validation before adoption.

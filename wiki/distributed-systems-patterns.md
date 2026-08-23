@@ -140,3 +140,30 @@ Gossip protocol is a useful distributed-systems pattern when large clusters need
 
 ### Quality notes
 - Both sources are practitioner/product evidence. Validate exact platform semantics before adopting a durable workflow or WAL-backed storage design.
+
+## 2026-08-23 compile additions: retry storms and sidecar capacity
+
+### Source-backed claims
+- GitHub's 2026-08-17 incident report shows optimistic gateway/client retries can amplify a partial service failure into a much larger load event, including Copilot Token Service traffic rising from normal 7-9K RPS to 70-100K RPS. Source: `raw/2026-08-23-rss-tldr-devops-github-com-incident-5-minute-read.md`; page: [[github-actions-platform-operations]]. confidence: 1 GitHub Status incident report, last-confirmed 2026-08-23.
+- The same incident shows service-mesh sidecar concurrency can be the binding capacity limit when autoscaling policy observes host service limits but not sidecar limits. Source: `raw/2026-08-23-rss-tldr-devops-github-com-incident-5-minute-read.md`. confidence: 1 source, last-confirmed 2026-08-23.
+
+### Typed entities
+- failure mode: retry storm
+- component: Istio sidecar
+- component: HAProxy
+- service: Copilot Token Service
+- control: retry budget
+- control: backoff
+- control: sidecar-aware autoscaling
+
+### Explicit relationships
+- Retry policy depends-on budgets, jitter, backoff, and client behavior; retries without limits can worsen the outage they try to mask.
+- Autoscaling depends-on all constrained components in the request path, including sidecars and gateways, not only application pods.
+- Incident recovery may require deliberately reducing or rejecting selected traffic before gradually ramping back to steady state.
+
+### HoneyDrunk implications
+- For HoneyDrunk services and agents, define retry budgets and backoff for token/auth/tool calls instead of letting clients loop indefinitely.
+- If service mesh is introduced, include sidecar metrics in autoscaling and load tests before production rollout.
+
+### Quality notes
+- GitHub incident report is strong postmortem evidence for the pattern. Apply the lesson, not the exact GitHub topology, unless HoneyDrunk uses comparable components.

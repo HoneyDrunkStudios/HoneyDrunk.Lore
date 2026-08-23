@@ -1140,3 +1140,21 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 
 ### AI infrastructure and model operations
 - [[edge-ai-and-ai-infrastructure-2026]] - 69 sources - last-confirmed 2026-08-22
+
+## 2026-08-23 topic additions
+
+### Agent harnesses, retrieval, evaluation, and model cognition
+- [[ai-agent-harnesses]] - 196 sources - last-confirmed 2026-08-23
+- [[agent-evaluation-and-benchmarks]] - 53 sources - last-confirmed 2026-08-23
+- [[agentic-retrieval-and-search]] - 1 source - last-confirmed 2026-08-23
+- [[llm-wiki-and-knowledge-formats]] - 12 sources - last-confirmed 2026-08-23
+
+### AI infrastructure, serving, and creative models
+- [[edge-ai-and-ai-infrastructure-2026]] - 72 sources - last-confirmed 2026-08-23
+- [[creative-automation-and-firefly-services]] - 5 sources - last-confirmed 2026-08-23
+- [[claude-platform-2026]] - 45 sources - last-confirmed 2026-08-23
+
+### GitHub operations, distributed reliability, and agent security
+- [[github-actions-platform-operations]] - 49 sources - last-confirmed 2026-08-23
+- [[distributed-systems-patterns]] - 6 sources - last-confirmed 2026-08-23
+- [[ai-coding-agent-security]] - 161 sources - last-confirmed 2026-08-23

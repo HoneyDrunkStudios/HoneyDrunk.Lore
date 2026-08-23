@@ -1762,3 +1762,38 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 
 ### Privacy and quality notes
 - Security details were retained at defensive control and affected-package/version level. No payloads, indicators requiring secrecy, credential values, exploit snippets, or reusable bypass commands were promoted.
+
+## 2026-08-23 compile additions: active agent honeypots and GitHub incident retry amplification
+
+### Source-backed claims
+- The Blacksea README describes an active honeypot/canary-bait system aimed at detecting LLM-driven attackers by planting plausible security-relevant artifacts and turning a triggered bait into a structured record. Source: `raw/2026-08-23-rss-tldr-infosec-project-blacksea-github-repo.md`. confidence: 1 project README source, last-confirmed 2026-08-23.
+- The Blacksea architecture separates an internet-facing edge from a trusted brain: the edge receives opaque beacons and holds no keys, while the trusted side authenticates, decrypts, interprets, stores records, and can stream telemetry to SIEM/observability systems. Source: `raw/2026-08-23-rss-tldr-infosec-project-blacksea-github-repo.md`. confidence: 1 README source, last-confirmed 2026-08-23.
+- The Blacksea source is explicitly defensive and requires authorized use, but its approach is active deception that can execute payload code on the machine that trips the bait, so legal, ethical, and safety review is mandatory before any use outside a lab. Source: `raw/2026-08-23-rss-tldr-infosec-project-blacksea-github-repo.md`. confidence: 1 README source, last-confirmed 2026-08-23.
+- GitHub's August 17 incident shows agent/tooling ecosystems can amplify auth-service failures: VS Code retry behavior increased Copilot Token Service traffic from normal 7-9K RPS to 70-100K RPS after token failures. Source: `raw/2026-08-23-rss-tldr-devops-github-com-incident-5-minute-read.md`; page: [[github-actions-platform-operations]]. confidence: 1 GitHub Status source, last-confirmed 2026-08-23.
+
+### Typed entities
+- project/tool: Blacksea
+- concept: active honeypot
+- concept: canary bait
+- actor class: LLM-driven attacker
+- component: edge
+- component: brain
+- artifact: structured intel record
+- sink: SIEM
+- protocol: OpenTelemetry / OTLP
+- failure mode: retry amplification
+- service: Copilot Token Service
+
+### Explicit relationships
+- Active canary systems complement passive detection by creating attacker-side trigger evidence, but they depend-on strict authorization, containment, legal review, and operational safety.
+- Edge/brain separation reduces exposure by keeping key material and interpreted records out of the internet-facing receiver.
+- Structured records complement SIEM pipelines when they preserve bait identity, timestamp, source metadata, authentication state, and payload-defined findings.
+- Retry amplification contradicts resilient auth tooling when clients retry without effective budgets or backoff.
+
+### HoneyDrunk implications
+- Do not deploy Blacksea-style active baits in HoneyDrunk environments without explicit legal/owner approval, a lab or sanctioned engagement boundary, safety review, and incident-response ownership.
+- For defensive research, retain only high-level architecture and governance notes in Lore; operational bait construction, payload logic, and target-side execution details should stay out of wiki pages.
+- Add retry storm resistance to agent/tool auth design reviews: retries need budgets, backoff, and stop conditions when token services degrade.
+
+### Privacy and quality notes
+- Privacy filter: bait commands, sample token-looking values, payload details, deployment steps, beacon formats, and offensive procedural examples from the README were not promoted. Blacksea is README evidence and legally sensitive; validate responsibly before any experimentation.

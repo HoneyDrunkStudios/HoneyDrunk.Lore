@@ -729,3 +729,42 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ### Quality notes
 - GitHub changelog sources are authoritative for captured feature posture. Verify live plan support and hosted-runner image contents before sweeping workflow changes.
+
+## 2026-08-23 compile additions: GitHub.com August 17 incident
+
+### Source-backed claims
+- GitHub's status post says GitHub.com experienced elevated errors and latency on 2026-08-17 from 13:28 to 21:15 UTC across Issues, Pull Requests, APIs, Actions, and Copilot, with peak web/API error rates around 20% and archive/raw-content download errors around 50%. Source: `raw/2026-08-23-rss-tldr-devops-github-com-incident-5-minute-read.md`; page: [[ai-coding-agent-security]]. confidence: 1 GitHub Status incident report, last-confirmed 2026-08-23.
+- The incident affected SAML/OIDC authentication, SCIM, Team Sync, and Actions workflows in GHEC with Data Residency that depended on public workflow step definitions hosted on GitHub.com. Source: `raw/2026-08-23-rss-tldr-devops-github-com-incident-5-minute-read.md`. confidence: 1 source, last-confirmed 2026-08-23.
+- GitHub attributes the immediate failure to network saturation on Central US load balancers after an Istio sidecar pod reached concurrency limits and autoscaling policy failed to account for sidecar limits; cascading HAProxy flow exhaustion degraded gateway authentication. Source: `raw/2026-08-23-rss-tldr-devops-github-com-incident-5-minute-read.md`. confidence: 1 source, last-confirmed 2026-08-23.
+- A latent VS Code retry bug amplified Copilot Token Service traffic from a normal 7-9K RPS to 70-100K RPS, delaying full recovery until retry behavior was mitigated and traffic was ramped back gradually. Source: `raw/2026-08-23-rss-tldr-devops-github-com-incident-5-minute-read.md`; page: [[distributed-systems-patterns]]. confidence: 1 source, last-confirmed 2026-08-23.
+- GitHub follow-up actions include correcting autoscaling policies for service-mesh sidecar capacity, auditing Istio request/concurrency/scaling limits, reviewing gateway/client retry limits and backoff, addressing VS Code retry amplification, and improving load-balancer capacity monitoring and regional failover safeguards. Source: `raw/2026-08-23-rss-tldr-devops-github-com-incident-5-minute-read.md`. confidence: 1 source, last-confirmed 2026-08-23.
+
+### Typed entities
+- platform: GitHub.com
+- service: GitHub Actions
+- service: GitHub Copilot Token Service
+- service: GitHub APIs
+- identity surface: SAML/OIDC
+- identity surface: SCIM
+- identity surface: Team Sync
+- product class: GHEC with Data Residency
+- component: Istio sidecar
+- component: HAProxy
+- region: Central US
+- region: Northern Virginia
+- client: VS Code
+- failure mode: retry storm
+
+### Explicit relationships
+- GitHub Actions reliability depends-on GitHub.com availability even for data-residency workflows when public workflow step definitions are fetched from GitHub.com.
+- Service-mesh sidecar capacity can become the scaling bottleneck when autoscaling policy watches host service limits but not sidecar limits.
+- Client retry behavior can cause incident amplification when failed token operations enter high-rate loops.
+- Regional failover complements load-balancer capacity monitoring but depends-on retry shaping and gradual ramp-up during recovery.
+
+### HoneyDrunk implications
+- For HoneyDrunk CI/CD, cache or pin critical third-party actions where feasible and plan for GitHub.com raw/archive/API failures during incidents.
+- Review retry/backoff behavior in agents, CLIs, and token clients; optimistic retries without jitter or budgets can turn partial degradation into a self-inflicted outage.
+- Incident runbooks should distinguish GitHub API, raw content, Actions, identity, and Copilot-token failures because mitigations and fallbacks differ.
+
+### Quality notes
+- GitHub Status is authoritative for this incident report. No subscription contact details, phone-country lists, or status-page UI scaffolding were promoted.

@@ -283,3 +283,27 @@ This page tracks durable patterns for agent-readable, human-readable knowledge s
 
 ### Quality notes
 - README evidence only. No configuration secrets, API keys, or memory contents were promoted.
+
+## 2026-08-23 compile additions: navigable retrieval for cited knowledge work
+
+### Source-backed claims
+- Mistral Agentic Search reinforces that knowledge systems need source-location-aware retrieval when facts live inside long documents, tables, footnotes, clauses, or multiple related files; search/open/navigate/read/grep loops can produce more inspectable evidence than a fixed top-k chunk set. Source: `raw/2026-08-23-rss-tldr-ai-mistral-replaces-one-shot-document-retrieval-with-a-navigable-.md`; page: [[agentic-retrieval-and-search]]. confidence: 1 vendor/product source, last-confirmed 2026-08-23.
+
+### Typed entities
+- concept: navigable retrieval
+- concept: source-location-aware retrieval
+- product/tooling: Mistral Agentic Search
+- tool: grep
+- artifact type: long document
+- artifact type: table-heavy PDF
+
+### Explicit relationships
+- Navigable retrieval complements LLM wiki pages because raw sources remain the authority when a claim needs page, table, clause, or cross-document verification.
+- One-shot chunk retrieval can contradict decision-useful citation when the system cannot reopen and inspect the source location.
+
+### HoneyDrunk implications
+- Keep Lore raw paths and page-level citations stable so future search/read/grep tooling can verify claims against source files instead of trusting wiki prose alone.
+- If Lore adds a retrieval layer, require it to expose retrieval trajectories and source locations for hard questions, not only ranked snippets.
+
+### Quality notes
+- Mistral is vendor evidence for the retrieval product and benchmark deltas. The durable Lore lesson is the evidence-trail requirement, which should be validated on HoneyDrunk corpora.
