@@ -1188,3 +1188,43 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - README evidence only; install behavior, scanner precision/recall, auth exposure, and Windows/OpenClaw integration need local verification.
+
+## 2026-08-24 compile additions: MCP roadmap and azd extension MCP servers
+
+### Source-backed claims
+- The MCP roadmap source says the 2026-07-28 specification release removed protocol-level sessions and initialization handshake state, added `server/discover`, cacheable list results, Multi Round-Trip Requests, Tasks as an official extension, authorization hardening, CIMD, and stable Enterprise-Managed Authorization. Source: `raw/2026-08-24-web-mcp-blog-the-new-mcp-roadmap.md`; page: [[microsoft-dotnet-ai-stack]]. confidence: 1 official MCP blog source, last-confirmed 2026-08-24.
+- The new MCP roadmap prioritizes agentic messaging primitives, HTTP-native transport unification, agent identity and enterprise-ready security, improved tool/result primitives, progressive discovery for large tool catalogs, and SDK developer experience. Source: `raw/2026-08-24-web-mcp-blog-the-new-mcp-roadmap.md`. confidence: 1 source, last-confirmed 2026-08-24.
+- The roadmap says agent identity work should use existing standards such as DPoP, Workload Identity Federation, ID-JAG, Enterprise-Managed Authorization, and standard token exchange rather than pasted API keys or long-lived tokens. Source: `raw/2026-08-24-web-mcp-blog-the-new-mcp-roadmap.md`; page: [[ai-agent-identity-and-workload-auth]]. confidence: 1 source, last-confirmed 2026-08-24.
+- Microsoft Learn says `azd` extensions can declare an `mcp-server` capability so `azd` can start an extension as an MCP server and route agent tool calls to extension commands; the sample uses stdio serving and an explicit hidden command to start the server. Source: `raw/2026-08-24-web-microsoft-learn-add-an-mcp-server-to-an-extension.md`; page: [[azure-agent-automation-and-identity]]. confidence: 1 Microsoft Learn source, last-confirmed 2026-08-24.
+- The Azure Container Apps "what's new" capture lists May 2024 dynamic sessions as public preview, but it is a low-yield dated index captured in 2026 and should not be treated as current feature-status evidence without fresher ACA documentation. Source: `raw/2026-08-24-web-microsoft-learn-what-s-new-in-azure-container-apps-azure-container-app.md`; page: [[browser-snapshot-source-quality]]. confidence: 1 stale index source, last-confirmed 2026-08-24.
+
+### Typed entities
+- protocol: Model Context Protocol / MCP
+- specification release: 2026-07-28
+- method: `server/discover`
+- pattern: Multi Round-Trip Requests / MRTR
+- extension: Tasks
+- concept: progressive discovery
+- standard: DPoP
+- standard: Workload Identity Federation
+- grant: ID-JAG
+- CLI: Azure Developer CLI / `azd`
+- manifest capability: `mcp-server`
+- transport: stdio MCP server
+- platform feature: Azure Container Apps dynamic sessions
+
+### Explicit relationships
+- Stateless MCP supersedes protocol-level session affinity, but long-running and interactive work still depends-on explicit Tasks, MRTR request state, or application task stores.
+- Progressive discovery complements tool-surface minimization by revealing tools only after the conversation narrows.
+- Agent identity for MCP depends-on workload and delegation standards rather than shared static secrets.
+- `azd` extensions can expose MCP tools, so extension provenance and command authorization become MCP governance concerns.
+- Stale feature-index pages do not supersede current product documentation for preview/GA status.
+
+### HoneyDrunk implications
+- New HoneyDrunk MCP servers should target stateless HTTP/MRTR/task-compatible patterns and document current protocol/spec support.
+- Keep MCP tool catalogs small and progressively discoverable where possible; avoid giving models hundred-tool surfaces up front.
+- Treat `azd` MCP-capable extensions as both deployment extensions and agent tools: review source, version, owner, commands, auth, and logs before use.
+- Recheck Azure Container Apps dynamic-session status from current targeted docs before making production plans.
+
+### Quality notes
+- MCP blog is authoritative for roadmap direction but future-looking. Microsoft Learn is authoritative for the extension pattern, while ACA "what's new" is low-yield status evidence because the body is old relative to the clip date.

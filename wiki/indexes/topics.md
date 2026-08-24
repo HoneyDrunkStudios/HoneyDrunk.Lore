@@ -1158,3 +1158,26 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 - [[github-actions-platform-operations]] - 49 sources - last-confirmed 2026-08-23
 - [[distributed-systems-patterns]] - 6 sources - last-confirmed 2026-08-23
 - [[ai-coding-agent-security]] - 161 sources - last-confirmed 2026-08-23
+
+## 2026-08-24 topic additions
+
+### Agent security, identity, and workflow-platform risk
+- [[ai-coding-agent-security]] - 166 sources - last-confirmed 2026-08-24
+- [[ai-agent-identity-and-workload-auth]] - 5 sources - last-confirmed 2026-08-24
+- [[github-actions-platform-operations]] - 50 sources - last-confirmed 2026-08-24
+
+### MCP governance, Azure automation, and .NET agent tooling
+- [[mcp-tool-governance-and-app-surfaces]] - 108 sources - last-confirmed 2026-08-24
+- [[azure-agent-automation-and-identity]] - 34 sources - last-confirmed 2026-08-24
+- [[microsoft-dotnet-ai-stack]] - 69 sources - last-confirmed 2026-08-24
+
+### Multi-agent architecture and delegation
+- [[multi-agent-architectures]] - 29 sources - last-confirmed 2026-08-24
+- [[ai-assisted-software-practice]] - 97 sources - last-confirmed 2026-08-24
+
+### Unity, game tooling, and technical art
+- [[unity-3d-and-realtime-vfx-patterns]] - 63 sources - last-confirmed 2026-08-24
+- [[technical-art-community-and-talent-signals]] - 52 sources - last-confirmed 2026-08-24
+
+### Source quality and product-status recency
+- [[browser-snapshot-source-quality]] - 103 sources - last-confirmed 2026-08-24

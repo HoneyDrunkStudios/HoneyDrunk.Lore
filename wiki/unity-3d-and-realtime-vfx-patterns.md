@@ -1037,3 +1037,40 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - Unity source is authoritative for sample availability and workflow direction. Validate package/Unity version, performance, platform targets, and asset license before production use.
+
+## 2026-08-24 compile additions: Unity CLI, Pipeline, and Burst/Jobs boundaries
+
+### Source-backed claims
+- Unity's CLI source says the standalone `unity` binary can install/manage editors, modules, projects, and auth from the terminal, with structured JSON/TSV output, clear exit codes, unattended install flags, service-account auth, and `unity doctor` diagnostics for automation and CI. Source: `raw/2026-08-24-rss-unity-blog-meet-the-unity-cli-manage-unity-from-your-terminal.md`. confidence: 1 Unity source, last-confirmed 2026-08-24.
+- The experimental `com.unity.pipeline` package lets the CLI drive a running Unity Editor or development Player over a local API, discover static methods marked with `[CliCommand]`, and run `unity command eval` C# code inside the live Editor/Player behind a security token. Source: `raw/2026-08-24-rss-unity-blog-meet-the-unity-cli-manage-unity-from-your-terminal.md`; page: [[ai-assisted-game-development-pipelines]]. confidence: 1 Unity source, last-confirmed 2026-08-24.
+- Unity frames the CLI/Pipeline/eval combination as an execution surface for AI agents: observe a project, act through registered commands or live C# eval, enter Play mode, inspect logs/runtime state, and verify changes without copy-pasted console output. Source: `raw/2026-08-24-rss-unity-blog-meet-the-unity-cli-manage-unity-from-your-terminal.md`. confidence: 1 vendor source, last-confirmed 2026-08-24.
+- The Unity Burst/Jobs source argues Jobs and Burst are useful only when CPU computation is a real bottleneck, work can be isolated over many independent value-type elements, Unity API access stays outside the job kernel, data-copy costs are measured, and completion can be delayed or chained rather than waited on immediately. Source: `raw/2026-08-24-rss-dev-to-unity-where-unity-burst-and-jobs-actually-help-a-practical-guid.md`. confidence: 1 practitioner source, last-confirmed 2026-08-24.
+- The same Burst/Jobs source recommends persistent NativeContainer ownership, fixed-index outputs, one-frame or request-ID invalidation for stale results, dependent reductions for deterministic ordering, explicit batch-size measurement, and whole-frame profiling that includes collection, scheduling, `Complete()` wait, and result application. Source: `raw/2026-08-24-rss-dev-to-unity-where-unity-burst-and-jobs-actually-help-a-practical-guid.md`. confidence: 1 source, last-confirmed 2026-08-24.
+
+### Typed entities
+- CLI: Unity CLI / `unity`
+- package: `com.unity.pipeline`
+- API attribute: `[CliCommand]`
+- command: `unity command eval`
+- engine/runtime: Unity Editor
+- runtime: development Player
+- compiler: Unity Burst
+- API: C# Job System
+- API: `IJobFor`
+- data type: `NativeContainer`
+- pattern: one-frame latency invalidation
+
+### Explicit relationships
+- Unity CLI uses structured output and exit codes to make Unity agent-operable from terminal and CI surfaces.
+- Pipeline commands and eval complement MCP-style tools by exposing project-specific Unity operations and live engine state.
+- Eval access depends-on security tokens, local/dev-only scope, and command logging because it can execute arbitrary project C#.
+- Burst and Jobs complement GameObject workflows only when data boundaries, synchronization, ownership, and latency tolerance are designed explicitly.
+- Immediate `Complete()` calls can contradict the intended overlap benefits of scheduled jobs.
+
+### HoneyDrunk implications
+- For Unity repos, define agent-callable commands for safe project inspection, tests, profiling, and Play-mode checks before allowing general eval.
+- Treat `unity command eval` as a powerful dev-only capability requiring token custody, logging, and no production Player exposure.
+- Add Burst/Jobs adoption gates to performance reviews: profiler evidence, value-type data boundary, delayed completion, deterministic result handling, disposal/resize safety, and target-hardware measurement.
+
+### Quality notes
+- Unity CLI/Pipeline source is vendor-authored and partly experimental; validate CLI channel, package version, security token behavior, and local Windows ergonomics. Burst/Jobs source is practitioner guidance and should be checked against compiling samples and target device profiles.

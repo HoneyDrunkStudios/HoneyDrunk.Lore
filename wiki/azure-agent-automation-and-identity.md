@@ -584,3 +584,31 @@ Azure's May 2026 agent/developer tooling signal is that agent automation is movi
 
 ### Quality notes
 - Microsoft release notes are authoritative for feature existence. Validate installed `azd` version, runner environment detection, and breaking-output changes before migration.
+
+## 2026-08-24 compile additions: MCP-capable azd extensions and ACA status-source caveat
+
+### Source-backed claims
+- Microsoft Learn says an `azd` extension can declare the `mcp-server` capability in `extension.yaml`, optionally configure MCP startup args/env, and expose tools to agents by adding an MCP server command such as `mcp start` that serves over stdio. Source: `raw/2026-08-24-web-microsoft-learn-add-an-mcp-server-to-an-extension.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 Microsoft Learn source, last-confirmed 2026-08-24.
+- The `azd` extension example uses a Go MCP server library to register a `suggest_tags` tool for standardized Azure resource tags; this is a pattern for extension-owned tools rather than proof that all extension commands are safe for agent use. Source: `raw/2026-08-24-web-microsoft-learn-add-an-mcp-server-to-an-extension.md`. confidence: 1 source, last-confirmed 2026-08-24.
+- The Azure Container Apps "what's new" source captured on 2026-08-24 lists dynamic sessions as May 2024 public preview and points newer updates to GitHub, so current ACA feature status should be verified from targeted docs or release notes rather than this stale index. Source: `raw/2026-08-24-web-microsoft-learn-what-s-new-in-azure-container-apps-azure-container-app.md`. confidence: 1 stale Microsoft Learn index source, last-confirmed 2026-08-24.
+
+### Typed entities
+- CLI: Azure Developer CLI / `azd`
+- manifest: `extension.yaml`
+- capability: `mcp-server`
+- command: `mcp start`
+- tool example: `suggest_tags`
+- platform: Azure Container Apps dynamic sessions
+
+### Explicit relationships
+- MCP-capable `azd` extensions combine deployment lifecycle extension risk with agent tool-surface risk.
+- Extension-owned MCP tools depend-on extension provenance, command authorization, input validation, and audit logging.
+- Stale product-index pages should not supersede targeted current documentation for preview/GA status.
+
+### HoneyDrunk implications
+- If HoneyDrunk builds Azure workflow extensions, decide separately which commands become MCP tools; do not expose whole extension command surfaces by default.
+- Add source/version/owner/capability metadata for any `azd` extension that a repo requires or an agent can invoke.
+- Recheck ACA dynamic-session current status before any production session-pool design.
+
+### Quality notes
+- Microsoft Learn source is authoritative for the extension authoring pattern. ACA status source is useful as a pointer, not as current product status evidence.

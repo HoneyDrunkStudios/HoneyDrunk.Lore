@@ -77,3 +77,29 @@ Agent identity is now a first-order security design choice. An agent can act as 
 
 ### Quality notes
 - Cloudflare is a vendor/security-architecture source. Use as design vocabulary and verify standards support against actual identity providers before implementation.
+
+## 2026-08-24 compile additions: signed agent actions and MCP identity direction
+
+### Source-backed claims
+- Google's zero-trust ADK source says every state-changing agent write should be signed by the specific agent making the request and verified before commit, so database rows carry immutable evidence tying the payload to the agent identity. Source: `raw/2026-08-24-rss-google-developers-blog-build-zero-trust-ai-agents-with-google-s-agent-.md`; page: [[ai-coding-agent-security]]. confidence: 1 Google Developers source, last-confirmed 2026-08-24.
+- The MCP roadmap prioritizes standardized agent identity and delegation using DPoP, Workload Identity Federation, ID-JAG, Enterprise-Managed Authorization, token exchange, and OAuth standards engagement for agents acting as cloud workloads or delegated subagents. Source: `raw/2026-08-24-web-mcp-blog-the-new-mcp-roadmap.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 official MCP blog source, last-confirmed 2026-08-24.
+
+### Typed entities
+- control: signed state-changing write
+- service: Cloud KMS / HSM-backed signing
+- control: database ingress guard
+- protocol/control: DPoP
+- protocol/control: Workload Identity Federation
+- grant: ID-JAG
+- control: Enterprise-Managed Authorization
+
+### Explicit relationships
+- Signed state-changing writes complement workload identity by making persisted state independently auditable after the agent action.
+- MCP agent identity work depends-on existing identity standards and token exchange rather than static API keys.
+
+### HoneyDrunk implications
+- For HoneyDrunk agents that mutate ledgers, orders, account records, or other systems of record, design write signatures and verification before relying on audit logs alone.
+- Track MCP agent identity support as a prerequisite for production remote MCP services that need unattended or subagent access.
+
+### Quality notes
+- Google source includes demo patterns and cloud-specific implementation details; validate against HoneyDrunk identity providers and data stores before adoption.

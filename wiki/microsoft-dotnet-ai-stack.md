@@ -744,3 +744,35 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 
 ### Quality notes
 - Microsoft sources are authoritative for their stack, but several APIs and package/template behaviors are preview or version-sensitive. Validate package versions, diagnostics, model support, and NuGet publishing posture before implementation.
+
+## 2026-08-24 compile additions: binlog Copilot tools and unit-test agent workflow
+
+### Source-backed claims
+- Microsoft's MSBuild Binlog Analyzer for VS Code is in Preview and pairs a VS Code extension with the `Microsoft.AITools.BinlogMcp` global-tool MCP server so Copilot can answer build-failure, performance, incremental-build, and before/after comparison questions from `.binlog` evidence. Source: `raw/2026-08-24-rss-net-blog-analyze-msbuild-binary-logs-with-copilot-in-vs-code-net-blog.md`. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-08-24.
+- The Binlog Analyzer supports explorer views, Problems panel diagnostics, slash commands such as `/errors`, `/perf`, `/timeline`, `/compare`, `/summary`, `/incremental`, and `/buildcheck`, baseline regression comparison, CI binlog download, and one-click Copilot fix/rebuild/compare loops. Source: `raw/2026-08-24-rss-net-blog-analyze-msbuild-binary-logs-with-copilot-in-vs-code-net-blog.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 source, last-confirmed 2026-08-24.
+- Microsoft's `code-testing-generator` is an open-source polyglot unit-test generation agent in the `dotnet-test` plugin for `dotnet/skills`; it researches repository conventions, detects frameworks and test commands, writes isolated unit tests, validates that normal repo test discovery sees them, and checks scenarios/assertions before finishing. Source: `raw/2026-08-24-rss-net-blog-from-generated-code-to-trusted-code-with-a-unit-test-agent-ne.md`. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-08-24.
+- Microsoft reports its specialized unit-test agent completed 140 of 152 internal benchmark tasks versus 120 for stock Copilot with the same model, with the largest gains on vague prompts and diff-targeted prompts; these are vendor benchmark results and need local replication before adoption decisions. Source: `raw/2026-08-24-rss-net-blog-from-generated-code-to-trusted-code-with-a-unit-test-agent-ne.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 vendor benchmark source, last-confirmed 2026-08-24.
+
+### Typed entities
+- product/tool: MSBuild Binlog Analyzer for VS Code
+- MCP server/tool: `Microsoft.AITools.BinlogMcp`
+- artifact: MSBuild binary log / `.binlog`
+- plugin: `dotnet-test`
+- agent: `code-testing-generator`
+- benchmark: internal unit-testing benchmark
+- benchmark: SWE Atlas unit-test tasks
+- clients: GitHub Copilot CLI, VS Code, VS Code Insiders
+
+### Explicit relationships
+- Binlog MCP tools complement Copilot by grounding build diagnosis in structured MSBuild evidence rather than text-log inference.
+- Baseline binlog comparison complements performance regression review by connecting target/task timing, diagnostics, properties, and package-version differences.
+- Unit-test generation depends-on repository discovery, local conventions, test-command discovery, full-suite validation, and assertion quality checks.
+- Specialized testing agents supersede one-line "generate unit tests" prompts when the prompt omits framework, placement, scenarios, or validation commands.
+
+### HoneyDrunk implications
+- For .NET repos, emit and retain `.binlog` artifacts on failing or slow CI paths so agents can diagnose from structured evidence.
+- Trial binlog-assisted Copilot only with read-only diagnostic paths first; auto-fix loops should remain normal PR/code-review work.
+- For test-generation automation, require the agent to prove the normal repo test command discovers the new tests and include assertion-quality review before merge.
+
+### Quality notes
+- Microsoft sources are authoritative for their tools but Preview/vendor-benchmark evidence is not enough for HoneyDrunk-wide adoption. Validate package versions, plugin install behavior, generated-test quality, and CI artifact handling locally.

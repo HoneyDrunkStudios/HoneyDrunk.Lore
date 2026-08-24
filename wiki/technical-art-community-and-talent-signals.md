@@ -812,3 +812,32 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - Community source. Useful scouting signal; verify implementation, license, export schema, and runtime behavior before adoption.
+
+## 2026-08-24 compile additions: Blender 5.2 LTS release
+
+### Source-backed claims
+- Blender Foundation released Blender 5.2 LTS on 2026-07-14 with two years of support until July 2028, positioning it as a long-term-production baseline rather than a short-cycle feature release. Source: `raw/2026-08-24-rss-blender-releases-blender-5-2-lts-release-blender.md`. confidence: 1 Blender Foundation source, last-confirmed 2026-08-24.
+- Blender 5.2 LTS highlights include experimental procedural physics approaches for hair and cloth in Geometry Nodes, new Geometry Nodes, Compositor string nodes, remote Asset Library hosting, Cycles texture cache, Principled BSDF Thin Wall mode, Grease Pencil fill algorithm/tool updates, sculpting additions, attribute-preserving voxel remesh changes, and VR location scouting. Source: `raw/2026-08-24-rss-blender-releases-blender-5-2-lts-release-blender.md`. confidence: 1 source, last-confirmed 2026-08-24.
+
+### Typed entities
+- release: Blender 5.2 LTS
+- organization: Blender Foundation
+- feature area: Geometry Nodes
+- feature area: Cycles
+- feature area: EEVEE
+- feature area: Grease Pencil
+- feature area: Sculpting
+- feature: remote Asset Libraries
+- feature: VR location scouting
+
+### Explicit relationships
+- Blender 5.2 LTS supersedes Blender 5.2 beta scouting for production-baseline planning.
+- Remote Asset Libraries complement distributed creative pipelines by allowing hosted asset access instead of only local libraries.
+- Geometry Nodes simulation and compositor/rendering changes can affect Blender-to-engine export, lookdev, and procedural content workflows.
+
+### HoneyDrunk implications
+- For Blender-based technical-art tooling, evaluate 5.2 LTS as the next long-support baseline after add-on, export, Python API, GPU, and asset-library tests.
+- Track remote Asset Libraries and Geometry Nodes simulation work for future shared asset/procedural pipeline spikes.
+
+### Quality notes
+- Blender Foundation is authoritative for release/support posture. Feature fit still needs local pipeline validation with HoneyDrunk assets and add-ons.

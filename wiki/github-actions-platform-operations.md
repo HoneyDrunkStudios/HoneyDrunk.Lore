@@ -768,3 +768,28 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ### Quality notes
 - GitHub Status is authoritative for this incident report. No subscription contact details, phone-country lists, or status-page UI scaffolding were promoted.
+
+## 2026-08-24 compile additions: Docker Sandboxes in GitHub Agentic Workflows
+
+### Source-backed claims
+- Docker says GitHub Agentic Workflows added Docker Sandboxes as a supported agent runtime in July 2026, allowing a Copilot agent to run inside a disposable microVM with its own filesystem, network stack, and private Docker daemon while the outer GitHub Actions runner keeps ordinary workflow permissions and secrets boundaries. Source: `raw/2026-08-24-rss-docker-blog-run-ai-agents-in-github-actions-with-docker-sandboxes-dock.md`; page: [[ai-coding-agent-security]]. confidence: 1 Docker vendor source, last-confirmed 2026-08-24.
+- In Docker's sample, the agent used a sandbox runtime with constrained network allowlists and a separate safe-output job that could open a draft PR containing only files under `src/**`; workflow files, scripts, dependencies, docs, and generated files were outside the allowed patch surface. Source: `raw/2026-08-24-rss-docker-blog-run-ai-agents-in-github-actions-with-docker-sandboxes-dock.md`. confidence: 1 source, last-confirmed 2026-08-24.
+
+### Typed entities
+- workflow: GitHub Agentic Workflows / `gh-aw`
+- runtime: Docker Sandboxes / `docker-sbx`
+- isolation: microVM
+- component: private Docker daemon
+- control: safe-output job
+- control: file allowlist
+
+### Explicit relationships
+- Agentic CI sandboxing complements, but does not replace, GitHub Actions permission scoping and safe-output file allowlists.
+- Private Docker daemons inside microVMs reduce host Docker socket blast radius for Testcontainers-style integration tests.
+
+### HoneyDrunk implications
+- If HoneyDrunk experiments with agentic CI, require both runtime isolation and output constraints; root inside a sandbox should not become write access across the repo or organization.
+- Adapt Docker's draft-PR sample carefully because HoneyDrunk's standing publishing rules default PRs to ready-for-review when Codex publishes PRs directly.
+
+### Quality notes
+- Docker source is a vendor demo. Validate `gh-aw`, sandbox auth, runner support, billing, PR mode, and file allowlists locally before adopting.

@@ -232,3 +232,38 @@ Multi-agent systems are warranted only when a single agent hits hard limits: con
 
 ### Quality notes
 - Secondary explanatory source. Capture primary Thinking Machines research before making architecture commitments.
+
+## 2026-08-24 compile additions: orchestrator context cost and delegation architecture
+
+### Source-backed claims
+- Rahul Garg's Fowler-hosted "The Orchestrator's Tax" argues that the most valuable role of subagents in long-running work may be protecting the orchestrator's working memory, not simply adding parallelism; noisy worker transcripts and repeated status polling can pollute the main context and tax every later decision. Source: `raw/2026-08-24-rss-martin-fowler-the-orchestrator-s-tax.md`. confidence: 1 practitioner architecture source, last-confirmed 2026-08-24.
+- The same source introduces cognitive locality as a task-splitting heuristic: tasks requiring the same mental model should usually stay together, while disposable exploration should remain in worker contexts and return only decision-relevant summaries. Source: `raw/2026-08-24-rss-martin-fowler-the-orchestrator-s-tax.md`. confidence: 1 source, last-confirmed 2026-08-24.
+- The source's concrete standing rules include preferring two to four agents per wave, treating five or more as a consolidation signal, avoiding full-transcript polling for lightweight status, disallowing repository-wide git operations inside concurrent agent prompts, and treating overlapping file ownership as a reason to merge tasks. Source: `raw/2026-08-24-rss-martin-fowler-the-orchestrator-s-tax.md`. confidence: 1 exploratory source, last-confirmed 2026-08-24.
+- Thoughtworks' delegation-architecture source argues that agent design is shifting from execution to delegated judgment: permissions, identity, escalation, reversibility, observability, and accountability together define bounded autonomy, and should be designed before deployment rather than treated as after-the-fact guardrails. Source: `raw/2026-08-24-rss-thoughtworks-insights-the-importance-of-agent-delegation-architecture.md`. confidence: 1 Thoughtworks strategy source, last-confirmed 2026-08-24.
+- The same Thoughtworks source says capability is the wrong unit of analysis for enterprise agents; bounded autonomy should specify what the system may decide, what it may do, under what conditions, with what observability, and under whose accountability. Source: `raw/2026-08-24-rss-thoughtworks-insights-the-importance-of-agent-delegation-architecture.md`. confidence: 1 source, last-confirmed 2026-08-24.
+
+### Typed entities
+- concept: orchestrator working memory
+- concept: context pollution
+- concept: cognitive locality
+- pattern: subagent wave
+- practice: delegation architecture
+- concept: bounded autonomy
+- control: escalation path
+- control: reversible action boundary
+- control: authority withdrawal
+
+### Explicit relationships
+- Subagents complement orchestrators by isolating disposable reasoning and evidence gathering from the persistent decision context.
+- Cognitive locality can supersede naive task parallelism when multiple workers would reconstruct the same code or domain model.
+- Status polling can contradict context hygiene when it imports full worker transcripts instead of concise progress state.
+- Delegation architecture connects technical permissions to organizational decision rights, accountability, and reversibility.
+- Guardrails complement delegation design but do not supersede the need to decide which judgments should be delegated at all.
+
+### HoneyDrunk implications
+- For OpenClaw/Honeyclaw multi-agent runs, prefer small waves with non-overlapping file/domain ownership; merge tasks when they share mental models or write surfaces.
+- Worker prompts should prohibit repo-wide git operations during concurrent work and return concise evidence summaries, not raw transcripts.
+- Agent design reviews should record bounded autonomy: authority, reversible/irreversible actions, owner, escalation, telemetry, and withdrawal path.
+
+### Quality notes
+- Fowler-hosted source is exploratory and self-critical rather than measured token accounting; use as workflow heuristic. Thoughtworks source is strategic architecture framing and needs local controls before implementation.

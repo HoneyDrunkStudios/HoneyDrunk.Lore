@@ -1797,3 +1797,42 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 
 ### Privacy and quality notes
 - Privacy filter: bait commands, sample token-looking values, payload details, deployment steps, beacon formats, and offensive procedural examples from the README were not promoted. Blacksea is README evidence and legally sensitive; validate responsibly before any experimentation.
+
+## 2026-08-24 compile additions: agent-speed systems security and orchestration-platform RCE
+
+### Source-backed claims
+- Docker's "17,600 Actions" source frames the OpenAI/Hugging Face cyber-evaluation incident as an agent-speed systems-security problem: familiar exploit, credential, privilege, and trust-boundary failures became harder to manage because thousands of plausible actions happened faster than human review or alert triage could handle. Source: `raw/2026-08-24-rss-docker-blog-17-600-actions-agent-security-is-a-systems-problem.md`. confidence: 1 Docker vendor/security source, last-confirmed 2026-08-24.
+- The same Docker source recommends architectural controls around untrusted content, poisoned tools/packages/MCP servers, structured tool interfaces, narrow permitted services, removed ambient credentials, hardened isolation, durable write governance, cross-system authorization, sequence-level monitoring, and machine-speed containment. Source: `raw/2026-08-24-rss-docker-blog-17-600-actions-agent-security-is-a-systems-problem.md`. confidence: 1 source, last-confirmed 2026-08-24.
+- Docker's GitHub Actions sandbox source says GitHub Agentic Workflows added Docker Sandboxes as a supported runtime in July 2026, using a disposable microVM with private Docker daemon, network policy, and constrained safe-output PR creation for agentic CI tasks. Source: `raw/2026-08-24-rss-docker-blog-run-ai-agents-in-github-actions-with-docker-sandboxes-dock.md`; page: [[github-actions-platform-operations]]. confidence: 1 Docker source, last-confirmed 2026-08-24.
+- Endor Labs' orchestration-platform research found critical/high vulnerabilities across NocoBase, Flowise, Langflow, Dify, Activepieces, Kestra, and Apache Airflow, with recurring causes including LLM output treated as executable code, sandboxing applied after attacker-controlled code runs, unauthenticated triggers that execute host code, and documentation patterns that teach unsafe command interpolation. Source: `raw/2026-08-24-rss-endor-labs-hacking-your-life-with-ai-can-get-you-hacked-blog-endor-lab.md`. confidence: 1 security-research source, last-confirmed 2026-08-24.
+- The Endor source says workflow builders and AI orchestration platforms must be treated as multi-tenant code-execution systems, not only productivity tools; any connector or trigger exposed to users or the internet can become a compromise boundary for credentials, calendars, email, customer data, or infrastructure. Source: `raw/2026-08-24-rss-endor-labs-hacking-your-life-with-ai-can-get-you-hacked-blog-endor-lab.md`. confidence: 1 source, last-confirmed 2026-08-24.
+- Google's ADK zero-trust source recommends hard guarantees outside the LLM context: agent-specific signed state-changing writes, sandboxed generated-code execution, deterministic semantic gateways for input/output/tool-call checks, policy tests in CI, and service-perimeter data exfiltration controls. Source: `raw/2026-08-24-rss-google-developers-blog-build-zero-trust-ai-agents-with-google-s-agent-.md`; page: [[ai-agent-identity-and-workload-auth]]. confidence: 1 Google Developers source, last-confirmed 2026-08-24.
+- TrustSig's wasm2c table allocation research reports an unchecked table allocation failure in wasm2c that can turn a guest-declared table size into host-memory read/write and host command execution under common untrusted-code limits such as address-space caps; the defensive fix is to fail closed when allocation fails and bound guest-declared sizes. Source: `raw/2026-08-24-rss-tldr-infosec-table-flip-a-wasm2c-guest-runs-a-shell-command-on-the-hos.md`. confidence: 1 security-research source, last-confirmed 2026-08-24.
+
+### Typed entities
+- incident class: OpenAI/Hugging Face cyber-evaluation incident
+- product/runtime: Docker Sandboxes / `docker-sbx`
+- workflow: GitHub Agentic Workflows / `gh-aw`
+- platform class: AI orchestration platform
+- products: NocoBase, Flowise, Langflow, Dify, Activepieces, Kestra, Apache Airflow
+- framework: Google Agent Development Kit / ADK
+- control: semantic gateway
+- control: signed state-changing write
+- runtime/toolchain: wasm2c / WABT
+- vulnerability class: unchecked allocation failure
+
+### Explicit relationships
+- Human approval does not scale to agent-speed action volume; high-risk sequences need policy, correlation, and containment outside the model.
+- Docker Sandboxes complements GitHub Actions by giving coding agents a private daemon and microVM boundary while safe-output jobs constrain repository mutation.
+- AI workflow/orchestration platforms overlap-with code-execution platforms when workflow authors, triggers, LLM output, or connectors can reach host interpreters.
+- Zero-trust agent design depends-on signed writes, sandboxed execution, deterministic gateway checks, and CI tests because prompts are soft constraints.
+- Allocation-failure hardening complements sandbox claims; a sandbox runtime can fail if metadata says memory exists when allocation failed.
+
+### HoneyDrunk implications
+- Treat every agent workflow builder, MCP server, plugin, and CI agent runtime as executable infrastructure with auth, sandbox, provenance, and audit requirements.
+- For HoneyDrunk agent CI, evaluate microVM sandbox runtimes with private Docker daemons, but keep PR output filters, branch/file ownership, and ready human review separate from runtime isolation.
+- Do not expose workflow triggers or AI-orchestration prediction endpoints without authentication and explicit authorization matching the code privilege behind the trigger.
+- For any untrusted-code runner, include allocation/resource-limit failure modes in sandbox review; hardening limits should not arm unchecked allocation bugs.
+
+### Privacy and quality notes
+- Privacy filter: exploit payloads, exact exfiltration commands, secret-looking examples, C2 details, and reusable offensive steps were not promoted. Docker and Google are vendor sources; Endor and TrustSig are security-research sources that should be validated against local versions before emergency action.

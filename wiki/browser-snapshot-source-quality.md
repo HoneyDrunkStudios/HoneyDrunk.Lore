@@ -259,3 +259,18 @@ The 2026-05-03 through 2026-05-07 X-list and Discord clipper snapshots are low-y
 
 ### Quality notes
 - These findings improve sourcing hygiene; no source content was rejected outright, but confidence was reduced where extraction quality or recency was weak.
+
+## 2026-08-24 compile additions: stale product-status index
+
+### Source-backed claims
+- The Azure Container Apps "what's new" capture was clipped on 2026-08-24 but its visible feature table is dominated by 2023-2024 entries and says newer Azure Container Apps and Dapr updates are now tracked in GitHub. Source: `raw/2026-08-24-web-microsoft-learn-what-s-new-in-azure-container-apps-azure-container-app.md`; page: [[azure-agent-automation-and-identity]]. confidence: 1 Microsoft Learn index source, last-confirmed 2026-08-24.
+
+### Explicit relationships
+- Capture date does not equal feature recency when a product index page contains older release tables.
+- Product-status indexes complement targeted docs but do not supersede current feature documentation or release repositories.
+
+### HoneyDrunk implications
+- Sourcing should flag old-dated product-status pages when `date_published` or body sections substantially predate `date_clipped`.
+
+### Quality notes
+- No current ACA claims were promoted from this source beyond the stale-index caution.
