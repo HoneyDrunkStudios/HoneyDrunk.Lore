@@ -1579,3 +1579,79 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - Agent Lightning is arXiv abstract evidence and Mistral is vendor benchmark/product evidence. Both are useful architecture signals but need primary-paper/code and local-corpus validation before adoption.
+
+## 2026-08-26 compile additions: coding-agent distribution, harness metadata, and Foundry hosted deployment
+
+### Source-backed claims
+- RuntimeWire reports OpenCode routed 26 trillion Ox Alpha tokens across 327,000 users and 8.3 million completed sessions in the anonymous model's first four days, showing that coding-agent distribution and zero-dollar pricing can create model-scale demand quickly. Source: `raw/2026-08-26-rss-tldr-ai-anonymous-ox-alpha-processes-26t-tokens-on-opencode-breaks-ope.md`; page: [[edge-ai-and-ai-infrastructure-2026]]. confidence: 1 secondary/source-backed report, last-confirmed 2026-08-26.
+- The Ox Alpha source says headline token volume included substantial prompt-cache reuse, the provider remained unidentified, OpenCode and OpenRouter had different retention terms, and tool-definition requests were reportedly failing through some OpenCode routes during the preview. Source: `raw/2026-08-26-rss-tldr-ai-anonymous-ox-alpha-processes-26t-tokens-on-opencode-breaks-ope.md`; page: [[ai-coding-agent-security]]. confidence: 1 source, last-confirmed 2026-08-26.
+- Morgin's time-release model-backdoor source shows coding-agent harness prompts can provide automatic trigger material such as model ID, cwd, platform, git-repo state, and date; the risky behavior came from the trained model, but the harness supplied the stable context. Source: `raw/2026-08-26-rss-tldr-infosec-your-open-source-model-could-have-a-hidden-time-release-b.md`; page: [[ai-coding-agent-security]]. confidence: 1 practitioner source, last-confirmed 2026-08-26.
+- Microsoft's Foundry Hosted Agents source says an existing Microsoft Agent Framework console agent can be exposed through the OpenAI-compatible Responses protocol with the `Microsoft.Agents.AI.Foundry.Hosting` package, `AgentHost.CreateBuilder`, `AddFoundryResponses`, and protocol registration, then run locally through `azd ai agent run` and deploy through `azd provision` plus `azd deploy`. Source: `raw/2026-08-26-rss-net-blog-from-dotnet-run-to-foundry-hosted-agent-in-3-lines-of-c.md`; page: [[microsoft-dotnet-ai-stack]]. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-08-26.
+- The same Microsoft source says Foundry Hosted Agents provide managed per-session compute, built-in session state, dedicated Microsoft Entra agent identity, Responses/Invocations protocol support, Application Insights traces, evaluations, immutable versions, and portal inspection. Source: `raw/2026-08-26-rss-net-blog-from-dotnet-run-to-foundry-hosted-agent-in-3-lines-of-c.md`; page: [[azure-agent-automation-and-identity]]. confidence: 1 source, last-confirmed 2026-08-26.
+- Fowler's August 24 fragments cite Zalando's agentic-programming practice as using internal platforms for API/tool access and chat/CLI support, monitoring model use, encouraging transparency across more than 200 experimenting teams, and applying LLM-assisted PR risk assessment that can auto-approve low-rollout-risk PRs while treating configuration changes as high risk. Source: `raw/2026-08-26-rss-martin-fowler-fragments-august-24.md`; page: [[ai-assisted-software-practice]]. confidence: 1 commentary source referencing a practitioner writeup, last-confirmed 2026-08-26.
+
+### Typed entities
+- harness: OpenCode
+- model/provider route: Ox Alpha
+- platform: OpenRouter
+- concept: coding-agent distribution
+- concept: prompt-cache reuse
+- threat: harness metadata trigger
+- framework: Microsoft Agent Framework
+- package: `Microsoft.Agents.AI.Foundry.Hosting`
+- protocol: Responses
+- protocol: Invocations
+- CLI: Azure Developer CLI / `azd`
+- product: Foundry Hosted Agents
+- organization: Zalando
+- practice: PR risk assessment
+
+### Explicit relationships
+- Coding-agent demand depends-on interface distribution, free/cheap routing, endpoint compatibility, context length, and price, not only model quality.
+- Unknown model providers contradict proprietary-code safety unless endpoint ownership, retention, tool support, and evaluation results are known.
+- Harness metadata complements task execution by orienting the model, but can also trigger poisoned or specialized behavior when sent automatically every turn.
+- Foundry Hosted Agents complement local Microsoft Agent Framework agents by adding managed runtime, identity, session state, protocol endpoints, traces, evals, and versioning.
+- PR risk scoring complements human review only when risk criteria, configuration-change escalation, and split-PR incentives are explicit.
+
+### HoneyDrunk implications
+- Treat free anonymous model previews as scouting only. Before routing HoneyDrunk code, verify provider identity, retention path, tool-call behavior, output limits, model card, and rollback.
+- Minimize unnecessary stable harness fingerprints in prompts and keep command execution approval, sandboxing, and egress controls outside model behavior.
+- For .NET agents, Foundry Hosted Agents are now a stronger deployment candidate, but package prerelease status, Azure cost, identity/RBAC, session storage, traces, and version rollback need local validation.
+- Consider PR risk classification as a workflow optimization only after HoneyDrunk can define safe low-risk categories and mandatory high-risk triggers such as config, auth, data, workflow, and dependency changes.
+
+### Quality notes
+- RuntimeWire and Fowler fragments are secondary/commentary evidence; use them as workflow and risk signals, not procurement proof. Microsoft is authoritative for its hosting sample, but package and Azure behavior are version-sensitive. No raw prompt payloads, repository paths beyond generic metadata classes, or exploit commands were promoted.
+
+## 2026-09-04 compile additions: blackboards, live app verification, and operational SRE agents
+
+### Source-backed claims
+- Fowler's "An Accidental Blackboard" describes a four-day Thoughtworks hyper-agentic exercise where many agents used the repository and plan files as an accidental blackboard through frequent commits, rebases, pushes, and progress updates; the team later backed off frequent pushes after build-pipeline contention. Source: `raw/2026-09-04-rss-martin-fowler-an-accidental-blackboard.md`; page: [[multi-agent-architectures]]. confidence: 1 practitioner commentary source, last-confirmed 2026-09-04.
+- The blackboard source suggests long-running multi-agent work may need an intentional shared coordination substrate separate from source control, preserving current task state and decisions without turning the build pipeline into the communication bus. Source: `raw/2026-09-04-rss-martin-fowler-an-accidental-blackboard.md`. confidence: 1 source, last-confirmed 2026-09-04.
+- Uno Platform's MCP app server reinforces live application verification as a harness primitive: the agent can inspect screenshots and visual trees, send pointer/key/type actions, invoke automation peers, and check health against a running app instead of relying only on source edits. Source: `raw/2026-09-04-rss-net-blog-how-uno-platform-uses-net-mcp-and-ai-to-build-high-quality-ap.md`; page: [[microsoft-dotnet-ai-stack]]. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-09-04.
+- Azure SRE Agent connects agent reasoning to operational tools and MCP connectors so it can investigate incidents, answer what-changed questions, and propose remediations while keeping human approval around changes. Source: `raw/2026-09-04-rss-azure-blog-power-azure-sre-agent-with-the-tools-it-needs.md`; page: [[azure-agent-automation-and-identity]]. confidence: 1 Microsoft Azure Blog source, last-confirmed 2026-09-04.
+
+### Typed entities
+- pattern: blackboard architecture
+- project: Talwrn
+- organization: Thoughtworks
+- artifact: plan file
+- artifact: source-control repository
+- framework: Uno Platform
+- runtime: Uno DevServer
+- product/agent: Azure SRE Agent
+- hosting surface: Connector Namespace
+
+### Explicit relationships
+- Multi-agent coordination can use repository state as a blackboard, but source control may contradict build stability when communication commits become too frequent.
+- Intentional blackboards complement git by separating task coordination and decision state from production source artifacts.
+- Live app verification depends-on app-local sensors and action tools; code review alone cannot prove rendered UI behavior.
+- SRE agents depend-on operational connectors, identity, observability, and approval gates before remediation.
+
+### HoneyDrunk implications
+- For Honeyclaw/OpenClaw multi-agent jobs, keep plan state explicit but avoid using rapid pushes as the primary coordination channel when CI contention matters.
+- Consider a dedicated run-state artifact or service for multi-agent coordination before scaling concurrent repository workers.
+- For app-building agents, prioritize screenshot, visual-tree, test, and health-check tools as first-class harness features.
+- Treat SRE-style agents as advisory until connector authorization, escalation, rollback, and incident audit evidence are proven.
+
+### Quality notes
+- Fowler and Microsoft sources are practitioner/vendor evidence. They are useful for harness design but need local throughput, CI, and operational-risk validation.

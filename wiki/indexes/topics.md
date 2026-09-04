@@ -1181,3 +1181,57 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 
 ### Source quality and product-status recency
 - [[browser-snapshot-source-quality]] - 103 sources - last-confirmed 2026-08-24
+
+## 2026-08-26 topic additions
+
+### Agent security, telemetry, and model supply chain
+- [[ai-coding-agent-security]] - 169 sources - last-confirmed 2026-08-26
+- [[agent-evaluation-and-benchmarks]] - 55 sources - last-confirmed 2026-08-26
+- [[ai-agent-harnesses]] - 200 sources - last-confirmed 2026-08-26
+
+### Agent harnesses, .NET agents, and AI-assisted software practice
+- [[ai-agent-harnesses]] - 200 sources - last-confirmed 2026-08-26
+- [[ai-assisted-software-practice]] - 98 sources - last-confirmed 2026-08-26
+- [[microsoft-dotnet-ai-stack]] - 72 sources - last-confirmed 2026-08-26
+- [[dotnet-runtime-and-mobile-2026]] - 17 sources - last-confirmed 2026-08-26
+- [[csharp-memory-safety-and-unsafe-code]] - 2 sources - last-confirmed 2026-08-26
+
+### AI infrastructure and fine-tuning
+- [[edge-ai-and-ai-infrastructure-2026]] - 74 sources - last-confirmed 2026-08-26
+- [[agent-evaluation-and-benchmarks]] - 55 sources - last-confirmed 2026-08-26
+
+### Container and cloud data platforms
+- [[container-supply-chain-and-compliance]] - 4 sources - last-confirmed 2026-08-26
+- [[cloud-data-platforms-and-analytics]] - 1 source - last-confirmed 2026-08-26
+
+### Unity, technical art, and live-ops production
+- [[unity-3d-and-realtime-vfx-patterns]] - 66 sources - last-confirmed 2026-08-26
+- [[technical-art-community-and-talent-signals]] - 54 sources - last-confirmed 2026-08-26
+- [[gamedev-production-and-community-signals]] - 43 sources - last-confirmed 2026-08-26
+
+## 2026-09-04 topic additions
+
+### Azure automation, MCP governance, and operational agents
+- [[azure-agent-automation-and-identity]] - 36 sources - last-confirmed 2026-09-04
+- [[mcp-tool-governance-and-app-surfaces]] - 112 sources - last-confirmed 2026-09-04
+- [[ai-agent-harnesses]] - 204 sources - last-confirmed 2026-09-04
+
+### GitHub Actions, supply chain, and agent security
+- [[github-actions-platform-operations]] - 52 sources - last-confirmed 2026-09-04
+- [[ai-coding-agent-security]] - 173 sources - last-confirmed 2026-09-04
+- [[container-supply-chain-and-compliance]] - 5 sources - last-confirmed 2026-09-04
+
+### .NET, model evaluation, and frontier governance
+- [[microsoft-dotnet-ai-stack]] - 74 sources - last-confirmed 2026-09-04
+- [[dotnet-runtime-and-mobile-2026]] - 18 sources - last-confirmed 2026-09-04
+- [[agent-evaluation-and-benchmarks]] - 58 sources - last-confirmed 2026-09-04
+- [[openai-frontier-models-and-codex-2026]] - 38 sources - last-confirmed 2026-09-04
+- [[ai-policy-and-governance-2026]] - 5 sources - last-confirmed 2026-09-04
+
+### AI-assisted software practice and multi-agent coordination
+- [[ai-assisted-software-practice]] - 100 sources - last-confirmed 2026-09-04
+- [[multi-agent-architectures]] - 30 sources - last-confirmed 2026-09-04
+
+### Unity, technical art, and immersive training
+- [[unity-3d-and-realtime-vfx-patterns]] - 68 sources - last-confirmed 2026-09-04
+- [[technical-art-community-and-talent-signals]] - 56 sources - last-confirmed 2026-09-04

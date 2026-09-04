@@ -267,3 +267,30 @@ Multi-agent systems are warranted only when a single agent hits hard limits: con
 
 ### Quality notes
 - Fowler-hosted source is exploratory and self-critical rather than measured token accounting; use as workflow heuristic. Thoughtworks source is strategic architecture framing and needs local controls before implementation.
+
+## 2026-09-04 compile additions: accidental blackboard in hyper-agentic delivery
+
+### Source-backed claims
+- Thoughtworks' Talwrn exercise used a hyper-agentic team to build an airline disruption-management/IROps system in four days; frequent commits, rebases, pushes, and plan updates let agents and humans infer current state through the repository, effectively creating an accidental blackboard. Source: `raw/2026-09-04-rss-martin-fowler-an-accidental-blackboard.md`; page: [[ai-agent-harnesses]]. confidence: 1 practitioner commentary source, last-confirmed 2026-09-04.
+- The team found the same mechanism strained the build pipeline, showing that repository-as-blackboard can coordinate work but also couples coordination traffic to CI/source-control infrastructure. Source: `raw/2026-09-04-rss-martin-fowler-an-accidental-blackboard.md`. confidence: 1 source, last-confirmed 2026-09-04.
+
+### Typed entities
+- project: Talwrn
+- organization: Thoughtworks
+- domain: airline IROps
+- pattern: blackboard architecture
+- artifact: source-control repository
+- artifact: plan file
+- failure mode: build-pipeline contention
+
+### Explicit relationships
+- Repository state can act as a blackboard by exposing artifacts, plans, and progress to many agents.
+- Source-control blackboards depend-on commit discipline and CI capacity; excessive coordination commits can degrade feedback loops.
+- Intentional blackboard services complement git when coordination state changes more often than source should.
+
+### HoneyDrunk implications
+- Use git as durable evidence and merge boundary, not as the only high-frequency coordination mechanism for concurrent agents.
+- If HoneyDrunk scales multi-agent delivery, define a lightweight blackboard/run-state artifact with owner, task status, decisions, conflicts, and artifact pointers.
+
+### Quality notes
+- Single practitioner exercise; useful pattern evidence, not proof that the approach generalizes to all HoneyDrunk delivery work.

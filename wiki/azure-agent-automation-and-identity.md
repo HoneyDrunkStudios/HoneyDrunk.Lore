@@ -612,3 +612,39 @@ Azure's May 2026 agent/developer tooling signal is that agent automation is movi
 
 ### Quality notes
 - Microsoft Learn source is authoritative for the extension authoring pattern. ACA status source is useful as a pointer, not as current product status evidence.
+
+## 2026-09-04 compile additions: azd August 2026 releases and Azure SRE Agent connectors
+
+### Source-backed claims
+- Azure Developer CLI August 2026 covered releases 1.30.0 through 1.32.0, including the GA `azd` extension framework, Azure Functions container deploy from Dockerfiles, prebuilt images, or ACR remote builds, layered provisioning dependency inference, HTTPS extension bundles with checksum handling, and improved exact-version install behavior. Source: `raw/2026-09-04-rss-azure-blog-azure-developer-cli-azd-august-2026.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 Microsoft Azure Blog source, last-confirmed 2026-09-04.
+- The same `azd` source says automation behavior improved for AI-agent environments by recognizing Codex and Cursor, fixing unsupported non-C# Aspire AppHost handling, improving GitHub immutable OIDC subject claims, supporting Azure DevOps federated auth, and avoiding indefinite Aspire hangs. Source: `raw/2026-09-04-rss-azure-blog-azure-developer-cli-azd-august-2026.md`. confidence: 1 source, last-confirmed 2026-09-04.
+- Microsoft describes Azure SRE Agent as an operational agent that can investigate incidents, perform health checks, answer what-changed questions, check compliance, and propose remediations with human approval using native integrations such as GitHub, Datadog, New Relic, and Splunk plus MCP connectors hosted through Connector Namespace. Source: `raw/2026-09-04-rss-azure-blog-power-azure-sre-agent-with-the-tools-it-needs.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 Microsoft Azure Blog source, last-confirmed 2026-09-04.
+- Connector Namespace is in preview as a managed MCP hosting surface, with GA estimated by Microsoft for the end of 2026, and supports catalog connectors such as Azure SQL, Cosmos DB, GitLab, Jira, and PagerDuty while bring-your-own MCP server images remain in development. Source: `raw/2026-09-04-rss-azure-blog-power-azure-sre-agent-with-the-tools-it-needs.md`. confidence: 1 source, last-confirmed 2026-09-04.
+
+### Typed entities
+- CLI: Azure Developer CLI / `azd`
+- version range: `azd` 1.30.0-1.32.0
+- product/agent: Azure SRE Agent
+- hosting surface: Connector Namespace
+- connector: Azure SQL MCP
+- connector: Cosmos DB MCP
+- connector: GitLab MCP
+- connector: Jira MCP
+- connector: PagerDuty MCP
+- auth mechanism: managed identity
+- token scope: `https://apihub.azure.com/.default`
+- identity provider: Microsoft Entra
+
+### Explicit relationships
+- `azd` extension GA supersedes preview-only extension-framework assumptions, but individual extensions still depend-on source, version, owner, and checksum review.
+- AI-agent environment detection complements non-interactive automation by reducing prompt hangs in Codex/Cursor-driven runs.
+- Azure SRE Agent depends-on connector identity, access policies, managed identity, and human approval before operational remediation.
+- Connector Namespace complements custom MCP hosting by moving connector deployment, identity, and endpoint management into Azure infrastructure.
+
+### HoneyDrunk implications
+- For Azure automation templates, update the `azd` watchlist to include Functions container deploy, exact-version install, federated auth, and AI-agent non-interactive behavior.
+- If HoneyDrunk evaluates Azure SRE Agent, start with read-only incident investigation and require connector access-policy review, trace capture, approval gates, and rollback notes before any remediation action.
+- Treat Connector Namespace as promising but preview: verify region, connector catalog, BYO support, network path, billing, and GA status before production dependency.
+
+### Quality notes
+- Microsoft sources are authoritative for product direction. `azd` and Connector Namespace behavior is time-sensitive and needs live version/region verification before implementation.

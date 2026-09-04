@@ -776,3 +776,80 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 
 ### Quality notes
 - Microsoft sources are authoritative for their tools but Preview/vendor-benchmark evidence is not enough for HoneyDrunk-wide adoption. Validate package versions, plugin install behavior, generated-test quality, and CI artifact handling locally.
+
+## 2026-08-26 compile additions: C# 15 preview and Foundry Hosted Agents GA path
+
+### Source-backed claims
+- Microsoft says C# 15 will ship with .NET 11 in November 2026 and is available in .NET 11 Preview 7, adding union types, closed hierarchies, updated memory-safety rules preview, collection expression arguments, extension indexers, and labeled break/continue. Sources: `raw/2026-08-26-rss-net-blog-explore-new-features-available-in-c-15-preview.md`; `raw/2026-08-26-rss-net-blog-net-conf-2026.md`; page: [[dotnet-runtime-and-mobile-2026]]. confidence: 2 Microsoft .NET Blog sources, last-confirmed 2026-08-26.
+- Microsoft says union types and closed hierarchies make allowed type shapes explicit in the type system, supporting exhaustive switch handling over known alternatives and assembly-bounded derived types. Source: `raw/2026-08-26-rss-net-blog-explore-new-features-available-in-c-15-preview.md`. confidence: 1 source, last-confirmed 2026-08-26.
+- The C# 15 source says the updated unsafe model is opt-in through preview language features in .NET 11, allows pointer types in safe contexts, keeps pointer dereference and function-pointer invocation unsafe, and makes unsafe member signatures caller-facing obligations. Source: `raw/2026-08-26-rss-net-blog-explore-new-features-available-in-c-15-preview.md`; page: [[csharp-memory-safety-and-unsafe-code]]. confidence: 1 source, last-confirmed 2026-08-26.
+- Microsoft says Foundry Hosted Agents is generally available and can host an existing Microsoft Agent Framework C# agent behind OpenAI-compatible Responses endpoints with managed compute, scaling, session state, dedicated Microsoft Entra identity, traces, evals, immutable versions, and Foundry portal inspection. Source: `raw/2026-08-26-rss-net-blog-from-dotnet-run-to-foundry-hosted-agent-in-3-lines-of-c.md`; page: [[ai-agent-harnesses]]. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-08-26.
+- The .NET Conf 2026 source schedules the free online event for 2026-11-10 through 2026-11-12, aligned with the .NET 11 launch, and names C# 15 union types, MAUI CoreCLR, ASP.NET Core/Blazor updates, Minimal API union type support, OpenAPI 3.2 defaults, and MCP C# SDK v2 as highlighted themes. Source: `raw/2026-08-26-rss-net-blog-net-conf-2026.md`. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-08-26.
+
+### Typed entities
+- language version: C# 15
+- runtime: .NET 11
+- event: .NET Conf 2026
+- date: 2026-11-10 through 2026-11-12
+- feature: union types
+- feature: closed hierarchies
+- feature: updated memory-safety rules
+- feature: collection expression arguments
+- feature: extension indexers
+- feature: labeled break/continue
+- product: Foundry Hosted Agents
+- package: `Microsoft.Agents.AI.Foundry.Hosting`
+- type/API: `AgentHost`
+- method/API: `AddFoundryResponses`
+- protocol: Responses
+- protocol: Invocations
+- identity: Microsoft Entra agent identity
+
+### Explicit relationships
+- C# 15 features complement .NET 11 platform adoption but do not supersede production language defaults until SDK and toolchain support are stable.
+- Union types and closed hierarchies supersede ad hoc marker interfaces or broad base classes when a domain has a closed set of alternatives.
+- Updated unsafe rules complement compiler-enforced review by making caller obligations explicit.
+- Foundry Hosted Agents complements Microsoft Agent Framework by turning local C# agents into managed Responses endpoints with platform state, identity, traces, evals, and versioning.
+- .NET Conf 2026 depends-on .NET 11 launch timing and should be treated as schedule signal until sessions publish.
+
+### HoneyDrunk implications
+- For .NET 11 preview spikes, test C# 15 union types against API shape, serialization, OpenAPI generation, Minimal APIs, and pattern-matching ergonomics before using them in shared contracts.
+- Keep updated memory-safety rules opt-in and isolated until final syntax, analyzer behavior, and unsafe-library migration are clear.
+- For hosted .NET agents, validate Azure cost, RBAC, model deployment naming, package prerelease status, local `azd ai agent` behavior, session persistence, trace export, and rollback before production use.
+
+### Quality notes
+- Microsoft .NET Blog sources are authoritative for captured release direction. C# 15 and .NET 11 details are preview/time-sensitive; verify installed SDK behavior before implementation.
+
+## 2026-09-04 compile additions: Uno Platform MCP/app generation and MSTest Native AOT
+
+### Source-backed claims
+- Microsoft says Uno Platform uses MCP C# SDK servers as app-development tools: a hosted stateless docs server exposes current Uno documentation and prompts such as `/new` and `/init`, while a local stateful app server connects to Uno DevServer for screenshots, visual-tree XML, input actions, automation-peer actions, and health checks. Source: `raw/2026-09-04-rss-net-blog-how-uno-platform-uses-net-mcp-and-ai-to-build-high-quality-ap.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-09-04.
+- Uno Platform Studio 3.0 is described as a browser-based app-generation surface that uses a specialized agent built on Microsoft Agent Framework, a Roslyn workspace, NuGet resolution, compiled/generated assemblies, and hot reload to generate full cross-platform .NET apps. Source: `raw/2026-09-04-rss-net-blog-how-uno-platform-uses-net-mcp-and-ai-to-build-high-quality-ap.md`. confidence: 1 source, last-confirmed 2026-09-04.
+- MSTest 4.4 supports publishing and running test projects as Native AOT executables through source generation, letting teams test Native AOT and trimming behavior that a managed test run can miss. Source: `raw/2026-09-04-rss-net-blog-test-what-you-ship-mstest-and-native-aot.md`; page: [[dotnet-runtime-and-mobile-2026]]. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-09-04.
+- The MSTest source recommends running a normal managed lane and a representative native lane, checking test-count parity, and prioritizing serialization, DI, configuration, reflection, plugin loading, and dependency scenarios where Native AOT/trimming failures are likely. Source: `raw/2026-09-04-rss-net-blog-test-what-you-ship-mstest-and-native-aot.md`. confidence: 1 source, last-confirmed 2026-09-04.
+
+### Typed entities
+- framework: Uno Platform
+- server: Uno docs MCP server
+- server: Uno app MCP server
+- framework: Microsoft Agent Framework
+- compiler API: Roslyn workspace
+- testing framework: MSTest 4.4
+- runtime mode: Native AOT
+- build property: `PublishAot`
+- SDK package: `MSTest.Sdk/4.4.0`
+- platform: Microsoft.Testing.Platform
+
+### Explicit relationships
+- Uno Platform depends-on MCP servers to make documentation and live app state available to coding agents.
+- Browser-based .NET app generation depends-on compilation, package resolution, and hot reload feedback rather than text-only scaffold generation.
+- Native AOT test publishing complements managed test lanes by exposing trimming, reflection, serialization, and runtime-shape failures.
+- Test-count parity depends-on framework/source-generation limits because not every MSTest pattern is AOT-compatible.
+
+### HoneyDrunk implications
+- For .NET UI agents, copy Uno's split between stateless docs context and local app-state verification rather than asking a model to infer UI state from code alone.
+- Before adopting generated .NET app surfaces, require compile/load evidence, dependency provenance, hot-reload behavior, and generated-code review.
+- For Native AOT candidates, add a release or scheduled native test lane by RID after managed tests are stable, then compare discovery counts and representative runtime scenarios.
+
+### Quality notes
+- Microsoft .NET Blog sources are authoritative for the captured features. Uno Studio product claims and MSTest Native AOT limits still need local SDK/package verification.

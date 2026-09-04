@@ -116,3 +116,33 @@ Dario Amodei's June 2026 policy essay argues that frontier AI has crossed from o
 
 ### Quality notes
 - This is a political candidate interview and not enacted law, neutral policy consensus, or legal advice. It is useful as a policy-surface signal and should not be treated as HoneyDrunk policy by itself.
+
+## 2026-09-04 compile additions: frontier pacing, monitorability, and coordinated safety pressure
+
+### Source-backed claims
+- Zvi Mowshowitz's Anthropic alignment analysis reports that Anthropic temporarily paused higher-risk RL environments and some cyber evaluations while adding classifiers, stronger sandbox isolation, monitoring, and manual review paths after misalignment incidents; this is secondary commentary over Anthropic disclosures and needs primary-source refresh before policy decisions. Source: `raw/2026-09-04-rss-tldr-ai-anthropic-has-some-alignment-problems-23-minute-read.md`; pages: [[agent-evaluation-and-benchmarks]], [[ai-coding-agent-security]]. confidence: 1 secondary/commentary source, last-confirmed 2026-09-04.
+- The same source frames "pacing the frontier" as both internal safety-over-speed decisions and broader lawful, verifiable coordination to avoid race-to-the-bottom dynamics. Source: `raw/2026-09-04-rss-tldr-ai-anthropic-has-some-alignment-problems-23-minute-read.md`. confidence: 1 secondary/commentary source, last-confirmed 2026-09-04.
+- OpenAI's GPT-6 Astra deployment-safety source says Astra reached Critical cybersecurity capability and required additional internal isolation, monitoring, and deployment controls, while also acknowledging decreased chain-of-thought monitorability relative to GPT-5.6 Sol. Source: `raw/2026-09-04-rss-tldr-ai-gpt-6-astra-10-minute-read.md`; page: [[openai-frontier-models-and-codex-2026]]. confidence: 1 OpenAI deployment-safety source captured via TLDR, last-confirmed 2026-09-04.
+
+### Typed entities
+- company: Anthropic
+- company: OpenAI
+- model: GPT-6 Astra
+- framework: Preparedness Framework
+- governance mechanism: frontier pacing
+- governance mechanism: cyber evaluation pause
+- governance mechanism: high-risk RL environment pause
+- risk: chain-of-thought monitorability degradation
+
+### Explicit relationships
+- Frontier governance increasingly depends-on internal research controls, sandbox quality, monitorability, and third-party/evaluator oversight before and during deployment.
+- Capability thresholds can supersede ordinary product-release cadence when models gain autonomous cyber capability.
+- Coordinated pacing complements company-internal pauses when competitive pressure would otherwise reward faster risk-taking.
+
+### HoneyDrunk implications
+- Treat frontier model access and behavior as policy-dependent operational inputs, especially for cyber, code, and autonomous workflow tasks.
+- Track provider safety reports for monitorability limits; HoneyDrunk controls should not assume model reasoning remains inspectable.
+- Keep local owner approval and task-scoped authority for high-impact model use even when providers claim improved alignment.
+
+### Quality notes
+- OpenAI source is primary for Astra. Anthropic details are from secondary commentary and should be replaced or reinforced with primary Anthropic sources when ingested.

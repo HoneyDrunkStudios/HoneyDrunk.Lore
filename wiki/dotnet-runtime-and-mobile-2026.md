@@ -302,3 +302,60 @@
 
 ### Quality notes
 - Microsoft source is authoritative for MTP direction. Preview reporters and framework adapter requirements should be verified per repository.
+
+## 2026-08-26 compile additions: .NET 11 launch schedule and C# 15 preview
+
+### Source-backed claims
+- .NET Conf 2026 is scheduled as a free online event from 2026-11-10 through 2026-11-12 and is positioned as the .NET 11 launch event. Source: `raw/2026-08-26-rss-net-blog-net-conf-2026.md`; page: [[microsoft-dotnet-ai-stack]]. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-08-26.
+- Microsoft says .NET 11 previews include runtime, libraries, SDK, ASP.NET Core, C#, .NET MAUI, Entity Framework Core, and other updates, with highlighted items including C# 15 union types, MAUI CoreCLR for Android/iOS/Mac Catalyst, richer Blazor SSR/form validation, smaller Blazor WebAssembly apps, Minimal API async validation and union type support, and OpenAPI 3.2 by default. Source: `raw/2026-08-26-rss-net-blog-net-conf-2026.md`. confidence: 1 source, last-confirmed 2026-08-26.
+- The C# 15 preview source says C# 15 ships with .NET 11 in November and is available in .NET 11 Preview 7. Source: `raw/2026-08-26-rss-net-blog-explore-new-features-available-in-c-15-preview.md`; page: [[csharp-memory-safety-and-unsafe-code]]. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-08-26.
+
+### Typed entities
+- event: .NET Conf 2026
+- runtime: .NET 11
+- language version: C# 15
+- framework: ASP.NET Core
+- framework: Blazor
+- framework: .NET MAUI
+- framework: Entity Framework Core
+- standard: OpenAPI 3.2
+
+### Explicit relationships
+- .NET Conf 2026 complements .NET 11 migration planning by giving a concrete launch window and expected session surface.
+- .NET 11 preview features do not supersede supported production baselines until GA and repository-specific validation.
+- MAUI CoreCLR and Blazor/Minimal API changes depend-on target app shape, platform support, and build/deployment tooling.
+
+### HoneyDrunk implications
+- Keep .NET 11 preview checks separate from .NET 8/9/10 servicing work until .NET 11 is GA.
+- Before adopting C# 15 language features in public APIs, verify tooling, analyzers, OpenAPI/serialization output, and downstream consumer support.
+
+### Quality notes
+- Microsoft source is authoritative for event and preview direction. Sessions, final SDK behavior, and migration costs remain live facts.
+
+## 2026-09-04 compile additions: MSTest Native AOT test lanes
+
+### Source-backed claims
+- MSTest 4.4 can publish test projects as Native AOT executables using source generation, so teams can run tests against the runtime shape they intend to ship instead of only a managed test host. Source: `raw/2026-09-04-rss-net-blog-test-what-you-ship-mstest-and-native-aot.md`; page: [[microsoft-dotnet-ai-stack]]. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-09-04.
+- Microsoft warns that a managed test pass can hide Native AOT or trimming problems, especially around serialization, reflection, dependency injection, configuration, plugins, and third-party dependencies; native lanes should start with representative smoke/regression tests and compare test counts against managed discovery. Source: `raw/2026-09-04-rss-net-blog-test-what-you-ship-mstest-and-native-aot.md`. confidence: 1 source, last-confirmed 2026-09-04.
+- The source lists current MSTest Native AOT limitations including direct `[TestClass]` requirements, accessibility/static/generic constraints, unsupported generic/ref/out/in test methods, AssemblyFixtureProvider replacement needs, and unavailable integrations/extensions/reporters beyond supported outputs such as TRX and Code Coverage. Source: `raw/2026-09-04-rss-net-blog-test-what-you-ship-mstest-and-native-aot.md`. confidence: 1 source, last-confirmed 2026-09-04.
+
+### Typed entities
+- test framework: MSTest 4.4
+- runtime mode: Native AOT
+- property: `PublishAot`
+- package: `MSTest.Sdk/4.4.0`
+- test platform: Microsoft.Testing.Platform
+- report: TRX
+- report: Code Coverage
+
+### Explicit relationships
+- Native AOT testing complements .NET runtime adoption by checking publish-time/trimming behavior in the shipped artifact.
+- Managed test success does not supersede native test evidence for AOT-published applications.
+- Native test-lane scope depends-on RID, AOT-compatible test shape, reporter support, and dependency behavior.
+
+### HoneyDrunk implications
+- For HoneyDrunk .NET applications that target Native AOT, add a native lane gradually and gate it on representative scenarios plus managed/native discovery parity.
+- Do not migrate all tests to Native AOT by default; keep a faster managed lane and reserve native execution for release, scheduled, or AOT-sensitive checks until cost is measured.
+
+### Quality notes
+- Microsoft source is authoritative for MSTest feature posture as captured. Validate SDK version, RID publishing, and reporter compatibility in each repo before standardization.

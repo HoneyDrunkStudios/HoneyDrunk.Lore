@@ -793,3 +793,38 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ### Quality notes
 - Docker source is a vendor demo. Validate `gh-aw`, sandbox auth, runner support, billing, PR mode, and file allowlists locally before adopting.
+
+## 2026-09-04 compile additions: Actions retention, runner deprecation API, and reusable workflow context
+
+### Source-backed claims
+- GitHub says that starting 2026-10-01, checks, workflow runs, and statuses will be subject to each repository or organization GitHub Actions retention setting, with the public-repository maximum remaining 90 days; the change is not retroactive to runs before the effective date. Source: `raw/2026-09-04-rss-github-changelog-actions-actions-retention-will-cover-checks-workflow-.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-09-04.
+- GitHub's early September 2026 Actions update adds a REST API endpoint, `GET /actions/runners/deprecations/{version}`, for repository, organization, and enterprise owners to retrieve runner deprecation dates for a specified runner version. Source: `raw/2026-09-04-rss-github-changelog-actions-github-actions-early-september-2026-updates.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-09-04.
+- The same update adds a `vulnerability-alerts` `GITHUB_TOKEN` permission with `read` or `none`, allowing workflows to access Dependabot alert data without broad repository permissions. Source: `raw/2026-09-04-rss-github-changelog-actions-github-actions-early-september-2026-updates.md`; page: [[ai-coding-agent-security]]. confidence: 1 source, last-confirmed 2026-09-04.
+- Reusable workflows now receive job context fields including `job.workflow_ref`, `job.workflow_sha`, `job.workflow_repository`, and `job.workflow_file_path`, improving provenance and policy logic for centrally managed workflows; the captured changelog says these fields are unavailable on GitHub Enterprise Server. Source: `raw/2026-09-04-rss-github-changelog-actions-github-actions-early-september-2026-updates.md`. confidence: 1 source, last-confirmed 2026-09-04.
+
+### Typed entities
+- platform: GitHub Actions
+- policy: Actions retention setting
+- date: 2026-10-01 Actions retention coverage change
+- API endpoint: `GET /actions/runners/deprecations/{version}`
+- token permission: `vulnerability-alerts`
+- context field: `job.workflow_ref`
+- context field: `job.workflow_sha`
+- context field: `job.workflow_repository`
+- context field: `job.workflow_file_path`
+- product caveat: GitHub Enterprise Server
+
+### Explicit relationships
+- Workflow run, status, and check history now depends-on Actions retention rather than older longer-lived defaults after 2026-10-01.
+- Runner lifecycle governance can depend-on the deprecation API instead of manually tracking support dates.
+- Dependabot alert access can use scoped `vulnerability-alerts` token permission, reducing the need for broader repository read scopes.
+- Reusable workflow policy depends-on workflow source provenance; `workflow_sha` and `workflow_repository` make that provenance machine-readable in jobs.
+
+### HoneyDrunk implications
+- Before 2026-10-01, decide whether any Actions/check/status history must be exported for compliance, incident analysis, agent evals, or release provenance beyond repository retention.
+- Add runner deprecation API polling to CI platform health checks if HoneyDrunk operates self-hosted or pinned runner versions.
+- Prefer `vulnerability-alerts: read` over broad token permissions for workflows that only need Dependabot alert metadata.
+- For centrally managed reusable workflows, log `workflow_ref`, `workflow_sha`, and `workflow_repository` in run receipts where provenance matters.
+
+### Quality notes
+- GitHub changelog sources are authoritative for GitHub.com feature posture. Verify GHES parity, retention settings, and API scopes before enterprise rollout.

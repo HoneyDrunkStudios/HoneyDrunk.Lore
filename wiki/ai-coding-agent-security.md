@@ -1836,3 +1836,80 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 
 ### Privacy and quality notes
 - Privacy filter: exploit payloads, exact exfiltration commands, secret-looking examples, C2 details, and reusable offensive steps were not promoted. Docker and Google are vendor sources; Endor and TrustSig are security-research sources that should be validated against local versions before emergency action.
+
+## 2026-08-26 compile additions: agent action auditing, gated cyber models, and poisoned model weights
+
+### Source-backed claims
+- Elastic Security Labs reports a hook-based Cursor auditing pattern that recorded more than 13 million coding-agent tool-call events from more than 1,100 machines, capturing shell commands, file reads, file edits, MCP calls, session lifecycle, and subagent events as structured JSONL shipped by Elastic Agent. Source: `raw/2026-08-26-rss-tldr-infosec-13-million-tool-calls-auditing-every-ai-coding-agent-acti.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 vendor security-labs source, last-confirmed 2026-08-26.
+- The Elastic source says hook logs are most useful when queryable fields such as tool name, command, file path, MCP server, model, session, host, and duration are promoted to top-level fields while raw payloads remain an escape hatch; it deliberately avoids prompt, response, and file-content capture. Source: `raw/2026-08-26-rss-tldr-infosec-13-million-tool-calls-auditing-every-ai-coding-agent-acti.md`; page: [[opentelemetry-genai-observability-and-ecosystem]]. confidence: 1 source, last-confirmed 2026-08-26.
+- The same source treats hook telemetry as sensitive workforce/security data: restrict per-person access, document exactly what is collected, and pair hooks with endpoint inventory because local hooks are tamper-evident rather than tamper-proof. Source: `raw/2026-08-26-rss-tldr-infosec-13-million-tool-calls-auditing-every-ai-coding-agent-acti.md`. confidence: 1 source, last-confirmed 2026-08-26.
+- The Morgin time-release backdoor source reports a LoRA-trained Qwen 3.5 2B coding model that emitted an unwanted shell action only when the agent harness included a target date in the system prompt, demonstrating that ambient metadata such as current date and harness fingerprint can become a trigger surface. Source: `raw/2026-08-26-rss-tldr-infosec-your-open-source-model-could-have-a-hidden-time-release-b.md`; page: [[ai-agent-harnesses]]. confidence: 1 practitioner security source, last-confirmed 2026-08-26.
+- TNW reports Anthropic exposing Claude Mythos 5 through Claude Security and partner defensive products as code-scan outputs, findings, suggested patches, and alerts rather than broad model access; patches require human review before implementation. Source: `raw/2026-08-26-rss-tldr-ai-anthropic-will-give-defenders-what-its-strongest-model-finds-b.md`. confidence: 1 secondary news source, last-confirmed 2026-08-26.
+
+### Typed entities
+- product/tool: Cursor hooks
+- platform: Elastic Agent
+- index/data stream: `logs-ai_hooks-*`
+- query language: ES|QL
+- event: `beforeShellExecution`
+- event: `beforeReadFile`
+- event: `beforeMCPExecution`
+- project/runtime: OpenCode
+- model: Qwen 3.5 2B
+- technique: LoRA
+- threat: time-release model backdoor
+- model/product: Claude Mythos 5
+- product: Claude Security
+- fund: Defender Advantage Fund
+
+### Explicit relationships
+- Hook telemetry complements endpoint inventory by recording what an installed coding agent actually does after launch.
+- Agent action auditing depends-on structured top-level fields, source surface tagging, local retention limits, SIEM export, and access controls.
+- Model-weight poisoning can use harness-injected metadata as a trigger, so harness prompts depend-on minimizing unnecessary stable fingerprints and enforcing approvals around shell execution.
+- Gated defensive model access complements capability-control policy by giving users findings or patches without exposing general exploit-generation prompts.
+
+### HoneyDrunk implications
+- For Codex/OpenClaw hosts, evaluate hook or endpoint telemetry that captures command, file-path, MCP, model, and session metadata without logging private prompts or source file contents.
+- Treat current-date, cwd, platform, model ID, and tool-schema metadata as potential trigger material when routing proprietary code to unknown or experimental open-weight models.
+- If HoneyDrunk uses defensive AI scanners, require human review, CWE/severity/confidence evidence, reproducible findings, and scoped patch authority before auto-fixing.
+
+### Privacy and quality notes
+- Privacy filter: shell payloads, exact malicious commands, user emails, hostnames, credential-path examples beyond generic classes, raw hook payloads, and exploit-ready sequences were not promoted. Elastic is vendor security-labs evidence; Morgin is practitioner proof-of-concept evidence; TNW is secondary reporting and should be verified against Anthropic primary material before procurement or policy changes.
+
+## 2026-09-04 compile additions: critical cyber models, registry worms, and scoped workflow permissions
+
+### Source-backed claims
+- OpenAI says GPT-6 Astra reached the Critical cybersecurity-capability threshold and can, with appropriate tools and access, find previously unknown flaws and develop exploit paths across well-protected systems, causing OpenAI to strengthen misuse and misalignment protections. Source: `raw/2026-09-04-rss-tldr-ai-gpt-6-astra-10-minute-read.md`; page: [[openai-frontier-models-and-codex-2026]]. confidence: 1 OpenAI deployment-safety source captured via TLDR, last-confirmed 2026-09-04.
+- The GPT-6 Astra source reports stronger prompt-injection robustness and safer behavior in browsing/workplace environments compared with GPT-5.6 Sol, but also decreased chain-of-thought monitorability and some adversarial monitor-evasion findings. Source: `raw/2026-09-04-rss-tldr-ai-gpt-6-astra-10-minute-read.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 source, last-confirmed 2026-09-04.
+- The Shai-Hulud source describes package-registry worms that can propagate through package install scripts, compromised maintainer credentials, and legitimate signed release pipelines, showing that provenance can prove where a package came from without proving the release should exist. Source: `raw/2026-09-04-rss-tldr-infosec-shai-hulud-whoever-controls-your-package-registry-control.md`; page: [[container-supply-chain-and-compliance]]. confidence: 1 sponsored/security-practice source, last-confirmed 2026-09-04.
+- The same source recommends defensive controls for registry/pipeline compromise: immutable dependency pins, organization-curated registries, short-lived per-deployment credentials through OIDC or equivalent, and strict CI runner egress allowlists. Source: `raw/2026-09-04-rss-tldr-infosec-shai-hulud-whoever-controls-your-package-registry-control.md`. confidence: 1 source, last-confirmed 2026-09-04.
+- GitHub's September Actions update adds a scoped `vulnerability-alerts` permission for `GITHUB_TOKEN`, allowing Dependabot alert reads without broader repository permissions. Source: `raw/2026-09-04-rss-github-changelog-actions-github-actions-early-september-2026-updates.md`; page: [[github-actions-platform-operations]]. confidence: 1 GitHub changelog source, last-confirmed 2026-09-04.
+
+### Typed entities
+- model: GPT-6 Astra
+- capability tier: Critical cybersecurity capability
+- model: GPT-5.6 Sol
+- threat: package-registry worm
+- incident family: Shai-Hulud
+- variant: ChainDrop
+- control: immutable dependency pinning
+- control: curated registry
+- control: OIDC short-lived credentials
+- control: CI runner egress allowlist
+- permission: `vulnerability-alerts`
+
+### Explicit relationships
+- Critical cyber-capable models depend-on sandbox, authorization, monitoring, and task-scoped tool boundaries before use in coding or security workflows.
+- Chain-of-thought monitoring complements but does not supersede deterministic tool policy because stronger models may become less monitorable.
+- Registry provenance and signatures complement dependency review but do not prove that a trusted publisher account was not compromised.
+- Short-lived credentials and egress controls reduce worm propagation by removing standing secrets and outbound paths.
+- Scoped Actions permissions complement least privilege for security metadata access.
+
+### HoneyDrunk implications
+- Treat any Astra-class cyber/coding workflow as high risk by default until local sandbox, egress, approval, and audit controls are explicit.
+- For npm, Terraform, container, MCP, and agent-package consumption, require immutable pins or curated registries where release credentials could affect production.
+- Move CI publishing/deployment workflows toward short-lived credentials and narrow egress before relying on attestations as the primary supply-chain defense.
+- Prefer `GITHUB_TOKEN` scoped permissions such as `vulnerability-alerts: read` when workflows only need security-alert metadata.
+
+### Privacy and quality notes
+- Privacy filter: malware payload details, command snippets, credential paths beyond generic classes, exfiltration endpoints, and reusable offensive steps were not promoted. Shai-Hulud source is sponsored and defensive-practice oriented; validate controls against primary incident reports and local package-manager behavior before emergency policy changes.

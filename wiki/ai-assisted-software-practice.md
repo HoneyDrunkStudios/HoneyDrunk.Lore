@@ -1132,3 +1132,59 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Slack source is product-authored. Sol report is practitioner evidence. Both are useful workflow signals requiring local validation.
+
+## 2026-08-26 compile additions: agentic programming rollout and PR risk shaping
+
+### Source-backed claims
+- Fowler's August 24 fragments report that Zalando is convinced agentic programming has value but is still exploring convergence; the organization favors transparency, exchange, and experimentation across more than 200 teams rather than standardizing too early. Source: `raw/2026-08-26-rss-martin-fowler-fragments-august-24.md`; page: [[ai-agent-harnesses]]. confidence: 1 commentary source referencing practitioner experience, last-confirmed 2026-08-26.
+- The same fragment says Zalando saw signs of agentic programming increasing codebase complexity, including larger commit messages and oversized PRs that discouraged reviewers until teams adjusted their practices. Source: `raw/2026-08-26-rss-martin-fowler-fragments-august-24.md`. confidence: 1 source, last-confirmed 2026-08-26.
+- Zalando's reported use of LLM-assisted PR risk assessment reduced lead time for low-rollout-risk changes by auto-approving them, encouraged smaller PR splits, and classified configuration changes as high risk to avoid common outage paths. Source: `raw/2026-08-26-rss-martin-fowler-fragments-august-24.md`. confidence: 1 source, last-confirmed 2026-08-26.
+
+### Typed entities
+- organization: Zalando
+- practice: agentic programming
+- artifact: pull request / PR
+- control: PR risk assessment
+- risk class: configuration change
+- concept: codebase complexity
+
+### Explicit relationships
+- Agentic programming adoption depends-on knowledge sharing, platform support, usage monitoring, and skill development before organization-wide convergence.
+- AI-generated throughput can increase review load and codebase complexity when teams allow large PRs or weakly scoped changes.
+- PR risk scoring can shape developer behavior by rewarding small low-risk changes and escalating configuration changes.
+
+### HoneyDrunk implications
+- Keep HoneyDrunk's scoped-branch and intended-file discipline as an adoption guardrail for agentic coding.
+- If PR risk automation is explored, require explicit high-risk categories for configuration, auth, data migrations, CI/CD, secrets, dependencies, and production behavior.
+- Track PR size and review latency around agent-heavy work so increased throughput does not hide maintainability debt.
+
+### Quality notes
+- Fowler fragments are commentary over linked practitioner material, not direct internal Zalando telemetry. Use as a workflow heuristic requiring local measurement.
+
+## 2026-09-04 compile additions: review-by-exception and blackboard coordination
+
+### Source-backed claims
+- Rachel Laycock's Fowler-hosted essay argues that AI-assisted development increases the amount of code humans are expected to review while traditional code review still carries quality, security, architecture, mentoring, knowledge-sharing, and ownership duties. Source: `raw/2026-09-04-rss-martin-fowler-maybe-we-shouldn-t-be-reviewing-all-this-code.md`; page: [[ai-agent-harnesses]]. confidence: 1 practitioner commentary source, last-confirmed 2026-09-04.
+- The essay recommends shifting judgment left through pairing, design sessions, automation, and fitness functions, then reviewing by exception for architecture changes, security boundaries, large blast radius, critical unfamiliar areas, and low-confidence work. Source: `raw/2026-09-04-rss-martin-fowler-maybe-we-shouldn-t-be-reviewing-all-this-code.md`. confidence: 1 source, last-confirmed 2026-09-04.
+- Fowler's blackboard source shows hyper-agentic teams can coordinate through plans and commits, but also that excessive commit/rebase/push loops can create build-pipeline friction; source control is useful evidence but should not be the only collaboration substrate. Source: `raw/2026-09-04-rss-martin-fowler-an-accidental-blackboard.md`; page: [[multi-agent-architectures]]. confidence: 1 practitioner commentary source, last-confirmed 2026-09-04.
+
+### Typed entities
+- practice: review by exception
+- practice: shift-left design review
+- practice: fitness function
+- pattern: blackboard coordination
+- artifact: plan file
+- risk: review overload
+
+### Explicit relationships
+- AI-generated code volume can contradict effective human review when every diff receives the same manual process.
+- Review-by-exception depends-on earlier design judgment, automated fitness functions, explicit risk classification, and engineer system understanding.
+- Blackboard coordination complements agent teamwork but depends-on separating communication state from build-critical source-control operations.
+
+### HoneyDrunk implications
+- HoneyDrunk can reduce review load only where tests, linters, policy checks, ownership, and risk classification are strong enough; security/auth/config/data/workflow changes stay high-review.
+- Keep the standing explicit review pass for Codex-published work, but focus reviewer attention on intent, risk, blast radius, and system fit rather than rote line inspection.
+- For multi-agent tasks, record plan progress in durable artifacts while keeping commit cadence scoped enough that CI remains useful.
+
+### Quality notes
+- Fowler-hosted practitioner essays are workflow evidence, not measured universal rules. Apply through local PR size, defect, review-latency, and CI-contention measurements.

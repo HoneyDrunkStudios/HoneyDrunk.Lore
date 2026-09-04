@@ -74,3 +74,65 @@ This page tracks container-image supply-chain evidence, SBOM quality, provenance
 
 ### Quality notes
 - InfoQ is secondary trade reporting. Verify exact Argo CD version, API fields, and release status against primary Argo CD docs before implementation.
+
+## 2026-08-26 compile additions: Docker Verified Publisher as agent-era provenance signal
+
+### Source-backed claims
+- Docker says Docker Verified Publisher applications are now self-serve through Docker Hub, while Docker still manually reviews each accepted publisher identity. Source: `raw/2026-08-26-rss-tldr-devops-docker-verified-publisher-apps-are-now-self-serve-3-minute.md`. confidence: 1 Docker vendor source, last-confirmed 2026-08-26.
+- The Docker source frames publisher verification as a trust signal for machine-speed software selection across images, MCP servers, models, sandboxes, agents, and other Docker Hub content, but warns that consumers still need artifact review, digest pinning, provenance/signature checks, and CVE review. Source: `raw/2026-08-26-rss-tldr-devops-docker-verified-publisher-apps-are-now-self-serve-3-minute.md`; page: [[ai-coding-agent-security]]. confidence: 1 source, last-confirmed 2026-08-26.
+- Docker Verified Publisher analytics can expose which repositories and versions get adoption and which company domains pull them, making trusted distribution both a supply-chain and commercial-discovery surface. Source: `raw/2026-08-26-rss-tldr-devops-docker-verified-publisher-apps-are-now-self-serve-3-minute.md`. confidence: 1 vendor source, last-confirmed 2026-08-26.
+
+### Typed entities
+- program: Docker Verified Publisher / DVP
+- registry: Docker Hub
+- content type: container image
+- content type: MCP server
+- content type: model
+- content type: sandbox
+- content type: agent
+- control: digest pinning
+- control: provenance/signature verification
+- artifact: publisher analytics report
+
+### Explicit relationships
+- Publisher verification complements artifact-level provenance, signatures, digest pinning, and vulnerability review; it does not supersede them.
+- Agent-era software selection depends-on publisher identity because agents can choose dependencies, containers, MCP servers, and models faster than humans can manually inspect every option.
+- Docker Hub distribution overlaps-with go-to-market analytics when pull domains and version trends are exposed to verified publishers.
+
+### HoneyDrunk implications
+- For container or MCP consumption, prefer verified publishers only as one input; still pin digests, inspect artifacts, review licenses, and scan vulnerabilities.
+- If HoneyDrunk publishes Docker Hub content, evaluate DVP for trust/discoverability, but account for analytics privacy and commercial exposure before relying on pull-domain reports.
+
+### Quality notes
+- Docker is vendor-authored and commercial. The durable Lore claim is that publisher identity is a useful but incomplete supply-chain control.
+
+## 2026-09-04 compile additions: registry worm controls and provenance limits
+
+### Source-backed claims
+- The Shai-Hulud pipeline-security source argues that package registries and infrastructure registries share a dangerous execution assumption: resolving and installing a package means running publisher-provided code with the privileges of the requesting developer machine or CI runner. Source: `raw/2026-09-04-rss-tldr-infosec-shai-hulud-whoever-controls-your-package-registry-control.md`; page: [[ai-coding-agent-security]]. confidence: 1 sponsored/security-practice source, last-confirmed 2026-09-04.
+- The source says a later registry-worm variant used a legitimate signed release pipeline, creating valid provenance attestations for poisoned versions and demonstrating that attestation proves origin/build path but not whether the release should have happened. Source: `raw/2026-09-04-rss-tldr-infosec-shai-hulud-whoever-controls-your-package-registry-control.md`. confidence: 1 source, last-confirmed 2026-09-04.
+- Recommended defensive posture includes pinning provider/module/package dependencies to immutable references, routing resolution through curated private registries, replacing standing CI/developer secrets with short-lived deployment credentials, and constraining runner egress to required registries/state backends/cloud APIs. Source: `raw/2026-09-04-rss-tldr-infosec-shai-hulud-whoever-controls-your-package-registry-control.md`. confidence: 1 source, last-confirmed 2026-09-04.
+
+### Typed entities
+- incident family: Shai-Hulud
+- variant: ChainDrop
+- registry: npm registry
+- registry class: Terraform provider/module registry
+- control: immutable reference pinning
+- control: private allowlisted registry
+- control: short-lived deployment credential
+- control: runner egress allowlist
+- standard/control: SLSA provenance
+
+### Explicit relationships
+- SLSA provenance complements source integrity but does not supersede release authorization review when an attacker controls legitimate publishing credentials.
+- Registry consumption depends-on publisher trust, dependency immutability, credential scope, and runner egress together.
+- CI runners and developer laptops overlap-with production security boundaries when they hold publish, registry, or cloud credentials.
+
+### HoneyDrunk implications
+- For release-capable workflows, require immutable pins for Terraform modules/providers, GitHub Actions, container bases, MCP packages, and npm dependencies where possible.
+- Treat public registries as untrusted input unless HoneyDrunk controls an allowlisted mirror or review gate for the dependency class.
+- Remove long-lived publishing/cloud credentials from CI runners before assuming package signatures or attestations are enough.
+
+### Quality notes
+- The source is sponsored and includes historical/incident narrative. Lore retained defensive controls and provenance-limit lessons, not malware mechanics.

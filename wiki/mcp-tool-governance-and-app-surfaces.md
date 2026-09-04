@@ -1228,3 +1228,39 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - MCP blog is authoritative for roadmap direction but future-looking. Microsoft Learn is authoritative for the extension pattern, while ACA "what's new" is low-yield status evidence because the body is old relative to the clip date.
+
+## 2026-09-04 compile additions: managed MCP connectors and stateful app-local MCP servers
+
+### Source-backed claims
+- Azure Connector Namespace hosts MCP connectors as managed Azure resources and lets Azure SRE Agent attach MCP endpoints using Streamable HTTP, managed identity, Entra token scopes, and Access Policies rather than ad hoc private server wiring. Source: `raw/2026-09-04-rss-azure-blog-power-azure-sre-agent-with-the-tools-it-needs.md`; page: [[azure-agent-automation-and-identity]]. confidence: 1 Microsoft Azure Blog source, last-confirmed 2026-09-04.
+- Uno Platform separates MCP by lifetime and trust boundary: a hosted stateless documentation server provides current docs and prompts, while a local stdio app server connects to the Uno DevServer for screenshots, visual-tree XML, pointer/key/type actions, automation-peer actions, and health checks against a running app. Source: `raw/2026-09-04-rss-net-blog-how-uno-platform-uses-net-mcp-and-ai-to-build-high-quality-ap.md`; page: [[microsoft-dotnet-ai-stack]]. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-09-04.
+- Uno's .NET MCP source treats tool descriptions as both prompts and context-window cost, estimating its docs MCP server at about 6.4K tokens, its app MCP server at about 1.5K tokens, and GitHub MCP at about 5.2K tokens before task-specific content. Source: `raw/2026-09-04-rss-net-blog-how-uno-platform-uses-net-mcp-and-ai-to-build-high-quality-ap.md`. confidence: 1 source, last-confirmed 2026-09-04.
+- Unity's August 2026 industry wrap-up distinguishes Unity's in-editor AI Assistant, AI Gateway for external coding agents/credentials, and MCP Server for agents that read scenes, edit scripts, and inspect console state; the article says Asset Manager is the data foundation rather than an AI tool. Source: `raw/2026-09-04-rss-unity-blog-the-immersive-edge-august-2026-industry-content-wrap-up.md`; page: [[unity-3d-and-realtime-vfx-patterns]]. confidence: 1 Unity vendor source, last-confirmed 2026-09-04.
+
+### Typed entities
+- hosting surface: Azure Connector Namespace
+- product/agent: Azure SRE Agent
+- connector protocol: Streamable HTTP MCP
+- framework: Uno Platform
+- server: Uno docs MCP server
+- server: Uno app MCP server
+- runtime: Uno DevServer
+- signal: visual-tree XML
+- tool class: automation-peer action
+- product: Unity AI Assistant
+- product: Unity AI Gateway
+- product: Unity MCP Server
+
+### Explicit relationships
+- Managed MCP connector hosting depends-on cloud identity, access policy, connector provenance, and endpoint audit rather than only MCP protocol compatibility.
+- Hosted stateless docs MCP complements local stateful app MCP when one surface supplies reference knowledge and the other supplies live application state.
+- Tool descriptions depend-on context-budget governance; large always-on MCP servers can reduce effective reasoning space.
+- Unity AI Gateway and MCP Server complement Unity CLI/Pipeline patterns by exposing project and scene context to external agents.
+
+### HoneyDrunk implications
+- Split HoneyDrunk MCP servers by lifetime: durable reference/doc servers should be stateless and cheap; live project/app servers should be local, scoped, logged, and state-aware.
+- Track per-server token footprint before enabling broad MCP profiles. A trusted server can still be too expensive or noisy for default context.
+- For managed connector platforms, require identity, tenant, egress, approval, and audit evidence before connecting an operational agent to Jira, PagerDuty, databases, or source control.
+
+### Quality notes
+- Microsoft and Unity sources are vendor-authored. They are useful architecture signals, not proof that a connector or MCP server is safe for HoneyDrunk production without local validation.

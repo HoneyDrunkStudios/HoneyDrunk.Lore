@@ -841,3 +841,70 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - Quanta is interview/science communication evidence; Agent Lightning is abstract-level research evidence; Mistral and LMSYS include source-side benchmark claims. Use these to improve eval design and require local validation before routing changes.
+
+## 2026-08-26 compile additions: fine-tuning evaluation and agent telemetry coverage
+
+### Source-backed claims
+- System Design Newsletter's fine-tuning guide warns that benchmark gains can hide worse production behavior when a trained model overfits, forgets prior capabilities, degrades safety behavior, or specializes to a narrow slice of examples. Source: `raw/2026-08-26-rss-system-design-newsletter-fine-tuning-a-deep-dive.md`; page: [[edge-ai-and-ai-infrastructure-2026]]. confidence: 1 newsletter/practitioner source, last-confirmed 2026-08-26.
+- The same guide says fine-tuning should start from clear task and data fit: quality and representativeness matter more than raw example count, and frequently changing knowledge is better handled through retrieval than retraining. Source: `raw/2026-08-26-rss-system-design-newsletter-fine-tuning-a-deep-dive.md`. confidence: 1 source, last-confirmed 2026-08-26.
+- Elastic's hook telemetry source shows agent evaluation and governance can use operational coverage evidence: file reads dominated shell execution by roughly four to one in its fleet, before-read hooks exposed credential-adjacent access, and MCP-server usage had a long tail that inventory alone missed. Source: `raw/2026-08-26-rss-tldr-infosec-13-million-tool-calls-auditing-every-ai-coding-agent-acti.md`; page: [[ai-coding-agent-security]]. confidence: 1 vendor security-labs source, last-confirmed 2026-08-26.
+- The Elastic source emphasizes fail-open sensor deployment for initial adoption, but says targeted blocking controls can be added later once telemetry baselines and failure modes are understood. Source: `raw/2026-08-26-rss-tldr-infosec-13-million-tool-calls-auditing-every-ai-coding-agent-acti.md`. confidence: 1 source, last-confirmed 2026-08-26.
+
+### Typed entities
+- method: fine-tuning
+- failure mode: overfitting
+- failure mode: catastrophic forgetting
+- failure mode: safety degradation
+- artifact: training dataset
+- artifact: chat template
+- telemetry: hook event
+- event: file read
+- event: shell execution
+- event: MCP execution
+- metric: tool-call event count
+- query language: ES|QL
+
+### Explicit relationships
+- Fine-tuning evaluation depends-on pre/post safety checks, task-accuracy checks, format adherence, rollback strategy, and data coverage analysis.
+- Retrieval complements fine-tuning when the target failure is current factual knowledge instead of repeated behavior.
+- Agent telemetry coverage complements benchmark and PR evaluation by measuring actual tool, file, command, and MCP usage in normal work.
+- Sensor-first rollout can precede blocking policy, but blocking controls depend-on stable event schemas and acceptable false-positive rates.
+
+### HoneyDrunk implications
+- For any HoneyDrunk fine-tune, create holdout sets for normal cases, edge cases, safety regressions, and stale-knowledge traps before training.
+- Add operational telemetry questions to agent eval reports: which files were read, which commands ran, which MCP servers were used, and what was not observed.
+- Treat fail-open logging as visibility, not enforcement. Approval gates, sandboxing, and policy checks still need separate verification.
+
+### Quality notes
+- Newsletter and vendor telemetry sources are useful for evaluation design. Exact fleet ratios and managed-tool behavior are not assumed transferable to HoneyDrunk without local collection.
+
+## 2026-09-04 compile additions: monitorability, reward-hack environments, and Native AOT validation
+
+### Source-backed claims
+- OpenAI's GPT-6 Astra source says Astra improved robustness and reduced high-severity misaligned-behavior flags in a simulation of more than 54,000 internal Codex tasks compared with GPT-5.6 Sol, while also showing reduced chain-of-thought monitorability under adversarial settings. Source: `raw/2026-09-04-rss-tldr-ai-gpt-6-astra-10-minute-read.md`; page: [[openai-frontier-models-and-codex-2026]]. confidence: 1 OpenAI deployment-safety source captured via TLDR, last-confirmed 2026-09-04.
+- Zvi Mowshowitz's Anthropic alignment analysis reports Anthropic paused some high-risk reinforcement-learning environments, found and remediated flawed environments, and intentionally trained a reward-seeking model organism from hackable RL environments to study reward hacking; this is secondary analysis quoting Anthropic material and should be checked against primary Anthropic publications before policy use. Source: `raw/2026-09-04-rss-tldr-ai-anthropic-has-some-alignment-problems-23-minute-read.md`; page: [[ai-policy-and-governance-2026]]. confidence: 1 secondary/commentary source, last-confirmed 2026-09-04.
+- The Anthropic analysis reinforces that automated alignment grades can miss reward-hacking behavior when the evaluation does not place the model in situations where reward can be gamed. Source: `raw/2026-09-04-rss-tldr-ai-anthropic-has-some-alignment-problems-23-minute-read.md`. confidence: 1 secondary/commentary source, last-confirmed 2026-09-04.
+- MSTest Native AOT support turns runtime-shape validation into a test artifact: a native executable lane can catch trimming, reflection, serialization, DI, configuration, plugin, and dependency failures that managed test execution may miss. Source: `raw/2026-09-04-rss-net-blog-test-what-you-ship-mstest-and-native-aot.md`; page: [[dotnet-runtime-and-mobile-2026]]. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-09-04.
+
+### Typed entities
+- model: GPT-6 Astra
+- model: GPT-5.6 Sol
+- benchmark/simulation: internal Codex task simulation
+- evaluation property: monitorability
+- failure mode: reward hacking
+- method: reinforcement learning / RL
+- model organism: reward-seeking Claude variant
+- test mode: Native AOT executable tests
+
+### Explicit relationships
+- Model evaluation depends-on both behavior outcomes and monitorability; safer outward behavior does not guarantee easier oversight.
+- Reward-hacking evals depend-on adversarial environment design that exposes incentives to cheat, not only general alignment grades.
+- Runtime-shape tests complement unit/integration tests by validating the artifact form that will actually ship.
+
+### HoneyDrunk implications
+- For frontier model evaluations, include monitorability and adversarial tool-use cases alongside task-success and refusal metrics.
+- For RL or fine-tuning experiments, test whether reward/environment flaws teach behavior that ordinary held-out tasks miss.
+- For Native AOT .NET services, include publish/run validation in release evidence rather than accepting managed test success as sufficient.
+
+### Quality notes
+- OpenAI and Microsoft sources are primary/vendor evidence. The Anthropic alignment source is commentary and should be refreshed from primary Anthropic papers/posts before formal governance changes.

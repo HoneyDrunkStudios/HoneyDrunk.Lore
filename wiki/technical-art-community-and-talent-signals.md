@@ -841,3 +841,66 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - Blender Foundation is authoritative for release/support posture. Feature fit still needs local pipeline validation with HoneyDrunk assets and add-ons.
+
+## 2026-08-26 compile additions: modular VFX libraries and rendering optimization craft
+
+### Source-backed claims
+- A RealtimeVFX practitioner describes scaling combat VFX by decomposing AOE and projectile effects into reusable UE5 Niagara component types, each with shared user parameters, then composing variants through data tables. Source: `raw/2026-08-26-rss-realtimevfx-modular-approach-to-aoe-vfx-breakdown.md`; page: [[unity-3d-and-realtime-vfx-patterns]]. confidence: 1 community/practitioner source, last-confirmed 2026-08-26.
+- The same source says the approach supported many unique variants across projectiles, AOEs, buffs, debuffs, and impacts for a small team with limited artist capacity. Source: `raw/2026-08-26-rss-realtimevfx-modular-approach-to-aoe-vfx-breakdown.md`. confidence: 1 source, last-confirmed 2026-08-26.
+- Unity's Mega Cat Studios rendering source reinforces technical-art involvement in optimization: material count, shader texture references, duplicate texture imports, VAT memory, GPU-compute culling, and limited untethered-device resources all require coordination between art and engineering. Source: `raw/2026-08-26-rss-unity-blog-rendering-at-scale-efficient-strategies-for-massive-object-.md`; page: [[unity-3d-and-realtime-vfx-patterns]]. confidence: 1 Unity/vendor-authored practitioner source, last-confirmed 2026-08-26.
+
+### Typed entities
+- engine: Unreal Engine 5
+- system: Niagara
+- artifact: data table
+- effect type: AOE VFX
+- effect type: projectile VFX
+- technique: user parameters
+- technique: vertex animation textures / VAT
+- technique: shader texture-reference audit
+- target: untethered devices
+
+### Explicit relationships
+- Modular VFX libraries depend-on shared parameter contracts so component variants can be recombined safely through data.
+- Data-table assembly complements small-team production by separating effect composition from bespoke authoring.
+- Technical-art optimization complements engineering profiling when rendering cost comes from materials, textures, animation representation, and asset duplication.
+
+### HoneyDrunk implications
+- For effect-heavy prototypes, define reusable VFX component taxonomies and parameter names before the effect count grows.
+- Add material/texture duplication review and VAT memory tradeoff checks to dense-scene optimization passes.
+
+### Quality notes
+- RealtimeVFX is useful community evidence and Unity is vendor/practitioner evidence. Both are workflow signals requiring local proof scenes.
+
+## 2026-09-04 compile additions: Blender assistant tools and technical-artist career transition signals
+
+### Source-backed claims
+- A Tech-Artists.Org post describes `claude-in-blender`, a Blender N-panel add-on used by a VFX artist to ask Claude Code for small Python tools such as mesh generators, Geometry Nodes starters, and custom operators while continuing normal Blender work. Source: `raw/2026-09-04-rss-tech-artists-org-claude-in-blender-quick-blender-tools-with-claude-code.md`. confidence: 1 community/practitioner source, last-confirmed 2026-09-04.
+- The author frames the useful workflow as small-tool generation followed by manual parameter adjustment, not handing a large end-to-end art task to the model. Source: `raw/2026-09-04-rss-tech-artists-org-claude-in-blender-quick-blender-tools-with-claude-code.md`; page: [[ai-assisted-game-development-pipelines]]. confidence: 1 source, last-confirmed 2026-09-04.
+- A Tech-Artists.Org career thread suggests senior generalist experience can transfer into technical art through workflow empathy and problem-solving, while studio attitudes toward AI-assisted tool building vary widely and should be asked directly during hiring or vendor/studio evaluation. Source: `raw/2026-09-04-rss-tech-artists-org-is-moving-from-senior-generalist-artist-to-technical-.md`. confidence: 1 community discussion source, last-confirmed 2026-09-04.
+
+### Typed entities
+- tool/add-on: `claude-in-blender`
+- application: Blender
+- product/tool: Claude Code
+- role: VFX artist
+- role: Senior Generalist Artist
+- role: Technical Artist
+- engine/tooling: Unity
+- engine/tooling: Unreal Engine
+- language: Python
+- language: C#
+- language: C++
+
+### Explicit relationships
+- In-editor assistant tools complement technical-art work when they generate small local tools that artists can inspect and tune.
+- Generalist art experience can complement technical-art roles by improving tool UX for other disciplines.
+- Studio AI policy can contradict individual workflow expectations; hiring/adoption decisions depend-on explicit policy fit.
+
+### HoneyDrunk implications
+- Prefer assistant-assisted DCC tooling experiments that generate small, inspectable Blender/Unity/Unreal tools with undo/review paths.
+- When hiring or partnering for technical art, ask directly about acceptable AI use, code/tool ownership, review expectations, and target specialization.
+- Treat community career advice as signal only; validate compensation, role scope, and engine/language demand against actual job posts before planning.
+
+### Quality notes
+- Tech-Artists.Org evidence is community discussion and individual workflow experience. It is useful qualitative signal, not labor-market proof.

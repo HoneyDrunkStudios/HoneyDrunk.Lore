@@ -1074,3 +1074,85 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - Unity CLI/Pipeline source is vendor-authored and partly experimental; validate CLI channel, package version, security token behavior, and local Windows ergonomics. Burst/Jobs source is practitioner guidance and should be checked against compiling samples and target device profiles.
+
+## 2026-08-26 compile additions: VR live ops, UGC constraints, and massive-object rendering
+
+### Source-backed claims
+- Unity's Gorilla Tag case study says Another Axiom ships maps, cosmetics, and modes on a two-week cadence across supported VR platforms, with performance, comfort, uptime, and game-breaking bug avoidance as primary live-ops constraints. Source: `raw/2026-08-26-rss-unity-blog-keeping-a-vr-giant-fresh-gorilla-tag-s-two-week-live-ops-ca.md`; page: [[gamedev-production-and-community-signals]]. confidence: 1 Unity/vendor interview source, last-confirmed 2026-08-26.
+- The Gorilla Tag source says the team constrains UGC/custom maps with polygon caps, active-object limits, performance-impact constraints, and component whitelisting, expanding the allowed pool as internal tools stabilize. Source: `raw/2026-08-26-rss-unity-blog-keeping-a-vr-giant-fresh-gorilla-tag-s-two-week-live-ops-ca.md`. confidence: 1 source, last-confirmed 2026-08-26.
+- The same source says URP plus one uber shader with variants reduced draw calls/non-batchable objects, Addressables helped split the APK/OBB asset footprint on Quest, and Unity Build Automation made consistent headset testing across branches practical. Source: `raw/2026-08-26-rss-unity-blog-keeping-a-vr-giant-fresh-gorilla-tag-s-two-week-live-ops-ca.md`. confidence: 1 source, last-confirmed 2026-08-26.
+- Unity's Mega Cat Studios rendering source recommends profiling CPU versus GPU bottlenecks before optimizing and treats draw-call reduction as central when object counts explode. Source: `raw/2026-08-26-rss-unity-blog-rendering-at-scale-efficient-strategies-for-massive-object-.md`. confidence: 1 Unity/vendor-authored practitioner source, last-confirmed 2026-08-26.
+- The rendering source describes static batching, GPU instancing, vertex animation textures, occlusion culling, centralized update loops, cached references, texture duplication audits, and latest-LTS upgrades as practical levers, with URP generally preferred over HDRP for mobile and untethered devices unless high-fidelity requirements justify HDRP. Source: `raw/2026-08-26-rss-unity-blog-rendering-at-scale-efficient-strategies-for-massive-object-.md`; page: [[technical-art-community-and-talent-signals]]. confidence: 1 source, last-confirmed 2026-08-26.
+- The RealtimeVFX AOE breakdown describes a UE5 Niagara workflow where component-type effect systems share user parameters such as color, scale, duration, and component-specific controls, then assemble full AOE/projectile variants through data tables rather than one-off effect authoring. Source: `raw/2026-08-26-rss-realtimevfx-modular-approach-to-aoe-vfx-breakdown.md`; page: [[technical-art-community-and-talent-signals]]. confidence: 1 community/practitioner source, last-confirmed 2026-08-26.
+
+### Typed entities
+- game: Gorilla Tag
+- studio: Another Axiom
+- engine: Unity
+- render pipeline: Universal Render Pipeline / URP
+- render pipeline: High Definition Render Pipeline / HDRP
+- platform: Meta Quest 2
+- system: Addressables
+- service: Unity Build Automation
+- artifact: Opaque Binary Blob / OBB
+- technique: static batching
+- technique: GPU instancing
+- technique: vertex animation textures / VAT
+- technique: occlusion culling
+- engine: Unreal Engine 5 / UE5
+- tool/system: Niagara
+- artifact: data table
+
+### Explicit relationships
+- Multiplatform VR live ops depends-on on-device QA, stable frame rate, comfort checks, branch discipline, build automation, and fast stabilization windows.
+- UGC safety/performance depends-on asset budgets, active-object limits, component whitelists, and gradual expansion of allowed tools.
+- URP and shader/material consolidation complement draw-call reduction for mobile/untethered targets.
+- Static batching, GPU instancing, and VAT solve different CPU/GPU/animation bottlenecks and can contradict the real bottleneck if applied without profiling.
+- Modular VFX systems use data tables and shared parameters to scale content variation without creating bespoke systems for every effect.
+
+### HoneyDrunk implications
+- For VR or live-service prototypes, define a representative headset target, frame-rate target, UGC budget, release branch cadence, and stabilization period before increasing content frequency.
+- For dense Unity scenes, require CPU/GPU profiler captures before choosing batching, instancing, VAT, culling, Jobs/Burst, or asset-reduction work.
+- Treat OBB/Addressables packaging and catalog growth as production constraints, not late cleanup, when cosmetics or downloadable content are central.
+- For combat VFX, evaluate a modular data-table-driven library early if many projectiles/AOEs/buffs/debuffs need fast variation.
+
+### Quality notes
+- Unity sources are vendor/interview evidence but concrete and production-shaped. RealtimeVFX is community practitioner evidence and should be validated in the target engine/pipeline before standardization.
+
+## 2026-09-04 compile additions: mixed-reality medical training and Unity Industry data layer
+
+### Source-backed claims
+- Unity's Project Ember article describes a mixed-reality burn-care training platform from Buckinghamshire Healthcare NHS Trust that overlays realistic digital burns onto physical mannequins, allowing instructors to vary burn severity, size, location, cause, age, and skin tone without manufacturing new prosthetics. Source: `raw/2026-09-04-rss-unity-blog-how-project-ember-is-transforming-burn-care-training-throug.md`. confidence: 1 Unity/vendor case-study source, last-confirmed 2026-09-04.
+- Project Ember includes a dynamic skin-tone engine intended to improve equitable clinical training by representing burn presentation across a broader range of patient skin tones. Source: `raw/2026-09-04-rss-unity-blog-how-project-ember-is-transforming-burn-care-training-throug.md`. confidence: 1 source, last-confirmed 2026-09-04.
+- Unity's August 2026 Immersive Edge wrap-up says Unity Studio supports real-time browser collaboration with up to 12 simultaneous editors per draft, named cursors, participant cameras, selection outlines, and follow mode. Source: `raw/2026-09-04-rss-unity-blog-the-immersive-edge-august-2026-industry-content-wrap-up.md`. confidence: 1 Unity vendor source, last-confirmed 2026-09-04.
+- The same wrap-up describes Unity's industrial 3D data layer as Asset Manager, Asset Transformer, and Pipeline Automation, with Asset Transformer supporting 70-plus formats and governance through org/project RBAC plus Pipeline Automation SOC 2 Type 1 coverage. Source: `raw/2026-09-04-rss-unity-blog-the-immersive-edge-august-2026-industry-content-wrap-up.md`. confidence: 1 source, last-confirmed 2026-09-04.
+- Unity's wrap-up describes Ditmara as an open engine-agnostic digital-twin reference architecture with six layers and 43 components, spanning sensors/protocols, ingestion, processing, services, cloud infrastructure, MBSE integration, and a bidirectional closed loop. Source: `raw/2026-09-04-rss-unity-blog-the-immersive-edge-august-2026-industry-content-wrap-up.md`. confidence: 1 source, last-confirmed 2026-09-04.
+
+### Typed entities
+- project: Project Ember
+- organization: Buckinghamshire Healthcare NHS Trust
+- domain: mixed-reality medical training
+- feature: dynamic skin-tone engine
+- product: Unity Studio
+- product: Unity Asset Manager
+- product: Unity Asset Transformer
+- product: Unity Pipeline Automation
+- architecture: Ditmara
+- concept: digital twin
+- standard/reference: ISO 23247
+- organization: Digital Twin Consortium
+
+### Explicit relationships
+- Mixed-reality training uses Unity real-time alignment to connect physical mannequins with digital injury states.
+- Dynamic scenario generation supersedes fixed prosthetic-only training when educators need many patient/injury variations.
+- Unity Studio collaboration complements 3D design review by making feedback state visible inside the browser draft.
+- Unity's industrial data layer depends-on asset conversion, versioned asset management, orchestration, RBAC, and governance before immersive apps scale.
+- Ditmara complements digital-twin planning by naming architecture layers and closed-loop feedback paths before implementation.
+
+### HoneyDrunk implications
+- For training/simulation prototypes, model scenario variability and representational coverage early instead of treating content diversity as later asset work.
+- Use Unity Studio collaboration as a low-code review candidate, but validate export/handoff, permissions, browser performance, and asset fidelity with HoneyDrunk content.
+- If HoneyDrunk explores industrial/digital-twin work, start from a reference architecture and data-governance checklist before selecting rendering or XR presentation tools.
+
+### Quality notes
+- Unity sources are vendor/case-study evidence. Medical-training claims require clinical validation before any patient-care or education outcome assumptions.
