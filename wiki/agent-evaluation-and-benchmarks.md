@@ -908,3 +908,29 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - OpenAI and Microsoft sources are primary/vendor evidence. The Anthropic alignment source is commentary and should be refreshed from primary Anthropic papers/posts before formal governance changes.
+## 2026-09-08 compile additions: verification capacity and scanner miss evidence
+
+### Source-backed claims
+- Fowler's September 8 fragments reinforce that AI-code evaluation must measure verification quality, not just output volume: generated work is easy to produce, but incomplete measurements can create short-term utility signals while long-term maintainability and accountability degrade. Source: `raw/2026-09-08-rss-martin-fowler-fragments-september-8.md`; page: [[ai-assisted-software-practice]]. confidence: 1 commentary source, last-confirmed 2026-09-08.
+- Wiz reports GitHub Advanced Security analyzed the final Snowflake workflow revision involved in the Jira-token exposure but did not flag the critical script injection, reinforcing scanner blind spots around workflow/event-context semantics. Source: `raw/2026-09-08-rss-tldr-infosec-wiz-red-agent-finds-its-way-into-snowflake-s-internal-jir.md`; page: [[ai-coding-agent-security]]. confidence: 1 security-research/vendor source, last-confirmed 2026-09-08.
+- RAPTOR's README describes model reliability scorecards that track cheap-vs-full model agreement by decision class and only short-circuit confident false positives after a Wilson 95 percent upper-bound miss-rate threshold falls at or below 5 percent. Source: `raw/2026-09-08-rss-tldr-infosec-raptor-github-repo.md`; page: [[ai-coding-agent-security]]. confidence: 1 project README source, last-confirmed 2026-09-08.
+
+### Typed entities
+- concept: verification capacity
+- product: GitHub Advanced Security
+- concept: workflow/event-context semantics
+- framework: RAPTOR
+- artifact: model scorecard
+- statistic: Wilson 95 percent upper bound
+
+### Explicit relationships
+- Output metrics can contradict real productivity when verification coverage is weak.
+- Scanner results complement, but do not supersede, event-specific security reasoning.
+- Cheap-model short-circuiting depends-on measured agreement and miss-rate bounds, not model family assumptions.
+
+### HoneyDrunk implications
+- When evaluating AI coding tools, include verification cost, review findings, escaped defects, and scanner-miss classes.
+- Any fast-tier model prefilter should earn trust through tracked agreement by decision class before it can skip deeper review.
+
+### Quality notes
+- Fowler is commentary, Wiz is incident research, and RAPTOR is README evidence; all are useful for evaluation design but need local datasets before becoming gates.

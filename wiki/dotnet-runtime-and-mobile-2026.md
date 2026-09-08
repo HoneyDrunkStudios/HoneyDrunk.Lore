@@ -359,3 +359,29 @@
 
 ### Quality notes
 - Microsoft source is authoritative for MSTest feature posture as captured. Validate SDK version, RID publishing, and reporter compatibility in each repo before standardization.
+## 2026-09-08 compile additions: September servicing and .NET Conf Community Days
+
+### Source-backed claims
+- The September 2026 .NET servicing release updates .NET 10 to 10.0.12, .NET 9 to 9.0.20, and .NET 8 to 8.0.31, with security/non-security fixes and matching ASP.NET Core, EF Core, runtime, container-image, and Linux-package release artifacts. Source: `raw/2026-09-08-rss-net-blog-net-and-net-framework-september-2026-servicing-releases-updat.md`; page: [[microsoft-dotnet-ai-stack]]. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-09-08.
+- The same servicing source lists CVE-2026-69805, CVE-2026-69439, CVE-2026-71328, CVE-2026-69522, CVE-2026-69304, CVE-2026-58649, CVE-2026-66822, and CVE-2026-69806 as addressed for applicable .NET versions; CVE-2026-69522 also applies to .NET Framework 4.6.2 through 4.8.1. Source: `raw/2026-09-08-rss-net-blog-net-and-net-framework-september-2026-servicing-releases-updat.md`. confidence: 1 source, last-confirmed 2026-09-08.
+- .NET Conf 2026 Community Days CFP is open from 2026-09-08 to 2026-10-06, accepts 30-minute remote talks plus Q&A, prefers .NET 11 demonstrations, and covers web, native, mobile, desktop, AI, IoT, game development, containers, microservices, ML, data, DevOps, and open-source .NET projects. Source: `raw/2026-09-08-rss-net-blog-net-conf-2026-community-days-call-for-presenters-is-open.md`. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-09-08.
+
+### Typed entities
+- runtime: .NET 10.0.12
+- runtime: .NET 9.0.20
+- runtime: .NET 8.0.31
+- runtime: .NET Framework 4.6.2-4.8.1
+- event: .NET Conf 2026 Community Days
+- date: 2026-10-06 CFP deadline
+
+### Explicit relationships
+- September servicing supersedes prior supported-runtime patch levels for security posture.
+- .NET Framework servicing overlaps with modern .NET servicing where CVE-2026-69522 applies across both runtime families.
+- Community Days depends-on practical implementation submissions and complements the Microsoft-led first two .NET Conf days.
+
+### HoneyDrunk implications
+- Patch or at least triage every supported HoneyDrunk .NET runtime and container image against the September 2026 release notes.
+- If HoneyDrunk submits or tracks .NET Conf content, the relevant CFP deadline is 2026-10-06.
+
+### Quality notes
+- Official release notes are high-authority but operational applicability depends on local runtime inventory, package locks, and container base images.

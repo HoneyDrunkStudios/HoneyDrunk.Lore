@@ -1913,3 +1913,37 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 
 ### Privacy and quality notes
 - Privacy filter: malware payload details, command snippets, credential paths beyond generic classes, exfiltration endpoints, and reusable offensive steps were not promoted. Shai-Hulud source is sponsored and defensive-practice oriented; validate controls against primary incident reports and local package-manager behavior before emergency policy changes.
+## 2026-09-08 compile additions: autonomous security agents and CI/CD issue-trigger injection
+
+### Source-backed claims
+- Wiz reports its Red Agent found a critical script-injection flaw in Snowflake's public `snowflake-connector-net` GitHub Actions workflow, where an attacker-controlled issue title was interpolated into a shell `run:` block; Snowflake remediated the same day, rotated the affected Jira token, and audit logs reportedly showed only Wiz access during the exposure window. Source: `raw/2026-09-08-rss-tldr-infosec-wiz-red-agent-finds-its-way-into-snowflake-s-internal-jir.md`; page: [[github-actions-platform-operations]]. confidence: 1 security-research/vendor source, last-confirmed 2026-09-08.
+- The Wiz source says the vulnerable pattern replaced a safer `env:` plus `jq --arg` handling path with direct `${{ github.event.issue.title }}` interpolation, and GitHub Advanced Security did not flag the final vulnerable workflow revision. Source: `raw/2026-09-08-rss-tldr-infosec-wiz-red-agent-finds-its-way-into-snowflake-s-internal-jir.md`; page: [[github-actions-platform-operations]]. confidence: 1 source, last-confirmed 2026-09-08.
+- RAPTOR's README frames autonomous security review as a chained workflow of static analysis, binary analysis, LLM-powered vulnerability validation, exploit generation, and patch writing, while noting the project runs LLM-generated code and untrusted repositories behind Linux namespace/Landlock/seccomp sandboxing and startup environment sanitization. Source: `raw/2026-09-08-rss-tldr-infosec-raptor-github-repo.md`; page: [[ai-agent-harnesses]]. confidence: 1 project README source, last-confirmed 2026-09-08.
+- Fowler's September 8 fragments reinforce the generation-verification imbalance: AI increases output volume faster than verification capacity, and organizations remain responsible for agent outcomes even when behavior is emergent. Source: `raw/2026-09-08-rss-martin-fowler-fragments-september-8.md`; pages: [[ai-assisted-software-practice]], [[ai-policy-and-governance-2026]]. confidence: 1 commentary source citing external essays, last-confirmed 2026-09-08.
+
+### Typed entities
+- company: Wiz
+- product/agent: Red Agent
+- organization: Snowflake
+- repository: `snowflakedb/snowflake-connector-net`
+- platform: GitHub Actions
+- system: Jira
+- vulnerability class: script injection through untrusted issue title
+- framework: RAPTOR
+- control: Linux namespaces
+- control: Landlock
+- control: seccomp
+
+### Explicit relationships
+- Issue-triggered GitHub Actions workflows depend-on safe untrusted-input handling because any GitHub user can supply issue metadata.
+- Static/security scanners complement review but do not supersede workflow-specific injection tests and safe shell-construction patterns.
+- Autonomous security agents reduce discovery time, which increases the value of short-lived credentials, rapid patching, and narrow workflow permissions.
+- LLM-assisted security automation depends-on sandboxing, evidence retention, cost limits, and human judgment before exploit or patch output is trusted.
+
+### HoneyDrunk implications
+- Audit GitHub Actions workflows that trigger on `issues`, `pull_request_target`, comments, labels, or other user-controlled events for direct `${{ }}` interpolation into shell.
+- Prefer environment variables plus structured tools (`jq --arg`, argument arrays, or language APIs) over string-built shell snippets for untrusted GitHub metadata.
+- Treat autonomous security scanners as force multipliers with strict scope, disclosure rules, and payload redaction, not as license to run exploit workflows broadly.
+
+### Privacy and quality notes
+- Privacy filter: exact exploit payloads, exfiltration endpoints, token values, and reusable offensive steps from the Wiz and RAPTOR sources were not promoted. Wiz is first-party research about a disclosed incident; RAPTOR is README evidence with offensive capabilities and requires careful local/legal review.

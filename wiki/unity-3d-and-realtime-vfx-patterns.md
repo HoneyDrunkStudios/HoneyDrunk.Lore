@@ -1156,3 +1156,42 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - Unity sources are vendor/case-study evidence. Medical-training claims require clinical validation before any patient-care or education outcome assumptions.
+## 2026-09-08 compile additions: XR, shaders, and real-time VFX learning paths
+
+### Source-backed claims
+- A Tech-Artists.Org CGHOW thread is collecting free Unreal Engine 5 Niagara tutorials covering system architecture, custom modules, scratch pads, shader/material tricks, dynamic parameters, Blueprint control, ribbon UV tiling, and performance-oriented real-time VFX workflows. Source: `raw/2026-09-08-rss-tech-artists-org-realtimevfx-in-unreal-engine-5-niagara-tutorials-brea.md`; page: [[technical-art-community-and-talent-signals]]. confidence: 1 community/practitioner source, last-confirmed 2026-09-08.
+- A DEV.to/beefed.ai XR article frames reprojection and spacewarp as comfort-preserving approximations, not substitutes for stable full-rate rendering; it emphasizes motion-to-photon latency under roughly 20 ms, late asynchronous timewarp, depth/motion-vector buffers, compositor timing, and artifact metrics such as dropped/reprojected frames and jitter. Source: `raw/2026-09-08-rss-dev-to-gamedev-implementing-reprojection-and-spacewarp-systems-for-xr.md`. confidence: 1 practitioner article, last-confirmed 2026-09-08.
+- A DEV.to/beefed.ai Shader Graph article argues Shader Graph versus handwritten HLSL should be decided by identical-spec generated-code inspection and target-device GPU timing, with optimization focused first on texture samples, pass count, stage placement, branching/keyword design, precision, overdraw, and variant stripping. Source: `raw/2026-09-08-rss-dev-to-unity-how-optimized-is-unity-shader-graph-in-unity-6-where-hlsl.md`; page: [[technical-art-community-and-talent-signals]]. confidence: 1 practitioner article, last-confirmed 2026-09-08.
+- Unity's Immortal John Triptych interview describes combining three Adventure Creator projects made across different Unity/plugin versions into one launcher; Unity version upgrades were relatively smooth, while Adventure Creator movement changes plus variable/dialogue/scene-name collisions drove most integration risk. Source: `raw/2026-09-08-rss-unity-blog-three-games-10-years-one-unity-project-piecing-together-the.md`; page: [[gamedev-production-and-community-signals]]. confidence: 1 Unity/vendor interview source, last-confirmed 2026-09-08.
+
+### Typed entities
+- engine: Unity
+- engine/tool: Unreal Engine 5 Niagara
+- community: Tech-Artists.Org
+- community: RealtimeVFX
+- creator/resource: CGHOW
+- concept: dynamic Niagara user parameters
+- concept: ribbon texture tiling
+- runtime/API: OpenXR
+- technique: asynchronous timewarp / ATW
+- technique: spacewarp
+- artifact: motion vector buffer
+- artifact: depth buffer
+- tool: Unity Shader Graph
+- language: ShaderLab/HLSL
+- plugin: Adventure Creator
+
+### Explicit relationships
+- Niagara tutorials complement modular VFX practice by making programmer-controlled parameters and reusable material/rendering techniques explicit.
+- XR reprojection depends-on compositor timing, pose prediction, depth/motion-vector quality, and target-device profiling.
+- Shader Graph and HLSL are alternative authoring paths whose performance depends-on generated passes, samples, branches, precision, variants, and the real scene bottleneck.
+- Long-lived Unity projects depend-on asset/plugin upgrade strategy and namespace/data hygiene, not only Unity editor version migration.
+
+### HoneyDrunk implications
+- For VFX pipelines, collect reusable Niagara/Unity VFX Graph patterns around exposed gameplay parameters, material controls, and performance budgets.
+- For XR prototypes, measure compositor timing, frame jitter, reprojected-frame count, HUD drift, and artifact quality on the target headset before relying on ATW/spacewarp.
+- For shaders, require generated-code inspection and GPU-millisecond A/B tests before rewriting Shader Graph into HLSL.
+- For decade-scale Unity projects, document plugin versions, migration risks, naming conventions, and controller/input assumptions early.
+
+### Quality notes
+- Unity interview evidence is useful but retrospective and project-specific. DEV.to and Tech-Artists.Org are practitioner/community sources and should be validated through local reproduction.

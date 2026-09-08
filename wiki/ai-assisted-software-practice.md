@@ -1188,3 +1188,35 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Fowler-hosted practitioner essays are workflow evidence, not measured universal rules. Apply through local PR size, defect, review-latency, and CI-contention measurements.
+## 2026-09-08 compile additions: verification economics and API test layering
+
+### Source-backed claims
+- Fowler's September 8 fragments highlight Christian Catalini's warning that AI lowers generation cost faster than verification cost, shifting the automation boundary toward work with measurable outputs and creating risk of "counterfeit utility" when dashboards improve while real capability, maintainability, or accountability declines. Source: `raw/2026-09-08-rss-martin-fowler-fragments-september-8.md`; pages: [[ai-coding-agent-security]], [[llm-wiki-and-knowledge-formats]]. confidence: 1 commentary source citing external essay, last-confirmed 2026-09-08.
+- The same Fowler fragment cites Jessica Kerr's framing that agents cannot retain maker's understanding once context clears, so reliable AI-written code depends heavily on objective verification and tests that exercise behavior in artful ways. Source: `raw/2026-09-08-rss-martin-fowler-fragments-september-8.md`; page: [[agent-evaluation-and-benchmarks]]. confidence: 1 commentary source, last-confirmed 2026-09-08.
+- The System Design Newsletter API-testing article enumerates layered API test categories from smoke, functional, unit, integration, end-to-end, regression, acceptance, negative, boundary, validation, exploratory, contract, consumer-driven contract, load, stress, performance, spike, soak, scalability, latency, concurrency, security, authentication, and authorization testing; only the first seven are substantively explained in the captured free article. Source: `raw/2026-09-08-rss-system-design-newsletter-i-struggled-with-api-testing-until-i-learned-.md`. confidence: 1 newsletter source with paywalled tail, last-confirmed 2026-09-08.
+
+### Typed entities
+- concept: counterfeit utility
+- concept: measurable versus non-measurable work
+- person: Christian Catalini
+- person: Jessica Kerr
+- concept: objective verification
+- concept: API testing
+- test type: smoke testing
+- test type: functional testing
+- test type: integration testing
+- test type: end-to-end testing
+- test type: regression testing
+
+### Explicit relationships
+- AI generation speed depends-on verification capacity before it becomes durable productivity.
+- Objective tests complement human judgment by preserving behavioral evidence when agent context and authorial understanding disappear.
+- API test suites depend-on layered test types; smoke tests should gate deeper suites, while integration/E2E/acceptance tests cover different failure modes and costs.
+
+### HoneyDrunk implications
+- For AI-assisted coding, measure review burden, defect rate, incident risk, and maintainability alongside output volume.
+- Promote recurring review expectations into tests, lints, contracts, and runtime checks where possible.
+- For HoneyDrunk APIs, define a layered test inventory rather than asking agents to "add tests" without naming the verification level and risk being covered.
+
+### Quality notes
+- Fowler fragments are commentary and synthesis. The API-testing source is a newsletter teaser with a paywalled continuation; use it for taxonomy, not exhaustive implementation guidance.

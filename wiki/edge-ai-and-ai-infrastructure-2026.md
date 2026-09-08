@@ -1091,3 +1091,26 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - RuntimeWire is secondary reporting over OpenCode/OpenRouter disclosures and issues. System Design Newsletter is practitioner/newsletter evidence and partly paywalled in the captured raw; promote decision framework, not undisclosed implementation details.
+## 2026-09-08 compile additions: Apple-silicon local inference for coding agents
+
+### Source-backed claims
+- Magnitude is an open-source local inference server for Apple silicon that profiles chip, memory, and bandwidth, estimates model fit and tokens-per-second, ranks models, downloads/tunes them, and serves local models to coding-agent harnesses. Source: `raw/2026-09-08-rss-tldr-devops-magnitude-github-repo.md`; page: [[ai-agent-harnesses]]. confidence: 1 project README source, last-confirmed 2026-09-08.
+- The Magnitude README claims local prompts, files, and models stay on the Mac after download, with no token costs, no API keys, on-demand loading, idle unloading, and Apache 2.0 licensing. Source: `raw/2026-09-08-rss-tldr-devops-magnitude-github-repo.md`. confidence: 1 project README source, last-confirmed 2026-09-08.
+
+### Typed entities
+- project: Magnitude
+- platform: Apple silicon
+- OS requirement: macOS 15+
+- license: Apache 2.0
+- harnesses: OpenClaw, Codex, Claude Code, OpenCode, Cline
+
+### Explicit relationships
+- Local model serving complements cloud LLM routing by reducing external data exposure and per-token cost.
+- Local privacy claims depend-on download behavior, telemetry, update checks, model licenses, and actual network use after setup.
+- Hardware-aware model routing depends-on measured local throughput and memory pressure, not generic benchmark scores.
+
+### HoneyDrunk implications
+- Magnitude is worth a Mac-only scouting spike if HoneyDrunk wants offline coding-agent experiments; verify telemetry, model licenses, quality, and performance before relying on it for sensitive code.
+
+### Quality notes
+- README evidence is useful for discovery but not enough for procurement or security approval.

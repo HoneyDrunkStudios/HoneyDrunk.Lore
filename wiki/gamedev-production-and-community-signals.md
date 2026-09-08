@@ -628,3 +628,25 @@ The game-development community feed produced a mix of process advice, tooling ex
 
 ### Quality notes
 - 80 Level is trade/interview evidence. Useful as production-pattern scouting, not as proof that the concept or marketing path transfers to HoneyDrunk.
+## 2026-09-08 compile additions: long-lived Unity adventure project maintenance
+
+### Source-backed claims
+- Unity's Immortal John Triptych interview shows a solo/self-taught development path where an art-first collage workflow used Unity plus Adventure Creator to rebuild and later combine three games; the hardest merge issues came from plugin behavior changes and collisions across variables, dialogue IDs, and scene names. Source: `raw/2026-09-08-rss-unity-blog-three-games-10-years-one-unity-project-piecing-together-the.md`; page: [[unity-3d-and-realtime-vfx-patterns]]. confidence: 1 Unity/vendor interview source, last-confirmed 2026-09-08.
+- The same interview says direct controller support for point-and-click adventure games required changing interaction assumptions rather than shipping a virtual cursor; inaccessible hotspots needed a separate right-stick look-around interaction. Source: `raw/2026-09-08-rss-unity-blog-three-games-10-years-one-unity-project-piecing-together-the.md`. confidence: 1 source, last-confirmed 2026-09-08.
+
+### Typed entities
+- game collection: The Immortal John Triptych
+- plugin: Adventure Creator
+- publisher: Akupara Games
+- design pattern: art-first collage game development
+- input pattern: direct controller support
+
+### Explicit relationships
+- Art-first production can invert normal greybox/story workflows, but depends-on later puzzle/story integration discipline.
+- Console/controller ports can supersede virtual-cursor shortcuts when input feel is a product-quality requirement.
+
+### HoneyDrunk implications
+- For narrative/adventure prototypes, record whether tooling supports future input/platform changes and multi-project consolidation before content volume grows.
+
+### Quality notes
+- Unity interview is useful production evidence but retrospective and project-specific.

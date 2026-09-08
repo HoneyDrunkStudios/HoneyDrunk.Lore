@@ -185,3 +185,12 @@ This keeps Lore decision-usable for Honeyclaw, Claude, and future agents.
 - contradictions resolved: none; all new claims extended existing pages or created a new Kubernetes governance/CI-CD canonical page.
 - privacy/safety filtering: Unsloth remote-access and agent-security material was summarized at control level; no API keys, tokens, credentials, exploit payloads, external target addresses, or private personal data were promoted.
 - quality posture: GitHub and Microsoft Learn sources are authoritative for product/architecture posture but require tenant/local validation; Thoughtworks is strategy framing; Unsloth is project README evidence; System Design Newsletter is a primer, not implementation guidance.
+
+## 2026-09-08 Lore ingest/compile
+- operator: Honeyclaw scheduled ingest
+- raw sources ingested: 15
+- pages created: none
+- pages updated: [[agent-evaluation-and-benchmarks]], [[ai-agent-harnesses]], [[ai-assisted-software-practice]], [[ai-coding-agent-security]], [[ai-policy-and-governance-2026]], [[azure-agent-automation-and-identity]], [[dotnet-runtime-and-mobile-2026]], [[edge-ai-and-ai-infrastructure-2026]], [[gamedev-production-and-community-signals]], [[github-actions-platform-operations]], [[llm-wiki-and-knowledge-formats]], [[mcp-tool-governance-and-app-surfaces]], [[microsoft-dotnet-ai-stack]], [[openai-frontier-models-and-codex-2026]], [[technical-art-community-and-talent-signals]], [[unity-3d-and-realtime-vfx-patterns]], indexes, run output
+- contradictions resolved: none.
+- privacy/safety filtering: Wiz/RAPTOR exploit and credential details were summarized defensively; no payloads, tokens, API keys, private personal data, or reusable offensive steps were promoted.
+- quality posture: Microsoft/Unity sources are authoritative for their product surfaces but require local validation; TestingCatalog, Fowler, System Design Newsletter, DEV.to/beefed.ai, 80 Level, Tech-Artists.Org, Magnitude README, Diagram Design README, and RAPTOR README were treated as secondary, community, commentary, newsletter, practitioner, interview, or project evidence with appropriate caveats.

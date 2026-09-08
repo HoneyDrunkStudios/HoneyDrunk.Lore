@@ -828,3 +828,28 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ### Quality notes
 - GitHub changelog sources are authoritative for GitHub.com feature posture. Verify GHES parity, retention settings, and API scopes before enterprise rollout.
+## 2026-09-08 compile additions: issue-triggered workflow injection
+
+### Source-backed claims
+- Wiz reports Snowflake's `snowflake-connector-net` repository briefly exposed Jira credentials through a GitHub Actions workflow that ran on `issues: opened` and interpolated an untrusted issue title directly into shell; the vulnerable workflow was live from 2026-06-18 until same-day remediation after Wiz disclosure on 2026-06-23. Source: `raw/2026-09-08-rss-tldr-infosec-wiz-red-agent-finds-its-way-into-snowflake-s-internal-jir.md`; page: [[ai-coding-agent-security]]. confidence: 1 security-research/vendor source, last-confirmed 2026-09-08.
+- The source says a seemingly protective condition referenced `github.event.pull_request` on an `issues` event, where it was null, so the condition allowed all issue openers; GitHub Advanced Security scanned the workflow revision but did not flag the injection. Source: `raw/2026-09-08-rss-tldr-infosec-wiz-red-agent-finds-its-way-into-snowflake-s-internal-jir.md`. confidence: 1 source, last-confirmed 2026-09-08.
+
+### Typed entities
+- workflow trigger: `issues: opened`
+- context field: `github.event.issue.title`
+- context field: `github.event.pull_request`
+- repository: `snowflakedb/snowflake-connector-net`
+- credential class: Jira token
+- control: safe env var plus structured argument parsing
+
+### Explicit relationships
+- Event-context fields depend-on the triggering event shape; checks written for PR payloads can fail open on issue payloads.
+- Direct expression interpolation into shell contradicts safe handling of untrusted GitHub metadata.
+- GitHub Advanced Security complements but does not replace custom workflow linting for shell injection and event-shape assumptions.
+
+### HoneyDrunk implications
+- Add workflow review/lint coverage for direct `${{ github.event.* }}` use inside `run:` blocks, especially on issue/comment/PR-target events.
+- Treat credentials reachable from public-triggered workflows as high-risk even when a scanner passes.
+
+### Privacy and quality notes
+- Payloads, callback details, and credentials were summarized rather than copied. Wiz is incident research with responsible-disclosure framing.

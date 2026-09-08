@@ -307,3 +307,28 @@ This page tracks durable patterns for agent-readable, human-readable knowledge s
 
 ### Quality notes
 - Mistral is vendor evidence for the retrieval product and benchmark deltas. The durable Lore lesson is the evidence-trail requirement, which should be validated on HoneyDrunk corpora.
+## 2026-09-08 compile additions: decision history over output galleries
+
+### Source-backed claims
+- Fowler's September 8 fragments quote and endorse the idea to build a history of decisions rather than a gallery of outputs, arguing that AI-made artifacts are less valuable than the judgment and reasoning trail behind them. Source: `raw/2026-09-08-rss-martin-fowler-fragments-september-8.md`; page: [[ai-assisted-software-practice]]. confidence: 1 commentary source, last-confirmed 2026-09-08.
+- Diagram Design's README describes a diagram skill that separates semantic system patterns from visual layout, emits fidelity ledgers for draw.io/Mermaid imports, and uses self-contained HTML/SVG outputs with accessibility and static-first constraints. Source: `raw/2026-09-08-rss-tldr-devops-diagram-design-github-repo.md`; page: [[mcp-tool-governance-and-app-surfaces]]. confidence: 1 project README source, last-confirmed 2026-09-08.
+
+### Typed entities
+- concept: decision history
+- concept: output gallery
+- project/skill: Diagram Design
+- artifact: fidelity ledger
+- format: self-contained HTML/SVG
+- concept: semantic system pattern
+
+### Explicit relationships
+- Decision histories complement wiki pages by preserving why a claim or architecture choice exists, not only the final artifact.
+- Semantic diagram patterns complement graph-ready wiki content by separating behavior/relationships from rendering.
+- Fidelity ledgers complement source crystallization by recording what was collapsed, dropped, or preserved during transformation.
+
+### HoneyDrunk implications
+- Continue treating Lore as decision-support evidence, including reasoning, source quality, gaps, and supersession, not just polished summaries.
+- If HoneyDrunk adopts diagram tooling, prefer tools that retain source/transform receipts and accessibility checks.
+
+### Quality notes
+- Fowler is commentary; Diagram Design is README evidence. Both are useful for process design but require local workflow validation.

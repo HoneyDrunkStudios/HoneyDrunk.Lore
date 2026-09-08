@@ -904,3 +904,36 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - Tech-Artists.Org evidence is community discussion and individual workflow experience. It is useful qualitative signal, not labor-market proof.
+## 2026-09-08 compile additions: Niagara tutorials, procedural materials, and shader decisions
+
+### Source-backed claims
+- CGHOW opened a Tech-Artists.Org master thread for free UE5 Niagara tutorials and breakdowns, with stated coverage across Niagara system architecture, custom modules, scratch pads, particle logic, emitters, shaders/materials, vector fields, distortion, dissolve/erosion materials, dynamic parameters, and game-ready effects. Source: `raw/2026-09-08-rss-tech-artists-org-realtimevfx-in-unreal-engine-5-niagara-tutorials-brea.md`; page: [[unity-3d-and-realtime-vfx-patterns]]. confidence: 1 community/practitioner source, last-confirmed 2026-09-08.
+- The same thread's early tutorial notes frame Niagara user parameters plus Blueprint control as a handoff boundary: a VFX asset is more production-ready when a programmer can tune color, life, size, and other variables without duplicating assets. Source: `raw/2026-09-08-rss-tech-artists-org-realtimevfx-in-unreal-engine-5-niagara-tutorials-brea.md`. confidence: 1 source, last-confirmed 2026-09-08.
+- 80 Level's interview on a translucent jelly-bear material describes a Substance 3D Designer workflow combining SDF-based shape construction, ZBrush height maps, Shape Splatter v2, layered color/AO/specular/fake-translucency passes, roughness detail, and in-Designer PBR render/post-adjustment for reusable procedural material variation. Source: `raw/2026-09-08-rss-80-level-how-to-create-a-haribo-style-translucent-jelly-bear-candy-mat.md`; page: [[unity-3d-and-realtime-vfx-patterns]]. confidence: 1 artist interview source, last-confirmed 2026-09-08.
+- The Shader Graph optimization source says moving logic into a Custom Function or handwritten HLSL is only justified when identical rendering specs, generated code, and target-device GPU timings show a meaningful gain beyond noise and maintenance/portability cost. Source: `raw/2026-09-08-rss-dev-to-unity-how-optimized-is-unity-shader-graph-in-unity-6-where-hlsl.md`; page: [[unity-3d-and-realtime-vfx-patterns]]. confidence: 1 practitioner article, last-confirmed 2026-09-08.
+
+### Typed entities
+- person/creator: Ashif Ali / CGHOW
+- tool/system: Unreal Engine 5 Niagara
+- tool/system: Blueprint
+- concept: VFX programmer handoff
+- tool: Substance 3D Designer
+- tool: ZBrush
+- technique: signed distance field / SDF
+- technique: Shape Splatter v2
+- material: fake translucent jelly
+- tool: Unity Shader Graph
+- language: HLSL
+
+### Explicit relationships
+- Exposed VFX parameters complement programmer integration by allowing gameplay systems to vary effects without bespoke duplicated assets.
+- Procedural material workflows depend-on reusable shape construction, color layering, roughness/specular tuning, and render/post-process consistency.
+- Shader authoring decisions depend-on measured bottlenecks and generated-code inspection, not assumptions that nodes or handwritten code are inherently faster.
+
+### HoneyDrunk implications
+- For technical-art workflows, treat exposed effect parameters and Blueprint/script control as acceptance criteria for reusable effect assets.
+- For material R&D, keep procedural graph recipes when they allow fast shape/style variation and document which effects are faked versus physically simulated.
+- For shader optimization tasks, require identical-spec A/B captures, generated code, variant counts, GPU time, and image-quality checks.
+
+### Quality notes
+- 80 Level is artist-interview evidence; DEV.to is practitioner guidance; forum sources are community evidence and should be validated through local reproduction.

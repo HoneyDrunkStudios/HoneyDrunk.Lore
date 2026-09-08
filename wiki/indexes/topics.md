@@ -1235,3 +1235,31 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 ### Unity, technical art, and immersive training
 - [[unity-3d-and-realtime-vfx-patterns]] - 68 sources - last-confirmed 2026-09-04
 - [[technical-art-community-and-talent-signals]] - 56 sources - last-confirmed 2026-09-04
+
+## 2026-09-08 topic additions
+
+### Agent harnesses, local inference, and managed-agent surfaces
+- [[ai-agent-harnesses]] - 207 sources - last-confirmed 2026-09-08
+- [[openai-frontier-models-and-codex-2026]] - 39 sources - last-confirmed 2026-09-08
+- [[edge-ai-and-ai-infrastructure-2026]] - 75 sources - last-confirmed 2026-09-08
+- [[mcp-tool-governance-and-app-surfaces]] - 113 sources - last-confirmed 2026-09-08
+
+### Agent security, CI/CD, and verification
+- [[ai-coding-agent-security]] - 176 sources - last-confirmed 2026-09-08
+- [[github-actions-platform-operations]] - 53 sources - last-confirmed 2026-09-08
+- [[agent-evaluation-and-benchmarks]] - 61 sources - last-confirmed 2026-09-08
+- [[ai-assisted-software-practice]] - 103 sources - last-confirmed 2026-09-08
+- [[ai-policy-and-governance-2026]] - 6 sources - last-confirmed 2026-09-08
+
+### .NET, Azure SDKs, and runtime servicing
+- [[microsoft-dotnet-ai-stack]] - 77 sources - last-confirmed 2026-09-08
+- [[dotnet-runtime-and-mobile-2026]] - 20 sources - last-confirmed 2026-09-08
+- [[azure-agent-automation-and-identity]] - 37 sources - last-confirmed 2026-09-08
+
+### Knowledge formats and diagram tooling
+- [[llm-wiki-and-knowledge-formats]] - 14 sources - last-confirmed 2026-09-08
+
+### Game development, Unity, and technical art
+- [[gamedev-production-and-community-signals]] - 44 sources - last-confirmed 2026-09-08
+- [[unity-3d-and-realtime-vfx-patterns]] - 73 sources - last-confirmed 2026-09-08
+- [[technical-art-community-and-talent-signals]] - 59 sources - last-confirmed 2026-09-08

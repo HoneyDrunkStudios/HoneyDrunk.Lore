@@ -146,3 +146,20 @@ Dario Amodei's June 2026 policy essay argues that frontier AI has crossed from o
 
 ### Quality notes
 - OpenAI source is primary for Astra. Anthropic details are from secondary commentary and should be replaced or reinforced with primary Anthropic sources when ingested.
+## 2026-09-08 compile additions: accountability for agent outcomes
+
+### Source-backed claims
+- Fowler's September 8 fragments argue organizations that build and run agents are responsible for agent outcomes, intended or emergent, and that incentives should push more investment into verification than generation. Source: `raw/2026-09-08-rss-martin-fowler-fragments-september-8.md`; pages: [[ai-assisted-software-practice]], [[ai-coding-agent-security]]. confidence: 1 commentary source, last-confirmed 2026-09-08.
+
+### Typed entities
+- concept: agent accountability
+- concept: verification incentives
+
+### Explicit relationships
+- Agent deployment authority depends-on accountable owners and verification investment.
+
+### HoneyDrunk implications
+- Require an accountable owner and verification budget for every production agent workflow.
+
+### Quality notes
+- Fowler is commentary and should be paired with primary policy or operating-model sources before becoming a formal governance rule.

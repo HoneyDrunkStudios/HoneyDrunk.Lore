@@ -372,3 +372,27 @@ OpenAI's June 11 raw sources add two durable signals for HoneyDrunk: GPT-5.5 is 
 
 ### Quality notes
 - OpenAI deployment-safety source is primary for provider claims but product/model availability is time-sensitive. Local risk gates remain required.
+## 2026-09-08 compile additions: managed-agent watchlist before DevDay
+
+### Source-backed claims
+- TestingCatalog reports OpenAI appears to be preparing managed agents for DevDay 2026, with environment configuration, skills, plugins, self-hosted environments, and business/customer-conversion demos; this is not yet primary OpenAI documentation in Lore. Source: `raw/2026-09-08-rss-tldr-ai-openai-prepares-managed-agents-for-devday-2026-3-minute-read.md`; page: [[ai-agent-harnesses]]. confidence: 1 secondary/recon report, last-confirmed 2026-09-08.
+- The same source notes OpenAI's official DevDay site confirms 2026-09-29 at Fort Mason in San Francisco with a livestreamed keynote, technical sessions, APIs, tools, demos, and workshops. Source: `raw/2026-09-08-rss-tldr-ai-openai-prepares-managed-agents-for-devday-2026-3-minute-read.md`. confidence: 1 secondary report citing OpenAI event page, last-confirmed 2026-09-08.
+
+### Typed entities
+- company: OpenAI
+- event: DevDay 2026
+- date: 2026-09-29
+- surface: managed agents
+- capability: skills
+- capability: plugins
+- capability: self-hosted environments
+
+### Explicit relationships
+- Managed agents would complement OpenAI's existing agent ecosystem only if permissions, hosting, retention, pricing, and audit surfaces are explicit.
+- Secondary UI/codebase recon does not supersede primary OpenAI product documentation.
+
+### HoneyDrunk implications
+- Keep managed agents on the DevDay watchlist, but defer adoption decisions until primary docs and pricing/retention details are available.
+
+### Quality notes
+- The product claims are secondary and speculative. No current OpenAI primary page was ingested in this pass.

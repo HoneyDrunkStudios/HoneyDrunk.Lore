@@ -1264,3 +1264,29 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - Microsoft and Unity sources are vendor-authored. They are useful architecture signals, not proof that a connector or MCP server is safe for HoneyDrunk production without local validation.
+## 2026-09-08 compile additions: agent-skill diagram package surfaces
+
+### Source-backed claims
+- Diagram Design ships as a skill/plugin for Claude Code, Codex, Factory Droid, Pi, and Agent Skills-compatible hosts, providing 39 diagram types as self-contained HTML/SVG, plus import from draw.io/Mermaid and export to SVG/PNG. Source: `raw/2026-09-08-rss-tldr-devops-diagram-design-github-repo.md`; page: [[llm-wiki-and-knowledge-formats]]. confidence: 1 project README source, last-confirmed 2026-09-08.
+- The README states ordinary output remains static/script-free by default, motion is optional with a reviewed controller and reduced-motion behavior, and lints reject missing accessible names, unsafe duplicate title/desc IDs, remote assets, CSS imports, executable attributes, and drift between docs/routing surfaces. Source: `raw/2026-09-08-rss-tldr-devops-diagram-design-github-repo.md`. confidence: 1 project README source, last-confirmed 2026-09-08.
+
+### Typed entities
+- project/skill: Diagram Design
+- host: Codex
+- host: Claude Code
+- host: Pi
+- format: self-contained HTML
+- format: inline SVG
+- control: accessibility lint
+- control: static-first output
+
+### Explicit relationships
+- Agent skills complement MCP/app surfaces by packaging repeatable procedures, assets, prompts, and validation scripts into host-loadable capabilities.
+- Static-first self-contained outputs reduce supply-chain and rendering risk compared with remote-asset or arbitrary-script diagram artifacts.
+- Accessibility and drift checks depend-on validation scripts, not only prompt instructions.
+
+### HoneyDrunk implications
+- For HoneyDrunk skill/plugin adoption, require packaging review, output self-checks, accessibility checks, update path clarity, and no remote/executable output by default.
+
+### Quality notes
+- README evidence only; install/update behavior and validation scripts should be tested before standardization.

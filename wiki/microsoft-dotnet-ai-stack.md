@@ -853,3 +853,32 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 
 ### Quality notes
 - Microsoft .NET Blog sources are authoritative for the captured features. Uno Studio product claims and MSTest Native AOT limits still need local SDK/package verification.
+## 2026-09-08 compile additions: September servicing, .NET Conf community days, and Azure SDK AI Discovery
+
+### Source-backed claims
+- Microsoft released September 8, 2026 servicing updates for .NET 10.0.12, .NET 9.0.20, and .NET 8.0.31, with security and non-security fixes including eight listed .NET CVEs and a .NET Framework update that includes CVE-2026-69522 coverage. Source: `raw/2026-09-08-rss-net-blog-net-and-net-framework-september-2026-servicing-releases-updat.md`; page: [[dotnet-runtime-and-mobile-2026]]. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-09-08.
+- Microsoft opened .NET Conf 2026 Community Days CFP from 2026-09-08 through 2026-10-06; Community Days run remotely on 2026-11-12 and 2026-11-13, are community-selected/hosted, and prefer practical .NET 11 sessions while accepting broader .NET topics. Source: `raw/2026-09-08-rss-net-blog-net-conf-2026-community-days-call-for-presenters-is-open.md`; page: [[dotnet-runtime-and-mobile-2026]]. confidence: 1 Microsoft .NET Blog source, last-confirmed 2026-09-08.
+- The Azure SDK August 2026 release reports Azure AI Discovery 1.0.0 for Python and JavaScript, exposing Workspace conversations, investigations, tasks, tools, Bookshelf knowledge-base lifecycle, indexing, and citation-aware search operations. Source: `raw/2026-09-08-rss-azure-blog-azure-sdk-release-august-2026.md`; page: [[azure-agent-automation-and-identity]]. confidence: 1 Microsoft Azure SDK Blog source, last-confirmed 2026-09-08.
+
+### Typed entities
+- runtime: .NET 10.0.12
+- runtime: .NET 9.0.20
+- runtime: .NET 8.0.31
+- event: .NET Conf 2026 Community Days
+- date: 2026-09-08 through 2026-10-06 CFP
+- date: 2026-11-12 through 2026-11-13 Community Days
+- library/service: Azure AI Discovery 1.0.0
+- feature: citation-aware search
+
+### Explicit relationships
+- .NET servicing updates supersede earlier patch baselines for supported .NET 8/9/10 applications where the listed CVEs apply.
+- .NET Conf Community Days complements .NET 11 launch timing by turning release themes into community implementation sessions.
+- Azure AI Discovery complements agent workspaces by tying tasks, tools, investigations, and knowledge-base search into a client-library surface.
+
+### HoneyDrunk implications
+- Inventory HoneyDrunk .NET 8/9/10 and .NET Framework workloads for September 2026 servicing applicability before the next release cycle.
+- Track .NET Conf Community Days sessions for practical .NET 11, AI, MCP, containers, game development, and DevOps examples after the CFP closes.
+- Treat Azure AI Discovery as a candidate research signal for citation-aware knowledge workflows, but validate SDK maturity, pricing, tenant boundaries, and data retention before use.
+
+### Quality notes
+- Microsoft sources are authoritative for their own release surfaces. Servicing and SDK details are version-sensitive; verify installed package/runtime versions before implementation.

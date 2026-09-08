@@ -648,3 +648,29 @@ Azure's May 2026 agent/developer tooling signal is that agent automation is movi
 
 ### Quality notes
 - Microsoft sources are authoritative for product direction. `azd` and Connector Namespace behavior is time-sensitive and needs live version/region verification before implementation.
+## 2026-09-08 compile additions: Azure AI Discovery SDK surface
+
+### Source-backed claims
+- Azure SDK's August 2026 release says Azure AI Discovery reached 1.0.0 for Python and JavaScript, exposing Workspace conversations, investigations, tasks, tools, Bookshelf knowledge-base lifecycle, indexing, and citation-aware search operations. Source: `raw/2026-09-08-rss-azure-blog-azure-sdk-release-august-2026.md`; page: [[microsoft-dotnet-ai-stack]]. confidence: 1 Microsoft Azure SDK Blog source, last-confirmed 2026-09-08.
+- The same release says Document Translation 2.0.0 added support for the 2026-03-01 service API, including translating text embedded in images for batch and single-document requests, custom translation model deployments, and expanded image scan reporting. Source: `raw/2026-09-08-rss-azure-blog-azure-sdk-release-august-2026.md`. confidence: 1 source, last-confirmed 2026-09-08.
+
+### Typed entities
+- library/service: Azure AI Discovery
+- feature: Workspace conversations
+- feature: investigations
+- feature: tasks
+- feature: tools
+- feature: Bookshelf knowledge base
+- service: Document Translation
+- API version: 2026-03-01
+
+### Explicit relationships
+- Azure AI Discovery uses SDK surfaces to connect agent-like workspaces, tools, tasks, and citation-aware knowledge search.
+- Document Translation image-text support complements document ingestion workflows where text appears inside images.
+
+### HoneyDrunk implications
+- Evaluate Azure AI Discovery only after confirming tenant availability, data retention, pricing, and whether Bookshelf/citation search overlaps with Lore needs.
+- If multilingual image/document ingestion becomes important, test Document Translation 2.0.0 against representative PDFs/screenshots before designing a pipeline around it.
+
+### Quality notes
+- Microsoft release roundup is authoritative for package availability but not a substitute for service documentation, quotas, or local SDK testing.

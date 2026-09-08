@@ -1655,3 +1655,32 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - Fowler and Microsoft sources are practitioner/vendor evidence. They are useful for harness design but need local throughput, CI, and operational-risk validation.
+## 2026-09-08 compile additions: managed agents, local model harnesses, and security-research pipelines
+
+### Source-backed claims
+- TestingCatalog reports OpenAI is preparing a managed-agent surface for DevDay 2026, with configurable environments, skills, plugins, agent management, self-hosted environment support, and business-focused demos; treat this as secondary product-recon evidence until OpenAI primary announcements publish. Source: `raw/2026-09-08-rss-tldr-ai-openai-prepares-managed-agents-for-devday-2026-3-minute-read.md`; page: [[openai-frontier-models-and-codex-2026]]. confidence: 1 secondary/source-backed report, last-confirmed 2026-09-08.
+- Magnitude is an Apache-2.0 open-source Apple-silicon inference server that profiles a Mac, ranks local models by speed, accuracy, intelligence, and memory, downloads/tunes them, and connects to harnesses including OpenClaw, Codex, Claude Code, OpenCode, Pi, and Cline. Source: `raw/2026-09-08-rss-tldr-devops-magnitude-github-repo.md`; page: [[edge-ai-and-ai-infrastructure-2026]]. confidence: 1 project README source, last-confirmed 2026-09-08.
+- RAPTOR describes an autonomous security-research framework built around a Claude Code orchestration layer and a Python execution layer for Semgrep/CodeQL scanning, SARIF parsing, LLM finding validation, exploitability analysis, patch generation, cost tracking, and project state. Source: `raw/2026-09-08-rss-tldr-infosec-raptor-github-repo.md`; page: [[ai-coding-agent-security]]. confidence: 1 project README source, last-confirmed 2026-09-08.
+
+### Typed entities
+- product/surface: OpenAI Managed Agents
+- event: DevDay 2026
+- project: Magnitude
+- platform: Apple silicon Mac
+- harnesses: OpenClaw, Codex, Claude Code, OpenCode, Pi, Cline
+- framework: RAPTOR
+- layer: Claude Code decision/orchestration layer
+- layer: Python execution layer
+
+### Explicit relationships
+- Managed-agent products depend-on environment configuration, skill/plugin governance, credentials, auditability, and hosted/self-hosted execution boundaries.
+- Local inference servers complement agent harnesses by reducing token cost and external data exposure, but depend-on hardware fit, model quality, and harness integration.
+- Security-research harnesses depend-on deterministic scanners, sandboxing, evidence capture, and human review because LLM-driven validation can act on untrusted code and findings.
+
+### HoneyDrunk implications
+- Treat OpenAI managed-agent rumors as watchlist material only until DevDay primary docs define permissions, hosting, pricing, retention, and audit behavior.
+- If HoneyDrunk evaluates local Mac models, test Magnitude on actual Apple-silicon machines for setup friction, offline behavior, model quality, throughput, and harness compatibility.
+- For security automation, use RAPTOR as a scouting signal for scanner-plus-LLM orchestration patterns, not as a trusted control until its sandbox, licenses, and generated patch workflow are reviewed locally.
+
+### Quality notes
+- TestingCatalog is secondary/recon evidence. Magnitude and RAPTOR are README evidence and should be validated by install, license, and behavior review before adoption. No install secrets, provider API keys, or exploit payloads were promoted.
