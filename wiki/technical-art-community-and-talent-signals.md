@@ -937,3 +937,31 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - 80 Level is artist-interview evidence; DEV.to is practitioner guidance; forum sources are community evidence and should be validated through local reproduction.
+
+## 2026-09-10 Maya API gap and Unity technical-art automation
+
+### Sources
+- [Tech-Artists.Org: Array attributes in Maya Python API 2 MPxNode](../raw/2026-09-10-rss-tech-artists-org-array-attributes-in-maya-python-api-2-mpxnode.md)
+- [Unity Blog: Official Unity plugin for Claude Code](../raw/2026-09-10-rss-unity-blog-official-unity-plugin-for-claude-code.md)
+
+### Typed entities
+- `tool`: Maya Python API 2.0
+- `class`: MPxNode
+- `concept`: array compound attribute
+- `tool`: Unity plugin for Claude Code
+- `workflow`: engine-specific technical-art automation
+
+### Claims
+- The Maya forum source records an unresolved practitioner problem: a Python API 2.0 MPxNode with array compound attributes manually computes but does not evaluate correctly during animated playback. confidence: 1 source, last-confirmed 2026-09-10
+- Unity's Claude Code plugin includes technical-art-relevant skills for sprites, atlases, tilemaps/rule tiles, Shader Graph custom nodes, URP render graph validation, audio, navigation, physics, WebGL/WebGPU optimization, and localization. confidence: 1 source, last-confirmed 2026-09-10
+
+### Explicit relationships
+- Maya custom-node reliability depends-on correct dependency graph evaluation behavior, especially for animated playback.
+- Engine-specific agent skills complement technical-art automation only when generated changes are inspectable and reversible.
+
+### HoneyDrunk implications
+- Treat the Maya source as a gap, not an answer; reproduce with a minimal scene before writing any local MPxNode guidance.
+- For Unity technical-art automation, require visible diffs, Editor-state capture, and asset rollback before adopting agent-authored changes.
+
+### Quality notes
+- The Maya source is a question without a captured solution and is therefore low-confidence gap evidence. Unity plugin claims require local install validation.

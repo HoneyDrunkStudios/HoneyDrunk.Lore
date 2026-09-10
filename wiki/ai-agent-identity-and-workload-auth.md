@@ -103,3 +103,37 @@ Agent identity is now a first-order security design choice. An agent can act as 
 
 ### Quality notes
 - Google source includes demo patterns and cloud-specific implementation details; validate against HoneyDrunk identity providers and data stores before adoption.
+
+## 2026-09-10 managed connections and secretless handles
+
+### Sources
+- [LangChain: Connections, managed credentials, and per-caller identity for Managed Deep Agents](../raw/2026-09-10-rss-tldr-ai-connections-managed-credentials-and-per-caller-identity-for-ma.md)
+- [Microsoft Command Line: Stop restricting the agent, start restricting its world](../raw/2026-09-10-web-microsoft-command-line-stop-restricting-the-agent-start-restricting-it.md)
+
+### Typed entities
+- `product`: LangChain Managed Deep Agents
+- `feature`: LangSmith Connections
+- `identity pattern`: agent-owned credential
+- `identity pattern`: user-owned OAuth grant
+- `control`: opaque credential handle
+- `runtime boundary`: Azure Container Apps Sandbox microVM
+
+### Claims
+- Managed Deep Agents v0.7.0+ can use LangSmith Connections so credentials live in the workspace credential store rather than in project `.env` files or deployment images. confidence: 1 source, last-confirmed 2026-09-10
+- LangChain separates credential owner from credential type: connections can be agent-owned or user-owned, and can use static secrets or OAuth grants. confidence: 1 source, last-confirmed 2026-09-10
+- User-owned OAuth can resolve per caller and pause a run before the first model turn when a required grant is missing. confidence: 1 source, last-confirmed 2026-09-10
+- Microsoft's Azure SRE Agent pattern keeps model-authored code inside per-agent sandbox microVMs and exposes secrets through call-bound, destination-locked, scope-limited, single-use handles exchanged by a proxy outside the VM. confidence: 1 source, last-confirmed 2026-09-10
+
+### Explicit relationships
+- LangSmith Connections uses workspace-managed credentials to reduce credential sprawl in project files and images.
+- User-owned OAuth depends-on caller identity and consent, while agent-owned credentials depend-on shared service authority and tighter audit controls.
+- Opaque credential handles complement sandboxing by keeping raw secrets outside the model-authored execution environment.
+- Role and caller identity shape tool, MCP, memory, credential, and approval boundaries in production agent systems.
+
+### HoneyDrunk implications
+- For hosted agents, require a credential inventory that names owner, credential type, target service, scopes, approval path, and audit attribution.
+- Prefer secretless handles and proxy-mediated exchanges for remediation agents instead of handing raw secrets into the sandbox or model context.
+- Validate connection grants before the first model turn so missing auth does not turn into partial, ambiguous tool behavior.
+
+### Quality notes
+- Vendor sources describe product and architecture patterns; implementation must be verified against HoneyDrunk identity providers, audit retention, and least-privilege policy.

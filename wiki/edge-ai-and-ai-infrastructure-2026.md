@@ -1114,3 +1114,32 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - README evidence is useful for discovery but not enough for procurement or security approval.
+
+## 2026-09-10 decode megakernel serving pattern
+
+### Sources
+- [Cohere: Inside the megakernel serving engine for North Mini Code](../raw/2026-09-10-rss-tldr-ai-inside-the-megakernel-serving-engine-for-north-mini-code-22-mi.md)
+
+### Typed entities
+- `company`: Cohere
+- `model`: North Mini Code
+- `inference pattern`: persistent decode megakernel
+- `hardware`: NVIDIA H100
+- `serving surface`: OpenAI-compatible endpoint
+
+### Claims
+- Cohere reports that North Mini Code uses a single persistent decode megakernel on H100 and claims 1.25x to 1.41x average end-to-end decode throughput over vLLM in its measured setup. confidence: 1 source, last-confirmed 2026-09-10
+- The serving engine combines a task-descriptor ABI, fixed warp roles, counter-based cross-SM synchronization, static schedules, local work stealing, continuous batching, paged attention, and an OpenAI-compatible endpoint. confidence: 1 source, last-confirmed 2026-09-10
+- Current limitations described by Cohere include decode-only megakernel scope, ordinary PyTorch prefill, no mixed prefill/decode, and batch size currently at 8. confidence: 1 source, last-confirmed 2026-09-10
+
+### Explicit relationships
+- Persistent decode megakernels trade framework dynamism for lower launch overhead and tighter GPU scheduling.
+- OpenAI-compatible endpoints complement agent harnesses by reducing adapter work when swapping inference backends.
+- Decode throughput claims depend-on workload shape, hardware, batch size, and prefill/decode mix.
+
+### HoneyDrunk implications
+- Treat megakernel claims as a signal for future inference architecture, not a procurement decision without local benchmark parity.
+- Separate prefill-heavy and decode-heavy workloads when evaluating local or hosted model-serving options.
+
+### Quality notes
+- Vendor performance claims are useful but require reproducible benchmarks against HoneyDrunk prompt distributions and hardware constraints.

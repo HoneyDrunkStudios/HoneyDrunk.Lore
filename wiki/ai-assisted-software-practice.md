@@ -1220,3 +1220,39 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Fowler fragments are commentary and synthesis. The API-testing source is a newsletter teaser with a paywalled continuation; use it for taxonomy, not exhaustive implementation guidance.
+
+## 2026-09-10 conversational AI practice and permission modes
+
+### Sources
+- [Thoughtworks Insights: How to talk with AI?](../raw/2026-09-10-rss-thoughtworks-insights-how-to-talk-with-ai.md)
+- [System Design Newsletter: If you want to get started with Claude Code](../raw/2026-09-10-rss-system-design-newsletter-if-you-want-to-get-started-with-claude-code-r.md)
+
+### Typed entities
+- `practice`: intent-first prompting
+- `practice`: formal artifact handoff
+- `practice`: micro-batch review
+- `tool`: Claude Code
+- `artifact`: CLAUDE.md
+- `mode`: Manual
+- `mode`: Accept edits
+- `mode`: Plan
+- `mode`: Auto
+- `mode`: Bypass
+
+### Claims
+- Thoughtworks argues that productive AI collaboration comes from expressing human intent in prose and asking AI to produce formal artifacts such as code, diagrams, type definitions, or failing tests that can be checked. confidence: 1 source, last-confirmed 2026-09-10
+- Thoughtworks recommends small micro-batches, explicit intent before implementation, continuous checkpoints, and deterministic feedback rather than large end-of-process AI-generated PR reviews. confidence: 1 source, last-confirmed 2026-09-10
+- The Claude Code tutorial source describes permission modes that trade control for autonomy: Manual, Accept edits, Plan, Auto, and Bypass. confidence: 1 source, last-confirmed 2026-09-10
+- The Claude Code tutorial recommends mapping unfamiliar code before editing and keeping `CLAUDE.md` concise, with long procedures moved into skills and active context monitored. confidence: 1 source, last-confirmed 2026-09-10
+
+### Explicit relationships
+- Natural-language intent complements formal artifacts because artifacts can be compiled, tested, diagrammed, diffed, or reviewed.
+- Micro-batch review depends-on fast feedback loops and reduces the risk of context drift in long-running agent work.
+- Project memory files such as `CLAUDE.md` complement skills by holding concise local facts while procedures live in reusable instructions.
+
+### HoneyDrunk implications
+- Prefer explicit intent plus checkable artifacts when delegating to agents; ask for failing tests, type signatures, diagrams, or executable validations when prose alone is ambiguous.
+- Keep repository guidance concise and move repeatable workflows into durable skills or AGENTS rules.
+
+### Quality notes
+- Thoughtworks is practice guidance. The newsletter tutorial is partial/paywalled, so claims were limited to captured content rather than unseen sections.

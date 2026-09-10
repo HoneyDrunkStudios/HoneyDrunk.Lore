@@ -1,47 +1,50 @@
 # Lore Sourcing - Last Run
 
-Timestamp: 2026-08-16T08:42:33
+Timestamp: 2026-09-10T16:05:10
 Mode: write
-Candidates scanned: 18
-Skipped duplicates: 2
-Saved: 13
+Candidates scanned: 164
+Skipped duplicates: 26
+Selected after quality review: 15
+Saved: 15
 Birdclaw blocker reported: yes
 
+## Selected candidates
+- [DevOps & CI/CD] Control GitHub Actions cache access with cache-mode - https://github.blog/changelog/2026-09-10-control-github-actions-cache-access-with-cache-mode
+- [.NET Ecosystem] Announcing .NET 11 Release Candidate 1 - https://devblogs.microsoft.com/dotnet/dotnet-11-rc-1/
+- [.NET Ecosystem] Use C# unions and closed hierarchies in ASP.NET Core - https://devblogs.microsoft.com/dotnet/unions-and-closed-hierarchies-in-aspnetcore/
+- [Software Architecture] If you want to get started with Claude Code, read this - https://newsletter.systemdesign.one/p/claude-code-claude-md-best-practices
+- [Technical Art & Creator Tools] Array attributes in Maya Python API 2 MPxNode - https://www.tech-artists.org/t/array-attributes-in-maya-python-api-2-mpxnode/18533
+- [Software Architecture] How to talk with AI? - https://www.thoughtworks.com/insights/blog/generative-ai/how-to-talk-with-ai
+- [AI / LLM Research & Tooling] Connections: managed credentials and per-caller identity for Managed Deep Agents (8 minute read) - https://www.langchain.com/blog/connections-managed-credentials-and-per-caller-identity-for-managed-deep-agents
+- [AI / LLM Research & Tooling] Inside the megakernel serving engine for North Mini Code (22 minute read) - https://cohere.com/blog/megakernels
+- [Security & Ethical Hacking] GTIG AI Threat Tracker: From Prompting to Autonomy – The Evolution of Adversarial AI (22 minute read) - https://cloud.google.com/blog/topics/threat-intelligence/from-prompting-to-autonomy-the-evolution-of-adversarial-ai
+- [Security & Ethical Hacking] Sage (GitHub Repo) - https://github.com/gendigitalinc/sage
+- [Game Development / Unity] DrakkenRidge: Building an open-world adventure for mobile VR - https://unity.com/blog/drakkenridge-building-open-world-mobile-vr-rpg-unity-ecs
+- [Game Development / Unity] Official Unity Plugin for Claude Code - https://unity.com/blog/unity-plugin-for-claude-code
+- [Security & Ethical Hacking] PyRIT: Democratizing AI red teaming through open-source tooling - https://commandline.microsoft.com/pyrit-python-risk-identification-tool-ai-red-teaming-subject-matter-experts/
+- [Azure & Cloud] Stop restricting the agent. Start restricting its environment. - https://commandline.microsoft.com/azure-sre-agent-restricting-environment-ai-safety/
+- [Security & Ethical Hacking] Your agent's guardrails have a bypass - https://commandline.microsoft.com/agent-hooks-framework-neutral-ai-governance-contract/
+
 ## Files written
-- raw/2026-08-16-web-agent-plugins-1-0-in-vs-code-copilot-cli-and-the-copilot-app.md
-- raw/2026-08-16-web-github-copilot-weekly-releases-august-10.md
-- raw/2026-08-16-web-how-claude-s-text-watermarking-works.md
-- raw/2026-08-16-web-harness-engineering-leveraging-codex-in-an-agent-first-development-wor.md
-- raw/2026-08-16-web-unrolling-the-codex-agent-loop.md
-- raw/2026-08-16-web-net-ai-essentials-the-core-building-blocks-explained.md
-- raw/2026-08-16-web-announcing-v2-0-of-the-official-mcp-c-sdk.md
-- raw/2026-08-16-web-building-your-first-mcp-server-with-net-and-publishing-to-nuget.md
-- raw/2026-08-16-web-release-v1-0-of-the-official-mcp-c-sdk.md
-- raw/2026-08-16-web-exploring-new-agent-quality-and-nlp-evaluators-for-net-ai-applications.md
-- raw/2026-08-16-web-mcp-as-easy-as-1-2-3-introducing-the-fluent-api-for-mcp-apps.md
-- raw/2026-08-16-web-ai-agent-security-cheat-sheet.md
-- raw/2026-08-16-web-preparing-for-agentic-transformation.md
+- raw/2026-09-10-rss-github-changelog-actions-control-github-actions-cache-access-with-cach.md
+- raw/2026-09-10-rss-net-blog-announcing-net-11-release-candidate-1.md
+- raw/2026-09-10-rss-net-blog-use-c-unions-and-closed-hierarchies-in-asp-net-core.md
+- raw/2026-09-10-rss-system-design-newsletter-if-you-want-to-get-started-with-claude-code-r.md
+- raw/2026-09-10-rss-tech-artists-org-array-attributes-in-maya-python-api-2-mpxnode.md
+- raw/2026-09-10-rss-thoughtworks-insights-how-to-talk-with-ai.md
+- raw/2026-09-10-rss-tldr-ai-connections-managed-credentials-and-per-caller-identity-for-ma.md
+- raw/2026-09-10-rss-tldr-ai-inside-the-megakernel-serving-engine-for-north-mini-code-22-mi.md
+- raw/2026-09-10-rss-tldr-infosec-gtig-ai-threat-tracker-from-prompting-to-autonomy-the-evo.md
+- raw/2026-09-10-rss-tldr-infosec-sage-github-repo.md
+- raw/2026-09-10-rss-unity-blog-drakkenridge-building-an-open-world-adventure-for-mobile-vr.md
+- raw/2026-09-10-rss-unity-blog-official-unity-plugin-for-claude-code.md
+- raw/2026-09-10-web-microsoft-command-line-pyrit-democratizing-ai-red-teaming-through-open.md
+- raw/2026-09-10-web-microsoft-command-line-stop-restricting-the-agent-start-restricting-it.md
+- raw/2026-09-10-web-microsoft-command-line-your-agent-s-guardrails-have-a-bypass.md
 
-## Skipped duplicates
-- https://www.anthropic.com/news/claude-sonnet-5
-- https://owasp.org/www-project-mcp-top-10/
-
-## Failed sources
-- skipped unreadable or short content: https://huggingface.co/blog/state-of-open-models-summer-2026
-- skipped unreadable or short content: https://huggingface.co/blog/LiquidAI/lfm2-5-2-6b
-- skipped unreadable or short content: https://openai.com/index/gpt-5-6/
-
-## Selected qualifying sources
-- [Developer Tooling & AI Coding] Agent Plugins 1.0 in VS Code, Copilot CLI, and the Copilot app - https://github.blog/changelog/2026-08-12-agent-plugins-1-0-in-vs-code-copilot-cli-and-the-copilot-app/
-- [Developer Tooling & AI Coding] GitHub Copilot weekly releases - August 10 - https://github.blog/changelog/2026-08-13-github-copilot-weekly-releases-august-10/
-- [AI / LLM Research & Tooling] How Claude's text watermarking works - https://www.anthropic.com/news/claude-text-watermark
-- [Developer Tooling & AI Coding] Harness engineering: leveraging Codex in an agent-first development workflow - https://openai.com/index/harness-engineering/
-- [Developer Tooling & AI Coding] Unrolling the Codex agent loop - https://openai.com/index/unrolling-the-codex-agent-loop/
-- [.NET Ecosystem] .NET AI Essentials - The Core Building Blocks Explained - https://devblogs.microsoft.com/dotnet/dotnet-ai-essentials-the-core-building-blocks-explained/
-- [.NET Ecosystem] Announcing v2.0 of the official MCP C# SDK - https://devblogs.microsoft.com/dotnet/announcing-v20-of-the-official-mcp-csharp-sdk/
-- [.NET Ecosystem] Building Your First MCP Server with .NET and Publishing to NuGet - https://devblogs.microsoft.com/dotnet/mcp-server-dotnet-nuget-quickstart/
-- [.NET Ecosystem] Release v1.0 of the official MCP C# SDK - https://devblogs.microsoft.com/dotnet/release-v10-of-the-official-mcp-csharp-sdk/
-- [.NET Ecosystem] Exploring new Agent Quality and NLP evaluators for .NET AI applications - https://devblogs.microsoft.com/dotnet/exploring-agent-quality-and-nlp-evaluators/
-- [Azure & Cloud] MCP as Easy as 1-2-3: Introducing the Fluent API for MCP Apps - https://devblogs.microsoft.com/azure-sdk/mcp-as-easy-as-1-2-3-introducing-the-fluent-api-for-mcp-apps/
-- [Security & Ethical Hacking] AI Agent Security Cheat Sheet - https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html
-- [Software Architecture] Preparing for agentic transformation - https://www.thoughtworks.com/insights/looking-glass/looking-glass-2026/preparing-for-agentic-transformation
+## Failures / skips
+- AINews / smol.ai: HTTPError: HTTP Error 402: Payment Required
+- Polycount: HTTPError: HTTP Error 403: Forbidden
+- TLDR AI: skipped short content: https://openai.com/index/navier-stokes-solution
+- Quality review: replaced low-priority CI runner image blurb: https://github.blog/changelog/2026-09-10-xcode-27-runner-image-now-runs-on-macos-27
+- Quality review: replaced short troubleshooting/forum thread: https://realtimevfx.com/t/data-channel-writer-unreliable/31679

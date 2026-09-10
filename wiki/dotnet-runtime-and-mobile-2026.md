@@ -385,3 +385,36 @@
 
 ### Quality notes
 - Official release notes are high-authority but operational applicability depends on local runtime inventory, package locks, and container base images.
+
+## 2026-09-10 .NET 11 RC1 and C# union support
+
+### Sources
+- [.NET Blog: Announcing .NET 11 Release Candidate 1](../raw/2026-09-10-rss-net-blog-announcing-net-11-release-candidate-1.md)
+- [.NET Blog: Use C# unions and closed hierarchies in ASP.NET Core](../raw/2026-09-10-rss-net-blog-use-c-unions-and-closed-hierarchies-in-asp-net-core.md)
+
+### Typed entities
+- `runtime`: .NET 11 RC1
+- `language`: C# 15
+- `framework`: ASP.NET Core
+- `library`: System.Text.Json
+- `feature`: union types
+- `feature`: closed class hierarchies
+
+### Claims
+- .NET 11 RC1 was published on 2026-09-08 with a go-live license and tooling support in Visual Studio 2026 Insiders and VS Code C# Dev Kit. confidence: 1 source, last-confirmed 2026-09-10
+- .NET 11 RC1 includes cross-stack updates spanning libraries, runtime, SDK, MSBuild, NuGet, C# 15, F#, ASP.NET Core, .NET MAUI, and Windows Forms. confidence: 1 source, last-confirmed 2026-09-10
+- ASP.NET Core can serialize and bind C# 15 union types and closed hierarchies through System.Text.Json for JSON bodies, Minimal APIs, MVC, SignalR JsonHubProtocol, Blazor interop/persistence/prerendered parameters, and OpenAPI schemas. confidence: 1 source, last-confirmed 2026-09-10
+- C# union support does not apply to query strings, route values, headers, or form fields, and SignalR MessagePack/Newtonsoft protocols do not support the union feature described in the source. confidence: 1 source, last-confirmed 2026-09-10
+
+### Explicit relationships
+- C# 15 union types use compiler exhaustiveness checks to model a fixed set of possible case types.
+- Closed class hierarchies depend-on related controlled class families and can use inferred System.Text.Json polymorphism with a discriminator.
+- ASP.NET Core OpenAPI generation represents union shapes as `anyOf`, which depends-on client support for polymorphic schemas.
+
+### HoneyDrunk implications
+- Treat .NET 11 RC1 as testable for production-shaped previews because of go-live support, but keep deployment behind package/runtime inventory and rollback checks.
+- Prefer union types for established discriminator-free contracts or unrelated cases; prefer closed hierarchies with discriminators for new controlled related contracts.
+- Add tests for unsupported binding paths before exposing unions through route/query/header/form surfaces.
+
+### Quality notes
+- Microsoft release and feature guidance is authoritative for framework behavior; validate preview tooling and generated OpenAPI output against local clients before adoption.

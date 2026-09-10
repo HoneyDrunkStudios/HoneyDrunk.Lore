@@ -674,3 +674,36 @@ Azure's May 2026 agent/developer tooling signal is that agent automation is movi
 
 ### Quality notes
 - Microsoft release roundup is authoritative for package availability but not a substitute for service documentation, quotas, or local SDK testing.
+
+## 2026-09-10 Azure SRE Agent sandbox and approval model
+
+### Sources
+- [Microsoft Command Line: Stop restricting the agent, start restricting its world](../raw/2026-09-10-web-microsoft-command-line-stop-restricting-the-agent-start-restricting-it.md)
+- [Microsoft Command Line: Your agent's guardrails have a bypass](../raw/2026-09-10-web-microsoft-command-line-your-agent-s-guardrails-have-a-bypass.md)
+
+### Typed entities
+- `product`: Azure SRE Agent
+- `runtime`: Azure Container Apps Sandbox
+- `control`: default-deny egress
+- `control`: approval classification
+- `standard`: AGENT-HOOKS-0.1
+- `framework`: Microsoft Agent Framework
+
+### Claims
+- Microsoft describes Azure SRE Agent as splitting trusted orchestration from model-authored tools/code that run inside per-agent Azure Container Apps Sandbox microVMs with default-deny egress and a narrow API. confidence: 1 source, last-confirmed 2026-09-10
+- The Azure SRE Agent pattern classifies approval by operation, target, and evidence, with caller role and identity shaping available tools, MCP servers, memory, credentials, and approvals. confidence: 1 source, last-confirmed 2026-09-10
+- AGENT-HOOKS-0.1 defines a cooperative lifecycle contract across startup, input, model calls, tool calls, output, and shutdown, returning allow/deny/transform verdicts with fail-closed host obligations. confidence: 1 source, last-confirmed 2026-09-10
+- The Microsoft source explicitly frames Agent Hooks as governance and observability rather than a complete sandbox, security boundary, or hostile-host mediation layer. confidence: 1 source, last-confirmed 2026-09-10
+
+### Explicit relationships
+- Azure SRE Agent uses sandboxed execution and credential handles to reduce prompt-level safety dependence.
+- Agent Hooks complement Azure SRE Agent-style policy by placing checks before and after model and tool activity.
+- Hook approvals depend-on `context_identity` hashing to bind approval to exact content and reduce replay risk.
+- Cooperative hooks do not supersede sandboxing, identity controls, or server-side authorization.
+
+### HoneyDrunk implications
+- Any HoneyDrunk remediation agent should prove sandbox egress controls, credential-handle behavior, approval evidence, and rollback paths before receiving production authority.
+- Hook-style governance is useful for audit and consistency, but must be paired with runtime isolation and destination-side authorization.
+
+### Quality notes
+- Microsoft architecture sources are useful for control design but should be treated as vendor guidance until tested against concrete Azure tenant policy and incident-runbook workflows.

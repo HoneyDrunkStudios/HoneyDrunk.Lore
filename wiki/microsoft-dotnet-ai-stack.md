@@ -882,3 +882,31 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 
 ### Quality notes
 - Microsoft sources are authoritative for their own release surfaces. Servicing and SDK details are version-sensitive; verify installed package/runtime versions before implementation.
+
+## 2026-09-10 .NET 11 AI-adjacent release surface
+
+### Sources
+- [.NET Blog: Announcing .NET 11 Release Candidate 1](../raw/2026-09-10-rss-net-blog-announcing-net-11-release-candidate-1.md)
+- [.NET Blog: Use C# unions and closed hierarchies in ASP.NET Core](../raw/2026-09-10-rss-net-blog-use-c-unions-and-closed-hierarchies-in-asp-net-core.md)
+
+### Typed entities
+- `platform`: .NET 11
+- `framework`: ASP.NET Core
+- `serialization`: System.Text.Json
+- `feature`: experimental Blazor AI components
+- `feature`: OpenAPI polymorphic schema generation
+
+### Claims
+- .NET 11 RC1 includes experimental Blazor AI components alongside broader ASP.NET Core, OpenAPI, JSON, runtime, and SDK updates. confidence: 1 source, last-confirmed 2026-09-10
+- ASP.NET Core's union and closed-hierarchy support can improve machine-readable API contracts by generating OpenAPI `anyOf` schemas for JSON model variants. confidence: 1 source, last-confirmed 2026-09-10
+
+### Explicit relationships
+- Blazor AI components depend-on .NET 11 preview feature stability and should be isolated from hard production dependencies.
+- OpenAPI polymorphism complements agent/tool contracts by making accepted response and request variants explicit.
+
+### HoneyDrunk implications
+- If agent-facing .NET APIs adopt unions, test generated clients and schema validators before making the contract public.
+- Keep Blazor AI component experiments behind prototype boundaries until Microsoft documents support posture and migration expectations.
+
+### Quality notes
+- This is a release-candidate snapshot; local SDK, Visual Studio, and client generator behavior may supersede early claims.

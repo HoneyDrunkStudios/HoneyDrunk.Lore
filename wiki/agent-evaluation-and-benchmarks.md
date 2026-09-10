@@ -934,3 +934,36 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - Fowler is commentary, Wiz is incident research, and RAPTOR is README evidence; all are useful for evaluation design but need local datasets before becoming gates.
+
+## 2026-09-10 red-team and verification evaluation
+
+### Sources
+- [Microsoft Command Line: PyRIT, democratizing AI red teaming through open source](../raw/2026-09-10-web-microsoft-command-line-pyrit-democratizing-ai-red-teaming-through-open.md)
+- [Thoughtworks Insights: How to talk with AI?](../raw/2026-09-10-rss-thoughtworks-insights-how-to-talk-with-ai.md)
+- [System Design Newsletter: If you want to get started with Claude Code](../raw/2026-09-10-rss-system-design-newsletter-if-you-want-to-get-started-with-claude-code-r.md)
+- [Microsoft Command Line: Your agent's guardrails have a bypass](../raw/2026-09-10-web-microsoft-command-line-your-agent-s-guardrails-have-a-bypass.md)
+
+### Typed entities
+- `project`: PyRIT
+- `framework`: RAMPART
+- `practice`: deterministic feedback loop
+- `practice`: checkpointed agent collaboration
+- `standard`: Agent Hooks conformance kit
+
+### Claims
+- PyRIT has matured from ad hoc red-team scripts toward repeatable, measurable, collaborative test runs with GUI, scanner CLI, Python framework, and RAMPART agent-test entry points. confidence: 1 source, last-confirmed 2026-09-10
+- PyRIT supports OpenAI-compatible endpoints, custom HTTP/WebSocket services, browser applications, and multimodal text/image/audio/video testing, with automated scoring compared against human ground truth. confidence: 1 source, last-confirmed 2026-09-10
+- Thoughtworks recommends pairing agent work with deterministic feedback such as compilers, type checks, lint, architecture rules, tests, and fitness functions that return exact errors. confidence: 1 source, last-confirmed 2026-09-10
+- Microsoft's Agent Hooks material includes a 47-scenario conformance kit for checking host behavior against the hook contract. confidence: 1 source, last-confirmed 2026-09-10
+
+### Explicit relationships
+- Red-team scoring depends-on repeatable scenario definitions and human-ground-truth calibration.
+- Agent collaboration quality depends-on checkpoint frequency and objective feedback loops, not only prompt phrasing.
+- Hook conformance complements sandbox and policy testing but does not replace adversarial runtime validation.
+
+### HoneyDrunk implications
+- Build agent-eval gates around reproducible runs, exact environment/version capture, scorer calibration, and regression comparison.
+- Keep small, scoped tests close to agent edits so AI throughput does not outrun verification throughput.
+
+### Quality notes
+- Microsoft sources are authoritative for PyRIT and Agent Hooks capabilities; Thoughtworks and newsletter sources are practice guidance and should be validated in HoneyDrunk workflows.

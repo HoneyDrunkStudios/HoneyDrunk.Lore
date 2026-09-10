@@ -1195,3 +1195,36 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - Unity interview evidence is useful but retrospective and project-specific. DEV.to and Tech-Artists.Org are practitioner/community sources and should be validated through local reproduction.
+
+## 2026-09-10 Unity VR scale and Claude Code plugin
+
+### Sources
+- [Unity Blog: DrakkenRidge, building an open-world adventure for mobile VR](../raw/2026-09-10-rss-unity-blog-drakkenridge-building-an-open-world-adventure-for-mobile-vr.md)
+- [Unity Blog: Official Unity plugin for Claude Code](../raw/2026-09-10-rss-unity-blog-official-unity-plugin-for-claude-code.md)
+
+### Typed entities
+- `project`: DrakkenRidge
+- `studio`: Garage Collective
+- `engine`: Unity
+- `technology`: Unity ECS
+- `technology`: Entities Graphics
+- `tool`: Unity plugin for Claude Code
+- `tool`: Unity MCP server
+
+### Claims
+- Garage Collective reports using Unity ECS, Entities Graphics, and texture atlasing in DrakkenRidge to render large mobile-VR environments with thousands of objects and very low SetPass-call counts. confidence: 1 source, last-confirmed 2026-09-10
+- DrakkenRidge uses a hybrid architecture: ECS for most distant/repeated world rendering and GameObjects/MonoBehaviours for close-up VR interactions, physics, climbing, and combat. confidence: 1 source, last-confirmed 2026-09-10
+- The project applies distance-based authoring with culling values, entity groups, entity LODs, Burst Jobs, impostors in some cases, and physics enabled mainly when nearby, visible, or directly interacting. confidence: 1 source, last-confirmed 2026-09-10
+- Unity's Claude Code plugin includes skills for Unity UI systems, TextMeshPro, sprites, atlases, tilemaps/rule tiles, URP, Shader Graph, render graph validation, audio, navigation, physics, IAP, LevelPlay, live games, multiplayer services, WebGL/WebGPU optimization, and localization. confidence: 1 source, last-confirmed 2026-09-10
+
+### Explicit relationships
+- Mobile VR scale depends-on draw-call control, culling, entity LODs, and selective physics activation.
+- Hybrid ECS/GameObject architecture complements VR interaction needs by keeping high-touch objects in familiar authoring patterns.
+- Unity Claude Code plugin uses domain-specific skills and live Editor tooling to reduce generic AI coding mistakes in Unity projects.
+
+### HoneyDrunk implications
+- For mobile VR or dense XR scenes, measure SetPass calls, visible-entity counts, physics activation, and interaction distance bands early.
+- Trial Unity's Claude Code plugin in disposable branches/projects before granting write access to production Unity assets or scenes.
+
+### Quality notes
+- Unity blog sources are first-party/guest technical narratives; validate performance numbers and plugin behavior locally before adopting as standards.

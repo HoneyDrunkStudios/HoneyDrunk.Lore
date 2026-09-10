@@ -1684,3 +1684,39 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - TestingCatalog is secondary/recon evidence. Magnitude and RAPTOR are README evidence and should be validated by install, license, and behavior review before adoption. No install secrets, provider API keys, or exploit payloads were promoted.
+
+## 2026-09-10 managed connections, Unity agent plugins, and safety harnesses
+
+### Sources
+- [LangChain: Connections, managed credentials, and per-caller identity for Managed Deep Agents](../raw/2026-09-10-rss-tldr-ai-connections-managed-credentials-and-per-caller-identity-for-ma.md)
+- [Unity Blog: Official Unity plugin for Claude Code](../raw/2026-09-10-rss-unity-blog-official-unity-plugin-for-claude-code.md)
+- [Sage GitHub repo](../raw/2026-09-10-rss-tldr-infosec-sage-github-repo.md)
+- [Microsoft Command Line: PyRIT, democratizing AI red teaming through open source](../raw/2026-09-10-web-microsoft-command-line-pyrit-democratizing-ai-red-teaming-through-open.md)
+- [System Design Newsletter: If you want to get started with Claude Code](../raw/2026-09-10-rss-system-design-newsletter-if-you-want-to-get-started-with-claude-code-r.md)
+
+### Typed entities
+- `product`: LangChain Managed Deep Agents
+- `product`: Unity plugin for Claude Code
+- `project`: Sage Safety for Agents
+- `project`: PyRIT
+- `agent`: Claude Code
+- `tool`: Unity CLI
+- `tool`: Unity MCP server
+
+### Claims
+- Managed Deep Agents v0.7.0+ exposes managed connections so tools resolve credentials by slug at runtime instead of bundling them into project configuration. confidence: 1 source, last-confirmed 2026-09-10
+- Unity released an official plugin for Claude Code that packages Unity-authored skills, a Unity CLI, and a Unity MCP server for live Editor control. confidence: 1 source, last-confirmed 2026-09-10
+- Unity's initial Claude Code plugin skill set spans project setup, UI systems, TextMeshPro, sprites/atlases/tilemaps, URP postprocessing, Shader Graph custom nodes, render-graph validation, audio, navigation, physics, IAP, LevelPlay, live games, multiplayer services, WebGL/WebGPU optimization, and localization. confidence: 1 source, last-confirmed 2026-09-10
+- Sage and PyRIT show two complementary harness directions: pre-action safety mediation for coding assistants and repeatable red-team scenario execution for AI systems. confidence: 2 sources, last-confirmed 2026-09-10
+
+### Explicit relationships
+- Unity Claude Code plugin uses engine-team skills and MCP/CLI tooling to reduce generic assistant guesses inside Unity projects.
+- Managed connections depend-on workspace credential governance and caller identity when user-owned OAuth is used.
+- Safety harnesses complement coding-agent harnesses by mediating tool calls and evaluating model/application behavior under adversarial scenarios.
+
+### HoneyDrunk implications
+- Evaluate Unity's plugin on a disposable project first, checking generated diffs, Editor-side actions, package changes, and undo/review ergonomics.
+- Require harnesses to expose credential source, identity attribution, approval state, and audit logs before integration into production agent workflows.
+
+### Quality notes
+- README and vendor-blog claims need local install validation; no package tokens, API keys, or exploit payloads were promoted.

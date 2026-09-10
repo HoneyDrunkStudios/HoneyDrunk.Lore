@@ -1263,3 +1263,27 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 - [[gamedev-production-and-community-signals]] - 44 sources - last-confirmed 2026-09-08
 - [[unity-3d-and-realtime-vfx-patterns]] - 73 sources - last-confirmed 2026-09-08
 - [[technical-art-community-and-talent-signals]] - 59 sources - last-confirmed 2026-09-08
+
+## 2026-09-10 topic additions
+
+### Agent security, identity, and governed tool surfaces
+- [[ai-coding-agent-security]] - 182 sources - last-confirmed 2026-09-10
+- [[ai-agent-identity-and-workload-auth]] - 31 sources - last-confirmed 2026-09-10
+- [[azure-agent-automation-and-identity]] - 39 sources - last-confirmed 2026-09-10
+- [[mcp-tool-governance-and-app-surfaces]] - 117 sources - last-confirmed 2026-09-10
+- [[github-actions-platform-operations]] - 54 sources - last-confirmed 2026-09-10
+
+### Agent harnesses, evaluation, and software practice
+- [[ai-agent-harnesses]] - 212 sources - last-confirmed 2026-09-10
+- [[agent-evaluation-and-benchmarks]] - 65 sources - last-confirmed 2026-09-10
+- [[ai-assisted-software-practice]] - 105 sources - last-confirmed 2026-09-10
+- [[edge-ai-and-ai-infrastructure-2026]] - 76 sources - last-confirmed 2026-09-10
+
+### .NET, ASP.NET Core, and contract modeling
+- [[dotnet-runtime-and-mobile-2026]] - 22 sources - last-confirmed 2026-09-10
+- [[microsoft-dotnet-ai-stack]] - 79 sources - last-confirmed 2026-09-10
+
+### Unity, technical art, and mobile VR
+- [[unity-3d-and-realtime-vfx-patterns]] - 75 sources - last-confirmed 2026-09-10
+- [[gamedev-production-and-community-signals]] - 46 sources - last-confirmed 2026-09-10
+- [[technical-art-community-and-talent-signals]] - 61 sources - last-confirmed 2026-09-10

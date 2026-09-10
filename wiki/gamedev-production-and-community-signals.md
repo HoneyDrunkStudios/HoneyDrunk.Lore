@@ -650,3 +650,30 @@ The game-development community feed produced a mix of process advice, tooling ex
 
 ### Quality notes
 - Unity interview is useful production evidence but retrospective and project-specific.
+
+## 2026-09-10 mobile VR production and official agent tooling
+
+### Sources
+- [Unity Blog: DrakkenRidge, building an open-world adventure for mobile VR](../raw/2026-09-10-rss-unity-blog-drakkenridge-building-an-open-world-adventure-for-mobile-vr.md)
+- [Unity Blog: Official Unity plugin for Claude Code](../raw/2026-09-10-rss-unity-blog-official-unity-plugin-for-claude-code.md)
+
+### Typed entities
+- `game`: DrakkenRidge
+- `studio`: Garage Collective
+- `platform`: mobile VR
+- `tool`: Unity plugin for Claude Code
+- `agent`: Claude Code
+
+### Claims
+- DrakkenRidge demonstrates a small-team production pattern where open-world mobile VR scope depends-on ECS rendering scale while interactive gameplay remains authored through familiar GameObject workflows. confidence: 1 source, last-confirmed 2026-09-10
+- Unity's official Claude Code plugin signals that engine vendors are beginning to ship agent-ready tool surfaces, skills, and live-editor integrations instead of leaving teams to craft generic prompts around engine APIs. confidence: 1 source, last-confirmed 2026-09-10
+
+### Explicit relationships
+- Small-team mobile VR production depends-on aggressive rendering budgets and targeted use of high-productivity authoring tools.
+- Official engine agent tooling complements community scripts but also creates a new governance surface for package, scene, and asset mutation.
+
+### HoneyDrunk implications
+- Treat engine-vendor agent tooling as production infrastructure: test rollback, scene diffs, package mutations, generated asset quality, and human review flow.
+
+### Quality notes
+- Unity sources are useful directional evidence; project-specific performance claims and plugin capability claims require local reproduction.

@@ -1290,3 +1290,38 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - README evidence only; install/update behavior and validation scripts should be tested before standardization.
+
+## 2026-09-10 hooks, connections, and engine-specific tools
+
+### Sources
+- [Microsoft Command Line: Your agent's guardrails have a bypass](../raw/2026-09-10-web-microsoft-command-line-your-agent-s-guardrails-have-a-bypass.md)
+- [LangChain: Connections, managed credentials, and per-caller identity for Managed Deep Agents](../raw/2026-09-10-rss-tldr-ai-connections-managed-credentials-and-per-caller-identity-for-ma.md)
+- [Unity Blog: Official Unity plugin for Claude Code](../raw/2026-09-10-rss-unity-blog-official-unity-plugin-for-claude-code.md)
+- [Sage GitHub repo](../raw/2026-09-10-rss-tldr-infosec-sage-github-repo.md)
+
+### Typed entities
+- `standard`: AGENT-HOOKS-0.1
+- `tool surface`: MCP server
+- `credential surface`: LangSmith Connections
+- `tool`: Unity MCP server
+- `control`: plugin scanning
+
+### Claims
+- AGENT-HOOKS-0.1 defines eight lifecycle points: `agent_startup`, input, `pre_model_call`, `post_model_call`, `pre_tool_call`, `post_tool_call`, output, and shutdown. confidence: 1 source, last-confirmed 2026-09-10
+- Hook verdicts include allow, deny, and transform, and the host is expected to fail closed when policy evaluation cannot complete. confidence: 1 source, last-confirmed 2026-09-10
+- LangChain Managed Deep Agents can connect MCP servers through managed credential flows, including OAuth URL flows, agent-owned credentials, user-owned OAuth, allowed scopes, and local development variables. confidence: 1 source, last-confirmed 2026-09-10
+- Unity's Claude Code plugin packages a Unity MCP server for live Editor control, making engine state and actions an explicit agent tool surface. confidence: 1 source, last-confirmed 2026-09-10
+- Sage includes plugin scanning and tool-call interception, reinforcing plugins and MCP/app surfaces as governance targets. confidence: 1 source, last-confirmed 2026-09-10
+
+### Explicit relationships
+- Agent hooks use lifecycle interception to govern model and tool surfaces, but depend-on cooperative host enforcement.
+- Managed connections use credential indirection to decouple MCP tools from raw secrets.
+- Engine-specific MCP servers depend-on domain permissions, undo/review behavior, and project state capture because tools can mutate live creative work.
+- Plugin scanning complements MCP governance by checking installed extension surfaces before they influence agent behavior.
+
+### HoneyDrunk implications
+- Track every MCP/app/plugin surface with owner, permission scope, credential source, host fail-closed behavior, and audit path.
+- Treat live Unity Editor control as a write-capable tool surface that needs the same approval and diff-review posture as filesystem edits.
+
+### Quality notes
+- Vendor and README sources are useful control references; test host fail-closed behavior and MCP credential boundaries locally before adoption.

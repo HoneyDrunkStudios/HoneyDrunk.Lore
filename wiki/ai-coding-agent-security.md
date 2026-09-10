@@ -1947,3 +1947,43 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 
 ### Privacy and quality notes
 - Privacy filter: exact exploit payloads, exfiltration endpoints, token values, and reusable offensive steps from the Wiz and RAPTOR sources were not promoted. Wiz is first-party research about a disclosed incident; RAPTOR is README evidence with offensive capabilities and requires careful local/legal review.
+
+## 2026-09-10 agent security controls and threat trends
+
+### Sources
+- [GTIG: AI Threat Tracker - From Prompting to Autonomy](../raw/2026-09-10-rss-tldr-infosec-gtig-ai-threat-tracker-from-prompting-to-autonomy-the-evo.md)
+- [Sage GitHub repo](../raw/2026-09-10-rss-tldr-infosec-sage-github-repo.md)
+- [Microsoft Command Line: PyRIT, democratizing AI red teaming through open source](../raw/2026-09-10-web-microsoft-command-line-pyrit-democratizing-ai-red-teaming-through-open.md)
+- [Microsoft Command Line: Stop restricting the agent, start restricting its world](../raw/2026-09-10-web-microsoft-command-line-stop-restricting-the-agent-start-restricting-it.md)
+- [Microsoft Command Line: Your agent's guardrails have a bypass](../raw/2026-09-10-web-microsoft-command-line-your-agent-s-guardrails-have-a-bypass.md)
+- [GitHub Changelog: Control GitHub Actions cache access with cache mode](../raw/2026-09-10-rss-github-changelog-actions-control-github-actions-cache-access-with-cach.md)
+
+### Typed entities
+- `threat report`: Google Threat Intelligence Group AI Threat Tracker
+- `project`: Sage Safety for Agents
+- `project`: PyRIT
+- `framework`: RAMPART
+- `control`: AGENT-HOOKS-0.1
+- `control`: cache-mode
+- `threat`: AI-assisted supply-chain compromise
+
+### Claims
+- GTIG reports adversaries moving from simple prompting toward agentic workflows and automation, including faster credential-harvesting paths after cloud compromise. confidence: 1 source, last-confirmed 2026-09-10
+- GTIG identifies attacker interest in proprietary models, prompts, skills, API credentials, AI accounts, cloud compute quotas, and AI-assisted supply-chain abuse. confidence: 1 source, last-confirmed 2026-09-10
+- Sage positions itself as an AI-coding-assistant safety layer that intercepts tool calls, checks URL reputation, applies local heuristic rules, detects prompt injection, checks package risk, scans plugins, integrates with AMSI, and writes audit JSONL. confidence: 1 source, last-confirmed 2026-09-10
+- PyRIT provides GUI, scanner CLI, Python framework, and RAMPART entry points for repeatable AI red-team tests across OpenAI-compatible endpoints, custom services, browser apps, and multimodal targets. confidence: 1 source, last-confirmed 2026-09-10
+- Microsoft's agent-safety guidance says prompt constraints are insufficient by themselves; runtime boundaries, egress controls, secretless credentials, output scrubbing, approvals, and hooks are required for production-grade agents. confidence: 2 sources, last-confirmed 2026-09-10
+
+### Explicit relationships
+- AI coding assistants depend-on tool-call mediation because prompt-only rules can be bypassed by hidden workspace configuration, hooks, plugins, or manipulated scanner context.
+- Sage uses local and remote checks to govern shell, URL fetch, package, plugin, and file-write activity before assistant actions execute.
+- PyRIT complements agent security by making red-team runs repeatable, measurable, and comparable to human-ground-truth scoring.
+- GitHub Actions cache-mode reduces CI/CD attack surface by separating read and write cache authority for low-trust workflows.
+
+### HoneyDrunk implications
+- Treat hidden assistant config, MCP/plugin installs, package manager activity, and CI cache writes as review surfaces during agent-security scans.
+- For any red-team program, record scenario coverage, scorer calibration, model/endpoint versions, and human-ground-truth comparison instead of relying on anecdotal jailbreak results.
+- Do not promote adversarial raw prompts, exfiltration targets, or reproducible exploit chains from threat reports into wiki pages.
+
+### Quality notes
+- Privacy filter applied: hazardous prompt text, exploit payloads, operational attacker steps, and credential-harvesting details from the threat report were summarized only as defensive control requirements.

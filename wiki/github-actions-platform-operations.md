@@ -853,3 +853,31 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ### Privacy and quality notes
 - Payloads, callback details, and credentials were summarized rather than copied. Wiz is incident research with responsible-disclosure framing.
+
+## 2026-09-10 cache-access controls
+
+### Sources
+- [GitHub Changelog: Control GitHub Actions cache access with cache mode](../raw/2026-09-10-rss-github-changelog-actions-control-github-actions-cache-access-with-cach.md)
+
+### Typed entities
+- `platform`: GitHub Actions
+- `feature`: cache-mode
+- `control`: workflow/job cache access mode
+- `risk`: low-trust event cache poisoning
+
+### Claims
+- GitHub Actions `cache-mode` is generally available on all GitHub plans and lets maintainers set cache access at workflow or job scope to `read`, `write`, `write-only`, or `none`. confidence: 1 source, last-confirmed 2026-09-10
+- Low-trust events such as `pull_request_target` default to read-only cache access; explicit write/write-only overrides are possible but are called out as dangerous by GitHub. confidence: 1 source, last-confirmed 2026-09-10
+- Job-level cache-mode settings supersede workflow-level settings, and reusable workflows cannot gain more cache access than the caller grants. confidence: 1 source, last-confirmed 2026-09-10
+
+### Explicit relationships
+- `cache-mode` uses explicit permission values to reduce implicit cache write authority in GitHub Actions.
+- Reusable workflows depend-on caller-granted cache authority and cannot escalate cache access beyond the caller.
+- Low-trust pull-request events contradict the assumption that cache writes are safe by default.
+
+### HoneyDrunk implications
+- Set untrusted PR and issue/comment-triggered workflows to `read` or `none` cache access unless a reviewed build path needs write authority.
+- Audit reusable workflow callers and callees together because the effective cache boundary is caller-constrained.
+
+### Quality notes
+- Official GitHub changelog evidence is authoritative for feature availability, but repository-level adoption still needs local workflow review.
