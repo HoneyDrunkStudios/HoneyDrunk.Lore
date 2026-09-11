@@ -1256,3 +1256,30 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Thoughtworks is practice guidance. The newsletter tutorial is partial/paywalled, so claims were limited to captured content rather than unseen sections.
+
+## 2026-09-11 behavioral checks and explicit API test scope
+
+### Sources
+- [Google Developers Blog: The Anatomy of Harness Engineering](../raw/2026-09-11-web-google-developers-blog-the-anatomy-of-harness-engineering-how-to-evalu.md)
+- [System Design Newsletter: API testing was hard until I learned these 53 techniques](../raw/2026-09-11-rss-system-design-newsletter-api-testing-was-hard-until-i-learned-these-53.md)
+
+### Typed entities
+- `practice`: behavioral evaluation
+- `practice`: dogfooding
+- `test suite`: API verification taxonomy
+- `risk`: verification gap
+
+### Claims
+- Google recommends using developer instinct and dogfooding before heavy eval infrastructure, then adding behavioral evals once an agent is useful enough that regressions matter. confidence: 1 Google source, last-confirmed 2026-09-11
+- The API-testing continuation reinforces that production API work needs named security, reliability, compatibility, and workflow test types, not a vague "add tests" instruction. confidence: 1 partial newsletter source, last-confirmed 2026-09-11
+
+### Explicit relationships
+- AI-assisted software practice depends-on verification loops that assert expected behavior, not just final prose or benchmark scores.
+- API test generation depends-on explicitly naming the risk layer; otherwise agents can produce shallow unit tests while security or reliability gaps remain.
+
+### HoneyDrunk implications
+- When delegating API or harness work to agents, ask for the smallest useful behavioral check or named API test layer alongside implementation.
+- Keep macro benchmarks, behavioral checks, and human review as complementary signals rather than substitutes.
+
+### Quality notes
+- Google source is practice guidance; API newsletter is partial and paywalled, so only visible taxonomy and examples were promoted.

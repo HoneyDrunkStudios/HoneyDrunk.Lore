@@ -967,3 +967,40 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - Microsoft sources are authoritative for PyRIT and Agent Hooks capabilities; Thoughtworks and newsletter sources are practice guidance and should be validated in HoneyDrunk workflows.
+
+## 2026-09-11 behavioral evals and same-bar routing
+
+### Sources
+- [Google Developers Blog: The Anatomy of Harness Engineering](../raw/2026-09-11-web-google-developers-blog-the-anatomy-of-harness-engineering-how-to-evalu.md)
+- [Google Developers Blog: 4 engineering patterns behind the strongest AI Agents Challenge submissions](../raw/2026-09-11-web-google-developers-blog-4-engineering-patterns-behind-the-strongest-ai-.md)
+- [System Design Newsletter: API testing was hard until I learned these 53 techniques](../raw/2026-09-11-rss-system-design-newsletter-api-testing-was-hard-until-i-learned-these-53.md)
+
+### Typed entities
+- `evaluation type`: behavioral evaluation
+- `benchmark type`: end-to-end benchmark
+- `test assertion`: intermediate tool call
+- `routing pattern`: same-bar fallback
+- `routing pattern`: tiered model routing
+- `test type`: fuzz testing
+- `test type`: injection attack testing
+- `test type`: chaos testing
+
+### Claims
+- Google says end-to-end coding-agent benchmarks are useful report cards but often too slow, expensive, and low-diagnostic to explain why harness behavior regressed. confidence: 1 Google source, last-confirmed 2026-09-11
+- Google recommends fast behavioral evals that assert on observable intermediate actions such as searching for live data, running validators, modifying expected files, or asking clarifying questions. confidence: 1 Google source, last-confirmed 2026-09-11
+- Google's challenge-pattern article says fallback and primary model paths should call a single validation function so degraded availability does not become degraded quality. confidence: 1 Google source, last-confirmed 2026-09-11
+- The API testing continuation strengthens API eval vocabulary with fuzz, penetration, injection, TLS, compliance, reliability, chaos, idempotency, retry, caching, data integrity, state transition, rate limit, backward compatibility, mutation, synthetic monitoring, scenario/workflow, and component tests. confidence: 1 partial newsletter source, last-confirmed 2026-09-11
+
+### Explicit relationships
+- Behavioral evals complement macro benchmarks by explaining harness-level regressions that final pass/fail scores cannot localize.
+- Batch evaluation complements single-run assertions when model nondeterminism makes one run too noisy for a release gate.
+- Same-bar fallback depends-on shared validation code, not duplicated model-specific checks.
+- API verification depends-on selecting the test layer that matches the risk being accepted.
+
+### HoneyDrunk implications
+- Build a small behavioral suite around the agent failures HoneyDrunk has actually seen before investing in broad benchmark automation.
+- Any model-routing or fallback path should prove it reaches the same validation gate as the primary path.
+- Use [[api-testing-and-verification]] when scoping agent-generated API tests so coverage names the actual risk class.
+
+### Quality notes
+- Google sources are high-quality practice guidance. The API-testing source is partial/newsletter evidence and should be treated as taxonomy, not exhaustive implementation guidance.

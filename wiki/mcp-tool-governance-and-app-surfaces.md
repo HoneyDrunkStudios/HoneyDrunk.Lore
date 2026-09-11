@@ -1325,3 +1325,38 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - Vendor and README sources are useful control references; test host fail-closed behavior and MCP credential boundaries locally before adoption.
+
+## 2026-09-11 bidirectional MCP, context tools, and policy hooks
+
+### Sources
+- [Google Developers Blog: 4 engineering patterns behind the strongest AI Agents Challenge submissions](../raw/2026-09-11-web-google-developers-blog-4-engineering-patterns-behind-the-strongest-ai-.md)
+- [Context Mode GitHub repo](../raw/2026-09-11-rss-tldr-devops-context-mode-github-repo.md)
+- [Kontext GitHub repo](../raw/2026-09-11-rss-tldr-infosec-kontext-github-repo.md)
+
+### Typed entities
+- `pattern`: bidirectional MCP
+- `tool surface`: MCP server
+- `tool`: `ctx_execute`
+- `tool`: `ctx_index`
+- `tool`: `ctx_search`
+- `control`: pre-tool-use hook
+- `control`: authorization ledger
+
+### Claims
+- Google's challenge synthesis describes bidirectional MCP as an agent both consuming its own tools and exposing bounded reasoning/tool results as an MCP server other agents can call. confidence: 1 Google source, last-confirmed 2026-09-11
+- The Google source says bounded tool interfaces can replace raw database access, reducing context pressure and making external caller access safer than handing out unconstrained SQL-style access. confidence: 1 Google source, last-confirmed 2026-09-11
+- Context Mode exposes MCP tools for sandboxed execution, indexing/search, fetch-and-index, stats, diagnostics, upgrades, and purging, while hook support varies by host. confidence: 1 README source, last-confirmed 2026-09-11
+- Kontext supports Codex pre-tool-use and post-tool-use style events and requires trusted hooks for enforcement coverage. confidence: 1 README source, last-confirmed 2026-09-11
+
+### Explicit relationships
+- Bidirectional MCP turns an agent from a chat destination into infrastructure other agents can use.
+- External MCP tool exposure depends-on access control, bounded outputs, and caller identity; otherwise a reasoning layer becomes a broad unaudited API.
+- Context tools complement MCP governance by making tool-output size and retrieval paths observable.
+- Policy-hook tools depend-on the host waiting synchronously before execution; unsupported events can record evidence without blocking.
+
+### HoneyDrunk implications
+- When exposing agent reasoning as a tool, require narrow schemas, bounded return data, caller authentication, audit records, and denial behavior before cross-agent use.
+- Track MCP/tool context cost as part of governance. A permitted server can still be too noisy or expensive for default profiles.
+
+### Quality notes
+- Google source is practice guidance; Context Mode and Kontext are README evidence. Local install and hook behavior must be tested before adoption.

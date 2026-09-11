@@ -36,3 +36,26 @@ Enterprise agents that answer business questions need a governed meaning layer, 
 ## Confidence and quality notes
 - Quality posture: decision-useful practice guidance from one Thoughtworks source. It should shape architecture and eval design, not vendor selection.
 - Privacy filter: no proprietary data, customer records, credentials, or private business definitions copied.
+
+## 2026-09-11 legacy modernization as context recovery
+
+### Source-backed claims
+- Thoughtworks' AWS Transform/AI-works source says the durable enterprise asset for AI-ready modernization is business intent encoded in legacy systems, not just code or data. confidence: 1 Thoughtworks practice/vendor-partner source, last-confirmed 2026-09-11. [source: raw/2026-09-11-rss-thoughtworks-insights-how-thoughtworks-combines-ai-works-with-aws-tran.md]
+- The source frames modernized architectures as easier for AI agents to reason over when business context becomes reusable, governed, and continuously regenerated rather than left as one-time migration documentation. confidence: 1 source, last-confirmed 2026-09-11. [source: raw/2026-09-11-rss-thoughtworks-insights-how-thoughtworks-combines-ai-works-with-aws-tran.md]
+
+### Typed entities
+- `concept`: context recovery
+- `artifact`: governed specification
+- `artifact`: enterprise context library
+- `platform`: AWS Transform
+- `platform`: AI/works
+
+### Explicit relationships
+- Enterprise-agent reliability depends-on business context recovery and governed specifications.
+- Modernization outputs complement semantic layers only when they remain versioned, reusable, and validated as systems evolve.
+
+### HoneyDrunk implications
+- For any future business agent, treat legacy workflow/rule extraction as semantic infrastructure that needs citations, owners, and regression tests.
+
+### Quality notes
+- Vendor/practice guidance; use for architecture posture, not tool procurement without local validation.

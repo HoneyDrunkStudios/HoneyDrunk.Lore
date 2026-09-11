@@ -332,3 +332,27 @@ This page tracks durable patterns for agent-readable, human-readable knowledge s
 
 ### Quality notes
 - Fowler is commentary; Diagram Design is README evidence. Both are useful for process design but require local workflow validation.
+
+## 2026-09-11 context storage and retrieval discipline
+
+### Source-backed claims
+- Context Mode's README records a context-management pattern where raw tool output is kept out of the model window, indexed into a local knowledge base, and retrieved with BM25/reciprocal-rank-fusion search when needed. confidence: 1 README source, last-confirmed 2026-09-11. [source: raw/2026-09-11-rss-tldr-devops-context-mode-github-repo.md]
+- The same source says compaction/resume recovery should preserve session facts such as touched files, git operations, tasks, errors, and user decisions rather than relying on the remaining chat transcript. confidence: 1 README source, last-confirmed 2026-09-11. [source: raw/2026-09-11-rss-tldr-devops-context-mode-github-repo.md]
+
+### Typed entities
+- `project`: Context Mode
+- `database`: SQLite
+- `index`: FTS5
+- `ranking`: BM25
+- `ranking`: reciprocal rank fusion
+- `artifact`: session resume snapshot
+
+### Explicit relationships
+- LLM wiki retrieval complements session continuity when durable facts and in-flight task state are stored separately but remain searchable.
+- Raw output indexing depends-on privacy, TTL, and purge controls before it can be shared across sessions or teams.
+
+### HoneyDrunk implications
+- Lore should keep raw source paths and wiki citations stable even if future context tooling adds indexed retrieval or compaction-aware session state.
+
+### Quality notes
+- README evidence only; use as a design scout for context tooling rather than a confirmed HoneyDrunk standard.

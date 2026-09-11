@@ -1,47 +1,39 @@
 # Lore Ingest Last Run
 
-Timestamp: 2026-09-10T16:18:00-04:00
+Timestamp: 2026-09-11T17:58:00-04:00
 
 ## Raw sources ingested
 
-Count: 15
+Count: 9
 
-- `raw/2026-09-10-rss-github-changelog-actions-control-github-actions-cache-access-with-cach.md`
-- `raw/2026-09-10-rss-net-blog-announcing-net-11-release-candidate-1.md`
-- `raw/2026-09-10-rss-net-blog-use-c-unions-and-closed-hierarchies-in-asp-net-core.md`
-- `raw/2026-09-10-rss-system-design-newsletter-if-you-want-to-get-started-with-claude-code-r.md`
-- `raw/2026-09-10-rss-tech-artists-org-array-attributes-in-maya-python-api-2-mpxnode.md`
-- `raw/2026-09-10-rss-thoughtworks-insights-how-to-talk-with-ai.md`
-- `raw/2026-09-10-rss-tldr-ai-connections-managed-credentials-and-per-caller-identity-for-ma.md`
-- `raw/2026-09-10-rss-tldr-ai-inside-the-megakernel-serving-engine-for-north-mini-code-22-mi.md`
-- `raw/2026-09-10-rss-tldr-infosec-gtig-ai-threat-tracker-from-prompting-to-autonomy-the-evo.md`
-- `raw/2026-09-10-rss-tldr-infosec-sage-github-repo.md`
-- `raw/2026-09-10-rss-unity-blog-drakkenridge-building-an-open-world-adventure-for-mobile-vr.md`
-- `raw/2026-09-10-rss-unity-blog-official-unity-plugin-for-claude-code.md`
-- `raw/2026-09-10-web-microsoft-command-line-pyrit-democratizing-ai-red-teaming-through-open.md`
-- `raw/2026-09-10-web-microsoft-command-line-stop-restricting-the-agent-start-restricting-it.md`
-- `raw/2026-09-10-web-microsoft-command-line-your-agent-s-guardrails-have-a-bypass.md`
+- `raw/2026-09-11-rss-adobe-developer-blog-how-to-customize-your-adobe-creative-cloud-extens.md`
+- `raw/2026-09-11-rss-github-changelog-actions-xcode-27-runner-image-now-runs-on-macos-27.md`
+- `raw/2026-09-11-rss-system-design-newsletter-api-testing-was-hard-until-i-learned-these-53.md`
+- `raw/2026-09-11-rss-thoughtworks-insights-how-thoughtworks-combines-ai-works-with-aws-tran.md`
+- `raw/2026-09-11-rss-tldr-ai-detecting-and-countering-misuse-of-ai-september-2026-5-hour-re.md`
+- `raw/2026-09-11-rss-tldr-devops-context-mode-github-repo.md`
+- `raw/2026-09-11-rss-tldr-infosec-kontext-github-repo.md`
+- `raw/2026-09-11-web-google-developers-blog-4-engineering-patterns-behind-the-strongest-ai-.md`
+- `raw/2026-09-11-web-google-developers-blog-the-anatomy-of-harness-engineering-how-to-evalu.md`
 
 ## Wiki pages created/updated
 
 Created:
-- None.
+- `wiki/api-testing-and-verification.md`
+- `wiki/legacy-modernization-and-ai-ready-systems.md`
+- `wiki/agent-context-management-and-session-continuity.md`
+- `wiki/creative-tool-extension-packaging.md`
 
 Updated:
-- `wiki/github-actions-platform-operations.md`
-- `wiki/dotnet-runtime-and-mobile-2026.md`
-- `wiki/microsoft-dotnet-ai-stack.md`
-- `wiki/ai-agent-identity-and-workload-auth.md`
-- `wiki/azure-agent-automation-and-identity.md`
-- `wiki/ai-coding-agent-security.md`
-- `wiki/agent-evaluation-and-benchmarks.md`
 - `wiki/ai-agent-harnesses.md`
-- `wiki/edge-ai-and-ai-infrastructure-2026.md`
+- `wiki/agent-evaluation-and-benchmarks.md`
+- `wiki/ai-coding-agent-security.md`
 - `wiki/mcp-tool-governance-and-app-surfaces.md`
-- `wiki/ai-assisted-software-practice.md`
-- `wiki/unity-3d-and-realtime-vfx-patterns.md`
-- `wiki/gamedev-production-and-community-signals.md`
+- `wiki/github-actions-platform-operations.md`
 - `wiki/technical-art-community-and-talent-signals.md`
+- `wiki/enterprise-agent-business-semantics.md`
+- `wiki/ai-assisted-software-practice.md`
+- `wiki/llm-wiki-and-knowledge-formats.md`
 - `wiki/indexes/sources.md`
 - `wiki/indexes/topics.md`
 - `wiki/indexes/gaps.md`
@@ -50,49 +42,46 @@ Updated:
 Related sourcing receipts selected for this commit after review:
 - `output/lore-sourcing-last-run.md`
 - `output/lore-birdclaw-sourcing-last-run.md`
-- `output/signal-review-2026-09-10.md`
 
 ## Contradictions resolved
 
-- None. New sources reinforced existing governance, .NET, Unity, and agent-security themes without superseding prior wiki claims.
+- None. New sources reinforced existing agent harness, security, MCP, evaluation, and technical-art themes without superseding prior claims.
 
 ## Gaps logged
 
-Count: 9
+Count: 7
 
-- GitHub Actions workflows that should explicitly set `cache-mode`.
-- .NET APIs that should trial C# 15 unions or closed hierarchies.
-- Managed-agent credential ownership and OAuth policy.
-- Agent hook host implementation and fail-closed proof.
-- AI coding-assistant plugin, MCP, package-manager, hidden-config, and CI-cache safety mediation.
-- PyRIT/RAMPART red-team scenario, scorer, and coverage design.
-- Cohere-style decode megakernel benchmark relevance.
-- Unity Claude Code plugin trial workflow and rollback rules.
-- Minimal Maya MPxNode array compound attribute reproduction.
+- Behavioral eval targets for HoneyDrunk agent failure modes.
+- Context Mode-style sandboxed analysis, indexing, compaction recovery, and privacy policy.
+- Kontext pre-action policy/authorization-ledger validation.
+- API risk-specific test coverage.
+- Legacy-system context recovery before AI-assisted modernization.
+- Current Adobe UXP/CEP packaging guidance versus old MXI source.
+- Xcode 27/macOS 27 runner validation for Apple build workflows.
 
 ## Crystallization from output/query-*.md
 
-- Reviewed the current `output/query-*.md` inventory posture from the prior compile state.
-- No additional `query-*.md` artifacts were promoted in this pass; durable cited facts from older query outputs are already represented in wiki pages.
-- `output/signal-review-2026-09-10.md` was retained as a sourcing review receipt, not treated as a `query-*` crystallization source.
+- Reviewed the 13 `output/query-*.md` artifacts.
+- No additional query outputs were promoted in this pass; current query outputs already describe durable facts as crystallized into existing wiki pages.
 
 ## Blockers
 
 - Birdclaw live sync remains unavailable in the sourcing receipt: `xurl` is not installed/local mode is active and the Bird command is unavailable.
-- External sourcing replaced two transient candidates before ingest; the committed raw batch is the stabilized 15-file source list recorded above.
-- Pre-existing unrelated worktree changes remain outside this ingest commit: `.obsidian/graph.json`, older signal-review outputs, and `tools/lore_source_public.py`.
+- Several transient candidates were quality-rejected by the sourcing pass and were not ingested: Game Developer labor/publishing business news, Tom's Hardware chip-sourcing business news, TestingCatalog Meta speculation, TechCrunch partnership business news, and an unresolved short RealtimeVFX troubleshooting question.
+- Pre-existing unrelated worktree changes remain outside this ingest commit: `.obsidian/graph.json`, older signal-review outputs, `output/signal-review-2026-09-11.md`, and `tools/lore_source_public.py`.
 
 ## Quality posture
 
-- Pages rewritten/flagged: no full rewrites; 14 existing concept pages received dated sections with typed entities, explicit relationships, claims, confidence notes, and source citations.
-- Weak claims: Cohere benchmark claims, Unity performance/plugin claims, Sage/PyRIT README claims, and the partial Claude Code tutorial are marked as needing local validation before operational adoption.
-- Privacy redactions: unsafe operational prompt/exploit details from the GTIG threat report were not promoted; only defensive themes and control implications were captured.
-- Decision-usefulness: the pass promotes concrete follow-up decisions around cache permissions, agent credentials, hooks, PyRIT evaluation, .NET 11/C# 15 contracts, Unity plugin trials, and mobile-VR performance measurement.
+- Pages rewritten/flagged: four compact concept pages created; nine existing concept/index pages updated.
+- Weak claims: Context Mode and Kontext are README evidence; Adobe CEP/MXI guidance is official but old; the API-testing continuation is partial/paywalled; Thoughtworks/AWS modernization is vendor/practice evidence.
+- Privacy redactions: Anthropic misuse-report content was summarized at defensive-control level only; no operational threat details, payloads, prompts, IOCs, credentials, install tokens, private paths, or raw ledger records were promoted.
+- Decision-usefulness: the pass promotes concrete follow-up decisions around behavioral evals, fallback validation, context-window management, pre-action authorization ledgers, API test taxonomy, AI-ready modernization artifacts, and Apple runner image validation.
 
 ## Validation
 
 - Read `AGENTS.md` and followed the Ingest/Compile contract.
-- Compared current files under `raw/` against `wiki/indexes/sources.md` and ingested every unrepresented 2026-09-10 source.
-- Rebuilt `wiki/indexes/sources.md`, `wiki/indexes/topics.md`, and `wiki/indexes/gaps.md` with the 2026-09-10 additions.
+- Compared current files under `raw/` against `wiki/indexes/sources.md` and ingested every unrepresented current 2026-09-11 raw source.
+- Rebuilt `wiki/indexes/sources.md`, `wiki/indexes/topics.md`, and `wiki/indexes/gaps.md` with the 2026-09-11 additions.
+- Reviewed `output/query-*.md` inventory for crystallization candidates; no additional durable facts needed promotion.
 - Preserved `raw/` immutability; no files under `raw/` were edited.
-- Per publishing rules, completed an explicit staged-diff code-review pass before commit/push; no blockers were found in promoted wiki/output content.
+- Kept staging scope limited to the new raw sources, wiki/index updates, ingest summary, and directly related sourcing receipts.

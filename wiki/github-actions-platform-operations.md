@@ -881,3 +881,31 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ### Quality notes
 - Official GitHub changelog evidence is authoritative for feature availability, but repository-level adoption still needs local workflow review.
+
+## 2026-09-11 Xcode 27 macOS runner image update
+
+### Sources
+- [GitHub Changelog: Xcode 27 runner image now runs on macOS 27](../raw/2026-09-11-rss-github-changelog-actions-xcode-27-runner-image-now-runs-on-macos-27.md)
+
+### Typed entities
+- `platform`: GitHub Actions
+- `runner image`: Xcode 27
+- `runner OS`: macOS 27
+- `label`: `xcode-27`
+- `label`: `xcode-27-xlarge`
+- `architecture`: arm64
+
+### Claims
+- GitHub's Xcode 27 hosted runner image now runs on macOS 27 in public preview; it previously ran on macOS 26. confidence: 1 GitHub changelog source, last-confirmed 2026-09-11
+- Workflow targeting labels stay `xcode-27` and `xcode-27-xlarge`, and the image runs on arm64 macOS runners only. confidence: 1 GitHub changelog source, last-confirmed 2026-09-11
+
+### Explicit relationships
+- Apple build validation depends-on runner image OS version as well as Xcode version.
+- Stable workflow labels can hide underlying image drift when the OS changes behind an existing label.
+
+### HoneyDrunk implications
+- If HoneyDrunk adds Apple/iOS/macOS build workflows, pin or smoke-test Xcode 27 runner behavior before relying on public-preview macOS 27 images.
+- Record runner image and OS version in release receipts where Apple toolchain reproducibility matters.
+
+### Quality notes
+- GitHub changelog source is authoritative for GitHub-hosted runner posture. Public preview image behavior needs local build validation before production reliance.

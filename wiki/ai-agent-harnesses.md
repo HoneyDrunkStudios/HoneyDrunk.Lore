@@ -1720,3 +1720,45 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - README and vendor-blog claims need local install validation; no package tokens, API keys, or exploit payloads were promoted.
+
+## 2026-09-11 context control, evented agents, and harness evaluation
+
+### Sources
+- [Google Developers Blog: 4 engineering patterns behind the strongest AI Agents Challenge submissions](../raw/2026-09-11-web-google-developers-blog-4-engineering-patterns-behind-the-strongest-ai-.md)
+- [Google Developers Blog: The Anatomy of Harness Engineering](../raw/2026-09-11-web-google-developers-blog-the-anatomy-of-harness-engineering-how-to-evalu.md)
+- [Context Mode GitHub repo](../raw/2026-09-11-rss-tldr-devops-context-mode-github-repo.md)
+- [Kontext GitHub repo](../raw/2026-09-11-rss-tldr-infosec-kontext-github-repo.md)
+- [Thoughtworks: AI/works with AWS Transform](../raw/2026-09-11-rss-thoughtworks-insights-how-thoughtworks-combines-ai-works-with-aws-tran.md)
+
+### Typed entities
+- `pattern`: bidirectional MCP
+- `pattern`: event-driven concurrency
+- `pattern`: same-bar fallback validation
+- `pattern`: tiered routing
+- `project`: Context Mode
+- `project`: Kontext
+- `database`: SQLite/FTS5
+- `practice`: behavioral evaluation
+- `practice`: context recovery
+
+### Claims
+- Google's AI Agents Challenge synthesis says top multi-agent submissions favored bidirectional MCP, async event buses, shared validation for fallback models, and tiered routing before expensive model calls. confidence: 1 Google practitioner source, last-confirmed 2026-09-11
+- Google frames behavioral evals as fast local checks over discrete harness behavior, such as tool calls, validation steps, or file modifications, complementing larger end-to-end benchmarks. confidence: 1 Google source, last-confirmed 2026-09-11
+- Context Mode treats raw tool output as context-budget risk and routes large analysis through sandbox execution, indexing, and focused retrieval rather than dumping full files/logs/API responses into the prompt. confidence: 1 README source, last-confirmed 2026-09-11
+- Kontext places deterministic local policy at supported pre-tool hooks so agent actions can be allowed, observed, or denied before execution while evidence is written to an authorization ledger. confidence: 1 README source, last-confirmed 2026-09-11
+- Thoughtworks' modernization source reinforces that AI agents need recovered business context and governed specifications before they can reason reliably across legacy systems. confidence: 1 Thoughtworks source, last-confirmed 2026-09-11
+
+### Explicit relationships
+- Multi-agent harnesses depend-on real concurrency, topic/event contracts, and inter-agent tool surfaces, not only multiple names around one prompt chain.
+- Fallback models depend-on the same validation gate as primary models; otherwise fallback routing can silently lower product quality.
+- Context-control tools complement harnesses by preserving reasoning budget and compaction recovery state.
+- Local policy ledgers complement sandboxes: policy decides whether an action is authorized, while sandboxes constrain what the process can physically access.
+- AI-ready modernization depends-on exposing business intent and operational semantics as governed context.
+
+### HoneyDrunk implications
+- For Honeyclaw/OpenClaw, classify agent workflows by event fan-out, validation gate, context-budget risk, and pre-action policy surface before adding more subagents.
+- Add behavioral evals for recurring harness failures such as skipped validation, guessed live facts, unsafe tool use, or missing source links.
+- Treat Context Mode and Kontext as scouting references for context preservation and pre-action authorization, but validate hook coverage, false positives, ledger privacy, and Windows/Codex behavior locally.
+
+### Quality notes
+- Google and Thoughtworks are vendor/practitioner sources; Context Mode and Kontext are README evidence. No install tokens, private session records, model prompts, or sensitive ledger payloads were promoted.

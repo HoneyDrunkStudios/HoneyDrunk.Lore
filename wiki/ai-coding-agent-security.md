@@ -1987,3 +1987,46 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 
 ### Quality notes
 - Privacy filter applied: hazardous prompt text, exploit payloads, operational attacker steps, and credential-harvesting details from the threat report were summarized only as defensive control requirements.
+
+## 2026-09-11 misuse reporting and local policy ledgers
+
+### Sources
+- [Anthropic: Detecting and countering misuse of AI, September 2026](../raw/2026-09-11-rss-tldr-ai-detecting-and-countering-misuse-of-ai-september-2026-5-hour-re.md)
+- [Kontext GitHub repo](../raw/2026-09-11-rss-tldr-infosec-kontext-github-repo.md)
+- [Context Mode GitHub repo](../raw/2026-09-11-rss-tldr-devops-context-mode-github-repo.md)
+- [Google Developers Blog: 4 engineering patterns behind the strongest AI Agents Challenge submissions](../raw/2026-09-11-web-google-developers-blog-4-engineering-patterns-behind-the-strongest-ai-.md)
+
+### Typed entities
+- `threat report`: Anthropic September 2026 misuse report
+- `harm area`: cyber operations
+- `harm area`: influence operations
+- `harm area`: surveillance
+- `harm area`: scams and fraud
+- `harm area`: biological misuse
+- `harm area`: conventional weapons development
+- `harm area`: illicit distillation
+- `project`: Kontext
+- `control`: local authorization ledger
+- `control`: pre-tool-use policy
+- `project`: Context Mode
+
+### Claims
+- Anthropic says its Threat Intelligence team disrupted malicious Claude use between December 2025 and August 2026 across seven harm areas: cyber operations, influence operations, surveillance, scams/fraud, biological misuse, conventional weapons development, and distillation. confidence: 1 Anthropic source, last-confirmed 2026-09-11
+- Anthropic says none of the reported misuse cases involved Claude Fable or Mythos-class models except one illicit distillation case. confidence: 1 Anthropic source, last-confirmed 2026-09-11
+- Kontext records supported agent actions, local policy decisions, responsible policy, and available outcomes in an authorization ledger, while avoiding model reasoning or full conversation capture. confidence: 1 README source, last-confirmed 2026-09-11
+- Kontext explicitly positions semantic policy and attribution as complementary to kernel/process sandboxes, not as kernel-level isolation. confidence: 1 README source, last-confirmed 2026-09-11
+- Context Mode's design reduces accidental disclosure of large tool outputs into model context by returning filtered execution/search results instead of full raw data. confidence: 1 README source, last-confirmed 2026-09-11
+
+### Explicit relationships
+- Misuse detection depends-on platform telemetry, disruption workflows, and industry/government coordination, not only model refusal training.
+- Pre-action policy ledgers complement post-action logs by creating an authorization decision before supported consequential actions execute.
+- Kontext and sandboxing solve different problems: authorization/audit depends-on policy and attribution; containment depends-on operating-system or runtime boundaries.
+- Context minimization reduces prompt/data exposure but does not replace secrets isolation, egress policy, or approval gates.
+
+### HoneyDrunk implications
+- Continue summarizing AI misuse reports at defensive-control level; do not promote operational attack chains, prompts, IOCs, or payload details unless a security workflow explicitly needs them.
+- Evaluate agent policy tools by host coverage, supported blocking surfaces, false-positive handling, ledger redaction, retention, and failure behavior.
+- Treat any "observe mode" as telemetry only; enforcement requires a trusted synchronous hook plus containment for the underlying tool process.
+
+### Quality notes
+- Anthropic is primary vendor threat-intelligence evidence; Kontext and Context Mode are README evidence. Privacy filter applied: no operational threat details, payloads, account identifiers, or raw policy/ledger samples were promoted.

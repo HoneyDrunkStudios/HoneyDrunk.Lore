@@ -163,3 +163,26 @@ Dario Amodei's June 2026 policy essay argues that frontier AI has crossed from o
 
 ### Quality notes
 - Fowler is commentary and should be paired with primary policy or operating-model sources before becoming a formal governance rule.
+
+## 2026-09-11 AI misuse disclosure and defender coordination
+
+### Source-backed claims
+- Anthropic's September 2026 threat-intelligence report says its team identified and disrupted malicious Claude use between December 2025 and August 2026, and shared intelligence with authorities and industry partners where appropriate. Source: `raw/2026-09-11-rss-tldr-ai-detecting-and-countering-misuse-of-ai-september-2026-5-hour-re.md`; page: [[ai-coding-agent-security]]. confidence: 1 Anthropic source, last-confirmed 2026-09-11.
+- The report covers notable cases across cyber operations, influence operations, surveillance, scams and fraud, biological misuse, conventional weapons development, and illicit distillation, and frames disclosure as part of developers' responsibility as model capabilities increase. Source: `raw/2026-09-11-rss-tldr-ai-detecting-and-countering-misuse-of-ai-september-2026-5-hour-re.md`; page: [[ai-coding-agent-security]]. confidence: 1 Anthropic source, last-confirmed 2026-09-11.
+
+### Typed entities
+- `organization`: Anthropic
+- `threat report`: September 2026 misuse report
+- `governance mechanism`: misuse disclosure
+- `governance mechanism`: defender intelligence sharing
+- `harm area`: illicit distillation
+
+### Explicit relationships
+- Frontier-model governance depends-on misuse monitoring, disruption, disclosure, and defender coordination after deployment, not only pre-release evaluations.
+- Public misuse reports complement internal safeguards by helping other developers recognize platform-abuse patterns.
+
+### HoneyDrunk implications
+- Treat provider misuse reports as inputs to HoneyDrunk threat models and agent operating policy, while keeping operational examples out of ordinary wiki pages unless a scoped security workflow needs them.
+
+### Quality notes
+- Anthropic is primary vendor threat-intelligence evidence. Privacy/safety filter applied: operational case details, IOCs, prompts, and attack steps were not promoted.

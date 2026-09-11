@@ -965,3 +965,31 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - The Maya source is a question without a captured solution and is therefore low-confidence gap evidence. Unity plugin claims require local install validation.
+
+## 2026-09-11 Adobe packaging and rejected short VFX troubleshooting source
+
+### Sources
+- [Adobe Developer Blog: How to Customize Your Adobe Creative Cloud Extension Package](../raw/2026-09-11-rss-adobe-developer-blog-how-to-customize-your-adobe-creative-cloud-extens.md)
+
+### Typed entities
+- `platform`: Adobe Creative Cloud
+- `extension runtime`: CEP
+- `package format`: ZXP
+- `manifest`: MXI
+- `file type`: `csxs`
+- `file type`: `ordinary`
+
+### Claims
+- Adobe's CEP packaging source says extension-package customization is driven by an `.mxi` manifest that must match the package folder structure and declare files, destinations, product compatibility, UI access, license text, and related metadata. confidence: 1 old Adobe developer source, last-confirmed 2026-09-11
+- The 2026-09-11 sourcing pass rejected a RealtimeVFX Niagara Data Channel Writer forum question as too short and unresolved for durable wiki promotion, reinforcing the quality bar for troubleshooting captures. confidence: 1 sourcing receipt, last-confirmed 2026-09-11
+
+### Explicit relationships
+- Creative-tool package reliability depends-on declared install manifests, file roles, destination paths, and host compatibility.
+- Short unresolved forum questions can surface gaps but do not supersede tested technical-art guidance without a reproduction or solution.
+
+### HoneyDrunk implications
+- Keep [[creative-tool-extension-packaging]] as a manifest checklist seed, but verify current Adobe UXP/CEP status before using MXI guidance.
+- For VFX troubleshooting sources, require a reproduction, engine version, and confirmed workaround before promoting to reusable technique pages.
+
+### Quality notes
+- Adobe source is official but old. The rejected VFX item is referenced only as source-quality evidence from `output/lore-sourcing-last-run.md`; the rejected raw file is not present in the current source batch.

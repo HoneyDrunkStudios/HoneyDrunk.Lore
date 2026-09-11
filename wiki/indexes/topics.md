@@ -1287,3 +1287,31 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 - [[unity-3d-and-realtime-vfx-patterns]] - 75 sources - last-confirmed 2026-09-10
 - [[gamedev-production-and-community-signals]] - 46 sources - last-confirmed 2026-09-10
 - [[technical-art-community-and-talent-signals]] - 61 sources - last-confirmed 2026-09-10
+
+## 2026-09-11 topic additions
+
+### Agent harnesses, context, and behavioral evaluation
+- [[ai-agent-harnesses]] - 217 sources - last-confirmed 2026-09-11
+- [[agent-evaluation-and-benchmarks]] - 68 sources - last-confirmed 2026-09-11
+- [[agent-context-management-and-session-continuity]] - 1 source - last-confirmed 2026-09-11
+- [[llm-wiki-and-knowledge-formats]] - 15 sources - last-confirmed 2026-09-11
+
+### MCP, policy hooks, and agent security
+- [[mcp-tool-governance-and-app-surfaces]] - 120 sources - last-confirmed 2026-09-11
+- [[ai-coding-agent-security]] - 186 sources - last-confirmed 2026-09-11
+- [[ai-policy-and-governance-2026]] - 7 sources - last-confirmed 2026-09-11
+
+### API testing and AI-assisted software practice
+- [[api-testing-and-verification]] - 2 sources - last-confirmed 2026-09-11
+- [[ai-assisted-software-practice]] - 107 sources - last-confirmed 2026-09-11
+
+### Enterprise semantics and modernization
+- [[legacy-modernization-and-ai-ready-systems]] - 1 source - last-confirmed 2026-09-11
+- [[enterprise-agent-business-semantics]] - 2 sources - last-confirmed 2026-09-11
+
+### GitHub Actions and Apple build operations
+- [[github-actions-platform-operations]] - 55 sources - last-confirmed 2026-09-11
+
+### Technical art and creative tool packaging
+- [[creative-tool-extension-packaging]] - 1 source - last-confirmed 2026-09-11
+- [[technical-art-community-and-talent-signals]] - 62 sources - last-confirmed 2026-09-11
