@@ -194,3 +194,12 @@ This keeps Lore decision-usable for Honeyclaw, Claude, and future agents.
 - contradictions resolved: none.
 - privacy/safety filtering: Wiz/RAPTOR exploit and credential details were summarized defensively; no payloads, tokens, API keys, private personal data, or reusable offensive steps were promoted.
 - quality posture: Microsoft/Unity sources are authoritative for their product surfaces but require local validation; TestingCatalog, Fowler, System Design Newsletter, DEV.to/beefed.ai, 80 Level, Tech-Artists.Org, Magnitude README, Diagram Design README, and RAPTOR README were treated as secondary, community, commentary, newsletter, practitioner, interview, or project evidence with appropriate caveats.
+
+## 2026-09-12 Lore ingest/compile
+- operator: Honeyclaw scheduled ingest
+- raw sources ingested: 15
+- pages created: [[robotics-foundation-models-and-embodied-ai]]
+- pages updated: [[agent-context-management-and-session-continuity]], [[agent-evaluation-and-benchmarks]], [[ai-agent-harnesses]], [[ai-assisted-software-practice]], [[ai-coding-agent-security]], [[ai-policy-and-governance-2026]], [[enterprise-agent-business-semantics]], [[gamedev-production-and-community-signals]], [[kubernetes-platform-governance-and-cicd]], [[technical-art-community-and-talent-signals]], [[unity-3d-and-realtime-vfx-patterns]], [[voice-agent-platforms-2026]], indexes, run output
+- contradictions resolved: Anthropic's primary 2026-09-12 source superseded the earlier 2026-09-04 "needs primary-source refresh" caveat for cyber-eval/RL pauses, containment hardening, and reward-hacking environment quality work.
+- privacy/safety filtering: DeepSeek Harness exploit mechanics and Anthropic cyber-eval incidents were summarized at control level; no exact escape commands, payloads, unsafe prompts, credentials, tokens, private personal data, or reusable offensive steps were promoted.
+- quality posture: Anthropic/Google/OX Security/Rhoda/Redwood sources are high-signal but still need local validation before operational policy changes; Lightpanda/TeamAI are project-authored README/site evidence; Game Developer/InfoQ/80 Level are trade/interview sources; Fowler/Thoughtworks/n8n/Checkly are practitioner guidance/case evidence.

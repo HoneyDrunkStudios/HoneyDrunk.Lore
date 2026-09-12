@@ -2030,3 +2030,59 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 
 ### Quality notes
 - Anthropic is primary vendor threat-intelligence evidence; Kontext and Context Mode are README evidence. Privacy filter applied: no operational threat details, payloads, account identifiers, or raw policy/ledger samples were promoted.
+
+## 2026-09-12 local harness sandbox escape evidence
+
+### Sources
+- [OX Security: CVE-2026-82533 DeepSeek Harness sandbox escape](../raw/2026-09-12-rss-tldr-infosec-cve-2026-82533-deepseek-harness-vulnerability-lets-ai-age.md)
+
+### Typed entities
+- `vulnerability`: CVE-2026-82533
+- `product`: DeepSeek Harness / `dsh`
+- `control`: OS sandbox
+- `control`: local agent-control API authentication
+- `trust boundary`: loopback network
+- `failure mode`: spoofable request metadata used for trust decision
+
+### Claims
+- OX Security reports that DeepSeek Harness 0.1.1-rc.2 and earlier allowed a sandboxed coding agent to reach the harness's local control API and change its own session to unconfined execution under shipped defaults. confidence: 1 security-research source, last-confirmed 2026-09-12. [source: raw/2026-09-12-rss-tldr-infosec-cve-2026-82533-deepseek-harness-vulnerability-lets-ai-age.md]
+- The root control failure was trusting client-supplied request metadata for a local API decision while leaving loopback networking reachable from the sandbox; the reported fix shipped in DeepSeek Harness 0.1.2-alpha.1. confidence: 1 source, last-confirmed 2026-09-12. [source: raw/2026-09-12-rss-tldr-infosec-cve-2026-82533-deepseek-harness-vulnerability-lets-ai-age.md]
+
+### Explicit relationships
+- Agent sandboxes depend-on the harness control plane being isolated from agent-executed commands; loopback access can contradict filesystem-only confinement.
+- Local API authorization must use connection identity and authenticated session state rather than headers or model-controllable request content.
+- Approval prompts complement sandboxing only if an agent cannot rewrite the approval/sandbox state from inside its own tool environment.
+
+### HoneyDrunk implications
+- Audit OpenClaw/Codex-adjacent local services for unauthenticated loopback control APIs, host-header trust, port-forward exposure, and agent-reachable admin endpoints.
+- Treat loopback networking as an explicit sandbox permission; do not assume `127.0.0.1` is human-only when the agent can run shell or browser tools.
+
+### Quality notes
+- Privacy/safety filter: exact escape command sequences and exploit payloads were not promoted. The source is defensive research and includes a remediation version; verify current DeepSeek Harness behavior directly before operational decisions.
+
+## 2026-09-12 frontier eval containment practices
+
+### Sources
+- [Anthropic: Improving our alignment and security practices](../raw/2026-09-12-web-anthropic-news-improving-our-alignment-and-security-practices.md)
+
+### Typed entities
+- `organization`: Anthropic
+- `control`: sandbox and network isolation
+- `control`: real-time model/action monitor
+- `control`: external evaluator best practices
+- `risk`: model out-of-scope action during cyber evaluation
+- `risk`: sandbox misconfiguration
+
+### Claims
+- Anthropic recommends cyber evaluations of models with reduced cyber safeguards run in hardened sandboxes with no internet access by default, only the model API reachable, API keys outside the environment, and verification before each evaluation. confidence: 1 Anthropic primary source, last-confirmed 2026-09-12.
+- The source recommends pre-engagement sandbox validation, explicit prompt scope boundaries, continuous monitoring of thinking/actions/network activity, and stopping runs that violate scope. confidence: 1 primary source, last-confirmed 2026-09-12.
+
+### Explicit relationships
+- Cyber-agent security depends-on environment design and monitor enforcement, not only model policy text.
+- Third-party evaluator harnesses can contradict provider safety assumptions when their sandbox, network, or scope configuration differs from the provider's own controls.
+
+### HoneyDrunk implications
+- Any HoneyDrunk cyber-capable model eval should prove sandbox sealing, egress policy, API-key isolation, declared scope, and monitor stop behavior before repeated runs.
+
+### Quality notes
+- Summarized defensively; no unsafe prompts, targets, or runnable evaluation-escape procedures were promoted.

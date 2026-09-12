@@ -993,3 +993,32 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - Adobe source is official but old. The rejected VFX item is referenced only as source-quality evidence from `output/lore-sourcing-last-run.md`; the rejected raw file is not present in the current source batch.
+
+## 2026-09-12 Blender hair rigging and audio-to-scene research signals
+
+### Sources
+- [80 Level: This free Blender tool makes hair rigging easier](../raw/2026-09-12-rss-80-level-this-free-blender-tool-makes-hair-rigging-easier.md)
+- [80 Level: EchoForge uses spatial sound to build 3D worlds in Unity](../raw/2026-09-12-rss-80-level-echoforge-uses-spatial-sound-to-build-3d-worlds-in-unity.md)
+
+### Typed entities
+- `application`: Blender 4.5 LTS
+- `tool`: free Blender hair-rigging extension
+- `asset type`: stylized hair cards
+- `project`: EchoForge
+- `concept`: procedural soundscape visualization
+- `accessibility domain`: deaf and hard-of-hearing visualization
+
+### Claims
+- The Blender hair-rigging source describes a free Blender 4.5 LTS extension that creates deform bone chains from selected hair tips, with controls for bone count, coverage, root depth, chain direction, strand following, and open or closed hair geometry. confidence: 1 80 Level/tool source, last-confirmed 2026-09-12.
+- EchoForge is relevant to technical-art R&D because it turns semantic/spatial audio analysis into procedural 3D layout hints, including visible source/confidence regions rather than exact reconstruction claims. confidence: 1 80 Level/project-interview source, last-confirmed 2026-09-12.
+
+### Explicit relationships
+- Hair-rigging automation complements technical-art production when it preserves artist control over root/tip selection, chain count, and geometry type.
+- Audio-to-scene tools complement accessibility and previsualization workflows when uncertainty is represented as part of the authored output.
+
+### HoneyDrunk implications
+- Trial small Blender rigging extensions on disposable assets first, checking undo behavior, naming, deformation quality, and export compatibility.
+- Treat soundscape-to-scene generation as a research prompt for interactive visualization rather than production-ready worldbuilding.
+
+### Quality notes
+- 80 Level sources are discovery/interview evidence. Extension behavior and EchoForge fidelity require local reproduction before pipeline adoption.

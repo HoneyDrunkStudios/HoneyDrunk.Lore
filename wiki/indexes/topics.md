@@ -1315,3 +1315,26 @@ Auto-maintained backlink index. Every concept page in `wiki/` is grouped by topi
 ### Technical art and creative tool packaging
 - [[creative-tool-extension-packaging]] - 1 source - last-confirmed 2026-09-11
 - [[technical-art-community-and-talent-signals]] - 62 sources - last-confirmed 2026-09-11
+
+## 2026-09-12 topic additions
+
+### Agent harnesses, browsers, and local control planes
+- [[ai-agent-harnesses]] - 219 sources - last-confirmed 2026-09-12
+- [[ai-coding-agent-security]] - 188 sources - last-confirmed 2026-09-12
+- [[agent-context-management-and-session-continuity]] - 2 sources - last-confirmed 2026-09-12
+
+### Evaluation, monitorability, voice, and embodied AI
+- [[agent-evaluation-and-benchmarks]] - 73 sources - last-confirmed 2026-09-12
+- [[voice-agent-platforms-2026]] - 2 sources - last-confirmed 2026-09-12
+- [[robotics-foundation-models-and-embodied-ai]] - 1 source - last-confirmed 2026-09-12
+- [[ai-policy-and-governance-2026]] - 8 sources - last-confirmed 2026-09-12
+
+### Enterprise AI deployment, data readiness, and Kubernetes governance
+- [[enterprise-agent-business-semantics]] - 4 sources - last-confirmed 2026-09-12
+- [[ai-assisted-software-practice]] - 110 sources - last-confirmed 2026-09-12
+- [[kubernetes-platform-governance-and-cicd]] - 3 sources - last-confirmed 2026-09-12
+
+### Game development and technical art community
+- [[gamedev-production-and-community-signals]] - 47 sources - last-confirmed 2026-09-12
+- [[technical-art-community-and-talent-signals]] - 64 sources - last-confirmed 2026-09-12
+- [[unity-3d-and-realtime-vfx-patterns]] - 76 sources - last-confirmed 2026-09-12

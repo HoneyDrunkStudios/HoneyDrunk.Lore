@@ -1762,3 +1762,31 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - Google and Thoughtworks are vendor/practitioner sources; Context Mode and Kontext are README evidence. No install tokens, private session records, model prompts, or sensitive ledger payloads were promoted.
+
+## 2026-09-12 agent browsers and shareable agent surfaces
+
+### Sources
+- [Lightpanda Browser GitHub repo](../raw/2026-09-12-rss-tldr-devops-lightpanda-browser-github-repo.md)
+
+### Typed entities
+- `project`: Lightpanda Browser
+- `language`: Zig
+- `protocol`: Chrome DevTools Protocol / CDP
+- `protocol`: WebDriver BiDi
+- `protocol`: Model Context Protocol / MCP
+- `artifact`: PandaScript
+
+### Claims
+- Lightpanda is a from-scratch headless browser for AI agents and automation, written in Zig rather than forked from Chromium/WebKit, with CDP, WebDriver BiDi, MCP, markdown/HTML/PDF/PNG dump modes, and a native agent mode that can record deterministic PandaScript for replay without a model. confidence: 1 project README source, last-confirmed 2026-09-12. [source: raw/2026-09-12-rss-tldr-devops-lightpanda-browser-github-repo.md]
+- Lightpanda reports much lower memory and faster execution than Headless Chrome in its own benchmark, but the README also notes platform constraints, Web Platform Test coverage, telemetry defaults, and no native Windows binary outside WSL. confidence: 1 README source, last-confirmed 2026-09-12. [source: raw/2026-09-12-rss-tldr-devops-lightpanda-browser-github-repo.md]
+
+### Explicit relationships
+- Browser automation harnesses depend-on JavaScript-capable browsing, session isolation, protocol compatibility, robots/egress policy, and deterministic replay when moving from prototype to production.
+- Lightpanda's PandaScript pattern complements LLM-driven browsing by turning exploratory agent sessions into auditable model-free scripts.
+
+### HoneyDrunk implications
+- If HoneyDrunk needs high-volume browser extraction or browser-agent tests, benchmark Lightpanda against Playwright/Chromium on representative pages, especially JS-heavy sites and Windows/WSL ergonomics.
+- Require telemetry review, robots behavior, session isolation, and MCP permission checks before using Lightpanda in unattended sourcing or agent workflows.
+
+### Quality notes
+- Lightpanda is README evidence with self-reported benchmarks; verify locally before adopting as a browser-agent runtime.

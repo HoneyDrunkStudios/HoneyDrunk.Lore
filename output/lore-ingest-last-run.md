@@ -1,87 +1,93 @@
 # Lore Ingest Last Run
 
-Timestamp: 2026-09-11T17:58:00-04:00
+Timestamp: 2026-09-12T10:19:00-04:00
 
 ## Raw sources ingested
 
-Count: 9
+Count: 15
 
-- `raw/2026-09-11-rss-adobe-developer-blog-how-to-customize-your-adobe-creative-cloud-extens.md`
-- `raw/2026-09-11-rss-github-changelog-actions-xcode-27-runner-image-now-runs-on-macos-27.md`
-- `raw/2026-09-11-rss-system-design-newsletter-api-testing-was-hard-until-i-learned-these-53.md`
-- `raw/2026-09-11-rss-thoughtworks-insights-how-thoughtworks-combines-ai-works-with-aws-tran.md`
-- `raw/2026-09-11-rss-tldr-ai-detecting-and-countering-misuse-of-ai-september-2026-5-hour-re.md`
-- `raw/2026-09-11-rss-tldr-devops-context-mode-github-repo.md`
-- `raw/2026-09-11-rss-tldr-infosec-kontext-github-repo.md`
-- `raw/2026-09-11-web-google-developers-blog-4-engineering-patterns-behind-the-strongest-ai-.md`
-- `raw/2026-09-11-web-google-developers-blog-the-anatomy-of-harness-engineering-how-to-evalu.md`
+- `raw/2026-09-12-rss-80-level-echoforge-uses-spatial-sound-to-build-3d-worlds-in-unity.md`
+- `raw/2026-09-12-rss-80-level-this-free-blender-tool-makes-hair-rigging-easier.md`
+- `raw/2026-09-12-rss-game-developer-ship-a-good-game-learn-from-it-and-build-from-there-les.md`
+- `raw/2026-09-12-rss-google-developers-blog-how-to-evaluate-live-voice-agents-in-adk.md`
+- `raw/2026-09-12-rss-martin-fowler-making-your-data-ready-for-agentic-ai.md`
+- `raw/2026-09-12-rss-n8n-blog-ai-agent-reliability-debug-evaluate-and-monitor-in-production.md`
+- `raw/2026-09-12-rss-thoughtworks-insights-from-specification-to-production-building-enterp.md`
+- `raw/2026-09-12-rss-tldr-ai-an-operationalization-of-opaque-serial-depth-3-minute-read.md`
+- `raw/2026-09-12-rss-tldr-ai-does-scaling-web-video-pre-training-help-real-robots-do-real-w.md`
+- `raw/2026-09-12-rss-tldr-devops-kubernetes-promotes-kyaml-as-a-safer-more-consistent-way-t.md`
+- `raw/2026-09-12-rss-tldr-devops-lightpanda-browser-github-repo.md`
+- `raw/2026-09-12-rss-tldr-infosec-cve-2026-82533-deepseek-harness-vulnerability-lets-ai-age.md`
+- `raw/2026-09-12-rss-tldr-web-dev-rewriting-a-node-js-service-in-go-with-agents-11-minute-r.md`
+- `raw/2026-09-12-rss-tldr-web-dev-teamai-cli-shared-context-for-every-coding-agent-5-minute.md`
+- `raw/2026-09-12-web-anthropic-news-improving-our-alignment-and-security-practices.md`
 
 ## Wiki pages created/updated
 
 Created:
-- `wiki/api-testing-and-verification.md`
-- `wiki/legacy-modernization-and-ai-ready-systems.md`
-- `wiki/agent-context-management-and-session-continuity.md`
-- `wiki/creative-tool-extension-packaging.md`
+- `wiki/robotics-foundation-models-and-embodied-ai.md`
 
 Updated:
-- `wiki/ai-agent-harnesses.md`
+- `wiki/agent-context-management-and-session-continuity.md`
 - `wiki/agent-evaluation-and-benchmarks.md`
-- `wiki/ai-coding-agent-security.md`
-- `wiki/mcp-tool-governance-and-app-surfaces.md`
-- `wiki/github-actions-platform-operations.md`
-- `wiki/technical-art-community-and-talent-signals.md`
-- `wiki/enterprise-agent-business-semantics.md`
+- `wiki/ai-agent-harnesses.md`
 - `wiki/ai-assisted-software-practice.md`
-- `wiki/llm-wiki-and-knowledge-formats.md`
+- `wiki/ai-coding-agent-security.md`
+- `wiki/ai-policy-and-governance-2026.md`
+- `wiki/enterprise-agent-business-semantics.md`
+- `wiki/gamedev-production-and-community-signals.md`
+- `wiki/kubernetes-platform-governance-and-cicd.md`
+- `wiki/technical-art-community-and-talent-signals.md`
+- `wiki/unity-3d-and-realtime-vfx-patterns.md`
+- `wiki/voice-agent-platforms-2026.md`
+- `wiki/indexes/audit.md`
+- `wiki/indexes/gaps.md`
 - `wiki/indexes/sources.md`
 - `wiki/indexes/topics.md`
-- `wiki/indexes/gaps.md`
 - `output/lore-ingest-last-run.md`
-
-Related sourcing receipts selected for this commit after review:
-- `output/lore-sourcing-last-run.md`
-- `output/lore-birdclaw-sourcing-last-run.md`
 
 ## Contradictions resolved
 
-- None. New sources reinforced existing agent harness, security, MCP, evaluation, and technical-art themes without superseding prior claims.
+- Anthropic's 2026-09-12 primary source superseded the earlier 2026-09-04 "needs primary-source refresh" caveat for cyber-eval/RL pauses, containment hardening, and reward-hacking environment quality work.
 
 ## Gaps logged
 
-Count: 7
+Count: 11
 
-- Behavioral eval targets for HoneyDrunk agent failure modes.
-- Context Mode-style sandboxed analysis, indexing, compaction recovery, and privacy policy.
-- Kontext pre-action policy/authorization-ledger validation.
-- API risk-specific test coverage.
-- Legacy-system context recovery before AI-assisted modernization.
-- Current Adobe UXP/CEP packaging guidance versus old MXI source.
-- Xcode 27/macOS 27 runner validation for Apple build workflows.
+- Audit local agent services for loopback/admin control-plane exposure.
+- Add model monitorability/latent-reasoning fields to future eval reports.
+- Benchmark Lightpanda against Playwright/Chromium on Lore extraction workloads.
+- Trial KYAML normalization for agent-generated Kubernetes manifests.
+- Define robotics/embodied-AI task and evaluation protocol requirements.
+- Define voice-agent eval coverage for audio replay, transcripts, personas, accents, interruptions, tool results, and rubrics.
+- Inventory HoneyDrunk data domains against agent-ready contracts, freshness, lineage, quarantine, owners, and governed semantic tiers.
+- Require black-box parity harnesses before agent-written rewrites.
+- Evaluate TeamAI CLI fit only after privacy, review, namespace, role-filtering, and critical-rule enforcement tests.
+- Define local equivalents for Anthropic-style cyber-eval hardening.
+- Assess whether EchoForge-style sound-to-scene research is useful for accessibility or creative previsualization.
 
 ## Crystallization from output/query-*.md
 
-- Reviewed the 13 `output/query-*.md` artifacts.
-- No additional query outputs were promoted in this pass; current query outputs already describe durable facts as crystallized into existing wiki pages.
+- Reviewed the `output/query-*.md` inventory.
+- No query output was promoted during this pass; durable query facts were already represented in existing wiki pages and index history.
 
 ## Blockers
 
-- Birdclaw live sync remains unavailable in the sourcing receipt: `xurl` is not installed/local mode is active and the Bird command is unavailable.
-- Several transient candidates were quality-rejected by the sourcing pass and were not ingested: Game Developer labor/publishing business news, Tom's Hardware chip-sourcing business news, TestingCatalog Meta speculation, TechCrunch partnership business news, and an unresolved short RealtimeVFX troubleshooting question.
-- Pre-existing unrelated worktree changes remain outside this ingest commit: `.obsidian/graph.json`, older signal-review outputs, `output/signal-review-2026-09-11.md`, and `tools/lore_source_public.py`.
+- None for this compile pass.
+- Pre-existing unrelated worktree changes remain outside this ingest update, including `.obsidian/graph.json`, sourcing/signal-review outputs, and `tools/lore_source_public.py`.
 
 ## Quality posture
 
-- Pages rewritten/flagged: four compact concept pages created; nine existing concept/index pages updated.
-- Weak claims: Context Mode and Kontext are README evidence; Adobe CEP/MXI guidance is official but old; the API-testing continuation is partial/paywalled; Thoughtworks/AWS modernization is vendor/practice evidence.
-- Privacy redactions: Anthropic misuse-report content was summarized at defensive-control level only; no operational threat details, payloads, prompts, IOCs, credentials, install tokens, private paths, or raw ledger records were promoted.
-- Decision-usefulness: the pass promotes concrete follow-up decisions around behavioral evals, fallback validation, context-window management, pre-action authorization ledgers, API test taxonomy, AI-ready modernization artifacts, and Apple runner image validation.
+- Pages rewritten/flagged: one new compact robotics page; twelve existing concept pages extended; three indexes and audit updated.
+- Weak claims: Lightpanda and TeamAI are project-authored evidence; Game Developer/InfoQ/80 Level are trade/interview sources; n8n, Checkly, Fowler, and Thoughtworks are practitioner/vendor guidance.
+- Privacy redactions: DeepSeek Harness exploit mechanics and Anthropic cyber-eval incidents were summarized at control level only; no exact escape commands, payloads, unsafe prompts, credentials, tokens, private personal data, or reusable offensive steps were promoted.
+- Decision-usefulness: the pass strengthens agent sandbox/control-plane security, frontier eval containment, production-agent evaluation, voice-agent eval design, model monitorability, robotics evaluation discipline, browser-agent tooling, KYAML manifest normalization, enterprise data readiness, shared cross-agent context governance, and technical-art research/tooling caveats.
 
 ## Validation
 
 - Read `AGENTS.md` and followed the Ingest/Compile contract.
-- Compared current files under `raw/` against `wiki/indexes/sources.md` and ingested every unrepresented current 2026-09-11 raw source.
-- Rebuilt `wiki/indexes/sources.md`, `wiki/indexes/topics.md`, and `wiki/indexes/gaps.md` with the 2026-09-11 additions.
-- Reviewed `output/query-*.md` inventory for crystallization candidates; no additional durable facts needed promotion.
+- Compared current files under `raw/` against `wiki/indexes/sources.md`; ingested every unrepresented raw source present during the pass.
+- Updated `wiki/indexes/sources.md`, `wiki/indexes/topics.md`, and `wiki/indexes/gaps.md` with the 2026-09-12 additions.
+- Checked `output/query-*.md` for crystallization candidates; no additional durable facts needed promotion.
 - Preserved `raw/` immutability; no files under `raw/` were edited.
-- Kept staging scope limited to the new raw sources, wiki/index updates, ingest summary, and directly related sourcing receipts.
+- Kept staging scope limited to new raw sources, wiki/index updates, audit, and this run summary.

@@ -1228,3 +1228,30 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - Unity blog sources are first-party/guest technical narratives; validate performance numbers and plugin behavior locally before adopting as standards.
+
+## 2026-09-12 audio-driven procedural scene generation
+
+### Sources
+- [80 Level: EchoForge uses spatial sound to build 3D worlds in Unity](../raw/2026-09-12-rss-80-level-echoforge-uses-spatial-sound-to-build-3d-worlds-in-unity.md)
+
+### Typed entities
+- `project`: EchoForge
+- `engine`: Unity
+- `model`: YAMNet
+- `concept`: audio scene graph
+- `technique`: spatial audio semantic recognition
+- `venue`: SIGGRAPH 2026 ACM Student Research Competition
+
+### Claims
+- EchoForge converts spatial audio into a Unity 3D scene by combining sound-event classification with spatial cues and procedural object placement; the authors position it as an approximate semantic reconstruction rather than an exact source recreation. confidence: 1 80 Level/project-interview source, last-confirmed 2026-09-12.
+- The source reports EchoForge won first place in the undergraduate ACM Student Research Competition at SIGGRAPH 2026 and frames future work around SELD, source separation, moving sound inference, richer procedural vocabularies, and real-time operation. confidence: 1 source, last-confirmed 2026-09-12.
+
+### Explicit relationships
+- Audio-driven scene generation depends-on both semantic sound recognition and spatial localization; classification without location is not enough to construct navigable 3D state.
+- Procedural reconstruction complements accessibility and creative prototyping when it exposes confidence/source regions instead of pretending noisy audio is ground truth.
+
+### HoneyDrunk implications
+- If HoneyDrunk explores sound-to-scene tools, start with approximate semantic visualization and confidence overlays before promising exact world reconstruction.
+
+### Quality notes
+- 80 Level is interview/trade evidence. The project is research-prototype signal and should be reproduced locally before product or accessibility commitments.

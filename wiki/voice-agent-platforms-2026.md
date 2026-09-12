@@ -104,3 +104,27 @@ The May 2026 OpenAI voice-agent signal is that real-time speech agents are movin
 
 ### Quality notes
 - Guest post/sample evidence is useful architecture signal; production readiness requires local evals, error handling, and privacy review.
+
+## 2026-09-12 live voice-agent evaluation in ADK
+
+### Source-backed claims
+- Google's ADK source says live voice-agent evals can use simulated spoken users, Gemini Live audio models, personas, scenario-based conversations, rubrics, judge models, and `adk eval` so spoken workflows enter the same iteration loop as text agents. confidence: 1 Google Developers source, last-confirmed 2026-09-12. [source: raw/2026-09-12-rss-google-developers-blog-how-to-evaluate-live-voice-agents-in-adk.md]
+- The source distinguishes fixed conversation playback from scenario/persona-based simulation, with limits such as `max_allowed_invocations` and UI reconstruction of audio/transcript evidence in ADK Web. confidence: 1 source, last-confirmed 2026-09-12. [source: raw/2026-09-12-rss-google-developers-blog-how-to-evaluate-live-voice-agents-in-adk.md]
+
+### Typed entities
+- platform: Google Agent Development Kit / ADK
+- model family: Gemini Live
+- practice: simulated voice user
+- artifact: rubric
+- tool: `adk eval`
+- interface: ADK Web
+
+### Explicit relationships
+- Voice-agent reliability depends-on spoken-turn simulation, tool/state checks, rubric scoring, and replayable evidence, not only ASR transcript quality.
+- Scenario/persona generation complements fixed scripts when voice agents must handle natural variation.
+
+### HoneyDrunk implications
+- Any HoneyDrunk voice-agent proof should keep audio evidence, transcript evidence, state transitions, and tool results together so regressions can be replayed.
+
+### Quality notes
+- Google source is vendor practice guidance; validate with local voices, accents, interruptions, latency, and target tool workflows.

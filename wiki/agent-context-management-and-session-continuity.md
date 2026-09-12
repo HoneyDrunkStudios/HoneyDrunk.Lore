@@ -45,3 +45,31 @@ Agent context should be treated as a scarce runtime budget and an audit surface.
 
 - Quality posture: README evidence only; claims should be tested locally before HoneyDrunk standardizes on the tool.
 - Privacy filter: install tokens, local paths, and credential details were summarized as generic setup/credential-passthrough concepts; no private credentials were promoted.
+
+## 2026-09-12 shared team context distribution
+
+### Source-backed claims
+- TeamAI CLI manages shared skills, rules, MCP, docs, hooks, environment settings, and knowledge across multiple coding-agent hosts including Codex, Claude Code, Cursor, CodeBuddy, WorkBuddy, OpenCode, OpenClaw, Hermes, DeepSeek Harness, Qoder, and ZCode. confidence: 1 project README source, last-confirmed 2026-09-12. [source: raw/2026-09-12-rss-tldr-web-dev-teamai-cli-shared-context-for-every-coding-agent-5-minute.md]
+- TeamAI's README describes a git-backed push/review/merge/pull flow for team harness resources, project/role/tag scoping, friction-triggered learning capture, optional recall, and codebase graph import/extraction under `teamwiki/`. confidence: 1 README source, last-confirmed 2026-09-12. [source: raw/2026-09-12-rss-tldr-web-dev-teamai-cli-shared-context-for-every-coding-agent-5-minute.md]
+
+### Typed entities
+- project/tool: TeamAI CLI
+- artifact: team harness repository
+- artifact: `teamwiki/`
+- capability: shared skills
+- capability: shared rules
+- capability: shared MCP configuration
+- capability: recall
+- host: Codex
+- host: OpenClaw
+
+### Explicit relationships
+- Shared team context depends-on versioned distribution and review, not only local memory files.
+- Team recall complements session continuity by retrieving team-approved knowledge before a task, while friction-triggered learning can promote hard-won session details into durable docs.
+- Role, project, and tag scoping reduce context noise but can contradict consistency if critical rules are filtered away.
+
+### HoneyDrunk implications
+- TeamAI-like distribution matches HoneyDrunk's need for shared skills/rules, but adoption would require privacy review, namespace policy, review ownership, and proof that critical PR/security rules cannot be silently scoped out.
+
+### Confidence and quality notes
+- README evidence only; claims require install review and local host-coverage testing before standardization.

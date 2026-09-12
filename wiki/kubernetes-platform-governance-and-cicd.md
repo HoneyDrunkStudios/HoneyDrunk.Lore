@@ -56,3 +56,33 @@ This page tracks Kubernetes governance, policy-as-code, GitOps, CI/CD, image pro
 
 ### Quality notes
 - Microsoft Learn sources are architecture guidance and include access-warning scaffolding in the raw captures. Promoted claims came from article body content only. Validate current AKS/EKS feature availability, policy syntax, and pricing before implementation.
+
+## 2026-09-12 KYAML as stricter manifest representation
+
+### Sources
+- [InfoQ: Kubernetes promotes KYAML as safer manifest syntax](../raw/2026-09-12-rss-tldr-devops-kubernetes-promotes-kyaml-as-a-safer-more-consistent-way-t.md)
+
+### Typed entities
+- `format`: KYAML
+- `tool`: kubectl
+- `output format`: `-o kyaml`
+- `tool`: Kubernetes yamlfmt
+- `tool`: Google yamlfmt
+- `platform`: Kubernetes v1.34 / v1.35
+
+### Claims
+- InfoQ reports that Kubernetes introduced KYAML as an alpha feature in v1.34 and moved it to beta enabled by default in v1.35; KYAML is a strict subset of YAML, not a new configuration language. confidence: 1 trade/secondary source citing Kubernetes project guidance, last-confirmed 2026-09-12. [source: raw/2026-09-12-rss-tldr-devops-kubernetes-promotes-kyaml-as-a-safer-more-consistent-way-t.md]
+- KYAML makes manifests more explicit by using braces for objects, brackets for arrays, and double-quoted strings while remaining valid YAML that older Kubernetes tooling can consume. confidence: 1 source, last-confirmed 2026-09-12. [source: raw/2026-09-12-rss-tldr-devops-kubernetes-promotes-kyaml-as-a-safer-more-consistent-way-t.md]
+- The source frames KYAML as especially useful for generated manifests and AI-assisted Kubernetes changes because constrained syntax reduces formatting/type ambiguity and diff noise. confidence: 1 source, last-confirmed 2026-09-12. [source: raw/2026-09-12-rss-tldr-devops-kubernetes-promotes-kyaml-as-a-safer-more-consistent-way-t.md]
+
+### Explicit relationships
+- KYAML complements policy-as-code and GitOps by reducing syntactic degrees of freedom before admission validation and review.
+- Agent-generated Kubernetes manifests depend-on deterministic formatting, schema validation, and type clarity because agents have less contextual judgment than experienced cluster operators.
+- KYAML does not supersede conventional YAML, Helm/Kustomize validation, admission policy, or cluster conformance tests.
+
+### HoneyDrunk implications
+- If agents generate Kubernetes manifests, test KYAML formatting as an optional normalization step before review, policy checks, and GitOps reconciliation.
+- Do not mandate KYAML globally until toolchain support, Helm/Kustomize diffs, developer ergonomics, and CI validators are tested on representative manifests.
+
+### Quality notes
+- InfoQ is secondary reporting over Kubernetes project material; validate against upstream docs before enforcing a formatting policy.

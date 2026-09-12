@@ -59,3 +59,40 @@ Enterprise agents that answer business questions need a governed meaning layer, 
 
 ### Quality notes
 - Vendor/practice guidance; use for architecture posture, not tool procurement without local validation.
+
+## 2026-09-12 data readiness for agentic AI
+
+### Sources
+- [Martin Fowler: Making your data ready for agentic AI](../raw/2026-09-12-rss-martin-fowler-making-your-data-ready-for-agentic-ai.md)
+- [Thoughtworks: From specification to production - building enterprise platforms with agentic AI](../raw/2026-09-12-rss-thoughtworks-insights-from-specification-to-production-building-enterp.md)
+
+### Typed entities
+- `concept`: data contract
+- `standard`: Open Data Contract Standard
+- `architecture`: medallion architecture
+- `tier`: Bronze
+- `tier`: Silver
+- `tier`: Gold
+- `tier`: Adaptive Gold
+- `concept`: context layer
+- `concept`: capability model
+- `pattern`: confidence-threshold routing
+- `pattern`: delegated access / just-in-time credentials
+- `practice`: specification-to-production platform generation
+
+### Claims
+- Fowler/Thoughtworks argues that agent-ready data must be trusted, contextual, traceable, governed, and operational, with data contracts, freshness SLAs, quarantine paths, lineage, auditability, and clear ownership before agents act on it. confidence: 1 Fowler/Thoughtworks practice source, last-confirmed 2026-09-12. [source: raw/2026-09-12-rss-martin-fowler-making-your-data-ready-for-agentic-ai.md]
+- The source recommends agents consume governed Gold-or-better data in a medallion model, with unstructured sources held to similar metadata, freshness, quality, and confidence-routing expectations. confidence: 1 source, last-confirmed 2026-09-12. [source: raw/2026-09-12-rss-martin-fowler-making-your-data-ready-for-agentic-ai.md]
+- Thoughtworks' specification-to-production case study claims agentic AI generated a cloud-native enterprise platform from natural-language specifications with generated backend services, frontend, infrastructure, tests, and security; treat this as practitioner case evidence, not a universal benchmark. confidence: 1 Thoughtworks practitioner case source, last-confirmed 2026-09-12. [source: raw/2026-09-12-rss-thoughtworks-insights-from-specification-to-production-building-enterp.md]
+
+### Explicit relationships
+- Enterprise-agent reliability depends-on data contracts, semantic context, lineage, access controls, and capability declarations before model reasoning begins.
+- Retrieved text informs agent decisions but should not supersede governed capability preconditions, permissions, reversibility, and owner-defined constraints.
+- Specification quality can become the bottleneck when agentic implementation capacity increases.
+
+### HoneyDrunk implications
+- Treat Lore's citations/confidence notes as a lightweight version of the governed context layer Fowler describes; agent access to business data should require owners, contracts, freshness, lineage, and regression questions.
+- For enterprise-agent prototypes, define what the agent may read, what it may mutate, which data tier is authoritative, and who can approve a capability.
+
+### Quality notes
+- Fowler/Thoughtworks practice guidance is high-signal architecture evidence but still needs local data-contract inventory before becoming policy. The platform-generation case is vendor/practitioner evidence and should be validated through local scope and quality review.

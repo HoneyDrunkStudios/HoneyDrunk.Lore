@@ -677,3 +677,31 @@ The game-development community feed produced a mix of process advice, tooling ex
 
 ### Quality notes
 - Unity sources are useful directional evidence; project-specific performance claims and plugin capability claims require local reproduction.
+
+## 2026-09-12 indie production lessons after AAA layoffs
+
+### Sources
+- [Game Developer: Ship a good game, learn from it, and build from there](../raw/2026-09-12-rss-game-developer-ship-a-good-game-learn-from-it-and-build-from-there-les.md)
+
+### Typed entities
+- `studio`: Turnkey Games
+- `game`: Apart
+- `person`: Tony Garza
+- `person`: Richard O'Neal
+- `practice`: indie scope control
+- `practice`: deliberate hiring
+
+### Claims
+- Game Developer's interview with Turnkey Games frames the move from AAA layoffs to indie development around low overhead, deliberate hiring, visible product value, and ruthless feature scoping. confidence: 1 trade/interview source, last-confirmed 2026-09-12.
+- The source recommends judging proposed features by whether they make the game better, avoiding generalized AAA-style framework building when a focused indie product needs momentum, identity, and shipping cadence. confidence: 1 source, last-confirmed 2026-09-12.
+
+### Explicit relationships
+- Indie sustainability depends-on scope control, cash runway, team focus, and visible product value rather than maximal internal tooling.
+- AAA habits can contradict small-studio delivery when generalized infrastructure consumes time that should prove the game.
+
+### HoneyDrunk implications
+- For small prototypes, prefer product-visible iteration and explicit cuts over universal internal frameworks unless reuse is already proven.
+- Treat post-layoff indie stories as qualitative production signal, not proof that a specific business path transfers.
+
+### Quality notes
+- Game Developer interview evidence is useful but anecdotal. No private employment details were promoted.

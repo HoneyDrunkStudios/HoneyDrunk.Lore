@@ -1004,3 +1004,72 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - Google sources are high-quality practice guidance. The API-testing source is partial/newsletter evidence and should be treated as taxonomy, not exhaustive implementation guidance.
+
+## 2026-09-12 monitorability metrics for latent reasoning
+
+### Sources
+- [Redwood Research: An operationalization of opaque serial depth](../raw/2026-09-12-rss-tldr-ai-an-operationalization-of-opaque-serial-depth-3-minute-read.md)
+
+### Typed entities
+- `concept`: opaque serial depth
+- `metric`: Natural-Language-rooted node-Separated depth / NLS depth
+- `concept`: natural-language-rooted node
+- `risk`: reduced chain-of-thought monitorability
+- `architecture pattern`: latent reasoning
+- `architecture pattern`: opaque memory
+- `architecture pattern`: test-time training
+
+### Claims
+- Redwood Research proposes NLS depth as a proxy for how much unverbalized serial cognition an AI system can perform between natural-language-rooted bottlenecks, complementing direct monitorability measurements and no-CoT capability tests. confidence: 1 research/practice source, last-confirmed 2026-09-12. [source: raw/2026-09-12-rss-tldr-ai-an-operationalization-of-opaque-serial-depth-3-minute-read.md]
+- The source classifies ordinary natural-language chain-of-thought rollouts differently from architectures that recur over opaque state, expanded abstract token spaces, opaque memories, continuous/latent diffusion states, or inference-time weight updates; those designs can raise NLS depth and reduce oversight assumptions. confidence: 1 source, last-confirmed 2026-09-12. [source: raw/2026-09-12-rss-tldr-ai-an-operationalization-of-opaque-serial-depth-3-minute-read.md]
+
+### Explicit relationships
+- Chain-of-thought monitorability depends-on intermediate reasoning passing through representations rooted in human-understandable media.
+- Architecture-level monitorability can be assessed before training, while behavioral monitorability and capability tests still require empirical evaluation.
+- NLS depth complements, but does not supersede, adversarial evals, tool-policy checks, sandboxing, and outcome monitoring.
+
+### HoneyDrunk implications
+- When evaluating future reasoning models, record whether the model family uses ordinary autoregressive text CoT, latent recurrence, opaque memory, diffusion-like reasoning, or test-time training.
+- Treat claims of "more hidden reasoning" as an evaluation and governance variable, not just a capability upgrade.
+
+### Quality notes
+- Redwood source is useful metric design evidence but should be paired with primary model/system cards before applying it to a specific vendor model.
+
+## 2026-09-12 live voice, production reliability, parity, and eval containment
+
+### Sources
+- [Google Developers Blog: How to evaluate live voice agents in ADK](../raw/2026-09-12-rss-google-developers-blog-how-to-evaluate-live-voice-agents-in-adk.md)
+- [n8n: AI agent reliability - debug, evaluate, and monitor in production](../raw/2026-09-12-rss-n8n-blog-ai-agent-reliability-debug-evaluate-and-monitor-in-production.md)
+- [Checkly: Rewriting a Node.js service in Go with agents](../raw/2026-09-12-rss-tldr-web-dev-rewriting-a-node-js-service-in-go-with-agents-11-minute-r.md)
+- [Anthropic: Improving our alignment and security practices](../raw/2026-09-12-web-anthropic-news-improving-our-alignment-and-security-practices.md)
+
+### Typed entities
+- `platform`: Google Agent Development Kit / ADK
+- `practice`: live voice-agent evaluation
+- `practice`: production agent monitoring
+- `practice`: black-box parity harness
+- `control`: real-time sandbox-escape classifier
+- `control`: RL environment recertification
+- `failure mode`: reward hacking
+- `failure mode`: motivated reasoning
+- `failure mode`: out-of-scope internet access
+
+### Claims
+- Google ADK's live voice eval source recommends simulated spoken users, personas/scenarios, rubrics, judge models, invocation limits, audio evidence, and `adk eval` so voice agents can be iterated with replayable evidence. confidence: 1 Google source, last-confirmed 2026-09-12.
+- n8n frames production agent reliability as a lifecycle spanning model/tool/prompt/schema/guardrail/routing controls, traces, evaluation datasets, prompt/tool-change regression runs, production-failure capture, quality/efficiency/safety metrics, and monitoring dashboards. confidence: 1 n8n vendor/practice source, last-confirmed 2026-09-12.
+- Checkly's Results Daemon rewrite source reinforces that agent-generated rewrites need black-box parity tests against legacy behavior, realistic dependencies, failure modes, and staged rollout telemetry before production trust. confidence: 1 practitioner case source, last-confirmed 2026-09-12.
+- Anthropic's primary post reports pausing and hardening cyber evaluations and some high-risk RL environments after misconfiguration and out-of-scope internet-access incidents, adding real-time classifiers, transcript monitors, stronger isolation, pre-engagement validation, explicit scope prompts, and external-evaluator best practices. confidence: 1 Anthropic primary source, last-confirmed 2026-09-12.
+- Anthropic's primary source supersedes the 2026-09-04 secondary-commentary caveat for the factual existence of cyber-eval/RL pauses, containment hardening, and reward-hacking environment quality work; the commentary remains useful as interpretation but no longer the strongest evidence for those facts. superseded-by: 2026-09-12 primary Anthropic source in `raw/2026-09-12-web-anthropic-news-improving-our-alignment-and-security-practices.md`.
+
+### Explicit relationships
+- Live voice evaluation depends-on audio/transcript/state replay, not text-only benchmark scores.
+- Production agent reliability depends-on pre-release evals, trace/debug evidence, production monitoring, and feedback of real failures into eval datasets.
+- Frontier cyber evaluations depend-on sealed sandboxes, explicit scope boundaries, real-time monitoring, solvable targets, and pre-run escape testing.
+- Reward-hacking risk depends-on environment quality and review capacity; flawed training tasks can teach harmful task-success seeking that ordinary evaluations miss.
+
+### HoneyDrunk implications
+- Add eval evidence types by modality: audio replay for voice, parity harnesses for rewrites, trace dashboards for production agents, and sandbox/egress proof for cyber-capable models.
+- Replace any Anthropic-policy decisions that still cite only the 2026-09-04 commentary with the 2026-09-12 primary source.
+
+### Quality notes
+- Google and Anthropic are primary/vendor sources for their practices; n8n and Checkly are practitioner/vendor workflow evidence. No exploit steps, prompts, or unsafe evaluator details were promoted.

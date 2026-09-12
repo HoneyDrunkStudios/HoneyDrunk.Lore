@@ -1283,3 +1283,38 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Google source is practice guidance; API newsletter is partial and paywalled, so only visible taxonomy and examples were promoted.
+
+## 2026-09-12 specification quality and parity harnesses
+
+### Sources
+- [Thoughtworks: From specification to production - building enterprise platforms with agentic AI](../raw/2026-09-12-rss-thoughtworks-insights-from-specification-to-production-building-enterp.md)
+- [Checkly: Rewriting a Node.js service in Go with agents](../raw/2026-09-12-rss-tldr-web-dev-rewriting-a-node-js-service-in-go-with-agents-11-minute-r.md)
+- [TeamAI CLI: Shared context for every coding agent](../raw/2026-09-12-rss-tldr-web-dev-teamai-cli-shared-context-for-every-coding-agent-5-minute.md)
+
+### Typed entities
+- `practice`: specification-first agentic development
+- `practice`: black-box parity harness
+- `tool`: Claude Code
+- `company`: Checkly
+- `service`: Results Daemon
+- `language`: Go
+- `runtime`: Node.js
+- `tool`: TeamAI CLI
+
+### Claims
+- Thoughtworks' case study argues that agentic implementation makes specification quality, constraints, validation, and human product judgment the bottleneck; it recommends describing intent, symptoms, constraints, and existing patterns rather than prescribing low-level fixes. confidence: 1 Thoughtworks practitioner case source, last-confirmed 2026-09-12.
+- Checkly reports rewriting its Results Daemon from Node.js to Go with agent assistance after first building a black-box test harness with golden files, real boundaries, generated inputs, coverage, failure-mode tests, Docker Compose, Playwright, and Toxiproxy. confidence: 1 practitioner engineering source, last-confirmed 2026-09-12.
+- The Checkly source says the staged rollout achieved zero incidents and reduced running pods by about 70%, while also finding that the first deploy exposed a harness gap around production queue topology; the result should be treated as a case study rather than proof that rewrites are generally safe. confidence: 1 source, last-confirmed 2026-09-12.
+- TeamAI CLI shows an emerging practice of distributing shared skills, rules, hooks, MCP config, and team knowledge across coding-agent hosts through reviewed shared repositories. confidence: 1 README source, last-confirmed 2026-09-12.
+
+### Explicit relationships
+- Agent-written rewrites depend-on parity harnesses before code generation, not only review after generation.
+- Specification-first practice complements deterministic feedback because agents need both intent and executable checks.
+- Shared team harnesses complement individual agent sessions when they make rules, skills, context, and learning distribution reviewable.
+
+### HoneyDrunk implications
+- Do not ask agents for service rewrites without a parity harness that exercises legacy behavior, production-like topology, failure modes, and rollout flags.
+- Promote recurring agent rules into shared, reviewed skills or repository instructions when they affect multiple tools or teams.
+
+### Quality notes
+- Thoughtworks and Checkly are practitioner/vendor case evidence. TeamAI is README evidence. All should influence workflow design, not replace local tests and explicit review.
