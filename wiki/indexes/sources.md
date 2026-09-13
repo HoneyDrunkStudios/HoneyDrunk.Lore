@@ -2,6 +2,10 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
+## Compile coverage: 2026-09-13
+
+Reconciled 932 raw source files against 932 unique source entries; no unindexed raw sources. Existing source records and ingestion dates are preserved. The June 23 thinking-output source received a missing concept-page citation in [[agent-context-management-and-session-continuity]]; it was not counted as a new ingest. Query outputs remain derived explorations, not independent corroborating raw sources.
+
 ## Entry format
 
 ```

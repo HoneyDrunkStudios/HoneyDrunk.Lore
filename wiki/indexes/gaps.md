@@ -2,6 +2,10 @@
 
 Questions the wiki cannot currently answer. Populated by the Query operation when synthesis falls short, and by the Lint operation when entities are referenced but lack a backing page.
 
+## Compile status: 2026-09-13
+
+Cataloged 468 dated gap entries alongside the current 63-page catalog. No gaps added or closed in this pass; a related concept page alone does not answer a local validation question. The 2026-06-23 thinking/audit-trail gap now has explicit source coverage in [[agent-context-management-and-session-continuity]] and remains open pending primary documentation and local evidence. Existing questions and their history are preserved below.
+
 ## Entry format
 
 ```

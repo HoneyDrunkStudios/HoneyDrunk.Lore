@@ -73,3 +73,26 @@ Agent context should be treated as a scarce runtime budget and an audit surface.
 
 ### Confidence and quality notes
 - README evidence only; claims require install review and local host-coverage testing before standardization.
+
+## 2026-09-13 compile repair: visible thinking and audit evidence
+
+### Source-backed claim
+
+- In the June 2026 capture, a practitioner reports finding a signature without readable thinking text in local Claude Code session logs and describes visible extended-thinking output as a summary. This supports an archival warning about the limits of those observed logs; it does not establish current behavior across models, plans, or client versions. confidence: 1 source, last-confirmed 2026-09-13 (archived source checked; product behavior not revalidated). [source: raw/2026-06-23-rss-tldr-ai-the-text-in-claude-code-s-extended-thinking-output-is-not-auth.md]
+
+### Typed entities
+
+- project: Claude Code
+- concept: visible thinking summary
+- concept: session audit evidence
+- file: [archived practitioner report](../raw/2026-06-23-rss-tldr-ai-the-text-in-claude-code-s-extended-thinking-output-is-not-auth.md)
+
+### Explicit relationships and decision implications
+
+- Session audit evidence depends-on recorded inputs, outputs, tool actions, approvals, and resulting artifacts; a visible thinking summary alone cannot establish the complete action history. This is compile guidance inferred from the report, not a newly validated product guarantee.
+- This report complements [[agent-evaluation-and-benchmarks]] and the existing 2026-06-23 thinking/audit-trail question in [[indexes/gaps]]. It does not supersede the Context Mode or TeamAI claims above: context recovery and reasoning visibility address different requirements.
+
+### Confidence and quality notes
+
+- Repair: the source was already indexed on 2026-06-23, but lacked a corresponding concept-page citation. One archived source was read fully; no independent reinforcement or current vendor verification was added. Confidence remains low for general product behavior.
+- The author's encryption, key custody, and enterprise-access assertions were not promoted without primary corroboration. No session contents, signatures, credentials, or personal contact data were copied. Resolve the existing audit-trail gap with current primary documentation and representative local evidence before making an auditability commitment.

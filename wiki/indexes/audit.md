@@ -203,3 +203,12 @@ This keeps Lore decision-usable for Honeyclaw, Claude, and future agents.
 - contradictions resolved: Anthropic's primary 2026-09-12 source superseded the earlier 2026-09-04 "needs primary-source refresh" caveat for cyber-eval/RL pauses, containment hardening, and reward-hacking environment quality work.
 - privacy/safety filtering: DeepSeek Harness exploit mechanics and Anthropic cyber-eval incidents were summarized at control level; no exact escape commands, payloads, unsafe prompts, credentials, tokens, private personal data, or reusable offensive steps were promoted.
 - quality posture: Anthropic/Google/OX Security/Rhoda/Redwood sources are high-signal but still need local validation before operational policy changes; Lightpanda/TeamAI are project-authored README/site evidence; Game Developer/InfoQ/80 Level are trade/interview sources; Fowler/Thoughtworks/n8n/Checkly are practitioner guidance/case evidence.
+
+## 2026-09-13 Lore compile
+
+- Timestamp: 2026-09-13T10:41:45-04:00; operator: Codex, executing the authorized Honeyclaw daily ingest/compile workflow.
+- Reconciled 932 indexed raw sources; 0 newly ingested. Repaired one indexed-but-uncited June 23 source in [[agent-context-management-and-session-continuity]] after reading its full capture.
+- Read all 13 query outputs; their durable facts are already represented. No crystallization or independent confidence increase.
+- Rebuilt the 63-page topic catalog using explicit raw-file citations, preserved the previous catalog verbatim in `output/topics-history-2026-09-13.md`, and reconciled sources and 468 dated gaps. No gaps added or closed; no substantive claim supersession or canonical-page merge required.
+- Quality: historical topic totals are separated from claim confidence; the repaired claim remains one-source archival evidence. Author assertions about encryption, key custody, and enterprise access were excluded. No private data promoted.
+- Full run details and validation: `output/lore-ingest-last-run.md`.
