@@ -415,3 +415,41 @@ OpenTelemetry is becoming the practical neutral observability layer for LLM/agen
 
 ### Quality notes
 - Official OpenTelemetry source. It is reference-demo evidence; validate exact Collector processors, semconv names, and compatibility against local package versions.
+
+## 2026-09-14: Environment-carrier release candidate
+
+### Typed entities
+
+project: OpenTelemetry; concept: environment carrier; concept: trace context; concept: baggage.
+
+### Claims and evidence
+
+- The September 11 OpenTelemetry post describes an environment-carrier release candidate: startup extraction, then injection into a separate copied environment for each child. Name normalization uppercases ASCII and replaces unsupported characters; configured propagators parse and validate values. confidence: 1 source, last-confirmed 2026-09-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-13-rss-opentelemetry-blog-help-us-stabilize-environment-variable-context-prop.md)
+- The carrier transports context only: it does not create spans, configure an SDK, or automatically bridge Pods. Receivers must treat fields as untrusted and review baggage across trust boundaries; propagation variables must not carry secrets. The post sets a feedback floor of November 2, 2026 plus at least 14 days without new related issues before stabilization, with the interval restarting after substantive updates. confidence: 1 source, last-confirmed 2026-09-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-13-rss-opentelemetry-blog-help-us-stabilize-environment-variable-context-prop.md)
+
+### Explicit relationships
+
+Child-process tracing uses environment carriers; concurrent child isolation depends-on separate environment copies. Cross-Pod tracing depends-on explicit injection into each target.
+
+### Decision and quality notes
+
+Primary full-text evidence, attributed to Robert Pająk (Splunk), CC BY 4.0; this section paraphrases the captured post. Release-candidate guidance is not a Stable specification or proof of SDK support. Test Windows normalization, sibling isolation, and receiving propagators. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: Which HoneyDrunk CI or batch process chains should test environment-carrier propagation, including Windows normalization, sibling isolation, baggage filtering, and language SDK support? See [[indexes/gaps]].
+
+## 2026-09-14: Metric overflow changes breakdown reliability
+
+### Typed entities
+
+project: OpenTelemetry; concept: metric cardinality; concept: overflow aggregation; concept: delta temporality.
+
+### Claims and evidence
+
+- The captured OpenTelemetry guide describes a default 2,000-combination SDK limit per metric stream. Overflow folds values into an otel.metric.overflow=true point while discarding the entire measurement-attribute set. Counter totals remain represented, but attribute-filtered or grouped results can undercount, including filters on a low-cardinality boolean. confidence: 1 source, last-confirmed 2026-09-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-13-rss-opentelemetry-blog-metric-cardinality-limits-in-opentelemetry-a-practi.md)
+- Resource and instrumentation-scope attributes are distinct from the discarded measurement attributes. An SDK cap does not bound fleet/backend cardinality over time. Delta sizing considers active combinations per collection cycle; cumulative sizing considers combinations retained across process lifetime. An empty overflow query does not prove safety when SDK support or exporter labels differ. confidence: 1 source, last-confirmed 2026-09-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-13-rss-opentelemetry-blog-metric-cardinality-limits-in-opentelemetry-a-practi.md)
+
+### Explicit relationships
+
+Metric breakdown reliability depends-on overflow visibility; intentional high cardinality depends-on temporality, bounded active dimensions, and memory budgets.
+
+### Decision and quality notes
+
+Primary full-text evidence, attributed to Cijo Thomas (Microsoft), CC BY 4.0; this section paraphrases the captured guide. Audit actual SDK behavior and labels before using an alert. Prefer removing accidental dimensions before increasing caps. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: Which SLO, paging, or autoscaling metrics lose filtered coverage on overflow, and do deployed SDKs/exporters expose the overflow marker with tested temporality and limits? See [[indexes/gaps]].

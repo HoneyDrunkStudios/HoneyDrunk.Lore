@@ -418,3 +418,57 @@
 
 ### Quality notes
 - Microsoft release and feature guidance is authoritative for framework behavior; validate preview tooling and generated OpenAPI output against local clients before adoption.
+
+## 2026-09-14: Fetch Metadata protection in preview 6
+
+### Typed entities
+
+project: ASP.NET Core; concept: Fetch Metadata CSRF protection; concept: antiforgery tokens.
+
+### Claims and evidence
+
+- Lock's captured account describes Fetch Metadata-based CSRF protection in .NET 11 preview 6 and different adoption paths for Blazor SSR/Minimal APIs versus MVC/Razor Pages. Existing token validation can remain active; the author's removal experiment is explicitly unverified. confidence: 1 source, last-confirmed 2026-09-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-13-rss-andrew-lock-automatic-csrf-protection-based-on-fetch-metadata-headers-.md)
+
+### Explicit relationships
+
+ASP.NET Core uses browser request-context headers to classify request origins; CSRF configuration depends-on endpoint type and framework version.
+
+### Decision and quality notes
+
+Preview-era practitioner evidence only. Changing defenses requires primary release documentation and endpoint/browser tests; this capture does not justify removing token validation. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: Which endpoint types, cookie settings, browsers, and released ASP.NET Core versions must be tested before changing Fetch Metadata or token-based CSRF protection? See [[indexes/gaps]].
+
+## 2026-09-14: Host capacity versus process allocation
+
+### Typed entities
+
+project: .NET; concept: host logical processor count; concept: process CPU allocation.
+
+### Claims and evidence
+
+- Lock distinguishes host logical processor totals from Environment.ProcessorCount, which the captured account says reflects process restrictions in modern .NET. His platform-specific host-count sample had not shipped in production. confidence: 1 source, last-confirmed 2026-09-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-13-rss-andrew-lock-finding-the-total-number-of-processors-on-a-machine-with-n.md)
+
+### Explicit relationships
+
+Capacity diagnostics depends-on an explicit host-versus-process definition; the sample uses OS-specific discovery.
+
+### Decision and quality notes
+
+Use this as a diagnostic-design distinction, with container and topology validation before implementation. A host total does not establish an appropriate worker concurrency limit. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: Which HoneyDrunk diagnostics need host CPU totals versus process allocation, and how will container limits, CPU topology changes, and caching be validated? See [[indexes/gaps]].
+
+## 2026-09-14: Preview union serialization boundaries
+
+### Typed entities
+
+library: System.Text.Json; concept: union types; concept: closed class hierarchies.
+
+### Claims and evidence
+
+- In Lock's .NET 11 preview 7 walkthrough, primitive unions serialize directly while class members need suitable polymorphic configuration. Accessibility, nested inheritance, and deserialization complicate round trips. The capture mentions subsequent RC1 API changes without establishing their final behavior. confidence: 1 source, last-confirmed 2026-09-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-13-rss-andrew-lock-the-pain-of-serializing-unions-and-closed-class-hierarchie.md)
+
+### Explicit relationships
+
+Union JSON contracts depends-on System.Text.Json polymorphic configuration; this preview account qualifies the API-surface discussion in [[microsoft-dotnet-ai-stack]].
+
+### Decision and quality notes
+
+This does not contradict later ASP.NET integration claims: versions and layers differ. Validate concrete bidirectional contracts on the chosen release; do not carry preview limitations forward as confirmed current behavior. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: Which union and closed-hierarchy request/response shapes need serialization, deserialization, nested-type, and generated-client tests on the actual .NET release? See [[indexes/gaps]].

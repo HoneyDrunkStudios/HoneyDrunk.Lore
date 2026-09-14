@@ -1255,3 +1255,57 @@ Unity-related sources clustered around practical production patterns: planning n
 
 ### Quality notes
 - 80 Level is interview/trade evidence. The project is research-prototype signal and should be reproduced locally before product or accessibility commitments.
+
+## 2026-09-14: Reconstructed asset acceptance gates
+
+### Typed entities
+
+project: Voor AI; concept: reconstructed GLB asset; concept: asset validation contract.
+
+### Claims and evidence
+
+- Voor AI's captured proposal separates glTF conformance from project budgets, geometry, UV, scale, and material checks, preserving machine-readable validation artifacts. It adds visual reference and hidden-surface review because file conformance does not establish silhouette or dimensional accuracy. confidence: 1 source, last-confirmed 2026-09-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-13-rss-dev-to-gamedev-how-to-validate-a-reconstructed-3d-mesh-before-it-enter.md)
+
+### Explicit relationships
+
+Reconstructed asset acceptance depends-on format validation and visual review; a producing pipeline uses versioned asset contracts.
+
+### Decision and quality notes
+
+Promotional practitioner guidance remains provisional. No suggested package or command was executed. Establish representative accepted/rejected assets before enforcing a gate. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: What versioned GLB contract, geometry budgets, scale requirements, visual references, and hidden-surface checks should gate reconstructed HoneyDrunk assets? See [[indexes/gaps]].
+
+## 2026-09-14: Android backend measurements and ABI verification
+
+### Typed entities
+
+project: Unity; concept: IL2CPP; concept: Mono; concept: Android ABI.
+
+### Claims and evidence
+
+- A single Unity 6000.4.0f1 project comparison reports Mono builds at 108.9 seconds and about 27.3 MB versus IL2CPP at 230.4 seconds and about 14.3 MB. Different ABIs confound a backend-only comparison. The author found a 32-bit-only Mono artifact despite a combined architecture request and rejected noisy emulator runtime timings. confidence: 1 source, last-confirmed 2026-09-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-13-rss-dev-to-unity-unity-il2cpp-vs-mono-on-android-measured.md)
+
+### Explicit relationships
+
+Android installation compatibility depends-on packaged ABIs; build-setting intent does not establish artifact contents.
+
+### Decision and quality notes
+
+Low-confidence, setup-specific performance evidence. Inspect APK libraries and run representative physical-device checks; no runtime speed winner is supported. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: Which Android build lanes should inspect packaged ABIs and run physical-device startup/runtime measurements before selecting or changing Unity scripting backends? See [[indexes/gaps]].
+
+## 2026-09-14: Sente authoring and runtime share a board model
+
+### Typed entities
+
+project: Sente; project: Oxobox Games; project: Unity; concept: serialized board model; concept: Timeline authoring.
+
+### Claims and evidence
+
+- Unity's captured Oxobox interview describes separating a logical board from scene rendering and reusing it for templates, random boards, editor tools, and in-game editing. String-encoded boards enable spreadsheet-based puzzle authoring. Custom Timeline tracks cover dialogue, expressions, camera paths, board transitions, branching/retries, and localization. confidence: 1 source, last-confirmed 2026-09-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-13-rss-unity-blog-building-a-data-driven-board-to-power-sente-s-six-player-st.md)
+
+### Explicit relationships
+
+Sente uses a shared logical board representation; scene rendering depends-on that model rather than owning it.
+
+### Decision and quality notes
+
+One implementation interview supports an authoring pattern, not engine or multiplayer performance claims. Test round-trip fidelity and model ownership in a small content workflow. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: Can a versioned board or simulation model support spreadsheet authoring, editor/runtime editing, localization, and deterministic round-trip validation in HoneyDrunk prototypes? See [[indexes/gaps]].

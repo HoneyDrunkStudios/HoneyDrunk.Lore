@@ -707,3 +707,22 @@ Azure's May 2026 agent/developer tooling signal is that agent automation is movi
 
 ### Quality notes
 - Microsoft architecture sources are useful for control design but should be treated as vendor guidance until tested against concrete Azure tenant policy and incident-runbook workflows.
+
+## 2026-09-14: Foundry July-August availability and SDK boundaries
+
+### Typed entities
+
+project: Microsoft Foundry; project: Foundry Hosted Agents; concept: Toolboxes; library: Foundry SDK.
+
+### Claims and evidence
+
+- Microsoft's September 9 roundup, as captured, reports general availability of Hosted Agents, Voice Live integration, and Toolboxes. Toolboxes place authentication and credentials behind an MCP-compatible endpoint; tool search and agent skills remain preview in this account. confidence: 1 source, last-confirmed 2026-09-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-13-rss-microsoft-foundry-what-s-new-in-microsoft-foundry-july-and-august-2026.md)
+- At the roundup's August baseline, Python and JavaScript/TypeScript SDKs are stable at 2.5.0 and Java at 2.4.0, while .NET 3.0.0 remains preview. Runtime and management coverage differ by language; platform GA does not establish .NET SDK GA. confidence: 1 source, last-confirmed 2026-09-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-13-rss-microsoft-foundry-what-s-new-in-microsoft-foundry-july-and-august-2026.md)
+
+### Explicit relationships
+
+Foundry Hosted Agents uses managed hosting; Toolboxes uses external credential handling. This release account supersedes the earlier Hosted Agents GA forecast in [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Vendor summary supports availability at its stated baseline. Verify current SDK, networking, cost, and runtime coverage before migration; no local deployment or current-version verification occurred. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: Which Foundry hosting, management, private-network, and Toolbox capabilities are available through the exact .NET SDK version HoneyDrunk would deploy? See [[indexes/gaps]].

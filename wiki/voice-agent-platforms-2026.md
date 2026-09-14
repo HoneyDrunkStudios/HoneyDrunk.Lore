@@ -128,3 +128,22 @@ The May 2026 OpenAI voice-agent signal is that real-time speech agents are movin
 
 ### Quality notes
 - Google source is vendor practice guidance; validate with local voices, accents, interruptions, latency, and target tool workflows.
+
+## 2026-09-14: Speech LLM 2607 release evidence
+
+### Typed entities
+
+project: Azure AI Speech; concept: phrase-list hints; concept: multilingual transcription.
+
+### Claims and evidence
+
+- Microsoft's captured announcement reports multilingual/entity-recognition improvements and up to threefold latency improvement versus 2605. A dedicated phrase-list parameter accepts recognition hints; the source describes more than 2,000 entities and a service-side update requiring no customer action. confidence: 1 source, last-confirmed 2026-09-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-13-rss-microsoft-foundry-announcing-azure-ai-speech-llm-2607-better-multiling.md)
+- The capture's availability paragraph explicitly names Fast API while the heading mentions real-time access. The narrower explicit statement supports Fast API coverage; broader endpoint coverage remains unconfirmed by this capture. confidence: 1 source, last-confirmed 2026-09-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-13-rss-microsoft-foundry-announcing-azure-ai-speech-llm-2607-better-multiling.md)
+
+### Explicit relationships
+
+Speech recognition uses structured phrase-list hints; deployment decisions depends-on endpoint-specific availability and regression evaluation.
+
+### Decision and quality notes
+
+Vendor release claims, not local measurements. Real-time availability is not inferred from the heading. Test mixed-language audio, vocabulary, and latency before depending on release benefits. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: Which Speech LLM 2607 endpoints support the needed phrase-list and multilingual behavior, and what replay suite detects service-side recognition or latency regressions? See [[indexes/gaps]].

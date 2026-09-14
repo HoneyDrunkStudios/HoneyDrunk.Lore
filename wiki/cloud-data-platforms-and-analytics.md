@@ -41,3 +41,21 @@ This page tracks managed analytics, ETL, lakehouse, and data-platform runtime ch
 
 ### Quality notes
 - AWS News Blog is authoritative for service availability and stated features. Price, region support, and migration behavior are live vendor facts and need current AWS-console or documentation verification before implementation.
+
+## 2026-09-14: Colocated joins can still fan out
+
+### Typed entities
+
+project: PlanetScale Neki; project: PostgreSQL; concept: shard colocation; concept: distributed query fan-out.
+
+### Claims and evidence
+
+- PlanetScale's captured Neki walkthrough covers simple and extended PostgreSQL protocols and a customers/orders example. Placing orders with customers via customer_id enables local joins, but a query for recent orders across all customers still contacts every shard. confidence: 1 source, last-confirmed 2026-09-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-13-rss-tldr-tech-the-lifecycle-of-a-sharded-postgres-query.md)
+
+### Explicit relationships
+
+Local join execution depends-on related-row colocation; single-shard routing depends-on query predicates as well as partitioning.
+
+### Decision and quality notes
+
+Vendor architecture evidence, not an independent performance comparison. Distinguish reducing cross-shard join work from eliminating fan-out when evaluating partition keys. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: Which query predicates and entity relationships should drive partition keys, and how will HoneyDrunk measure cross-shard joins separately from query fan-out? See [[indexes/gaps]].

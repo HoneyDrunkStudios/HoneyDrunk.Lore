@@ -66,3 +66,21 @@ Track post-quantum cryptography adoption signals that affect HoneyDrunk infrastr
 
 ### Quality notes
 - Practitioner source with strong opinions. Use as threat-model vocabulary, not as the sole basis for cryptographic standard selection.
+
+## 2026-09-14: Origin-specific TLS keyshare selection
+
+### Typed entities
+
+project: Cloudflare; concept: TLS 1.3; concept: X25519MLKEM768; concept: HelloRetryRequest.
+
+### Claims and evidence
+
+- Cloudflare's captured deployment account selects origin TLS keyshares from observed server capabilities, preferring X25519MLKEM768 where supported. It reports HelloRetryRequest rates falling from roughly 52% to 3.7% and over 150 ms removed from p90 handshake latency during rollout; these are deployment-specific vendor measurements. confidence: 1 source, last-confirmed 2026-09-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-13-rss-tldr-devops-automatic-key-exchange-faster-post-quantum-secure-origin-h.md)
+
+### Explicit relationships
+
+Origin keyshare selection uses observed endpoint capabilities; hybrid key agreement does not establish post-quantum certificate authentication.
+
+### Decision and quality notes
+
+Treat edge-to-origin and browser-to-edge compatibility separately. This source supports a migration measurement pattern, not universal latency gains or complete post-quantum authentication. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: What origin TLS capability, retry-rate, keyshare-size, fallback, and certificate-authentication evidence is needed before changing HoneyDrunk post-quantum transport assumptions? See [[indexes/gaps]].

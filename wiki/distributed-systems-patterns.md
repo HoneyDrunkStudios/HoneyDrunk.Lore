@@ -167,3 +167,21 @@ Gossip protocol is a useful distributed-systems pattern when large clusters need
 
 ### Quality notes
 - GitHub incident report is strong postmortem evidence for the pattern. Apply the lesson, not the exact GitHub topology, unless HoneyDrunk uses comparable components.
+
+## 2026-09-14: Retry identity across workflow restarts
+
+### Typed entities
+
+project: n8n; concept: idempotency key; concept: business operation identity; concept: webhook deduplication.
+
+### Claims and evidence
+
+- The n8n capture distinguishes a workflow execution ID, stable for retries within that run, from a durable business operation ID needed across restarts or retriggers. It describes persisted webhook-delivery deduplication, bounded retries, and failure handling; downstream deduplication support is still required. confidence: 1 source, last-confirmed 2026-09-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-13-rss-n8n-blog-how-to-build-reliable-workflows-with-api-idempotency.md)
+
+### Explicit relationships
+
+Retry-safe side effects depends-on stable operation identity and receiving-end deduplication; automatic retries alone do not establish idempotency.
+
+### Decision and quality notes
+
+One vendor explanation refines the existing durable-workflow guidance. Define operation identity and separate delivery/run/side-effect boundaries before implementing retries. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: Which workflows can restart or retrigger the same business operation, and where are stable keys, atomic deduplication records, retention, and downstream retry guarantees enforced? See [[indexes/gaps]].

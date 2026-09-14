@@ -96,3 +96,22 @@ Agent context should be treated as a scarce runtime budget and an audit surface.
 
 - Repair: the source was already indexed on 2026-06-23, but lacked a corresponding concept-page citation. One archived source was read fully; no independent reinforcement or current vendor verification was added. Confidence remains low for general product behavior.
 - The author's encryption, key custody, and enterprise-access assertions were not promoted without primary corroboration. No session contents, signatures, credentials, or personal contact data were copied. Resolve the existing audit-trail gap with current primary documentation and representative local evidence before making an auditability commitment.
+
+## 2026-09-14: Provenance-preserving session retrieval with funes
+
+### Typed entities
+
+project: funes; library: Lance; concept: hybrid retrieval; concept: session provenance.
+
+### Claims and evidence
+
+- The captured funes introduction describes local session indexing with BM25/vector retrieval, ranking fusion, cross-encoder reranking, recency, and neighboring context. Results retain source text with session/turn provenance. It describes local embedding/reranking and optional private-by-default dataset synchronization with indexing and pre-upload credential scans. confidence: 1 source, last-confirmed 2026-09-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-13-rss-hugging-face-blog-give-your-coding-agents-a-memory-you-own.md)
+- The reported recall-versus-handoff cost comparison covers two tasks; it does not establish broad cost or quality gains, nor does the described redaction path prove that every sensitive datum is removed. confidence: 1 source, last-confirmed 2026-09-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-13-rss-hugging-face-blog-give-your-coding-agents-a-memory-you-own.md)
+
+### Explicit relationships
+
+funes uses provenance-preserving hybrid retrieval; optional synchronization depends-on privacy review. Session retrieval complements [[llm-wiki-and-knowledge-formats]] while runtime memory remains separate from Lore.
+
+### Decision and quality notes
+
+Project-authored, summary-only evidence. Evaluate retrieval quality and redaction locally before any session synchronization; do not turn retrieved traces directly into authoritative facts. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: Can funes-style retrieval preserve session provenance and improve local recall while meeting HoneyDrunk redaction, retention, deletion, and synchronization requirements? See [[indexes/gaps]].

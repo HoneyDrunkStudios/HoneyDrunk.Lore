@@ -1073,3 +1073,21 @@ Agent evaluations are no longer just model prompt tests. Current sources emphasi
 
 ### Quality notes
 - Google and Anthropic are primary/vendor sources for their practices; n8n and Checkly are practitioner/vendor workflow evidence. No exploit steps, prompts, or unsafe evaluator details were promoted.
+
+## 2026-09-14: Small-model schema compliance experiment
+
+### Typed entities
+
+project: LFM2.5-350M; library: TRL; concept: GRPO; concept: IFStruct; concept: JSON Schema.
+
+### Claims and evidence
+
+- The captured Hugging Face experiment uses roughly 500 examples and 100 GRPO steps with parsing, field-count, and JSON Schema rewards. On the same llama.cpp evaluation setup, IFStruct success rises from 22.6% to 29.7%; JSON improves more than YAML and most cases still fail. confidence: 1 source, last-confirmed 2026-09-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-13-rss-hugging-face-blog-fine-tuning-a-350m-model-for-better-structured-outpu.md)
+
+### Explicit relationships
+
+Structured-output training uses schema-aware rewards; benchmark comparability depends-on a fixed serving and evaluation stack.
+
+### Decision and quality notes
+
+One narrow experiment supports a candidate evaluation pattern, not general reasoning gains or production readiness. Validate downstream failure tolerance before considering extraction use. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: What extraction schemas, held-out cases, serving configuration, and acceptable failure rate would decide whether a small schema-tuned model is useful for HoneyDrunk? See [[indexes/gaps]].
