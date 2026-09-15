@@ -86,3 +86,22 @@ This page tracks Kubernetes governance, policy-as-code, GitOps, CI/CD, image pro
 
 ### Quality notes
 - InfoQ is secondary reporting over Kubernetes project material; validate against upstream docs before enforcing a formatting policy.
+
+## 2026-09-15: Native histogram production and consumption
+
+### Typed entities
+
+project: Kubernetes; concept: native histogram; concept: dual exposition; library: component-base metrics.
+
+### Claims and evidence
+
+- The captured Kubernetes announcement says native histograms reach beta and are enabled by default in v1.37, using adaptive exponential buckets and bounded growth in component-base metrics. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-tldr-devops-kubernetes-v1-37-native-histograms-graduates-to-beta.md)
+- It describes classic buckets remaining available alongside native spans for compatible collectors. Producing native data does not establish collector, query, dashboard, or alert compatibility across the entire telemetry path. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-tldr-devops-kubernetes-v1-37-native-histograms-graduates-to-beta.md)
+
+### Explicit relationships
+
+Native histograms use structured series; adoption depends-on compatible collection and query paths. Dual exposition supports transition and relates to [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Official-project release summary, not live cluster verification. Expected cardinality or storage reductions remain unmeasured for HoneyDrunk. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which Kubernetes collectors, exposition formats, queries, and alerts can consume native histograms, and what workload measurements demonstrate useful storage or cardinality changes? See [[indexes/gaps]].

@@ -1143,3 +1143,22 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Quality notes
 - Vendor performance claims are useful but require reproducible benchmarks against HoneyDrunk prompt distributions and hardware constraints.
+
+## 2026-09-15: Cache accounting versus avoided work
+
+### Typed entities
+
+concept: KV cache; concept: token-level auditor; concept: namespace isolation; concept: independent experiment controls.
+
+### Claims and evidence
+
+- Khare's synthetic token-level auditor separates reusable prefixes, engine attestations, observed prompt work, output identity, and evaluator results. Its cases include edits, equal-length different-token inputs, namespace separation, and eviction. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-tldr-ai-a-cache-hit-is-not-proof-that-you-skipped-the-work.md)
+- The experiment explicitly does not establish production MLX/vLLM correctness or GPU, latency, or memory savings. A reported hit alone therefore cannot quantify avoided work or realized performance. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-tldr-ai-a-cache-hit-is-not-proof-that-you-skipped-the-work.md)
+
+### Explicit relationships
+
+Cache savings estimates depend-on independent work and performance measurements. This qualifies interpretation of the existing vendor cache-routing reports without refuting their workload-specific results.
+
+### Decision and quality notes
+
+Synthetic experiment summary. Missing measurements remain unknown; neither cached-token counts nor output equality establish speedup. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: What independent controls can distinguish cache hits, actual avoided prompt work, namespace isolation, output correctness, and measured HoneyDrunk latency or cost savings? See [[indexes/gaps]].

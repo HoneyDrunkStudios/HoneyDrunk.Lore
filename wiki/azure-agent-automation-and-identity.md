@@ -726,3 +726,81 @@ Foundry Hosted Agents uses managed hosting; Toolboxes uses external credential h
 ### Decision and quality notes
 
 Vendor summary supports availability at its stated baseline. Verify current SDK, networking, cost, and runtime coverage before migration; no local deployment or current-version verification occurred. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: Which Foundry hosting, management, private-network, and Toolbox capabilities are available through the exact .NET SDK version HoneyDrunk would deploy? See [[indexes/gaps]].
+
+## 2026-09-15: Extraction confidence calibration
+
+### Typed entities
+
+project: Azure Content Understanding; concept: field confidence; concept: grounding; concept: model deployment mapping.
+
+### Claims and evidence
+
+- Microsoft's August 12 guide compares models by workload and describes changes to grounding and confidence scoring. Vendor dataset, schema, and file-length choices constrain the reported quality and token-use improvements; field confidence distributions need separate calibration. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-microsoft-foundry-azure-content-understanding-gpt-5-series-guide-model.md)
+- Its comparison procedure holds analyzer, schema, inputs, and labels fixed while varying modelDeployments, then inspects quality, latency, tokens, and failures. supportedModels, region, throughput, and capacity constrain the experiment. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-microsoft-foundry-azure-content-understanding-gpt-5-series-guide-model.md)
+
+### Explicit relationships
+
+Extraction acceptance depends-on per-field calibration and retained grounding. Model comparisons use controlled inputs; [[agent-evaluation-and-benchmarks]] covers behavioral evaluation.
+
+### Decision and quality notes
+
+Vendor summary with no independent reproduction. Confidence scores support review routing only after calibration; ingestion does not select a model or confirm live availability. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which labeled extraction fields and failure costs should set review thresholds, and how will grounding and confidence calibration be rechecked after deployment changes? See [[indexes/gaps]].
+
+
+## 2026-09-15: Claude tools and Azure hosting qualifications
+
+### Typed entities
+
+project: Microsoft Foundry; project: Claude; concept: schema-constrained output; concept: MCP connector; concept: tool search.
+
+### Claims and evidence
+
+- Microsoft's August 17 account lists schema-constrained outputs, web search, web fetch, an MCP connector, and tool search for Azure-hosted Claude deployments. It distinguishes response schemas from tool-argument validation and describes domain restrictions and bounded tool use. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-microsoft-foundry-from-single-call-to-agents-five-new-claude-capabilit.md)
+- The account says Azure-hosted prompts and completions remain within Azure while usage metadata and safety-flagged content can go to Anthropic. The stated exception prevents interpreting the hosting claim as an unconditional data-residency guarantee. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-microsoft-foundry-from-single-call-to-agents-five-new-claude-capabilit.md)
+
+### Explicit relationships
+
+Managed research uses search, fetch, and tool selection; deployment fit depends-on supported model/tool combinations and qualified data flows. See [[claude-platform-2026]] and [[mcp-tool-governance-and-app-surfaces]].
+
+### Decision and quality notes
+
+Vendor release snapshot, not a current service or residency certification. Schema validity does not establish business correctness. Verify exact deployment and data-flow terms before implementation. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which Foundry Claude model/tool combinations and outbound metadata or safety-content flows are acceptable for the intended HoneyDrunk workload? See [[indexes/gaps]].
+
+## 2026-09-15: Foundry development environment packaging
+
+### Typed entities
+
+project: Foundry Dev Pack; project: Azure CLI; project: Azure Developer CLI; concept: conditional editor integration.
+
+### Claims and evidence
+
+- Microsoft describes Dev Pack as bundling Azure CLI, azd, the Foundry azd extension, and agent guidance. VS Code toolkit installation is conditional on VS Code; hosted-agent editor integration depends on GitHub Copilot App being present. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-foundry-dev-pack.md)
+- The source identifies Microsoft.FoundryDevPack as the Windows winget package and azd ai agent init as a template entry point. Toolchain installation does not complete application Azure configuration or establish production readiness. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-foundry-dev-pack.md)
+
+### Explicit relationships
+
+Foundry setup uses a bundled toolchain; optional integrations depend-on installed editor surfaces. Reproducibility depends-on the selected components and resulting versions.
+
+### Decision and quality notes
+
+Vendor onboarding announcement. Commands are recorded as source facts only; no installation was run. Current package and component behavior needs environment validation. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which Dev Pack components, installed versions, conditional editor integrations, and Azure configuration steps belong in a reproducible HoneyDrunk development setup? See [[indexes/gaps]].
+
+
+## 2026-09-15: Versioned toolboxes and caller identity
+
+### Typed entities
+
+project: Microsoft Foundry Toolboxes; concept: OAuth2 user delegation; concept: versioned tool access; project: Work IQ; concept: managed identity.
+
+### Claims and evidence
+
+- Microsoft's example defines authentication in connections, combines tools in a versioned toolbox, and exposes it through an MCP endpoint. It describes per-user token isolation, refresh, and consent for OAuth2 delegation to private MCP services and Work IQ. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-foundry-toolboxes-user-delegation.md)
+- End-user OAuth, agent identity, project managed identity, stored keys, and anonymous access serve different needs. The example includes boundary screening and optional API Management controls; Work IQ is a preview example and screening is not proof of injection immunity. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-foundry-toolboxes-user-delegation.md)
+
+### Explicit relationships
+
+Toolboxes use centralized authentication configuration and versioned tool surfaces. Correct delegation depends-on explicit caller identity and consent; see [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+Vendor implementation guidance, consistent with earlier Toolbox coverage. Verify actual scopes, isolation, refresh behavior, and APIs before implementation. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which tool requires end-user, agent, or project identity, and how will Foundry toolbox consent, refresh, caller isolation, and version compatibility be verified? See [[indexes/gaps]].

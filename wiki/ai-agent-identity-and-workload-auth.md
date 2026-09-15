@@ -137,3 +137,22 @@ Agent identity is now a first-order security design choice. An agent can act as 
 
 ### Quality notes
 - Vendor sources describe product and architecture patterns; implementation must be verified against HoneyDrunk identity providers, audit retention, and least-privilege policy.
+
+## 2026-09-15: Contextual authorization beyond static roles
+
+### Typed entities
+
+project: n8n; concept: contextual authorization; concept: agent identity; concept: retrieval permission context.
+
+### Claims and evidence
+
+- n8n proposes supplementing broad static roles with identity, declared purpose, explicit tool/data scope, and policy checks outside the model at access boundaries. Retrieved material retains its source permission context in this proposal. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-n8n-blog-rbac-for-ai-agents-why-static-roles-fail-in-agentic-systems.md)
+- The article recommends versioned and tested policies, separately scoped child workflows, and audit feedback. Its criticism of static roles is vendor guidance, not proof that every RBAC deployment fails. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-n8n-blog-rbac-for-ai-agents-why-static-roles-fail-in-agentic-systems.md)
+
+### Explicit relationships
+
+Agent authorization depends-on independently enforced policy; scoped child workflows use distinct permissions. Contextual checks extend RBAC rather than establishing a replacement requirement.
+
+### Decision and quality notes
+
+Architecture guidance only. No legal-compliance assertions or incident anecdotes promoted. This is consistent with existing delegated-identity and secretless-handle patterns. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Where should tool/data gateways enforce purpose and source permissions, and which policy tests cover child workflows and injected attempts to widen access? See [[indexes/gaps]].

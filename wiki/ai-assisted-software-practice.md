@@ -1318,3 +1318,22 @@ The strongest practical signal is conservative: AI increases throughput, but tea
 
 ### Quality notes
 - Thoughtworks and Checkly are practitioner/vendor case evidence. TeamAI is README evidence. All should influence workflow design, not replace local tests and explicit review.
+
+## 2026-09-15: Brownfield autonomy follows evidence
+
+### Typed entities
+
+person: Addy Osmani; concept: comprehension memo; concept: characterization test; concept: acceptance criteria.
+
+### Claims and evidence
+
+- Osmani proposes a cited research memo covering entry points, owners, callers, tests, operational signals, and unresolved constraints before planning mature-system changes. He distinguishes isolated tested areas, uncertain areas needing characterization tests, and sensitive areas needing close human involvement. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-addy-osmani-brownfield-agentic-engineering.md)
+- His review process starts with acceptance criteria and preserved invariants. Repeated corrections can become lint rules, types, hooks, tests, or reusable procedures; durable research avoids repeating investigation across sessions. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-addy-osmani-brownfield-agentic-engineering.md)
+
+### Explicit relationships
+
+Safe autonomy depends-on impact evidence, visibility, and recovery. Durable research informs planning; repeated corrections use enforceable checks where practical.
+
+### Decision and quality notes
+
+Practitioner guidance, not controlled productivity evidence. A model confidence statement does not establish that a mature system is understood. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which mature-system changes need a cited comprehension memo, characterization tests, and explicit acceptance criteria before agent autonomy expands? See [[indexes/gaps]].

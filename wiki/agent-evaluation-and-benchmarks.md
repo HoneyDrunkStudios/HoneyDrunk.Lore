@@ -1091,3 +1091,81 @@ Structured-output training uses schema-aware rewards; benchmark comparability de
 ### Decision and quality notes
 
 One narrow experiment supports a candidate evaluation pattern, not general reasoning gains or production readiness. Validate downstream failure tolerance before considering extraction use. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: What extraction schemas, held-out cases, serving configuration, and acceptable failure rate would decide whether a small schema-tuned model is useful for HoneyDrunk? See [[indexes/gaps]].
+
+## 2026-09-15: SWE-2 effort and verifier evidence
+
+### Typed entities
+
+project: Cognition; project: SWE-2; project: Kimi K3; concept: reasoning effort; concept: executable verifier.
+
+### Claims and evidence
+
+- Cognition describes SWE-2 as post-trained from Kimi K3 using joint reasoning-effort training with effort-dependent cost penalties. Its engineering account includes rollout scheduling, draft models, quantization-aware training, and earlier checkpoints finding verifier weaknesses. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-tldr-ai-introducing-swe-2-pushing-the-pareto-frontier.md)
+- Cognition reports less exploration and redundant reading at medium effort and more planning/verification at high effort. FrontierCode and other comparisons are vendor-reported rather than independently reproduced evidence. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-tldr-ai-introducing-swe-2-pushing-the-pareto-frontier.md)
+
+### Explicit relationships
+
+SWE-2 uses effort-dependent training costs; verifier strengthening uses earlier model failures. Task suitability depends-on correctness and total execution cost, not ranking alone.
+
+### Decision and quality notes
+
+Vendor announcement summary. No default model or effort change follows from these results; cost and regression detection need representative repository measurements. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which repository tasks and cost/correctness measures would test SWE-2 effort selection, redundant exploration, and regression detection against current agent choices? See [[indexes/gaps]].
+
+
+## 2026-09-15: Behavioral evaluations as release gates
+
+### Typed entities
+
+project: Harness; concept: golden scenario; concept: behavioral release gate; concept: evaluator variability.
+
+### Claims and evidence
+
+- Harness demonstrates a blocking CI evaluation with 32 support-agent scenarios and a fixed 70% threshold. Reported passes rose from roughly 65% to 75% and 78% after knowledge and prompt fixes, even though the initial application already built and served requests. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-tldr-devops-catch-ai-regressions-before-they-ship-with-ai-evals-in-ci-.md)
+- Repeated inputs sometimes produced different outcomes. The account separates target behavioral inconsistency from judge or infrastructure failures and calls for repeated evaluation before treating an apparent improvement as stable. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-tldr-devops-catch-ai-regressions-before-they-ship-with-ai-evals-in-ci-.md)
+
+### Explicit relationships
+
+Agent releases depend-on behavioral evidence as well as build success. Case-level diagnosis uses stable datasets and thresholds; [[github-actions-platform-operations]] covers delivery infrastructure.
+
+### Decision and quality notes
+
+Small vendor demonstration. Its threshold and score increases do not establish a HoneyDrunk acceptance policy or statistical significance. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which stable agent scenarios and workflow-specific acceptance thresholds should gate releases, and how will repeated runs distinguish behavioral regressions from evaluator outages? See [[indexes/gaps]].
+
+## 2026-09-15: Separate production and coverage evaluations
+
+### Typed entities
+
+project: Datadog; concept: production-weighted dataset; concept: coverage dataset; concept: calibrated judge; concept: stopping rule.
+
+### Claims and evidence
+
+- Datadog proposes traces, explicit hypotheses, offline evaluation, controlled online experiments, and continued monitoring as a feedback loop. Production-weighted regression cases and difficult-case coverage sets are scored separately to reveal subgroup regressions. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-datadog-traces-evaluations-experiments.md)
+- Its procedure compares candidates on identical records, repeats nondeterministic runs, calibrates judges against humans, and predefines primary metrics, regression limits, stopping rules, and stable variant assignment. New failures become evaluation cases after sensitive fields are redacted. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-datadog-traces-evaluations-experiments.md)
+
+### Explicit relationships
+
+Evaluation design depends-on distinct production and coverage goals. Controlled changes use predefined limits and variant assignment; [[opentelemetry-genai-observability-and-ecosystem]] supplies telemetry context.
+
+### Decision and quality notes
+
+Vendor workflow guidance. Support-ticket examples are illustrative, not measured gains. Retaining production traces for evaluation requires privacy filtering. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which production-weighted and difficult-case datasets, human judge calibrations, stopping rules, and trace redactions should define HoneyDrunk agent experiments? See [[indexes/gaps]].
+
+
+## 2026-09-15: Repeated-run reliability with ALTK-Evolve
+
+### Typed entities
+
+project: IBM Research; project: ALTK-Evolve; project: AppWorld; concept: Mean@k; concept: Pass^k; concept: Pass@k.
+
+### Claims and evidence
+
+- IBM Research distinguishes Mean@k average success, Pass^k success on every repetition, and Pass@k at least one success. On 168 AppWorld tasks it reports GPT-4.1 ReAct moving from 77.4% Mean@5 and 53.0% Pass^5 to 81.0% and 69.0% with generated guidance. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-huggingface-altk-agent-consistency.md)
+- Its Consistency Analyzer resamples recorded trajectory decisions without rerunning tool interactions, identifies unstable choices, and generates reusable guidance. The authors report variability even at temperature zero; resampling adds model-call cost. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-huggingface-altk-agent-consistency.md)
+
+### Explicit relationships
+
+Reliability evaluation uses repeated runs as well as average accuracy. Offline guidance depends-on trajectory evidence; transfer to related tasks remains an evaluation question.
+
+### Decision and quality notes
+
+Author-reported benchmark, not independent production reliability evidence. Offline consistency improvement does not prove every downstream action is safe. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which tasks should report Mean@k, Pass^k, and Pass@k, and does trajectory-derived guidance improve repeated-run reliability enough to justify its cost? See [[indexes/gaps]].

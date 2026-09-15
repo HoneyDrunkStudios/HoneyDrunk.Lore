@@ -217,3 +217,11 @@ This keeps Lore decision-usable for Honeyclaw, Claude, and future agents.
 ## 2026-09-14T17:26:52-04:00: daily ingest/compile
 
 Operator: Codex executing the authorized Honeyclaw workflow. Ingested 15 September 13 captures; extended 11 canonical concept pages including one forecast supersession; rebuilt source/topic/gap catalogs; added 15 validation questions. Raw inputs preserved. Single-source and vendor/preview limits retained; no independent-source inflation. See [run receipt](../../output/lore-ingest-last-run.md) for file inventory, query disposition, review, and validation.
+
+## 2026-09-15T16:07:52-04:00: daily ingest/compile
+
+Operator: Codex executing the authorized Honeyclaw workflow. Ingested 15 September 14 captures into 11 existing canonical pages. Rebuilt source/topic/gap catalogs; added 15 validation questions. Read all 13 query outputs; durable facts were already represented. Consolidated governed business meaning across three correlated Thoughtworks sources without treating them as independent corroboration. No contradictory claims required supersession. Raw bytes preserved; source-specific claims remain provisional. See [run receipt](../../output/lore-ingest-last-run.md) for scope, quality, review, and validation.
+
+## 2026-09-15T16:16:31-04:00: arrivals reconciled before publication
+
+Another sourcing pass added 15 September 15 captures during validation. Read all 15 in full and extended the same compile to 30 new sources across 16 canonical pages, 977 total raw documents, and 513 dated gaps. Rebuilt indexes after reconciliation. No new query crystallization or substantive supersession. Historical grouped citations are distinguished from explicit per-file coverage. See [run receipt](../../output/lore-ingest-last-run.md).

@@ -2086,3 +2086,41 @@ Relationship added: content-safety guardrails complement execution-layer sandbox
 
 ### Quality notes
 - Summarized defensively; no unsafe prompts, targets, or runnable evaluation-escape procedures were promoted.
+
+## 2026-09-15: Inference gateways as context recipients
+
+### Typed entities
+
+project: SANS Internet Storm Center; concept: inference gateway; concept: upstream trust; concept: spending control.
+
+### Claims and evidence
+
+- A SANS honeypot account describes a human-directed coding agent gathering poorly protected inference access and consolidating upstreams. The reported replenishment loop does not establish full autonomy or self-replication. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-tldr-infosec-the-self-expanding-stolen-inference-supply-chain-an-ai-ag.md)
+- The report illustrates inference-provider exposure to agent instructions, history, command output, and credentials. Advertised model names did not verify backend identity; its defensive priorities include server-side access controls, protected account management, bounded billing, and abuse monitoring. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-tldr-infosec-the-self-expanding-stolen-inference-supply-chain-an-ai-ag.md)
+
+### Explicit relationships
+
+Agent confidentiality depends-on inference-provider trust as well as local tool isolation. Gateway access uses server-side authorization; spending controls constrain abuse exposure.
+
+### Decision and quality notes
+
+Single observed incident summarized defensively. No credentials, sensitive indicators, operational attack instructions, or captured private context are reproduced; no claim is made that HoneyDrunk is affected. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which inference gateways receive HoneyDrunk operational context, and what evidence verifies backend identity, account controls, context minimization, and spending limits? See [[indexes/gaps]].
+
+## 2026-09-15: Content policy versus session behavior
+
+### Typed entities
+
+project: Google Agent Gateway; project: Model Armor; concept: semantic policy; concept: session anomaly; concept: transaction invariant.
+
+### Claims and evidence
+
+- Google separates content screening, contextual checks on proposed tool intent, and session-level anomaly detection. Its account places controls outside agent code and considers repeated writes, call velocity, and cumulative amounts. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-google-zero-trust-agent-runtime-governance.md)
+- The companion sample uses local functions and an illustrative anomaly detector, not a complete demonstration of every managed service. Preventive controls need relevant state before execution; semantic judgments do not guarantee backend authorization or transaction invariants. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-google-zero-trust-agent-runtime-governance.md)
+
+### Explicit relationships
+
+Session policy depends-on cumulative state beyond individual-call syntax. External governance uses screening and behavioral evidence while deterministic backend checks remain necessary.
+
+### Decision and quality notes
+
+Vendor example, not independently demonstrated attack prevention. No managed-service guarantee is inferred from a local illustrative detector. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which cumulative agent actions require pre-execution state checks, and how will semantic judgments, anomaly alerts, and deterministic transaction limits be tested separately? See [[indexes/gaps]].

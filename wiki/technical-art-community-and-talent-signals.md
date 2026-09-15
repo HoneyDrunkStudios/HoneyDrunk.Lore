@@ -1022,3 +1022,41 @@ Polycount RSS items are noisy because the capture includes large forum scaffoldi
 
 ### Quality notes
 - 80 Level sources are discovery/interview evidence. Extension behavior and EchoForge fidelity require local reproduction before pipeline adoption.
+
+## 2026-09-15: Remote asset packaging boundaries
+
+### Typed entities
+
+project: Blender; concept: remote asset library; file: self-contained blend asset; concept: static HTTP catalog.
+
+### Claims and evidence
+
+- Blender's July 22 account describes static HTTP hosting of JSON listings, previews, and assets, with on-demand download, optional remote access, advance downloads for offline use, and compatibility constraints in listings. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-blender-developer-remote-asset-libraries.md)
+- Each asset must be self-contained in one blend file with external media packed and no links to other blend files; importing an asset downloads the whole file. Multi-file assets, authorization hooks, and richer versioning are discussed as possible extensions without guaranteed schedules. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-blender-developer-remote-asset-libraries.md)
+
+### Explicit relationships
+
+Remote asset libraries use static listings and depend-on self-contained packaging. This adds packaging detail to the existing Blender release record and links to [[unity-3d-and-realtime-vfx-patterns]] for engine-side asset use.
+
+### Decision and quality notes
+
+Official-project summary supports the described design at publication. A possible authorization extension is not an access-control guarantee for a deployed catalog. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: What packaging, offline-cache, compatibility, download-size, and access-control checks would qualify a static Blender asset catalog for HoneyDrunk? See [[indexes/gaps]].
+
+## 2026-09-15: Experimental node-based hair and cloth
+
+### Typed entities
+
+project: Blender; concept: Geometry Nodes; concept: XPBD solver; concept: rest geometry; concept: effector.
+
+### Claims and evidence
+
+- Blender's July 30 account describes experimental 5.2 LTS hair and cloth assets built around an XPBD solver. Rest geometry relates original and deformed hair attachment surfaces; colliders, forces, tagged geometry, and staged custom behavior provide effectors. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-blender-geometry-nodes-physics.md)
+- Users can modify node groups or work directly with the solver using typed bundles and attributes. Multiple solvers are an architectural aim; fluid, rigid-body integration, solver interoperability, and further collision work remain ongoing development in this account. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-blender-geometry-nodes-physics.md)
+
+### Explicit relationships
+
+Approachable simulation assets use solver-backed node groups. Hair attachment depends-on rest/deformed geometry relationships; planned integration does not establish shipped interoperability.
+
+### Decision and quality notes
+
+Official-project summary retaining experimental status. It extends existing Blender release coverage without upgrading stability or treating plans as released features. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which procedural hair/cloth assets need solver, collision, rest-geometry, export, and stability validation before Blender node physics enters production? See [[indexes/gaps]].

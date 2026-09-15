@@ -909,3 +909,22 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ### Quality notes
 - GitHub changelog source is authoritative for GitHub-hosted runner posture. Public preview image behavior needs local build validation before production reliance.
+
+## 2026-09-15: Test-selection freshness and listener state
+
+### Typed entities
+
+project: Anthropic; concept: test impact analysis; concept: result journal; concept: stateless listener; concept: ingestion lag.
+
+### Claims and evidence
+
+- Anthropic reports 25-fold CI job growth over six months overwhelming test-result ingestion. Stale selection history produced poor test choices, including repeated flaky-test selection; this was distinct from tests never running. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-anthropic-test-impact-analysis-scaling.md)
+- Its redesign moves results to a journal in an external in-memory store, with stateless listeners appending and a separate consumer aggregating per-test history. The account recommends comparing input/output counts and monitoring lag, and reports increased operating cost. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-anthropic-test-impact-analysis-scaling.md)
+
+### Explicit relationships
+
+Test selection depends-on fresh result history. Stateless listeners use external state placement for horizontal scaling; [[distributed-systems-patterns]] covers coordination and recovery.
+
+### Decision and quality notes
+
+First-person infrastructure case. Organization-specific growth and sizing are not universal capacity requirements; freshness and recovery need local measurement. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Do HoneyDrunk test-selection pipelines measure result-ingestion completeness and lag, and where should journal and aggregation state live under load? See [[indexes/gaps]].

@@ -705,3 +705,22 @@ The game-development community feed produced a mix of process advice, tooling ex
 
 ### Quality notes
 - Game Developer interview evidence is useful but anecdotal. No private employment details were promoted.
+
+## 2026-09-15: Readable enemy behavior in Agent 64
+
+### Typed entities
+
+project: Agent 64: Spies Never Die; project: Unity; concept: enemy perception; concept: combat readability.
+
+### Claims and evidence
+
+- Replicant D6 describes bounded sight, sound, and rallying so one encounter does not alert an entire map. Exaggerated motion and visible reaction time make enemy threats readable before damage. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-agent-64-readable-enemy-ai.md)
+- Objectives and difficulty can alter priorities or allegiances beyond health/damage increases. The interview does not disclose the state-machine implementation or supply performance measurements. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-agent-64-readable-enemy-ai.md)
+
+### Explicit relationships
+
+Readable combat depends-on tuned perception and response timing. Objective variation uses priorities and allegiances; [[unity-3d-and-realtime-vfx-patterns]] covers engine production patterns.
+
+### Decision and quality notes
+
+One developer interview supports design hypotheses. Validate readability and useful unpredictability through playtests, not implementation complexity. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which enemy perception, rally range, reaction-time, and objective-priority variations improve combat readability in HoneyDrunk playtests? See [[indexes/gaps]].

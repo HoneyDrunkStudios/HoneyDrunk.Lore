@@ -472,3 +472,101 @@ Union JSON contracts depends-on System.Text.Json polymorphic configuration; this
 ### Decision and quality notes
 
 This does not contradict later ASP.NET integration claims: versions and layers differ. Validate concrete bidirectional contracts on the chosen release; do not carry preview limitations forward as confirmed current behavior. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: Which union and closed-hierarchy request/response shapes need serialization, deserialization, nested-type, and generated-client tests on the actual .NET release? See [[indexes/gaps]].
+
+## 2026-09-15: Preview buffer ownership transfer
+
+### Typed entities
+
+project: .NET; library: System.Text.StringBuilder; concept: buffer ownership transfer; project: Roslyn.
+
+### Claims and evidence
+
+- Lock's June 23 preview account describes StringBuilder.MoveChunks as transferring internal character chunks to a new builder and emptying the original, avoiding an intermediate ToString allocation. Retaining the original reference therefore does not retain ownership of the transferred content. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-andrew-lock-avoiding-tostring-allocations-with-stringbuilder-movechunk.md)
+- The proposed Roslyn SourceText integration was not shipped functionality in this account, and source-generator target-framework constraints remained unresolved. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-andrew-lock-avoiding-tostring-allocations-with-stringbuilder-movechunk.md)
+
+### Explicit relationships
+
+MoveChunks uses ownership transfer; allocation savings depend-on the consumer accepting builder content. This extends the runtime topic without establishing Roslyn availability.
+
+### Decision and quality notes
+
+Practitioner preview summary. Benchmark allocation, storage reuse, and downstream immutability on the target SDK before adopting the pattern. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which text-generation paths can accept transferred builder chunks, and what target-SDK, allocation, reuse, and immutability tests decide whether MoveChunks helps? See [[indexes/gaps]].
+
+
+## 2026-09-15: Concurrent subprocess output draining
+
+### Typed entities
+
+project: .NET; library: System.Diagnostics.Process; concept: redirected output; concept: pipe deadlock.
+
+### Claims and evidence
+
+- Lock describes a deadlock when a parent reads redirected stdout and stderr sequentially while the child fills the other pipe. His existing-API pattern starts both asynchronous reads before awaiting completion. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-andrew-lock-improvements-to-reading-process-outputs-exploring-the-net-.md)
+- The July 7 .NET 11 preview account describes coordinated text, byte, and line capture, including stream identity for line APIs and bounded waiting through timeouts or cancellation. It does not establish final released SDK behavior. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-andrew-lock-improvements-to-reading-process-outputs-exploring-the-net-.md)
+
+### Explicit relationships
+
+Subprocess capture depends-on draining both pipes. Coordinated readers address the deadlock mechanism behind the earlier Process API entry; [[ai-agent-harnesses]] uses subprocess wrappers as tool boundaries.
+
+### Decision and quality notes
+
+This adds mechanism and version context to existing Process coverage, not a contradictory release claim. Cancellation of a read is not evidence that a child process was terminated. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which agent/build subprocess wrappers can fill either redirected pipe, and how will concurrent draining, cancellation, child lifetime, and target-SDK behavior be tested? See [[indexes/gaps]].
+
+## 2026-09-15: Closed hierarchy exhaustiveness in preview 5
+
+### Typed entities
+
+project: .NET; concept: closed class hierarchy; concept: exhaustive switch; concept: union; concept: compiler metadata.
+
+### Claims and evidence
+
+- Lock's preview 5 account describes closed bases limiting direct derivation to their assembly, allowing missing-case checks in switch expressions. Derived classes are not automatically closed; sealing all cases enables further impossible-conversion checks. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-andrew-lock-closed-class-hierarchies.md)
+- Closed hierarchies use inheritance while unions describe permitted alternatives without that requirement. The article's language settings and temporary ClosedAttribute workaround belong to preview 5, not an established current installation recipe. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-andrew-lock-closed-class-hierarchies.md)
+
+### Explicit relationships
+
+Exhaustive switches depend-on compiler knowledge of permitted alternatives. This modeling account complements the later serialization limitations already recorded on this page.
+
+### Decision and quality notes
+
+Historical practitioner preview evidence. Generic restrictions and consuming-assembly metadata require target-SDK checks; no temporary workaround is recommended for adoption. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which domain alternatives benefit from closed hierarchies versus unions, and how do target-SDK switch, generic, derivation, and serialization checks behave? See [[indexes/gaps]].
+
+
+## 2026-09-15: Device-bound session renewal
+
+### Typed entities
+
+concept: Device Bound Session Credentials; concept: device-bound key; concept: challenge-response; concept: cookie replay.
+
+### Claims and evidence
+
+- Lock describes DBSC as registering a device-bound public key and renewing short-lived cookies through proof of private-key possession. His refresh account checks signature, active session identity, and challenge before issuing another cookie. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-andrew-lock-device-bound-session-credentials.md)
+- Unsupported browsers retain ordinary cookie behavior in this progressive-adoption account. The post reports implementation and ad-blocker difficulties and points toward framework support; device binding does not establish protection from every compromised-device scenario. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-andrew-lock-device-bound-session-credentials.md)
+
+### Explicit relationships
+
+Cookie renewal depends-on key possession and session validation. Replay resistance uses device binding; unsupported clients retain the ordinary cookie threat model.
+
+### Decision and quality notes
+
+Practitioner synthesis, not specification conformance or current browser coverage proof. No custom authentication implementation or security guarantee follows from ingestion. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which browser and ASP.NET Core versions support the intended DBSC flow, and how will renewal, fallback, blockers, and compromised-device limits be tested? See [[indexes/gaps]].
+
+
+## 2026-09-15: Runtime performance evidence at release candidate
+
+### Typed entities
+
+project: .NET; library: BenchmarkDotNet; concept: JIT optimization; concept: runtime configuration; concept: representative hot path.
+
+### Claims and evidence
+
+- Toub's release-candidate-era survey covers JIT, runtime async, GC, startup, threading, collections, I/O, networking, JSON, diagnostics, and other library performance work. Identical-code comparisons use .NET 10 and .NET 11 Release builds; other examples compare alternatives on one runtime. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-dotnet-11-performance-improvements.md)
+- The survey cautions that microbenchmarks vary with hardware, OS, runtime settings, and surrounding activity. Improvements in an affected pattern do not establish equivalent whole-application speedup. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-dotnet-11-performance-improvements.md)
+
+### Explicit relationships
+
+Upgrade performance conclusions depend-on representative hot paths and deployment configuration. JIT changes can affect existing code; API-level optimization uses different evidence than runtime-only comparisons.
+
+### Decision and quality notes
+
+Official engineering summary with reproduction-oriented examples, not a benchmark run in this pass. Release-candidate context does not establish production readiness. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which HoneyDrunk hot paths and runtime configurations should compare .NET 10 and 11, and what application-level measurements and compatibility checks qualify an upgrade? See [[indexes/gaps]].

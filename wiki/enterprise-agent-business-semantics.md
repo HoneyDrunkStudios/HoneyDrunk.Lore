@@ -96,3 +96,48 @@ Enterprise agents that answer business questions need a governed meaning layer, 
 
 ### Quality notes
 - Fowler/Thoughtworks practice guidance is high-signal architecture evidence but still needs local data-contract inventory before becoming policy. The platform-generation case is vendor/practitioner evidence and should be validated through local scope and quality review.
+
+## 2026-09-15: Data normalization and governed meaning
+
+### Typed entities
+
+concept: data normalization; concept: sensitivity classification; concept: lineage; concept: semantic business layer.
+
+### Claims and evidence
+
+- Thoughtworks argues that moving data to a cloud platform does not resolve ambiguous meaning, quality, or governance. Its foundations include deterministic normalization, sensitivity classification, least privilege, freshness, lineage, metadata catalogs, and shared business definitions. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-thoughtworks-insights-ai-ready-data-the-anthology-part-1.md)
+
+### Explicit relationships
+
+Reliable retrieval depends-on normalized inputs and governed meaning; ingestion uses metadata and lineage to retain provenance. This extends the existing agent-ready data contract discussion.
+
+### Decision and quality notes
+
+Practitioner architectural guidance, with no controlled AI-quality benchmark. Keep funding and ownership of data maintenance explicit; local inventory remains unresolved. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which Lore or business-data fields need deterministic normalization, sensitivity labels, freshness checks, and an owner-approved definition before retrieval? See [[indexes/gaps]].
+
+
+## 2026-09-15: Semantic guidance paired with constraint checks
+
+### Typed entities
+
+concept: semantic guide; concept: constraint sensor; concept: provisional relationship; concept: semantic regression.
+
+### Claims and evidence
+
+- Thoughtworks describes valid rules applied in the wrong business context, using a latency target that ignores downstream costs as an example. Its proposed guide stores expert-approved concepts and relationships while keeping suggestions provisional until review. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-thoughtworks-insights-harnessing-the-agent-semantic-reliability-at-sca.md)
+- Its sensor checks constraints where the risk originates, classifies failures, and re-evaluates after changes. Feedback updates context and regression checks; traces of accessed material alone do not prove semantic correctness. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-thoughtworks-insights-harnessing-the-agent-semantic-reliability-at-sca.md)
+
+### Explicit relationships
+
+Semantic reliability depends-on approved relationships and constraint checks. Failure feedback uses observed mistakes to update retrieval context and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Proposed practice pattern, not proof that an ontology or model upgrade guarantees correct decisions. Approval of business meaning is distinct from source ingestion. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which cross-domain constraints need approved relationship records and regression cases, and what changes should trigger their re-evaluation? See [[indexes/gaps]].
+
+
+## 2026-09-15: Consolidation of governed business meaning
+
+The recurring practice claim is that enterprise-agent reliability depends-on governed business definitions and explicit relationships beyond data access alone. confidence: 3 sources, last-confirmed 2026-09-15 (archived captures and existing cited synthesis; no live refresh). Support: [Databricks meaning layer](../raw/2026-08-22-rss-thoughtworks-insights-agents-on-databricks-the-platform-is-ready-your-.md), [AI-ready data](../raw/2026-09-14-rss-thoughtworks-insights-ai-ready-data-the-anthology-part-1.md), and [semantic guidance and sensors](../raw/2026-09-14-rss-thoughtworks-insights-harnessing-the-agent-semantic-reliability-at-sca.md).
+
+This strengthens the claim from a one-article suggestion to repeated practitioner guidance, with moderate confidence for architectural consideration. All three are Thoughtworks publications, so supporting count is not independent-publisher corroboration or empirical proof of improved outcomes. Product-specific and sensor-specific claims retain their individual support counts. Existing claims and dates are preserved; no supersession is warranted. Local acceptance still depends-on owner-approved definitions and regression evidence.

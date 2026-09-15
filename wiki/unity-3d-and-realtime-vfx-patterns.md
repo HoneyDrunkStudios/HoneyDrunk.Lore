@@ -1309,3 +1309,41 @@ Sente uses a shared logical board representation; scene rendering depends-on tha
 ### Decision and quality notes
 
 One implementation interview supports an authoring pattern, not engine or multiplayer performance claims. Test round-trip fidelity and model ownership in a small content workflow. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: Can a versioned board or simulation model support spreadsheet authoring, editor/runtime editing, localization, and deterministic round-trip validation in HoneyDrunk prototypes? See [[indexes/gaps]].
+
+## 2026-09-15: Quest device feedback and staged releases
+
+### Typed entities
+
+project: Unity; project: UG; project: Meta Quest; concept: staged player cohort; concept: device profiling.
+
+### Claims and evidence
+
+- Unity's UG interview describes frequent test builds, staged player cohorts, crash symbols, rate-limited exception uploads, and production event history for failures not exposed in the Editor. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-unity-blog-deploying-and-optimizing-ug-for-meta-quest.md)
+- The team reports runtime scene searches and bursts of networked-object spawning as stall causes. Areas of interest, low-poly assets, shader reuse, client-version checks, and attestation appear in its deployment/performance account; its 72-fps goal is project-specific. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-unity-blog-deploying-and-optimizing-ug-for-meta-quest.md)
+
+### Explicit relationships
+
+Targeted optimization uses device profiles and production event history. Release promotion depends-on tested cohorts; network interest areas constrain work on standalone VR hardware.
+
+### Decision and quality notes
+
+Vendor-hosted team interview, not a universal performance prescription. Diagnose the studio target devices and workload before adopting service choices or frame-rate goals. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which Quest cohorts, crash-symbol pipeline, telemetry limits, spawn/search profiles, and device-specific frame budgets should gate a HoneyDrunk VR release? See [[indexes/gaps]].
+
+## 2026-09-15: UGUI geometry and overdraw candidates
+
+### Typed entities
+
+project: Unity UGUI; concept: tight sprite mesh; concept: transparent-mesh culling; concept: sliced frame; concept: overdraw.
+
+### Claims and evidence
+
+- GameOptim proposes tight sprite meshes with the Image sprite-mesh option for transparent corners, transparent-mesh culling for fully hidden graphics, and sliced frames with center fill disabled. Overdraw visualization identifies candidate UI geometry. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-unity-ugui-overdraw-optimization.md)
+- The writeup provides no numerical timing comparison and does not independently establish alpha propagation, mesh parameters, or rendering defaults across Unity versions and Canvas configurations. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-unity-ugui-overdraw-optimization.md)
+
+### Explicit relationships
+
+UI overdraw optimization uses geometry that matches visible content. Adoption depends-on preserved appearance and measured GPU cost on representative hardware.
+
+### Decision and quality notes
+
+Practitioner candidates, not universal rendering rules or measured savings. Compare generated geometry, appearance, and timings before adopting. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which UGUI backgrounds, hidden graphics, and hollow frames benefit from geometry changes without visual regressions on the target Unity and Canvas configuration? See [[indexes/gaps]].

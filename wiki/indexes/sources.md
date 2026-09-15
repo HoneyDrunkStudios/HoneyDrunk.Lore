@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-09-14
+## Compile coverage: 2026-09-15
 
-Reconciled 947 raw source documents against 947 unique source entries; ingested 15 new captures. All raw documents have index entries. Existing source records and ingestion dates are preserved. Query outputs remain derived explorations rather than independent raw evidence.
+Reconciled 977 raw source documents against 977 unique source entries; ingested 30 new captures. All raw documents have index entries. Existing source records and ingestion dates are preserved. Query outputs remain derived explorations rather than independent raw evidence.
 
 ## Entry format
 
@@ -1134,3 +1134,63 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [Automatic Key Exchange: faster, post-quantum secure origin handshakes for 45 billion daily connections (and counting)](../../raw/2026-09-13-rss-tldr-devops-automatic-key-exchange-faster-post-quantum-secure-origin-h.md) - Origin-specific TLS keyshare selection; archived evidence with claim-level caveats in [[post-quantum-security-and-cryptography]]. - ingested 2026-09-14
 - [The lifecycle of a sharded Postgres query](../../raw/2026-09-13-rss-tldr-tech-the-lifecycle-of-a-sharded-postgres-query.md) - Colocated joins can still fan out; archived evidence with claim-level caveats in [[cloud-data-platforms-and-analytics]]. - ingested 2026-09-14
 - [Building a data-driven board to power Sente’s six-player strategy](../../raw/2026-09-13-rss-unity-blog-building-a-data-driven-board-to-power-sente-s-six-player-st.md) - Sente authoring and runtime share a board model; archived evidence with claim-level caveats in [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-09-14
+
+- [Avoiding ToString() allocations with StringBuilder.MoveChunks: Exploring the .NET 11 preview - Part 3](../../raw/2026-09-14-rss-andrew-lock-avoiding-tostring-allocations-with-stringbuilder-movechunk.md) - Preview buffer ownership transfer; archived evidence with claim-level caveats in [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-09-15
+
+- [Improvements to reading Process outputs: Exploring the .NET 11 preview - Part 5](../../raw/2026-09-14-rss-andrew-lock-improvements-to-reading-process-outputs-exploring-the-net-.md) - Concurrent subprocess output draining; archived evidence with claim-level caveats in [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-09-15
+
+- [Remote Asset Libraries](../../raw/2026-09-14-rss-blender-developer-remote-asset-libraries.md) - Remote asset packaging boundaries; archived evidence with claim-level caveats in [[technical-art-community-and-talent-signals]]. - ingested 2026-09-15
+
+- [Two friends pressed "Play" at the same time and both got a bot: lessons from building a browser 1v1 game](../../raw/2026-09-14-rss-dev-to-gamedev-two-friends-pressed-play-at-the-same-time-and-both-got-.md) - Matchmaking races and stale state queues; archived evidence with claim-level caveats in [[realtime-game-network-protocol-design]]. - ingested 2026-09-15
+
+- [Azure Content Understanding GPT-5 Series Guide: Model Selection, Grounding Improvements, and Confidence Enhancements](../../raw/2026-09-14-rss-microsoft-foundry-azure-content-understanding-gpt-5-series-guide-model.md) - Extraction confidence calibration; archived evidence with claim-level caveats in [[azure-agent-automation-and-identity]]. - ingested 2026-09-15
+
+- [From single call to agents: five new Claude capabilities now available in Microsoft Foundry](../../raw/2026-09-14-rss-microsoft-foundry-from-single-call-to-agents-five-new-claude-capabilit.md) - Claude tools and Azure hosting qualifications; archived evidence with claim-level caveats in [[azure-agent-automation-and-identity]]. - ingested 2026-09-15
+
+- [RBAC for AI Agents: Why Static Roles Fail in Agentic Systems](../../raw/2026-09-14-rss-n8n-blog-rbac-for-ai-agents-why-static-roles-fail-in-agentic-systems.md) - Contextual authorization beyond static roles; archived evidence with claim-level caveats in [[ai-agent-identity-and-workload-auth]]. - ingested 2026-09-15
+
+- [AI-ready data: The anthology - Part 1](../../raw/2026-09-14-rss-thoughtworks-insights-ai-ready-data-the-anthology-part-1.md) - Data normalization and governed meaning; archived evidence with claim-level caveats in [[enterprise-agent-business-semantics]]. - ingested 2026-09-15
+
+- [Harnessing the agent semantic reliability at scale](../../raw/2026-09-14-rss-thoughtworks-insights-harnessing-the-agent-semantic-reliability-at-sca.md) - Semantic guidance paired with constraint checks; archived evidence with claim-level caveats in [[enterprise-agent-business-semantics]]. - ingested 2026-09-15
+
+- [A cache hit is not proof that you skipped the work](../../raw/2026-09-14-rss-tldr-ai-a-cache-hit-is-not-proof-that-you-skipped-the-work.md) - Cache accounting versus avoided work; archived evidence with claim-level caveats in [[edge-ai-and-ai-infrastructure-2026]]. - ingested 2026-09-15
+
+- [Introducing SWE-2: Pushing the Pareto Frontier](../../raw/2026-09-14-rss-tldr-ai-introducing-swe-2-pushing-the-pareto-frontier.md) - SWE-2 effort and verifier evidence; archived evidence with claim-level caveats in [[agent-evaluation-and-benchmarks]]. - ingested 2026-09-15
+
+- [Catch AI Regressions Before They Ship with AI Evals in CI/CD](../../raw/2026-09-14-rss-tldr-devops-catch-ai-regressions-before-they-ship-with-ai-evals-in-ci-.md) - Behavioral evaluations as release gates; archived evidence with claim-level caveats in [[agent-evaluation-and-benchmarks]]. - ingested 2026-09-15
+
+- [Kubernetes v1.37: Native Histograms Graduates to Beta](../../raw/2026-09-14-rss-tldr-devops-kubernetes-v1-37-native-histograms-graduates-to-beta.md) - Native histogram production and consumption; archived evidence with claim-level caveats in [[kubernetes-platform-governance-and-cicd]]. - ingested 2026-09-15
+
+- [The Self-Expanding Stolen Inference Supply Chain: An AI Agent Harvesting and Re-Serving LLM Access](../../raw/2026-09-14-rss-tldr-infosec-the-self-expanding-stolen-inference-supply-chain-an-ai-ag.md) - Inference gateways as context recipients; archived evidence with claim-level caveats in [[ai-coding-agent-security]]. - ingested 2026-09-15
+
+- [Deploying and Optimizing UG for Meta Quest](../../raw/2026-09-14-rss-unity-blog-deploying-and-optimizing-ug-for-meta-quest.md) - Quest device feedback and staged releases; archived evidence with claim-level caveats in [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-09-15
+
+- [Brownfield Agentic Engineering](../../raw/2026-09-15-rss-addy-osmani-brownfield-agentic-engineering.md) - Brownfield autonomy follows evidence; archived evidence with claim-level caveats in [[ai-assisted-software-practice]]. - ingested 2026-09-15
+
+- [Solo Developer on Recreating the Late-'90s Console Shooter Enemy AI for an FPS](../../raw/2026-09-15-rss-agent-64-readable-enemy-ai.md) - Readable enemy behavior in Agent 64; archived evidence with claim-level caveats in [[gamedev-production-and-community-signals]]. - ingested 2026-09-15
+
+- [Closed class hierarchies: Exploring the .NET 11 preview - Part 4](../../raw/2026-09-15-rss-andrew-lock-closed-class-hierarchies.md) - Closed hierarchy exhaustiveness in preview 5; archived evidence with claim-level caveats in [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-09-15
+
+- [Understanding Device Bound Session Credentials (DBSC)](../../raw/2026-09-15-rss-andrew-lock-device-bound-session-credentials.md) - Device-bound session renewal; archived evidence with claim-level caveats in [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-09-15
+
+- [Agentic coding is straining CI. Here’s how we scaled test impact analysis at Anthropic](../../raw/2026-09-15-rss-anthropic-test-impact-analysis-scaling.md) - Test-selection freshness and listener state; archived evidence with claim-level caveats in [[github-actions-platform-operations]]. - ingested 2026-09-15
+
+- [Geometry Nodes Physics](../../raw/2026-09-15-rss-blender-geometry-nodes-physics.md) - Experimental node-based hair and cloth; archived evidence with claim-level caveats in [[technical-art-community-and-talent-signals]]. - ingested 2026-09-15
+
+- [Introducing Projects](../../raw/2026-09-15-rss-cursor-projects-persistent-agent-coordination.md) - Persistent project coordination in beta; archived evidence with claim-level caveats in [[ai-agent-harnesses]]. - ingested 2026-09-15
+
+- [From traces to experiments: A loop for improving AI agents](../../raw/2026-09-15-rss-datadog-traces-evaluations-experiments.md) - Separate production and coverage evaluations; archived evidence with claim-level caveats in [[agent-evaluation-and-benchmarks]]. - ingested 2026-09-15
+
+- [Performance Improvements in .NET 11](../../raw/2026-09-15-rss-dotnet-11-performance-improvements.md) - Runtime performance evidence at release candidate; archived evidence with claim-level caveats in [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-09-15
+
+- [Introducing Foundry Dev Pack: One Command to Start Building on Microsoft Foundry](../../raw/2026-09-15-rss-foundry-dev-pack.md) - Foundry development environment packaging; archived evidence with claim-level caveats in [[azure-agent-automation-and-identity]]. - ingested 2026-09-15
+
+- [Building Agents that Act on Your Behalf with Toolboxes in Foundry](../../raw/2026-09-15-rss-foundry-toolboxes-user-delegation.md) - Versioned toolboxes and caller identity; archived evidence with claim-level caveats in [[azure-agent-automation-and-identity]]. - ingested 2026-09-15
+
+- [Build zero-trust AI agents that judge intent, not just syntax](../../raw/2026-09-15-rss-google-zero-trust-agent-runtime-governance.md) - Content policy versus session behavior; archived evidence with claim-level caveats in [[ai-coding-agent-security]]. - ingested 2026-09-15
+
+- [Your Agent Aced the Task. Will It Do It Again?](../../raw/2026-09-15-rss-huggingface-altk-agent-consistency.md) - Repeated-run reliability with ALTK-Evolve; archived evidence with claim-level caveats in [[agent-evaluation-and-benchmarks]]. - ingested 2026-09-15
+
+- [Process Orchestration: Execution Models, Observability, and Production Challenges](../../raw/2026-09-15-rss-n8n-process-orchestration-models.md) - Choosing workflow execution by recovery needs; archived evidence with claim-level caveats in [[distributed-systems-patterns]]. - ingested 2026-09-15
+
+- [UGUI Overdraw Optimization: Tight Meshes, Transparent Culling, and 9-Slicing](../../raw/2026-09-15-rss-unity-ugui-overdraw-optimization.md) - UGUI geometry and overdraw candidates; archived evidence with claim-level caveats in [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-09-15

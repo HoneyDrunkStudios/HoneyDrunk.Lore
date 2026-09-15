@@ -1791,3 +1791,22 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 
 ### Quality notes
 - Lightpanda is README evidence with self-reported benchmarks; verify locally before adopting as a browser-agent runtime.
+
+## 2026-09-15: Persistent project coordination in beta
+
+### Typed entities
+
+project: Cursor Projects; concept: persistent coordinator; concept: synchronized context; concept: event subscription.
+
+### Claims and evidence
+
+- Cursor's beta announcement describes a persistent coordinator on cloud machines delegating implementation, with local agents for machine-specific testing. Synchronized files carry research, artifacts, knowledge, and preferences across sessions. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-cursor-projects-persistent-agent-coordination.md)
+- Subscriptions can trigger work from schedules, pull requests, or communication channels. Examples include investigating before parallel implementation, incremental migration under an agreed approach, and turning recurring mistakes into lint rules. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-cursor-projects-persistent-agent-coordination.md)
+
+### Explicit relationships
+
+Persistent coordination uses durable shared context and event subscriptions. Delegation depends-on reviewed scope and validation; [[agent-context-management-and-session-continuity]] tracks continuity patterns.
+
+### Decision and quality notes
+
+Vendor beta announcement. Delegation scale and productivity observations establish neither equivalent gains nor safety or resource cost for HoneyDrunk. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which recurring work benefits from persistent coordination, and what context ownership, event permissions, local/cloud boundaries, and cost controls would qualify a trial? See [[indexes/gaps]].

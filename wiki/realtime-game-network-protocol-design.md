@@ -73,3 +73,22 @@ The RuneScape 2004 networking teardown is a compact case study in bandwidth-cons
 ## Related distributed-systems note
 
 - [[distributed-systems-patterns]] covers gossip protocol as a broader cluster-membership/failure-detection/dissemination pattern. Gossip may inform multiplayer presence or server-health designs, but it does not supersede game-specific authority, anti-cheat, or latency constraints. confidence: 1 source, last-confirmed 2026-06-04. [source: raw/2026-06-04-web-high-scalability-gossip-protocol-explained-high-scalability.md]
+
+## 2026-09-15: Matchmaking races and stale state queues
+
+### Typed entities
+
+concept: concurrent matchmaking; library: WebRTC; concept: send backlog; concept: diagnostic read budget.
+
+### Claims and evidence
+
+- A browser-game developer reports that entry-only matchmaking gave simultaneous entrants bots. Poll-time rechecks, deterministic claim ordering, and delayed bot fallback improved matching in that project; the account does not prove atomicity under all interleavings. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-dev-to-gamedev-two-friends-pressed-play-at-the-same-time-and-both-got-.md)
+- The same project accumulated stale position updates even on an unordered WebRTC channel without retransmission. Checking buffered output and skipping stale frames reduced bursts; bounded diagnostic queries and tracking rows read reduced database-budget disruption. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-14-rss-dev-to-gamedev-two-friends-pressed-play-at-the-same-time-and-both-got-.md)
+
+### Explicit relationships
+
+Fresh realtime state depends-on bounded send queues. Matchmaking correctness depends-on atomic claims, while diagnostics uses the same finite database budget as player traffic.
+
+### Decision and quality notes
+
+Single-project experience, not a reusable concurrency proof. Validate simultaneous joins and claim races; dropping obsolete positions does not justify dropping reliable gameplay events. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which multiplayer tests cover simultaneous joins, atomic match claims, bot fallback timing, stale-position buffering, and diagnostic read budgets? See [[indexes/gaps]].

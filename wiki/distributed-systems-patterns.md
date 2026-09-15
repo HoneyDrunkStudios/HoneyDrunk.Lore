@@ -185,3 +185,22 @@ Retry-safe side effects depends-on stable operation identity and receiving-end d
 ### Decision and quality notes
 
 One vendor explanation refines the existing durable-workflow guidance. Define operation identity and separate delivery/run/side-effect boundaries before implementing retries. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: Which workflows can restart or retrigger the same business operation, and where are stable keys, atomic deduplication records, retention, and downstream retry guarantees enforced? See [[indexes/gaps]].
+
+## 2026-09-15: Choosing workflow execution by recovery needs
+
+### Typed entities
+
+project: n8n; concept: orchestration; concept: choreography; concept: compensating action; concept: execution history.
+
+### Claims and evidence
+
+- n8n contrasts predefined, feedback-driven, and agent-assisted execution. Central orchestration coordinates state and dependencies while choreography distributes reactions; long processes, human handoffs, and complex recovery can justify coordination overhead. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-n8n-process-orchestration-models.md)
+- Its production concerns include bottlenecks, partial completion, schema changes, and cross-service debugging. Proposed responses include event-oriented execution, compensation, versioned schemas, and correlation-rich history. Compensation is not a database rollback, and history alone does not prove recovery correctness. confidence: 1 source, last-confirmed 2026-09-15 (archived capture reviewed; no live refresh). [captured source](../raw/2026-09-15-rss-n8n-process-orchestration-models.md)
+
+### Explicit relationships
+
+Execution-model choice depends-on state, retries, failure isolation, and observability. Agent-assisted decisions use a larger controlled workflow; choreography uses distributed event reactions.
+
+### Decision and quality notes
+
+Vendor architecture guidance, not a formal guarantee. Simple pipelines may not benefit from extra coordination; recovery needs validation independently of editor choice. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which workflows justify central orchestration, and what partial-completion, compensation, schema-version, and correlation tests demonstrate recovery correctness? See [[indexes/gaps]].
