@@ -804,3 +804,22 @@ Toolboxes use centralized authentication configuration and versioned tool surfac
 ### Decision and quality notes
 
 Vendor implementation guidance, consistent with earlier Toolbox coverage. Verify actual scopes, isolation, refresh behavior, and APIs before implementation. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which tool requires end-user, agent, or project identity, and how will Foundry toolbox consent, refresh, caller isolation, and version compatibility be verified? See [[indexes/gaps]].
+
+## 2026-09-18: Content Understanding GA and preview contracts
+
+### Typed entities
+
+project: Azure Content Understanding; concept: CU 1.0; concept: CU 2.0 preview; concept: semantic document chunking; concept: review routing.
+
+### Claims and evidence
+
+- Microsoft distinguishes refreshed CU 1.0 GA API 2025-11-01 from CU 2.0 public preview API 2026-06-01-preview. The GA changes expand model choices and revise grounding/confidence; reported accuracy and token savings are internal evaluation results. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-azure-content-understanding-ga-preview.md)
+- The August announcement places synchronous Read/Layout, contextualization from labeled examples, semantic chunking, finer classification, and agentic document reasoning in the preview. It says contextualization training inputs remain in customer-controlled Azure Storage. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-azure-content-understanding-ga-preview.md)
+
+### Explicit relationships
+
+Extraction design depends-on the selected API contract; uncertain classification uses confidence as an input to further checks. This extends the field-confidence calibration section without treating preview features as GA.
+
+### Decision and quality notes
+
+Vendor announcement snapshot. Evaluate quality and review thresholds on representative documents; storage placement alone is not a complete data-flow or privacy guarantee. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Which required Lore extraction features belong to CU GA versus preview, and what versioned corpus tests establish chunk quality, provenance, storage flows, cost, and review thresholds? See [[indexes/gaps]].

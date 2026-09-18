@@ -1162,3 +1162,41 @@ Cache savings estimates depend-on independent work and performance measurements.
 ### Decision and quality notes
 
 Synthetic experiment summary. Missing measurements remain unknown; neither cached-token counts nor output equality establish speedup. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: What independent controls can distinguish cache hits, actual avoided prompt work, namespace isolation, output correctness, and measured HoneyDrunk latency or cost savings? See [[indexes/gaps]].
+
+## 2026-09-18: Device inference and on-premises platforms are separate choices
+
+### Typed entities
+
+project: Foundry Local; project: Azure Local; project: Azure Arc; project: Kubernetes; concept: device inference; concept: disconnected deployment.
+
+### Claims and evidence
+
+- Microsoft describes Foundry Local 1.2.0 device-runtime updates including multilingual streaming transcription, Linux ARM64, wider cancellation controls, and Windows ML integration. Earlier 1.1 capabilities include embeddings and a Responses API interface; the SDK abstracts model discovery and execution providers. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-foundry-local-edge-deployment.md)
+- The separate Foundry Local on Azure Local preview places inference and agent workloads in Arc-managed Kubernetes, with catalog, retrieval, and custom MCP-tool scenarios. This differs operationally from embedding an inference runtime into an application. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-foundry-local-edge-deployment.md)
+
+### Explicit relationships
+
+Application-local inference uses device execution providers; the on-premises preview depends-on a managed Kubernetes platform. Deployment fit depends-on model/device support and tested offline behavior; see [[azure-agent-automation-and-identity]].
+
+### Decision and quality notes
+
+June vendor snapshot, not a refreshed compatibility matrix. Testimonials and internal accuracy figures add no independent benchmark support. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Does the target workload need an embedded device runtime or an on-premises AI platform, and which packaging, model availability, cancellation, and disconnected-operation tests distinguish them? See [[indexes/gaps]].
+
+## 2026-09-18: Versioned adapters across asynchronous training jobs
+
+### Typed entities
+
+project: Hugging Face Jobs; library: TRL; library: vLLM; concept: LoRA; concept: asynchronous GRPO; concept: policy staleness.
+
+### Claims and evidence
+
+- Hugging Face describes separate LoRA trainer and vLLM inference jobs exchanging versioned adapter directories through shared bucket storage. A proxy handles authentication, prefix-aware rollout routing, and adapter-load broadcasts rather than transferring full model weights between jobs. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-huggingface-async-grpo-lora-jobs.md)
+- Ongoing rollouts retain their policy version while later requests use newer adapters. The example sizes adapter slots for the allowed staleness window plus replacement overlap; too few slots can evict a policy still serving work. Persistent checkpoints outlive ephemeral jobs. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-huggingface-async-grpo-lora-jobs.md)
+
+### Explicit relationships
+
+Asynchronous training uses versioned adapter exchange; rollout consistency depends-on retained policy versions and storage visibility. Scaling decisions depend-on measured training/generation bottlenecks.
+
+### Decision and quality notes
+
+Vendor experiment tied to specific TRL/vLLM behavior. Pin versions and validate authentication, recovery, and storage consistency; no universal throughput or cost claim is inferred. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Which policy-staleness limits, adapter-slot counts, storage visibility checks, authentication controls, and restart tests would qualify asynchronous LoRA training for a HoneyDrunk workload? See [[indexes/gaps]].

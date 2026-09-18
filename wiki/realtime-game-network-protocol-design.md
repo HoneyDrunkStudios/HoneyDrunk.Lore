@@ -92,3 +92,22 @@ Fresh realtime state depends-on bounded send queues. Matchmaking correctness dep
 ### Decision and quality notes
 
 Single-project experience, not a reusable concurrency proof. Validate simultaneous joins and claim races; dropping obsolete positions does not justify dropping reliable gameplay events. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which multiplayer tests cover simultaneous joins, atomic match claims, bot fallback timing, stale-position buffering, and diagnostic read budgets? See [[indexes/gaps]].
+
+## 2026-09-18: Server replay and time-aware leaderboard records
+
+### Typed entities
+
+project: Astro; project: Cloudflare Workers; project: D1; library: Preact; concept: deterministic replay; concept: daily personal best.
+
+### Claims and evidence
+
+- A browser-game developer describes signed draft choices, server replay of ordered actions, rejection of illegal moves, server-calculated scores, and signed results. Matching rules, rosters, ordering, seeds, and random-number consumption are part of the replay contract; valid play does not establish human participation. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-browser-game-verifiable-leaderboards.md)
+- The account separates daily bests from lifetime records and notes that discarded historical runs cannot be recovered during migration. Fetching deployed share images exposed a runtime dependency failure that a successful build had missed. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-browser-game-verifiable-leaderboards.md)
+
+### Explicit relationships
+
+Server-owned scoring uses deterministic replay; backward interpretation depends-on versioned rules and data. Daily ranking depends-on time-scoped records. This is a different authority model from the earlier client-voting case study, not evidence that either project changed its implementation.
+
+### Decision and quality notes
+
+Single-project experience. Replay legality does not establish bot resistance; migration and deployed-artifact checks require local cases. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Which leaderboard tests cover versioned replay, invalid actions, bot limits, daily versus lifetime records, migration loss, and deployed share-image rendering? See [[indexes/gaps]].

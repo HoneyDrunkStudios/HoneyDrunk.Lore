@@ -1337,3 +1337,22 @@ Safe autonomy depends-on impact evidence, visibility, and recovery. Durable rese
 ### Decision and quality notes
 
 Practitioner guidance, not controlled productivity evidence. A model confidence statement does not establish that a mature system is understood. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which mature-system changes need a cited comprehension memo, characterization tests, and explicit acceptance criteria before agent autonomy expands? See [[indexes/gaps]].
+
+## 2026-09-18: Design review scales with the cost of a wrong choice
+
+### Typed entities
+
+person: Michael Lynch; concept: design document; concept: reversibility; concept: outcome-oriented goal; decision: review depth.
+
+### Claims and evidence
+
+- Lynch frames design documents as a way to expose costly decisions before implementation and collect feedback. Complexity, expected lifetime, risk, and coordination needs determine the useful investment; inexpensive reversible details warrant less debate. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-effective-software-design-documents.md)
+- His proposed structure includes a clear objective, background and evidence, related documents, outcome-oriented goals, exclusions, and concrete scenarios. The document should stand alone for reviewers who missed earlier conversations. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-effective-software-design-documents.md)
+
+### Explicit relationships
+
+Review depth depends-on decision cost and reversibility; useful design feedback uses shared context and explicit goals. Lore records the research pattern; HoneyDrunk.Architecture remains the governance home.
+
+### Decision and quality notes
+
+Practitioner guidance, not comparative evidence for one mandatory template or document length. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Which costly or hard-to-reverse HoneyDrunk decisions need a standalone design review, and what evidence, scenarios, goals, and exclusions would make that review actionable? See [[indexes/gaps]].

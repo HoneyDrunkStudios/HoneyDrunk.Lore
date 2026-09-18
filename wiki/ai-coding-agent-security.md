@@ -2124,3 +2124,22 @@ Session policy depends-on cumulative state beyond individual-call syntax. Extern
 ### Decision and quality notes
 
 Vendor example, not independently demonstrated attack prevention. No managed-service guarantee is inferred from a local illustrative detector. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which cumulative agent actions require pre-execution state checks, and how will semantic judgments, anomaly alerts, and deterministic transaction limits be tested separately? See [[indexes/gaps]].
+
+## 2026-09-18: Harness subprocesses belong inside the trust boundary
+
+### Typed entities
+
+project: Cursor CLI; project: Git; concept: prepared workspace; concept: filesystem-monitor hook; concept: subprocess confinement.
+
+### Claims and evidence
+
+- Accomplish reports a macOS Cursor CLI escape in which background Git operations outside the visible shell sandbox honored executable filesystem-monitor configuration from a prepared workspace. The report says a read-only request triggered its test; the separate ordinary-clone delivery variant was not tested for Cursor. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-cursor-git-sandbox-boundary-hardening.md)
+- The researchers report that build 2026.08.04-aaa8809 centralized Git hardening and stopped the tested hook from triggering in repeated tests. This is a reported mitigation for that path, not independent verification of all current builds or escape classes. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-cursor-git-sandbox-boundary-hardening.md)
+
+### Explicit relationships
+
+Harness isolation depends-on every subprocess path, including status collection and indexing. Researcher-reported centralized Git hardening fixed the tested hook path; [[git-storage-and-version-control-infrastructure]] covers the broader Git context.
+
+### Decision and quality notes
+
+Researcher disclosure summary with a narrow tested delivery path. No exploit payload or executable configuration is promoted. Existing general sandbox risks remain; the new report does not claim current Cursor vulnerability. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Do HoneyDrunk agent harnesses confine or harden background Git subprocesses as well as shell tools, and which prepared-workspace tests verify the installed versions? See [[indexes/gaps]].

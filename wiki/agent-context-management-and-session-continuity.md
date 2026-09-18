@@ -115,3 +115,22 @@ funes uses provenance-preserving hybrid retrieval; optional synchronization depe
 ### Decision and quality notes
 
 Project-authored, summary-only evidence. Evaluate retrieval quality and redaction locally before any session synchronization; do not turn retrieved traces directly into authoritative facts. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: Can funes-style retrieval preserve session provenance and improve local recall while meeting HoneyDrunk redaction, retention, deletion, and synchronization requirements? See [[indexes/gaps]].
+
+## 2026-09-18: Durable task state survives conversation and process resets
+
+### Typed entities
+
+project: n8n; concept: durable task state; concept: conversation compaction; concept: event-driven resume; concept: infrastructure-enforced permissions.
+
+### Claims and evidence
+
+- n8n separates transient conversation context from persistent plans, progress records, and task state. Its guidance moves from trimming/compaction to full context resets reconstructed from durable artifacts, while storage permissions and identity boundaries are enforced by infrastructure. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-long-running-agent-durable-execution.md)
+- The article describes suspending compute while preserving state and schedules, then resuming on webhooks or backed-off polling. In-memory variables, timers, and open calls are not assumed to survive; independent steps and child state need recovery without a live parent process. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-long-running-agent-durable-execution.md)
+
+### Explicit relationships
+
+Session recovery depends-on durable artifacts; long-running execution uses persisted state and resumable events. This complements [[distributed-systems-patterns]] and [[ai-agent-harnesses]] without turning Lore into runtime memory.
+
+### Decision and quality notes
+
+Vendor architecture guidance. Existing Context Mode and TeamAI sources cover different mechanisms and do not independently validate n8n recovery guarantees. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Which restart tests prove that HoneyDrunk task plans, child state, schedules, permissions, and webhook or polling resumes survive loss of the parent process and conversation? See [[indexes/gaps]].

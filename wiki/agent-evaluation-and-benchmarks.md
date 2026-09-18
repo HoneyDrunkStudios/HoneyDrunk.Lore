@@ -1169,3 +1169,41 @@ Reliability evaluation uses repeated runs as well as average accuracy. Offline g
 ### Decision and quality notes
 
 Author-reported benchmark, not independent production reliability evidence. Offline consistency improvement does not prove every downstream action is safe. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which tasks should report Mean@k, Pass^k, and Pass@k, and does trajectory-derived guidance improve repeated-run reliability enough to justify its cost? See [[indexes/gaps]].
+
+## 2026-09-18: Question-level benchmark auditing
+
+### Typed entities
+
+project: BenchMIRT; project: Allen AI; concept: multidimensional Item Response Theory; concept: benchmark discrimination.
+
+### Claims and evidence
+
+- The captured Allen AI summary describes BenchMIRT analyzing 100 models, 16 benchmarks, and more than 34,000 questions to infer reasoning and safety dimensions. Difficulty and discrimination estimates can expose mixed capabilities hidden by aggregate benchmark scores. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-allenai-benchmirt-benchmark-auditing.md)
+- The authors report that smaller selected subsets often preserved capability estimates, but the model cohort ends in March 2025 and inferred dimensions depend on benchmark selection. Ordinary averages performed slightly better for one ranking objective. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-allenai-benchmirt-benchmark-auditing.md)
+
+### Explicit relationships
+
+BenchMIRT uses question-level response patterns; subset selection depends-on the evaluation population and objective. This complements the production/coverage dataset distinction already recorded here.
+
+### Decision and quality notes
+
+Research-team summary; preserve cohort limits. A compact subset is a candidate experiment, not a validated current-agent acceptance suite. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Would question-level difficulty and discrimination reveal mixed capabilities in HoneyDrunk evaluations, and do selected subsets retain accuracy on the actual model cohort and task distribution? See [[indexes/gaps]].
+
+## 2026-09-18: Execution artifacts are distinct from evaluation scores
+
+### Typed entities
+
+project: SBX AI Evaluation Kit; project: Docker Sandboxes; concept: configuration digest; concept: execution evidence.
+
+### Claims and evidence
+
+- Docker describes a kit that validates YAML evaluation definitions, executes configured commands through local or sandbox backends, and records executor, command, output streams, exit status, duration, and a configuration digest. Suites preserve individual artifacts alongside aggregate results. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-docker-reproducible-evaluation-workflows.md)
+- The kit separates execution from scoring: it does not automatically run models or derive judgments. Sandbox execution plus a definition digest does not pin every dependency, external service, or remote-model behavior. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-docker-reproducible-evaluation-workflows.md)
+
+### Explicit relationships
+
+Inspectable evaluation uses execution artifacts alongside scores; reproducibility depends-on more than the executor. See [[github-actions-platform-operations]] for release-pipeline context.
+
+### Decision and quality notes
+
+Vendor kit description. Treat backend interchangeability and artifact completeness as testable properties; do not upgrade benchmark confidence merely because a run used a sandbox. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Which evaluation artifacts and dependency/model identifiers must HoneyDrunk retain to distinguish scoring regressions from executor, environment, or external-service drift? See [[indexes/gaps]].

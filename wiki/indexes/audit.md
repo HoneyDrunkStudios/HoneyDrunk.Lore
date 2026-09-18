@@ -229,3 +229,8 @@ Another sourcing pass added 15 September 15 captures during validation. Read all
 ## 2026-09-16T16:53:12-04:00: daily compile reconciliation
 
 Operator: Codex executing the authorized Honeyclaw workflow. Reconciled 977 raw documents with 977 unique source entries; 0 newly ingested. Reviewed all 13 query outputs: durable facts already represented, 0 crystallized. Rebuilt the 63-page topic catalog and reconciled 513 dated gaps; 0 gaps added or closed. No concept edits, confidence increases, canonical merges, or supersessions. Historical single-source and grouped-citation limits remain. Raw inputs and query outputs preserved. See [run receipt](../../output/lore-ingest-last-run.md) for review, validation, and publication scope.
+
+
+## 2026-09-18T16:39:12-04:00: daily ingest/compile
+
+Operator: Codex executing the authorized Honeyclaw workflow. Read and ingested 15 September 16 attributed summaries into 12 existing canonical pages. Rebuilt source/topic/gap catalogs: 992 raw documents, 63 concept pages, 527 dated gaps (14 new; 0 closed). Read all 13 query outputs; no new durable evidence to crystallize. No duplicate canonical articles or substantive contradictions required merging or supersession. Historical preview dates and reported remediation scope preserved; no independent corroboration inferred from related topics. Raw bytes preserved; no credential or private contact data promoted. See [run receipt](../../output/lore-ingest-last-run.md) for review, validation, and publication scope.

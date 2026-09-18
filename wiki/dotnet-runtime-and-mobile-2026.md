@@ -570,3 +570,41 @@ Upgrade performance conclusions depend-on representative hot paths and deploymen
 ### Decision and quality notes
 
 Official engineering summary with reproduction-oriented examples, not a benchmark run in this pass. Release-candidate context does not establish production readiness. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which HoneyDrunk hot paths and runtime configurations should compare .NET 10 and 11, and what application-level measurements and compatibility checks qualify an upgrade? See [[indexes/gaps]].
+
+## 2026-09-18: Browser compute and worker lifetime
+
+### Typed entities
+
+project: Blazor; project: .NET 11; concept: Web Worker; concept: runtime isolation; concept: serialization boundary.
+
+### Claims and evidence
+
+- Lock describes a .NET 11 preview 3 worker project, JSExport methods, and asynchronous WebWorkerClient invocation to move CPU-intensive work off the browser UI thread. Merely awaiting a CPU-bound method does not relocate its computation. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-andrew-lock-blazor-web-workers.md)
+- Each worker initializes an isolated .NET runtime; reuse can amortize startup while ownership, disposal, and complex-result serialization remain explicit concerns in the example. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-andrew-lock-blazor-web-workers.md)
+
+### Explicit relationships
+
+Responsive browser computation uses worker isolation; useful speedup depends-on startup, memory, serialization, and workload cost.
+
+### Decision and quality notes
+
+May preview evidence. The newly clipped article does not supersede the later RC1 coverage above or establish current template/package behavior. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Which Blazor workloads justify a reused worker, and what target-SDK tests measure startup, memory, serialization, disposal, and UI responsiveness? See [[indexes/gaps]].
+
+## 2026-09-18: Union modeling in historical preview evidence
+
+### Typed entities
+
+project: C#; project: .NET 11; concept: union type; concept: exhaustiveness; concept: nullable alternative.
+
+### Claims and evidence
+
+- Lock describes preview 4 unions as a fixed choice among potentially unrelated types, with switch-expression exhaustiveness warnings and explicit null handling for nullable cases. The article discusses generated wrappers and UnionAttribute/IUnion conventions. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-andrew-lock-csharp-union-types.md)
+- The captured installation and helper-type guidance is specific to the May preview. Its modeling distinction between explicit alternatives and informally interpreted object results does not establish current SDK or IDE support. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-andrew-lock-csharp-union-types.md)
+
+### Explicit relationships
+
+Union modeling uses enumerated outcomes; API adoption depends-on representation and serialization checks. The existing closed-hierarchy comparison remains the canonical related guidance.
+
+### Decision and quality notes
+
+Practitioner preview summary. Preserve newer RC1 and serialization qualifications; no contradictory release claim or new independent implementation verification. Reuse the 2026-09-15 closed-hierarchy/union validation question in [[indexes/gaps]]. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details.

@@ -453,3 +453,22 @@ Metric breakdown reliability depends-on overflow visibility; intentional high ca
 ### Decision and quality notes
 
 Primary full-text evidence, attributed to Cijo Thomas (Microsoft), CC BY 4.0; this section paraphrases the captured guide. Audit actual SDK behavior and labels before using an alert. Prefer removing accidental dimensions before increasing caps. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: Which SLO, paging, or autoscaling metrics lose filtered coverage on overflow, and do deployed SDKs/exporters expose the overflow marker with tested temporality and limits? See [[indexes/gaps]].
+
+## 2026-09-18: Processor stability includes emitted metadata contracts
+
+### Typed entities
+
+project: OpenTelemetry Collector; project: Kubernetes attributes processor; concept: semantic conventions; concept: telemetry compatibility.
+
+### Claims and evidence
+
+- OpenTelemetry announces Kubernetes attributes processor v1.0.0 for contrib, Kubernetes, and custom Collector builds. The summary says Kubernetes semantic conventions reached stability in 1.42.0 before processor promotion, which also required testing, benchmarks, documentation, and telemetry stability. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-opentelemetry-kubernetes-attributes-v1.md)
+- The announcement warns that promotion includes attribute-name and other migration changes that can break existing consumers. This processor milestone does not imply equal stability for all Collector components or distributions. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-opentelemetry-kubernetes-attributes-v1.md)
+
+### Explicit relationships
+
+Processor graduation depends-on stable semantic conventions and telemetry contracts; collector upgrades depend-on compatible downstream queries and configuration. See [[kubernetes-platform-governance-and-cicd]].
+
+### Decision and quality notes
+
+Official announcement summary; the migration guide itself is not captured here, so do not invent exact renamed attributes or upgrade instructions. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Which Kubernetes attributes processor migration changes affect HoneyDrunk Collector configuration, emitted metadata, dashboards, and queries, and what fixtures verify compatibility? See [[indexes/gaps]].

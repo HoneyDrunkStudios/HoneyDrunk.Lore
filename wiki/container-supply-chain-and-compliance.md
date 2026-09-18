@@ -136,3 +136,22 @@ This page tracks container-image supply-chain evidence, SBOM quality, provenance
 
 ### Quality notes
 - The source is sponsored and includes historical/incident narrative. Lore retained defensive controls and provenance-limit lessons, not malware mechanics.
+
+## 2026-09-18: Build history can retain credentials beyond filesystem cleanup
+
+### Typed entities
+
+project: Baseten; project: GitHub; concept: container build history; concept: credential revocation; concept: least-privilege build identity.
+
+### Claims and evidence
+
+- Strix reports a broadly privileged GitHub token in the build history of an anonymously downloadable container image. The authors say the token originated in a 2023 build and retained repository administration and push access in July 2026; deleting a secret-bearing file would not remove its separate metadata copy. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-strix-container-history-secret-exposure.md)
+- The report says Baseten restricted registry access and rotated the credential after disclosure. Its defensive guidance covers old tags, anonymous access, layers and configuration/history, secret mounts that do not persist consumed credentials, and narrow expiring build identities. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-strix-container-history-secret-exposure.md)
+
+### Explicit relationships
+
+Credential exposure can be caused by build-command expansion into image history. Recovery depends-on revocation as well as artifact cleanup; rebuilding an image cannot revoke previously copied credentials. See [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Researcher-reported incident and remediation, not an independent assessment of current Baseten exposure. No credential material, exploit payload, or unnecessary infrastructure identifiers are included. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Which old images, public registry paths, layers, and build-history records need secret scanning, and can exposed build identities be promptly revoked with narrow replacement permissions? See [[indexes/gaps]].

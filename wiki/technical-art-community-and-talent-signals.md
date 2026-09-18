@@ -1060,3 +1060,22 @@ Approachable simulation assets use solver-backed node groups. Hair attachment de
 ### Decision and quality notes
 
 Official-project summary retaining experimental status. It extends existing Blender release coverage without upgrading stability or treating plans as released features. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which procedural hair/cloth assets need solver, collision, rest-geometry, export, and stability validation before Blender node physics enters production? See [[indexes/gaps]].
+
+## 2026-09-18: Shared geometry core and cross-host determinism
+
+### Typed entities
+
+project: Edgy; project: Cinema 4D; project: Blender; concept: host adapter; concept: deterministic geometry; concept: batched Boolean subtraction.
+
+### Claims and evidence
+
+- The Edgy developer describes a shared points-and-polygons core without host-specific types, deterministic input/seed checks across Cinema 4D and Blender, and host adapters for presentation and material assignment. Shared parameter tables reduce preset drift while preserving user choices such as seed and eligible edges. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-edgy-cross-host-procedural-geometry.md)
+- The account describes batched Boolean cutters and reports cutter count dominating one workload. Adaptive tessellation reduced one scene from 40 to 13 seconds; floating-point changes complicated animation cache reuse. These are author measurements rather than general performance guarantees. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-rss-edgy-cross-host-procedural-geometry.md)
+
+### Explicit relationships
+
+Cross-host procedural geometry uses a shared computational core and adapters; consistent presets depend-on shared parameter generation. See [[creative-tool-extension-packaging]] for distribution concerns.
+
+### Decision and quality notes
+
+Creator interview summary. Validate geometry/export budgets and deterministic outputs with representative real-time assets before adopting the technique. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Which cross-host geometry fixtures verify seeded outputs, material adapters, preset intent, animation-cache stability, and real-time export cost for a shared procedural core? See [[indexes/gaps]].

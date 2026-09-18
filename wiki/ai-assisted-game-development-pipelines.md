@@ -46,3 +46,22 @@ Recent game-development sources show AI being applied to animation iteration, la
 - Quality posture: useful as scouting and workflow-pattern evidence; all claims are single-source and should be validated in HoneyDrunk projects before commitment.
 - Weak claims: CivicSurvival metrics and MagicknessT pipeline benefits are self-reported.
 - Privacy filter: public project/tool names retained; no private tester/contact details copied.
+
+## 2026-09-18: Engine-maintained procedures and project verification
+
+### Typed entities
+
+project: Unity; project: Codex; project: official Unity plugin; concept: engine-version-aware skill; concept: asset verification.
+
+### Claims and evidence
+
+- Unity announces an official Codex plugin with 31 initial engine-team-maintained skills and stated Unity 6-or-later compatibility. The catalog spans UI, sprites, rendering, audio, physics, navigation, monetization, multiplayer, and localization; the CLI skill covers Editor and project/package operations. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-web-unity-official-codex-plugin.md)
+- The announcement connects task guidance with project inspection and result verification, including prebuild sprite-atlas checks and URP Render Graph renderer-feature validation. Its install description does not require per-project configuration, but no independent correctness or productivity gain is demonstrated. confidence: 1 source, last-confirmed 2026-09-18 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-16-web-unity-official-codex-plugin.md)
+
+### Explicit relationships
+
+Agent-assisted engine work uses version-aware procedures and project inspection; acceptance depends-on generated assets and features working in the actual engine. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Unity announcement snapshot, not an installation or a live compatibility check. Engine-authored guidance complements the existing visual/gameplay QA requirement. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Which Unity/plugin versions and representative scene, sprite-atlas, and URP tests would establish compatibility and useful verification coverage in a HoneyDrunk project? See [[indexes/gaps]].

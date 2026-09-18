@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-09-16
+## Compile coverage: 2026-09-18
 
-Reconciled 977 raw source documents against 977 unique source entries; ingested 0 new captures in this pass. All raw documents have index entries. Existing source records and ingestion dates are preserved. Query outputs remain derived explorations rather than independent raw evidence.
+Reconciled 992 raw source documents against 992 unique source entries; ingested 15 new captures in this pass. All raw documents have index entries. Existing source records and ingestion dates are preserved. Query outputs remain derived explorations rather than independent raw evidence.
 
 ## Entry format
 
@@ -1194,3 +1194,22 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [Process Orchestration: Execution Models, Observability, and Production Challenges](../../raw/2026-09-15-rss-n8n-process-orchestration-models.md) - Choosing workflow execution by recovery needs; archived evidence with claim-level caveats in [[distributed-systems-patterns]]. - ingested 2026-09-15
 
 - [UGUI Overdraw Optimization: Tight Meshes, Transparent Culling, and 9-Slicing](../../raw/2026-09-15-rss-unity-ugui-overdraw-optimization.md) - UGUI geometry and overdraw candidates; archived evidence with claim-level caveats in [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-09-15
+
+
+## 2026-09-18 ingest
+
+- [BenchMIRT: What are LLM benchmarks actually measuring?](../../raw/2026-09-16-rss-allenai-benchmirt-benchmark-auditing.md) - Question-level benchmark auditing; attributed summary, provisional source-specific evidence. See [[agent-evaluation-and-benchmarks]]. - ingested 2026-09-18
+- [Running background tasks in Blazor with Web Workers: Exploring the .NET 11 preview - Part 1](../../raw/2026-09-16-rss-andrew-lock-blazor-web-workers.md) - Browser compute and worker lifetime; attributed summary, provisional source-specific evidence. See [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-09-18
+- [.NET (OK, C#) finally gets union types🎉: Exploring the .NET 11 preview - Part 2](../../raw/2026-09-16-rss-andrew-lock-csharp-union-types.md) - Union modeling in historical preview evidence; attributed summary, provisional source-specific evidence. See [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-09-18
+- [From Sync APIs to support for the GPT-5 model series and agentic workflows: What’s new in Azure Content Understanding – August 2026](../../raw/2026-09-16-rss-azure-content-understanding-ga-preview.md) - Content Understanding GA and preview contracts; attributed summary, provisional source-specific evidence. See [[azure-agent-automation-and-identity]]. - ingested 2026-09-18
+- [Building a Browser Game with Astro, Cloudflare Workers, and a Verifiable D1 Leaderboard](../../raw/2026-09-16-rss-browser-game-verifiable-leaderboards.md) - Server replay and time-aware leaderboard records; attributed summary, provisional source-specific evidence. See [[realtime-game-network-protocol-design]]. - ingested 2026-09-18
+- [Beltdown2: Escaping the Cursor CLI sandbox](../../raw/2026-09-16-rss-cursor-git-sandbox-boundary-hardening.md) - Harness subprocesses belong inside the trust boundary; attributed summary, provisional source-specific evidence. See [[ai-coding-agent-security]]. - ingested 2026-09-18
+- [Building Reproducible AI Evaluation Workflows with Docker Sandboxes](../../raw/2026-09-16-rss-docker-reproducible-evaluation-workflows.md) - Execution artifacts are distinct from evaluation scores; attributed summary, provisional source-specific evidence. See [[agent-evaluation-and-benchmarks]]. - ingested 2026-09-18
+- [3D Artist on Creating a Geometry-Based Plugin That Makes Realistic Worn Edges](../../raw/2026-09-16-rss-edgy-cross-host-procedural-geometry.md) - Shared geometry core and cross-host determinism; attributed summary, provisional source-specific evidence. See [[technical-art-community-and-talent-signals]]. - ingested 2026-09-18
+- [How to Write an Effective Software Design Document](../../raw/2026-09-16-rss-effective-software-design-documents.md) - Design review scales with the cost of a wrong choice; attributed summary, provisional source-specific evidence. See [[ai-assisted-software-practice]]. - ingested 2026-09-18
+- [Accelerate Edge AI Development with Foundry Local](../../raw/2026-09-16-rss-foundry-local-edge-deployment.md) - Device inference and on-premises platforms are separate choices; attributed summary, provisional source-specific evidence. See [[edge-ai-and-ai-infrastructure-2026]]. - ingested 2026-09-18
+- [Async GRPO with LoRA across HF Jobs: a bucket, a proxy, and no NCCL](../../raw/2026-09-16-rss-huggingface-async-grpo-lora-jobs.md) - Versioned adapters across asynchronous training jobs; attributed summary, provisional source-specific evidence. See [[edge-ai-and-ai-infrastructure-2026]]. - ingested 2026-09-18
+- [Long-running agents beyond prompt engineering](../../raw/2026-09-16-rss-long-running-agent-durable-execution.md) - Durable task state survives conversation and process resets; attributed summary, provisional source-specific evidence. See [[agent-context-management-and-session-continuity]]. - ingested 2026-09-18
+- [Kubernetes attributes processor reaches v1.0.0 milestone](../../raw/2026-09-16-rss-opentelemetry-kubernetes-attributes-v1.md) - Processor stability includes emitted metadata contracts; attributed summary, provisional source-specific evidence. See [[opentelemetry-genai-observability-and-ecosystem]]. - ingested 2026-09-18
+- [We wanted to use Baseten for inference. We ended up with admin access to Baseten GitHub repos](../../raw/2026-09-16-rss-strix-container-history-secret-exposure.md) - Build history can retain credentials beyond filesystem cleanup; attributed summary, provisional source-specific evidence. See [[container-supply-chain-and-compliance]]. - ingested 2026-09-18
+- [The Official Unity Plugin for Codex](../../raw/2026-09-16-web-unity-official-codex-plugin.md) - Engine-maintained procedures and project verification; attributed summary, provisional source-specific evidence. See [[ai-assisted-game-development-pipelines]]. - ingested 2026-09-18
