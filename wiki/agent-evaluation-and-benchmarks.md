@@ -1207,3 +1207,64 @@ Inspectable evaluation uses execution artifacts alongside scores; reproducibilit
 ### Decision and quality notes
 
 Vendor kit description. Treat backend interchangeability and artifact completeness as testable properties; do not upgrade benchmark confidence merely because a run used a sandbox. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Which evaluation artifacts and dependency/model identifiers must HoneyDrunk retain to distinguish scoring regressions from executor, environment, or external-service drift? See [[indexes/gaps]].
+
+
+## 2026-09-19: Security evaluation separates objectives from recall guardrails
+
+### Typed entities
+
+project: GitHub secret scanning; concept: false-positive reduction; concept: recall guardrail; concept: label audit; concept: offline evaluation.
+
+### Claims and evidence
+
+- GitHub’s case study optimizes false-positive reduction under a recall constraint, with latency, cost, reliability, and integration guardrails. It recommends versioned production-like datasets and configurations, reproducible baselines, and reevaluation after prompt, model, input, or surrounding-logic changes. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-github-production-llm-evaluation.md)
+- Resolved alerts may reflect rotation or accepted risk rather than negative labels. The authors preserve nearby distracting candidates and incomplete context, review ambiguous labels, add targeted synthetic cases, and sample confident model-judge decisions for systematic errors. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-github-production-llm-evaluation.md)
+- The reported 95% false-positive reduction is an offline dataset result under a recall guardrail that motivated online experimentation; it is not established production performance. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-github-production-llm-evaluation.md)
+
+### Explicit relationships
+
+Security classification depends-on label quality and recall checks; model judges use human calibration. See [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Vendor case study. The earlier 75.76% figure on this page is a separately reported result; the capture does not establish comparable datasets or an improvement from that baseline. Preserve both attributed measurements without inferring a contradiction. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which production-like labels, recall floor, confusing nearby candidates, human-review samples, and latency/cost limits should gate HoneyDrunk security or source-classification changes? See [[indexes/gaps]].
+
+
+## 2026-09-19: LLM judgments as features for calibrated classification
+
+### Typed entities
+
+person: Taylor Pospisil; concept: LLM feature extraction; concept: logistic regression; concept: Brier score; project: SemEval irony detection.
+
+### Claims and evidence
+
+- Pospisil proposes using model judgments and extracted semantic features in a separately trained classifier, alongside deterministic features, to separate language interpretation from calibration and threshold selection. This requires labeled training data as well as evaluation data. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-llm-classification-feature-engineering.md)
+- On the reported SemEval split of 3,834 training and 784 test examples, logistic regression on the verdict changes Brier score from 0.259 to 0.175 without changing F1. Added semantic and deterministic features yield reported Brier 0.127 and F1 0.779; these are one author’s dataset-specific measurements. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-llm-classification-feature-engineering.md)
+
+### Explicit relationships
+
+Calibrated classification uses language-model features and supervised training; threshold choice depends-on labeled outcomes and decision costs.
+
+### Decision and quality notes
+
+Single practitioner experiment. Neither universal calibration nor superiority over prompt-based classification follows. Residual analysis and feature validation are candidate methods, not locally demonstrated benefits. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Is there enough separately labeled training and holdout data for Lore triage, and do downstream classifiers improve calibration and precision/recall at the actual review-cost thresholds? See [[indexes/gaps]].
+
+
+## 2026-09-19: Memory budgets need model-specific held-out evaluation
+
+### Typed entities
+
+project: IBM Research; project: ALTK-Evolve; project: AppWorld; concept: selective guidance retrieval; concept: held-out task evaluation.
+
+### Claims and evidence
+
+- IBM Research compares no trajectory-derived guidance, all guidance, and a compact core with task-specific retrieval on AppWorld. Training tasks supply guidance and held-out tasks evaluate it; success on individual tasks is distinct from passing every scenario variant. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-agent-memory-calibration.md)
+- The reported gpt-oss-120b experiment gains 16.1 percentage points in task completion with selective retrieval and about 5% more tokens. DeepSeek-V3.2 benefits more from the full guideline set, while GLM-5 shows no measured gain. These are model- and benchmark-specific findings. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-agent-memory-calibration.md)
+
+### Explicit relationships
+
+Useful memory depends-on model, task distribution, and context budget. Guideline retrieval uses training evidence; acceptance depends-on held-out reliability and token cost. See [[agent-context-management-and-session-continuity]].
+
+### Decision and quality notes
+
+Related IBM ALTK-Evolve evidence is correlated, not independent corroboration of earlier reliability figures. The article also proposes stable prompt prefixes for caching; context-window size and cross-benchmark generalization remain unresolved. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which no-memory, full-guidance, and selective-retrieval budgets improve HoneyDrunk held-out task and scenario reliability enough to justify their token cost for each model? See [[indexes/gaps]].

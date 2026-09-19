@@ -388,6 +388,7 @@ Azure's May 2026 agent/developer tooling signal is that agent automation is movi
 ### Source-backed claims
 - Azure SRE Agent supports egress modes including Unrestricted, Limited, and Azure VNet; selecting Azure VNet routes agent traffic through a delegated subnet and disables the other mode cards until the VNet is disconnected. Source: `raw/2026-06-19-web-learn-microsoft-com-configure-network-controls-for-azure-sre-agent.md`. confidence: 1 Microsoft Learn source with access warning in capture, last-confirmed 2026-06-19.
 - Azure SRE Agent VNet integration requires a `/28` or larger subnet delegated to `Microsoft.App/environments`, Network Contributor-equivalent subnet join permission, and SRE Agent Administrator permission on the agent resource. Source: `raw/2026-06-19-web-learn-microsoft-com-configure-network-controls-for-azure-sre-agent.md`. confidence: 1 source, last-confirmed 2026-06-19.
+  - superseded-by: [GA network requirements](#2026-09-19-sre-agent-ga-network-scope-and-subnet-requirements); timestamp: 2026-09-19T12:29:11-04:00; reason: the August 25 official GA announcement requires an empty dedicated /27-or-larger subnet in the agent region. It is newer than the June Learn capture with an access warning and unknown publication date; prefer /27 for planning and verify the target deployment. The older /28 claim remains as history; unrelated permission prerequisites are not withdrawn. confidence: 1 source, last-confirmed 2026-09-19 (archived capture reviewed). [captured source](../raw/2026-09-19-rss-azure-sre-agent-vnet-boundaries.md)
 - Azure Container Apps code interpreter sessions provide Hyper-V-isolated Python execution sessions for LLM-generated or user-submitted code, with session pools controlling maximum concurrency and idle stop behavior. Source: `raw/2026-06-19-web-learn-microsoft-com-serverless-code-interpreter-sessions-in-azure-container-apps.md`. confidence: 1 Microsoft Learn source with access warning in capture, last-confirmed 2026-06-19.
 - Code interpreter session access uses Microsoft Entra tokens for identities with Azure ContainerApps Session Executor and Contributor roles on the session pool, and direct API calls require an audience claim of `https://dynamicsessions.io`. Source: `raw/2026-06-19-web-learn-microsoft-com-serverless-code-interpreter-sessions-in-azure-container-apps.md`. confidence: 1 source, last-confirmed 2026-06-19.
 - Code interpreter sessions expose file upload/download/list metadata endpoints and execution endpoints; file uploads are stored under `/mnt/data`, individual executions are capped at 220 seconds, and service metrics are returned in response headers rather than Log Analytics. Source: `raw/2026-06-19-web-learn-microsoft-com-serverless-code-interpreter-sessions-in-azure-container-apps.md`. confidence: 1 source, last-confirmed 2026-06-19.
@@ -823,3 +824,103 @@ Extraction design depends-on the selected API contract; uncertain classification
 ### Decision and quality notes
 
 Vendor announcement snapshot. Evaluate quality and review thresholds on representative documents; storage placement alone is not a complete data-flow or privacy guarantee. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Which required Lore extraction features belong to CU GA versus preview, and what versioned corpus tests establish chunk quality, provenance, storage flows, cost, and review thresholds? See [[indexes/gaps]].
+
+
+## 2026-09-19: Validated plans and durable workflow execution
+
+### Typed entities
+
+project: Azure Functions hosted skills; project: Durable Functions; concept: structured plan; concept: durable timer; concept: idempotent handler.
+
+### Claims and evidence
+
+- Microsoft’s article describes hosted skills, formerly Serverless Agents, producing structured plans from explicitly allowed tools and subagents. Runtime validation precedes Durable Functions orchestration; dependency scheduling, persisted intermediate outputs, and durable timers support execution across request completion and worker restarts. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-web-azure-functions-dynamic-workflows.md)
+- The captured handler contract requires synchronous functions with one dictionary argument, JSON-serializable results, and idempotency because execution can repeat after failures. Queue-triggered work must explicitly deliver results, and management tools cover start, status, list, cancel, and terminate. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-web-azure-functions-dynamic-workflows.md)
+
+### Explicit relationships
+
+Agent planning uses allowed workflow tools; reliable side effects depend-on idempotent handlers and durable execution. See [[distributed-systems-patterns]] and [[agent-context-management-and-session-continuity]].
+
+### Decision and quality notes
+
+Vendor implementation snapshot. The reported 56%/93% sample token reductions are not promoted as HoneyDrunk savings; workload and planning overhead matter. Durability does not imply exactly-once external side effects or automatic result delivery. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which hosted-skill version and restart, repeated-handler, cancellation, tool-allowlist, storage, and queue-result tests would qualify dynamic workflows for a Lore job? See [[indexes/gaps]].
+
+
+## 2026-09-19: Flex certificates protect distinct transport and identity boundaries
+
+### Typed entities
+
+project: Azure Functions Flex Consumption; project: Azure Key Vault; concept: site-scoped certificate; concept: internal-hop TLS; concept: mTLS authorization.
+
+### Claims and evidence
+
+- Microsoft announces site-scoped certificates and end-to-end TLS for Flex Consumption, separating custom-domain HTTPS, front-end-to-worker encryption, outbound certificates, and inbound client authentication. The captured limits are three private and three public certificates per app, with Key Vault/managed-identity imports and renewed-version synchronization within 24 hours. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-web-azure-functions-flex-certificates-tls.md)
+- Code access is granted per certificate rather than through WEBSITE_LOAD_CERTIFICATES; Linux files and thumbprint rotation need explicit handling. For inbound mTLS, X-ARR-ClientCert conveys the certificate but application code still validates trust, validity, usage, revocation policy, and authorization. Header presence alone is insufficient. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-web-azure-functions-flex-certificates-tls.md)
+
+### Explicit relationships
+
+Certificate lifecycle uses scoped access and rotation; mTLS authorization depends-on application validation. Transport encryption and caller permission protect different boundaries.
+
+### Decision and quality notes
+
+Vendor September announcement, not a live configuration audit. The source also flags renegotiation constraints with TLS 1.3, HTTP/2, and large requests, and absence of dedicated Azure CLI certificate commands at publication. Verify deployment-specific behavior before implementation. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which Flex TLS boundaries, certificate access/rotation paths, forwarded-certificate trust checks, and protocol/request-size cases need tests before migrating a HoneyDrunk API? See [[indexes/gaps]].
+
+
+## 2026-09-19: Connector triggers require receiving-app authentication
+
+### Typed entities
+
+project: Azure Managed Connectors; project: Azure App Service; project: Microsoft Entra; concept: authenticated callback; concept: Connector Namespace identity.
+
+### Claims and evidence
+
+- Microsoft adds App Service as a first-class trigger destination within Managed Connectors public preview. The captured configuration supplies a receiving route, Connector Namespace managed identity, and expected Entra audience; new triggers default to POST /api/webhook. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-azure-app-service-connector-triggers.md)
+- The wizard configures the connector side, while receiving-app authentication is separate. The sample configures the Entra application, audience, federated credential, allowed managed-identity principal, and required App Service authentication before event handling; configuration can affect the whole app. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-azure-app-service-connector-triggers.md)
+
+### Explicit relationships
+
+Connector callbacks depend-on receiving-app identity validation and route configuration; connector setup alone does not establish endpoint authentication.
+
+### Decision and quality notes
+
+Vendor preview example using one email-triage push workflow. It does not establish support for every connector/operation. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which connector operations support HoneyDrunk callbacks, and do route, audience, principal, token-rejection, and whole-app authentication tests protect the receiving application? See [[indexes/gaps]].
+
+
+## 2026-09-19: Guided deployment separates planning and execution checkpoints
+
+### Typed entities
+
+project: GitHub Copilot; project: VS Code; project: Azure Developer CLI; concept: architecture approval; concept: deployment cost estimate.
+
+### Claims and evidence
+
+- Microsoft’s preview separates requirements and architecture planning, local development, and Azure deployment. It collects missing inputs, requests plan approval before scaffolding, checks local tools, configures debugging, and presents intended resources, deployment tooling, and estimated cost. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-azure-guided-copilot-checkpoints.md)
+- The article describes retained architecture context and infrastructure files for repeatable environments. Initial JavaScript/TypeScript support includes Functions, Container Apps, and Static Web Apps; .NET and Python remain roadmap items in this capture. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-azure-guided-copilot-checkpoints.md)
+
+### Explicit relationships
+
+Guided deployment uses explicit planning and deployment checkpoints; reproducible environments depend-on infrastructure artifacts and prerequisites.
+
+### Decision and quality notes
+
+Vendor preview goals are not independent proof of deterministic output or first-attempt deployment success. This adds a workflow pattern without asserting .NET availability. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which requirement, architecture, prerequisite, infrastructure, and cost checkpoints should a HoneyDrunk deployment agent expose, and does the selected preview support the project language? See [[indexes/gaps]].
+
+
+## 2026-09-19: SRE Agent GA network scope and subnet requirements
+
+### Typed entities
+
+project: Azure SRE Agent; project: Azure VNet; concept: dedicated delegated subnet; concept: outbound routing; concept: egress-policy audit.
+
+### Claims and evidence
+
+- Microsoft’s August 25 GA announcement distinguishes destination routing, resource identity/permissions, and tool policy/approvals. Integration covers selected outbound traffic only; not every agent flow traverses the VNet. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-azure-sre-agent-vnet-boundaries.md)
+- The announcement requires an empty dedicated subnet of /27 or larger, in the agent’s region and delegated to Microsoft.App/environments. It calls for repository-connectivity and private-path tests. The workspace egress-policy audit is not a complete network record and requires infrastructure-log supplementation. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-azure-sre-agent-vnet-boundaries.md)
+
+### Explicit relationships
+
+Private connectivity depends-on routing, DNS, and subnet setup; authorized operations depend-on identity and tool policy. The newer GA requirements supersede the older subnet-size claim below its historical entry.
+
+### Decision and quality notes
+
+Official GA announcement is newer than the June Learn capture, which had an access warning and unknown publication date. Prefer the newer /27 requirement for research planning, with live deployment validation still required. Existing managed-path exceptions remain relevant; VNet integration does not establish total traffic containment. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which SRE Agent traffic uses private versus managed paths, and do the target deployment’s subnet sizing, DNS, repository connectivity, identity controls, and infrastructure logs establish the intended boundary? See [[indexes/gaps]].

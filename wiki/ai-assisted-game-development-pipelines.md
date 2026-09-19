@@ -65,3 +65,23 @@ Agent-assisted engine work uses version-aware procedures and project inspection;
 ### Decision and quality notes
 
 Unity announcement snapshot, not an installation or a live compatibility check. Engine-authored guidance complements the existing visual/gameplay QA requirement. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Which Unity/plugin versions and representative scene, sprite-atlas, and URP tests would establish compatibility and useful verification coverage in a HoneyDrunk project? See [[indexes/gaps]].
+
+
+## 2026-09-19: XR agent feedback uses actual Editor and device observations
+
+### Typed entities
+
+person: Dilmer Valecillos; project: Unity CLI; library: Unity Pipeline; project: Meta VR CLI; concept: live C# evaluation; concept: headset performance trace.
+
+### Claims and evidence
+
+- Unity’s interview describes Unity CLI/Pipeline and Roslyn live C# evaluation for inspecting or changing Editor state without the usual project recompilation and domain-reload cycle. Platform documentation and actual headset state provide feedback for coding assistants. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-unity-cli-xr-device-feedback.md)
+- The account uses Meta VR CLI for installing builds, collecting logs/screenshots, and capturing performance traces, with Project Setup Tool checks and Runtime Optimizer comparisons. Conventional profilers remain part of investigation; the interview also describes using different models for authoring and review. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-unity-cli-xr-device-feedback.md)
+
+### Explicit relationships
+
+Agent-assisted XR work uses engine and device evidence; performance diagnosis depends-on target hardware observations. See [[unity-3d-and-realtime-vfx-patterns]] for existing live-evaluation access boundaries.
+
+### Decision and quality notes
+
+Written vendor interview only; linked videos and profiles were not ingested. Different review models do not establish independent correctness, and agent interpretation does not replace profiling. Tool versions and permissions remain unverified. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which versioned Editor and Quest-device observations, live-evaluation permissions, and profiler comparisons would verify an agent-generated XR change before acceptance? See [[indexes/gaps]].

@@ -1079,3 +1079,43 @@ Cross-host procedural geometry uses a shared computational core and adapters; co
 ### Decision and quality notes
 
 Creator interview summary. Validate geometry/export budgets and deterministic outputs with representative real-time assets before adopting the technique. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Which cross-host geometry fixtures verify seeded outputs, material adapters, preset intent, animation-cache stability, and real-time export cost for a shared procedural core? See [[indexes/gaps]].
+
+
+## 2026-09-19: Scene passes expose production tradeoffs before polish
+
+### Typed entities
+
+person: Irmak Çavun; project: Unreal Engine; project: Substance 3D Designer; concept: modular environment; concept: layered master material.
+
+### Claims and evidence
+
+- Çavun describes evaluating representative models, textures, lighting, and composition together in-engine before detailed polish. Larger modular pieces and smaller snapping elements support assembly, while parameterized aging/damage materials and a tile-damage generator support variation. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-technical-art-environment-production-passes.md)
+- The scene uses a shared layered Unreal master material with RGB masks, vertex paint, and texture paint; water, sky, and decals are exceptions. Final passes refine blending, a small decal set, and light sources individually before reviewing their combined result. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-technical-art-environment-production-passes.md)
+
+### Explicit relationships
+
+Environment iteration uses representative scene passes; asset variation uses reusable materials and controlled parameters. See [[unity-3d-and-realtime-vfx-patterns]] for separate engine-specific evidence.
+
+### Decision and quality notes
+
+Single artist portfolio breakdown. Reported efficiency does not establish runtime performance, prove cross-engine equivalence, or prohibit unique textures. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which representative environment passes and material variants reveal art-direction changes early, and what runtime, memory, and visual checks qualify the shared-material approach for HoneyDrunk assets? See [[indexes/gaps]].
+
+
+## 2026-09-19: Texture-cache design trades memory against loading and replay
+
+### Typed entities
+
+person: Brecht Van Lommel; project: Blender Cycles; concept: texture tile cache; concept: mip level; concept: kernel replay.
+
+### Claims and evidence
+
+- Van Lommel’s May design article describes a Blender 5.2 LTS texture cache loading needed tiles and mip levels from generated tx files. GPU misses are batched, missing tiles loaded, and kernels relaunched; replay must avoid unintended side effects. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-blender-cycles-texture-cache.md)
+- Render-tile progress drives eviction. Smaller render tiles can relieve memory pressure at a performance cost, and reduced texture resolution can improve viewport memory/load time. Benefits depend on scene composition and texture versus geometry memory. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-blender-cycles-texture-cache.md)
+
+### Explicit relationships
+
+Texture residency uses generated cache files and demand loading; useful savings depend-on scene composition, storage, and replay behavior.
+
+### Decision and quality notes
+
+Historical development design, not a newly verified release status. Preserve the later Blender release coverage above; the May unfinished-work status does not supersede it. Same-project sources do not independently validate performance. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which representative Blender scenes and devices need cache-generation, storage, tile-size, resolution, and memory/render-time measurements before texture caching becomes a pipeline default? See [[indexes/gaps]].

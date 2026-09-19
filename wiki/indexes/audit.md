@@ -234,3 +234,13 @@ Operator: Codex executing the authorized Honeyclaw workflow. Reconciled 977 raw 
 ## 2026-09-18T16:39:12-04:00: daily ingest/compile
 
 Operator: Codex executing the authorized Honeyclaw workflow. Read and ingested 15 September 16 attributed summaries into 12 existing canonical pages. Rebuilt source/topic/gap catalogs: 992 raw documents, 63 concept pages, 527 dated gaps (14 new; 0 closed). Read all 13 query outputs; no new durable evidence to crystallize. No duplicate canonical articles or substantive contradictions required merging or supersession. Historical preview dates and reported remediation scope preserved; no independent corroboration inferred from related topics. Raw bytes preserved; no credential or private contact data promoted. See [run receipt](../../output/lore-ingest-last-run.md) for review, validation, and publication scope.
+
+
+## 2026-09-19T12:19:43-04:00: daily ingest/compile
+
+Operator: Codex executing the authorized Honeyclaw workflow. Read all 15 September 18 captures and extended 13 canonical concept pages. Rebuilt catalogs: 1007 raw documents, 63 concept pages, 542 dated gaps (15 new; 0 closed). Superseded June GitHub workflow-protection preview status in two pages using the September 17 GA announcement, preserving both old claims. All 13 query outputs repeat compiled evidence; no new crystallization or independent support. No canonical merge or confidence promotion warranted. Raw bytes preserved; no credentials or private contact details promoted. See [run receipt](../../output/lore-ingest-last-run.md) for inventory, quality, review, and validation.
+
+
+## 2026-09-19T12:29:11-04:00: concurrent sourcing arrivals reconciled
+
+Final validation found 15 new September 19 captures before staging. Read and compiled all 15, expanding this run to 30 sources across 15 existing pages and one new canonical Pipeline Template Contracts page. Catalog now covers 1022 raw documents, 64 concept pages, and 557 dated gaps (30 new). Resolved the older Azure SRE Agent /28 subnet requirement in favor of the newer official GA /27 requirement with timestamp, source, and preserved history. The two GitHub preview supersessions remain. Historical Blender development evidence does not displace later release coverage; ALTK-Evolve sources remain correlated. All raw arrivals were hashed before edits. See [run receipt](../../output/lore-ingest-last-run.md) for combined inventory and final checks.

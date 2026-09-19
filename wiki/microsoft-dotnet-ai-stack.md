@@ -910,3 +910,23 @@ Microsoft's .NET AI story is converging around composable abstractions: `Microso
 
 ### Quality notes
 - This is a release-candidate snapshot; local SDK, Visual Studio, and client generator behavior may supersede early claims.
+
+
+## 2026-09-19: Harness approval and memory require explicit outcomes
+
+### Typed entities
+
+project: MafClaw; library: IChatClient; concept: AsHarnessAgent; concept: approval timeout; concept: confirmed durable write; concept: rooted file store.
+
+### Claims and evidence
+
+- Microsoft’s written walkthrough uses IChatClient, AsHarnessAgent, and configurable providers for tools, rooted files, approvals, planning, and memory. Its example automatically approves read-only file operations while consequential tools require a decision; bounded unanswered retries end in denial that remains effective for the current prompt. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-dotnet-harness-approvals-memory.md)
+- Durable memory needs a confirmed storage operation, suitable scope, and visible failures. The article separates skills, shell execution, controlled code execution, and background work, and describes telemetry, governance, evaluations, and hosted deployment. File restrictions and approvals do not replace execution isolation. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-dotnet-harness-approvals-memory.md)
+
+### Explicit relationships
+
+Harness execution uses application-owned tools and authorization; durable memory depends-on confirmed scoped writes. Hosted reuse depends-on reevaluating local capabilities. See [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Written Microsoft sample only; accompanying streams were not sourced. No installed API/version compatibility or runtime containment was tested. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which target harness version, denied/timed-out tool paths, confirmed memory writes, and hosted filesystem/shell boundaries must be tested before reusing a .NET agent definition? See [[indexes/gaps]].

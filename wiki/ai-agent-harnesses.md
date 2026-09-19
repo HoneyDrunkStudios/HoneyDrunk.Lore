@@ -1810,3 +1810,23 @@ Persistent coordination uses durable shared context and event subscriptions. Del
 ### Decision and quality notes
 
 Vendor beta announcement. Delegation scale and productivity observations establish neither equivalent gains nor safety or resource cost for HoneyDrunk. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which recurring work benefits from persistent coordination, and what context ownership, event permissions, local/cloud boundaries, and cost controls would qualify a trial? See [[indexes/gaps]].
+
+
+## 2026-09-19: Agent controllers and durable knowledge are separate concerns
+
+### Typed entities
+
+person: Zichuan Xiong; concept: agent controller; concept: external verification; concept: durable knowledge graph.
+
+### Claims and evidence
+
+- Xiong proposes five controller categories: prompts set boundaries, instructions state goals, skills package procedures, recipes route procedures, and loops respond to external evidence. This is the author’s practitioner taxonomy, not a standard. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-agent-controllers-and-shared-knowledge.md)
+- The article distinguishes textual guidance from enforcement and closes meaningful feedback loops on external authorities such as compilers, tests, or human review. It treats durable shared knowledge as a separate grounding axis; weak validation can still terminate with a wrong result. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-agent-controllers-and-shared-knowledge.md)
+
+### Explicit relationships
+
+Feedback loops depend-on external evidence; agent controllers use durable knowledge. See [[llm-wiki-and-knowledge-formats]] and [[agent-context-management-and-session-continuity]].
+
+### Decision and quality notes
+
+Conceptual guidance supports workflow design but does not demonstrate runtime enforcement or quantified reliability. It extends the existing harness/verification model without making Lore agent runtime memory. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which Honeyclaw steps need guidance, procedure routing, or externally checked feedback, and which terminating signals actually establish task success? See [[indexes/gaps]].

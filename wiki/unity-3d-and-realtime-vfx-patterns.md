@@ -1347,3 +1347,83 @@ UI overdraw optimization uses geometry that matches visible content. Adoption de
 ### Decision and quality notes
 
 Practitioner candidates, not universal rendering rules or measured savings. Compare generated geometry, appearance, and timings before adopting. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which UGUI backgrounds, hidden graphics, and hollow frames benefit from geometry changes without visual regressions on the target Unity and Canvas configuration? See [[indexes/gaps]].
+
+
+## 2026-09-19: Reproducible Unity builds retain project and CI responsibilities
+
+### Typed entities
+
+project: Unity CLI; project: Unity Editor; file: ProjectVersion.txt; concept: C# build method; concept: license teardown; concept: NUnit XML.
+
+### Claims and evidence
+
+- Unity’s CI article describes Editor provisioning, tests, builds, and license management through a common CLI; ProjectVersion.txt selects the required Editor when installation is allowed. Platform modules remain an explicit environment requirement. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-unity-cli-reproducible-cicd.md)
+- Project C# build methods still own scenes, symbols, versioning, and validation, while CI owns checkout, secrets, caches, reporting, and artifact publication. The source calls for preserving NUnit test reports, builds, Editor logs, and CLI logs before ephemeral runners disappear, and returning activated licenses in unconditional teardown. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-unity-cli-reproducible-cicd.md)
+
+### Explicit relationships
+
+Reproducible engine builds use versioned provisioning and project build logic; diagnosis depends-on retained artifacts. License release depends-on teardown even after failure. See [[github-actions-platform-operations]].
+
+### Decision and quality notes
+
+Unity vendor workflow summary. Installed syntax, licensing support, signing-file handling, and failure behavior need local validation. No signing material or account details are reproduced. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which Unity Editor/module versions, project build methods, retained reports, signing-file cleanup, and unconditional license-return checks make local and CI failures reproducible? See [[indexes/gaps]].
+
+
+## 2026-09-19: Mobile entity scaling benefits from selective data-oriented changes
+
+### Typed entities
+
+project: Deep Rock Galactic Survivor; project: Piktiv; library: Unity Burst; library: Addressables; concept: flow field; concept: vertex animation; concept: KD-tree.
+
+### Claims and evidence
+
+- Unity’s Piktiv interview describes six automated biome performance scenarios measuring CPU, GPU, and memory under a constrained iPad budget. Damage numbers use particle digit sprites instead of repeated text-mesh generation; flow fields replace per-agent navigation, and a KD-tree reduces physics-query work with a moving-entity rebuild tradeoff. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-unity-survivor-mobile-optimization.md)
+- Single-animation enemies use texture-baked vertex animation and GPU instancing. Burst jobs, native containers, and custom batching reduce CPU work without a full ECS conversion. Addressables separate biome assets but require asynchronous-loading architecture, while the mobile branch receives ongoing one-way PC merges. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-unity-survivor-mobile-optimization.md)
+
+### Explicit relationships
+
+Entity-scale optimization depends-on target-device profiling; selective data-oriented changes use bounded workloads. Memory partitioning uses Addressables and depends-on asynchronous-loading design.
+
+### Decision and quality notes
+
+Project-specific engineering account. It reinforces profiling and selective adoption without quantifying transferable speedups or proving that full ECS is unnecessary for other games. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which automated device scenarios isolate HoneyDrunk entity-count costs, KD-tree rebuilds, animation limits, asset-loading peaks, and PC-to-mobile merge regressions before adopting these techniques? See [[indexes/gaps]].
+
+
+## 2026-09-19: Canvas update-frequency separation trades batching costs
+
+### Typed entities
+
+project: Unity UGUI; project: GameOptim; concept: Canvas.BuildBatch; concept: static Canvas; concept: dynamic Canvas.
+
+### Claims and evidence
+
+- GameOptim describes rotating decorations and unchanged icons sharing a Canvas, with frequent transform changes causing batching work for otherwise stable content. Its case separates changing elements into a small dynamic Canvas and retains stable icons, frames, and backgrounds in another Canvas. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-unity-canvas-update-frequency.md)
+- The reported main-thread rendering marker changes from 0.43 ms to 0.09 ms in that scenario. The vendor relates the marker to waiting on Canvas.BuildBatch and calls for device profiling; separate Canvases cannot batch together and add overhead. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-unity-canvas-update-frequency.md)
+
+### Explicit relationships
+
+UI partitioning uses update frequency; acceptance depends-on actual timeline, draw calls, and device cost. It complements the earlier geometry/overdraw techniques.
+
+### Decision and quality notes
+
+Tool-vendor case study. Neither timings nor marker interpretation are universal; weigh CPU savings against rendering cost and complexity. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which frequently changing UI elements trigger measured Canvas batching work, and does separating them improve device frame time after draw-call and Canvas overhead are included? See [[indexes/gaps]].
+
+
+## 2026-09-19: Modular live operations retain replication and asset contracts
+
+### Typed entities
+
+project: Hologryph; project: SAND Raiders of Sophie; library: Entitas; library: Addressables; library: Unity Burst; concept: authoritative replication.
+
+### Claims and evidence
+
+- Unity’s Hologryph interview describes an authoritative server, matching procedural generation, replication, and streaming. Modular Trampler compartments support data/configuration content additions while new mechanics require isolated programming. The game uses modified Entitas ECS with custom dependency injection/networking, not Unity Entities. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-unity-sand-modular-live-ops.md)
+- Burst jobs cover terrain, movement, and culling. Parameterized VFX graphs support artist-created weapon variants; Addressables and a custom transfer pipeline manage streaming and alignment between separate client/server projects. Fixed-scenario performance automation complements profiling. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-unity-sand-modular-live-ops.md)
+
+### Explicit relationships
+
+Sustainable content addition uses modular data and parameterized art; client/server correctness depends-on replication, procedural agreement, and aligned assets. See [[realtime-game-network-protocol-design]].
+
+### Decision and quality notes
+
+Studio-reported vendor interview, not a transferable performance guarantee or a requirement for smaller projects. Its ECS choice is project-specific and does not contradict selective non-ECS optimizations elsewhere. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which gameplay/content boundaries, client-server asset transfers, procedural agreement checks, and fixed performance scenarios would keep HoneyDrunk live-operations changes repeatable? See [[indexes/gaps]].

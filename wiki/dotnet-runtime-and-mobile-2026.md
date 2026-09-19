@@ -608,3 +608,63 @@ Union modeling uses enumerated outcomes; API adoption depends-on representation 
 ### Decision and quality notes
 
 Practitioner preview summary. Preserve newer RC1 and serialization qualifications; no contradictory release claim or new independent implementation verification. Reuse the 2026-09-15 closed-hierarchy/union validation question in [[indexes/gaps]]. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details.
+
+
+## 2026-09-19: Contextual options and rename-sensitive configuration
+
+### Typed entities
+
+person: Andrew Lock; library: Microsoft.Extensions.Options.Contextual; concept: contextual options; concept: generated context receiver.
+
+### Claims and evidence
+
+- Lock’s April example supplies caller context to an asynchronous options provider, using an OptionsContext partial type, IOptionsContextReceiver, and IContextualOptions. It contrasts arbitrary context with a fixed collection of named configurations. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-dotnet-contextual-options-tradeoffs.md)
+- The example’s receiver depends on property-name strings, leaving rename-related coupling. The cited package is 10.4.0-preview.1.26160.2; its experimental API usage, including generated code, required explicit EXTEXP0018 suppression at publication. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-dotnet-contextual-options-tradeoffs.md)
+
+### Explicit relationships
+
+Contextual configuration uses generated context and a receiver; adoption depends-on rename behavior and target-package maturity.
+
+### Decision and quality notes
+
+Historical April practitioner evidence, newly clipped in September. It does not establish present package maturity or replace newer runtime release evidence. Indirection is a design tradeoff rather than proof of reduced coupling. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which configuration cases need arbitrary caller context rather than named options, and what rename, asynchronous-loading, generated-code, and target-package tests would qualify contextual options? See [[indexes/gaps]].
+
+
+## 2026-09-19: Constant byte spans require target-specific IL verification
+
+### Typed entities
+
+person: Andrew Lock; library: System.Memory; concept: `ReadOnlySpan<byte>`; concept: constant assembly data; concept: emitted IL.
+
+### Claims and evidence
+
+- Lock shows a compiler optimization where `ReadOnlySpan<byte>` points into constant assembly data without array allocation/copying, including a .NET Framework example using System.Memory. The walkthrough verifies address/length construction in emitted IL and relates UTF-8 literals to the mechanism. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-dotnet-readonlyspan-constant-data.md)
+- The demonstrated portable case depends on immutable access, constant elements, and byte-sized primitives. Changing element types or using nonconstant values can introduce allocations; array-like source syntax alone does not establish allocation behavior. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-dotnet-readonlyspan-constant-data.md)
+
+### Explicit relationships
+
+Allocation avoidance depends-on compiler lowering and target build; constant spans use existing assembly data.
+
+### Decision and quality notes
+
+April technical reference, not a new runtime release. Inspect the actual compiled target and measure protocol-table or parsing workloads before claiming savings. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which fixed byte tables qualify for constant-span lowering, and what emitted-IL and allocation measurements verify every HoneyDrunk target/compiler configuration? See [[indexes/gaps]].
+
+
+## 2026-09-19: Fetch Metadata distinguishes browser request context
+
+### Typed entities
+
+person: Andrew Lock; concept: Sec-Fetch-Site; concept: Sec-Fetch-Dest; concept: Sec-Fetch-Mode; concept: Sec-Fetch-User; concept: CSRF.
+
+### Claims and evidence
+
+- Lock explains site relationships, resource destinations, navigation/CORS modes, and user activation through Fetch Metadata headers. Same-site is broader than same-origin, so subdomain and port treatment matters when defining a policy. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-fetch-metadata-request-boundaries.md)
+- The article distinguishes sending cross-origin requests from script access to responses: a no-CORS request can reach a server despite an opaque response. CORS alone is not complete CSRF protection. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-fetch-metadata-request-boundaries.md)
+
+### Explicit relationships
+
+Browser request policy uses context headers; safe rejection rules depend-on legitimate navigation, embedded resources, and integrations. This grounds the earlier ASP.NET Core preview discussion.
+
+### Decision and quality notes
+
+Practitioner background, not a complete production middleware configuration or a basis to remove antiforgery tokens. Related Lock articles are not independent verification of released framework behavior. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which same-site subdomains, ports, user navigations, embedded resources, and cross-site integrations must remain valid under HoneyDrunk browser-facing request policies? See [[indexes/gaps]].

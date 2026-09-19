@@ -156,3 +156,23 @@ Agent authorization depends-on independently enforced policy; scoped child workf
 ### Decision and quality notes
 
 Architecture guidance only. No legal-compliance assertions or incident anecdotes promoted. This is consistent with existing delegated-identity and secretless-handle patterns. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Where should tool/data gateways enforce purpose and source permissions, and which policy tests cover child workflows and injected attempts to widen access? See [[indexes/gaps]].
+
+
+## 2026-09-19: Worker-scoped deployment authority
+
+### Typed entities
+
+project: Cloudflare Workers; project: Durable Objects; concept: resource-scoped token; concept: Editor role; concept: zone permission.
+
+### Claims and evidence
+
+- Cloudflare’s announcement describes four Worker-level roles for users and API tokens, separating operational metadata, read-only content, content/settings changes, and full administration. Editor can deploy but cannot create or delete resources; Admin includes destructive and access-management operations. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-cloudflare-worker-scoped-agent-permissions.md)
+- A token can be scoped to one Worker. Route or custom-domain changes additionally need the zone’s Workers Routes permission; unchanged connections can continue deploying without it. Durable Objects inherit their implementing Worker’s permissions, and Data Studio requires Editor because it can write data. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-cloudflare-worker-scoped-agent-permissions.md)
+
+### Explicit relationships
+
+Agent deployment uses resource-scoped permissions; routing changes depend-on zone authority. Durable Object authorization depends-on its implementing Worker.
+
+### Decision and quality notes
+
+Vendor announcement captured September 18. Legacy assignments remain valid according to the source; granular authorization for other products is future work. This does not supersede the need for contextual checks discussed above. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which Worker, route, Durable Object, and Data Studio operations does each HoneyDrunk agent need, and do negative permission tests prevent unrelated deployments or deletion? See [[indexes/gaps]].

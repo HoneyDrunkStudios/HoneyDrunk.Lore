@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-09-18
+## Compile coverage: 2026-09-19
 
-Reconciled 992 raw source documents against 992 unique source entries; ingested 15 new captures in this pass. All raw documents have index entries. Existing source records and ingestion dates are preserved. Query outputs remain derived explorations rather than independent raw evidence.
+Reconciled 1022 raw source documents against 1022 unique source entries; ingested 30 new captures in this pass. All raw documents have index entries. Existing source records and ingestion dates are preserved. Query outputs remain derived explorations rather than independent raw evidence.
 
 ## Entry format
 
@@ -1213,3 +1213,41 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [Kubernetes attributes processor reaches v1.0.0 milestone](../../raw/2026-09-16-rss-opentelemetry-kubernetes-attributes-v1.md) - Processor stability includes emitted metadata contracts; attributed summary, provisional source-specific evidence. See [[opentelemetry-genai-observability-and-ecosystem]]. - ingested 2026-09-18
 - [We wanted to use Baseten for inference. We ended up with admin access to Baseten GitHub repos](../../raw/2026-09-16-rss-strix-container-history-secret-exposure.md) - Build history can retain credentials beyond filesystem cleanup; attributed summary, provisional source-specific evidence. See [[container-supply-chain-and-compliance]]. - ingested 2026-09-18
 - [The Official Unity Plugin for Codex](../../raw/2026-09-16-web-unity-official-codex-plugin.md) - Engine-maintained procedures and project verification; attributed summary, provisional source-specific evidence. See [[ai-assisted-game-development-pipelines]]. - ingested 2026-09-18
+
+
+## 2026-09-19 ingest
+
+- [Understanding agents, their five controllers and one graph](../../raw/2026-09-18-rss-agent-controllers-and-shared-knowledge.md) - Agent controllers and durable knowledge are separate concerns; attributed capture compiled in [[ai-agent-harnesses]]. - ingested 2026-09-19
+- [API Rate Limiting for More Reliable Workflows](../../raw/2026-09-18-rss-api-rate-limiting-workflow-design.md) - Outbound pacing and inbound admission are separate controls; attributed capture compiled in [[distributed-systems-patterns]]. - ingested 2026-09-19
+- [Give every teammate and agent the right level of access to your Workers](../../raw/2026-09-18-rss-cloudflare-worker-scoped-agent-permissions.md) - Worker-scoped deployment authority; attributed capture compiled in [[ai-agent-identity-and-workload-auth]]. - ingested 2026-09-19
+- [Configuring contextual options with Microsoft.Extensions.Options.Contextual](../../raw/2026-09-18-rss-dotnet-contextual-options-tradeoffs.md) - Contextual options and rename-sensitive configuration; attributed capture compiled in [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-09-19
+- [Dual-exporting .NET metrics with OTLP and Prometheus](../../raw/2026-09-18-rss-dotnet-dual-otlp-prometheus-metrics.md) - Parallel metric export needs instrumentation and semantic checks; attributed capture compiled in [[opentelemetry-genai-observability-and-ecosystem]]. - ingested 2026-09-19
+- [How to evaluate LLMs before production](../../raw/2026-09-18-rss-github-production-llm-evaluation.md) - Security evaluation separates objectives from recall guardrails; attributed capture compiled in [[agent-evaluation-and-benchmarks]]. - ingested 2026-09-19
+- [Workflow execution protections in GitHub Actions generally available](../../raw/2026-09-18-rss-github-workflow-execution-protections-ga.md) - Workflow execution protections reach general availability; attributed capture compiled in [[github-actions-platform-operations]]. - ingested 2026-09-19
+- [Threat Hunting with JA4/JA4S (+ Practical KQL Queries)](../../raw/2026-09-18-rss-ja4-ja4s-kql-threat-hunting.md) - TLS fingerprints support contextual investigation; attributed capture compiled in [[cloud-security-monitoring-and-siem]]. - ingested 2026-09-19
+- [LLM Classification Is Feature Engineering](../../raw/2026-09-18-rss-llm-classification-feature-engineering.md) - LLM judgments as features for calibrated classification; attributed capture compiled in [[agent-evaluation-and-benchmarks]]. - ingested 2026-09-19
+- [Assembling Abandoned Middle Eastern Courtyard in 3D Using Pass-Based Workflow](../../raw/2026-09-18-rss-technical-art-environment-production-passes.md) - Scene passes expose production tradeoffs before polish; attributed capture compiled in [[technical-art-community-and-talent-signals]]. - ingested 2026-09-19
+- [CICD Made Easier with Unity CLI](../../raw/2026-09-18-rss-unity-cli-reproducible-cicd.md) - Reproducible Unity builds retain project and CI responsibilities; attributed capture compiled in [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-09-19
+- [5 tips for speeding up your XR dev workflows with Unity CLI](../../raw/2026-09-18-rss-unity-cli-xr-device-feedback.md) - XR agent feedback uses actual Editor and device observations; attributed capture compiled in [[ai-assisted-game-development-pipelines]]. - ingested 2026-09-19
+- [Optimizing Deep Rock Galactic Survivor for mobile](../../raw/2026-09-18-rss-unity-survivor-mobile-optimization.md) - Mobile entity scaling benefits from selective data-oriented changes; attributed capture compiled in [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-09-19
+- [Enable Dynamic Workflows in Azure Functions hosted skills](../../raw/2026-09-18-web-azure-functions-dynamic-workflows.md) - Validated plans and durable workflow execution; attributed capture compiled in [[azure-agent-automation-and-identity]]. - ingested 2026-09-19
+- [SSL/TLS certificates and end-to-end encryption for Azure Functions Flex Consumption](../../raw/2026-09-18-web-azure-functions-flex-certificates-tls.md) - Flex certificates protect distinct transport and identity boundaries; attributed capture compiled in [[azure-agent-automation-and-identity]]. - ingested 2026-09-19
+
+
+### Additional arrivals reconciled before publication
+
+- [How Much Memory Does Your Agent Actually Need?](../../raw/2026-09-19-rss-agent-memory-calibration.md) - Memory budgets need model-specific held-out evaluation; attributed capture compiled in [[agent-evaluation-and-benchmarks]]. - ingested 2026-09-19
+- [Azure App Service is now a trigger destination for Azure Managed Connectors](../../raw/2026-09-19-rss-azure-app-service-connector-triggers.md) - Connector triggers require receiving-app authentication; attributed capture compiled in [[azure-agent-automation-and-identity]]. - ingested 2026-09-19
+- [Introducing a Guided Copilot Experience for Building Azure Apps in VS Code](../../raw/2026-09-19-rss-azure-guided-copilot-checkpoints.md) - Guided deployment separates planning and execution checkpoints; attributed capture compiled in [[azure-agent-automation-and-identity]]. - ingested 2026-09-19
+- [Wiring Azure DevOps Pipeline Templates Without the Parameter Sprawl: The Manifest Facade Pattern](../../raw/2026-09-19-rss-azure-pipeline-manifest-facade.md) - Compile-time manifests and runtime values have different roles; attributed capture compiled in [[pipeline-template-contracts]]. - ingested 2026-09-19
+- [Azure SRE Agent VNet integration is now generally available](../../raw/2026-09-19-rss-azure-sre-agent-vnet-boundaries.md) - SRE Agent GA network scope and subnet requirements; attributed capture compiled in [[azure-agent-automation-and-identity]]. - ingested 2026-09-19
+- [Cycles Texture Cache](../../raw/2026-09-19-rss-blender-cycles-texture-cache.md) - Texture-cache design trades memory against loading and replay; attributed capture compiled in [[technical-art-community-and-talent-signals]]. - ingested 2026-09-19
+- [Tame Dependabot: Group your updates, slow the cadence, keep security fast](../../raw/2026-09-19-rss-dependabot-routine-security-cadence.md) - Routine dependency batches require a separate security path; attributed capture compiled in [[dotnet-dependency-security-and-nuget]]. - ingested 2026-09-19
+- [Build Your Own AI Agent Harness in C#, the MafClaw Live Series](../../raw/2026-09-19-rss-dotnet-harness-approvals-memory.md) - Harness approval and memory require explicit outcomes; attributed capture compiled in [[microsoft-dotnet-ai-stack]]. - ingested 2026-09-19
+- [Removing byte[] allocations in .NET Framework using ReadOnlySpan<T>](../../raw/2026-09-19-rss-dotnet-readonlyspan-constant-data.md) - Constant byte spans require target-specific IL verification; attributed capture compiled in [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-09-19
+- [Understanding the Fetch Metadata HTTP headers: Sec-Fetch-Site and friends](../../raw/2026-09-19-rss-fetch-metadata-request-boundaries.md) - Fetch Metadata distinguishes browser request context; attributed capture compiled in [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-09-19
+- [Ubuntu 26 generally available and latest migration](../../raw/2026-09-19-rss-github-ubuntu-26-runner-migration.md) - Ubuntu runner migrations need explicit image trials; attributed capture compiled in [[github-actions-platform-operations]]. - ingested 2026-09-19
+- [What can you do with OpenTelemetry entity events?](../../raw/2026-09-19-rss-otel-temporal-entity-event-graphs.md) - Temporal entity graphs preserve observations and identity; attributed capture compiled in [[opentelemetry-genai-observability-and-ecosystem]]. - ingested 2026-09-19
+- [How the Transactional Outbox Pattern Guarantees Event Delivery](../../raw/2026-09-19-rss-transactional-outbox-relay-contract.md) - Outbox durability depends on relay and consumer contracts; attributed capture compiled in [[distributed-systems-patterns]]. - ingested 2026-09-19
+- [Optimizing Canvas.BuildBatch Cost via Static/Dynamic UI Separation](../../raw/2026-09-19-rss-unity-canvas-update-frequency.md) - Canvas update-frequency separation trades batching costs; attributed capture compiled in [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-09-19
+- [How Hologryph built SAND: Raiders of Sophie for a sustainable live ops cadence](../../raw/2026-09-19-rss-unity-sand-modular-live-ops.md) - Modular live operations retain replication and asset contracts; attributed capture compiled in [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-09-19

@@ -63,3 +63,23 @@ Cloud security monitoring covers detection surfaces, SIEM integrity, and telemet
 
 ### Quality notes
 - Source is practitioner security guidance. The wiki retained architecture and monitoring implications, not copy-pastable exploit steps.
+
+
+## 2026-09-19: TLS fingerprints support contextual investigation
+
+### Typed entities
+
+person: Sergio Albea; concept: JA4; concept: JA4S; concept: KQL; project: FoxIO; concept: TLS fingerprint baseline.
+
+### Claims and evidence
+
+- Albea’s defensive examples use JA4 client-handshake characteristics and JA4S server context, including GatewayJA4 in EntraIdSignInEvents and ja4/ja4s in DeviceNetworkEvents AdditionalFields where those fields are present. Structured components support investigation beyond exact matches. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-ja4-ja4s-kql-threat-hunting.md)
+- The author reports low coverage from FoxIO’s mapping dataset in the tested environment. Unmatched or rare fingerprints, missing SNI, unusual ALPN, or cipher-count differences need application/client context; neither rarity nor mapping absence establishes compromise. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-ja4-ja4s-kql-threat-hunting.md)
+
+### Explicit relationships
+
+TLS fingerprint hunting uses structured telemetry and contextual baselines; useful detection depends-on field availability and expected client behavior.
+
+### Decision and quality notes
+
+Practitioner hunting summary, not a validated HoneyDrunk detection. No individual user/address data or executable query payloads were promoted. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Do HoneyDrunk telemetry sources contain JA4/JA4S fields, and what expected-client baselines and contextual checks distinguish useful anomalies from benign rarity or missing mappings? See [[indexes/gaps]].

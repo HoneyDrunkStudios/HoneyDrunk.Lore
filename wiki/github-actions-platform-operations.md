@@ -410,6 +410,7 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ### Source-backed claims
 - GitHub workflow execution protections are in public preview for enterprises, organizations, and repositories, using rulesets to allow or block workflow triggers by actor and event before a run starts. Source: `raw/2026-06-19-web-github-blog-control-who-and-what-triggers-github-actions-workflows.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-19.
+  - superseded-by: [September GA evidence](github-actions-platform-operations.md#2026-09-19-workflow-execution-protections-reach-general-availability); timestamp: 2026-09-19T12:19:43-04:00; reason: the September 17 official announcement is newer than the June preview announcement. Prior preview wording is retained as historical evidence; the release-status claim is superseded. confidence: 1 source, last-confirmed 2026-09-19 (archived capture reviewed). [captured source](../raw/2026-09-18-rss-github-workflow-execution-protections-ga.md)
 - Actor rules can distinguish users, repository roles, GitHub Apps, Copilot, and Dependabot; event rules can permit or block events such as `push`, `pull_request`, `pull_request_target`, and `workflow_dispatch`. Source: `raw/2026-06-19-web-github-blog-control-who-and-what-triggers-github-actions-workflows.md`. confidence: 1 source, last-confirmed 2026-06-19.
 - `actions/checkout` v7 refuses fork pull request head or merge commits in `pull_request_target` and selected fork-PR `workflow_run` contexts by default, with an explicit `allow-unsafe-pr-checkout` opt-out for reviewed exceptions. Source: `raw/2026-06-19-web-github-blog-safer-pull-request-target-defaults-for-github-actions-checkout.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-19.
 - GitHub says same-repository pull requests and ordinary `pull_request` event behavior are not changed by the `actions/checkout` v7 protection, and manual checkout of untrusted code with `git` or `gh` remains outside the protection. Source: `raw/2026-06-19-web-github-blog-safer-pull-request-target-defaults-for-github-actions-checkout.md`. confidence: 1 source, last-confirmed 2026-06-19.
@@ -928,3 +929,43 @@ Test selection depends-on fresh result history. Stateless listeners use external
 ### Decision and quality notes
 
 First-person infrastructure case. Organization-specific growth and sizing are not universal capacity requirements; freshness and recovery need local measurement. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Do HoneyDrunk test-selection pipelines measure result-ingestion completeness and lag, and where should journal and aggregation state live under load? See [[indexes/gaps]].
+
+
+## 2026-09-19: Workflow execution protections reach general availability
+
+### Typed entities
+
+project: GitHub Actions; concept: workflow execution protection; concept: actor/event allowlist; concept: evaluate mode; concept: pull_request_target.
+
+### Claims and evidence
+
+- The September 17 GitHub announcement promotes workflow execution protections to general availability at enterprise, organization, and repository scopes. Actor/event allowlists run before execution; added controls target individual workflow files and provide policy insights and REST management. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-github-workflow-execution-protections-ga.md)
+- Evaluate mode exposes would-be blocked runs before enforcement. The source announces a default pull_request_target restriction for public repositories without an applicable event policy, initially evaluated without blocking, with November 2, 2026 enforcement scheduled for affected repositories using the prior default policy. Private/internal repositories are excluded from this default. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-github-workflow-execution-protections-ga.md)
+
+### Explicit relationships
+
+The September GA announcement supersedes June preview status. Workflow admission uses actor/event policies; safe rollout depends-on evaluate-mode evidence and reviewed workflow exceptions. See [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Official changelog capture. November enforcement is an announced future schedule, not an observed rollout. This pass did not inspect HoneyDrunk organization policies or change any workflow configuration. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which public HoneyDrunk workflows use pull_request_target without an applicable event policy, and which evaluate-mode results justify retaining the default block or an explicit workflow exception before the announced November enforcement? See [[indexes/gaps]].
+
+
+## 2026-09-19: Ubuntu runner migrations need explicit image trials
+
+### Typed entities
+
+project: GitHub Actions; project: Ubuntu 26.04; concept: ubuntu-latest; concept: runner image inventory; concept: image migration.
+
+### Claims and evidence
+
+- GitHub’s September 17 announcement provides production Ubuntu 26.04 hosted-runner support on x64 and arm64 with explicit ubuntu-26.04 and ubuntu-26.04-arm labels. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-github-ubuntu-26-runner-migration.md)
+- It schedules ubuntu-latest migration from 24.04 to 26.04 between October 19 and November 19, 2026. Package/tool changes can break jobs; the article proposes testing explicit new labels and temporarily pinning ubuntu-24.04 when more preparation is needed, using the image inventory to check installed software. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-github-ubuntu-26-runner-migration.md)
+
+### Explicit relationships
+
+Reliable runner migration depends-on explicit image tests and software inventory; separating image and application changes supports diagnosis and rollback.
+
+### Decision and quality notes
+
+Official announcement snapshot. Future dates are the captured schedule, not an observed migration or current inventory of installed tools. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which HoneyDrunk ubuntu-latest jobs pass representative .NET/container workloads on explicit Ubuntu 26.04 labels, and which require temporary 24.04 pins or tool-install changes? See [[indexes/gaps]].

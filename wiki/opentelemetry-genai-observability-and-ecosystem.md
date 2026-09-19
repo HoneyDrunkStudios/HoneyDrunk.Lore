@@ -472,3 +472,43 @@ Processor graduation depends-on stable semantic conventions and telemetry contra
 ### Decision and quality notes
 
 Official announcement summary; the migration guide itself is not captured here, so do not invent exact renamed attributes or upgrade instructions. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Which Kubernetes attributes processor migration changes affect HoneyDrunk Collector configuration, emitted metadata, dashboards, and queries, and what fixtures verify compatibility? See [[indexes/gaps]].
+
+
+## 2026-09-19: Parallel metric export needs instrumentation and semantic checks
+
+### Typed entities
+
+person: Martin Costello; library: OpenTelemetry.Exporter.OpenTelemetryProtocol; library: OpenTelemetry.Exporter.Prometheus.AspNetCore; concept: .NET Meter; project: Prometheus.
+
+### Claims and evidence
+
+- Costello describes migrating prometheus-net instrumentation to .NET Meter instruments and exporting the same measurements through OTLP and an application Prometheus scrape endpoint. Registering the meter and both exporters enables comparison; exporter replacement alone does not migrate the instrumentation. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-dotnet-dual-otlp-prometheus-metrics.md)
+- The captured example uses a beta Prometheus exporter and identifies summaries, native histograms, and experimental OpenMetrics 2.0 as unsupported in that path. It separately describes HTTP/protobuf OTLP to an enabled Prometheus OTLP receiver, which avoids the scrape exporter. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-dotnet-dual-otlp-prometheus-metrics.md)
+
+### Explicit relationships
+
+Metric migration uses parallel exports; cutover depends-on compatible metric and alert semantics. See [[kubernetes-platform-governance-and-cicd]] for a distinct native-histogram production path.
+
+### Decision and quality notes
+
+Official-project practitioner article. Export-path limitations do not contradict Kubernetes native-histogram support: producer, exporter, and receiver are different compatibility boundaries. No local package or backend compatibility was tested. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which HoneyDrunk instruments, histogram types, names, labels, queries, and alerts remain equivalent across OTLP and Prometheus, and which pinned exporter/receiver versions support them? See [[indexes/gaps]].
+
+
+## 2026-09-19: Temporal entity graphs preserve observations and identity
+
+### Typed entities
+
+person: Matthieu Noirbusson; project: OpenTelemetry; concept: entity observation; concept: producer event time; concept: consumer recording time; concept: temporal projection.
+
+### Claims and evidence
+
+- Noirbusson describes an append-only entity-observation log projected into a replayable graph, separating producer event time from consumer recording time for historical-state and audit queries. Stable exact identity, lifetime discriminators for recycled identifiers, and descriptive placement of changing addresses prevent misleading joins. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-otel-temporal-entity-event-graphs.md)
+- The design reconciles outgoing relationships from entity-state observations and exposes GraphQL/MCP access. Shared entity identity connects inventory to metrics, logs, and traces. Clock skew, repeated unchanged observations, and identity collisions remain operational concerns. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-otel-temporal-entity-event-graphs.md)
+
+### Explicit relationships
+
+Temporal graphs use immutable observations and replayable projections; useful cross-signal joins depend-on shared stable identity. See [[llm-wiki-and-knowledge-formats]] for Lore’s separate graph-readiness contract.
+
+### Decision and quality notes
+
+Project-hosted practitioner design. Entity models and illustrated attribute conventions are evolving, not frozen standards. It offers a design reference without requiring graph infrastructure for this flat-file wiki. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which stable entity identifiers, lifetime boundaries, event/recorded timestamps, duplicate observations, and clock-skew rules would make Lore/Grid graph projections replayable and auditable? See [[indexes/gaps]].

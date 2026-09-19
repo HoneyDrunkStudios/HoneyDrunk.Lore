@@ -204,3 +204,43 @@ Execution-model choice depends-on state, retries, failure isolation, and observa
 ### Decision and quality notes
 
 Vendor architecture guidance, not a formal guarantee. Simple pipelines may not benefit from extra coordination; recovery needs validation independently of editor choice. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which workflows justify central orchestration, and what partial-completion, compensation, schema-version, and correlation tests demonstrate recovery correctness? See [[indexes/gaps]].
+
+
+## 2026-09-19: Outbound pacing and inbound admission are separate controls
+
+### Typed entities
+
+project: n8n; concept: token bucket; concept: sliding window; concept: retry pacing; concept: inbound traffic admission.
+
+### Claims and evidence
+
+- The n8n guide contrasts token buckets, leaky buckets, fixed windows, and sliding windows by burst tolerance, steady processing, reset spikes, and state complexity. It proposes batching, explicit cache refresh, and pacing retries using 429 responses and Retry-After information. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-api-rate-limiting-workflow-design.md)
+- The captured guide describes retry settings, loops, waits, and explicit exhausted-retry failure paths, while saying exposed n8n webhooks lack built-in inbound rate limiting and need a gateway or reverse proxy for that protection. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-api-rate-limiting-workflow-design.md)
+
+### Explicit relationships
+
+Reliable outbound work depends-on provider quotas and bounded retries; inbound admission uses a separate gateway control. Retry pacing complements operation-identity guidance above.
+
+### Decision and quality notes
+
+Vendor workflow guidance. No current n8n installation or provider quota was verified, and retry settings alone do not establish idempotency. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which Lore providers require shared quota budgets, Retry-After handling, cache refresh, and exhausted-retry reporting, and which exposed workflows need inbound gateway limits? See [[indexes/gaps]].
+
+
+## 2026-09-19: Outbox durability depends on relay and consumer contracts
+
+### Typed entities
+
+project: n8n; concept: transactional outbox; concept: relay; concept: change-data capture; concept: idempotent consumer.
+
+### Claims and evidence
+
+- n8n describes recording business state and the outbox event in one database transaction so the publication obligation survives the dual-write failure. A relay publishes committed records, retries transient failures, and marks records processed only after successful delivery; polling trades simplicity against CDC infrastructure and latency. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-transactional-outbox-relay-contract.md)
+- The operational contract includes consumer idempotency for duplicate delivery, stalled-row alerts, processed-record retention/archival, and ordering where required. Atomic recording does not itself prove eventual delivery if the relay stops or failures remain hidden. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-transactional-outbox-relay-contract.md)
+
+### Explicit relationships
+
+Durable publication uses atomic outbox recording; delivery depends-on an operating relay and visible failure handling. Correct consumer effects depend-on idempotency and required ordering.
+
+### Decision and quality notes
+
+Vendor architecture guidance. Strong delivery wording in the title does not establish exactly-once processing or progress through permanent infrastructure failure. This extends existing retry-identity and recovery guidance without adding a guarantee. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which business events need atomic outbox recording, and how will HoneyDrunk test relay restart, duplicate delivery, ordering, stalled-row alerts, and retention without losing publication obligations? See [[indexes/gaps]].

@@ -83,3 +83,23 @@ Relationship added: runtime servicing complements NuGet audit because project se
 
 ### Quality notes
 - Microsoft source is authoritative for NuGet.org policy direction. Verify current Trusted Publishing provider support before changing release pipelines.
+
+
+## 2026-09-19: Routine dependency batches require a separate security path
+
+### Typed entities
+
+project: Dependabot; project: GCToolkit; concept: routine version update; concept: security update; concept: ecosystem coverage.
+
+### Claims and evidence
+
+- GitHub’s GCToolkit example groups routine version updates by ecosystem and reduces cadence to weekly or monthly to reduce review and CI repetition. Every shipped ecosystem needs coverage; large groups can be split by role or update type. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-dependabot-routine-security-cadence.md)
+- Routine schedules and ordinary groups do not establish vulnerability-driven security-update cadence. Dependency graph, Dependabot alerts, and security updates must be enabled for the assumed security path. The article also discusses cooldowns and repeated dependencies across monorepo directories. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-19-rss-dependabot-routine-security-cadence.md)
+
+### Explicit relationships
+
+Maintenance batching uses ecosystem-specific groups; security response depends-on a separately enabled vulnerability-update path. This complements NuGet auditing rather than replacing it.
+
+### Decision and quality notes
+
+Cross-ecosystem vendor guidance. Exact configuration support and group failures need repository-level checks; a quieter queue alone does not demonstrate reduced risk. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Do all shipped HoneyDrunk ecosystems have routine-update coverage and separately enabled dependency graph, alerts, and security updates, with reviewable groups and failure visibility? See [[indexes/gaps]].
