@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-09-19
+## Compile coverage: 2026-09-20
 
-Reconciled 1022 raw source documents against 1022 unique source entries; ingested 30 new captures in this pass. All raw documents have index entries. Existing source records and ingestion dates are preserved. Query outputs remain derived explorations rather than independent raw evidence.
+Reconciled 1022 raw source documents against 1022 unique source entries; ingested 0 new captures in this pass. All raw documents have index entries. Existing source records and ingestion dates are preserved. Query outputs remain derived explorations rather than independent raw evidence.
 
 ## Entry format
 

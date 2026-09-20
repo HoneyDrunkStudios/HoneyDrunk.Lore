@@ -244,3 +244,8 @@ Operator: Codex executing the authorized Honeyclaw workflow. Read all 15 Septemb
 ## 2026-09-19T12:29:11-04:00: concurrent sourcing arrivals reconciled
 
 Final validation found 15 new September 19 captures before staging. Read and compiled all 15, expanding this run to 30 sources across 15 existing pages and one new canonical Pipeline Template Contracts page. Catalog now covers 1022 raw documents, 64 concept pages, and 557 dated gaps (30 new). Resolved the older Azure SRE Agent /28 subnet requirement in favor of the newer official GA /27 requirement with timestamp, source, and preserved history. The two GitHub preview supersessions remain. Historical Blender development evidence does not displace later release coverage; ALTK-Evolve sources remain correlated. All raw arrivals were hashed before edits. See [run receipt](../../output/lore-ingest-last-run.md) for combined inventory and final checks.
+
+
+## 2026-09-20T11:32:31-04:00: daily compile reconciliation
+
+Operator: Codex executing the authorized Honeyclaw workflow. Reconciled 1022 raw documents with 1022 unique source entries; 0 newly ingested. Read all 13 query outputs and checked their 75 explicit raw references against concept coverage; no new durable facts to crystallize. Rebuilt the 64-page topic catalog and reconciled 557 dated gaps; 0 added or closed. No concept edits, canonical merges, confidence promotions, or new supersessions. Single-source and historical evidence limits remain. Raw inputs and query outputs preserved. See [run receipt](../../output/lore-ingest-last-run.md) for quality, validation, review, and publication scope.
