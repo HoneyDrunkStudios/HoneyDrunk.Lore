@@ -1119,3 +1119,23 @@ Texture residency uses generated cache files and demand loading; useful savings 
 ### Decision and quality notes
 
 Historical development design, not a newly verified release status. Preserve the later Blender release coverage above; the May unfinished-work status does not supersede it. Same-project sources do not independently validate performance. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which representative Blender scenes and devices need cache-generation, storage, tile-size, resolution, and memory/render-time measurements before texture caching becomes a pipeline default? See [[indexes/gaps]].
+
+
+## 2026-09-22: Material reuse starts with modular planning and renderer checks
+
+### Typed entities
+
+person: Nore Pollentier; project: Blender; project: Unreal Engine; project: ZBrush; project: Substance; concept: modular asset family; concept: channel-packed texture.
+
+### Claims and evidence
+
+- Pollentier's Ankara environment breakdown plans references, modularity, and materials before blockout. Mesh pivots accommodate irregular architecture, wall topology supports vertex painting, and height/occlusion detail precedes final color. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-20-rss-technical-art-modular-material-production.md)
+- The workflow reuses trims, tiling textures, decals, and variants, packs channels for material needs, checks base materials before post-processing, and repeatedly inspects exports in the engine. Texel density and displacement choices remain project-specific. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-20-rss-technical-art-modular-material-production.md)
+
+### Explicit relationships
+
+Reusable environments use modular mesh and material families; appearance validation depends-on the target renderer. See [[unity-3d-and-realtime-vfx-patterns]] for related cross-engine production evidence.
+
+### Decision and quality notes
+
+One production interview, consistent with earlier modular-workflow accounts but not a controlled performance benchmark. Preserve editable source assets and validate target-renderer appearance and cost. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which reusable mesh/material families, pivot rules, packed texture channels, and in-engine appearance/cost checks should define a HoneyDrunk environment-art pilot? See [[indexes/gaps]].

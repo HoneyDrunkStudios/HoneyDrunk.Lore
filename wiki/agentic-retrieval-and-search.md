@@ -42,3 +42,23 @@ Agentic retrieval treats search as an investigation loop instead of a single chu
 - Quality posture: decision-useful for retrieval architecture. Mistral is authoritative for its product claims but not neutral benchmark evidence.
 - Weak spots: FinanceBench and OfficeQA Pro numbers need independent reproduction or local task validation before procurement or routing changes.
 - Privacy filter: no private enterprise documents, table values beyond source-level examples, credentials, or customer data were promoted.
+
+
+## 2026-09-22: Multi-vector retrieval trades token detail against storage and truncation
+
+### Typed entities
+
+person: Tom Aarsen; library: Sentence Transformers; concept: late interaction; concept: token embeddings; concept: held-out retrieval evaluation; concept: document truncation.
+
+### Claims and evidence
+
+- Aarsen's training recipe uses domain question/passage pairs, in-batch negatives with gradient caching, query/document prompts, and held-out evaluation with deduplicated distractors. Token-level representations retain detailed matches but enlarge the index; document-length limits can discard evidence before scoring. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-20-rss-huggingface-multivector-domain-retrieval.md)
+- The MIRIAD experiment reports NDCG@10 of 0.9139 after fine-tuning versus 0.8520 zero-shot, and approximately 45 GB of raw token embeddings. A 3.37 GB quantized configuration scores 0.8984. Generated questions favor lexical overlap, limiting generalization beyond this constructed benchmark. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-20-rss-huggingface-multivector-domain-retrieval.md)
+
+### Explicit relationships
+
+Late-interaction scoring uses token representations; retrieval quality depends-on corpus, truncation, prompts, and evaluation design. Index compression trades storage against measured retrieval quality. See [[llm-wiki-and-knowledge-formats]].
+
+### Decision and quality notes
+
+One author benchmark, not universal superiority. Evaluate held-out Lore questions, evidence truncation, and index cost together if retrieval requirements outgrow flat-file search. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: On held-out Lore questions, how do single-vector and multi-vector retrieval compare after controlling document truncation, lexical overlap, distractors, and compression cost? See [[indexes/gaps]].

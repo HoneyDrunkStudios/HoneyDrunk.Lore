@@ -249,3 +249,8 @@ Final validation found 15 new September 19 captures before staging. Read and com
 ## 2026-09-20T11:32:31-04:00: daily compile reconciliation
 
 Operator: Codex executing the authorized Honeyclaw workflow. Reconciled 1022 raw documents with 1022 unique source entries; 0 newly ingested. Read all 13 query outputs and checked their 75 explicit raw references against concept coverage; no new durable facts to crystallize. Rebuilt the 64-page topic catalog and reconciled 557 dated gaps; 0 added or closed. No concept edits, canonical merges, confidence promotions, or new supersessions. Single-source and historical evidence limits remain. Raw inputs and query outputs preserved. See [run receipt](../../output/lore-ingest-last-run.md) for quality, validation, review, and publication scope.
+
+
+## 2026-09-22T16:00:45-04:00: daily ingest/compile
+
+Operator: Codex executing the authorized Honeyclaw workflow. Read all 15 September 20 captures (13 attributed summaries and two licensed full texts). Compiled into ten existing canonical pages and one new Realtime Chat Service Contracts page. Rebuilt catalogs: 1037 raw documents, 65 concept pages, 572 dated gaps (15 added, 0 closed). Preserved and superseded the May MAUI Mono-fallback claim using the July Preview 6 announcement. All 13 query outputs repeat already compiled evidence; no new crystallization. No independent three-source reinforcement established for new claims; single-source claims remain provisional. Raw bytes preserved; no secrets/private contacts promoted. See [run receipt](../../output/lore-ingest-last-run.md) for quality, explicit review, validation, and publication scope.

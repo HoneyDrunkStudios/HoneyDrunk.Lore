@@ -244,3 +244,43 @@ Durable publication uses atomic outbox recording; delivery depends-on an operati
 ### Decision and quality notes
 
 Vendor architecture guidance. Strong delivery wording in the title does not establish exactly-once processing or progress through permanent infrastructure failure. This extends existing retry-identity and recovery guidance without adding a guarantee. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which business events need atomic outbox recording, and how will HoneyDrunk test relay restart, duplicate delivery, ordering, stalled-row alerts, and retention without losing publication obligations? See [[indexes/gaps]].
+
+
+## 2026-09-22: Definition restoration and execution replay are separate guarantees
+
+### Typed entities
+
+project: n8n; project: Temporal; concept: workflow definition; concept: execution history; concept: environment promotion; concept: restoration test.
+
+### Claims and evidence
+
+- n8n describes JSON workflow snapshots containing nodes, connections, and configuration without execution history or usable credential secrets. The article contrasts definition history with Temporal execution-history compatibility: recovering a definition does not establish safe replay of an existing execution. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-20-rss-workflow-definition-versioning-boundaries.md)
+- The guide separates development, staging, and protected production, with Git review and visual/JSON inspection before synchronization. Pulling can overwrite unpushed edits rather than merge them. Community exports are backups requiring restoration tests, not equivalent to the described paid native environment workflow. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-20-rss-workflow-definition-versioning-boundaries.md)
+
+### Explicit relationships
+
+Definition recovery uses versioned configuration; execution recovery depends-on runtime history and compatible code. Environment promotion uses reviewed snapshots.
+
+### Decision and quality notes
+
+Vendor architecture guidance; current plan availability was not checked. Secret-free exports can still expose internal structure. Test recovery guarantees independently of successful Git checkout. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which workflow definitions, credentials, runtime histories, and compatible code must be restored together, and how will promotion prevent overwriting unpushed local changes? See [[indexes/gaps]].
+
+
+## 2026-09-22: Latency improvements depend on the measured dependency graph
+
+### Typed entities
+
+project: n8n; concept: critical path; concept: bounded retry; concept: queue contention; concept: prompt-prefix cache; concept: answer cache.
+
+### Claims and evidence
+
+- n8n separates inference, external-tool, and orchestration delay. Independent requests can overlap while dependent work awaits inputs; timeouts and bounded retries protect the end-to-end response budget. Sub-workflow isolation does not make an external service faster. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-20-rss-workflow-latency-critical-path-design.md)
+- Concurrency limits and worker queues address load contention; routing and output limits target inference. Prompt-prefix caching reduces repeated input processing, while an appropriate answer-cache hit can avoid inference. Illustrative timing targets and vendor claims are not service guarantees. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-20-rss-workflow-latency-critical-path-design.md)
+
+### Explicit relationships
+
+Latency budgeting uses dependency traces; parallel execution depends-on input independence. Cache selection depends-on which processing can safely be reused. See [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Vendor design guidance with workload-specific timing. Measure critical-path and queue behavior before choosing parallelism, isolation, cache policy, or model size. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which inference, tool, queue, and orchestration spans dominate HoneyDrunk workflow latency, and what retry budgets and cache-validity rules preserve correctness under load? See [[indexes/gaps]].

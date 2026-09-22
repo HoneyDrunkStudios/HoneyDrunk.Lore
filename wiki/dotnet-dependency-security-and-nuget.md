@@ -103,3 +103,23 @@ Maintenance batching uses ecosystem-specific groups; security response depends-o
 ### Decision and quality notes
 
 Cross-ecosystem vendor guidance. Exact configuration support and group failures need repository-level checks; a quieter queue alone does not demonstrate reduced risk. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Do all shipped HoneyDrunk ecosystems have routine-update coverage and separately enabled dependency graph, alerts, and security updates, with reviewable groups and failure visibility? See [[indexes/gaps]].
+
+
+## 2026-09-22: Generated public APIs retain runtime dependency contracts
+
+### Typed entities
+
+person: Andrew Lock; library: NetEscapades.EnumGenerators; concept: generated public API; concept: PrivateAssets; concept: ExcludeAssets; concept: metapackage.
+
+### Claims and evidence
+
+- Lock's March design account traces consumer failures to generated public methods referencing option types from an attribute assembly whose runtime assets consumers had excluded. PrivateAssets controls propagation while ExcludeAssets controls inclusion; hiding tooling does not remove public API type dependencies. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-20-rss-dotnet-generator-runtime-dependency-boundaries.md)
+- The described remedy separates generator and optional runtime packages with a convenience metapackage. Generator-only use can emit enum-specific options; including the runtime package enables shared types. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-20-rss-dotnet-generator-runtime-dependency-boundaries.md)
+
+### Explicit relationships
+
+Generated API consumption depends-on referenced runtime types. Runtime-asset exclusion caused downstream failures; separating generator and runtime packages fixed the described packaging boundary.
+
+### Decision and quality notes
+
+Historical beta-era practitioner account, not current package-release verification. Inspect emitted signatures and test packed-library consumers for each supported target. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which generated public signatures expose runtime option or attribute types, and do packed-library consumer tests cover PrivateAssets, ExcludeAssets, and generator-only versus shared-runtime packages? See [[indexes/gaps]].

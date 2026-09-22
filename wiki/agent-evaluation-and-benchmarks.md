@@ -1268,3 +1268,23 @@ Useful memory depends-on model, task distribution, and context budget. Guideline
 ### Decision and quality notes
 
 Related IBM ALTK-Evolve evidence is correlated, not independent corroboration of earlier reliability figures. The article also proposes stable prompt prefixes for caching; context-window size and cross-benchmark generalization remain unresolved. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which no-memory, full-guidance, and selective-retrieval budgets improve HoneyDrunk held-out task and scenario reliability enough to justify their token cost for each model? See [[indexes/gaps]].
+
+
+## 2026-09-22: Harness comparisons need matched tasks and separate operating requirements
+
+### Typed entities
+
+project: Arena; project: Claude Code; project: Codex CLI; project: Pi; concept: cost per successful task; concept: benchmark sampling.
+
+### Claims and evidence
+
+- Arena compares seven models across three harnesses using three attempts on the same 30 sampled tasks per benchmark from SWE-bench Lite and Terminal-Bench 2.0. Cost uses a fixed API price list and success uses benchmark evaluators. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-20-rss-arena-coding-harness-cost-evaluation.md)
+- The study reports substantial cost differences with similar measured success in some pairings. Possible public-task contamination, harness-specific effort definitions, and a 100-turn cap limit interpretation; these results do not establish equal security, usability, or effectiveness on extended private projects. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-20-rss-arena-coding-harness-cost-evaluation.md)
+
+### Explicit relationships
+
+Evaluation uses a model-harness pairing; cost comparisons depend-on task sample, attempts, effort settings, and price assumptions. See [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+One benchmark study. Compare repeated representative repository tasks and cost per success before changing infrastructure; evaluate permission controls and operating requirements separately. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which matched private task set, repeated attempts, effort settings, and price assumptions will compare model-harness cost per success without masking security or long-task failures? See [[indexes/gaps]].

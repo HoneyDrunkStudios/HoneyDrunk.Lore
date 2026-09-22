@@ -2,9 +2,9 @@
 
 Questions the wiki cannot currently answer. Populated by the Query operation when synthesis falls short, and by the Lint operation when entities are referenced but lack a backing page.
 
-## Compile status: 2026-09-20
+## Compile status: 2026-09-22
 
-Cataloged 557 dated gap entries alongside the current 64-page catalog. Added 0 questions and closed 0 gaps in this pass. Existing questions and their history are preserved below.
+Cataloged 572 dated gap entries alongside the current 65-page catalog. Added 15 questions and closed 0 gaps in this pass. Existing questions and their history are preserved below.
 
 ## Entry format
 
@@ -754,3 +754,22 @@ Cataloged 557 dated gap entries alongside the current 64-page catalog. Added 0 q
 - Which business events need atomic outbox recording, and how will HoneyDrunk test relay restart, duplicate delivery, ordering, stalled-row alerts, and retention without losing publication obligations? - surfaced 2026-09-19 - context: [[distributed-systems-patterns]], Outbox durability depends on relay and consumer contracts; [source](../../raw/2026-09-19-rss-transactional-outbox-relay-contract.md).
 - Which frequently changing UI elements trigger measured Canvas batching work, and does separating them improve device frame time after draw-call and Canvas overhead are included? - surfaced 2026-09-19 - context: [[unity-3d-and-realtime-vfx-patterns]], Canvas update-frequency separation trades batching costs; [source](../../raw/2026-09-19-rss-unity-canvas-update-frequency.md).
 - Which gameplay/content boundaries, client-server asset transfers, procedural agreement checks, and fixed performance scenarios would keep HoneyDrunk live-operations changes repeatable? - surfaced 2026-09-19 - context: [[unity-3d-and-realtime-vfx-patterns]], Modular live operations retain replication and asset contracts; [source](../../raw/2026-09-19-rss-unity-sand-modular-live-ops.md).
+
+
+## 2026-09-22 ingest questions
+
+- Which maintenance agents can modify shared model weights or serving defaults, and what independent evaluation, artifact lineage, and deployment approval would bound that authority? - surfaced 2026-09-22 - context: [[ai-coding-agent-security]]; [source](../../raw/2026-09-20-rss-agent-training-deployment-authority.md).
+- Which matched private task set, repeated attempts, effort settings, and price assumptions will compare model-harness cost per success without masking security or long-task failures? - surfaced 2026-09-22 - context: [[agent-evaluation-and-benchmarks]]; [source](../../raw/2026-09-20-rss-arena-coding-harness-cost-evaluation.md).
+- Can browser-agent credentials reach prompts, tool results, traces, logs, or retained sessions, and which target restrictions and cleanup tests demonstrate the intended isolation? - surfaced 2026-09-22 - context: [[azure-agent-automation-and-identity]]; [source](../../raw/2026-09-20-rss-azure-browser-agent-secret-flow.md).
+- Which agent-readable dashboards document time units, macros, scope, freshness, timeout semantics, and span aggregation well enough to support reproducible investigations? - surfaced 2026-09-22 - context: [[azure-agent-automation-and-identity]]; [source](../../raw/2026-09-20-rss-azure-grafana-dashboard-agent-context.md).
+- Would a chat hub fit HoneyDrunk conversation requirements, and what tests establish invite permissions, authenticated access URL issuance, reconnect ordering, and retained-storage recovery? - surfaced 2026-09-22 - context: [[realtime-chat-service-contracts]]; [source](../../raw/2026-09-20-rss-azure-web-pubsub-chat-contracts.md).
+- Which generated public signatures expose runtime option or attribute types, and do packed-library consumer tests cover PrivateAssets, ExcludeAssets, and generator-only versus shared-runtime packages? - surfaced 2026-09-22 - context: [[dotnet-dependency-security-and-nuget]]; [source](../../raw/2026-09-20-rss-dotnet-generator-runtime-dependency-boundaries.md).
+- What overlapping-contact, callback-order, reset, and reservation-release integration tests establish exclusive body consumption in a HoneyDrunk deferred simulation queue? - surfaced 2026-09-22 - context: [[unity-3d-and-realtime-vfx-patterns]]; [source](../../raw/2026-09-20-rss-gamedev-deferred-collision-reservations.md).
+- On held-out Lore questions, how do single-vector and multi-vector retrieval compare after controlling document truncation, lexical overlap, distractors, and compression cost? - surfaced 2026-09-22 - context: [[agentic-retrieval-and-search]]; [source](../../raw/2026-09-20-rss-huggingface-multivector-domain-retrieval.md).
+- Does the target OpenTelemetry host package distribution now provide signed packages, suitable hosting, and required Collector/language coverage, and what restart/export tests qualify deployment? - surfaced 2026-09-22 - context: [[opentelemetry-genai-observability-and-ecosystem]]; [source](../../raw/2026-09-20-rss-opentelemetry-linux-host-packaging.md).
+- Which pinned Collector builds support the required OTTL lambda functions, and what schema, missing-field, error-path, and privacy-output tests are needed before enabling them? - surfaced 2026-09-22 - context: [[opentelemetry-genai-observability-and-ecosystem]]; [source](../../raw/2026-09-20-rss-opentelemetry-ottl-lambda-transformations.md).
+- Which reusable mesh/material families, pivot rules, packed texture channels, and in-engine appearance/cost checks should define a HoneyDrunk environment-art pilot? - surfaced 2026-09-22 - context: [[technical-art-community-and-talent-signals]]; [source](../../raw/2026-09-20-rss-technical-art-modular-material-production.md).
+- Which workflow definitions, credentials, runtime histories, and compatible code must be restored together, and how will promotion prevent overwriting unpushed local changes? - surfaced 2026-09-22 - context: [[distributed-systems-patterns]]; [source](../../raw/2026-09-20-rss-workflow-definition-versioning-boundaries.md).
+- Which inference, tool, queue, and orchestration spans dominate HoneyDrunk workflow latency, and what retry budgets and cache-validity rules preserve correctness under load? - surfaced 2026-09-22 - context: [[distributed-systems-patterns]]; [source](../../raw/2026-09-20-rss-workflow-latency-critical-path-design.md).
+- Which MAUI applications still assume a Mono fallback, and what Release-artifact, device startup/size, reflection, platform integration, debugging, and Hot Reload results qualify a CoreCLR upgrade? - surfaced 2026-09-22 - context: [[dotnet-runtime-and-mobile-2026]]; [source](../../raw/2026-09-20-web-dotnet-maui-coreclr-migration-validation.md).
+- Which Unity CI lanes can return zero despite build/import errors, and what BuildReport checks, import-completion tests, and APK manifest/SDK assertions prevent publishing unusable artifacts? - surfaced 2026-09-22 - context: [[unity-3d-and-realtime-vfx-patterns]]; [source](../../raw/2026-09-20-web-unity-build-report-artifact-validation.md).

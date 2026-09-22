@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-09-20
+## Compile coverage: 2026-09-22
 
-Reconciled 1022 raw source documents against 1022 unique source entries; ingested 0 new captures in this pass. All raw documents have index entries. Existing source records and ingestion dates are preserved. Query outputs remain derived explorations rather than independent raw evidence.
+Reconciled 1037 raw source documents against 1037 unique source entries; ingested 15 new captures in this pass. All raw documents have index entries. Existing source records and ingestion dates are preserved. Query outputs remain derived explorations rather than independent raw evidence.
 
 ## Entry format
 
@@ -1251,3 +1251,22 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [How the Transactional Outbox Pattern Guarantees Event Delivery](../../raw/2026-09-19-rss-transactional-outbox-relay-contract.md) - Outbox durability depends on relay and consumer contracts; attributed capture compiled in [[distributed-systems-patterns]]. - ingested 2026-09-19
 - [Optimizing Canvas.BuildBatch Cost via Static/Dynamic UI Separation](../../raw/2026-09-19-rss-unity-canvas-update-frequency.md) - Canvas update-frequency separation trades batching costs; attributed capture compiled in [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-09-19
 - [How Hologryph built SAND: Raiders of Sophie for a sustainable live ops cadence](../../raw/2026-09-19-rss-unity-sand-modular-live-ops.md) - Modular live operations retain replication and asset contracts; attributed capture compiled in [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-09-19
+
+
+## 2026-09-22 ingest
+
+- [Agentic Self-Modification in Open-Weights Systems](../../raw/2026-09-20-rss-agent-training-deployment-authority.md) - Application repair authority and model replacement authority; archived evidence compiled in [[ai-coding-agent-security]]. - ingested 2026-09-22
+- [HarnessTax: How Much Does the Harness Matter for Coding Agents?](../../raw/2026-09-20-rss-arena-coding-harness-cost-evaluation.md) - Harness comparisons need matched tasks and separate operating requirements; archived evidence compiled in [[agent-evaluation-and-benchmarks]]. - ingested 2026-09-22
+- [Manage and retrieve credentials securely inside Browser Automation Tool (BAT) using Azure Key Vault](../../raw/2026-09-20-rss-azure-browser-agent-secret-flow.md) - Browser credential isolation depends on the complete secret path; archived evidence compiled in [[azure-agent-automation-and-identity]]. - ingested 2026-09-22
+- [Dashboards are for AI agents too, not just humans](../../raw/2026-09-20-rss-azure-grafana-dashboard-agent-context.md) - Dashboard context guides telemetry-backed diagnosis; archived evidence compiled in [[azure-agent-automation-and-identity]]. - ingested 2026-09-22
+- [Announcing Azure Web PubSub chat in public preview](../../raw/2026-09-20-rss-azure-web-pubsub-chat-contracts.md) - Chat abstractions retain application identity and storage responsibilities; archived evidence compiled in [[realtime-chat-service-contracts]]. - ingested 2026-09-22
+- [Splitting the NetEscapades.EnumGenerators packages: the road to a stable release](../../raw/2026-09-20-rss-dotnet-generator-runtime-dependency-boundaries.md) - Generated public APIs retain runtime dependency contracts; archived evidence compiled in [[dotnet-dependency-security-and-nuget]]. - ingested 2026-09-22
+- [Preventing Double Merges in a Fruit-Drop Physics Game](../../raw/2026-09-20-rss-gamedev-deferred-collision-reservations.md) - Deferred collision work needs ownership before scheduling; archived evidence compiled in [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-09-22
+- [Training and Finetuning Multi-Vector Embedding Models with Sentence Transformers](../../raw/2026-09-20-rss-huggingface-multivector-domain-retrieval.md) - Multi-vector retrieval trades token detail against storage and truncation; archived evidence compiled in [[agentic-retrieval-and-search]]. - ingested 2026-09-22
+- [One-command OpenTelemetry setup on Linux hosts](../../raw/2026-09-20-rss-opentelemetry-linux-host-packaging.md) - Linux instrumentation packaging has publication-era production limits; archived evidence compiled in [[opentelemetry-genai-observability-and-ecosystem]]. - ingested 2026-09-22
+- [Lambda-powered functions land in OTTL](../../raw/2026-09-20-rss-opentelemetry-ottl-lambda-transformations.md) - OTTL lambda transforms remain versioned experimental contracts; archived evidence compiled in [[opentelemetry-genai-observability-and-ecosystem]]. - ingested 2026-09-22
+- [Breakdown: Creating a Realistic 3D Environment of an Ankara Street](../../raw/2026-09-20-rss-technical-art-modular-material-production.md) - Material reuse starts with modular planning and renderer checks; archived evidence compiled in [[technical-art-community-and-talent-signals]]. - ingested 2026-09-22
+- [Workflow Versioning for Reliable Automation and Maintenance](../../raw/2026-09-20-rss-workflow-definition-versioning-boundaries.md) - Definition restoration and execution replay are separate guarantees; archived evidence compiled in [[distributed-systems-patterns]]. - ingested 2026-09-22
+- [Reducing AI Workflow Latency: Patterns That Actually Work](../../raw/2026-09-20-rss-workflow-latency-critical-path-design.md) - Latency improvements depend on the measured dependency graph; archived evidence compiled in [[distributed-systems-patterns]]. - ingested 2026-09-22
+- [CoreCLR Progress and the Mono Timeline for .NET MAUI](../../raw/2026-09-20-web-dotnet-maui-coreclr-migration-validation.md) - MAUI Preview 6 removes the earlier Mono fallback; archived evidence compiled in [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-09-22
+- [Unity 6 Android build errors that exit 0](../../raw/2026-09-20-web-unity-build-report-artifact-validation.md) - Successful process exit is weaker than a validated build artifact; archived evidence compiled in [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-09-22

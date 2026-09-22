@@ -7,6 +7,7 @@
 - Starting in .NET 11 Preview 4, CoreCLR is the default runtime for .NET MAUI apps on Android, iOS, Mac Catalyst, and tvOS; Blazor WebAssembly remains on Mono. confidence: 1 source, last-confirmed 2026-05-17. [source: raw/2026-05-16-rss-net-blog-net-maui-moves-to-coreclr-in-net-11.md]
 - The MAUI/CoreCLR move is intended to unify mobile with server/desktop runtime behavior and unlock tiered JIT, ReadyToRun, PGO, and a clearer NativeAOT path, but Microsoft reports community regressions in larger Android app startup/package size and recommends app-specific measurement. confidence: 1 source, last-confirmed 2026-05-17. [source: raw/2026-05-16-rss-net-blog-net-maui-moves-to-coreclr-in-net-11.md]
 - .NET MAUI apps can temporarily opt back to Mono with `<UseMonoRuntime>true</UseMonoRuntime>` if CoreCLR causes blocking compatibility or performance issues during the .NET 11 transition. confidence: 1 source, last-confirmed 2026-05-17. [source: raw/2026-05-16-rss-net-blog-net-maui-moves-to-coreclr-in-net-11.md]
+  - superseded-by: [MAUI Preview 6 removes the earlier Mono fallback](#2026-09-22-maui-preview-6-removes-the-earlier-mono-fallback); timestamp: 2026-09-22T16:00:45-04:00; reason: the July 14 Microsoft Preview 6 capture removes the property that the May 13 Preview 4 article allowed (including its stated servicing window). Both are vendor-origin evidence; newer publication and explicit milestone scope take precedence. The prior claim is retained as historical guidance, not an available Preview 6 fallback. [newer captured source](../raw/2026-09-20-web-dotnet-maui-coreclr-migration-validation.md)
 - .NET 11 adds `Process.RunAndCaptureText[Async]`, `Process.Run[Async]`, `ReadAllText/Bytes/Lines[Async]`, and `ProcessExitStatus` to make starting a process and capturing output/error easier and less deadlock-prone. confidence: 1 source, last-confirmed 2026-05-17. [source: raw/2026-05-16-rss-net-blog-process-api-improvements-in-net-11.md]
 - .NET 11 adds process-control APIs including `Process.StartAndForget`, `ProcessStartInfo.KillOnParentExit`, `ProcessStartInfo.StartDetached`, `ProcessStartInfo.InheritedHandles`, `ProcessStartInfo.Standard*Handle`, and `SafeProcessHandle` start/wait/kill/signal helpers. confidence: 1 source, last-confirmed 2026-05-17. [source: raw/2026-05-16-rss-net-blog-process-api-improvements-in-net-11.md]
 
@@ -668,3 +669,23 @@ Browser request policy uses context headers; safe rejection rules depend-on legi
 ### Decision and quality notes
 
 Practitioner background, not a complete production middleware configuration or a basis to remove antiforgery tokens. Related Lock articles are not independent verification of released framework behavior. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which same-site subdomains, ports, user navigations, embedded resources, and cross-site integrations must remain valid under HoneyDrunk browser-facing request policies? See [[indexes/gaps]].
+
+
+## 2026-09-22: MAUI Preview 6 removes the earlier Mono fallback
+
+### Typed entities
+
+person: David Ortinau; project: .NET MAUI; project: CoreCLR; project: Mono; concept: Preview 6 migration; concept: device validation.
+
+### Claims and evidence
+
+- Microsoft's July 14 Preview 6 announcement says the former Mono-selection build property is removed for the MAUI transition on Android, iOS, and Mac Catalyst. Blazor WebAssembly remains on Mono; this is not a universal removal of Mono. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-20-web-dotnet-maui-coreclr-migration-validation.md)
+- The article reports iOS/Mac Catalyst improvements and Android startup/package size within ten percent of Mono, while requiring application measurement. Its checklist covers Release builds, cold/warm startup on real devices against .NET 10, package size, platform integrations, reflection/dynamic-code libraries, debugging, and Hot Reload. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-20-web-dotnet-maui-coreclr-migration-validation.md)
+
+### Explicit relationships
+
+The July Preview 6 milestone supersedes the May fallback guidance for the described MAUI targets. Migration readiness depends-on actual artifacts, devices, libraries, and developer tooling.
+
+### Decision and quality notes
+
+Official historical preview evidence is newer than the May Preview 4 fallback account. Prefer its narrower updated behavior for that milestone; no current runtime or universal performance guarantee is asserted. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which MAUI applications still assume a Mono fallback, and what Release-artifact, device startup/size, reflection, platform integration, debugging, and Hot Reload results qualify a CoreCLR upgrade? See [[indexes/gaps]].

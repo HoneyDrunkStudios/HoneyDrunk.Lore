@@ -512,3 +512,43 @@ Temporal graphs use immutable observations and replayable projections; useful cr
 ### Decision and quality notes
 
 Project-hosted practitioner design. Entity models and illustrated attribute conventions are evolving, not frozen standards. It offers a design reference without requiring graph infrastructure for this flat-file wiki. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which stable entity identifiers, lifetime boundaries, event/recorded timestamps, duplicate observations, and clock-skew rules would make Lore/Grid graph projections replayable and auditable? See [[indexes/gaps]].
+
+
+## 2026-09-22: Linux instrumentation packaging has publication-era production limits
+
+### Typed entities
+
+project: OpenTelemetry; project: OpenTelemetry Injector; concept: Linux host packaging; concept: process restart; concept: package signing; concept: Collector deployment.
+
+### Claims and evidence
+
+- The July 23 project article describes a metapackage installing the Injector and Java, .NET, Node.js, and Python auto-instrumentation. Configuration selects export destinations, and target processes must restart. A local Collector remains a separate installation in this capture. confidence: 1 source, last-confirmed 2026-09-22 (archived licensed full text reviewed; no live refresh). [captured source](../raw/2026-09-20-rss-opentelemetry-linux-host-packaging.md)
+- The article explicitly says its GitHub Pages repository is not intended for production and packages are not yet signed. Collector integration, more languages, and eBPF coverage are future work in that publication; the installation snippets disable repository signature checks. confidence: 1 source, last-confirmed 2026-09-22 (archived licensed full text reviewed; no live refresh). [captured source](../raw/2026-09-20-rss-opentelemetry-linux-host-packaging.md)
+
+### Explicit relationships
+
+Host instrumentation uses Injector activation at process startup; production adoption depends-on trusted package distribution and explicit export/Collector configuration.
+
+### Decision and quality notes
+
+Licensed full project text checked. Preserve July caveats; do not promote signature-bypass snippets into production instructions. The current signing/hosting state was not refreshed. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Does the target OpenTelemetry host package distribution now provide signed packages, suitable hosting, and required Collector/language coverage, and what restart/export tests qualify deployment? See [[indexes/gaps]].
+
+
+## 2026-09-22: OTTL lambda transforms remain versioned experimental contracts
+
+### Typed entities
+
+project: OpenTelemetry Collector Contrib; concept: OTTL lambda; concept: collection transform; concept: feature gate; concept: telemetry sanitization.
+
+### Claims and evidence
+
+- The July 22 article introduces Filter, MapEach, MapKeys, Any, All, Find, Reduce, and When in Collector Contrib v0.157.0 behind ottl.functions.enableLambda. All eight functions are explicitly experimental at publication. confidence: 1 source, last-confirmed 2026-09-22 (archived licensed full text reviewed; no live refresh). [captured source](../raw/2026-09-20-rss-opentelemetry-ottl-lambda-transformations.md)
+- The examples compose collection filtering, key/value mapping, predicates, selection, aggregation, and inline conditionals. A sanitization example hashes matching values and merges them back; the article does not establish complete privacy protection for a production telemetry schema. confidence: 1 source, last-confirmed 2026-09-22 (archived licensed full text reviewed; no live refresh). [captured source](../raw/2026-09-20-rss-opentelemetry-ottl-lambda-transformations.md)
+
+### Explicit relationships
+
+Collection transforms use inline lambdas; configuration depends-on Collector version and feature gate. Privacy filtering depends-on the actual fields and output semantics.
+
+### Decision and quality notes
+
+Licensed full project text checked. Do not infer stability from availability or adopt the SHA1 example as a complete anonymization policy. Test the selected transform contract and inspect emitted telemetry. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which pinned Collector builds support the required OTTL lambda functions, and what schema, missing-field, error-path, and privacy-output tests are needed before enabling them? See [[indexes/gaps]].

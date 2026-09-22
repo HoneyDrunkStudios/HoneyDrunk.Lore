@@ -924,3 +924,43 @@ Private connectivity depends-on routing, DNS, and subnet setup; authorized opera
 ### Decision and quality notes
 
 Official GA announcement is newer than the June Learn capture, which had an access warning and unknown publication date. Prefer the newer /27 requirement for research planning, with live deployment validation still required. Existing managed-path exceptions remain relevant; VNet integration does not establish total traffic containment. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which SRE Agent traffic uses private versus managed paths, and do the target deployment’s subnet sizing, DNS, repository connectivity, identity controls, and infrastructure logs establish the intended boundary? See [[indexes/gaps]].
+
+
+## 2026-09-22: Browser credential isolation depends on the complete secret path
+
+### Typed entities
+
+project: Azure Key Vault; project: Browser Automation Tool; project: Foundry Hosted Agents; project: Playwright Workspaces; concept: secret serialization; concept: browser session disposal.
+
+### Claims and evidence
+
+- Microsoft describes narrowly scoped secret retrieval immediately before browser authentication, keeping credentials in application/tool code and returning operation results to the model. The session is isolated and disposed after the authorized task. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-20-rss-azure-browser-agent-secret-flow.md)
+- The article explicitly makes model exposure implementation-dependent: Key Vault alone does not prevent prompt, log, or tool-trace leakage. Identity-based access is preferred where supported; MFA, conditional access, and SSO still require identity design. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-20-rss-azure-browser-agent-secret-flow.md)
+
+### Explicit relationships
+
+Browser authentication uses a controlled credential path; model isolation depends-on tool result serialization, logs, target restrictions, and session cleanup. See [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Vendor implementation guidance, not a demonstrated guarantee for HoneyDrunk. Inspect end-to-end data flow, narrow permissions, rotation, auditing, and sensitive-action approvals. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Can browser-agent credentials reach prompts, tool results, traces, logs, or retained sessions, and which target restrictions and cleanup tests demonstrate the intended isolation? See [[indexes/gaps]].
+
+
+## 2026-09-22: Dashboard context guides telemetry-backed diagnosis
+
+### Typed entities
+
+project: Azure SRE Agent; project: Azure Managed Grafana; concept: dashboard context; concept: telemetry units; concept: time filtering.
+
+### Claims and evidence
+
+- The Microsoft worked example uses Grafana MCP dashboard queries, scope, variables, descriptions, and known telemetry pitfalls to guide SRE Agent investigation. Aggregated tool activity and arguments distinguish an active session from a repeated sleep/retry loop that looks similar in duration charts. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-20-rss-azure-grafana-dashboard-agent-context.md)
+- The example still requires explicit time filters and replacement of Grafana macros; descriptions address time-unit differences, timeout success signals, and parent-span double-counting. The native connector uses managed identity. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-20-rss-azure-grafana-dashboard-agent-context.md)
+
+### Explicit relationships
+
+Agent investigation uses dashboard context; diagnosis depends-on actual scoped telemetry and interpretation rules. See [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+A vendor worked example, not general diagnosis accuracy. Preserve units, scope, freshness, and known pitfalls with queries; confirm proposed explanations against telemetry. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which agent-readable dashboards document time units, macros, scope, freshness, timeout semantics, and span aggregation well enough to support reproducible investigations? See [[indexes/gaps]].

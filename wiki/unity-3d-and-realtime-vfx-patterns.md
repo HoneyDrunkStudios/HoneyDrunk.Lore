@@ -1427,3 +1427,43 @@ Sustainable content addition uses modular data and parameterized art; client/ser
 ### Decision and quality notes
 
 Studio-reported vendor interview, not a transferable performance guarantee or a requirement for smaller projects. Its ECS choice is project-specific and does not contradict selective non-ECS optimizations elsewhere. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which gameplay/content boundaries, client-server asset transfers, procedural agreement checks, and fixed performance scenarios would keep HoneyDrunk live-operations changes repeatable? See [[indexes/gaps]].
+
+
+## 2026-09-22: Deferred collision work needs ownership before scheduling
+
+### Typed entities
+
+concept: collision reservation; concept: deferred mutation; concept: reset invalidation; concept: simulation ordering; decision: reserve bodies before queued consumption.
+
+### Claims and evidence
+
+- The browser-game author describes overlapping A/B and B/C contacts scheduling two merges before B is removed. The implementation reserves both body identifiers synchronously, then checks body existence again at callback execution; reset can invalidate queued work. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-20-rss-gamedev-deferred-collision-reservations.md)
+- Reservations prevent double consumption in the described design but do not establish deterministic contact ordering. Animation callbacks are not physics transaction boundaries. Seven reported rule tests are explicitly distinct from missing overlapping-callback and reset integration evidence. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-20-rss-gamedev-deferred-collision-reservations.md)
+
+### Explicit relationships
+
+Deferred consumption depends-on exclusive reservation before scheduling; reset invalidates queued work. Pure transition rules use a separate ownership and scheduling layer.
+
+### Decision and quality notes
+
+One AI-assisted browser-game practitioner post, not a Unity API recipe or independent concurrency validation. Use an engine-controlled mutation queue where replay or simulation timing requires it. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: What overlapping-contact, callback-order, reset, and reservation-release integration tests establish exclusive body consumption in a HoneyDrunk deferred simulation queue? See [[indexes/gaps]].
+
+
+## 2026-09-22: Successful process exit is weaker than a validated build artifact
+
+### Typed entities
+
+person: Othmane Ettaib; project: Unity 6000.4.0f1; concept: BuildReport; concept: asynchronous import; concept: APK manifest; concept: CI artifact assertion.
+
+### Claims and evidence
+
+- Ettaib reports Unity 6000.4.0f1 Android batch cases where exit code zero did not establish a usable artifact, including a logged preprocessing exception, interrupted asynchronous import, and an adjusted minimum Android API setting. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-20-web-unity-build-report-artifact-validation.md)
+- The proposed wrapper checks BuildReport success and total error count, prints relevant step messages, and exits unsuccessfully on validation failure. It inspects the APK manifest/SDK settings separately and distinguishes scheduled editor imports from completed command-line import work. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-20-web-unity-build-report-artifact-validation.md)
+
+### Explicit relationships
+
+CI acceptance depends-on process status, BuildReport, and artifact assertions. Import completion depends-on the actual asynchronous execution contract.
+
+### Decision and quality notes
+
+One version/environment-specific account. Reproduce preprocessing behavior before generalizing; separate build correctness from runtime correctness and verify required launch properties. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which Unity CI lanes can return zero despite build/import errors, and what BuildReport checks, import-completion tests, and APK manifest/SDK assertions prevent publishing unusable artifacts? See [[indexes/gaps]].
