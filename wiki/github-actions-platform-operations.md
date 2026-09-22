@@ -969,3 +969,23 @@ Reliable runner migration depends-on explicit image tests and software inventory
 ### Decision and quality notes
 
 Official announcement snapshot. Future dates are the captured schedule, not an observed migration or current inventory of installed tools. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which HoneyDrunk ubuntu-latest jobs pass representative .NET/container workloads on explicit Ubuntu 26.04 labels, and which require temporary 24.04 pins or tool-install changes? See [[indexes/gaps]].
+
+
+## 2026-09-22: CI feedback and runner consumption need separate measurements
+
+### Typed entities
+
+project: Linear; concept: merge-gate critical path; concept: shard setup; concept: prepared image; concept: test isolation.
+
+### Claims and evidence
+
+- Linear reports improving both pull-request feedback and runner consumption by measuring them separately and reducing prerequisite work, checkout/history, repeated setup, and cache overhead. Rebuilding replaced cache restoration where measured faster. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-linear-ci-critical-path-and-setup-cost.md)
+- Prepared images, scoped installation, and schema snapshots reduced per-shard work before more sharding became worthwhile. Small checks were grouped and large test files split; shared module state required explicit opt-in and teardown, with unsafe cases retaining isolation. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-linear-ci-critical-path-and-setup-cost.md)
+
+### Explicit relationships
+
+Fast feedback depends-on required-job dependencies and setup cost; runner consumption uses a separate aggregate measure. Shared test initialization depends-on safe state reset.
+
+### Decision and quality notes
+
+One TypeScript production case, not a forecast for HoneyDrunk .NET pipelines. Measure the critical path before buying concurrency and preserve test independence. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which required CI prerequisites, repeated setup, cache restores, and shard imbalances dominate feedback and runner cost, and which shared-state tests can safely opt into reuse? See [[indexes/gaps]].

@@ -4,7 +4,7 @@ Auto-maintained by the Ingest and Compile operations. Every file added to `raw/`
 
 ## Compile coverage: 2026-09-22
 
-Reconciled 1037 raw source documents against 1037 unique source entries; ingested 15 new captures in this pass. All raw documents have index entries. Existing source records and ingestion dates are preserved. Query outputs remain derived explorations rather than independent raw evidence.
+Reconciled 1052 raw source documents against 1052 unique source entries; ingested 30 new captures in this pass (including 15 concurrent arrivals). All raw documents have index entries. Existing source records and ingestion dates are preserved. Query outputs remain derived explorations rather than independent raw evidence.
 
 ## Entry format
 
@@ -1270,3 +1270,22 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [Reducing AI Workflow Latency: Patterns That Actually Work](../../raw/2026-09-20-rss-workflow-latency-critical-path-design.md) - Latency improvements depend on the measured dependency graph; archived evidence compiled in [[distributed-systems-patterns]]. - ingested 2026-09-22
 - [CoreCLR Progress and the Mono Timeline for .NET MAUI](../../raw/2026-09-20-web-dotnet-maui-coreclr-migration-validation.md) - MAUI Preview 6 removes the earlier Mono fallback; archived evidence compiled in [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-09-22
 - [Unity 6 Android build errors that exit 0](../../raw/2026-09-20-web-unity-build-report-artifact-validation.md) - Successful process exit is weaker than a validated build artifact; archived evidence compiled in [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-09-22
+
+
+### September 22 arrivals reconciled after the first publication
+
+- [Agent Anomaly Detection, now in Private Preview on the Gemini Enterprise Agent Platform](../../raw/2026-09-22-rss-agent-anomaly-detection-layered-session-review.md) - Session anomaly review needs an explicit enforcement connection; archived evidence compiled in [[google-agent-platform-and-gemini-api-2026]]. - ingested 2026-09-22
+- [How UK AISI and EvalEval Are Making Benchmark Results Reproducible](../../raw/2026-09-22-rss-ai-benchmark-reproducible-evaluation-records.md) - Evaluation records preserve protocol differences behind scores; archived evidence compiled in [[agent-evaluation-and-benchmarks]]. - ingested 2026-09-22
+- [Experimental support for Device Bound Session Credentials (DBSC) in ASP.NET Core: Exploring the .NET 11 preview - Part 8](../../raw/2026-09-22-rss-aspnet-experimental-device-bound-sessions.md) - ASP.NET device-bound sessions extend an existing cookie scheme; archived evidence compiled in [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-09-22
+- [Virtual nodes on Azure Container Instances: a new compute layer for AKS](../../raw/2026-09-22-rss-azure-aci-virtual-node-burst-capacity.md) - AKS burst capacity retains separate workload and identity limits; archived evidence compiled in [[kubernetes-platform-governance-and-cicd]]. - ingested 2026-09-22
+- [Using Azure Blob Storage as a durable filesystem for LangChain Deep Agents](../../raw/2026-09-22-rss-azure-blob-durable-agent-filesystem.md) - Durable agent files need storage and tool permission boundaries; archived evidence compiled in [[agent-context-management-and-session-continuity]]. - ingested 2026-09-22
+- [Creating a memory dump in C#](../../raw/2026-09-22-rss-dotnet-triggered-memory-dump-diagnostics.md) - Triggered memory dumps are bounded sensitive diagnostics; archived evidence compiled in [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-09-22
+- [AI coding has made CI a bottleneck, so we reworked ours to keep up](../../raw/2026-09-22-rss-linear-ci-critical-path-and-setup-cost.md) - CI feedback and runner consumption need separate measurements; archived evidence compiled in [[github-actions-platform-operations]]. - ingested 2026-09-22
+- [Why client SDK generation belongs in the open](../../raw/2026-09-22-rss-openapi-sdk-generator-supply-dependency.md) - SDK generator continuity requires compatibility tests; archived evidence compiled in [[api-testing-and-verification]]. - ingested 2026-09-22
+- [Prometheus and OpenTelemetry interoperability in 2026: Survey results](../../raw/2026-09-22-rss-opentelemetry-prometheus-interoperability-survey.md) - Interop survey results describe a screened population and remaining friction; archived evidence compiled in [[opentelemetry-genai-observability-and-ecosystem]]. - ingested 2026-09-22
+- [50 shades of system design](../../raw/2026-09-22-rss-system-design-workload-tradeoff-checklist.md) - Architecture comparisons need explicit workload and recovery assumptions; archived evidence compiled in [[distributed-systems-patterns]]. - ingested 2026-09-22
+- [Breakdown: How to Create a Detailed ICA Dresden Folding Plate Camera](../../raw/2026-09-22-rss-technical-art-camera-prop-material-budget.md) - Prop budgets follow silhouette and material readability; archived evidence compiled in [[technical-art-community-and-talent-signals]]. - ingested 2026-09-22
+- [Transformers now runs llama.cpp quants](../../raw/2026-09-22-rss-transformers-packed-gguf-inference-boundaries.md) - Packed GGUF execution depends on the device and kernel path; archived evidence compiled in [[edge-ai-and-ai-infrastructure-2026]]. - ingested 2026-09-22
+- [OZARK: Creating a Dark Story-Driven 2.5D Action-Horror Game](../../raw/2026-09-22-rss-unity-ozark-camera-input-and-production.md) - 2.5D cameras constrain targeting and multiplayer scope; archived evidence compiled in [[game-camera-systems]]. - ingested 2026-09-22
+- [From simulation to real-world deployment: Unity Simulation Pro early access](../../raw/2026-09-22-rss-unity-simulation-pro-sensor-validation.md) - Simulation tooling needs sensor and replay validation; archived evidence compiled in [[robotics-foundation-models-and-embodied-ai]]. - ingested 2026-09-22
+- [Windows Exploitation Techniques: Dangling COM Object Registrations](../../raw/2026-09-22-rss-windows-dangling-com-registration-defense.md) - Stale COM registrations need path and activation analysis; archived evidence compiled in [[windows-component-registration-and-service-boundaries]]. - ingested 2026-09-22

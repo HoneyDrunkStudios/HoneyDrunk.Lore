@@ -689,3 +689,43 @@ The July Preview 6 milestone supersedes the May fallback guidance for the descri
 ### Decision and quality notes
 
 Official historical preview evidence is newer than the May Preview 4 fallback account. Prefer its narrower updated behavior for that milestone; no current runtime or universal performance guarantee is asserted. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which MAUI applications still assume a Mono fallback, and what Release-artifact, device startup/size, reflection, platform integration, debugging, and Hot Reload results qualify a CoreCLR upgrade? See [[indexes/gaps]].
+
+
+## 2026-09-22: ASP.NET device-bound sessions extend an existing cookie scheme
+
+### Typed entities
+
+person: Andrew Lock; library: Microsoft.AspNetCore.Authentication.DeviceBoundSessions; concept: application cookie scheme; concept: signed refresh challenge; concept: authentication forwarding.
+
+### Claims and evidence
+
+- Lock describes an experimental .NET 11 package layering short-lived device-bound session cookies and refresh over existing cookie authentication. Browser public-key registration and signed refresh challenges reduce the usefulness of copied credentials on another device. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-aspnet-experimental-device-bound-sessions.md)
+- The walkthrough targets the actual ASP.NET Core Identity application scheme, constructs AuthenticationBuilder where necessary, and requires HTTPS. The article says the package remains experimental even when .NET 11 reaches general availability. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-aspnet-experimental-device-bound-sessions.md)
+
+### Explicit relationships
+
+Session refresh depends-on proof of key possession; integration uses registration/refresh handlers, derived schemes, and policy forwarding. This extends the earlier DBSC protocol explanation.
+
+### Decision and quality notes
+
+Practitioner walkthrough from the same author as earlier DBSC material; not independent proof of browser coverage or security guarantees. Validate normal sign-in, sign-out, renewal, and fallback. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which actual Identity application scheme and supported browser flows qualify the experimental DBSC package, including HTTPS, sign-out, refresh, fallback, and diagnostic visibility? See [[indexes/gaps]].
+
+
+## 2026-09-22: Triggered memory dumps are bounded sensitive diagnostics
+
+### Typed entities
+
+person: Aaron Powell; project: .NET; concept: thread-pool probe; concept: MiniDumpWriteDump; concept: createdump; concept: diagnostic retention.
+
+### Claims and evidence
+
+- Powell demonstrates a dedicated thread measuring the delay of scheduled thread-pool work as a trigger for suspected saturation. The probe supplies diagnostic evidence rather than establishing the underlying cause of an unresponsive application. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-dotnet-triggered-memory-dump-diagnostics.md)
+- The example uses MiniDumpWriteDump on Windows and createdump on Linux, subject to platform permissions and tracing restrictions. Repeated captures are limited because full dumps consume substantial storage and can contain credentials or sensitive process data. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-dotnet-triggered-memory-dump-diagnostics.md)
+
+### Explicit relationships
+
+Hang investigation uses delayed probes and captured process state; safe collection depends-on permissions, capture bounds, storage budgets, and access control.
+
+### Decision and quality notes
+
+Vendor sample, not a production-ready detector or predictable dump-size estimate. Keep dumps outside public Lore; validate trigger accuracy and deliberately scoped tracing access. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: What trigger accuracy, capture frequency, storage limits, access controls, retention, and platform tracing permissions would make automated memory dumps useful without exposing sensitive process data? See [[indexes/gaps]].

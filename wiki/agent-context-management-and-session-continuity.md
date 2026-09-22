@@ -134,3 +134,23 @@ Session recovery depends-on durable artifacts; long-running execution uses persi
 ### Decision and quality notes
 
 Vendor architecture guidance. Existing Context Mode and TeamAI sources cover different mechanisms and do not independently validate n8n recovery guarantees. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Which restart tests prove that HoneyDrunk task plans, child state, schedules, permissions, and webhook or polling resumes survive loss of the parent process and conversation? See [[indexes/gaps]].
+
+
+## 2026-09-22: Durable agent files need storage and tool permission boundaries
+
+### Typed entities
+
+library: langchain-azure-storage; library: AzureBlobBackend; library: CompositeBackend; project: Azure Blob Storage; concept: durable evidence; concept: thread-local state.
+
+### Claims and evidence
+
+- The Azure SDK article describes a public-preview Blob backend for LangChain Deep Agents file tools. Files survive agent processes and can be shared or inspected through storage tooling; examples use container-scoped access and Azure identity credentials. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-azure-blob-durable-agent-filesystem.md)
+- CompositeBackend routes durable evidence, guidance, and results separately from temporary thread-local plans/context. The example denies writes to evidence and guidance through file-tool rules; distinct containers, least-privilege storage roles, recovery features, and restricted destructive tools provide additional boundaries. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-azure-blob-durable-agent-filesystem.md)
+
+### Explicit relationships
+
+Session continuity uses external artifact storage; tenant isolation depends-on storage authorization and tool restrictions, not shared path naming. See [[llm-wiki-and-knowledge-formats]] and [[azure-agent-automation-and-identity]].
+
+### Decision and quality notes
+
+Vendor public-preview example, not a production tenant-isolation proof. Preserve research evidence independently of worker lifetimes and test both permission layers before adoption. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which evidence, shared guidance, temporary context, and run outputs need separate Blob containers or tool permissions, and do restart, tenant-isolation, and destructive-tool tests enforce those boundaries? See [[indexes/gaps]].

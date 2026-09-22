@@ -1288,3 +1288,23 @@ Evaluation uses a model-harness pairing; cost comparisons depend-on task sample,
 ### Decision and quality notes
 
 One benchmark study. Compare repeated representative repository tasks and cost per success before changing infrastructure; evaluate permission controls and operating requirements separately. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which matched private task set, repeated attempts, effort settings, and price assumptions will compare model-harness cost per success without masking security or long-task failures? See [[indexes/gaps]].
+
+
+## 2026-09-22: Evaluation records preserve protocol differences behind scores
+
+### Typed entities
+
+project: UK AISI; project: EvalEval; project: Every Eval Ever; concept: Evaluation Card; concept: feedback policy; concept: inference budget.
+
+### Claims and evidence
+
+- AISI and EvalEval publish benchmark definitions, run settings, model metadata, and verified results through Every Eval Ever and Evaluation Cards. The described main experiment spans five benchmarks and six frontier models; related cyber evaluations use a partly different model set. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-ai-benchmark-reproducible-evaluation-records.md)
+- The article reports that correctness feedback and extra inference attempts can materially change completion. Shared records make protocols inspectable when reruns are expensive; they do not create a universal model ranking. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-ai-benchmark-reproducible-evaluation-records.md)
+
+### Explicit relationships
+
+Score interpretation depends-on model identity, benchmark version, budget, attempts, and feedback policy. Evaluation provenance uses structured run records.
+
+### Decision and quality notes
+
+Project-authored reporting evidence, related to earlier EvalEval coverage rather than independent confirmation of a model ranking. Preserve configuration when comparing changed scores. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Do HoneyDrunk evaluation records retain exact model, benchmark, harness, budget, attempt, and feedback settings so changed scores can be compared or reproduced? See [[indexes/gaps]].

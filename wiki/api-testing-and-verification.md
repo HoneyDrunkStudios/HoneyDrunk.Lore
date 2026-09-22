@@ -41,3 +41,23 @@ API test planning should name the risk class being tested instead of asking gene
 
 - Quality posture: useful taxonomy from newsletter/practitioner material, but the capture is partial and paywalled after early sections. Use as planning vocabulary, not exhaustive implementation guidance.
 - Privacy filter: no exploit payloads or offensive testing recipes were promoted.
+
+
+## 2026-09-22: SDK generator continuity requires compatibility tests
+
+### Typed entities
+
+project: Google; project: Speakeasy; concept: OpenAPI compiler; concept: SDK compatibility; concept: generator supply dependency; concept: license scope.
+
+### Claims and evidence
+
+- Google describes replacing a proprietary generator after its provider announced closure, while preserving client interfaces, streaming, errors, and language-specific types. The replacement keeps formal OpenAPI compilation deterministic, with AI helping custom development around the compiler. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-openapi-sdk-generator-supply-dependency.md)
+- The post describes opening the Speakeasy generator suite under AGPLv3 and distinguishes generator licensing from generated-output ownership. Reported lower staffing needs remain a vendor account; intended generator use and modifications require checking the actual license. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-openapi-sdk-generator-supply-dependency.md)
+
+### Explicit relationships
+
+Reproducible SDKs depend-on generator availability and build inputs as well as an open API specification. Generator replacement uses compatibility tests for generated clients.
+
+### Decision and quality notes
+
+Vendor migration account, not legal interpretation or independently measured productivity. Treat generator continuity as a supply dependency and verify interface, streaming, error, and type contracts. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which generated SDK contracts and pinned build inputs protect HoneyDrunk from generator-provider loss, and what generator-use license terms require review before a replacement? See [[indexes/gaps]].

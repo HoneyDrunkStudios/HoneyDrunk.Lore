@@ -1139,3 +1139,23 @@ Reusable environments use modular mesh and material families; appearance validat
 ### Decision and quality notes
 
 One production interview, consistent with earlier modular-workflow accounts but not a controlled performance benchmark. Preserve editable source assets and validate target-renderer appearance and cost. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which reusable mesh/material families, pivot rules, packed texture channels, and in-engine appearance/cost checks should define a HoneyDrunk environment-art pilot? See [[indexes/gaps]].
+
+
+## 2026-09-22: Prop budgets follow silhouette and material readability
+
+### Typed entities
+
+person: Rajan Verma; project: Marmoset Toolbag 5; concept: silhouette budget; concept: baked detail; concept: UV allocation; concept: material readability.
+
+### Claims and evidence
+
+- Verma describes a game-ready antique camera constrained to about 25,000 triangles and one 2K texture sheet. Geometry retains silhouette-critical form while baking carries smaller details; UV allocation follows presentation importance. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-technical-art-camera-prop-material-budget.md)
+- Leather, paint, metal, glass, and bellows receive separate material treatment. Wear follows handling and construction rather than uniform noise; roughness, subtle color, and controlled highlights distinguish dark materials under final presentation lighting. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-technical-art-camera-prop-material-budget.md)
+
+### Explicit relationships
+
+Asset budgets use presentation priorities; material readability depends-on plausible surface variation and final lighting. Baking preserves detail while reducing final geometry.
+
+### Decision and quality notes
+
+One artist production example, not a universal geometry/texture target. Define the intended view and lighting before assigning budgets or copying the numerical limits. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which target views, silhouette features, UV priorities, wear evidence, and final-lighting checks should determine geometry and texture budgets for HoneyDrunk props? See [[indexes/gaps]].

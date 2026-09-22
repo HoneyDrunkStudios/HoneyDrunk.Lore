@@ -37,3 +37,23 @@ This page tracks foundation-model patterns for robots and embodied manipulation,
 ### Confidence and quality notes
 - Quality posture: unusually decision-useful because the source reports task protocol, limitations, and real-robot trial counts. Still single-lab and single-task evidence; do not generalize to all robotics tasks without replication.
 - Privacy filter: no private customer identity, operator personal details beyond public author/acknowledgment names, or unsafe robot-control procedures were promoted.
+
+
+## 2026-09-22: Simulation tooling needs sensor and replay validation
+
+### Typed entities
+
+project: Unity Simulation Pro; project: Unity Industry; project: ROS 2; project: TIER IV; project: KITECH; concept: simulation clock; concept: hardware-in-the-loop.
+
+### Claims and evidence
+
+- Unity announces Simulation Pro early access for Unity Industry customers on Unity 6.3 or newer, including URDF import, LiDAR/image/IMU simulation, ROS 2 integration, and headless Linux builds. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-unity-simulation-pro-sensor-validation.md)
+- Vendor case studies describe staggered camera rendering, simulation-time and asset tuning, sensor packet reproduction, synchronized observations on one clock, recorded trajectories, and replayed procedures. They do not prove the new package supplied every capability of those earlier projects. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-unity-simulation-pro-sensor-validation.md)
+
+### Explicit relationships
+
+Simulation-to-real work depends-on sensor timing, packet behavior, and measured fidelity. Repeatable inspection uses shared clocks and replay separately from visual presentation. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Vendor early-access release and case studies, not independent sensor-validation results. Verify licensing, runtime support, replay consistency, and actual sensor fidelity before adoption. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which sensor packet, timing, shared-clock, deterministic-replay, headless-runtime, and license checks would qualify Simulation Pro for a specific HoneyDrunk simulation workload? See [[indexes/gaps]].

@@ -105,3 +105,23 @@ Native histograms use structured series; adoption depends-on compatible collecti
 ### Decision and quality notes
 
 Official-project release summary, not live cluster verification. Expected cardinality or storage reductions remain unmeasured for HoneyDrunk. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which Kubernetes collectors, exposition formats, queries, and alerts can consume native histograms, and what workload measurements demonstrate useful storage or cardinality changes? See [[indexes/gaps]].
+
+
+## 2026-09-22: AKS burst capacity retains separate workload and identity limits
+
+### Typed entities
+
+project: AKS; project: Azure Container Instances; concept: virtual node; concept: delegated subnet; concept: confidential workload policy; library: Helm.
+
+### Claims and evidence
+
+- Microsoft describes a newer virtual-node implementation using Helm, selectors, and tolerations to schedule selected AKS pods onto ACI alongside traditional pools. It requires a delegated subnet sized for peak addressing and describes up to 200 pods per virtual node. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-azure-aci-virtual-node-burst-capacity.md)
+- Confidential-workload tooling derives policy from a deployment manifest; hardware isolation and attestation retain separate network and identity responsibilities. Traditional pools remain relevant for steady workloads and DaemonSets; ACI costs and platform limits still apply. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-azure-aci-virtual-node-burst-capacity.md)
+
+### Explicit relationships
+
+Burst scheduling uses virtual nodes; placement depends-on selectors, tolerations, subnet capacity, and feature compatibility. Confidential execution depends-on policy plus separate network/identity boundaries.
+
+### Decision and quality notes
+
+Vendor implementation account with an unsupported personal companion demo. Trial one bursty job and verify current limits, costs, and workload compatibility rather than replacing all pools. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which bursty AKS job fits ACI feature, addressing, identity, networking, and cost constraints, and how will its isolation policy and unsupported demo dependencies be validated? See [[indexes/gaps]].
