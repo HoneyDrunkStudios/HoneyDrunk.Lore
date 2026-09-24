@@ -1,6 +1,6 @@
 # Topics
 
-Auto-maintained catalog rebuilt from all concept pages on 2026-09-22. Each page appears once; follow its relationships for related topics.
+Auto-maintained catalog rebuilt from all concept pages on 2026-09-24. Each page appears once; follow its relationships for related topics.
 
 Coverage: 66 concept pages. Counts below are distinct, explicitly named existing raw files cited anywhere on a page, including historical claims. Grouped date ranges and wildcard citations are excluded. These counts are retrieval metadata, not independent supporting-source counts for every claim. A large page bibliography does not strengthen an unrelated single-source claim.
 
