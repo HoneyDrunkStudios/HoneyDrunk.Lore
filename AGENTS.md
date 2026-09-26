@@ -13,7 +13,7 @@ This file is the schema and operating manual for the Lore wiki. Any Honeyclaw or
 
 ## Directory contract
 
-- `raw/` — immutable source documents (articles, papers, repo dumps, notes, clips). **Never edit.** Only add. This is the source of truth for inputs.
+- `raw/` — immutable source documents (articles, papers, repo dumps, notes, clips). **Normally never edit.** Only add. Explicitly authorized security redaction is the exception: replace credentials with a marker, retain source provenance, and record the reason without repeating the secret. This is the source of truth for inputs.
 - `wiki/` — LLM-maintained structured markdown: articles, concept pages, entity pages. Plain markdown, Obsidian-compatible (`[[wikilinks]]` allowed).
 - `wiki/indexes/` — LLM-maintained auto-indexes: `sources.md`, `topics.md`, `gaps.md`. Rebuilt by Compile.
 - `output/` — query results filed here as dated markdown. These feed back into `wiki/` on the next Compile pass via Crystallization.
@@ -29,7 +29,7 @@ When Claude uses Lore:
 2. Prefer `wiki/indexes/sources.md`, `wiki/indexes/topics.md`, and relevant `wiki/` pages before searching `raw/`.
 3. Use source citations and confidence notes when making recommendations.
 4. If Lore cannot answer, record the missing question in `wiki/indexes/gaps.md` or ask Honeyclaw to run a Query/Ingest pass.
-5. Do not mutate `raw/`; raw remains immutable.
+5. Do not mutate `raw/` except for explicitly authorized credential redaction under the directory contract.
 
 Decision support contract: Lore should answer with what is known, how confident it is, which sources support it, and what would change the decision. Do not let uncited wiki prose become authority.
 
@@ -44,7 +44,7 @@ Lore implements the LLM Wiki v2 ideas incrementally in flat files:
 - **Hybrid retrieval readiness:** keep human indexes small and useful now; when the wiki passes ~100 pages, add BM25/vector/graph retrieval without changing the wiki content contract.
 - **Event hooks:** scheduled Lore sourcing writes to `raw/`; scheduled Lore ingest compiles to `wiki/`; Query outputs can crystallize back into the wiki; Lint handles health and retention.
 - **Quality scoring:** generated pages should be structured, cited, internally consistent, and decision-usable. Low-quality pages are rewritten or flagged.
-- **Privacy filter and audit trail:** redact secrets/PII before writing wiki pages and log material ingest/compile decisions in run summaries.
+- **Privacy filter and audit trail:** redact secrets before writing raw captures (including metadata and source links), and redact secrets/PII before writing wiki pages and log material ingest/compile decisions in run summaries.
 
 ## Operations
 

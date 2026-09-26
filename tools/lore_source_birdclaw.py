@@ -15,6 +15,7 @@ import re
 import sys
 import urllib.parse
 from pathlib import Path
+from lore_privacy import redact_secrets, redact_text, write_redacted_text
 from typing import Any
 
 REPO = Path(r"C:\Users\tatte\source\repos\HoneyDrunkStudios\HoneyDrunk.Lore")
@@ -36,17 +37,7 @@ ENGAGEMENT_KEYS = {
     "bookmark_count": ("bookmarkCount", "bookmark_count"),
 }
 
-SECRET_PATTERNS = [
-    re.compile(r"discord(app)?\.com/api/webhooks/[0-9]+/[A-Za-z0-9._-]+"),
-    re.compile(r"(?i)\bBearer\s+[A-Za-z0-9._~+/=-]{20,}"),
-    re.compile(r"\beyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\b"),
-    re.compile(r"\bAKIA[0-9A-Z]{16}\b"),
-    re.compile(r"\bASIA[0-9A-Z]{16}\b"),
-    re.compile(r"\bxox[baprs]-[A-Za-z0-9-]{20,}\b"),
-    re.compile(r"(?i)(api[_-]?key|secret|token|password|cookie)\s*[:=]\s*['\"]?[A-Za-z0-9_./+=-]{16,}"),
-    re.compile(r"gh[pousr]_[A-Za-z0-9_]{20,}"),
-    re.compile(r"sk-[A-Za-z0-9]{20,}"),
-]
+
 
 
 def read_json(path: str) -> Any:
@@ -232,14 +223,6 @@ def yaml_escape(value: str) -> str:
     return value.replace("\\", "\\\\").replace('"', '\\"').strip()
 
 
-def redact_secrets(text: str) -> tuple[str, int]:
-    redactions = 0
-    for pattern in SECRET_PATTERNS:
-        text, count = pattern.subn("[redacted-secret-like-value]", text)
-        redactions += count
-    return text, redactions
-
-
 def sanitize_url_secrets(text: str) -> tuple[str, int]:
     redactions = 0
 
@@ -277,7 +260,7 @@ def item_to_markdown(item: dict[str, Any], category: str, clipped_date: str) -> 
     text, url_redactions = sanitize_url_secrets(text)
     text, redactions = redact_secrets(text)
     redactions += url_redactions
-    author = author_text(item)
+    author = redact_text(author_text(item))
     url = source_url(item)
     source_id = source_id_text(item)
     published = normalize_date(first_text(item, DATE_KEYS))
@@ -393,7 +376,7 @@ def main() -> int:
                 path = raw_dir / f"{clipped_date}-birdclaw-x-{slugify(title)}-{suffix}.md"
                 suffix += 1
             if not args.dry_run:
-                path.write_text(markdown, encoding="utf-8")
+                write_redacted_text(path, markdown)
             written.append(path.name)
             urls.add(url)
             if source_id:

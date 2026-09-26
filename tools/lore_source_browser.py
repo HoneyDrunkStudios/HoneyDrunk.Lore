@@ -18,6 +18,7 @@ import re
 import subprocess
 import sys
 from pathlib import Path
+from lore_privacy import redact_text, write_redacted_text
 
 REPO = Path(r"C:\Users\tatte\source\repos\HoneyDrunkStudios\HoneyDrunk.Lore")
 RAW = REPO / "raw"
@@ -78,7 +79,7 @@ def kill_process_tree(pid: int) -> None:
 
 
 def sanitize_output(value: str | None) -> str:
-    return (value or "").encode("ascii", "ignore").decode("ascii")
+    return redact_text(value or "").encode("ascii", "ignore").decode("ascii")
 
 
 def browser(profile: str, *args: str, timeout: int = 90) -> str:
@@ -88,6 +89,7 @@ def browser(profile: str, *args: str, timeout: int = 90) -> str:
 
 
 def slugify(text: str) -> str:
+    text = redact_text(text)
     text = text.lower()
     text = re.sub(r"[^a-z0-9]+", "-", text).strip("-")
     return (text[:80] or "browser-source").strip("-")
@@ -117,7 +119,7 @@ def write_raw(source: str, title: str, category: str, source_type: str, body: st
         path = RAW / f"{today}-{source_type}-{slugify(suffix)}-{n}.md"
         n += 1
     content = f'''---\nsource: "{yaml_escape(source)}"\ntitle: "{yaml_escape(title)}"\nauthor: "Lore browser"\ndate_published: "unknown"\ndate_clipped: "{today}"\ncategory: "{yaml_escape(category)}"\nsource_type: "{source_type}"\n---\n\n# {title}\n\nSource: {source}\n\n{body}\n'''
-    path.write_text(content, encoding="utf-8")
+    write_redacted_text(path, content)
     return path.name
 
 
@@ -181,7 +183,7 @@ def scrape_discord_channel_worker(profile: str, name: str, focus: str, url: str,
 
 def append_progress(path: Path, message: str) -> None:
     with path.open("a", encoding="utf-8") as fh:
-        fh.write(f"{dt.datetime.now().isoformat(timespec='seconds')} {message}\n")
+        fh.write(f"{dt.datetime.now().isoformat(timespec='seconds')} {redact_text(message)}\n")
 
 
 def source_discord(profile: str, cfg: dict, dry_run: bool, limit: int = 0, channel_timeout: int = 180) -> tuple[list[str], list[str]]:
@@ -286,9 +288,9 @@ def main() -> int:
     summary.extend(["", "## Failures"])
     summary.extend((f"- {failure}" for failure in failures) if failures else ["_None_"])
     if not args.dry_run:
-        (OUTPUT / "lore-browser-sourcing-last-run.md").write_text("\n".join(summary) + "\n", encoding="utf-8")
+        write_redacted_text((OUTPUT / "lore-browser-sourcing-last-run.md"), "\n".join(summary) + "\n")
     else:
-        print("\n".join(summary))
+        print(redact_text("\n".join(summary)))
     print(f"Browser sourced {len(written)} items; notes {len(notes)}; failures {len(failures)}")
     return 1 if failures else 0
 

@@ -467,7 +467,7 @@ C2 Domain
 test-steve[.]cyou
 C2 domain (retrieved from contract)
 Telegram Bot
-7356125890:AAF5ncBIc2pJrEfYPAmy2g9YS7B5NjmtwTc
+[REDACTED: third-party Telegram bot credential]
 Telegram bot token for exfiltration/C2
 Telegram Chats
 -1002535992165, -1002144122983
