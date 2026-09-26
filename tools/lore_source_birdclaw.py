@@ -220,7 +220,7 @@ def slugify(text: str) -> str:
 
 
 def yaml_escape(value: str) -> str:
-    return value.replace("\\", "\\\\").replace('"', '\\"').strip()
+    return redact_text(value).replace("\\", "\\\\").replace('"', '\\"').strip()
 
 
 def sanitize_url_secrets(text: str) -> tuple[str, int]:

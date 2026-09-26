@@ -472,7 +472,7 @@ def article_body(url: str, fallback: str) -> str:
 
 
 def yaml_escape(value: str) -> str:
-    return value.replace("\\", "\\\\").replace('"', '\\"').strip()
+    return redact_text(value).replace("\\", "\\\\").replace('"', '\\"').strip()
 
 
 def select_diverse(items: list[dict], max_items: int) -> list[dict]:

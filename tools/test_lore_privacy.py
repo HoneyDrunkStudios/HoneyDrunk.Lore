@@ -1,6 +1,7 @@
 """Offline regressions: synthetic credentials only; no provider validation."""
 import contextlib
 import io
+import json
 from pathlib import Path
 import tempfile
 import unittest
@@ -17,6 +18,54 @@ def fake_token():
 
 
 class PrivacyTests(unittest.TestCase):
+    def assert_metadata_redacted(self, text, opaque_value):
+        self.assertNotIn(opaque_value, text)
+        frontmatter = text.split('---', 2)[1]
+        decoded = {}
+        for line in frontmatter.splitlines():
+            key, separator, value = line.partition(':')
+            if separator and value.strip().startswith('"'):
+                decoded[key] = json.loads(value.strip())
+        self.assertTrue(decoded)
+        self.assertTrue(any('[redacted-secret-like-value]' in value for value in decoded.values()))
+        self.assertNotIn(opaque_value, repr(decoded))
+
+    def test_browser_quoted_secret_metadata(self):
+        opaque = 'abcdefghijklmnopqrstuvwx'
+        value = 'password: "' + opaque + '"'
+        with tempfile.TemporaryDirectory() as directory, patch.object(browser, 'RAW', Path(directory)):
+            name = browser.write_raw('https://example.org/source', value, value, 'browser', value, value)
+            self.assert_metadata_redacted((Path(directory) / name).read_text(), opaque)
+
+    def test_public_quoted_secret_metadata(self):
+        opaque = 'abcdefghijklmnopqrstuvwx'
+        value = 'password: "' + opaque + '"'
+        feed = f'<rss><channel><item><title>AI agent {value}</title><link>https://example.org/story</link><author>{value}</author><description>AI news</description></item></channel></rss>'
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            with patch.multiple(public, RAW=root / 'raw', OUTPUT=root / 'output',
+                                FEEDS=[('Test', 'https://example.org/feed', 'security')],
+                                JSON_SOURCES=[], WEB_INDEX_SOURCES=[]), \
+                 patch.object(public, 'known_urls', return_value=set()), \
+                 patch.object(public, 'fetch', return_value=feed), \
+                 patch.object(public, 'article_body', return_value='Research notes ' * 40), \
+                 patch('sys.argv', ['lore_source_public.py']), contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(public.main(), 0)
+            captures = list((root / 'raw').glob('*.md'))
+            self.assertEqual(len(captures), 1)
+            self.assert_metadata_redacted(captures[0].read_text(), opaque)
+
+    def test_birdclaw_quoted_secret_metadata(self):
+        opaque = 'abcdefghijklmnopqrstuvwx'
+        value = 'password: "' + opaque + '"'
+        item = {'id': '12345', 'text': 'AI news', 'author': 'Researcher',
+                'url': 'https://x.com/example/status/12345'}
+        _, _, _, _, markdown = bird.item_to_markdown(item, value, '2026-09-26')
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'capture.md'
+            privacy.write_redacted_text(path, markdown)
+            self.assert_metadata_redacted(path.read_text(), opaque)
+
     def test_telegram_forms(self):
         token = fake_token()
         for value in [token, 'https://api.telegram.org/bot' + token + '/getMe',

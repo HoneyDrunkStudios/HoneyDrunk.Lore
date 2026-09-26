@@ -96,7 +96,7 @@ def slugify(text: str) -> str:
 
 
 def yaml_escape(value: str) -> str:
-    return value.replace("\\", "\\\\").replace('"', '\\"').strip()
+    return redact_text(value).replace("\\", "\\\\").replace('"', '\\"').strip()
 
 
 def score(text: str) -> int:

@@ -1,8 +1,14 @@
 name: Lore ingestion tests
 on:
   pull_request:
+    paths:
+      - 'tools/**'
+      - '.github/workflows/lore-tests.yml'
   push:
     branches: [main]
+    paths:
+      - 'tools/**'
+      - '.github/workflows/lore-tests.yml'
 permissions:
   contents: read
 jobs:
