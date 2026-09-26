@@ -989,3 +989,43 @@ Fast feedback depends-on required-job dependencies and setup cost; runner consum
 ### Decision and quality notes
 
 One TypeScript production case, not a forecast for HoneyDrunk .NET pipelines. Measure the critical path before buying concurrency and preserve test independence. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which required CI prerequisites, repeated setup, cache restores, and shard imbalances dominate feedback and runner cost, and which shared-state tests can safely opt into reuse? See [[indexes/gaps]].
+
+
+## 2026-09-26: CI optimization needs runtime distributions and accountable quarantine
+
+### Typed entities
+
+person: Serhii Yakovenko; concept: merge train; concept: runtime variance; concept: flaky-test quarantine; concept: runner consumption.
+
+### Claims and evidence
+
+- Yakovenko reports a merge-train reduction from about an hour to twenty-two minutes in one organization. Infrastructure trials used ten sequential runs per configuration and considered variance alongside average duration; browser-dependent tests were separated from service tests to avoid unnecessary Chrome containers. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-ci-runtime-variance-and-flaky-test-cost.md)
+- The account also batches telemetry queries, caches lint results, and skips selected documentation work. Repeated failures and LLM-assisted review identified possible flaky tests, but initial quarantine decisions included misclassifications. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-ci-runtime-variance-and-flaky-test-cost.md)
+
+### Explicit relationships
+
+CI optimization depends-on measured queue delay, runtime distribution, retries, and cost; test quarantine uses evidence and follow-up ownership. Related critical-path evidence appears in the September 22 Linear section.
+
+### Decision and quality notes
+
+One production account, not an expected HoneyDrunk saving. Change one major variable at a time and check excluded work and quarantined failures so faster CI does not conceal regressions. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which queue, duration-variance, retry, and runner-cost baselines distinguish a real HoneyDrunk CI gain, and who reviews false-positive quarantine and restores test coverage? See [[indexes/gaps]].
+
+
+## 2026-09-26: JavaScript action runtime cutover is separate from application Node selection
+
+### Typed entities
+
+project: GitHub Actions; project: Node.js 24; concept: JavaScript action runtime; concept: self-hosted runner; file: action.yml.
+
+### Claims and evidence
+
+- GitHub's September 23 notice reports JavaScript actions using Node 24 and removal of the temporary Node 20 opt-out. Maintainers should publish compatible action runtime declarations and workflow owners should use compatible action versions. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-github-actions-node24-runtime-cutover.md)
+- The captured notice excludes macOS 13.4 and earlier and ARM32 from the new action runtime and states service scope as github.com and GitHub with Data Residency. A Node version installed to build an application is a separate concern from the runtime executing JavaScript actions. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-github-actions-node24-runtime-cutover.md)
+
+### Explicit relationships
+
+Workflow execution depends-on action-version and runner-platform compatibility. Application builds use separately selected runtimes; changing the build Node version alone does not establish action compatibility.
+
+### Decision and quality notes
+
+Official cutover snapshot. Inventory local/custom actions and self-hosted platforms and exercise a representative workflow; do not generalize the announcement to unmentioned GitHub Enterprise Server versions. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which HoneyDrunk JavaScript actions, runtime declarations, and self-hosted platforms require Node 24 compatibility work, and do representative workflows pass independently of application Node selection? See [[indexes/gaps]].

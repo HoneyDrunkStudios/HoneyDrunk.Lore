@@ -1467,3 +1467,24 @@ CI acceptance depends-on process status, BuildReport, and artifact assertions. I
 ### Decision and quality notes
 
 One version/environment-specific account. Reproduce preprocessing behavior before generalizing; separate build correctness from runtime correctness and verify required launch properties. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which Unity CI lanes can return zero despite build/import errors, and what BuildReport checks, import-completion tests, and APK manifest/SDK assertions prevent publishing unusable artifacts? See [[indexes/gaps]].
+
+
+## 2026-09-26: Content directories separate artifact identity from dependency references
+
+### Typed entities
+
+project: Unity 6.6; project: Unity 7; library: Addressables; concept: content directory; concept: stable identifier; concept: manifest; concept: `Loadable<T>`.
+
+### Claims and evidence
+
+- Unity introduces content directories for content shipped with the Player in Unity 6.6. Individual artifacts replace bundle-sized loading units; builds reuse the asset-import framework, caching, parallelism, and accelerator support. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-unity-content-directory-artifact-dependencies.md)
+- Content-addressed artifacts use stable references resolved through a manifest to avoid cascading content-hash changes through dependencies. `Loadable<T>` supports deferred engine-level references; Unity says existing Addressables projects can switch the local-content backend without application-code changes. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-unity-content-directory-artifact-dependencies.md)
+- The capture describes remote artifact delivery as future Unity 7 work. Demonstration results use a particular game, beta Editor, and machine, so they do not establish general migration compatibility or performance gains. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-unity-content-directory-artifact-dependencies.md)
+
+### Explicit relationships
+
+Artifact loading uses manifest-resolved identifiers; build reuse depends-on artifact and dependency structure. Local content delivery and remote-delivery roadmap use different availability boundaries.
+
+### Decision and quality notes
+
+Official implementation explanation and vendor case study. Test a representative scene for dependency churn, memory residency, build reuse, and migration compatibility; do not promote the remote roadmap to an available feature. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which Unity and Addressables versions, dependency-change scenarios, memory-residency checks, and scene tests qualify a HoneyDrunk local-content migration without assuming future remote delivery? See [[indexes/gaps]].

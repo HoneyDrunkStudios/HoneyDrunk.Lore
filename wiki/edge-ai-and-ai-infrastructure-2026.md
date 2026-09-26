@@ -446,6 +446,7 @@ Relationships added: inference-routing decisions depend-on clean article/body ex
 
 ### Source-backed claims
 - Azure Container Apps Sandboxes are in public preview as `Microsoft.App/SandboxGroups`, offering per-sandbox hardware-isolated microVMs, sub-second startup, OCI disk images, snapshot-based suspend/resume, lifecycle policies, egress controls, volumes, secrets, managed identity, and portal/CLI/SDK management. Source: `raw/2026-06-12-web-microsoft-techcommunity-introducing-azure-container-apps-sandboxes-secure-infr.md`. confidence: 1 Microsoft source, last-confirmed 2026-06-12.
+  - superseded-by: [September GA scope](#2026-09-26-container-apps-sandboxes-ga-retains-explicit-policy-and-lifecycle-choices) at 2026-09-26T10:05:48-04:00. Reason: the newer official September 23 announcement supersedes the June public-preview status for the core service. Historical feature descriptions and preview-qualified integrations are not blanket-promoted. [captured source](../raw/2026-09-24-rss-azure-sandbox-egress-state-and-telemetry.md)
 - Microsoft says ACA Sandboxes are the infrastructure used by Cloud sandboxes in GitHub Copilot, Foundry Hosted Agents, and ACA Express, and are the successor direction for Azure Container Apps Dynamic Sessions for new isolated ephemeral compute work. Source: `raw/2026-06-12-web-microsoft-techcommunity-introducing-azure-container-apps-sandboxes-secure-infr.md`. confidence: 1 Microsoft source, last-confirmed 2026-06-12.
 - ACA Sandboxes support deny-by-default network egress policy with host and CIDR rules, managed volumes backed by Blob or Azure Disk, scoped group secrets, system/user-assigned managed identity, and managed MCP connectors/triggers through Connector Namespace. Source: `raw/2026-06-12-web-microsoft-techcommunity-introducing-azure-container-apps-sandboxes-secure-infr.md`. confidence: 1 Microsoft source, last-confirmed 2026-06-12.
 - DiffusionGemma shifts local text generation pressure from memory bandwidth toward compute by denoising a 256-token canvas in parallel, with Google reporting high token throughput on RTX 5090 and H100-class GPUs; treat this as vendor performance evidence. Source: `raw/2026-06-12-web-google-developers-blog-diffusiongemma-the-developer-guide-google-developers-bl.md`. confidence: 1 Google Developers source, last-confirmed 2026-06-12.
@@ -1220,3 +1221,44 @@ Packed execution depends-on device, architecture, and kernel support. Fallback c
 ### Decision and quality notes
 
 Vendor release evidence, not Windows packed-inference support or equal-condition benchmark proof. Record actual kernel selection and fallback before assessing existing Python integration benefits. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which supported device, architecture, kernel, batch shape, and fallback path would a packed-GGUF evaluation use, and can memory/throughput be compared under identical timing conditions? See [[indexes/gaps]].
+
+
+## 2026-09-26: Container Apps Sandboxes GA retains explicit policy and lifecycle choices
+
+### Typed entities
+
+project: Azure Container Apps Sandboxes; concept: microVM; concept: egress proxy; concept: persistent volume; concept: memory snapshot.
+
+### Claims and evidence
+
+- Microsoft's September 23 announcement describes Container Apps Sandboxes as generally available per-task microVMs with separate Linux kernels. External egress controls can filter destinations, inject credentials outside the guest, and delegate decisions to a webhook; isolation policy and access grants require explicit configuration. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-azure-sandbox-egress-state-and-telemetry.md)
+- Disk-only and combined memory/disk snapshots serve different restart needs. Persistent volumes can outlive instance deletion; data disks attach to one sandbox while Blob-backed mounts target shared, read-heavy data. Application and egress telemetry is opt-in per sandbox. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-azure-sandbox-egress-state-and-telemetry.md)
+- The captured GA announcement lists Python and TypeScript SDKs with .NET forthcoming. Terraform support and connector integrations retain preview qualifications; core-service GA does not promote every integration to GA. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-azure-sandbox-egress-state-and-telemetry.md)
+
+### Explicit relationships
+
+Sandbox execution uses a separate kernel; credential isolation depends-on external egress enforcement. Lifecycle cleanup depends-on persistent-volume retention. The September GA announcement supersedes the June core-service preview status; see [[ai-coding-agent-security]] for complementary policy controls.
+
+### Decision and quality notes
+
+Official announcement summary, not a conformance or isolation test. Validate allowed destinations, snapshot recovery, persistent-data deletion, opt-in logs, and SDK support before a pilot. June feature details not addressed by this capture remain historical. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which sandbox egress, credential-injection, snapshot recovery, persistent-volume retention, telemetry, and SDK tests qualify isolated HoneyDrunk jobs under the captured GA boundary? See [[indexes/gaps]].
+
+
+## 2026-09-26: Tokenizer optimization needs output equivalence and realistic cache inputs
+
+### Typed entities
+
+project: Hugging Face; library: tokenizers; concept: Rust release candidate; concept: output-ID hash; concept: thread-local cache; concept: SIMD splitting.
+
+### Claims and evidence
+
+- Hugging Face describes a Rust tokenizers v1 release candidate intended to preserve token IDs and existing APIs while reducing encoding and decoding work. Mechanisms include scratch-memory reuse, batched model calls, thread-local word caches, and SIMD splitting for recognized patterns, with regex fallback for other patterns. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-huggingface-tokenizer-v1-benchmark-contracts.md)
+- The benchmark separates vocabulary loading from encoding, verifies output-ID hashes, and distinguishes repeated-document caching from distinct-input streams. Results depend on model family and hardware, exclude Python binding overhead, and include some improvements still planned for 1.0 rather than implemented in the candidate. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-huggingface-tokenizer-v1-benchmark-contracts.md)
+
+### Explicit relationships
+
+Tokenizer adoption depends-on output equivalence and representative end-to-end workload measurement. Benchmark interpretation uses input diversity, cache behavior, and language-binding boundaries. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Maintainer measurements, not independent reproduction. Treat the release candidate and planned work separately; evaluate actual preprocessing paths before adopting a speedup claim. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which tokenizer versions, output-ID checks, diverse corpora, hardware, binding overhead, and cache conditions represent HoneyDrunk preprocessing well enough to qualify the release candidate? See [[indexes/gaps]].

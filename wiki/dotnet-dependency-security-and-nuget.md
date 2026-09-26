@@ -123,3 +123,23 @@ Generated API consumption depends-on referenced runtime types. Runtime-asset exc
 ### Decision and quality notes
 
 Historical beta-era practitioner account, not current package-release verification. Inspect emitted signatures and test packed-library consumers for each supported target. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which generated public signatures expose runtime option or attribute types, and do packed-library consumer tests cover PrivateAssets, ExcludeAssets, and generator-only versus shared-runtime packages? See [[indexes/gaps]].
+
+
+## 2026-09-26: NuGet author-certificate rotation preserves trust for older signatures
+
+### Typed entities
+
+project: NuGet; project: Microsoft; concept: trusted-author allowlist; concept: certificate fingerprint; concept: NU3034; file: nuget.config.
+
+### Claims and evidence
+
+- Microsoft announces a new NuGet author-signing certificate starting September 23, 2026. Explicit trusted-author allowlists and verification commands pinning Microsoft fingerprints are the affected cases; packages already signed retain their original signatures. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-nuget-microsoft-signing-certificate-rotation.md)
+- The captured migration guidance adds the new certificate while retaining older accepted certificates and checks every applicable nuget.config scope. Otherwise newly signed packages can fail with NU3034. Projects without explicit author-fingerprint restrictions are described as unaffected. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-nuget-microsoft-signing-certificate-rotation.md)
+
+### Explicit relationships
+
+Pinned package verification depends-on accepted signer certificates across configuration scopes. Certificate rotation uses overlapping trust for existing signed artifacts; it is distinct from NuGet publishing API-key lifetime.
+
+### Decision and quality notes
+
+Official dated migration record. Consult the original for exact fingerprints and trust commands, then validate old and newly signed packages; no fingerprint or policy change is invented here. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which HoneyDrunk CI and developer NuGet scopes pin Microsoft author fingerprints, and do both old and newly signed packages verify after the trust-policy migration? See [[indexes/gaps]].

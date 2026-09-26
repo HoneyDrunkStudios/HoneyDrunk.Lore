@@ -729,3 +729,23 @@ Hang investigation uses delayed probes and captured process state; safe collecti
 ### Decision and quality notes
 
 Vendor sample, not a production-ready detector or predictable dump-size estimate. Keep dumps outside public Lore; validate trigger accuracy and deliberately scoped tracing access. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: What trigger accuracy, capture frequency, storage limits, access controls, retention, and platform tracing permissions would make automated memory dumps useful without exposing sensitive process data? See [[indexes/gaps]].
+
+
+## 2026-09-26: MeterListener consumers must distinguish increments from observed totals
+
+### Typed entities
+
+person: Andrew Lock; library: System.Diagnostics.Metrics; concept: MeterListener; concept: observable counter; concept: histogram aggregation.
+
+### Claims and evidence
+
+- Lock's February example selects instruments, enables measurements, and registers MeterListener callbacks for supported numeric types. Synchronous counters supply increments; observable counters supply current totals when RecordObservableInstruments is invoked, so the consumer must not aggregate them identically. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-dotnet-meterlistener-observable-metric-semantics.md)
+- Tags distinguish series, and concurrent callbacks require atomic updates or synchronization. Histogram aggregation requires an explicit policy; locking can create contention. Passing state avoids closures and repeated lookups in the demonstration. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-dotnet-meterlistener-observable-metric-semantics.md)
+
+### Explicit relationships
+
+Correct in-process aggregation depends-on instrument semantics, series tags, and callback concurrency. See [[opentelemetry-genai-observability-and-ecosystem]] for production telemetry context.
+
+### Decision and quality notes
+
+Evergreen February practitioner example, not a framework release or executed test. Use established telemetry libraries for production aggregation; use the distinctions to verify custom consumers. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Do HoneyDrunk custom metric consumers test counter deltas versus observable totals, tag-separated series, concurrent callbacks, and histogram aggregation without double-counting? See [[indexes/gaps]].

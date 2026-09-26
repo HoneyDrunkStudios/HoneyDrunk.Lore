@@ -1308,3 +1308,27 @@ Score interpretation depends-on model identity, benchmark version, budget, attem
 ### Decision and quality notes
 
 Project-authored reporting evidence, related to earlier EvalEval coverage rather than independent confirmation of a model ranking. Preserve configuration when comparing changed scores. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Do HoneyDrunk evaluation records retain exact model, benchmark, harness, budget, attempt, and feedback settings so changed scores can be compared or reproduced? See [[indexes/gaps]].
+
+
+## 2026-09-26: Agent task cost includes cache behavior and unsuccessful attempts
+
+### Typed entities
+
+person: Addy Osmani; project: Claude; concept: accepted outcome; concept: cache write; concept: context compaction; concept: cost per successful task.
+
+### Claims and evidence
+
+- Osmani's Claude-hosted article separates token unit price from task-completion cost: repeated turns resend growing context, while caching, reasoning output, failed approaches, and subagent model selection affect total usage. Cheap individual calls can require enough retries to lose their cost advantage. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-claude-task-cost-cache-and-retry-measurement.md)
+- The article proposes comparing matched tasks with recorded session usage and executable checks. Cache writes, model changes, and compaction can add costs omitted from simplified examples; compaction also trades retained detail against context size. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-claude-task-cost-cache-and-retry-measurement.md)
+
+### Explicit relationships
+
+Task-cost comparison depends-on accepted outcomes, attempts, and recorded cache/input/output usage. Context compaction affects retained instructions; see [[agent-context-management-and-session-continuity]] and [[claude-platform-2026]].
+
+### Decision and quality notes
+
+Vendor-hosted guidance. Calculator examples, prompt-audit results, and dated prices do not establish expected savings or a preferred model. Verify billing separately before budgeting. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Do representative HoneyDrunk agent runs record accepted outcomes, retries, cache reads and writes, reasoning/output usage, and compaction effects well enough to compare total task cost? See [[indexes/gaps]].
+
+### Consolidated measurement principle: stronger cross-source support
+
+Compare cost per successful or accepted task together with the task set, harness, attempt budget, and recorded usage, rather than inferring task cost from token unit price. confidence: 3 sources, last-confirmed 2026-09-26 (archived sources reviewed; stronger support for the measurement principle, not any model ranking or savings estimate). [OpenAI evaluation guidance](../raw/2026-05-31-web-openai-a-shared-playbook-for-trustworthy-third-party-evaluations.md), [Arena model-harness study](../raw/2026-09-20-rss-arena-coding-harness-cost-evaluation.md), [Osmani task-cost guidance](../raw/2026-09-24-rss-claude-task-cost-cache-and-retry-measurement.md). These are distinct authored sources with different methods and incentives; they are not three replications of one benchmark. Earlier source-specific claims remain preserved.

@@ -2,9 +2,9 @@
 
 Questions the wiki cannot currently answer. Populated by the Query operation when synthesis falls short, and by the Lint operation when entities are referenced but lack a backing page.
 
-## Compile status: 2026-09-24
+## Compile status: 2026-09-26
 
-Cataloged 587 dated gap entries alongside the current 66-page catalog. Added 0 questions and closed 0 gaps in this pass. Existing questions and their history are preserved below.
+Cataloged 602 dated gap entries alongside the current 66-page catalog. Added 15 questions and closed 0 gaps in this pass. Existing questions and their history are preserved below.
 
 ## Entry format
 
@@ -792,3 +792,22 @@ Cataloged 587 dated gap entries alongside the current 66-page catalog. Added 0 q
 - Which camera, depth-targeting, mouse/controller, enemy-visibility, and shared/split-screen interactions must a HoneyDrunk 2.5D co-op prototype validate before selecting networking scope? - surfaced 2026-09-22 - context: [[game-camera-systems]]; [source](../../raw/2026-09-22-rss-unity-ozark-camera-input-and-production.md).
 - Which sensor packet, timing, shared-clock, deterministic-replay, headless-runtime, and license checks would qualify Simulation Pro for a specific HoneyDrunk simulation workload? - surfaced 2026-09-22 - context: [[robotics-foundation-models-and-embodied-ai]]; [source](../../raw/2026-09-22-rss-unity-simulation-pro-sensor-validation.md).
 - Do Windows installer cleanup and privileged COM services leave missing registered modules on writable paths, and what activation-policy and patch evidence establishes actual exposure or remediation? - surfaced 2026-09-22 - context: [[windows-component-registration-and-service-boundaries]]; [source](../../raw/2026-09-22-rss-windows-dangling-com-registration-defense.md).
+
+
+## 2026-09-26 ingest questions
+
+- Which local agent archives retain credentials or sensitive project context, and which clean-device revocation and retention tests bound access after endpoint compromise? - surfaced 2026-09-26 - context: [[ai-coding-agent-security]]; [source](../../raw/2026-09-24-rss-agent-local-history-and-credential-exposure.md).
+- Which simple HoneyDrunk APIs fit Express networking, compute, runtime, and regional limits, and what measured startup and scaling behavior qualifies deployment? - surfaced 2026-09-26 - context: [[azure-agent-automation-and-identity]]; [source](../../raw/2026-09-24-rss-azure-container-apps-express-ga-boundaries.md).
+- Which sandbox egress, credential-injection, snapshot recovery, persistent-volume retention, telemetry, and SDK tests qualify isolated HoneyDrunk jobs under the captured GA boundary? - surfaced 2026-09-26 - context: [[edge-ai-and-ai-infrastructure-2026]]; [source](../../raw/2026-09-24-rss-azure-sandbox-egress-state-and-telemetry.md).
+- Which queue, duration-variance, retry, and runner-cost baselines distinguish a real HoneyDrunk CI gain, and who reviews false-positive quarantine and restores test coverage? - surfaced 2026-09-26 - context: [[github-actions-platform-operations]]; [source](../../raw/2026-09-24-rss-ci-runtime-variance-and-flaky-test-cost.md).
+- Do representative HoneyDrunk agent runs record accepted outcomes, retries, cache reads and writes, reasoning/output usage, and compaction effects well enough to compare total task cost? - surfaced 2026-09-26 - context: [[agent-evaluation-and-benchmarks]]; [source](../../raw/2026-09-24-rss-claude-task-cost-cache-and-retry-measurement.md).
+- Which sandbox runtime and version enforce Kit v3 requests, and do update tests detect added grants, removed denies, dependency conflicts, and credential or network-policy regressions? - surfaced 2026-09-26 - context: [[ai-coding-agent-security]]; [source](../../raw/2026-09-24-rss-docker-kit-versioned-agent-permission-contracts.md).
+- Do HoneyDrunk custom metric consumers test counter deltas versus observable totals, tag-separated series, concurrent callbacks, and histogram aggregation without double-counting? - surfaced 2026-09-26 - context: [[dotnet-runtime-and-mobile-2026]]; [source](../../raw/2026-09-24-rss-dotnet-meterlistener-observable-metric-semantics.md).
+- Which HoneyDrunk JavaScript actions, runtime declarations, and self-hosted platforms require Node 24 compatibility work, and do representative workflows pass independently of application Node selection? - surfaced 2026-09-26 - context: [[github-actions-platform-operations]]; [source](../../raw/2026-09-24-rss-github-actions-node24-runtime-cutover.md).
+- Does each HoneyDrunk GitHub App have an active owner, bounded installation scope, reviewed key rotation and revocation, and a retirement path for unused integrations? - surfaced 2026-09-26 - context: [[github-copilot-and-app-token-changes]]; [source](../../raw/2026-09-24-rss-github-app-key-lifecycle-and-blast-radius.md).
+- Which tokenizer versions, output-ID checks, diverse corpora, hardware, binding overhead, and cache conditions represent HoneyDrunk preprocessing well enough to qualify the release candidate? - surfaced 2026-09-26 - context: [[edge-ai-and-ai-infrastructure-2026]]; [source](../../raw/2026-09-24-rss-huggingface-tokenizer-v1-benchmark-contracts.md).
+- Which HoneyDrunk CI and developer NuGet scopes pin Microsoft author fingerprints, and do both old and newly signed packages verify after the trust-policy migration? - surfaced 2026-09-26 - context: [[dotnet-dependency-security-and-nuget]]; [source](../../raw/2026-09-24-rss-nuget-microsoft-signing-certificate-rotation.md).
+- Which reference-driven rust structure, exposed parameters, and target-engine appearance and cost checks would qualify a reusable HoneyDrunk material family? - surfaced 2026-09-26 - context: [[technical-art-community-and-talent-signals]]; [source](../../raw/2026-09-24-rss-procedural-rust-material-structure-and-reuse.md).
+- Which HoneyDrunk worker failure signals and concurrency limits preserve queue-age objectives, and how will a local controller recover from complete backoff without masking persistent failure? - surfaced 2026-09-26 - context: [[distributed-systems-patterns]]; [source](../../raw/2026-09-24-rss-queue-worker-local-backpressure-tradeoffs.md).
+- Which identity, alpha, crop, pivot, contact-pose, loop-timing, and engine-playback checks define an accepted HoneyDrunk animation, and is cleanup effort recorded per accepted result? - surfaced 2026-09-26 - context: [[ai-assisted-game-development-pipelines]]; [source](../../raw/2026-09-24-rss-sprite-animation-export-validation-gates.md).
+- Which Unity and Addressables versions, dependency-change scenarios, memory-residency checks, and scene tests qualify a HoneyDrunk local-content migration without assuming future remote delivery? - surfaced 2026-09-26 - context: [[unity-3d-and-realtime-vfx-patterns]]; [source](../../raw/2026-09-24-rss-unity-content-directory-artifact-dependencies.md).

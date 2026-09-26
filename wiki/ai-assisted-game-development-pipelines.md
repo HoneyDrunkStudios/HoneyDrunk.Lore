@@ -85,3 +85,23 @@ Agent-assisted XR work uses engine and device evidence; performance diagnosis de
 ### Decision and quality notes
 
 Written vendor interview only; linked videos and profiles were not ingested. Different review models do not establish independent correctness, and agent interpretation does not replace profiling. Tool versions and permissions remain unverified. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which versioned Editor and Quest-device observations, live-evaluation permissions, and profiler comparisons would verify an agent-generated XR change before acceptance? See [[indexes/gaps]].
+
+
+## 2026-09-26: Generated sprite acceptance depends on frames and engine playback
+
+### Typed entities
+
+project: FrameSprite; concept: sprite sheet; concept: stable pivot; concept: alpha quality; concept: loop timing; concept: accepted animation.
+
+### Claims and evidence
+
+- FrameSprite proposes separate checks for character identity, motion, framing, alpha, geometry, and engine handoff. Visually convincing video can still yield cropped limbs, unstable pivots, background artifacts, or missing contact poses in a sprite sheet. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-sprite-animation-export-validation-gates.md)
+- The proposed comparison holds reference, facing, action, and cell size fixed while retaining prompts, video, frames, timing, dimensions, and cleanup effort. Video frame rate, frame sampling, and game playback speed are distinct; equal endpoint images do not prove a natural loop, and duplicate endpoints can add a pause. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-sprite-animation-export-validation-gates.md)
+
+### Explicit relationships
+
+Animation acceptance depends-on exported frames and game-scale engine playback. Cost comparison uses accepted animation and cleanup effort. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Commercially interested workflow proposal, not an independent generation benchmark. Validate final artifacts and motion in the target engine before comparing model cost or quality. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which identity, alpha, crop, pivot, contact-pose, loop-timing, and engine-playback checks define an accepted HoneyDrunk animation, and is cleanup effort recorded per accepted result? See [[indexes/gaps]].
