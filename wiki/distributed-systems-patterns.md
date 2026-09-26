@@ -304,3 +304,23 @@ Architecture selection depends-on workload assumptions and failure recovery. Ord
 ### Decision and quality notes
 
 Practitioner taxonomy. Use it as review prompts, then verify selected queue/database/runtime contracts and operational costs. Existing outbox and retry boundaries remain applicable. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which workload, ordering, replay, consistency, queue-age, and recovery assumptions justify each HoneyDrunk service boundary and messaging choice, and how are their costs verified? See [[indexes/gaps]].
+
+
+## 2026-09-26: Local worker backpressure bounds concurrency without a shared coordinator
+
+### Typed entities
+
+project: Canva; concept: worker concurrency; concept: feedback controller; concept: backoff factor; concept: queue age.
+
+### Claims and evidence
+
+- Canva describes a worker-local feedback controller that lowers concurrency when processing failures exceed a configured set point. Outcomes update a backoff factor used to limit polling permits, leaving work queued instead of repeatedly calling an unhealthy dependency; this design needs no external coordinator. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-queue-worker-local-backpressure-tradeoffs.md)
+- Two production incidents illustrate reduced dead-letter accumulation, but estimates for an unprotected fleet are counterfactual. Lower throughput and a simple success/failure signal are tradeoffs; recovery from complete backoff and tuning details are deferred to a later installment. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-queue-worker-local-backpressure-tradeoffs.md)
+
+### Explicit relationships
+
+Polling concurrency uses local outcome feedback; acceptance depends-on queue age, throughput, and recovery behavior as well as errors. This complements [[azure-service-bus-and-functions-messaging]]: a local concurrency controller does not establish shared circuit-breaker state across scaled Functions instances.
+
+### Decision and quality notes
+
+Firsthand engineering account with incomplete controller/recovery detail. The coordinator-free controller does not contradict the older scoped shared-breaker recommendation; these are different control contracts. No ready-to-copy algorithm or HoneyDrunk incident saving is inferred. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which HoneyDrunk worker failure signals and concurrency limits preserve queue-age objectives, and how will a local controller recover from complete backoff without masking persistent failure? See [[indexes/gaps]].

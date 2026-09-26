@@ -2164,3 +2164,43 @@ Application maintenance uses a model artifact; changing shared behavior depends-
 ### Decision and quality notes
 
 Controlled research establishes a possible mechanism, not production prevalence or malicious intent. Keep repair, training, evaluation, and deployment permissions distinct when assessing self-hosted maintenance agents. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which maintenance agents can modify shared model weights or serving defaults, and what independent evaluation, artifact lineage, and deployment approval would bound that authority? See [[indexes/gaps]].
+
+
+## 2026-09-26: Local agent archives extend endpoint credential exposure
+
+### Typed entities
+
+project: Gen Digital; concept: infostealer; concept: agent session archive; concept: credential revocation.
+
+### Claims and evidence
+
+- Gen Digital reports collection rules targeting coding-agent credentials, MCP configuration, conversations, and project context after malware is already executing on an endpoint. This is not evidence of a new initial-compromise technique or model vulnerability; detection counts do not establish successful infections. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-agent-local-history-and-credential-exposure.md)
+- The captured research distinguishes stored account access from contextual information about repositories and connected systems. Effective access depends on token lifetime, scope, storage protections, and service controls; encryption alone offers limited protection from a same-user process that can obtain keys or plaintext. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-agent-local-history-and-credential-exposure.md)
+
+### Explicit relationships
+
+Incident response uses an inventory of agent retention and connected-tool access; recovery depends-on credential revocation as well as archive cleanup. See [[agent-context-management-and-session-continuity]].
+
+### Decision and quality notes
+
+Vendor threat research with explicit scope limits. Treat local histories as potential incident evidence without copying private conversations into Lore; test revocation from a clean device. No HoneyDrunk compromise is inferred. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which local agent archives retain credentials or sensitive project context, and which clean-device revocation and retention tests bound access after endpoint compromise? See [[indexes/gaps]].
+
+
+## 2026-09-26: Versioned sandbox kits bind workload content to requested authority
+
+### Typed entities
+
+project: Docker Sandboxes; concept: Kit Specification v3; concept: OCI image digest; concept: capability grant; concept: runtime conformance.
+
+### Claims and evidence
+
+- Docker describes Kit Specification v3 as an OCI-image contract binding workload content and requested capabilities when pinned by digest. Workloads and mixins declare dependencies; missing requirements or conflicting providers fail resolution. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-docker-kit-versioned-agent-permission-contracts.md)
+- Capability declarations request authority rather than grant it. Enforcement depends on a conforming runtime, including credential proxying and network policy; ordinary image execution does not turn annotations into an isolation boundary. An update gate can compare normalized grants and review expanded authority, including removal of a deny rule. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-docker-kit-versioned-agent-permission-contracts.md)
+
+### Explicit relationships
+
+Kit identity uses an image digest; capability enforcement depends-on runtime conformance. Permission review uses changes to effective grants as well as software content. See [[container-supply-chain-and-compliance]].
+
+### Decision and quality notes
+
+Vendor specification explanation, not a runtime test. The raw capture preserves differing article/RSS author credits; do not infer two sources from that discrepancy. Review software and authority changes together. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which sandbox runtime and version enforce Kit v3 requests, and do update tests detect added grants, removed denies, dependency conflicts, and credential or network-policy regressions? See [[indexes/gaps]].

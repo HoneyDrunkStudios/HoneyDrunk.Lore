@@ -463,3 +463,23 @@ Two GitHub platform changes affect automation cost and compatibility: GitHub App
 
 ### Quality notes
 - GitHub is authoritative for Copilot rollout posture as captured. Live tenant availability, pricing, and policy wording should be verified before enabling the model.
+
+
+## 2026-09-26: App signing-key revocation is separate from token expiration
+
+### Typed entities
+
+project: GitHub Apps; project: GitGuardian; concept: private signing key; concept: installation scope; concept: credential owner.
+
+### Claims and evidence
+
+- GitGuardian reports that 474 of 4,802 tested exposed keys authenticated as 440 GitHub Apps. The sample was selected from GitHub-related contexts with nearby App identifiers, not a random sample of all Apps; permissions and installations determined possible impact. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-github-app-key-lifecycle-and-blast-radius.md)
+- The research distinguishes a long-lived App private key from the short-lived tokens it can mint. Removing an exposed file or waiting for a token to expire does not revoke signing authority; unused integrations can retain permissions after their original purpose ends. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-github-app-key-lifecycle-and-blast-radius.md)
+
+### Explicit relationships
+
+App token issuance depends-on signing authority; containment depends-on key revocation and installation scope. Ownership inventory supports rotation and retirement. See [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+First-party security research with sampling limits, not evidence of HoneyDrunk compromise or population-wide prevalence. Record owners and scopes without copying key material or exposed identifiers. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Does each HoneyDrunk GitHub App have an active owner, bounded installation scope, reviewed key rotation and revocation, and a retirement path for unused integrations? See [[indexes/gaps]].

@@ -1159,3 +1159,23 @@ Asset budgets use presentation priorities; material readability depends-on plaus
 ### Decision and quality notes
 
 One artist production example, not a universal geometry/texture target. Define the intended view and lighting before assigning budgets or copying the numerical limits. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which target views, silhouette features, UV priorities, wear evidence, and final-lighting checks should determine geometry and texture budgets for HoneyDrunk props? See [[indexes/gaps]].
+
+
+## 2026-09-26: Reusable rust materials begin with physical structure and controlled variation
+
+### Typed entities
+
+person: Loic Anquetil; project: Substance 3D Designer; concept: procedural rust; concept: pitted material; concept: exposed parameter.
+
+### Claims and evidence
+
+- Anquetil's interview describes using close-up references to establish corrosion granularity, relief, and small variations before emphasizing color. A foundational pitted material connects breakup, height, roughness, and color; later variants add paint, dirt, and corrosion stages. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-procedural-rust-material-structure-and-reuse.md)
+- Exploratory grayscale-noise combinations are rebuilt into controlled procedural graphs. Exposed parameters, logical node groups, and readable graphs support reuse by other artists; modifying existing noise graphs is presented as practical production work. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-procedural-rust-material-structure-and-reuse.md)
+
+### Explicit relationships
+
+Material variation uses a shared structural foundation; artist reuse depends-on controlled parameters and readable graphs. See [[unity-3d-and-realtime-vfx-patterns]] for target-engine validation.
+
+### Decision and quality notes
+
+Practitioner interview linked to a commercial asset collection. No runtime performance, engine compatibility, or universal realism result is established; evaluate a small inspectable material family. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which reference-driven rust structure, exposed parameters, and target-engine appearance and cost checks would qualify a reusable HoneyDrunk material family? See [[indexes/gaps]].

@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-09-24
+## Compile coverage: 2026-09-26
 
-Reconciled 1052 raw source documents against 1052 unique source entries; ingested 0 new captures in this pass. All raw documents have index entries. Existing source records and ingestion dates are preserved. All 13 query outputs repeat already compiled evidence and add no independent support.
+Reconciled 1067 raw source documents against 1067 unique source entries; ingested 15 new attributed summaries in this pass. All raw documents have index entries. Existing source records and ingestion dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
 
 ## Entry format
 
@@ -1289,3 +1289,33 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [OZARK: Creating a Dark Story-Driven 2.5D Action-Horror Game](../../raw/2026-09-22-rss-unity-ozark-camera-input-and-production.md) - 2.5D cameras constrain targeting and multiplayer scope; archived evidence compiled in [[game-camera-systems]]. - ingested 2026-09-22
 - [From simulation to real-world deployment: Unity Simulation Pro early access](../../raw/2026-09-22-rss-unity-simulation-pro-sensor-validation.md) - Simulation tooling needs sensor and replay validation; archived evidence compiled in [[robotics-foundation-models-and-embodied-ai]]. - ingested 2026-09-22
 - [Windows Exploitation Techniques: Dangling COM Object Registrations](../../raw/2026-09-22-rss-windows-dangling-com-registration-defense.md) - Stale COM registrations need path and activation analysis; archived evidence compiled in [[windows-component-registration-and-service-boundaries]]. - ingested 2026-09-22
+
+- [Infostealers Have Found a New Target: Your AI Agent](../../raw/2026-09-24-rss-agent-local-history-and-credential-exposure.md) - Local agent archives extend endpoint credential exposure; attributed-summary limits retained in [[ai-coding-agent-security]]. - ingested 2026-09-26
+
+- [Azure Container Apps Express is now Generally Available](../../raw/2026-09-24-rss-azure-container-apps-express-ga-boundaries.md) - Container Apps Express trades configuration breadth for simpler deployment; attributed-summary limits retained in [[azure-agent-automation-and-identity]]. - ingested 2026-09-26
+
+- [Azure Container Apps Sandboxes, Now Generally Available](../../raw/2026-09-24-rss-azure-sandbox-egress-state-and-telemetry.md) - Container Apps Sandboxes GA retains explicit policy and lifecycle choices; attributed-summary limits retained in [[edge-ai-and-ai-infrastructure-2026]]. - ingested 2026-09-26
+
+- [Cutting CI pipeline time by 64%: What actually works in production](../../raw/2026-09-24-rss-ci-runtime-variance-and-flaky-test-cost.md) - CI optimization needs runtime distributions and accountable quarantine; attributed-summary limits retained in [[github-actions-platform-operations]]. - ingested 2026-09-26
+
+- [What a task costs on Opus 5.5](../../raw/2026-09-24-rss-claude-task-cost-cache-and-retry-measurement.md) - Agent task cost includes cache behavior and unsuccessful attempts; attributed-summary limits retained in [[agent-evaluation-and-benchmarks]]. - ingested 2026-09-26
+
+- [From Dockerfile to Kit: the Docker Sandboxes Kit Specification](../../raw/2026-09-24-rss-docker-kit-versioned-agent-permission-contracts.md) - Versioned sandbox kits bind workload content to requested authority; attributed-summary limits retained in [[ai-coding-agent-security]]. - ingested 2026-09-26
+
+- [Recording metrics in-process using MeterListener: System.Diagnostics.Metrics APIs - Part 4](../../raw/2026-09-24-rss-dotnet-meterlistener-observable-metric-semantics.md) - MeterListener consumers must distinguish increments from observed totals; attributed-summary limits retained in [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-09-26
+
+- [Node 20 is no longer available in GitHub Actions](../../raw/2026-09-24-rss-github-actions-node24-runtime-cutover.md) - JavaScript action runtime cutover is separate from application Node selection; attributed-summary limits retained in [[github-actions-platform-operations]]. - ingested 2026-09-26
+
+- [GitHub App Private Keys: 474 Leaked Keys Still Work](../../raw/2026-09-24-rss-github-app-key-lifecycle-and-blast-radius.md) - App signing-key revocation is separate from token expiration; attributed-summary limits retained in [[github-copilot-and-app-token-changes]]. - ingested 2026-09-26
+
+- [tokenizers v1: encode, decode and scaling, measured](../../raw/2026-09-24-rss-huggingface-tokenizer-v1-benchmark-contracts.md) - Tokenizer optimization needs output equivalence and realistic cache inputs; attributed-summary limits retained in [[edge-ai-and-ai-infrastructure-2026]]. - ingested 2026-09-26
+
+- [Microsoft is updating its author-signing certificate starting September 23, 2026](../../raw/2026-09-24-rss-nuget-microsoft-signing-certificate-rotation.md) - NuGet author-certificate rotation preserves trust for older signatures; attributed-summary limits retained in [[dotnet-dependency-security-and-nuget]]. - ingested 2026-09-26
+
+- [Desirable Patina: How to Make Realistic Rust in 3D](../../raw/2026-09-24-rss-procedural-rust-material-structure-and-reuse.md) - Reusable rust materials begin with physical structure and controlled variation; attributed-summary limits retained in [[technical-art-community-and-talent-signals]]. - ingested 2026-09-26
+
+- [Worker Backpressure (Part 1): teaching queue workers to slow down](../../raw/2026-09-24-rss-queue-worker-local-backpressure-tradeoffs.md) - Local worker backpressure bounds concurrency without a shared coordinator; attributed-summary limits retained in [[distributed-systems-patterns]]. - ingested 2026-09-26
+
+- [Why the Video Model Is Only Half of an AI Sprite Animation Pipeline](../../raw/2026-09-24-rss-sprite-animation-export-validation-gates.md) - Generated sprite acceptance depends on frames and engine playback; attributed-summary limits retained in [[ai-assisted-game-development-pipelines]]. - ingested 2026-09-26
+
+- [Content directories: Beyond the AssetBundle](../../raw/2026-09-24-rss-unity-content-directory-artifact-dependencies.md) - Content directories separate artifact identity from dependency references; attributed-summary limits retained in [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-09-26

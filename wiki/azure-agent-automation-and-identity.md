@@ -964,3 +964,23 @@ Agent investigation uses dashboard context; diagnosis depends-on actual scoped t
 ### Decision and quality notes
 
 A vendor worked example, not general diagnosis accuracy. Preserve units, scope, freshness, and known pitfalls with queries; confirm proposed explanations against telemetry. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which agent-readable dashboards document time units, macros, scope, freshness, timeout semantics, and span aggregation well enough to support reproducible investigations? See [[indexes/gaps]].
+
+
+## 2026-09-26: Container Apps Express trades configuration breadth for simpler deployment
+
+### Typed entities
+
+project: Azure Container Apps Express; project: Azure Container Apps Sandboxes; concept: scale-to-zero; decision: workload feature selection.
+
+### Claims and evidence
+
+- Microsoft's September 23 announcement describes Container Apps Express as generally available: deployment starts with an image, region, and application configuration without a separately configured environment. The service runs on Container Apps Sandboxes and the announcement describes scale-to-zero and startup optimized for sub-second performance. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-azure-container-apps-express-ga-boundaries.md)
+- Express offers a focused feature subset; Microsoft directs workloads requiring greater networking control, GPU compute, advanced configuration, or Dapr toward standard Container Apps environments. The captured region count and startup descriptions are publication-time vendor statements, not local measurements or a current region inventory. confidence: 1 source, last-confirmed 2026-09-26 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-24-rss-azure-container-apps-express-ga-boundaries.md)
+
+### Explicit relationships
+
+Express uses Container Apps Sandboxes; deployment selection depends-on required network, compute, and runtime features. See [[edge-ai-and-ai-infrastructure-2026]] for the sandbox lifecycle boundary.
+
+### Decision and quality notes
+
+Official announcement summary. Evaluate a simple API only after checking required features and regional support; no guaranteed latency or full Container Apps feature parity is inferred. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which simple HoneyDrunk APIs fit Express networking, compute, runtime, and regional limits, and what measured startup and scaling behavior qualifies deployment? See [[indexes/gaps]].
