@@ -1200,3 +1200,23 @@ Asynchronous training uses versioned adapter exchange; rollout consistency depen
 ### Decision and quality notes
 
 Vendor experiment tied to specific TRL/vLLM behavior. Pin versions and validate authentication, recovery, and storage consistency; no universal throughput or cost claim is inferred. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Which policy-staleness limits, adapter-slot counts, storage visibility checks, authentication controls, and restart tests would qualify asynchronous LoRA training for a HoneyDrunk workload? See [[indexes/gaps]].
+
+
+## 2026-09-22: Packed GGUF execution depends on the device and kernel path
+
+### Typed entities
+
+library: Transformers; library: ggml; library: kernels; project: llama.cpp; concept: packed GGUF; concept: dequantization fallback; concept: Apple Silicon.
+
+### Claims and evidence
+
+- Hugging Face describes Transformers packed GGUF inference using ggml kernels through the kernels library. The initial path targets Apple Silicon and supported Qwen3.5-family architectures including compatible Qwen3.8 checkpoints, with compatible kernels and development-version Transformers required at publication. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-transformers-packed-gguf-inference-boundaries.md)
+- Unsupported kernels can cause dequantization and higher memory use; padded batches remain limited. Published throughput comparisons use different timing conventions, and the authors still recommend llama.cpp when efficient local inference is the primary objective. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-transformers-packed-gguf-inference-boundaries.md)
+
+### Explicit relationships
+
+Packed execution depends-on device, architecture, and kernel support. Fallback can cause a different memory profile; performance comparisons depend-on matched timing protocols.
+
+### Decision and quality notes
+
+Vendor release evidence, not Windows packed-inference support or equal-condition benchmark proof. Record actual kernel selection and fallback before assessing existing Python integration benefits. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which supported device, architecture, kernel, batch shape, and fallback path would a packed-GGUF evaluation use, and can memory/throughput be compared under identical timing conditions? See [[indexes/gaps]].

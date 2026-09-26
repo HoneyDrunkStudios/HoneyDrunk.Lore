@@ -284,3 +284,23 @@ Latency budgeting uses dependency traces; parallel execution depends-on input in
 ### Decision and quality notes
 
 Vendor design guidance with workload-specific timing. Measure critical-path and queue behavior before choosing parallelism, isolation, cache policy, or model size. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which inference, tool, queue, and orchestration spans dominate HoneyDrunk workflow latency, and what retry budgets and cache-validity rules preserve correctness under load? See [[indexes/gaps]].
+
+
+## 2026-09-22: Architecture comparisons need explicit workload and recovery assumptions
+
+### Typed entities
+
+person: Neo Kim; concept: task queue; concept: retained event log; concept: per-key ordering; concept: CQRS; concept: recovery objective.
+
+### Claims and evidence
+
+- Kim organizes fifty comparisons around latency, throughput, consistency, durability, cost, and recovery. Messaging distinctions include task distribution versus retained logs, global versus per-key ordering, and duplicate delivery versus stronger processing guarantees. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-system-design-workload-tradeoff-checklist.md)
+- The guide connects deployment autonomy to coordination overhead, CQRS/event sourcing to synchronization work, retries to load amplification, large queues to stale work, and stronger recovery goals to replication/testing cost. These are design heuristics, not implementation guarantees. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-system-design-workload-tradeoff-checklist.md)
+
+### Explicit relationships
+
+Architecture selection depends-on workload assumptions and failure recovery. Ordering and delivery choices affect parallelism, replay, coordination, and idempotency.
+
+### Decision and quality notes
+
+Practitioner taxonomy. Use it as review prompts, then verify selected queue/database/runtime contracts and operational costs. Existing outbox and retry boundaries remain applicable. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which workload, ordering, replay, consistency, queue-age, and recovery assumptions justify each HoneyDrunk service boundary and messaging choice, and how are their costs verified? See [[indexes/gaps]].

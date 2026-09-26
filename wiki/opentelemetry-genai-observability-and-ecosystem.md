@@ -552,3 +552,23 @@ Collection transforms use inline lambdas; configuration depends-on Collector ver
 ### Decision and quality notes
 
 Licensed full project text checked. Do not infer stability from availability or adopt the SHA1 example as a complete anonymization policy. Test the selected transform contract and inspect emitted telemetry. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which pinned Collector builds support the required OTTL lambda functions, and what schema, missing-field, error-path, and privacy-output tests are needed before enabling them? See [[indexes/gaps]].
+
+
+## 2026-09-22: Interop survey results describe a screened population and remaining friction
+
+### Typed entities
+
+project: OpenTelemetry; project: Prometheus; concept: screened survey population; concept: resource metadata; concept: metric naming; concept: sampling limitation.
+
+### Claims and evidence
+
+- The survey analyzes 81 of 186 respondents after screening for active OTel metrics use on Prometheus-adjacent backends and excluding observability-vendor employees. It reports infrastructure exporters at 72%, OTel receivers at 57%, and application OTel SDK use at 65%; these are sample figures, not general market shares. confidence: 1 source, last-confirmed 2026-09-22 (archived licensed full text reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-opentelemetry-prometheus-interoperability-survey.md)
+- Reported ease of use rises from 3.1 in 2024 to 3.6 in 2026, with a population-matching caveat. Nineteen open responses identify data-model, resource-metadata, and naming friction; maintainer proposals and pending specifications are not equivalent to completed defaults. confidence: 1 source, last-confirmed 2026-09-22 (archived licensed full text reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-opentelemetry-prometheus-interoperability-survey.md)
+
+### Explicit relationships
+
+Survey interpretation depends-on respondent selection and comparison population. Operational interop depends-on attribute/label mapping, resource metadata, names, and actual producer/receiver versions.
+
+### Decision and quality notes
+
+Licensed full text reviewed. Quality flag: the capture warns of eBPF table/prose ambiguity. The table gives 3% for the largest band versus 17-20% in smaller bands; prose says the largest band stands apart without stating direction. Do not infer greater large-organization adoption or a population trend; small bands and underlying data need verification. Uncontested aggregate findings above remain usable with sampling limits. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which local metric naming, resource-metadata, and translation mismatches remain, and can the survey authors clarify the flagged organization-size eBPF interpretation before it informs any decision? See [[indexes/gaps]].

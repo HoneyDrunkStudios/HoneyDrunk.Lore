@@ -41,3 +41,23 @@ Black Eye 2.0 is a production signal that gameplay, cinematic, trailer, virtual-
 ## Confidence and quality notes
 - Quality posture: useful production-design signal, but source is an interview/product article; validate claims with hands-on prototype work before tool adoption.
 - Privacy filter: no private data copied.
+
+
+## 2026-09-22: 2.5D cameras constrain targeting and multiplayer scope
+
+### Typed entities
+
+project: OZARK; project: Unity 2022 LTS; project: Steam Remote Play Together; concept: depth aiming; concept: enemy visibility; concept: split camera.
+
+### Claims and evidence
+
+- Alter-Boy describes depth movement making 2.5D target selection harder than planar movement. Controller and mouse aiming require different approaches; enemies must respect visibility and response fairness. Co-op offers shared, dynamically split, and permanently split cameras. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-unity-ozark-camera-input-and-production.md)
+- The team keeps Unity 2022 LTS and Built-in rendering aligned with production expertise, combining modified assets and custom systems. Remote co-op uses Steam Remote Play Together over local co-op rather than a separately implemented networked simulation. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-unity-ozark-camera-input-and-production.md)
+
+### Explicit relationships
+
+Combat readability depends-on camera framing, input, and enemy visibility. Remote local-co-op delivery uses streaming rather than a new networked simulation. See [[realtime-game-network-protocol-design]].
+
+### Decision and quality notes
+
+Studio interview. Prototype camera, targeting, and enemy pressure together; weigh familiar tools and scoped multiplayer against small-team maintenance costs. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which camera, depth-targeting, mouse/controller, enemy-visibility, and shared/split-screen interactions must a HoneyDrunk 2.5D co-op prototype validate before selecting networking scope? See [[indexes/gaps]].

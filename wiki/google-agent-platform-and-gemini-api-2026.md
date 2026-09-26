@@ -304,3 +304,23 @@ Google's 2026 agent developer surface is converging on production plumbing: Agen
 
 ### Quality notes
 - Google product sources. Genkit Agents API is preview/beta in the capture, and ADK 2.0 availability/language support should be checked before implementation.
+
+
+## 2026-09-22: Session anomaly review needs an explicit enforcement connection
+
+### Typed entities
+
+project: Gemini Enterprise Agent Platform; library: ADK; project: Security Command Center; concept: session anomaly; concept: enforcement callback.
+
+### Claims and evidence
+
+- Google describes a private-preview service for ADK 1.2 or later that screens existing logs and OpenTelemetry traces for outliers, then uses reasoning to examine selected sessions. Findings include explanation, severity, and probability; a successful-looking task result can coexist with suspicious aggregate tool behavior. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-agent-anomaly-detection-layered-session-review.md)
+- The described API lets callbacks or plugins inspect findings and stop subsequent tools or turns at configured thresholds. Detection is therefore distinct from enforcement, and the article does not demonstrate blocking every harmful action before execution. confidence: 1 source, last-confirmed 2026-09-22 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-22-rss-agent-anomaly-detection-layered-session-review.md)
+
+### Explicit relationships
+
+Behavioral review uses session evidence; prevention depends-on timely detection and an enforcement hook. See [[ai-coding-agent-security]] and [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Vendor private preview. Measure false positives, delay, and enforcement coverage; collect only authorized, minimized, sanitized evidence rather than enabling indiscriminate tool-argument logging. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which sanitized session evidence, detection-delay budget, thresholds, and enforcement callbacks would make anomaly review useful without treating a finding as proof of pre-execution prevention? See [[indexes/gaps]].
