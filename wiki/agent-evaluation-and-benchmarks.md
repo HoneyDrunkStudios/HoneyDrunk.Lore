@@ -1332,3 +1332,23 @@ Vendor-hosted guidance. Calculator examples, prompt-audit results, and dated pri
 ### Consolidated measurement principle: stronger cross-source support
 
 Compare cost per successful or accepted task together with the task set, harness, attempt budget, and recorded usage, rather than inferring task cost from token unit price. confidence: 3 sources, last-confirmed 2026-09-26 (archived sources reviewed; stronger support for the measurement principle, not any model ranking or savings estimate). [OpenAI evaluation guidance](../raw/2026-05-31-web-openai-a-shared-playbook-for-trustworthy-third-party-evaluations.md), [Arena model-harness study](../raw/2026-09-20-rss-arena-coding-harness-cost-evaluation.md), [Osmani task-cost guidance](../raw/2026-09-24-rss-claude-task-cost-cache-and-retry-measurement.md). These are distinct authored sources with different methods and incentives; they are not three replications of one benchmark. Earlier source-specific claims remain preserved.
+
+
+## 2026-09-27: Investigation distillation needs label uncertainty and matched comparisons
+
+### Typed entities
+
+project: Datadog; project: Qwen3.5-9B; project: GLM-5.3; concept: trace distillation; concept: temporal evaluation split; concept: Recall@5.
+
+### Claims and evidence
+
+- Datadog reports fine-tuning Qwen3.5-9B from successful GLM-5.3 traces collected with five tools and an eight-turn budget. Training grew from 100 to 186 internal examples; labels derived from previous investigation conclusions measure agreement rather than independently verified incident causality. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-datadog-small-model-investigation-distillation.md)
+- Evaluation covered 326 later incidents, including 139 customer incidents outside the training population. The internal-only teacher comparison reports student Recall@5 of 0.55 versus 0.63; customer Recall@5 of 0.62 versus 0.52 compares the student with the base model. Reported student serving cost of $0.003 versus $0.06 teacher API cost depends on GPU utilization and deployment assumptions. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-datadog-small-model-investigation-distillation.md)
+
+### Explicit relationships
+
+Trace distillation uses bounded teacher investigations; interpretation depends-on label provenance, population, temporal split, and serving assumptions. See [[ai-research-automation-and-recursive-self-improvement]].
+
+### Decision and quality notes
+
+Vendor-reported results. Do not substitute the customer base-model comparison for a teacher comparison, equate label agreement with root-cause truth, or treat serving cost as complete operating cost. No independent benchmark replication was added. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which independently reviewed incident labels, bounded teacher traces, time-separated held-out cases, matched comparison populations, and full operating costs would justify investigation-model distillation for HoneyDrunk? See [[indexes/gaps]].

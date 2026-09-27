@@ -984,3 +984,63 @@ Express uses Container Apps Sandboxes; deployment selection depends-on required 
 ### Decision and quality notes
 
 Official announcement summary. Evaluate a simple API only after checking required features and regional support; no guaranteed latency or full Container Apps feature parity is inferred. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which simple HoneyDrunk APIs fit Express networking, compute, runtime, and regional limits, and what measured startup and scaling behavior qualifies deployment? See [[indexes/gaps]].
+
+
+## 2026-09-27: Authorization and postconditions belong in trusted execution services
+
+### Typed entities
+
+project: Azure; concept: operation authorization; concept: delayed approval; concept: downstream idempotency; concept: observable postcondition.
+
+### Claims and evidence
+
+- The Azure design guide puts identity, tenant scope, retrieval permissions, argument validation, and exact-operation authorization in trusted services. Delayed approval binds requester, target, parameters, and expiry, while execution rechecks current permissions and state. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-azure-agent-service-authorization-verification.md)
+- The guide distinguishes single-use approvals from downstream idempotency, and a pre-update read from an atomic conditional write. A verified management property does not prove network containment. Results retain submitted, pending, failed, and unknown states when completion is not established. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-azure-agent-service-authorization-verification.md)
+
+### Explicit relationships
+
+Agent execution depends-on service-enforced authorization; retry safety depends-on downstream idempotency or reconciliation. See [[ai-agent-identity-and-workload-auth]] and [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Illustrative design guidance, not locally executed or independently demonstrated security guarantees. September 15 is the captured publication date; later discovery does not make it a new release. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Do HoneyDrunk tool services bind approvals to exact operations, recheck current authority, reconcile uncertain effects, and verify postconditions without treating a pre-read as atomic enforcement? See [[indexes/gaps]].
+
+
+## 2026-09-27: Capacity retries preserve campaign state and distinguish failure classes
+
+### Typed entities
+
+project: Azure Managed Redis; library: PowerShell; concept: bounded retry campaign; concept: persistent attempt budget; concept: capacity acquisition.
+
+### Claims and evidence
+
+- The author's poller rotates actual creation attempts through approved region/SKU combinations. The capture says validation does not establish capacity and reports no capacity-reporting API; success creates a billable resource rather than reserving capacity. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-azure-redis-bounded-capacity-retries.md)
+- Persistent state records the candidate before creation and retains rate limits and lifetime attempt count across restarts. Capacity refusals permit controlled continuation; quota, configuration, permission, attempt-limit, and unknown failures stop. Pending creation is not blindly repeated, and exit codes separate success, deferral, exhaustion, and errors. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-azure-redis-bounded-capacity-retries.md)
+
+### Explicit relationships
+
+Capacity acquisition uses real resource creation; bounded retries depend-on durable campaign state and failure classification. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Unsupported sample tooling; it can delete a failed resource with the configured name. Dedicated naming and code review are prerequisites to any trial. Publication metadata says September 15 while RSS says September 17; neither proves current API availability. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which approved region/SKU set, dedicated names, lifetime attempt and cost limits, restart recovery, pending-state reconciliation, and stop conditions would qualify a HoneyDrunk capacity-acquisition campaign? See [[indexes/gaps]].
+
+
+## 2026-09-27: SRE Agent evaluation must include routing and final delivery
+
+### Typed entities
+
+project: Azure SRE Agent; concept: incident routing; concept: skill applicability; concept: default tool access; concept: approval backlog.
+
+### Claims and evidence
+
+- Microsoft recommends response-plan filters, applicable skills, accessible telemetry, and custom agents for recurring problem classes. An empty custom-agent tool list means default access, not zero access; identity permissions remain the outer boundary. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-azure-sre-agent-routing-and-completion.md)
+- The guide separates routine investigation from consequential changes and recommends exercising a scenario through final delivery before attaching a live queue. Routing, evidence access, permissions, and approval backlog can explain incomplete work without establishing a model failure. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-azure-sre-agent-routing-and-completion.md)
+
+### Explicit relationships
+
+Incident completion depends-on routing, evidence access, identity permissions, and approval handling. SRE Agent uses skills to describe applicability and decision steps. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Vendor guidance with observational comparisons across different agents and evaluation rules, not controlled evidence of performance gains. This does not authorize removing approval gates. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Can a representative HoneyDrunk incident reach final delivery with intended routing, telemetry, effective default tools, identity permissions, and consequential-action approvals before a live queue is connected? See [[indexes/gaps]].

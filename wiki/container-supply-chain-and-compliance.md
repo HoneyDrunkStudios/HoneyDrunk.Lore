@@ -155,3 +155,23 @@ Credential exposure can be caused by build-command expansion into image history.
 ### Decision and quality notes
 
 Researcher-reported incident and remediation, not an independent assessment of current Baseten exposure. No credential material, exploit payload, or unnecessary infrastructure identifiers are included. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Which old images, public registry paths, layers, and build-history records need secret scanning, and can exposed build identities be promptly revoked with narrow replacement permissions? See [[indexes/gaps]].
+
+
+## 2026-09-27: Artifact trust requires build context and deployment verification
+
+### Typed entities
+
+project: Mandiant; concept: artifact provenance; concept: cache trust boundary; concept: workload identity; concept: deployment admission.
+
+### Claims and evidence
+
+- Mandiant describes developer endpoints, repositories, artifacts, runners, and deployment as connected trust boundaries. A valid signature can coexist with a compromised workflow; provenance verification should bind the artifact digest to the expected build identity and source context. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-ci-supply-chain-trust-boundaries.md)
+- The guidance combines immutable action/image references, short-lived workload credentials, isolated single-use runners, and cache-write separation by trust level. Untrusted pull requests should not inherit deployment credentials or privileged runners; dependency screening and deployment admission checks complement initial acceptance. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-ci-supply-chain-trust-boundaries.md)
+
+### Explicit relationships
+
+Deployment admission uses artifact identity and build provenance; release trust depends-on runner, cache, repository, and publishing boundaries. See [[github-actions-platform-operations]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Defensive enterprise guidance, not evidence of a HoneyDrunk vulnerability. Package-age delays, scanner results, and signatures are partial controls. Consistent with the existing provenance-limit claim; no incident or safety guarantee is inferred. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Do HoneyDrunk release workflows isolate cache writes and untrusted PR execution, bind provenance to expected source/build identities, and verify the exact artifact at deployment admission? See [[indexes/gaps]].

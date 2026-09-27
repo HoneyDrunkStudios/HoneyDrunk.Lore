@@ -1488,3 +1488,63 @@ Artifact loading uses manifest-resolved identifiers; build reuse depends-on arti
 ### Decision and quality notes
 
 Official implementation explanation and vendor case study. Test a representative scene for dependency churn, memory residency, build reuse, and migration compatibility; do not promote the remote roadmap to an available feature. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which Unity and Addressables versions, dependency-change scenarios, memory-residency checks, and scene tests qualify a HoneyDrunk local-content migration without assuming future remote delivery? See [[indexes/gaps]].
+
+
+## 2026-09-27: Environment budgets follow camera readability and feedback
+
+### Typed entities
+
+project: Mega Cat Studios; project: Backyard Baseball; project: Unity; concept: gameplay readability; concept: shared material; concept: reactive effect.
+
+### Claims and evidence
+
+- Mega Cat Studios describes using color, lighting, and contrast to separate active play from decoration while rebuilding Backyard Baseball in 3D. Full surrounding environments serve replay cameras; geometry and texture budgets follow object size and camera distance. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-unity-environment-readability-material-budgets.md)
+- Shared materials reduce rendering overhead in the described workflow, while controlled decals add surface detail without changing collision. Impact-reactive effects reinforce player actions, and lighting/material blending maintains coherent day and night presentations. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-unity-environment-readability-material-budgets.md)
+
+### Explicit relationships
+
+Environment art uses camera-dependent asset budgets and reactive effects; readability depends-on play-space contrast. See [[game-camera-systems]] and [[technical-art-community-and-talent-signals]].
+
+### Decision and quality notes
+
+July 28, 2026 evergreen production case study, not quantitative benchmark evidence. Decal settings and shared materials still need target-scene validation. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which gameplay and replay cameras, day/night states, decal settings, interaction feedback, and target-device measurements should define HoneyDrunk environment geometry and material budgets? See [[indexes/gaps]].
+
+
+## 2026-09-27: Internal HDR range and display output require separate validation
+
+### Typed entities
+
+project: Unity URP; project: GameDevToolLab; concept: internal HDR; concept: HDR display output; concept: Paper White; concept: color conversion.
+
+### Claims and evidence
+
+- The guide distinguishes internal HDR rendering from HDR display output: values above one can drive bloom and tone mapping for SDR displays. Intermediate buffers or shader clamps can lose range that a later EXR export cannot recover; floating-point storage does not prevent duplicate color transforms. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-unity-hdr-rendering-output-validation.md)
+- Its diagnostics distinguish output availability, active mode, and pending mode-change requests. Paper White describes reference white rather than unconditional peak brightness, and custom pass behavior depends on placement relative to gamut and luminance conversion. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-unity-hdr-rendering-output-validation.md)
+
+### Explicit relationships
+
+Output validation depends-on buffer range, pass ordering, and color transforms; HDR display availability does not establish active output mode.
+
+### Decision and quality notes
+
+The author checked sample declarations but did not test Unity 6.3 runtime behavior. Proposed emissive-value comparisons are test designs, not results; this section is explicitly flagged for runtime verification before implementation use. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which Unity/URP version and target displays pass emissive-range, transform-order, pending-output-mode, Paper White, UI brightness, alpha, and SDR-fallback tests for HoneyDrunk? See [[indexes/gaps]].
+
+
+## 2026-09-27: Simulation authoring tools and device budgets precede content scale
+
+### Typed entities
+
+project: RUST LTD; project: H3VR2; project: Unity; library: ECS; library: Burst; concept: authoring validation; concept: player-visible simulation value.
+
+### Claims and evidence
+
+- RUST LTD describes rebuilding H3VR2 architecture and authoring tools before scaling content. Small component simulations use custom local models while broader physics and ECS/Burst systems serve different workloads; data-driven behavior and reusable validation replace isolated per-object tuning. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-unity-simulation-tooling-performance-budgets.md)
+- The interview describes early rendering budgets for level density, textures, lighting, and hero assets, with modular levels checked against probe-based lighting. Custom Inspector tools support calculation, validation, and analysis while hiding irrelevant parameters; asset configuration becomes the operational source of truth. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-unity-simulation-tooling-performance-budgets.md)
+
+### Explicit relationships
+
+Simulation production uses authoring validation and data-driven configuration; content scale depends-on target-device performance budgets and player-visible value. See [[technical-art-community-and-talent-signals]].
+
+### Decision and quality notes
+
+Practitioner interview with team-reported benefits, not independent performance measurements. Retain detail only when it improves authoring or player-visible behavior; the capture supplies no universal frame-time budget. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which target-device budgets, asset-configuration validators, lighting trials, and player-visible acceptance cases should precede content expansion in HoneyDrunk simulation projects? See [[indexes/gaps]].

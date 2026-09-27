@@ -749,3 +749,23 @@ Correct in-process aggregation depends-on instrument semantics, series tags, and
 ### Decision and quality notes
 
 Evergreen February practitioner example, not a framework release or executed test. Use established telemetry libraries for production aggregation; use the distinctions to verify custom consumers. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Do HoneyDrunk custom metric consumers test counter deltas versus observable totals, tag-separated series, concurrent callbacks, and histogram aggregation without double-counting? See [[indexes/gaps]].
+
+
+## 2026-09-27: NativeAOT profiler prototypes retain native interface obligations
+
+### Typed entities
+
+person: Andrew Lock; library: Silhouette; project: NativeAOT; project: CoreCLR; concept: profiling callback; concept: native error handling.
+
+### Claims and evidence
+
+- Andrew Lock demonstrates a C# CLR profiler compiled to a native library with NativeAOT. Silhouette supplies callback base classes and generated entry-point plumbing; initialization checks available profiling-interface versions before use. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-dotnet-nativeaot-silhouette-profiler.md)
+- Native error semantics and callback behavior still matter, and the sample's exception conversion is not an unquestioned production pattern. Publishing the target separately avoids profiling the SDK through `dotnet run`; activation uses a profiler identifier and native-library path with distinct .NET Framework and CoreCLR variable families. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-dotnet-nativeaot-silhouette-profiler.md)
+
+### Explicit relationships
+
+Silhouette uses NativeAOT for native profiler entry points; safe profiling depends-on interface-version checks and native callback semantics. See [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+December 16, 2025 backfill, not a new release or production-readiness claim. Useful for focused diagnostic prototypes; no callback or runtime compatibility was tested locally. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which target runtime, profiling-interface versions, callback/error paths, activation settings, and separately published applications would validate a HoneyDrunk Silhouette diagnostic prototype? See [[indexes/gaps]].

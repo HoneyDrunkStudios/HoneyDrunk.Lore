@@ -1179,3 +1179,23 @@ Material variation uses a shared structural foundation; artist reuse depends-on 
 ### Decision and quality notes
 
 Practitioner interview linked to a commercial asset collection. No runtime performance, engine compatibility, or universal realism result is established; evaluate a small inspectable material family. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which reference-driven rust structure, exposed parameters, and target-engine appearance and cost checks would qualify a reusable HoneyDrunk material family? See [[indexes/gaps]].
+
+
+## 2026-09-27: Layered creature materials require controlled lighting and displacement
+
+### Typed entities
+
+person: Nikhil K S; project: Mari; project: Arnold; concept: material layering; concept: masked displacement; concept: coat wetness.
+
+### Claims and evidence
+
+- The artist starts from an existing sculpt, UVs, and rig, combining Mari tileables, procedural variation, and projected photographic detail. Base-color variation informs roughness and specular maps, while a separate coat controls wetness without making all regions uniformly glossy. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-creature-material-layering-and-displacement.md)
+- Individually masked, restrained displacement layers combine with subsurface scattering, roughness, and color in Arnold. Deliberate lighting checks and localized painted or sculpted detail preserve shape control when automatic conversion is insufficient. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-creature-material-layering-and-displacement.md)
+
+### Explicit relationships
+
+Creature look development uses editable material layers; convincing surface response depends-on displacement amplitude and lighting. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+One offline-rendering case study. Reusable authoring ideas do not establish real-time shader equivalence or cost; greater displacement is not itself evidence of realism. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which editable layer structure, displacement limits, lighting references, and real-time shader cost and appearance tests would qualify these creature-material techniques for HoneyDrunk assets? See [[indexes/gaps]].

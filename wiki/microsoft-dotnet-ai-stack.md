@@ -930,3 +930,23 @@ Harness execution uses application-owned tools and authorization; durable memory
 ### Decision and quality notes
 
 Written Microsoft sample only; accompanying streams were not sourced. No installed API/version compatibility or runtime containment was tested. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which target harness version, denied/timed-out tool paths, confirmed memory writes, and hosted filesystem/shell boundaries must be tested before reusing a .NET agent definition? See [[indexes/gaps]].
+
+
+## 2026-09-27: AG-UI packages separate event streaming from rendering
+
+### Typed entities
+
+library: AG-UI .NET SDK; library: Microsoft Agent Framework; library: IChatClient; concept: typed event stream; concept: Server-Sent Events.
+
+### Claims and evidence
+
+- Microsoft describes separate client, server, protocol, formatting, and optional protobuf packages. An IChatClient backend emits lifecycle, message, state, and tool events while the frontend owns rendering. Server-Sent Events is the default transport; protobuf supports only a subset of events. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-dotnet-agui-streaming-protocol-sdk.md)
+- The announcement says Microsoft Agent Framework now consumes these packages instead of its own protocol implementation. Migration renames `AddAGUI`/`MapAGUI` to `AddAGUIServer`/`MapAGUIServer`, moves namespaces, and changes client construction to options; the article reports wire compatibility with existing frontends. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-dotnet-agui-streaming-protocol-sdk.md)
+
+### Explicit relationships
+
+Microsoft Agent Framework uses AG-UI packages; frontend behavior depends-on supported event and transport semantics. See [[generative-ui-and-a2ui]].
+
+### Decision and quality notes
+
+Official implementation announcement with no local integration test. Wire compatibility does not imply unchanged .NET source APIs or complete protobuf event coverage. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which pinned AG-UI packages and frontend combinations pass HoneyDrunk interruption, parallel-tool, state-update, cancellation, transport-coverage, and renamed-API migration tests? See [[indexes/gaps]].

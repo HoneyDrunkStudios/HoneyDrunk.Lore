@@ -324,3 +324,23 @@ Behavioral review uses session evidence; prevention depends-on timely detection 
 ### Decision and quality notes
 
 Vendor private preview. Measure false positives, delay, and enforcement coverage; collect only authorized, minimized, sanitized evidence rather than enabling indiscriminate tool-argument logging. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which sanitized session evidence, detection-delay budget, thresholds, and enforcement callbacks would make anomaly review useful without treating a finding as proof of pre-execution prevention? See [[indexes/gaps]].
+
+
+## 2026-09-27: Local inference and hybrid agents have different data boundaries
+
+### Typed entities
+
+library: Antigravity SDK; library: LiteRT; project: Gemma 4 26B A4B; concept: local inference; concept: hybrid agent execution.
+
+### Claims and evidence
+
+- Google describes local Antigravity SDK execution initially optimized for Gemma 4 26B A4B and LiteRT, with a recommendation of more than 24 GB of VRAM or unified memory. A separate configuration connects OpenAI-compatible local servers such as Ollama, LM Studio, and vLLM. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-antigravity-local-model-agent-execution.md)
+- The walkthrough keeps a common orchestration surface across backends and demonstrates cloud planning with local implementation. That hybrid example still sends work to a cloud model; local inference alone does not establish the privacy boundary of the complete agent. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-antigravity-local-model-agent-execution.md)
+
+### Explicit relationships
+
+Antigravity SDK uses local model backends; hybrid execution depends-on both local and cloud data flows. See [[edge-ai-and-ai-infrastructure-2026]] and [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Official walkthrough, with no independent hardware or privacy measurements. The permissive sample tool policy is demonstration configuration. Local support extends earlier self-hosting coverage without superseding hosted execution. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which matched acceptance cases, memory and latency budgets, tool policies, and recorded data flows would qualify local versus hybrid Antigravity execution for HoneyDrunk repository tasks? See [[indexes/gaps]].
