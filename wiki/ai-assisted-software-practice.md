@@ -1356,3 +1356,23 @@ Review depth depends-on decision cost and reversibility; useful design feedback 
 ### Decision and quality notes
 
 Practitioner guidance, not comparative evidence for one mandatory template or document length. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Which costly or hard-to-reverse HoneyDrunk decisions need a standalone design review, and what evidence, scenarios, goals, and exclusions would make that review actionable? See [[indexes/gaps]].
+
+
+## 2026-09-27: Specifications need behavior-linked acceptance evidence
+
+### Typed entities
+
+person: Neo Kim; project: Blitzy; concept: change specification; concept: dependency traversal; concept: acceptance evidence; concept: specification drift.
+
+### Claims and evidence
+
+- The notification-migration walkthrough distinguishes project-wide rules from change-specific scope, constraints, edge cases, and acceptance criteria. Existing user preferences must survive a delivery-path replacement; passing an implementation check only establishes the behaviors it actually covers. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-spec-driven-agent-change-validation.md)
+- The proposed workflow uses repository context, forward and reverse dependency analysis, a reviewable plan, ordered execution, and validation against original requirements. Concurrent tasks require understood dependencies, and specifications remain useful when linked to implementation and checked for drift. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-spec-driven-agent-change-validation.md)
+
+### Explicit relationships
+
+Behavior preservation depends-on explicit acceptance evidence; change planning uses caller and downstream dependency analysis. See [[api-testing-and-verification]] and [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Vendor-centered Blitzy walkthrough, not an independent evaluation of its capabilities or isolation. The durable planning principle does not establish product adoption or a HoneyDrunk implementation. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Can each requested HoneyDrunk behavior be traced from a reviewed specification through affected callers and dependencies to acceptance evidence, including preserved preferences and later specification drift? See [[indexes/gaps]].

@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-09-26
+## Compile coverage: 2026-09-27
 
-Reconciled 1067 raw source documents against 1067 unique source entries; ingested 15 new attributed summaries in this pass. All raw documents have index entries. Existing source records and ingestion dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
+Reconciled 1082 raw source documents against 1082 unique source entries; ingested 15 new attributed summaries in this pass. All raw documents have index entries. Existing source records and ingestion dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
 
 ## Entry format
 
@@ -1319,3 +1319,22 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [Why the Video Model Is Only Half of an AI Sprite Animation Pipeline](../../raw/2026-09-24-rss-sprite-animation-export-validation-gates.md) - Generated sprite acceptance depends on frames and engine playback; attributed-summary limits retained in [[ai-assisted-game-development-pipelines]]. - ingested 2026-09-26
 
 - [Content directories: Beyond the AssetBundle](../../raw/2026-09-24-rss-unity-content-directory-artifact-dependencies.md) - Content directories separate artifact identity from dependency references; attributed-summary limits retained in [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-09-26
+
+
+## 2026-09-27 ingest
+
+- [Introducing Support for Local AI Models in the Antigravity SDK](../../raw/2026-09-27-rss-antigravity-local-model-agent-execution.md) - Local inference and hybrid agents have different data boundaries. - ingested 2026-09-27
+- [Securing AI Agent Tool Calls in Azure: Identity, Authorization, and Verified Execution](../../raw/2026-09-27-rss-azure-agent-service-authorization-verification.md) - Authorization and postconditions belong in trusted execution services. - ingested 2026-09-27
+- [Automating Azure Managed Redis capacity acquisition with bounded retries](../../raw/2026-09-27-rss-azure-redis-bounded-capacity-retries.md) - Capacity retries preserve campaign state and distinguish failure classes. - ingested 2026-09-27
+- [Getting the best out of Azure SRE Agent](../../raw/2026-09-27-rss-azure-sre-agent-routing-and-completion.md) - SRE Agent evaluation must include routing and final delivery. - ingested 2026-09-27
+- [Proactive Defense: Hardening Code Pipelines and CI/CD Infrastructure](../../raw/2026-09-27-rss-ci-supply-chain-trust-boundaries.md) - Artifact trust requires build context and deployment verification. - ingested 2026-09-27
+- [Exploring Thin, Pale, Slimy Skin Texture by Recreating The Demogorgon From Stranger Things](../../raw/2026-09-27-rss-creature-material-layering-and-displacement.md) - Layered creature materials require controlled lighting and displacement. - ingested 2026-09-27
+- [Teaching a 9B model to investigate production alerts](../../raw/2026-09-27-rss-datadog-small-model-investigation-distillation.md) - Investigation distillation needs label uncertainty and matched comparisons. - ingested 2026-09-27
+- [AG-UI Protocol now has a first-class .NET SDK](../../raw/2026-09-27-rss-dotnet-agui-streaming-protocol-sdk.md) - AG-UI packages separate event streaming from rendering. - ingested 2026-09-27
+- [Creating a .NET CLR profiler using C# and NativeAOT with Silhouette](../../raw/2026-09-27-rss-dotnet-nativeaot-silhouette-profiler.md) - NativeAOT profiler prototypes retain native interface obligations. - ingested 2026-09-27
+- [Changes to query results in the GitHub Actions API and UI](../../raw/2026-09-27-rss-github-actions-query-count-pagination.md) - Filtered run counts and enumeration limits are separate contracts. - ingested 2026-09-27
+- [Don't Wrap OpenTelemetry — You're Probably Hurting More Than Helping](../../raw/2026-09-27-rss-otel-instrumentation-abstraction-costs.md) - Share SDK configuration without assuming a measurement wrapper. - ingested 2026-09-27
+- [Spec Driven Development - A Deep Dive](../../raw/2026-09-27-rss-spec-driven-agent-change-validation.md) - Specifications need behavior-linked acceptance evidence. - ingested 2026-09-27
+- [How to reimagine a classic sports game for a new generation with level design, worldbuilding, and VFX](../../raw/2026-09-27-rss-unity-environment-readability-material-budgets.md) - Environment budgets follow camera readability and feedback. - ingested 2026-09-27
+- [HDR in Unity URP: Bloom, Tone Mapping, and HDR Display Output](../../raw/2026-09-27-rss-unity-hdr-rendering-output-validation.md) - Internal HDR range and display output require separate validation. - ingested 2026-09-27
+- [How RUST LTD built the deep firearm simulation for Hot Dogs, Horseshoes & Hand Grenades 2](../../raw/2026-09-27-rss-unity-simulation-tooling-performance-budgets.md) - Simulation authoring tools and device budgets precede content scale. - ingested 2026-09-27

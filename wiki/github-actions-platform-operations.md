@@ -1029,3 +1029,23 @@ Workflow execution depends-on action-version and runner-platform compatibility. 
 ### Decision and quality notes
 
 Official cutover snapshot. Inventory local/custom actions and self-hosted platforms and exercise a representative workflow; do not generalize the announcement to unmentioned GitHub Enterprise Server versions. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which HoneyDrunk JavaScript actions, runtime declarations, and self-hosted platforms require Node 24 compatibility work, and do representative workflows pass independently of application Node selection? See [[indexes/gaps]].
+
+
+## 2026-09-27: Filtered run counts and enumeration limits are separate contracts
+
+### Typed entities
+
+project: GitHub Actions; concept: filtered count; concept: pagination ceiling; concept: retrieval window; concept: run identifier reconciliation.
+
+### Claims and evidence
+
+- GitHub's September 25 notice says filtered workflow-run counts above 2,500 become lower-bound indicators in the API and UI. The change addresses expensive count queries that could time out and yield misleading partial counts. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-github-actions-query-count-pagination.md)
+- The notice separately retains pagination up to 1,000 returned items. A large count does not prove one query can enumerate every matching run; narrower filters such as date ranges are recommended for larger histories. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-github-actions-query-count-pagination.md)
+
+### Explicit relationships
+
+Historical completeness depends-on bounded retrieval windows and run identifier reconciliation; count displays do not supersede enumeration limits.
+
+### Decision and quality notes
+
+Official behavior-change notice, not a live API integration test. The capture does not specify an exact lower-bound JSON representation; no field shape is invented. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Do HoneyDrunk Actions collectors handle lower-bound counts, split windows that exceed enumeration limits, deduplicate run identifiers, and detect incomplete histories before calculating activity metrics? See [[indexes/gaps]].

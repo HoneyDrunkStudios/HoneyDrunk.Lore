@@ -194,6 +194,7 @@ OpenTelemetry is becoming the practical neutral observability layer for LLM/agen
 
 ### HoneyDrunk implications
 - For Grid/OpenClaw, define one shared OTel base/wrapper pattern before service-by-service agent-added instrumentation spreads.
+  - superseded-by: [[opentelemetry-genai-observability-and-ecosystem#2026-09-27: Share SDK configuration without assuming a measurement wrapper]]; 2026-09-27T10:05:54-04:00. Reason: the June 24 API-specific guidance narrows the May compile's unqualified recommendation. The April Skyscanner case study describes environment/resource setup wrappers, not evidence that a replacement measurement API should be the default. Preserve configuration reuse; require explicit behavior and overhead justification for measurement wrappers. This corrects a Lore inference, not a contradiction between the two underlying reports.
 - Avoid duplicate HTTP/RPC metrics if a gateway/service-mesh layer already provides platform latency metrics; preserve traces for debugging.
 - Add filter processors for expected non-error statuses early to avoid noisy sampling/cost surprises.
 
@@ -572,3 +573,27 @@ Survey interpretation depends-on respondent selection and comparison population.
 ### Decision and quality notes
 
 Licensed full text reviewed. Quality flag: the capture warns of eBPF table/prose ambiguity. The table gives 3% for the largest band versus 17-20% in smaller bands; prose says the largest band stands apart without stating direction. Do not infer greater large-organization adoption or a population trend; small bands and underlying data need verification. Uncontested aggregate findings above remain usable with sampling limits. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which local metric naming, resource-metadata, and translation mismatches remain, and can the survey authors clarify the flagged organization-size eBPF interpretation before it informs any decision? See [[indexes/gaps]].
+
+
+## 2026-09-27: Share SDK configuration without assuming a measurement wrapper
+
+### Typed entities
+
+person: Cijo Thomas; project: OpenTelemetry; project: Weaver; concept: instrumentation API; concept: shared SDK configuration; concept: measurement overhead.
+
+### Claims and evidence
+
+- Thomas argues that collection-only measurement signatures can force allocations and that instrument-name lookup on every measurement can add hashing or locking. Retained instrument references and efficient tag representations avoid those particular wrapper costs. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-otel-instrumentation-abstraction-costs.md)
+- The article separates exporter/resource/sampling configuration reuse from replacing the instrumentation API. Deliberate legacy dual-write abstractions can be justified; generated typed calls can enforce conventions without a general runtime wrapper, with Weaver cited as related work. confidence: 1 source, last-confirmed 2026-09-27 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-27-rss-otel-instrumentation-abstraction-costs.md)
+
+### Explicit relationships
+
+Shared SDK configuration uses common defaults; measurement performance depends-on preserved API behavior and measured overhead. This scoped advice supersedes the older unqualified base/wrapper recommendation in the May 31 section.
+
+### Decision and quality notes
+
+June 24, 2026 architectural backfill, not a measured HoneyDrunk regression. The OpenTelemetry page identifies a Medium original; they count as one authored source. Benchmark the intended hot paths before choosing an abstraction. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which HoneyDrunk telemetry facades only configure the SDK, which replace per-measurement APIs, and what allocation, contention, tag-fidelity, and migration requirements justify each wrapper? See [[indexes/gaps]].
+
+### Supersession evidence and decision
+
+The preserved May recommendation is broader than its [April Skyscanner source](../raw/2026-05-31-rss-opentelemetry-blog-how-skyscanner-scales-opentelemetry-managing-collec.md), whose Python/Node wrappers establish environment and resource defaults. The [June instrumentation article](../raw/2026-09-27-rss-otel-instrumentation-abstraction-costs.md) directly addresses per-measurement abstractions. Prefer the more specific, newer guidance: standardize configuration and evaluate measurement wrappers separately. confidence: 2 sources, last-confirmed 2026-09-27 (archived evidence; reasoned scope reconciliation, not a comparative benchmark). The earlier relationship about easier platform adoption remains valid in that configuration scope.
