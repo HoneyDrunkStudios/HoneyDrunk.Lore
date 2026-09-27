@@ -15,6 +15,7 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
+from lore_privacy import redact_text, write_redacted_text
 
 REPO = Path(r"C:\Users\tatte\source\repos\HoneyDrunkStudios\HoneyDrunk.Lore")
 OUTPUT = REPO / "output"
@@ -207,8 +208,8 @@ def main() -> int:
         "",
     ]
     summary = "\n".join(lines)
-    (OUTPUT / "lore-birdclaw-sourcing-last-run.md").write_text(summary, encoding="utf-8")
-    print(summary)
+    write_redacted_text((OUTPUT / "lore-birdclaw-sourcing-last-run.md"), summary)
+    print(redact_text(summary))
     return 0 if converter_returncode == 0 else converter_returncode
 
 

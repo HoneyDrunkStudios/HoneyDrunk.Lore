@@ -22,6 +22,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from email.utils import parsedate_to_datetime
 from pathlib import Path
+from lore_privacy import redact_text, write_redacted_text
 
 REPO = Path(r"C:\Users\tatte\source\repos\HoneyDrunkStudios\HoneyDrunk.Lore")
 RAW = REPO / "raw"
@@ -125,6 +126,9 @@ LOW_SIGNAL_TITLE_TERMS = [
     "10+ yrs",
     "for hire",
     "available for hire",
+    "unpaid/portfolio",
+    "investment round",
+    "venture capital",
 ]
 
 SOURCE_PRIORITY = {
@@ -203,7 +207,8 @@ def parse_feed(xml_text: str, feed_name: str, category: str) -> list[dict]:
             link = text_of(item, "link") or text_of(item, "guid")
             summary = text_of(item, "description")
             published = text_of(item, "pubDate")
-            items.append({"feed": feed_name, "title": title, "url": link, "summary": strip_html(summary), "published": published, "category": category})
+            author = text_of(item, "author") or text_of(item, "{http://purl.org/dc/elements/1.1/}creator")
+            items.append({"feed": feed_name, "title": title, "url": link, "summary": strip_html(summary), "published": published, "author": author, "category": category})
     else:
         ns = {"a": "http://www.w3.org/2005/Atom"}
         for entry in root.findall(".//a:entry", ns) or root.findall(".//entry"):
@@ -220,7 +225,11 @@ def parse_feed(xml_text: str, feed_name: str, category: str) -> list[dict]:
                 or text_of(entry, "summary")
             )
             published = text_of(entry, "{http://www.w3.org/2005/Atom}published") or text_of(entry, "{http://www.w3.org/2005/Atom}updated")
-            items.append({"feed": feed_name, "title": title, "url": link, "summary": strip_html(summary), "published": published, "category": category})
+            author_node = entry.find("{http://www.w3.org/2005/Atom}author/{http://www.w3.org/2005/Atom}name")
+            if author_node is None:
+                author_node = entry.find("author/name")
+            author = author_node.text.strip() if author_node is not None and author_node.text else ""
+            items.append({"feed": feed_name, "title": title, "url": link, "summary": strip_html(summary), "published": published, "author": author, "category": category})
     return [i for i in items if i.get("title") and i.get("url")]
 
 
@@ -234,7 +243,13 @@ TLDR_STORY_RE = re.compile(
 def canonical_url(url: str) -> str:
     url = html.unescape(html.unescape(url)).strip()
     parsed = urllib.parse.urlsplit(url)
-    path = parsed.path
+    path = re.sub(
+        r"%([0-9A-Fa-f]{2})",
+        lambda match: chr(int(match[1], 16))
+        if chr(int(match[1], 16)) in "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~"
+        else match[0].upper(),
+        parsed.path,
+    )
     if path != "/":
         path = path.rstrip("/")
     query = urllib.parse.parse_qsl(parsed.query, keep_blank_values=True)
@@ -417,6 +432,7 @@ def score(item: dict) -> int:
 
 
 def slugify(text: str) -> str:
+    text = redact_text(text)
     text = text.lower()
     text = re.sub(r"[^a-z0-9]+", "-", text).strip("-")
     return text[:70] or "untitled"
@@ -456,7 +472,7 @@ def article_body(url: str, fallback: str) -> str:
 
 
 def yaml_escape(value: str) -> str:
-    return value.replace("\\", "\\\\").replace('"', '\\"').strip()
+    return redact_text(value).replace("\\", "\\\\").replace('"', '\\"').strip()
 
 
 def select_diverse(items: list[dict], max_items: int) -> list[dict]:
@@ -570,8 +586,9 @@ def main() -> int:
                 extra_meta += f'discovered_via: "{yaml_escape(item["discovered_via"])}"\n'
             if item.get("source_role"):
                 extra_meta += f'source_role: "{yaml_escape(item["source_role"])}"\n'
-            content = f'''---\nsource: "{yaml_escape(item['url'])}"\ntitle: "{yaml_escape(item['title'])}"\nauthor: "{yaml_escape(item['feed'])}"\ndate_published: "{yaml_escape(published)}"\ndate_clipped: "{today}"\ncategory: "{yaml_escape(item['category'])}"\nsource_type: "{source_type}"\n{extra_meta}---\n\n# {item['title']}\n\nSource: {item['url']}\n\n{body}\n'''
-            path.write_text(content, encoding="utf-8")
+            author = item.get("author") or "unknown"
+            content = f'''---\nsource: "{yaml_escape(item['url'])}"\ntitle: "{yaml_escape(item['title'])}"\nauthor: "{yaml_escape(author)}"\ndate_published: "{yaml_escape(published)}"\ndate_clipped: "{today}"\ncategory: "{yaml_escape(item['category'])}"\nsource_type: "{source_type}"\n{extra_meta}---\n\n# {item['title']}\n\nSource: {item['url']}\n\n{body}\n'''
+            write_redacted_text(path, content)
             written.append(path.name)
 
     summary = [
@@ -593,9 +610,9 @@ def main() -> int:
     summary.extend(["", "## Failures / skips"])
     summary.extend((f"- {failure}" for failure in failures) if failures else ["_None_"])
     if not args.dry_run:
-        (OUTPUT / "lore-sourcing-last-run.md").write_text("\n".join(summary) + "\n", encoding="utf-8")
+        write_redacted_text((OUTPUT / "lore-sourcing-last-run.md"), "\n".join(summary) + "\n")
     else:
-        print("\n".join(summary))
+        print(redact_text("\n".join(summary)))
 
     print(f"Sourced {len(written)} items; skipped {skipped_dupes} duplicates; failures {len(failures)}")
     for name in written:
