@@ -1352,3 +1352,23 @@ Trace distillation uses bounded teacher investigations; interpretation depends-o
 ### Decision and quality notes
 
 Vendor-reported results. Do not substitute the customer base-model comparison for a teacher comparison, equate label agreement with root-cause truth, or treat serving cost as complete operating cost. No independent benchmark replication was added. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which independently reviewed incident labels, bounded teacher traces, time-separated held-out cases, matched comparison populations, and full operating costs would justify investigation-model distillation for HoneyDrunk? See [[indexes/gaps]].
+
+
+## 2026-09-28: Trace findings guide evaluation work without proving a diagnosis
+
+### Typed entities
+
+project: Microsoft Foundry Insights; project: Application Insights; concept: trace finding; concept: diagnostic uncertainty; concept: regression evaluation.
+
+### Claims and evidence
+
+- Microsoft describes a public preview analyzing traces in a connected Application Insights resource for recurring behavior beyond predefined evaluations. Findings may include representative executions, affected versions, likely causes, and possible responses; an intermediate tool failure is distinct from task failure and a plausible cause from a verified diagnosis. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-foundry-trace-findings-to-evaluations.md)
+- The initial scan covers seven days and subsequent analysis is on demand. Developers choose changes, evaluations, owner routing, or optimization experiments; Insights does not independently create pull requests, build evaluators, or deploy repairs. Missing identity, versions, spans, or content limits conclusions, and empty findings do not establish correctness. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-foundry-trace-findings-to-evaluations.md)
+
+### Explicit relationships
+
+Trace analysis uses captured execution evidence; a verified fix depends-on targeted changes and fresh evaluation. See [[opentelemetry-genai-observability-and-ecosystem]] and [[azure-agent-automation-and-identity]].
+
+### Decision and quality notes
+
+Vendor preview announcement. Treat suggested causes as hypotheses and review evidence before changing a system. Availability and analysis costs are unverified for a HoneyDrunk deployment; no autonomous repair capability is inferred. Source-specific claims remain provisional single-source evidence; related accounts and derived queries add no independent confirmation. Open question: Which trace completeness checks, independently reviewed diagnoses, fresh evaluation cases, and measured outcomes would qualify Foundry findings for HoneyDrunk failure analysis? See [[indexes/gaps]].

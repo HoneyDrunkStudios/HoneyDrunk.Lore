@@ -154,3 +154,23 @@ Session continuity uses external artifact storage; tenant isolation depends-on s
 ### Decision and quality notes
 
 Vendor public-preview example, not a production tenant-isolation proof. Preserve research evidence independently of worker lifetimes and test both permission layers before adoption. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which evidence, shared guidance, temporary context, and run outputs need separate Blob containers or tool permissions, and do restart, tenant-isolation, and destructive-tool tests enforce those boundaries? See [[indexes/gaps]].
+
+
+## 2026-09-28: Memory scope and credential scope follow the authenticated caller
+
+### Typed entities
+
+project: LangChain Managed Deep Agents; concept: user-scoped memory; concept: deployment memory; concept: shared conversation; concept: webhook identity.
+
+### Claims and evidence
+
+- The Managed Deep Agents 0.8 announcement separates deployment-wide memory from authenticated-caller memory, with access policies for individual and shared conversations. Credentials likewise belong to either the agent or a user, separating shared capabilities from personal service permissions. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-langchain-user-scoped-agent-memory.md)
+- HTTP channels expose webhook entry points with application-defined verification, parsing, and messaging. The release also describes Slack file transfer and managed web search with traceable calls, latency, and errors. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-langchain-user-scoped-agent-memory.md)
+
+### Explicit relationships
+
+Memory availability depends-on caller identity and conversation policy; webhook integration uses application-defined verification. See [[ai-agent-identity-and-workload-auth]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Vendor beta capabilities, not verified tenant-isolation guarantees. This extends the separate durable-file storage pattern; durable storage itself does not establish caller-specific access. Recheck implementation behavior and costs before adoption. Source-specific claims remain provisional single-source evidence; related accounts and derived queries add no independent confirmation. Open question: Do HoneyDrunk shared conversations and webhooks enforce caller identity, user-versus-agent credential scope, and personal-memory boundaries when participants or access policies change? See [[indexes/gaps]].

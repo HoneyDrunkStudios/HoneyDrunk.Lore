@@ -769,3 +769,43 @@ Silhouette uses NativeAOT for native profiler entry points; safe profiling depen
 ### Decision and quality notes
 
 December 16, 2025 backfill, not a new release or production-readiness claim. Useful for focused diagnostic prototypes; no callback or runtime compatibility was tested locally. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which target runtime, profiling-interface versions, callback/error paths, activation settings, and separately published applications would validate a HoneyDrunk Silhouette diagnostic prototype? See [[indexes/gaps]].
+
+
+## 2026-09-28: Enum generator options and span APIs require target-specific checks
+
+### Typed entities
+
+person: Andrew Lock; library: NetEscapades.EnumGenerators; library: System.Memory; concept: enum parsing policy; concept: numeric fallback allocation.
+
+### Claims and evidence
+
+- Lock describes value-type options consolidating enum parsing and serialization settings, including numeric-string rejection, comparison behavior, and invariant casing for known enum values without a separate string transformation. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-dotnet-enum-generation-options-and-spans.md)
+- For older targets, a System.Memory reference and MSBuild opt-in expose span overloads. Numeric fallback can still convert the span to a string when the platform lacks a suitable parsing overload, so a span API alone does not establish allocation-free parsing. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-dotnet-enum-generation-options-and-spans.md)
+
+### Explicit relationships
+
+Enum input acceptance uses explicit options; older-target span support depends-on references and build configuration. See [[dotnet-dependency-security-and-nuget]] for the separate package dependency contract.
+
+### Decision and quality notes
+
+January 2 backfill describing prerelease behavior. Package-reference detection was experimental and the closing version reference differs from the walkthrough. Flagged for version verification; do not silently choose one version or apply the examples to a deployed package. Source-specific claims remain provisional single-source evidence; related accounts and derived queries add no independent confirmation. Open question: Which deployed EnumGenerators version, target frameworks, numeric-input policy, and fallback allocation measurements qualify HoneyDrunk enum parsing and serialization? See [[indexes/gaps]].
+
+
+## 2026-09-28: Generated metrics wrappers need API and allocation review
+
+### Typed entities
+
+person: Andrew Lock; library: Microsoft.Extensions.Telemetry.Abstractions; concept: generated metrics wrapper; concept: typed tags; concept: per-meter cache.
+
+### Claims and evidence
+
+- Lock examines Microsoft.Extensions.Telemetry.Abstractions 10.2.0 generated instrument factories, per-meter caching, tag construction, and call sites. In the demonstrated attributes, descriptions are unavailable and units require an experimental API opt-in. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-dotnet-metrics-source-generator-tradeoffs.md)
+- Typed tag objects can expose argument mistakes, but the examined string/enum restrictions introduce conversion work. The generated approach changes the helper API while retaining underlying work; the author prefers manual helpers for this example without establishing a universal performance result. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-dotnet-metrics-source-generator-tradeoffs.md)
+
+### Explicit relationships
+
+Metrics wrapper selection depends-on generated output, API coverage, and measured call-path cost. See [[opentelemetry-genai-observability-and-ecosystem]] for configuration versus measurement abstraction boundaries.
+
+### Decision and quality notes
+
+February 3 backfill with version-specific observations. No contemporary package refresh or controlled HoneyDrunk benchmark was performed. This is compatible with the existing distinction between SDK configuration and per-measurement wrappers. Source-specific claims remain provisional single-source evidence; related accounts and derived queries add no independent confirmation. Open question: Do generated and manual HoneyDrunk metric helpers preserve descriptions, units, tag fidelity, and acceptable allocations under representative workloads and pinned package versions? See [[indexes/gaps]].

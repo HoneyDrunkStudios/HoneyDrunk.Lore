@@ -2204,3 +2204,23 @@ Kit identity uses an image digest; capability enforcement depends-on runtime con
 ### Decision and quality notes
 
 Vendor specification explanation, not a runtime test. The raw capture preserves differing article/RSS author credits; do not infer two sources from that discrepancy. Review software and authority changes together. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which sandbox runtime and version enforce Kit v3 requests, and do update tests detect added grants, removed denies, dependency conflicts, and credential or network-policy regressions? See [[indexes/gaps]].
+
+
+## 2026-09-28: OCI permission packaging remains dependent on runtime enforcement
+
+### Typed entities
+
+project: Docker Sandboxes; project: CNCF; concept: OCI image; concept: declared permission; concept: runtime enforcement.
+
+### Claims and evidence
+
+- Docker describes an early open specification packaging an agent, tools, and requested network, credential, and volume access in an OCI image. Pinning the image binds software and declared requests to the same artifact, enabling permission changes to be reviewed with software updates. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-docker-oci-agent-permission-kits.md)
+- The announcement says ordinary registry, signing, and scanning workflows can handle these images, identifies Sandboxes as the first enforcing runtime, and describes bringing the specification to CNCF. It does not establish universal runtime compatibility or independent enforcement verification. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-docker-oci-agent-permission-kits.md)
+
+### Explicit relationships
+
+Permission packaging uses OCI artifact identity; actual authority depends-on runtime enforcement. See [[container-supply-chain-and-compliance]].
+
+### Decision and quality notes
+
+Related to the September 24 Kit v3 capture already compiled here; both are Docker accounts, not independent confirmation. Bringing a specification to CNCF is not evidence of completed standardization or conformance certification. Source-specific claims remain provisional single-source evidence; related accounts and derived queries add no independent confirmation. Open question: Can a pinned agent image and a chosen sandbox runtime demonstrate the declared network, credential, and volume restrictions, including permission changes between releases? See [[indexes/gaps]].

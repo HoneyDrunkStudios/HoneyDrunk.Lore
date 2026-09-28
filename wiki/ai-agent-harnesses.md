@@ -1830,3 +1830,23 @@ Feedback loops depend-on external evidence; agent controllers use durable knowle
 ### Decision and quality notes
 
 Conceptual guidance supports workflow design but does not demonstrate runtime enforcement or quantified reliability. It extends the existing harness/verification model without making Lore agent runtime memory. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which Honeyclaw steps need guidance, procedure routing, or externally checked feedback, and which terminating signals actually establish task success? See [[indexes/gaps]].
+
+
+## 2026-09-28: Computer-use harness changes follow inspected execution failures
+
+### Typed entities
+
+project: H Company; project: Holo4; concept: interface switching; concept: persistent task memory; concept: failure classification; concept: benchmark trajectory.
+
+### Claims and evidence
+
+- H Company describes models combining screen interaction, executable code, and API/MCP calls in one workflow. Its task generator builds interactive environments with verifiable outcomes, and the team publishes benchmark trajectories for inspection. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-holo4-generalist-agent-harness.md)
+- Failure classifications informed engineer-reviewed harness changes, including persistent task memory and a shell on the controlled desktop. Reported benchmark and cost comparisons differ in task releases, harnesses, and public versus private benchmark sets; they do not form a uniformly controlled comparison. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-holo4-generalist-agent-harness.md)
+
+### Explicit relationships
+
+Harness improvement uses failure classifications and reviewed changes; evaluation depends-on task and harness comparability. See [[agent-evaluation-and-benchmarks]] and [[agent-context-management-and-session-continuity]].
+
+### Decision and quality notes
+
+Vendor measurements, not reproduced outcomes or evidence of HoneyDrunk performance. Saved trajectories can support local model-versus-harness failure analysis; held-out workflows are a proposed evaluation method, not a result from this compile. Source-specific claims remain provisional single-source evidence; related accounts and derived queries add no independent confirmation. Open question: Which held-out HoneyDrunk workflows and recorded trajectories can distinguish model failures from interface-switching, task-memory, shell-access, and long-task recovery failures? See [[indexes/gaps]].
