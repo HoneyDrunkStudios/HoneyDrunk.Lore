@@ -1199,3 +1199,23 @@ Creature look development uses editable material layers; convincing surface resp
 ### Decision and quality notes
 
 One offline-rendering case study. Reusable authoring ideas do not establish real-time shader equivalence or cost; greater displacement is not itself evidence of realism. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which editable layer structure, displacement limits, lighting references, and real-time shader cost and appearance tests would qualify these creature-material techniques for HoneyDrunk assets? See [[indexes/gaps]].
+
+
+## 2026-09-28: Environment prototypes need asset, template, and audio integration checks
+
+### Typed entities
+
+person: Volodymyr Donchenko; project: Unreal Engine; project: 3ds Max; project: Blender; concept: asset reuse; concept: spatial audio; concept: template adaptation.
+
+### Claims and evidence
+
+- Donchenko describes reusing a 3ds Max asset collection and lighting palette in an Unreal Engine technical demo. Blender tooling and baked vertex colors supported procedural material import; flight and AI templates still required manual adaptation. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-hovercraft-environment-and-audio-production.md)
+- The production account separates attenuated location-based sound from continuously looping background music. The score was composed, mixed, exported, and tested in the scene, making audio integration part of the environment prototype rather than only a final export task. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-hovercraft-environment-and-audio-production.md)
+
+### Explicit relationships
+
+Environment production uses reusable assets and templates; coherent playback depends-on separate spatial-sound and background-score behavior. See [[gamedev-production-and-community-signals]].
+
+### Decision and quality notes
+
+Creator demo account rather than a shipped-game benchmark. Broad rendering-performance claims are not promoted; asset adaptation, workstation limits, and in-scene evaluation remain production costs to measure. Source-specific claims remain provisional single-source evidence; related accounts and derived queries add no independent confirmation. Open question: Which asset imports, material conversions, template adaptations, spatial-audio behaviors, music loops, and target-device costs should a HoneyDrunk environment prototype validate before content expansion? See [[indexes/gaps]].

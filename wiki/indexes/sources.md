@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-09-27
+## Compile coverage: 2026-09-28
 
-Reconciled 1082 raw source documents against 1082 unique source entries; ingested 15 new attributed summaries in this pass. All raw documents have index entries. Existing source records and ingestion dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
+Reconciled 1097 raw source documents against 1097 unique source entries; ingested 15 new attributed summaries in this pass. All raw documents have index entries. Existing source records and ingestion dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
 
 ## Entry format
 
@@ -1338,3 +1338,22 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [How to reimagine a classic sports game for a new generation with level design, worldbuilding, and VFX](../../raw/2026-09-27-rss-unity-environment-readability-material-budgets.md) - Environment budgets follow camera readability and feedback. - ingested 2026-09-27
 - [HDR in Unity URP: Bloom, Tone Mapping, and HDR Display Output](../../raw/2026-09-27-rss-unity-hdr-rendering-output-validation.md) - Internal HDR range and display output require separate validation. - ingested 2026-09-27
 - [How RUST LTD built the deep firearm simulation for Hot Dogs, Horseshoes & Hand Grenades 2](../../raw/2026-09-27-rss-unity-simulation-tooling-performance-budgets.md) - Simulation authoring tools and device budgets precede content scale. - ingested 2026-09-27
+
+
+## 2026-09-28 ingest
+
+- [Engineering Agentic Recall Controls with MCP and Microsoft Foundry](../../raw/2026-09-28-rss-agent-approval-and-mutation-boundaries.md) - Recall approvals bind authority to a specific mutation; compiled in [[azure-agent-automation-and-identity]]. - ingested 2026-09-28
+- [Connect Azure Functions to more services with managed connectors](../../raw/2026-09-28-rss-azure-functions-managed-connector-pattern.md) - Functions connector workflows separate connection management from domain logic; compiled in [[azure-agent-automation-and-identity]]. - ingested 2026-09-28
+- [How Cloudflare addressed a cross-tenant data exposure vulnerability in Containers](../../raw/2026-09-28-rss-container-storage-reuse-isolation.md) - Storage reuse isolation includes existing disks and snapshot caches; compiled in [[container-supply-chain-and-compliance]]. - ingested 2026-09-28
+- [Docker and CNCF partner on an open spec for agent permissions](../../raw/2026-09-28-rss-docker-oci-agent-permission-kits.md) - OCI permission packaging remains dependent on runtime enforcement; compiled in [[ai-coding-agent-security]]. - ingested 2026-09-28
+- [Recent updates to NetEscapades.EnumGenerators: new APIs and System.Memory support](../../raw/2026-09-28-rss-dotnet-enum-generation-options-and-spans.md) - Enum generator options and span APIs require target-specific checks; compiled in [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-09-28
+- [Exploring the (underwhelming) System.Diagnostics.Metrics source generators: System.Diagnostics.Metrics APIs - Part 2](../../raw/2026-09-28-rss-dotnet-metrics-source-generator-tradeoffs.md) - Generated metrics wrappers need API and allocation review; compiled in [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-09-28
+- [Insights in Foundry Turns Agent Traces into Action](../../raw/2026-09-28-rss-foundry-trace-findings-to-evaluations.md) - Trace findings guide evaluation work without proving a diagnosis; compiled in [[agent-evaluation-and-benchmarks]]. - ingested 2026-09-28
+- [Expired GitHub Actions artifacts no longer shown in UI and API](../../raw/2026-09-28-rss-github-expired-artifact-visibility.md) - Artifact visibility is separate from retention and historical provenance; compiled in [[github-actions-platform-operations]]. - ingested 2026-09-28
+- [Holo4: powering generalist computer-use agents](../../raw/2026-09-28-rss-holo4-generalist-agent-harness.md) - Computer-use harness changes follow inspected execution failures; compiled in [[ai-agent-harnesses]]. - ingested 2026-09-28
+- [How to Create Futuristic Hovercraft Flight Simulator Inspired by Matrix](../../raw/2026-09-28-rss-hovercraft-environment-and-audio-production.md) - Environment prototypes need asset, template, and audio integration checks; compiled in [[technical-art-community-and-talent-signals]]. - ingested 2026-09-28
+- [Managed Deep Agents v0.8: new auth, memory, and channels](../../raw/2026-09-28-rss-langchain-user-scoped-agent-memory.md) - Memory scope and credential scope follow the authenticated caller; compiled in [[agent-context-management-and-session-continuity]]. - ingested 2026-09-28
+- [A World Seed Is a Recipe, Not a Save File: Separate Generation from Progress](../../raw/2026-09-28-rss-procedural-world-save-state-contract.md) - Generation recipes and saved progress have distinct compatibility contracts; compiled in [[procedural-world-persistence]]. - ingested 2026-09-28
+- [Graphalgo campaign spreads to Terraform providers and Go Modules](../../raw/2026-09-28-rss-terraform-provider-supply-chain-defense.md) - Provider provenance and remediation extend beyond dependency removal; compiled in [[container-supply-chain-and-compliance]]. - ingested 2026-09-28
+- [Bolt UXP 1.3 and Bolt Express 1.2 Bring Faster, More Powerful Plugin Development to Adobe Apps](../../raw/2026-09-28-web-adobe-bolt-plugin-development-workflow.md) - Plugin scaffolds need packaged-install and host-compatibility verification; compiled in [[creative-tool-extension-packaging]]. - ingested 2026-09-28
+- [New ESLint Plugin Catches Common Premiere UXP Bugs](../../raw/2026-09-28-web-premiere-uxp-transaction-linting.md) - Premiere UXP lint rules expose lock and transaction scope errors; compiled in [[creative-tool-extension-packaging]]. - ingested 2026-09-28

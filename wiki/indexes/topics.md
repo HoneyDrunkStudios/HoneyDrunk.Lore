@@ -1,8 +1,8 @@
 # Topics
 
-Auto-maintained catalog rebuilt from all concept pages on 2026-09-27. Each page appears once; follow its relationships for related topics.
+Auto-maintained catalog rebuilt from all concept pages on 2026-09-28. Each page appears once; follow its relationships for related topics.
 
-Coverage: 66 concept pages. Counts below are distinct, explicitly named existing raw files cited anywhere on a page, including historical claims. Grouped date ranges and wildcard citations are excluded. These counts are retrieval metadata, not independent supporting-source counts for every claim. A large page bibliography does not strengthen an unrelated single-source claim.
+Coverage: 67 concept pages. Counts below are distinct, explicitly named existing raw files cited anywhere on a page, including historical claims. Grouped date ranges and wildcard citations are excluded. These counts are retrieval metadata, not independent supporting-source counts for every claim. A large page bibliography does not strengthen an unrelated single-source claim.
 
 The last column is the newest `last-confirmed` date already recorded on the page. It is not a fresh verification of every claim or of current product behavior. Read claim-level citations, supersession notes, and confidence before making a decision. Unreinforced single-source claims remain provisional; this catalog rebuild adds no independent evidence.
 
@@ -11,14 +11,14 @@ The previous topic index is preserved verbatim in [topic history](../../output/t
 | Concept page | Explicit raw-file citations | Latest recorded confirmation |
 | --- | ---: | --- |
 | [[dotnet-dependency-security-and-nuget\|.NET Dependency Security and NuGet]] | 7 | 2026-09-26 |
-| [[dotnet-runtime-and-mobile-2026\|.NET Runtime and Mobile 2026]] | 38 | 2026-09-27 |
-| [[agent-context-management-and-session-continuity\|Agent Context Management and Session Continuity]] | 6 | 2026-09-22 |
-| [[agent-evaluation-and-benchmarks\|Agent Evaluation and Benchmarks]] | 93 | 2026-09-27 |
+| [[dotnet-runtime-and-mobile-2026\|.NET Runtime and Mobile 2026]] | 40 | 2026-09-28 |
+| [[agent-context-management-and-session-continuity\|Agent Context Management and Session Continuity]] | 7 | 2026-09-28 |
+| [[agent-evaluation-and-benchmarks\|Agent Evaluation and Benchmarks]] | 94 | 2026-09-28 |
 | [[agentic-commerce-and-machine-payments\|Agentic Commerce and Machine Payments]] | 2 | 2026-07-06 |
 | [[agentic-retrieval-and-search\|Agentic Retrieval and Search]] | 2 | 2026-09-22 |
-| [[ai-agent-harnesses\|AI Agent Harnesses]] | 187 | 2026-09-19 |
+| [[ai-agent-harnesses\|AI Agent Harnesses]] | 188 | 2026-09-28 |
 | [[ai-agent-identity-and-workload-auth\|AI Agent Identity and Workload Auth]] | 8 | 2026-09-19 |
-| [[ai-coding-agent-security\|AI Coding Agent Security]] | 175 | 2026-09-26 |
+| [[ai-coding-agent-security\|AI Coding Agent Security]] | 176 | 2026-09-28 |
 | [[ai-for-financial-research-and-investment\|AI for Financial Research and Investment]] | 1 | 2026-08-22 |
 | [[ai-for-science-and-chemistry\|AI for Science and Chemistry]] | 1 | 2026-06-09 |
 | [[ai-hardware-and-companion-devices-2026\|AI Hardware and Companion Devices 2026]] | 2 | 2026-06-21 |
@@ -28,7 +28,7 @@ The previous topic index is preserved verbatim in [topic history](../../output/t
 | [[ai-assisted-software-practice\|AI-Assisted Software Practice]] | 96 | 2026-09-27 |
 | [[api-testing-and-verification\|API Testing and Verification]] | 3 | 2026-09-22 |
 | [[apple-platform-security-and-memory-safety\|Apple Platform Security and Memory Safety]] | 1 | 2026-05-26 |
-| [[azure-agent-automation-and-identity\|Azure Agent Automation and Identity]] | 53 | 2026-09-27 |
+| [[azure-agent-automation-and-identity\|Azure Agent Automation and Identity]] | 55 | 2026-09-28 |
 | [[azure-sdk-for-rust\|Azure SDK for Rust]] | 3 | 2026-08-12 |
 | [[azure-service-bus-and-functions-messaging\|Azure Service Bus and Azure Functions Messaging]] | 2 | 2026-05-17 |
 | [[browser-snapshot-source-quality\|Browser Snapshot Source Quality]] | 62 | 2026-08-24 |
@@ -39,9 +39,9 @@ The previous topic index is preserved verbatim in [topic history](../../output/t
 | [[cloud-security-monitoring-and-siem\|Cloud Security Monitoring and SIEM]] | 3 | 2026-09-19 |
 | [[cloud-sovereignty-and-platform-governance\|Cloud Sovereignty and Platform Governance]] | 2 | 2026-08-17 |
 | [[cloud-vector-storage-security\|Cloud Vector Storage Security]] | 1 | 2026-08-12 |
-| [[container-supply-chain-and-compliance\|Container Supply Chain and Compliance]] | 7 | 2026-09-27 |
+| [[container-supply-chain-and-compliance\|Container Supply Chain and Compliance]] | 9 | 2026-09-28 |
 | [[creative-automation-and-firefly-services\|Creative Automation and Firefly Services]] | 4 | 2026-08-23 |
-| [[creative-tool-extension-packaging\|Creative Tool Extension Packaging]] | 1 | 2026-09-11 |
+| [[creative-tool-extension-packaging\|Creative Tool Extension Packaging]] | 3 | 2026-09-28 |
 | [[creator-business-models\|Creator Business Models]] | 2 | 2026-06-19 |
 | [[distributed-systems-patterns\|Distributed Systems Patterns]] | 14 | 2026-09-26 |
 | [[early-social-ai-agent-signals-2026\|Early Social AI Agent Signals 2026]] | 18 | 2026-06-20 |
@@ -52,7 +52,7 @@ The previous topic index is preserved verbatim in [topic history](../../output/t
 | [[gamedev-production-and-community-signals\|Gamedev Production and Community Signals]] | 44 | 2026-09-15 |
 | [[generative-ui-and-a2ui\|Generative UI and A2UI]] | 3 | 2026-06-20 |
 | [[git-storage-and-version-control-infrastructure\|Git Storage and Version Control Infrastructure]] | 1 | 2026-08-21 |
-| [[github-actions-platform-operations\|GitHub Actions Platform Operations]] | 60 | 2026-09-27 |
+| [[github-actions-platform-operations\|GitHub Actions Platform Operations]] | 61 | 2026-09-28 |
 | [[github-copilot-and-app-token-changes\|GitHub Copilot and App Token Changes]] | 33 | 2026-09-26 |
 | [[godot-2026-mobile-and-4-7-cycle\|Godot 2026 Mobile and 4.7 Cycle]] | 14 | 2026-05-26 |
 | [[google-agent-platform-and-gemini-api-2026\|Google Agent Platform and Gemini API 2026]] | 20 | 2026-09-27 |
@@ -68,10 +68,11 @@ The previous topic index is preserved verbatim in [topic history](../../output/t
 | [[opentelemetry-genai-observability-and-ecosystem\|OpenTelemetry GenAI Observability and Ecosystem Mapping]] | 27 | 2026-09-27 |
 | [[pipeline-template-contracts\|Pipeline Template Contracts]] | 1 | 2026-09-19 |
 | [[post-quantum-security-and-cryptography\|Post-Quantum Security and Cryptography]] | 3 | 2026-09-14 |
+| [[procedural-world-persistence\|Procedural World Persistence]] | 1 | 2026-09-28 |
 | [[realtime-chat-service-contracts\|Realtime Chat Service Contracts]] | 1 | 2026-09-22 |
 | [[realtime-game-network-protocol-design\|Realtime Game Network Protocol Design]] | 5 | 2026-09-18 |
 | [[robotics-foundation-models-and-embodied-ai\|Robotics Foundation Models and Embodied AI]] | 2 | 2026-09-22 |
-| [[technical-art-community-and-talent-signals\|Technical Art Community and Talent Signals]] | 73 | 2026-09-27 |
+| [[technical-art-community-and-talent-signals\|Technical Art Community and Talent Signals]] | 74 | 2026-09-28 |
 | [[unity-3d-and-realtime-vfx-patterns\|Unity 3D and Realtime VFX Patterns]] | 90 | 2026-09-27 |
 | [[voice-agent-platforms-2026\|Voice Agent Platforms 2026]] | 5 | 2026-09-14 |
 | [[web-3d-runtime-tradeoffs\|Web 3D Runtime Tradeoffs]] | 2 | 2026-06-28 |

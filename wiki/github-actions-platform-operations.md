@@ -1049,3 +1049,23 @@ Historical completeness depends-on bounded retrieval windows and run identifier 
 ### Decision and quality notes
 
 Official behavior-change notice, not a live API integration test. The capture does not specify an exact lower-bound JSON representation; no field shape is invented. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Do HoneyDrunk Actions collectors handle lower-bound counts, split windows that exceed enumeration limits, deduplicate run identifiers, and detect incomplete histories before calculating activity metrics? See [[indexes/gaps]].
+
+
+## 2026-09-28: Artifact visibility is separate from retention and historical provenance
+
+### Typed entities
+
+project: GitHub Actions; concept: artifact expiration; concept: REST inventory; concept: evidence retention.
+
+### Claims and evidence
+
+- GitHub's September 24 announcement says expired artifacts disappear from workflow summaries and named artifact listing/retrieval REST endpoints instead of remaining as entries with unavailable downloads. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-github-expired-artifact-visibility.md)
+- The announcement says retention settings and storage billing do not change. Workflow logs remain a route for investigating artifacts produced by earlier runs; the capture does not promise indefinite log availability or artifact recovery. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-github-expired-artifact-visibility.md)
+
+### Explicit relationships
+
+Historical artifact reporting depends-on evidence captured before expiry and retained logs; current API visibility does not establish a complete production history. See [[container-supply-chain-and-compliance]].
+
+### Decision and quality notes
+
+Short official change announcement preserved as an attributed summary. This concerns artifacts, separately from the prior workflow-run query-count and enumeration limits. No existing local claim asserted permanent artifact listing, so no supersession is needed. Source-specific claims remain provisional single-source evidence; related accounts and derived queries add no independent confirmation. Open question: Which HoneyDrunk audit or release processes rely on artifact listings as history, and what provenance and log retention preserve required evidence after artifact expiry? See [[indexes/gaps]].

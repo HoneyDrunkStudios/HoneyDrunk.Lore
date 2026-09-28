@@ -175,3 +175,43 @@ Deployment admission uses artifact identity and build provenance; release trust 
 ### Decision and quality notes
 
 Defensive enterprise guidance, not evidence of a HoneyDrunk vulnerability. Package-age delays, scanner results, and signatures are partial controls. Consistent with the existing provenance-limit claim; no incident or safety guarantee is inferred. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Do HoneyDrunk release workflows isolate cache writes and untrusted PR execution, bind provenance to expected source/build identities, and verify the exact artifact at deployment admission? See [[indexes/gaps]].
+
+
+## 2026-09-28: Storage reuse isolation includes existing disks and snapshot caches
+
+### Typed entities
+
+project: Cloudflare Containers; concept: thin-provisioned storage; concept: residual data; concept: snapshot cache; concept: remediation verification.
+
+### Claims and evidence
+
+- Cloudflare reports that uncleared reused storage blocks allowed partial writes to leave prior-tenant bytes readable even though containers ran in separate virtual machines. The report attributes the cross-tenant exposure to the storage reuse boundary. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-container-storage-reuse-isolation.md)
+- Remediation included changing allocation behavior, replacing previously mapped disks, and clearing cached image snapshots. Researchers independently checked that the demonstrated technique stopped working, according to the report. Cloudflare reports no evidence of malicious exploitation within retained telemetry and says customers needed no configuration changes. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-container-storage-reuse-isolation.md)
+
+### Explicit relationships
+
+Uncleared block reuse caused residual-data exposure; the reported repair fixed the demonstrated path by addressing allocation and existing resources. Isolation depends-on storage lifecycle as well as VM boundaries. See [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+One vendor incident account; the reported researcher check is not a separately reviewed source. No-evidence-of-exploitation is limited by telemetry. Do not infer exposure of HoneyDrunk systems or a universal failure of VM isolation. Source-specific claims remain provisional single-source evidence; related accounts and derived queries add no independent confirmation. Open question: Do HoneyDrunk sandbox tests cover partial storage initialization, cross-tenant block reuse, existing disk mappings, and cached snapshots after an isolation fix? See [[indexes/gaps]].
+
+
+## 2026-09-28: Provider provenance and remediation extend beyond dependency removal
+
+### Typed entities
+
+project: Aikido; project: Terraform; project: Go; concept: Graphalgo campaign; concept: package impersonation; concept: conditional payload; concept: credential recovery.
+
+### Claims and evidence
+
+- Aikido reports Graphalgo activity targeting Terraform providers and Go modules through look-alike identities and fabricated ecosystem sites. Some payloads activated only for particular inputs, so ordinary smoke tests could miss their behavior; manipulated commit dates could make packages appear older in downstream tooling. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-terraform-provider-supply-chain-defense.md)
+- For affected systems, the researchers recommend host isolation, credential rotation, investigation of credential use, and rebuilding the environment. Removing the dependency alone may leave a separately launched payload active. These recommendations are attributed incident-response guidance, not evidence that any HoneyDrunk system is affected. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-terraform-provider-supply-chain-defense.md)
+
+### Explicit relationships
+
+Dependency trust depends-on namespace and repository provenance; recovery depends-on execution and credential scope as well as package removal. See [[dotnet-dependency-security-and-nuget]] for related dependency-review boundaries.
+
+### Decision and quality notes
+
+Researcher report; campaign scope and attribution are not independently reproduced. Defensive lessons only: no payloads, personal identifiers, or secrets promoted. Apparent age and plausible naming are not provenance evidence. Source-specific claims remain provisional single-source evidence; related accounts and derived queries add no independent confirmation. Open question: Do HoneyDrunk infrastructure workflows verify provider ownership, review dependency changes, isolate credentials, and retain enough execution evidence to investigate and rebuild after a compromised dependency? See [[indexes/gaps]].

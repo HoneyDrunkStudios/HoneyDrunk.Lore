@@ -1044,3 +1044,43 @@ Incident completion depends-on routing, evidence access, identity permissions, a
 ### Decision and quality notes
 
 Vendor guidance with observational comparisons across different agents and evaluation rules, not controlled evidence of performance gains. This does not authorize removing approval gates. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Can a representative HoneyDrunk incident reach final delivery with intended routing, telemetry, effective default tools, identity permissions, and consequential-action approvals before a live queue is connected? See [[indexes/gaps]].
+
+
+## 2026-09-28: Recall approvals bind authority to a specific mutation
+
+### Typed entities
+
+person: Lee Stott; project: Microsoft Foundry; concept: approval binding; concept: idempotent replay; concept: optimistic concurrency.
+
+### Claims and evidence
+
+- Stott's synthetic recall sample gives specialists narrow read tools while deterministic application code controls approvals and inventory changes. Tool annotations describe behavior but do not enforce authorization. Approvals bind an authenticated actor, resource, operation, session generation, and validity period; domain logic makes replay idempotent. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-agent-approval-and-mutation-boundaries.md)
+- Actor-specific Blob state uses ETags to reject conflicting writes. The hosted path rejects partial or failed responses, distinguishes local fallback from cloud execution, and acknowledges unavailable workflow traces; historical evaluations still need rerunning against the deployed version. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-agent-approval-and-mutation-boundaries.md)
+
+### Explicit relationships
+
+Inventory mutation depends-on application authorization; state persistence uses ETag conflict checks. See [[ai-coding-agent-security]] and [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Developer demonstration with fictional data, not production control evidence. The local audit is not tamper-evident; deployment, load, recovery, and audit integrity require separate validation. This extends the existing service-side authorization section without establishing end-to-end atomicity. Source-specific claims remain provisional single-source evidence; related accounts and derived queries add no independent confirmation. Open question: Which approval expiry, session-change, replay, conflicting-write, failed-response, and recovery cases establish the boundaries of a HoneyDrunk consequential-action service? See [[indexes/gaps]].
+
+
+## 2026-09-28: Functions connector workflows separate connection management from domain logic
+
+### Typed entities
+
+project: Azure Functions; project: Azure Managed Connectors; project: Content Understanding; concept: Connector Namespace; concept: deterministic routing.
+
+### Claims and evidence
+
+- Microsoft demonstrates a document workflow in which a SharePoint event supplies file properties, a typed client fetches content, Content Understanding extracts text and layout, deterministic C# rules route the result, and Teams receives an Adaptive Card. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-azure-functions-managed-connector-pattern.md)
+- Connector Namespace manages connections and tokens while application code owns processing and errors. The captured announcement calls the Functions integration public preview and recommends considering Logic Apps when connector orchestration dominates custom code. confidence: 1 source, last-confirmed 2026-09-28 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-28-rss-azure-functions-managed-connector-pattern.md)
+
+### Explicit relationships
+
+The document workflow uses managed connections and deterministic routing; deployment depends-on supported language, hosting, and region combinations. See [[azure-service-bus-and-functions-messaging]].
+
+### Decision and quality notes
+
+Vendor preview sample, not a deployment guarantee. Article publication is September 22 while RSS says September 24. This extends the earlier App Service trigger example; it does not remove receiving-endpoint authentication requirements. Source-specific claims remain provisional single-source evidence; related accounts and derived queries add no independent confirmation. Open question: Which supported connector operations, Functions hosting and language combinations, callback authentication, error paths, and domain logic justify Functions versus Logic Apps for a HoneyDrunk integration? See [[indexes/gaps]].

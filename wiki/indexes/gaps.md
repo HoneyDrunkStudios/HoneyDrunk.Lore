@@ -2,9 +2,9 @@
 
 Questions the wiki cannot currently answer. Populated by the Query operation when synthesis falls short, and by the Lint operation when entities are referenced but lack a backing page.
 
-## Compile status: 2026-09-27
+## Compile status: 2026-09-28
 
-Cataloged 617 dated gap entries alongside the current 66-page catalog. Added 15 questions and closed 0 gaps in this pass. Existing questions and their history are preserved below.
+Cataloged 632 dated gap entries alongside the current 67-page catalog. Added 15 questions and closed 0 gaps in this pass. Existing questions and their history are preserved below.
 
 ## Entry format
 
@@ -830,3 +830,22 @@ Cataloged 617 dated gap entries alongside the current 66-page catalog. Added 15 
 - Which gameplay and replay cameras, day/night states, decal settings, interaction feedback, and target-device measurements should define HoneyDrunk environment geometry and material budgets? - surfaced 2026-09-27 - context: [[unity-3d-and-realtime-vfx-patterns]]; [source](../../raw/2026-09-27-rss-unity-environment-readability-material-budgets.md).
 - Which Unity/URP version and target displays pass emissive-range, transform-order, pending-output-mode, Paper White, UI brightness, alpha, and SDR-fallback tests for HoneyDrunk? - surfaced 2026-09-27 - context: [[unity-3d-and-realtime-vfx-patterns]]; [source](../../raw/2026-09-27-rss-unity-hdr-rendering-output-validation.md).
 - Which target-device budgets, asset-configuration validators, lighting trials, and player-visible acceptance cases should precede content expansion in HoneyDrunk simulation projects? - surfaced 2026-09-27 - context: [[unity-3d-and-realtime-vfx-patterns]]; [source](../../raw/2026-09-27-rss-unity-simulation-tooling-performance-budgets.md).
+
+
+## 2026-09-28 ingest questions
+
+- Which approval expiry, session-change, replay, conflicting-write, failed-response, and recovery cases establish the boundaries of a HoneyDrunk consequential-action service? - surfaced 2026-09-28 - context: [[azure-agent-automation-and-identity]]; [source](../../raw/2026-09-28-rss-agent-approval-and-mutation-boundaries.md).
+- Which supported connector operations, Functions hosting and language combinations, callback authentication, error paths, and domain logic justify Functions versus Logic Apps for a HoneyDrunk integration? - surfaced 2026-09-28 - context: [[azure-agent-automation-and-identity]]; [source](../../raw/2026-09-28-rss-azure-functions-managed-connector-pattern.md).
+- Do HoneyDrunk sandbox tests cover partial storage initialization, cross-tenant block reuse, existing disk mappings, and cached snapshots after an isolation fix? - surfaced 2026-09-28 - context: [[container-supply-chain-and-compliance]]; [source](../../raw/2026-09-28-rss-container-storage-reuse-isolation.md).
+- Can a pinned agent image and a chosen sandbox runtime demonstrate the declared network, credential, and volume restrictions, including permission changes between releases? - surfaced 2026-09-28 - context: [[ai-coding-agent-security]]; [source](../../raw/2026-09-28-rss-docker-oci-agent-permission-kits.md).
+- Which deployed EnumGenerators version, target frameworks, numeric-input policy, and fallback allocation measurements qualify HoneyDrunk enum parsing and serialization? - surfaced 2026-09-28 - context: [[dotnet-runtime-and-mobile-2026]]; [source](../../raw/2026-09-28-rss-dotnet-enum-generation-options-and-spans.md).
+- Do generated and manual HoneyDrunk metric helpers preserve descriptions, units, tag fidelity, and acceptable allocations under representative workloads and pinned package versions? - surfaced 2026-09-28 - context: [[dotnet-runtime-and-mobile-2026]]; [source](../../raw/2026-09-28-rss-dotnet-metrics-source-generator-tradeoffs.md).
+- Which trace completeness checks, independently reviewed diagnoses, fresh evaluation cases, and measured outcomes would qualify Foundry findings for HoneyDrunk failure analysis? - surfaced 2026-09-28 - context: [[agent-evaluation-and-benchmarks]]; [source](../../raw/2026-09-28-rss-foundry-trace-findings-to-evaluations.md).
+- Which HoneyDrunk audit or release processes rely on artifact listings as history, and what provenance and log retention preserve required evidence after artifact expiry? - surfaced 2026-09-28 - context: [[github-actions-platform-operations]]; [source](../../raw/2026-09-28-rss-github-expired-artifact-visibility.md).
+- Which held-out HoneyDrunk workflows and recorded trajectories can distinguish model failures from interface-switching, task-memory, shell-access, and long-task recovery failures? - surfaced 2026-09-28 - context: [[ai-agent-harnesses]]; [source](../../raw/2026-09-28-rss-holo4-generalist-agent-harness.md).
+- Which asset imports, material conversions, template adaptations, spatial-audio behaviors, music loops, and target-device costs should a HoneyDrunk environment prototype validate before content expansion? - surfaced 2026-09-28 - context: [[technical-art-community-and-talent-signals]]; [source](../../raw/2026-09-28-rss-hovercraft-environment-and-audio-production.md).
+- Do HoneyDrunk shared conversations and webhooks enforce caller identity, user-versus-agent credential scope, and personal-memory boundaries when participants or access policies change? - surfaced 2026-09-28 - context: [[agent-context-management-and-session-continuity]]; [source](../../raw/2026-09-28-rss-langchain-user-scoped-agent-memory.md).
+- Which baseline, entity identifiers, saved deltas, accepted generated content, and migration tests preserve HoneyDrunk world progress across reloads and generator/content updates? - surfaced 2026-09-28 - context: [[procedural-world-persistence]]; [source](../../raw/2026-09-28-rss-procedural-world-save-state-contract.md).
+- Do HoneyDrunk infrastructure workflows verify provider ownership, review dependency changes, isolate credentials, and retain enough execution evidence to investigate and rebuild after a compromised dependency? - surfaced 2026-09-28 - context: [[container-supply-chain-and-compliance]]; [source](../../raw/2026-09-28-rss-terraform-provider-supply-chain-defense.md).
+- Which Adobe host versions, external-command failure paths, typed messages, debug workflows, and packaged-install tests qualify a Bolt scaffold for HoneyDrunk creator-tool automation? - surfaced 2026-09-28 - context: [[creative-tool-extension-packaging]]; [source](../../raw/2026-09-28-web-adobe-bolt-plugin-development-workflow.md).
+- Which Premiere lock, transaction, escaping-action, async-callback, and undo tests complement configurable lint rules for a HoneyDrunk plugin? - surfaced 2026-09-28 - context: [[creative-tool-extension-packaging]]; [source](../../raw/2026-09-28-web-premiere-uxp-transaction-linting.md).
