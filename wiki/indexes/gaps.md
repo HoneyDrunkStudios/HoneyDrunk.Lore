@@ -2,9 +2,9 @@
 
 Questions the wiki cannot currently answer. Populated by the Query operation when synthesis falls short, and by the Lint operation when entities are referenced but lack a backing page.
 
-## Compile status: 2026-09-28
+## Compile status: 2026-09-29
 
-Cataloged 632 dated gap entries alongside the current 67-page catalog. Added 15 questions and closed 0 gaps in this pass. Existing questions and their history are preserved below.
+Cataloged 647 dated gap entries alongside the current 67-page catalog. Added 15 questions and closed 0 gaps in this pass. Existing questions and their history are preserved below.
 
 ## Entry format
 
@@ -849,3 +849,22 @@ Cataloged 632 dated gap entries alongside the current 67-page catalog. Added 15 
 - Do HoneyDrunk infrastructure workflows verify provider ownership, review dependency changes, isolate credentials, and retain enough execution evidence to investigate and rebuild after a compromised dependency? - surfaced 2026-09-28 - context: [[container-supply-chain-and-compliance]]; [source](../../raw/2026-09-28-rss-terraform-provider-supply-chain-defense.md).
 - Which Adobe host versions, external-command failure paths, typed messages, debug workflows, and packaged-install tests qualify a Bolt scaffold for HoneyDrunk creator-tool automation? - surfaced 2026-09-28 - context: [[creative-tool-extension-packaging]]; [source](../../raw/2026-09-28-web-adobe-bolt-plugin-development-workflow.md).
 - Which Premiere lock, transaction, escaping-action, async-callback, and undo tests complement configurable lint rules for a HoneyDrunk plugin? - surfaced 2026-09-28 - context: [[creative-tool-extension-packaging]]; [source](../../raw/2026-09-28-web-premiere-uxp-transaction-linting.md).
+
+
+## 2026-09-29 ingest questions
+
+- Do HoneyDrunk sandbox tests cover indirect DNS egress, detector exclusions, failed retrieval versus successful access, and the complete alert-to-stop path? - surfaced 2026-09-29 - context: [[ai-coding-agent-security]]; [source](../../raw/2026-09-29-rss-agent-sandbox-dns-egress-and-stop-enforcement.md).
+- Which health, encryption-key, model, cost, and regional dependencies must HoneyDrunk recovery exercises validate as deployments change? - surfaced 2026-09-29 - context: [[azure-agent-automation-and-identity]]; [source](../../raw/2026-09-29-rss-azure-resilience-drift-and-recovery-dependencies.md).
+- Which HoneyDrunk VM families and regions have lifecycle transitions that affect replacement capacity, quota, purchasing options, or recovery plans? - surfaced 2026-09-29 - context: [[azure-agent-automation-and-identity]]; [source](../../raw/2026-09-29-rss-azure-vm-lifecycle-capacity-and-retirement.md).
+- Which failed-stream, cancellation, undecided-proposal, approval, and snapshot/patch reconciliation tests qualify a HoneyDrunk Blazor agent UI? - surfaced 2026-09-29 - context: [[microsoft-dotnet-ai-stack]]; [source](../../raw/2026-09-29-rss-blazor-agent-ui-state-and-approval-boundaries.md).
+- Which Blender version, GPU backend, cage behavior, packed channels, and engine material reconstruction tests qualify Fyr Baker for HoneyDrunk asset iteration? - surfaced 2026-09-29 - context: [[technical-art-community-and-talent-signals]]; [source](../../raw/2026-09-29-rss-blender-texture-bake-configuration-and-export.md).
+- Which HoneyDrunk cross-service changes need wider impact analysis, and which repeatedly violated harness rules merit executable checks or removal as obsolete constraints? - surfaced 2026-09-29 - context: [[ai-agent-harnesses]]; [source](../../raw/2026-09-29-rss-coding-agent-harness-guidance-and-verification.md).
+- Do HoneyDrunk sandbox migration tests verify destination network policy, credential delivery, task limits, process restart semantics, and returned artifacts separately from filesystem transfer? - surfaced 2026-09-29 - context: [[ai-coding-agent-security]]; [source](../../raw/2026-09-29-rss-docker-cloud-sandbox-migration-policy-boundaries.md).
+- Can HoneyDrunk event-driven agents reconcile duplicates, reordered or stale events, retry exhaustion, approval validity, and recovery without repeating consequential effects? - surfaced 2026-09-29 - context: [[ai-agent-harnesses]]; [source](../../raw/2026-09-29-rss-event-driven-agent-resumption-delivery-contracts.md).
+- Which HoneyDrunk hosting products and runner versions are affected, and what execution minimum and deadlines does the runner-version-deprecation API report for each deployed version? - surfaced 2026-09-29 - context: [[github-actions-platform-operations]]; [source](../../raw/2026-09-29-rss-github-runner-registration-and-execution-minimums.md).
+- Which parent-identity, inherited-motion, activation, collision, and constraint tests preserve approved HoneyDrunk destruction shots through local fracture refinements? - surfaced 2026-09-29 - context: [[technical-art-community-and-talent-signals]]; [source](../../raw/2026-09-29-rss-houdini-layered-destruction-motion-continuity.md).
+- Do HoneyDrunk MCP gateways protect discovery independently from tool calls and test empty responses, nested schemas, streaming requirements, and appropriate-use descriptions? - surfaced 2026-09-29 - context: [[mcp-tool-governance-and-app-surfaces]]; [source](../../raw/2026-09-29-rss-mcp-gateway-discovery-and-call-authorization.md).
+- Which HoneyDrunk language SDKs or bridge packages still depend on OpenCensus compatibility, and what package-specific maintenance guarantees define their migration deadlines? - surfaced 2026-09-29 - context: [[opentelemetry-genai-observability-and-ecosystem]]; [source](../../raw/2026-09-29-rss-opencensus-compatibility-deprecation-migration.md).
+- Which HoneyDrunk batch workloads, accuracy checks, baseline settings, and cross-query cache needs would make query-aware inference outperform ordinary serving? - surfaced 2026-09-29 - context: [[edge-ai-and-ai-infrastructure-2026]]; [source](../../raw/2026-09-29-rss-quail-query-aware-inference-cache-tradeoffs.md).
+- Which controller semantics, haptic behavior, tablet layouts, particle budgets, and lower-bound devices define HoneyDrunk cross-platform acceptance? - surfaced 2026-09-29 - context: [[unity-3d-and-realtime-vfx-patterns]]; [source](../../raw/2026-09-29-rss-unity-cross-platform-input-and-particle-budgets.md).
+- Which runtime-loaded assets, serialization formats, package/namespace mappings, and playable-build checks complement HoneyDrunk static Unity release scans? - surfaced 2026-09-29 - context: [[unity-3d-and-realtime-vfx-patterns]]; [source](../../raw/2026-09-29-rss-unity-static-release-evidence-and-dependency-graphs.md).

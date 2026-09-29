@@ -597,3 +597,23 @@ June 24, 2026 architectural backfill, not a measured HoneyDrunk regression. The 
 ### Supersession evidence and decision
 
 The preserved May recommendation is broader than its [April Skyscanner source](../raw/2026-05-31-rss-opentelemetry-blog-how-skyscanner-scales-opentelemetry-managing-collec.md), whose Python/Node wrappers establish environment and resource defaults. The [June instrumentation article](../raw/2026-09-27-rss-otel-instrumentation-abstraction-costs.md) directly addresses per-measurement abstractions. Prefer the more specific, newer guidance: standardize configuration and evaluate measurement wrappers separately. confidence: 2 sources, last-confirmed 2026-09-27 (archived evidence; reasoned scope reconciliation, not a comparative benchmark). The earlier relationship about easier platform adoption remains valid in that configuration scope.
+
+
+## 2026-09-29: OpenCensus compatibility deprecation separates policy removal from artifact lifetime
+
+### Typed entities
+
+project: OpenTelemetry; project: OpenCensus; concept: compatibility shim; concept: SDK stability; concept: dependency migration; concept: OTLP.
+
+### Claims and evidence
+
+- OpenTelemetry deprecates the specification requirement to implement OpenCensus compatibility: new SDKs need not add it, and new instrumentation should use native OpenTelemetry APIs, SDKs, and OTLP. Existing compatibility artifacts are not required to disappear immediately. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-opencensus-compatibility-deprecation-migration.md)
+- The article dates deprecation to June 2026 and specification removal to no earlier than June 2027, with existing shims retaining a maintenance period under SDK stability guarantees. Migration timing depends on the actual language SDK and bridge package. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-opencensus-compatibility-deprecation-migration.md)
+
+### Explicit relationships
+
+Telemetry migration depends-on SDK and shim lifecycle; new instrumentation uses native OpenTelemetry. Deprecation does not establish immediate removal.
+
+### Decision and quality notes
+
+Project policy announcement published June 23 and modified September 28; September discovery does not make it a newly effective policy. No exact shim-removal date is inferred. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Which HoneyDrunk language SDKs or bridge packages still depend on OpenCensus compatibility, and what package-specific maintenance guarantees define their migration deadlines? See [[indexes/gaps]].

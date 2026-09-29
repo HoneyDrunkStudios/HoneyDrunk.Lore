@@ -1360,3 +1360,23 @@ MCP adoption is moving from “connect any server” toward governed, portable t
 
 ### Quality notes
 - Google source is practice guidance; Context Mode and Kontext are README evidence. Local install and hook behavior must be tested before adoption.
+
+
+## 2026-09-29: Gateway tool discovery and tool calls have separate authorization surfaces
+
+### Typed entities
+
+project: Google Cloud API Gateway; concept: MCP tool discovery; concept: OpenAPI annotation; concept: JWT authorization; concept: schema exposure.
+
+### Claims and evidence
+
+- Google describes a preview that exposes selected annotated OpenAPI REST operations as MCP tools. Translation routes tool calls through the underlying operation authentication, quota, and logging path. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-mcp-gateway-discovery-and-call-authorization.md)
+- Tool listing is public by default and can reveal operation names and schemas. The article describes JWT protection for discovery and says API keys cannot secure that method; tool calls retain operation-specific authentication. Preview limits include omitted empty-response operations, incomplete deeply nested schemas, and no response streaming. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-mcp-gateway-discovery-and-call-authorization.md)
+
+### Explicit relationships
+
+MCP translation uses annotated OpenAPI; call authority depends-on operation authentication; protected discovery uses a separate JWT boundary. See [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Vendor preview description, not tested production parity. The portable lesson concerns discovery exposure and execution authority; no cloud migration or HoneyDrunk adoption is implied. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Do HoneyDrunk MCP gateways protect discovery independently from tool calls and test empty responses, nested schemas, streaming requirements, and appropriate-use descriptions? See [[indexes/gaps]].

@@ -308,6 +308,7 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 - Cilium protects CI configuration with CODEOWNERS so changes under `.github/`, workflow files, and CI automation config require review from security/CI-owner teams. Source: `raw/2026-06-14-rss-cncf-securing-ci-cd-for-an-open-source-project-controlling-who-runs-wh.md`. confidence: 1 source, last-confirmed 2026-06-14.
 - GitHub Actions is resuming minimum-version enforcement for self-hosted runners on github.com and GitHub Enterprise Cloud with Data Residency: runners must be at least `2.329.0` to register with the new platform and must install each new runner release within 30 days to keep executing jobs. Source: `raw/2026-06-14-rss-github-changelog-actions-github-actions-minimum-version-enforcement-ti.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-14.
 - GitHub says full enforcement begins on 2026-07-31 for GitHub Enterprise Cloud with Data Residency and on 2026-09-25 for GitHub Enterprise Cloud, with temporary brownouts before those dates. Source: `raw/2026-06-14-rss-github-changelog-actions-github-actions-minimum-version-enforcement-ti.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-14.
+  - superseded-by: [September 29 enforcement update](#2026-09-29-runner-enforcement-moves-to-september-29-with-distinct-eligibility-checks); timestamp: 2026-09-29T10:06:54-04:00; reason: the September 28 GitHub announcement moves Enterprise Cloud full enforcement from September 25 to September 29. This supersedes only that date, not the Data Residency schedule or the registration threshold. [captured source](../raw/2026-09-29-rss-github-runner-registration-and-execution-minimums.md)
 - GitHub added runner version data to REST/audit-log surfaces for runner inventory and upgrade planning, but audit-log registration events are not a complete inventory of all connected runners. Source: `raw/2026-06-14-rss-github-changelog-actions-github-actions-minimum-version-enforcement-ti.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-14.
 - SafeDep's Miasma analysis reinforces that custom GitHub Actions, semver action tags, OIDC trusted publishing, deployment environments, and workflow permissions can be attacked as one supply-chain surface when credentials or repository write access are compromised. Source: `raw/2026-06-14-rss-safedep-inside-the-miasma-software-supply-chain-attack-toolkit-real-ti.md`. confidence: 1 security-research source, last-confirmed 2026-06-14.
 
@@ -322,6 +323,7 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 - runner version: `2.329.0`
 - enforcement date: 2026-07-31 GitHub Enterprise Cloud with Data Residency
 - enforcement date: 2026-09-25 GitHub Enterprise Cloud
+  - superseded-by: [September 29 enforcement update](#2026-09-29-runner-enforcement-moves-to-september-29-with-distinct-eligibility-checks); timestamp: 2026-09-29T10:06:54-04:00; reason: the September 28 GitHub announcement moves Enterprise Cloud full enforcement from September 25 to September 29. This supersedes only that date, not the Data Residency schedule or the registration threshold. [captured source](../raw/2026-09-29-rss-github-runner-registration-and-execution-minimums.md)
 - control: runner auto-update
 - threat: semver action tag hijacking
 - control: OIDC trusted publishing
@@ -1069,3 +1071,23 @@ Historical artifact reporting depends-on evidence captured before expiry and ret
 ### Decision and quality notes
 
 Short official change announcement preserved as an attributed summary. This concerns artifacts, separately from the prior workflow-run query-count and enumeration limits. No existing local claim asserted permanent artifact listing, so no supersession is needed. Source-specific claims remain provisional single-source evidence; related accounts and derived queries add no independent confirmation. Open question: Which HoneyDrunk audit or release processes rely on artifact listings as history, and what provenance and log retention preserve required evidence after artifact expiry? See [[indexes/gaps]].
+
+
+## 2026-09-29: Runner enforcement moves to September 29 with distinct eligibility checks
+
+### Typed entities
+
+project: GitHub Actions; project: GitHub Enterprise Cloud; concept: runner registration; concept: execution eligibility; concept: deprecation deadline.
+
+### Claims and evidence
+
+- GitHub moves full Enterprise Cloud minimum-runner-version enforcement to September 29, 2026. Versions below 2.329.0 cannot register or register again, while job execution requires a higher minimum not stated in the capture. An already registered runner can therefore lose execution eligibility. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-github-runner-registration-and-execution-minimums.md)
+- The announcement points to the runner-version-deprecation REST API for registration and runtime deadlines. Enterprise Server is outside this change; Enterprise Cloud with Data Residency had already begun enforcement in July. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-github-runner-registration-and-execution-minimums.md)
+
+### Explicit relationships
+
+The September announcement supersedes the June Enterprise Cloud enforcement date; runner health depends-on registration and execution eligibility. Fleet alerts use the runner-version-deprecation API.
+
+### Decision and quality notes
+
+Official change notice preserved as an attributed summary. Flag: the exact execution minimum is absent and must not be inferred from 2.329.0. The date supersession above preserves the older account; the Data Residency schedule and registration threshold are not contradicted. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Which HoneyDrunk hosting products and runner versions are affected, and what execution minimum and deadlines does the runner-version-deprecation API report for each deployed version? See [[indexes/gaps]].

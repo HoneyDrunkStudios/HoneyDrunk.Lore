@@ -950,3 +950,23 @@ Microsoft Agent Framework uses AG-UI packages; frontend behavior depends-on supp
 ### Decision and quality notes
 
 Official implementation announcement with no local integration test. Wire compatibility does not imply unchanged .NET source APIs or complete protobuf event coverage. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which pinned AG-UI packages and frontend combinations pass HoneyDrunk interruption, parallel-tool, state-update, cancellation, transport-coverage, and renamed-API migration tests? See [[indexes/gaps]].
+
+
+## 2026-09-29: Blazor agent UI keeps proposed state separate from committed state
+
+### Typed entities
+
+library: Blazor AI components; library: UIAgent; library: IChatClient; library: AGUIChatClient; concept: proposed state; concept: approval boundary.
+
+### Claims and evidence
+
+- Microsoft introduces experimental components that render streamed responses as observable UI blocks. UIAgent wraps IChatClient, typed variants expose application state, and AGUIChatClient connects remote agents without coupling rendering directly to AG-UI. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-blazor-agent-ui-state-and-approval-boundaries.md)
+- The sample separates server tools, application-local tools, and user-input pauses. Approval blocks gate consequential server calls; snapshots and patches represent shared state while document proposals remain uncommitted until accepted. Unresolved proposals are rejected after failure, cancellation, or completion without a decision. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-blazor-agent-ui-state-and-approval-boundaries.md)
+
+### Explicit relationships
+
+UIAgent uses IChatClient; committed document state depends-on accepted proposals; remote integration uses AGUIChatClient. See [[generative-ui-and-a2ui]].
+
+### Decision and quality notes
+
+Experimental integration sample requiring .NET 11 RC1 and a prerelease package, not a production stability guarantee. This extends the earlier Blazor preview entry without superseding its experimental status. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Which failed-stream, cancellation, undecided-proposal, approval, and snapshot/patch reconciliation tests qualify a HoneyDrunk Blazor agent UI? See [[indexes/gaps]].
