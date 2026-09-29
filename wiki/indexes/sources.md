@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-09-28
+## Compile coverage: 2026-09-29
 
-Reconciled 1097 raw source documents against 1097 unique source entries; ingested 15 new attributed summaries in this pass. All raw documents have index entries. Existing source records and ingestion dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
+Reconciled 1112 raw source documents against 1112 unique source entries; ingested 15 new attributed summaries in this pass. All raw documents have index entries. Existing source records and ingestion dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
 
 ## Entry format
 
@@ -1357,3 +1357,19 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [Graphalgo campaign spreads to Terraform providers and Go Modules](../../raw/2026-09-28-rss-terraform-provider-supply-chain-defense.md) - Provider provenance and remediation extend beyond dependency removal; compiled in [[container-supply-chain-and-compliance]]. - ingested 2026-09-28
 - [Bolt UXP 1.3 and Bolt Express 1.2 Bring Faster, More Powerful Plugin Development to Adobe Apps](../../raw/2026-09-28-web-adobe-bolt-plugin-development-workflow.md) - Plugin scaffolds need packaged-install and host-compatibility verification; compiled in [[creative-tool-extension-packaging]]. - ingested 2026-09-28
 - [New ESLint Plugin Catches Common Premiere UXP Bugs](../../raw/2026-09-28-web-premiere-uxp-transaction-linting.md) - Premiere UXP lint rules expose lock and transaction scope errors; compiled in [[creative-tool-extension-packaging]]. - ingested 2026-09-28
+
+- [An agent used DNS to reach an external chatbot](../../raw/2026-09-29-rss-agent-sandbox-dns-egress-and-stop-enforcement.md) - DNS egress coverage and alert-to-stop enforcement. - ingested 2026-09-29
+- [Your architecture diagram is not your resilience](../../raw/2026-09-29-rss-azure-resilience-drift-and-recovery-dependencies.md) - Recovery objectives depend on changing application dependencies. - ingested 2026-09-29
+- [Enhancing Microsoft Azure Virtual Machine lifecycle](../../raw/2026-09-29-rss-azure-vm-lifecycle-capacity-and-retirement.md) - VM lifecycle stages separate continued operation from replacement capacity. - ingested 2026-09-29
+- [Build Agentic UI with the new Blazor AI components](../../raw/2026-09-29-rss-blazor-agent-ui-state-and-approval-boundaries.md) - Blazor agent UI keeps proposed state separate from committed state. - ingested 2026-09-29
+- [Marmoset Toolbag-Inspired Texture Baking Add-On Released For Blender](../../raw/2026-09-29-rss-blender-texture-bake-configuration-and-export.md) - Scene-stored bake settings and engine export conventions. - ingested 2026-09-29
+- [Engineering the harness: A practical pattern for reliable coding agents](../../raw/2026-09-29-rss-coding-agent-harness-guidance-and-verification.md) - Harness guidance and verification follow cross-service change impact. - ingested 2026-09-29
+- [Introducing Cloud Sandboxes: Start on Your Laptop, Finish in the Cloud](../../raw/2026-09-29-rss-docker-cloud-sandbox-migration-policy-boundaries.md) - Cloud sandbox migration copies files across separate policy environments. - ingested 2026-09-29
+- [Realtime AI Agent - A Deep Dive](../../raw/2026-09-29-rss-event-driven-agent-resumption-delivery-contracts.md) - Durable event delivery is separate from authority to resume an agent. - ingested 2026-09-29
+- [Self-hosted runner version enforcement date has moved](../../raw/2026-09-29-rss-github-runner-registration-and-execution-minimums.md) - Runner enforcement moves to September 29 with distinct eligibility checks. - ingested 2026-09-29
+- [Former Pixar FX Artist Reveals a Smarter Way to Refine Destruction](../../raw/2026-09-29-rss-houdini-layered-destruction-motion-continuity.md) - Layered destruction preserves parent identity and motion before activation. - ingested 2026-09-29
+- [Turn your REST APIs into MCP tools with Google Cloud API Gateway](../../raw/2026-09-29-rss-mcp-gateway-discovery-and-call-authorization.md) - Gateway tool discovery and tool calls have separate authorization surfaces. - ingested 2026-09-29
+- [Deprecating OpenCensus compatibility requirements](../../raw/2026-09-29-rss-opencensus-compatibility-deprecation-migration.md) - OpenCensus compatibility deprecation separates policy removal from artifact lifetime. - ingested 2026-09-29
+- [Hitting a billion tokens per minute on one GPU by combining a query planner and an inference engine](../../raw/2026-09-29-rss-quail-query-aware-inference-cache-tradeoffs.md) - Query-aware inference throughput depends on workload and cache scope. - ingested 2026-09-29
+- [Scaling Scritchy Scratchy across platforms](../../raw/2026-09-29-rss-unity-cross-platform-input-and-particle-budgets.md) - Shared Unity projects still need platform-specific interaction validation. - ingested 2026-09-29
+- [Building ShipCheck: a static preflight scanner for Unity projects](../../raw/2026-09-29-rss-unity-static-release-evidence-and-dependency-graphs.md) - Static release checks report shipping relevance and limits of evidence. - ingested 2026-09-29

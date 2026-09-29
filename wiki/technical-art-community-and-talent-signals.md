@@ -1219,3 +1219,43 @@ Environment production uses reusable assets and templates; coherent playback dep
 ### Decision and quality notes
 
 Creator demo account rather than a shipped-game benchmark. Broad rendering-performance claims are not promoted; asset adaptation, workstation limits, and in-scene evaluation remain production costs to measure. Source-specific claims remain provisional single-source evidence; related accounts and derived queries add no independent confirmation. Open question: Which asset imports, material conversions, template adaptations, spatial-audio behaviors, music loops, and target-device costs should a HoneyDrunk environment prototype validate before content expansion? See [[indexes/gaps]].
+
+
+## 2026-09-29: Scene-stored bake settings and engine export conventions
+
+### Typed entities
+
+project: Blender; library: Fyr Baker; concept: texture baking; concept: projection cage; concept: channel packing; concept: export preset.
+
+### Claims and evidence
+
+- 80 Level describes Fyr Baker storing bake configuration with a Blender scene, regenerating selected outputs, and retaining generated maps for preview and export. Transfers include cage-controlled high-to-low projection, material channels, identifiers, and vertex colors. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-blender-texture-bake-configuration-and-export.md)
+- The article highlights channel packing, export naming, and engine-oriented presets. It specifies Blender 5.1 or newer and distinguishes the cross-platform add-on from its native renderer, which is limited to supported Windows GPU systems. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-blender-texture-bake-configuration-and-export.md)
+
+### Explicit relationships
+
+Repeatable baking uses scene-stored configuration; engine material reconstruction depends-on packed-channel and export conventions. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Trade-press capture with developer-attributed performance claims, not an independent comparison or an established replacement for existing tools. Platform compatibility must be checked per renderer and device. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Which Blender version, GPU backend, cage behavior, packed channels, and engine material reconstruction tests qualify Fyr Baker for HoneyDrunk asset iteration? See [[indexes/gaps]].
+
+
+## 2026-09-29: Layered destruction preserves parent identity and motion before activation
+
+### Typed entities
+
+person: Jae Jun Yi; project: Houdini; concept: layered fracture; concept: parent identity; concept: inherited motion; concept: activation condition.
+
+### Claims and evidence
+
+- Jae Jun Yi describes refracturing selected pieces of an approved Houdini simulation while preserving parent identifiers and transferring position, orientation, velocity, and related motion data. New fragments follow inherited motion until activation starts their own simulation. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-houdini-layered-destruction-motion-continuity.md)
+- The workflow permits local detail or timing changes without rebuilding every approved movement. Stretched constraints and overlapping fragments can still cause violent activation; the artist describes reduced collision sizes as one mitigation. Large overall motion changes may require rerunning the base simulation. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-houdini-layered-destruction-motion-continuity.md)
+
+### Explicit relationships
+
+Layered refinement depends-on parent identity and transferred state; independent fragment motion depends-on activation conditions. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Practitioner interview suited to baked destruction and controlled cinematic views, not a general interactive-destruction solution or independent performance validation. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Which parent-identity, inherited-motion, activation, collision, and constraint tests preserve approved HoneyDrunk destruction shots through local fracture refinements? See [[indexes/gaps]].

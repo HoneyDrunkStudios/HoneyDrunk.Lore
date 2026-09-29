@@ -1262,3 +1262,23 @@ Tokenizer adoption depends-on output equivalence and representative end-to-end w
 ### Decision and quality notes
 
 Maintainer measurements, not independent reproduction. Treat the release candidate and planned work separately; evaluate actual preprocessing paths before adopting a speedup claim. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which tokenizer versions, output-ID checks, diverse corpora, hardware, binding overhead, and cache conditions represent HoneyDrunk preprocessing well enough to qualify the release candidate? See [[indexes/gaps]].
+
+
+## 2026-09-29: Query-aware inference throughput depends on workload and cache scope
+
+### Typed entities
+
+project: Modal; project: Quail; library: vLLM; concept: analytical query plan; concept: KV eviction; concept: prefill classification; concept: benchmark comparability.
+
+### Claims and evidence
+
+- Modal describes Quail using analytical query plans to optimize repeated LLM filters and joins through cache-aware join ordering, deliberate KV eviction, and pretokenization. Boolean decisions can use one prediction from prefill instead of chat-style multi-token decoding. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-quail-query-aware-inference-cache-tradeoffs.md)
+- The billion-token-per-minute result is a favorable multi-join H100 case. Across the released suite, the authors report a 1.84-fold geometric-mean gain over their vLLM baseline and an agent-trace case where Quail loses. Reported limits include GPU-only KV caching and no reuse across query lifetimes. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-quail-query-aware-inference-cache-tradeoffs.md)
+
+### Explicit relationships
+
+Quail scheduling uses future query structure; throughput comparisons depend-on workload, accuracy, and baseline settings. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Vendor-authored benchmark account, not a general interactive-generation rate or reproduced HoneyDrunk cost result. The mechanism is a candidate when an application controls a batch; headline throughput does not establish chat-serving value. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Which HoneyDrunk batch workloads, accuracy checks, baseline settings, and cross-query cache needs would make query-aware inference outperform ordinary serving? See [[indexes/gaps]].

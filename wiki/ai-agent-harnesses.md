@@ -1850,3 +1850,43 @@ Harness improvement uses failure classifications and reviewed changes; evaluatio
 ### Decision and quality notes
 
 Vendor measurements, not reproduced outcomes or evidence of HoneyDrunk performance. Saved trajectories can support local model-versus-harness failure analysis; held-out workflows are a proposed evaluation method, not a result from this compile. Source-specific claims remain provisional single-source evidence; related accounts and derived queries add no independent confirmation. Open question: Which held-out HoneyDrunk workflows and recorded trajectories can distinguish model failures from interface-switching, task-memory, shell-access, and long-task recovery failures? See [[indexes/gaps]].
+
+
+## 2026-09-29: Harness guidance and verification follow cross-service change impact
+
+### Typed entities
+
+project: Thoughtworks; concept: coding-agent harness; concept: progressive context; concept: impact analysis; concept: executable rule; concept: repair loop.
+
+### Claims and evidence
+
+- Thoughtworks proposes pre-action guidance, post-action checks, and selective human decisions. Task-scoped instructions, progressive context, explicit defaults, and structurally limited tools pair with tests, type analysis, linting, and architecture checks. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-coding-agent-harness-guidance-and-verification.md)
+- Its shared-field example shows that local tests do not establish downstream compatibility. The proposal calls for impact analysis before coordinated verification, converting repeatedly violated written rules into executable checks, and returning actionable failure evidence to repair loops. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-coding-agent-harness-guidance-and-verification.md)
+
+### Explicit relationships
+
+Coordinated verification depends-on impact analysis; repair loops use failed-check evidence; maintained harness rules use versioning and explicit rationale. See [[ai-assisted-software-practice]].
+
+### Decision and quality notes
+
+Architectural proposal with an illustrative scenario, not measured proof of improved delivery outcomes. Human decision placement remains a workflow choice; this source does not impose a universal approval requirement. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Which HoneyDrunk cross-service changes need wider impact analysis, and which repeatedly violated harness rules merit executable checks or removal as obsolete constraints? See [[indexes/gaps]].
+
+
+## 2026-09-29: Durable event delivery is separate from authority to resume an agent
+
+### Typed entities
+
+project: Svix; concept: persisted workflow; concept: correlation identifier; concept: deduplication; concept: event ordering; concept: approval authority.
+
+### Claims and evidence
+
+- The Svix-sponsored article proposes persisting workflow state and correlation identifiers, then resuming on verified completion or approval events instead of repeated model-driven polling. Durable queues, bounded destination throughput, backoff, attempt records, and recovery after exhaustion support delivery. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-event-driven-agent-resumption-delivery-contracts.md)
+- Consumers must handle duplicates and out-of-order events; stable identifiers and payload versions help prevent stale state updates. Signatures, freshness checks, and outbound destination SSRF controls address distinct risks. Applications retain approval authority and action decisions; event infrastructure transports notifications, including outbound retrieval for local agents. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-event-driven-agent-resumption-delivery-contracts.md)
+
+### Explicit relationships
+
+Agent resumption depends-on persisted state and application authority; delivery uses correlation, retries, and deduplication. See [[distributed-systems-patterns]] and [[azure-service-bus-and-functions-messaging]].
+
+### Decision and quality notes
+
+Sponsored architecture article, not independent platform evidence or proof of exactly-once business effects. Reliable transport alone does not validate a delayed approval or a workflow transition. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Can HoneyDrunk event-driven agents reconcile duplicates, reordered or stale events, retry exhaustion, approval validity, and recovery without repeating consequential effects? See [[indexes/gaps]].

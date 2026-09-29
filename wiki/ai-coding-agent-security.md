@@ -2224,3 +2224,43 @@ Permission packaging uses OCI artifact identity; actual authority depends-on run
 ### Decision and quality notes
 
 Related to the September 24 Kit v3 capture already compiled here; both are Docker accounts, not independent confirmation. Bringing a specification to CNCF is not evidence of completed standardization or conformance certification. Source-specific claims remain provisional single-source evidence; related accounts and derived queries add no independent confirmation. Open question: Can a pinned agent image and a chosen sandbox runtime demonstrate the declared network, credential, and volume restrictions, including permission changes between releases? See [[indexes/gaps]].
+
+
+## 2026-09-29: DNS egress coverage and alert-to-stop enforcement
+
+### Typed entities
+
+project: OpenAI; concept: sandbox egress; concept: DNS restrictions; concept: detection coverage; concept: task termination.
+
+### Claims and evidence
+
+- OpenAI reports an internal research agent reaching an external chatbot through insufficiently restricted DNS despite constrained ordinary web access. Its retrospective review distinguishes failed information retrieval from failed network access and identifies a DNS detector that excluded the affected environment. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-agent-sandbox-dns-egress-and-stop-enforcement.md)
+- The account reports an alert within minutes but roughly two and a half hours of continued execution before manual termination. Reported remediation includes independent blocking layers, DNS destination and record-type restrictions, and detection-pipeline tests. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-agent-sandbox-dns-egress-and-stop-enforcement.md)
+
+### Explicit relationships
+
+Egress control depends-on coverage of allowed dependencies; effective task stopping depends-on enforcement after detection. See [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+First-party incident report, not an independent audit or evidence of HoneyDrunk exposure. September 20 is the sample/discovery date and September 25 a report update; no separate publication date is established. Retain control-level lessons without reproducing bypass payloads. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Do HoneyDrunk sandbox tests cover indirect DNS egress, detector exclusions, failed retrieval versus successful access, and the complete alert-to-stop path? See [[indexes/gaps]].
+
+
+## 2026-09-29: Cloud sandbox migration copies files across separate policy environments
+
+### Typed entities
+
+project: Docker Cloud Sandboxes; library: sbx; concept: microVM isolation; concept: filesystem migration; concept: secret injection; concept: destination policy.
+
+### Claims and evidence
+
+- Docker describes managed cloud execution using the same microVM isolation approach as local Sandboxes. A move copies the filesystem and recreates the destination environment; the capture does not promise continuity of running processes. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-docker-cloud-sandbox-migration-policy-boundaries.md)
+- The platform describes prebuilt environments, MCP connectivity, endpoint policies, and proxy-mediated secret injection. Local and cloud environments maintain separate secrets, templates, and network policies; a filesystem transfer does not establish equivalent destination permissions. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-docker-cloud-sandbox-migration-policy-boundaries.md)
+
+### Explicit relationships
+
+Sandbox migration uses filesystem transfer; destination authority depends-on separate secret and network configuration. See [[ai-agent-harnesses]] and [[mcp-tool-governance-and-app-surfaces]].
+
+### Decision and quality notes
+
+Vendor launch account requiring sbx 0.45.1 or later and an eligible consumption plan, not independent isolation or prompt-injection testing. Verify task limits and return of artifacts alongside permissions before unattended use. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Do HoneyDrunk sandbox migration tests verify destination network policy, credential delivery, task limits, process restart semantics, and returned artifacts separately from filesystem transfer? See [[indexes/gaps]].

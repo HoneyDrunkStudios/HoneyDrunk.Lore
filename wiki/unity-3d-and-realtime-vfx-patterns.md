@@ -1548,3 +1548,43 @@ Simulation production uses authoring validation and data-driven configuration; c
 ### Decision and quality notes
 
 Practitioner interview with team-reported benefits, not independent performance measurements. Retain detail only when it improves authoring or player-visible behavior; the capture supplies no universal frame-time budget. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which target-device budgets, asset-configuration validators, lighting trials, and player-visible acceptance cases should precede content expansion in HoneyDrunk simulation projects? See [[indexes/gaps]].
+
+
+## 2026-09-29: Shared Unity projects still need platform-specific interaction validation
+
+### Typed entities
+
+project: Unity; project: Scritchy Scratchy; concept: input semantics; concept: device haptics; concept: aspect-ratio layout; concept: particle instancing.
+
+### Claims and evidence
+
+- Unity interviews a team porting Scritchy Scratchy from one shared project rather than long-lived platform branches. Shared fixes and content come with conditional platform code; hardware input abstraction still requires deliberate controller interaction rather than mechanical pointer mapping. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-unity-cross-platform-input-and-particle-budgets.md)
+- The team iterated mobile haptics and tablet layouts, profiled texture-derived scratch particles as a mobile bottleneck, and used GPU instancing for that workload. Validation included devices near the supported lower hardware boundary. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-unity-cross-platform-input-and-particle-budgets.md)
+
+### Explicit relationships
+
+Cross-platform interaction depends-on input semantics and device iteration; particle optimization uses profiling evidence. Shared code does not remove SDK, signing, store-build, or cloud-save work.
+
+### Decision and quality notes
+
+Game-specific vendor interview, not a universal frame-time fix. Different games on this page use different branching strategies; these are contextual choices, not contradictory platform requirements. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Which controller semantics, haptic behavior, tablet layouts, particle budgets, and lower-bound devices define HoneyDrunk cross-platform acceptance? See [[indexes/gaps]].
+
+
+## 2026-09-29: Static release checks report shipping relevance and limits of evidence
+
+### Typed entities
+
+project: ShipCheck; project: Unity; concept: release readiness; concept: static analysis coverage; concept: shipping dependency graph; concept: runtime loading.
+
+### Claims and evidence
+
+- ShipCheck author Daniel Delgado separates project health, release readiness, and confidence in the evidence. Uninspectable legacy scenes should produce an evidence limitation rather than a precise-looking readiness score. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-unity-static-release-evidence-and-dependency-graphs.md)
+- The scanner starts from enabled build scenes, follows serialized references, and considers standard runtime-loading locations to reduce unused-demo noise without assuming scene references are complete. Dependency detection inspects declared namespaces and installed packages rather than equating directory names with namespaces. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-unity-static-release-evidence-and-dependency-graphs.md)
+
+### Explicit relationships
+
+Release findings depend-on shipping relevance and inspection coverage; static dependency graphs use scene references and runtime-loading conventions. See [[ai-assisted-game-development-pipelines]].
+
+### Decision and quality notes
+
+Author-reported tests on several projects, not independent accuracy measurement or proof of a playable release. Flag: runtime loading and unsupported serialization leave coverage gaps even after a successful scan. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Which runtime-loaded assets, serialization formats, package/namespace mappings, and playable-build checks complement HoneyDrunk static Unity release scans? See [[indexes/gaps]].

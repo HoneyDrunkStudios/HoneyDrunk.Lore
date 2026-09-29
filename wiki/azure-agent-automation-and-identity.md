@@ -1084,3 +1084,43 @@ The document workflow uses managed connections and deterministic routing; deploy
 ### Decision and quality notes
 
 Vendor preview sample, not a deployment guarantee. Article publication is September 22 while RSS says September 24. This extends the earlier App Service trigger example; it does not remove receiving-endpoint authentication requirements. Source-specific claims remain provisional single-source evidence; related accounts and derived queries add no independent confirmation. Open question: Which supported connector operations, Functions hosting and language combinations, callback authentication, error paths, and domain logic justify Functions versus Logic Apps for a HoneyDrunk integration? See [[indexes/gaps]].
+
+
+## 2026-09-29: Recovery objectives depend on changing application dependencies
+
+### Typed entities
+
+project: Azure Infrastructure Resiliency Manager; concept: recovery objective; concept: dependency drift; concept: model fallback; concept: failover validation.
+
+### Claims and evidence
+
+- Microsoft illustrates why zone distribution and replication can still fail when health checks or encryption keys depend on the affected zone or region. It adds throttling, model withdrawal, and unacceptable AI operating cost to the failure cases that architecture review should consider. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-azure-resilience-drift-and-recovery-dependencies.md)
+- The article connects application health, explicit recovery objectives, dependency analysis, staged rollout, exercised failover, and deterministic verification around agent behavior. It describes Infrastructure Resiliency Manager as a public preview with workload-dependent, incomplete assessment coverage. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-azure-resilience-drift-and-recovery-dependencies.md)
+
+### Explicit relationships
+
+Application recovery depends-on health, key access, and model dependencies; resilience verification uses exercised failover paths. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Vendor architecture guidance and preview description. An assessment or generated remediation does not establish that a local recovery objective has been met. No HoneyDrunk recovery capability is inferred. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Which health, encryption-key, model, cost, and regional dependencies must HoneyDrunk recovery exercises validate as deployments change? See [[indexes/gaps]].
+
+
+## 2026-09-29: VM lifecycle stages separate continued operation from replacement capacity
+
+### Typed entities
+
+project: Azure Virtual Machines; project: Azure Advisor; project: Azure Service Health; concept: VM lifecycle; concept: capacity planning; concept: retirement.
+
+### Claims and evidence
+
+- Microsoft describes Current, Extended, End-of-life, and Retirement stages for general-purpose, memory-, compute-, and storage-optimized VM families. Current is recommended for new deployments; Extended and End-of-life retain support while migration planning, quotas, deployment capacity, reservations, or pricing options can change. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-azure-vm-lifecycle-capacity-and-retirement.md)
+- At Retirement, provisioning ends, existing instances are deallocated, and support and SLA coverage cease. The policy allows product, region, and operational exceptions; Advisor and Service Health help identify affected resources and transitions. confidence: 1 source, last-confirmed 2026-09-29 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-29-rss-azure-vm-lifecycle-capacity-and-retirement.md)
+
+### Explicit relationships
+
+Capacity planning depends-on VM family, region, and lifecycle stage; migration tracking uses Advisor and Service Health. See [[edge-ai-and-ai-infrastructure-2026]].
+
+### Decision and quality notes
+
+General vendor policy, not a retirement notice for every series or proof that a running VM can be replaced. Apply family- and region-specific evidence before choosing a migration date. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Which HoneyDrunk VM families and regions have lifecycle transitions that affect replacement capacity, quota, purchasing options, or recovery plans? See [[indexes/gaps]].
