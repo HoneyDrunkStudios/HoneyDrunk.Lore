@@ -1380,3 +1380,30 @@ MCP translation uses annotated OpenAPI; call authority depends-on operation auth
 ### Decision and quality notes
 
 Vendor preview description, not tested production parity. The portable lesson concerns discovery exposure and execution authority; no cloud migration or HoneyDrunk adoption is implied. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Do HoneyDrunk MCP gateways protect discovery independently from tool calls and test empty responses, nested schemas, streaming requirements, and appropriate-use descriptions? See [[indexes/gaps]].
+
+
+## 2026-09-30: Getting the Source Right, Not Just the Fact: Source-Aware Verification for MCP Agents
+
+### Typed entities
+
+project: ProvenanceGuard; concept: source identity; concept: claim verification; concept: false rejection.
+
+### Claims and evidence
+
+The [captured source](../raw/2026-09-30-rss-mcp-source-aware-verification.md) records the following attributed summary:
+
+ProvenanceGuard verifies an MCP agent’s answer claim by claim while retaining the identity of each tool source. It checks factual support and whether the answer attributes that support to the correct source, then allows, blocks, or repairs the answer. The authors report catching 138 of 139 claims requiring rejection in a held-out packet, while also blocking 67 supported claims. Exact source identification fell to 50.3% in a harder multi-source test.
+
+### Capture interpretation for HoneyDrunk
+
+For HoneyDrunk, preserve tool-output IDs through retrieval and verification; pooled factuality scores can conceal incorrect attribution. These are results from the authors’ local medical-agent evaluation, requiring fresh calibration for other workloads.
+
+confidence: 1 source, last-confirmed 2026-09-30 (archived attributed summary reviewed; no live refresh).
+
+### Explicit relationships
+
+Claim verification depends-on preserved tool-source identity; factual support and correct attribution require separate checks. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Which HoneyDrunk multi-source evaluation cases measure incorrect attribution and false rejections before verifier adoption? See [[indexes/gaps]].

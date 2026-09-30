@@ -1124,3 +1124,57 @@ Capacity planning depends-on VM family, region, and lifecycle stage; migration t
 ### Decision and quality notes
 
 General vendor policy, not a retirement notice for every series or proof that a running VM can be replaced. Apply family- and region-specific evidence before choosing a migration date. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Which HoneyDrunk VM families and regions have lifecycle transitions that affect replacement capacity, quota, purchasing options, or recovery plans? See [[indexes/gaps]].
+
+
+## 2026-09-30: Designing agent-first platforms: What changes when agents do the work
+
+### Typed entities
+
+project: Microsoft Foundry; project: Azure Container Apps Sandboxes; concept: agent identity; concept: execution isolation.
+
+### Claims and evidence
+
+The [captured source](../raw/2026-09-30-rss-azure-agent-governance-execution-separation.md) records the following attributed summary:
+
+Microsoft describes separating agent governance in Foundry from code execution in Azure Container Apps Sandboxes. Agent identity, scoped permissions, traces, and evaluation remain governance responsibilities, while each execution receives an isolated microVM environment with controlled access and pause/resume support. Customer examples illustrate per-engagement and per-user workspaces.
+
+### Capture interpretation for HoneyDrunk
+
+For HoneyDrunk, model agent identity and task execution as separate layers, with explicit policy and trace continuity across the boundary. Isolation, startup performance, scale, and credential handling are vendor-described capabilities; verify them against the selected service configuration and workload.
+
+confidence: 1 source, last-confirmed 2026-09-30 (archived attributed summary reviewed; no live refresh).
+
+### Explicit relationships
+
+Agent execution uses isolated environments; governance depends-on identity, scoped policy, and trace continuity. See [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Which identity, credential, trace, pause/resume, and isolation tests qualify the selected HoneyDrunk sandbox configuration? See [[indexes/gaps]].
+
+
+## 2026-09-30: Azure SDK Release (September 2026)
+
+### Typed entities
+
+library: Azure AI Search SDK; library: Npgsql; project: Entra ID; concept: preview API compatibility.
+
+### Claims and evidence
+
+The [captured source](../raw/2026-09-30-rss-azure-sdk-september-preview-and-auth-upgrades.md) records the following attributed summary:
+
+Microsoft’s September SDK roundup highlights Azure AI Search previews targeting the 2026-08-01-preview service API, including knowledge-source and retrieval changes. Earlier preview consumers need to review changed listing parameters; the post distinguishes these changes from stable Python APIs. The .NET Entra ID authentication extension for Npgsql reaches its first stable release. The parallel JavaScript authentication library requires Node.js 22. The Rust Storage SAS release normalizes signed paths containing backslashes and changes a preview import.
+
+### Capture interpretation for HoneyDrunk
+
+For HoneyDrunk, evaluate PostgreSQL identity integration and test preview API compatibility separately from stable package upgrades.
+
+confidence: 1 source, last-confirmed 2026-09-30 (archived attributed summary reviewed; no live refresh).
+
+### Explicit relationships
+
+SDK upgrades depend-on service API and runtime compatibility; PostgreSQL authentication uses Entra ID integration. See [[azure-sdk-for-rust]].
+
+### Decision and quality notes
+
+Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Which pinned Search previews, Npgsql identity packages, Node runtimes, and SAS path tests qualify HoneyDrunk upgrades? See [[indexes/gaps]].

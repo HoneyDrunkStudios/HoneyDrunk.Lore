@@ -1376,3 +1376,30 @@ Behavior preservation depends-on explicit acceptance evidence; change planning u
 ### Decision and quality notes
 
 Vendor-centered Blitzy walkthrough, not an independent evaluation of its capabilities or isolation. The durable planning principle does not establish product adoption or a HoneyDrunk implementation. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Can each requested HoneyDrunk behavior be traced from a reviewed specification through affected callers and dependencies to acceptance evidence, including preserved preferences and later specification drift? See [[indexes/gaps]].
+
+
+## 2026-09-30: Bliki: Sensible Default
+
+### Typed entities
+
+person: Martin Fowler; concept: sensible default; decision: contextual exception.
+
+### Claims and evidence
+
+The [captured source](../raw/2026-09-30-rss-architecture-contextual-sensible-defaults.md) records the following attributed summary:
+
+Martin Fowler describes sensible defaults as practices that are effective starting points when the context gives no overriding reason to change them. Teams should understand both their benefits and limitations, explain deviations, and periodically reassess the defaults. Examples include version control, separation of UI and domain logic, and deployment automation.
+
+### Capture interpretation for HoneyDrunk
+
+For HoneyDrunk, maintain a small set of expected practices while allowing evidence-backed exceptions. The useful distinction is between a known-good starting point and a universal prescription; the article provides a framing for decisions rather than comparative performance evidence.
+
+confidence: 1 source, last-confirmed 2026-09-30 (archived attributed summary reviewed; no live refresh).
+
+### Explicit relationships
+
+A sensible default uses known starting practices; deviations depend-on contextual evidence.
+
+### Decision and quality notes
+
+Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Which HoneyDrunk defaults have documented benefits, exceptions, and reassessment triggers? See [[indexes/gaps]].

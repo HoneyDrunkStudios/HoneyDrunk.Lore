@@ -105,3 +105,30 @@ Animation acceptance depends-on exported frames and game-scale engine playback. 
 ### Decision and quality notes
 
 Commercially interested workflow proposal, not an independent generation benchmark. Validate final artifacts and motion in the target engine before comparing model cost or quality. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which identity, alpha, crop, pivot, contact-pose, loop-timing, and engine-playback checks define an accepted HoneyDrunk animation, and is cleanup effort recorded per accepted result? See [[indexes/gaps]].
+
+
+## 2026-09-30: When the design doc and the code disagree, which one is wrong?
+
+### Typed entities
+
+person: IdleCultivation; concept: specification drift; concept: implementation reference; decision: discrepancy reconciliation.
+
+### Claims and evidence
+
+The [captured source](../raw/2026-09-30-rss-game-specification-code-drift-reconciliation.md) records the following attributed summary:
+
+A game developer describes reconciling design specifications with implemented behavior case by case. Some differences are defects; others reflect useful discoveries missing from the documents. Claims that features already exist and references to nonexistent project names were especially costly, so the project adds checks that technical names resolve. The author favors present-tense specifications and removing completed construction plans.
+
+### Capture interpretation for HoneyDrunk
+
+For HoneyDrunk game development, record why each disagreement is resolved and validate implementation references. This is one developer’s workflow; its preference for replacing historical prose does not supersede Lore’s requirement to preserve superseded claims.
+
+confidence: 1 source, last-confirmed 2026-09-30 (archived attributed summary reviewed; no live refresh).
+
+### Explicit relationships
+
+Specification reconciliation uses implementation evidence; reference validity depends-on resolving actual technical names. See [[ai-assisted-software-practice]].
+
+### Decision and quality notes
+
+Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Can HoneyDrunk game specifications resolve technical names and record why each implementation discrepancy is accepted or fixed? See [[indexes/gaps]].

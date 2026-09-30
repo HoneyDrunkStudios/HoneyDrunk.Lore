@@ -324,3 +324,30 @@ Polling concurrency uses local outcome feedback; acceptance depends-on queue age
 ### Decision and quality notes
 
 Firsthand engineering account with incomplete controller/recovery detail. The coordinator-free controller does not contradict the older scoped shared-breaker recommendation; these are different control contracts. No ready-to-copy algorithm or HoneyDrunk incident saving is inferred. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which HoneyDrunk worker failure signals and concurrency limits preserve queue-age objectives, and how will a local controller recover from complete backoff without masking persistent failure? See [[indexes/gaps]].
+
+
+## 2026-09-30: How Uber Protects Against Retry Storms
+
+### Typed entities
+
+project: Uber; concept: error ownership; concept: retry budget; concept: service mesh.
+
+### Claims and evidence
+
+The [captured source](../raw/2026-09-30-rss-distributed-retry-error-ownership.md) records the following attributed summary:
+
+Uber describes propagating error ownership through its service mesh to stop upstream retries from multiplying load on a failing dependency. Retry budgets still amplify across deep call chains; locating the originating error constrains retries to the useful edge. The design addresses coincidental failures, missing context, and paths without configured retries through dependency analysis and an at-least-once-retry flag. Uber reports avoiding millions of spurious requests during an incident.
+
+### Capture interpretation for HoneyDrunk
+
+For HoneyDrunk, evaluate retry behavior across the entire call graph, including correlated overload and lost metadata. The reported availability calculations assume independent failures, an assumption the article explicitly limits.
+
+confidence: 1 source, last-confirmed 2026-09-30 (archived attributed summary reviewed; no live refresh).
+
+### Explicit relationships
+
+Retry placement uses originating-error context; useful retries depend-on call-graph and overload behavior.
+
+### Decision and quality notes
+
+Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Do HoneyDrunk retry tests cover deep call chains, correlated overload, missing ownership metadata, and useful retry placement? See [[indexes/gaps]].
