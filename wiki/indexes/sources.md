@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-09-30
+## Compile coverage: 2026-10-02
 
-Reconciled 1127 raw documents against 1127 unique entries; ingested 15 attributed summaries. Existing records and dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
+Reconciled 1127 raw documents against 1127 unique entries; no unprocessed sources. Existing records and dates preserved. All 13 query outputs repeat compiled evidence and add no independent support.
 
 ## Entry format
 
