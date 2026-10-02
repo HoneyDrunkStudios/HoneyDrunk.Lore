@@ -3,7 +3,9 @@
 Use this prompt for the scheduled ADR-0086 runner Lore signal review job.
 
 Working repo: `C:\Users\tatte\source\repos\HoneyDrunkStudios\HoneyDrunk.Lore`
-Architecture repo: `C:\Users\tatte\source\repos\HoneyDrunkStudios\HoneyDrunk.Architecture`
+Studio repo: `<STUDIO_REPO_ROOT>`, the operator-provided local checkout root for `HoneyDrunkStudios/HoneyDrunk.Studio`.
+
+Resolve `<STUDIO_REPO_ROOT>` to the actual checkout before reading Studio context. The GitHub rename does not rename local folders; an existing checkout may still be named `HoneyDrunk.Architecture`. Do not assume a `HoneyDrunk.Studio` folder exists.
 
 ## Purpose
 
@@ -17,7 +19,7 @@ It is a daily news blast, not a ticket generator. It should surface ten useful s
 
 - Do **not** create, edit, or propose final text for ADRs, PDRs, PRRs, work items, GitHub issues, PRs, project-board items, or release notes.
 - Do **not** commit, push, tag, merge, open PRs, or perform external writes.
-- Do **not** change Architecture files.
+- Do **not** change Studio files.
 - Do **not** change Lore wiki/raw content except writing the daily blast report under `output/`.
 - Do **not** turn interesting trends into work automatically.
 - Keep the report readable in Discord: titles first, public source URLs visible, no long prose block before the headlines.
@@ -33,9 +35,9 @@ It is a daily news blast, not a ticket generator. It should surface ten useful s
 4. Read recent `raw/` files from the latest sourcing window when the source title/body is needed for the blast, including `raw/*birdclaw-x*.md` only when the Birdclaw summary shows fresh capture or operator-approved local-cache conversion.
 5. Read relevant compiled `wiki/` pages only when they clarify why a story matters or whether it is actually new.
 6. Read the current HoneyDrunk focus live from:
-   `C:\Users\tatte\source\repos\HoneyDrunkStudios\HoneyDrunk.Architecture\initiatives\current-focus.md`
+   `<STUDIO_REPO_ROOT>\initiatives\current-focus.md`
 7. Read the HoneyDrunk charter before making strategic/product/commercial judgments:
-   `C:\Users\tatte\source\repos\HoneyDrunkStudios\HoneyDrunk.Architecture\constitution\charter.md`
+   `<STUDIO_REPO_ROOT>\constitution\charter.md`
 
 ## Review method
 
