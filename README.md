@@ -60,8 +60,8 @@ The `wiki/` directory is an Obsidian vault. Open it as a vault to get graph view
 
 ## Architecture context
 
-- Node overview: `HoneyDrunk.Architecture/repos/HoneyDrunk.Lore/overview.md`
-- Boundaries: `HoneyDrunk.Architecture/repos/HoneyDrunk.Lore/boundaries.md`
+- Node overview: `HoneyDrunk.Studio/repos/HoneyDrunk.Lore/overview.md`
+- Boundaries: `HoneyDrunk.Studio/repos/HoneyDrunk.Lore/boundaries.md`
 - Schema and operations: [`AGENTS.md`](./AGENTS.md)
 
 The flat-file implementation is the v1. When `HoneyDrunk.Knowledge` and `HoneyDrunk.Agents` exist, the operations delegate to those Nodes — the wiki content stays where it is. See the *Conversion note* at the bottom of [`AGENTS.md`](./AGENTS.md).
