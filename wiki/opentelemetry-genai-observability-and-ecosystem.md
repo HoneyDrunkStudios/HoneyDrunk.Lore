@@ -617,3 +617,30 @@ Telemetry migration depends-on SDK and shim lifecycle; new instrumentation uses 
 ### Decision and quality notes
 
 Project policy announcement published June 23 and modified September 28; September discovery does not make it a newly effective policy. No exact shim-removal date is inferred. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Which HoneyDrunk language SDKs or bridge packages still depend on OpenCensus compatibility, and what package-specific maintenance guarantees define their migration deadlines? See [[indexes/gaps]].
+
+
+## 2026-09-30: Exploring the OpenTelemetry Instrumentation Ecosystem
+
+### Typed entities
+
+project: OpenTelemetry Ecosystem Explorer; project: Weaver; concept: instrumentation conformance; concept: pinned version.
+
+### Claims and evidence
+
+The [captured source](../raw/2026-09-30-rss-otel-versioned-instrumentation-conformance.md) records the following attributed summary:
+
+OpenTelemetry’s Ecosystem Explorer catalogs component metadata and version-specific instrumentation expectations. The conformance project exercises scenarios and checks emitted telemetry against semantic conventions with Weaver. Stable conventions do not automatically update instrumentation libraries, and an attribute missing from one run does not prove it can never be emitted. The Explorer currently covers Java agent and Collector information; connecting conformance measurements to its release views remains future work.
+
+### Capture interpretation for HoneyDrunk
+
+For HoneyDrunk, validate emitted spans, attributes, and metrics for pinned dependency versions instead of assuming that a stable specification guarantees implementation coverage.
+
+confidence: 1 source, last-confirmed 2026-09-30 (archived attributed summary reviewed; no live refresh).
+
+### Explicit relationships
+
+Instrumentation conformance uses emitted telemetry; coverage depends-on pinned versions and exercised scenarios.
+
+### Decision and quality notes
+
+Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Which pinned HoneyDrunk instrumentation versions and scenarios satisfy required spans, attributes, and metric conventions? See [[indexes/gaps]].

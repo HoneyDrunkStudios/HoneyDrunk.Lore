@@ -1890,3 +1890,57 @@ Agent resumption depends-on persisted state and application authority; delivery 
 ### Decision and quality notes
 
 Sponsored architecture article, not independent platform evidence or proof of exactly-once business effects. Reliable transport alone does not validate a delayed approval or a workflow transition. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Can HoneyDrunk event-driven agents reconcile duplicates, reordered or stale events, retry exhaustion, approval validity, and recovery without repeating consequential effects? See [[indexes/gaps]].
+
+
+## 2026-09-30: State of Agent Skills
+
+### Typed entities
+
+project: Vercel; project: skills.sh; concept: workflow skill; concept: registry demand.
+
+### Claims and evidence
+
+The [captured source](../raw/2026-09-30-rss-agent-skills-registry-demand-concentration.md) records the following attributed summary:
+
+Vercel analyzes aggregate skills.sh registry listings and installs. Technical skills dominate supply, while demand spreads across engineering, agent workflows, operations, and writing. A small fraction of skills receives most installs; workflow skills are reusable across many jobs. The report distinguishes published listings from installation demand and compares installs per listing across categories.
+
+### Capture interpretation for HoneyDrunk
+
+For HoneyDrunk, prioritize reusable workflow judgment and evaluate whether a skill improves task outcomes before expanding the catalog. Registry installs indicate distribution activity, not independently verified quality, successful execution, or unique users.
+
+confidence: 1 source, last-confirmed 2026-09-30 (archived attributed summary reviewed; no live refresh).
+
+### Explicit relationships
+
+Skill selection uses task-outcome evidence; install demand depends-on distribution as well as utility.
+
+### Decision and quality notes
+
+Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Which reusable HoneyDrunk skills improve held-out task outcomes, and how are installs distinguished from successful use? See [[indexes/gaps]].
+
+
+## 2026-09-30: Introducing cf: the agentic CLI for the entire Cloudflare API
+
+### Typed entities
+
+project: Cloudflare; library: cf CLI; library: Wrangler; concept: schema-generated command; file: cloudflare.config.ts.
+
+### Claims and evidence
+
+The [captured source](../raw/2026-09-30-rss-cloudflare-schema-generated-agent-cli.md) records the following attributed summary:
+
+Cloudflare introduces the open-beta cf CLI, generated from API schemas to cover substantially more operations than Wrangler. JSON is the default output, with command discovery intended for agents. Typed cloudflare.config.ts configuration centralizes bindings and triggers, and Vite becomes the default Workers development path. Migration can retain delegation to Wrangler for projects that need existing build behavior.
+
+### Capture interpretation for HoneyDrunk
+
+For HoneyDrunk, the portable pattern is schema-derived automation interfaces plus typed configuration, rather than hand-maintained command surfaces. Evaluate actual permissions, migration behavior, and target-runtime tests before relying on a beta CLI.
+
+confidence: 1 source, last-confirmed 2026-09-30 (archived attributed summary reviewed; no live refresh).
+
+### Explicit relationships
+
+Agent command discovery uses API schemas; migration depends-on permissions, typed configuration, and retained build behavior.
+
+### Decision and quality notes
+
+Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Which schema-derived CLI operations, scoped permissions, and migration tests justify a HoneyDrunk beta-tool trial? See [[indexes/gaps]].

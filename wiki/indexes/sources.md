@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-09-29
+## Compile coverage: 2026-09-30
 
-Reconciled 1112 raw source documents against 1112 unique source entries; ingested 15 new attributed summaries in this pass. All raw documents have index entries. Existing source records and ingestion dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
+Reconciled 1127 raw documents against 1127 unique entries; ingested 15 attributed summaries. Existing records and dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
 
 ## Entry format
 
@@ -1373,3 +1373,33 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [Hitting a billion tokens per minute on one GPU by combining a query planner and an inference engine](../../raw/2026-09-29-rss-quail-query-aware-inference-cache-tradeoffs.md) - Query-aware inference throughput depends on workload and cache scope. - ingested 2026-09-29
 - [Scaling Scritchy Scratchy across platforms](../../raw/2026-09-29-rss-unity-cross-platform-input-and-particle-budgets.md) - Shared Unity projects still need platform-specific interaction validation. - ingested 2026-09-29
 - [Building ShipCheck: a static preflight scanner for Unity projects](../../raw/2026-09-29-rss-unity-static-release-evidence-and-dependency-graphs.md) - Static release checks report shipping relevance and limits of evidence. - ingested 2026-09-29
+
+- [GPT-6 Astra performs unsanctioned supply-chain attacks in simulations](../../raw/2026-09-30-rss-agent-cyber-eval-simulation-scope-controls.md) - Attributed summary compiled in [[ai-coding-agent-security]]; source-specific evidence remains provisional. - ingested 2026-09-30
+
+- [State of Agent Skills](../../raw/2026-09-30-rss-agent-skills-registry-demand-concentration.md) - Attributed summary compiled in [[ai-agent-harnesses]]; source-specific evidence remains provisional. - ingested 2026-09-30
+
+- [Bliki: Sensible Default](../../raw/2026-09-30-rss-architecture-contextual-sensible-defaults.md) - Attributed summary compiled in [[ai-assisted-software-practice]]; source-specific evidence remains provisional. - ingested 2026-09-30
+
+- [Designing agent-first platforms: What changes when agents do the work](../../raw/2026-09-30-rss-azure-agent-governance-execution-separation.md) - Attributed summary compiled in [[azure-agent-automation-and-identity]]; source-specific evidence remains provisional. - ingested 2026-09-30
+
+- [Azure SDK Release (September 2026)](../../raw/2026-09-30-rss-azure-sdk-september-preview-and-auth-upgrades.md) - Attributed summary compiled in [[azure-agent-automation-and-identity]]; source-specific evidence remains provisional. - ingested 2026-09-30
+
+- [Introducing cf: the agentic CLI for the entire Cloudflare API](../../raw/2026-09-30-rss-cloudflare-schema-generated-agent-cli.md) - Attributed summary compiled in [[ai-agent-harnesses]]; source-specific evidence remains provisional. - ingested 2026-09-30
+
+- [Containers Are No Longer a Security Boundary](../../raw/2026-09-30-rss-container-shared-kernel-isolation-risk.md) - Attributed summary compiled in [[container-supply-chain-and-compliance]]; source-specific evidence remains provisional. - ingested 2026-09-30
+
+- [How Uber Protects Against Retry Storms](../../raw/2026-09-30-rss-distributed-retry-error-ownership.md) - Attributed summary compiled in [[distributed-systems-patterns]]; source-specific evidence remains provisional. - ingested 2026-09-30
+
+- [Running AI agents with customized templates using docker sandbox](../../raw/2026-09-30-rss-dotnet-agent-sandbox-custom-templates.md) - Attributed summary compiled in [[ai-coding-agent-security]]; source-specific evidence remains provisional. - ingested 2026-09-30
+
+- [Creating standard and "observable" instruments: System.Diagnostics.Metrics APIs - Part 3](../../raw/2026-09-30-rss-dotnet-observable-instrument-value-contracts.md) - Attributed summary compiled in [[dotnet-runtime-and-mobile-2026]]; source-specific evidence remains provisional. - ingested 2026-09-30
+
+- [When the design doc and the code disagree, which one is wrong?](../../raw/2026-09-30-rss-game-specification-code-drift-reconciliation.md) - Attributed summary compiled in [[ai-assisted-game-development-pipelines]]; source-specific evidence remains provisional. - ingested 2026-09-30
+
+- [Getting the Source Right, Not Just the Fact: Source-Aware Verification for MCP Agents](../../raw/2026-09-30-rss-mcp-source-aware-verification.md) - Attributed summary compiled in [[mcp-tool-governance-and-app-surfaces]]; source-specific evidence remains provisional. - ingested 2026-09-30
+
+- [Exploring the OpenTelemetry Instrumentation Ecosystem](../../raw/2026-09-30-rss-otel-versioned-instrumentation-conformance.md) - Attributed summary compiled in [[opentelemetry-genai-observability-and-ecosystem]]; source-specific evidence remains provisional. - ingested 2026-09-30
+
+- [UE5 Shader Optimization: Materials, Custom HLSL, and Global Shaders with RDG](../../raw/2026-09-30-rss-shader-runtime-permutation-pso-costs.md) - Attributed summary compiled in [[technical-art-community-and-talent-signals]]; source-specific evidence remains provisional. - ingested 2026-09-30
+
+- [Cross-Platform Save Systems: Cloud Sync Done Right](../../raw/2026-09-30-rss-unity-offline-cloud-save-layering.md) - Attributed summary compiled in [[procedural-world-persistence]]; source-specific evidence remains provisional. - ingested 2026-09-30

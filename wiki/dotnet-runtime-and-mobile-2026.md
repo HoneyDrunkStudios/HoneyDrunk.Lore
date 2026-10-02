@@ -809,3 +809,30 @@ Metrics wrapper selection depends-on generated output, API coverage, and measure
 ### Decision and quality notes
 
 February 3 backfill with version-specific observations. No contemporary package refresh or controlled HoneyDrunk benchmark was performed. This is compatible with the existing distinction between SDK configuration and per-measurement wrappers. Source-specific claims remain provisional single-source evidence; related accounts and derived queries add no independent confirmation. Open question: Do generated and manual HoneyDrunk metric helpers preserve descriptions, units, tag fidelity, and acceptable allocations under representative workloads and pinned package versions? See [[indexes/gaps]].
+
+
+## 2026-09-30: Creating standard and "observable" instruments: System.Diagnostics.Metrics APIs - Part 3
+
+### Typed entities
+
+person: Andrew Lock; library: System.Diagnostics.Metrics; concept: observable counter; concept: measurement tags.
+
+### Claims and evidence
+
+The [captured source](../raw/2026-09-30-rss-dotnet-observable-instrument-value-contracts.md) records the following attributed summary:
+
+The article explains seven System.Diagnostics.Metrics instrument types with examples from .NET and ASP.NET Core. Ordinary counters report increments; observable counters return the cumulative total when a consumer polls. Ordinary up/down counters emit signed deltas, while their observable counterparts return the current value. Request-start and request-end measurements need matching tags so active-request series reconcile.
+
+### Capture interpretation for HoneyDrunk
+
+For HoneyDrunk telemetry, choose instruments based on whether the measurement is an event, total, current state, or distribution, then verify what the consumer observes. Treating observed totals as increments can produce misleading aggregation.
+
+confidence: 1 source, last-confirmed 2026-09-30 (archived attributed summary reviewed; no live refresh).
+
+### Explicit relationships
+
+Instrument selection depends-on event versus cumulative/current values; active-request reconciliation uses matching tags. See [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Do HoneyDrunk metric consumers distinguish increments, cumulative totals, current state, and matching active-request tag sets? See [[indexes/gaps]].

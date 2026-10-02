@@ -1,77 +1,56 @@
-# Lore daily ingest/compile - 2026-09-29
+# Lore daily ingest/compile - 2026-09-30
 
-- Timestamp: 2026-09-29T10:06:54-04:00.
-- Operator: Codex executing the authorized Honeyclaw daily ingest/compile workflow.
-- Result: ingested 15 attributed summaries; updated 10 existing canonical concept pages; created 0 pages. Catalog: 1,112 raw documents and 67 concept pages.
-- Evidence boundary: archived captures reviewed, not a live product refresh. Raw inputs remain immutable.
+- Timestamp: 2026-09-30T10:04:18-04:00.
+- Operator: Codex executing the authorized Honeyclaw workflow.
+- Raw sources ingested: 15; catalog total: 1127.
+- Wiki pages: 12 updated; 0 created or merged. Existing canonical homes used.
+- Evidence boundary: archived attributed summaries, not a live product refresh.
 
-## Raw sources ingested: 15
+## Raw sources ingested
 
-- [2026-09-29-rss-agent-sandbox-dns-egress-and-stop-enforcement.md](../raw/2026-09-29-rss-agent-sandbox-dns-egress-and-stop-enforcement.md)
-- [2026-09-29-rss-azure-resilience-drift-and-recovery-dependencies.md](../raw/2026-09-29-rss-azure-resilience-drift-and-recovery-dependencies.md)
-- [2026-09-29-rss-azure-vm-lifecycle-capacity-and-retirement.md](../raw/2026-09-29-rss-azure-vm-lifecycle-capacity-and-retirement.md)
-- [2026-09-29-rss-blazor-agent-ui-state-and-approval-boundaries.md](../raw/2026-09-29-rss-blazor-agent-ui-state-and-approval-boundaries.md)
-- [2026-09-29-rss-blender-texture-bake-configuration-and-export.md](../raw/2026-09-29-rss-blender-texture-bake-configuration-and-export.md)
-- [2026-09-29-rss-coding-agent-harness-guidance-and-verification.md](../raw/2026-09-29-rss-coding-agent-harness-guidance-and-verification.md)
-- [2026-09-29-rss-docker-cloud-sandbox-migration-policy-boundaries.md](../raw/2026-09-29-rss-docker-cloud-sandbox-migration-policy-boundaries.md)
-- [2026-09-29-rss-event-driven-agent-resumption-delivery-contracts.md](../raw/2026-09-29-rss-event-driven-agent-resumption-delivery-contracts.md)
-- [2026-09-29-rss-github-runner-registration-and-execution-minimums.md](../raw/2026-09-29-rss-github-runner-registration-and-execution-minimums.md)
-- [2026-09-29-rss-houdini-layered-destruction-motion-continuity.md](../raw/2026-09-29-rss-houdini-layered-destruction-motion-continuity.md)
-- [2026-09-29-rss-mcp-gateway-discovery-and-call-authorization.md](../raw/2026-09-29-rss-mcp-gateway-discovery-and-call-authorization.md)
-- [2026-09-29-rss-opencensus-compatibility-deprecation-migration.md](../raw/2026-09-29-rss-opencensus-compatibility-deprecation-migration.md)
-- [2026-09-29-rss-quail-query-aware-inference-cache-tradeoffs.md](../raw/2026-09-29-rss-quail-query-aware-inference-cache-tradeoffs.md)
-- [2026-09-29-rss-unity-cross-platform-input-and-particle-budgets.md](../raw/2026-09-29-rss-unity-cross-platform-input-and-particle-budgets.md)
-- [2026-09-29-rss-unity-static-release-evidence-and-dependency-graphs.md](../raw/2026-09-29-rss-unity-static-release-evidence-and-dependency-graphs.md)
+- [2026-09-30-rss-agent-cyber-eval-simulation-scope-controls.md](../raw/2026-09-30-rss-agent-cyber-eval-simulation-scope-controls.md)
+- [2026-09-30-rss-agent-skills-registry-demand-concentration.md](../raw/2026-09-30-rss-agent-skills-registry-demand-concentration.md)
+- [2026-09-30-rss-architecture-contextual-sensible-defaults.md](../raw/2026-09-30-rss-architecture-contextual-sensible-defaults.md)
+- [2026-09-30-rss-azure-agent-governance-execution-separation.md](../raw/2026-09-30-rss-azure-agent-governance-execution-separation.md)
+- [2026-09-30-rss-azure-sdk-september-preview-and-auth-upgrades.md](../raw/2026-09-30-rss-azure-sdk-september-preview-and-auth-upgrades.md)
+- [2026-09-30-rss-cloudflare-schema-generated-agent-cli.md](../raw/2026-09-30-rss-cloudflare-schema-generated-agent-cli.md)
+- [2026-09-30-rss-container-shared-kernel-isolation-risk.md](../raw/2026-09-30-rss-container-shared-kernel-isolation-risk.md)
+- [2026-09-30-rss-distributed-retry-error-ownership.md](../raw/2026-09-30-rss-distributed-retry-error-ownership.md)
+- [2026-09-30-rss-dotnet-agent-sandbox-custom-templates.md](../raw/2026-09-30-rss-dotnet-agent-sandbox-custom-templates.md)
+- [2026-09-30-rss-dotnet-observable-instrument-value-contracts.md](../raw/2026-09-30-rss-dotnet-observable-instrument-value-contracts.md)
+- [2026-09-30-rss-game-specification-code-drift-reconciliation.md](../raw/2026-09-30-rss-game-specification-code-drift-reconciliation.md)
+- [2026-09-30-rss-mcp-source-aware-verification.md](../raw/2026-09-30-rss-mcp-source-aware-verification.md)
+- [2026-09-30-rss-otel-versioned-instrumentation-conformance.md](../raw/2026-09-30-rss-otel-versioned-instrumentation-conformance.md)
+- [2026-09-30-rss-shader-runtime-permutation-pso-costs.md](../raw/2026-09-30-rss-shader-runtime-permutation-pso-costs.md)
+- [2026-09-30-rss-unity-offline-cloud-save-layering.md](../raw/2026-09-30-rss-unity-offline-cloud-save-layering.md)
 
-## Wiki pages created/updated
+## Wiki pages updated
 
-- [ai-agent-harnesses](../wiki/ai-agent-harnesses.md) (updated)
-- [ai-coding-agent-security](../wiki/ai-coding-agent-security.md) (updated)
-- [azure-agent-automation-and-identity](../wiki/azure-agent-automation-and-identity.md) (updated)
-- [edge-ai-and-ai-infrastructure-2026](../wiki/edge-ai-and-ai-infrastructure-2026.md) (updated)
-- [github-actions-platform-operations](../wiki/github-actions-platform-operations.md) (updated)
-- [mcp-tool-governance-and-app-surfaces](../wiki/mcp-tool-governance-and-app-surfaces.md) (updated)
-- [microsoft-dotnet-ai-stack](../wiki/microsoft-dotnet-ai-stack.md) (updated)
-- [opentelemetry-genai-observability-and-ecosystem](../wiki/opentelemetry-genai-observability-and-ecosystem.md) (updated)
-- [technical-art-community-and-talent-signals](../wiki/technical-art-community-and-talent-signals.md) (updated)
-- [unity-3d-and-realtime-vfx-patterns](../wiki/unity-3d-and-realtime-vfx-patterns.md) (updated)
+- [ai-agent-harnesses](../wiki/ai-agent-harnesses.md)
+- [ai-assisted-game-development-pipelines](../wiki/ai-assisted-game-development-pipelines.md)
+- [ai-assisted-software-practice](../wiki/ai-assisted-software-practice.md)
+- [ai-coding-agent-security](../wiki/ai-coding-agent-security.md)
+- [azure-agent-automation-and-identity](../wiki/azure-agent-automation-and-identity.md)
+- [container-supply-chain-and-compliance](../wiki/container-supply-chain-and-compliance.md)
+- [distributed-systems-patterns](../wiki/distributed-systems-patterns.md)
+- [dotnet-runtime-and-mobile-2026](../wiki/dotnet-runtime-and-mobile-2026.md)
+- [mcp-tool-governance-and-app-surfaces](../wiki/mcp-tool-governance-and-app-surfaces.md)
+- [opentelemetry-genai-observability-and-ecosystem](../wiki/opentelemetry-genai-observability-and-ecosystem.md)
+- [procedural-world-persistence](../wiki/procedural-world-persistence.md)
+- [technical-art-community-and-talent-signals](../wiki/technical-art-community-and-talent-signals.md)
 
-Rebuilt [sources](../wiki/indexes/sources.md), [topics](../wiki/indexes/topics.md), and [gaps](../wiki/indexes/gaps.md); appended the [audit trail](../wiki/indexes/audit.md). Preserved existing records, ingestion dates, questions, and concept history. All additions fit existing canonical pages; no duplicate concept pages required merging.
+## Contradictions and consolidation
 
-## Contradictions resolved and consolidation
+No direct contradiction requiring historical claim supersession identified in reviewed additions. Game-document replacement advice does not supersede Lore history preservation. Shared-kernel concerns do not establish universal container escape or eliminate storage/credential boundaries. Explorer Collector coverage extends the earlier Java-first description; conformance-to-release integration remains future work. No new independently supported three-source claim promotion; source-specific claims remain provisional.
 
-- Contradictions resolved: 1. The September 28 GitHub announcement supersedes the June claim that full Enterprise Cloud runner enforcement begins September 25. The newer date is September 29. Preserved the old claim and its typed date entry with `superseded-by:` links, timestamp, and reasoning. Both accounts are GitHub-authored; recency resolves this policy change. Data Residency timing and the registration threshold remain separate.
-- Blazor experimental components extend the earlier preview entry. Unity single-project and platform-branch workflows describe different games, not universal conflicting requirements. OpenCensus policy deprecation does not mean immediate shim removal. No further contradictions were identified in the reviewed additions and related history.
-- No new independent three-source reinforcement was established. New source-specific claims remain provisional, and repeated vendor accounts or derived queries do not inflate confidence. Existing reinforced claims retain their dates and support posture.
+## Query crystallization and indexes
 
-## Query crystallization
-
-Read all 13 output/query-*.md files. Their durable subjects are already represented; all 75 distinct explicit raw citations occur in concept pages. Crystallized: 0. Dated model, release, and platform recommendations are historical exploration, not refreshed guidance.
-
-## Gaps logged
-
-Added 15 source-linked questions; closed 0. Total: 647 dated entries. Questions cover indirect egress and stopping, recovery dependencies, VM lifecycle, agent UI state, bake/export compatibility, harness impact analysis, sandbox migration policy, event resumption, runner eligibility, layered destruction, MCP discovery, OpenCensus migration, query-aware inference, platform input/performance, and static Unity evidence limits.
+Reviewed all 13 query outputs against compiled coverage. Their durable subjects already have canonical homes; no new independent evidence or crystallization. Rebuilt source coverage and topic metadata from current files; preserved existing gap questions and appended 15 source-linked acceptance questions. Closed 0 gaps. Appended audit record.
 
 ## Quality posture
 
-- Pages rewritten: 0. New sections on 2 pages are explicitly flagged: GitHub runner execution minimum is absent from the capture; Unity static scans cannot establish complete runtime/serialization coverage or playable release readiness. These are bounded evidence gaps, not invented answers.
-- Weak claims: all 15 inputs are attributed summaries. Vendor benchmarks, sponsored architecture guidance, previews, and practitioner reports remain provisional. No HoneyDrunk implementation, exposure, performance, or production readiness is inferred.
-- Recency: OpenCensus policy was published June 23 and modified September 28; DNS incident sample/discovery and report-update dates are distinguished from an unknown publication date. Confirmation dates mean archived evidence review only.
-- Privacy redactions: 0 required in reviewed additions. Manual review and repository secret-pattern checks found no credentials, tokens, private conversations, or unsafe personal data. Public professional attribution remains; no exploit payloads were promoted. No raw file was edited or deleted.
-- Historical catalog limitation: 57 already indexed captures lack individually named raw citations on concept pages (45 May Discord captures and 12 June social captures). Related pages use grouped or partial batch citations. Topic counts intentionally exclude unnamed/grouped files. This predates the pass; every new capture has explicit claim citations. Historical aggregate confidence was not revalidated or strengthened.
-- Decision usefulness: each new section distinguishes source observations from local acceptance questions. Implementation uncertainty remains visible. This is not a full historical fact-check or retention Lint.
+Pages rewritten: 0. All new sections explicitly qualify single-source support. Simulation intervention settings and awareness limits, verifier false rejections, preview/beta status, independent-failure assumptions, sandbox build hangs, UE documentation-only examples, and client-encryption authority limits remain visible. Privacy redactions required: 0 in reviewed inputs; no credentials, unsafe PII, or exploit payloads promoted. Every input has an explicit canonical citation. No raw files edited or deleted. Historical grouped citations and confidence are not revalidated by this pass. Decision usefulness: each section includes typed entities, relationships, and a local acceptance question; no implementation readiness inferred.
 
-## Explicit code/content review and validation
+## Explicit review, validation, blockers, and publication
 
-Performed an explicit self-review of the intended diff and all 15 raw inputs for source fidelity, version/date scope, privacy, unsupported confidence, contradiction resolution, broken references, and preserved history. Corrected one directional cross-reference description in the runner section. No blocking findings remain. Review was not independent and did not fetch live product sources.
-
-Validation passed: 1,112 raw files match 1,112 unique source records; all 15 additions have explicit concept citations; 67 topic rows match titles, explicit raw-file counts, and recorded confirmation dates; all 647 dated gaps preserve the previous 632. All 75 explicit citations across 13 query outputs already occur in concept pages. New claim schema, local index/new-content links, supersession anchors, privacy patterns, and whitespace checks passed. SHA-256 checks preserve every raw file, query output, and unrelated local file; old concept text and source/gap/audit records remain intact. The temporary validator was corrected to ignore the fenced index schema example and distinguish historical grouped citations from new-source coverage. No application or tooling code changed; validation helpers remain outside the repository.
-
-## Blockers and publication
-
-- Content/validation blockers: none for this archival compile. Known evidence limits are qualified above and on the affected pages.
-- Branch: docs/lore-ingest-2026-09-29, based on origin/main at 3a29392; previous ingest PR #16 verified merged.
-- Intended scope: 15 existing untracked raw captures preserved byte-for-byte, 10 concept pages, four indexes, and this receipt (30 files). Raw captures travel with their citations.
-- Preserved and excluded: existing edits to output/lore-birdclaw-sourcing-last-run.md and output/lore-sourcing-last-run.md. Query outputs remain unchanged.
-- Intended commit: docs(lore): compile september 29 research sources.
-- Push and ready-for-review PR follow successful final staged-scope checks. This receipt does not preclaim remote success; no merge or direct main push is performed.
+Explicit self-review completed over all 15 raw inputs and the intended content diff: checked source fidelity, scope/version limits, privacy, confidence, contradiction handling, preservation, and references. Fixed attribution framing by separating capture interpretations from source summaries. No blocking findings remain. Review is not independent; no live product refresh performed. Validation passed: 1,127 unique raw/index records; explicit new-source citations and schema; all query citations already compiled; local new-content links; privacy patterns; raw/query/unrelated SHA-256 preservation; historical concept content preserved; whitespace check. The temporary validator was corrected to exclude the fenced schema example. Content blockers: none. Push follows final staged-scope verification; remote success is not preclaimed. Intended scope: 15 existing raw captures preserved byte-for-byte, updated concept/index files, and this receipt. Existing sourcing receipts and signal review excluded. Branch: docs/lore-ingest-2026-09-30 from origin/main (September 29 ingest already merged). No PR requested; this run commits and pushes the scoped branch.

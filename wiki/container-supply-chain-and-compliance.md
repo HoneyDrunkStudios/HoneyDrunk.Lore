@@ -215,3 +215,30 @@ Dependency trust depends-on namespace and repository provenance; recovery depend
 ### Decision and quality notes
 
 Researcher report; campaign scope and attribution are not independently reproduced. Defensive lessons only: no payloads, personal identifiers, or secrets promoted. Apparent age and plausible naming are not provenance evidence. Source-specific claims remain provisional single-source evidence; related accounts and derived queries add no independent confirmation. Open question: Do HoneyDrunk infrastructure workflows verify provider ownership, review dependency changes, isolate credentials, and retain enough execution evidence to investigate and rebuild after a compromised dependency? See [[indexes/gaps]].
+
+
+## 2026-09-30: Containers Are No Longer a Security Boundary
+
+### Typed entities
+
+project: Linux; concept: shared kernel; concept: container isolation; concept: microVM.
+
+### Claims and evidence
+
+The [captured source](../raw/2026-09-30-rss-container-shared-kernel-isolation-risk.md) records the following attributed summary:
+
+The authors describe a Linux AF_UNIX use-after-free vulnerability and explain why namespaces, cgroups, and syscall filtering still depend on the host kernel. A reachable kernel flaw can undermine container isolation and affect other workloads on the node. They advocate stronger isolation for sensitive or untrusted execution.
+
+### Capture interpretation for HoneyDrunk
+
+For HoneyDrunk agent workloads, review shared-kernel exposure and consider microVM isolation alongside patching and least privilege. The article’s broader assertion that attackers can escape containers at will is the authors’ threat-model argument, not a conclusion established for every runtime or configuration. No exploit instructions are retained in this capture.
+
+confidence: 1 source, last-confirmed 2026-09-30 (archived attributed summary reviewed; no live refresh).
+
+### Explicit relationships
+
+Container isolation depends-on the host kernel; untrusted execution uses a threat-model-specific isolation boundary. See [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Which HoneyDrunk untrusted workloads share a kernel, and what patching, privilege, and microVM checks match their threat model? See [[indexes/gaps]].

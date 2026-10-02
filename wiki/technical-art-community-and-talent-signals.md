@@ -1259,3 +1259,30 @@ Layered refinement depends-on parent identity and transferred state; independent
 ### Decision and quality notes
 
 Practitioner interview suited to baked destruction and controlled cinematic views, not a general interactive-destruction solution or independent performance validation. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Which parent-identity, inherited-motion, activation, collision, and constraint tests preserve approved HoneyDrunk destruction shots through local fracture refinements? See [[indexes/gaps]].
+
+
+## 2026-09-30: UE5 Shader Optimization: Materials, Custom HLSL, and Global Shaders with RDG
+
+### Typed entities
+
+project: Unreal Engine 5; library: HLSL; concept: shader permutation; concept: pipeline state object.
+
+### Claims and evidence
+
+The [captured source](../raw/2026-09-30-rss-shader-runtime-permutation-pso-costs.md) records the following attributed summary:
+
+This UE5 guide distinguishes runtime GPU cost, shader compilation and permutation cost, and first-use pipeline-state hitches. Material graphs already compile into HLSL; moving logic to custom code can inhibit optimizations rather than improve performance. The guide recommends choosing the simplest suitable authoring layer and profiling reproducible scenes on target hardware. Static switches trade runtime branching for compiled variants, while PSO preparation addresses a separate class of hitch.
+
+### Capture interpretation for HoneyDrunk
+
+For HoneyDrunk technical art, measure the expensive pass and workload before rewriting shader logic. The stated engine baseline is documentation-based, not proof that every example was compiled or run.
+
+confidence: 1 source, last-confirmed 2026-09-30 (archived attributed summary reviewed; no live refresh).
+
+### Explicit relationships
+
+Shader optimization depends-on target-hardware profiling; static switches trade runtime branches for compiled variants. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Which target scenes separate HoneyDrunk GPU cost, shader compilation/permutation cost, and first-use PSO hitches? See [[indexes/gaps]].
