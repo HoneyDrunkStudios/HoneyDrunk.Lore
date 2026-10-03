@@ -8,7 +8,7 @@ This file is the schema and operating manual for the Lore wiki. Any Honeyclaw or
 
 **HoneyDrunk.Lore is NOT:**
 - Agent memory (that lives in agent runtime state)
-- Architecture governance (that lives in HoneyDrunk.Architecture)
+- Architecture governance (that lives in HoneyDrunk.Studio)
 - Code documentation (that lives next to the code in each Node repo)
 
 ## Directory contract
