@@ -176,3 +176,22 @@ Agent deployment uses resource-scoped permissions; routing changes depend-on zon
 ### Decision and quality notes
 
 Vendor announcement captured September 18. Legacy assignments remain valid according to the source; granular authorization for other products is future work. This does not supersede the need for contextual checks discussed above. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which Worker, route, Durable Object, and Data Studio operations does each HoneyDrunk agent need, and do negative permission tests prevent unrelated deployments or deletion? See [[indexes/gaps]].
+
+
+## 2026-10-03: Uber carries attested human and agent provenance across each hop
+
+### Typed entities
+
+project: Uber; project: SPIRE; concept: Agent Registry; concept: Security Token Service; concept: actor chain.
+
+### Claims and evidence
+
+Uber describes binding each agent to an authorized workload in a registry, authenticating workloads with SPIRE SVIDs, and having STS mint short-lived audience-specific JWTs for each hop. A standardized client propagates the attested actor chain; the MCP Gateway verifies tokens and enforces tool policy. The account uses customized OAuth token-exchange concepts and SDK/application context rather than relying solely on an external proxy. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-02-rss-solving-the-identity-crisis-for-ai-agents.md)
+
+### Explicit relationships
+
+Agent identity depends-on workload attestation and registry binding; tool authorization uses actor-chain provenance. See [[mcp-tool-governance-and-app-surfaces]].
+
+### Decision and quality notes
+
+Internal architecture case study with 2025 implementation and 2026 roadmap. Registry authorization, signature/audience checks, and actual tool policy are required; agent-provided metadata alone is not attestation. Dynamic/unified policy direction is future vision, not a universal deployed standard. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Do HoneyDrunk delegated calls reject agent impersonation, wrong audiences, stale tokens, and lost originating-user context at every hop? See [[indexes/gaps]].

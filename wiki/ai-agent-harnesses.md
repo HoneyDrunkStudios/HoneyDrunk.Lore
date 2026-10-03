@@ -1944,3 +1944,22 @@ Agent command discovery uses API schemas; migration depends-on permissions, type
 ### Decision and quality notes
 
 Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Which schema-derived CLI operations, scoped permissions, and migration tests justify a HoneyDrunk beta-tool trial? See [[indexes/gaps]].
+
+
+## 2026-10-03: Pi Durable separates durable submissions from replay-safe effects
+
+### Typed entities
+
+project: Earendil; library: Pi Durable; concept: durable checkpoint; concept: task ownership; concept: replay safety.
+
+### Claims and evidence
+
+The experimental TypeScript harness describes memory/SQLite/JSONL storage with one owning process, checkpointed model/tool/compaction tasks, requestId submission deduplication, and explicitly safe tool replay after crashes. Non-safe interrupted tools are reported to the model. Ownership trees determine bottom-up abort cleanup; background tasks outlive ordinary turn aborts. Documents share atomic commits with transcripts, and compaction preserves old records. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-03-rss-pi-durable.md)
+
+### Explicit relationships
+
+Durability depends-on checkpoints and storage ownership; safe replay uses idempotent effects. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Experimental API account, not independent crash testing. Exactly-once submission is not exactly-once external action: the payment example depends on external idempotency keys and refund semantics. Memoized approvals also need validity/invalidation tests; live registry replacement needs version/migration discipline. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Do HoneyDrunk harness tests cover crash windows, unsafe effects, expired approvals, ownership cancellation, background tasks, and schema/code migrations? See [[indexes/gaps]].

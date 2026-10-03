@@ -1403,3 +1403,22 @@ A sensible default uses known starting practices; deviations depend-on contextua
 ### Decision and quality notes
 
 Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Which HoneyDrunk defaults have documented benefits, exceptions, and reassessment triggers? See [[indexes/gaps]].
+
+
+## 2026-10-03: Folder navigation and deterministic placement need separate tests
+
+### Typed entities
+
+person: Sterling Freeman; concept: navigation taxonomy; concept: deterministic classification; concept: CE Pattern.
+
+### Claims and evidence
+
+Freeman distinguishes finding files from deciding where new files belong. Tree testing measures navigation; closed card sorting checks consistent placement and open card sorting explores grouping. His core/elements/patterns proposal preserves vendor core, enriches reusable vocabulary in elements, composes purpose-specific patterns, and enforces downward dependencies. Role-based folders may aid discovery but leave ambiguous placement. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-03-rss-your-folder-structure-has-two-jobs-but-only-does-one.md)
+
+### Explicit relationships
+
+Folder quality depends-on navigation and placement tests; dependency direction uses enforceable rules. See [[pipeline-template-contracts]].
+
+### Decision and quality notes
+
+Author's design proposal, not a universal architecture or verified placement guarantee. Import/export counts need edge-case conventions and enforcement, and cross-functional users may value role names. No shared-folder migration or skill installation performed. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Can HoneyDrunk folder rules produce consistent placement while preserving navigation speed for both authors and readers? See [[indexes/gaps]].

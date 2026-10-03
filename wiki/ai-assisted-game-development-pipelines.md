@@ -132,3 +132,41 @@ Specification reconciliation uses implementation evidence; reference validity de
 ### Decision and quality notes
 
 Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Can HoneyDrunk game specifications resolve technical names and record why each implementation discrepancy is accepted or fixed? See [[indexes/gaps]].
+
+
+## 2026-10-03: Mesh repair gates follow asset role and actionable geometry evidence
+
+### Typed entities
+
+person: Alza; concept: mesh QA; concept: non-manifold edge; concept: repair rollback; concept: asset role.
+
+### Claims and evidence
+
+A forum discussion reports a hole-fill repair reverting because it would create non-manifold edges; debris removal independently eliminated the open boundaries. Participants distinguish deformation/skinned-mesh constraints from static-prop tolerance and argue that defect counts need offending-geometry locations. Reported generated-mesh defect incidence must travel with magnitude and sampling context; topology flow and manifoldness are different properties. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-03-rss-an-ai-generated-boat-that-fails-qa-and-the-fix-that-refused-to-run.md)
+
+### Explicit relationships
+
+Repair acceptance depends-on asset role and before/after invariants; rollback fixed an unsafe candidate change. See [[technical-art-community-and-talent-signals]].
+
+### Decision and quality notes
+
+Self-reported forum measurements, not independently available per-model data or a general AI-versus-human ranking. Watertight output does not prove that hole filling succeeded; asset-role acceptance cannot be inferred from platform alone. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk asset-role profiles and selectable defect locations gate mesh repairs and record the operation that actually removed each defect? See [[indexes/gaps]].
+
+
+## 2026-10-03: Unity extends shared official guidance to Grok Build
+
+### Typed entities
+
+project: Unity; project: Grok Build; project: unity-agent-plugin; concept: engine-maintained skill.
+
+### Claims and evidence
+
+Unity announces the official plugin for Grok Build with the same 30-plus engine-team skills offered for Claude Code and Codex, maintained in one repository and described as compatible with Unity 6 and later. Topics span UI, rendering, audio, physics, monetization, multiplayer, web, and localization. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-03-rss-meeting-you-where-you-work-unity-plugin-for-grok-build.md)
+
+### Explicit relationships
+
+Agent guidance uses a shared Unity skill repository; acceptance depends-on project and engine checks. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Official announcement extends earlier Codex coverage without contradicting it. Shared guidance does not guarantee identical agent behavior or build success; install/trust commands were not executed. Usage metrics and linked demos are not independent validation. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Do chosen HoneyDrunk agent/plugin versions apply matching Unity guidance and pass project build, device, and visual checks? See [[indexes/gaps]].

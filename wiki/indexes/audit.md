@@ -288,3 +288,8 @@ Operator: Codex executing the authorized Honeyclaw workflow. Read 15 September 2
 ## 2026-09-30T10:04:18-04:00: daily ingest/compile
 
 Operator: Codex executing Honeyclaw workflow. Ingested 15 attributed summaries into 12 existing canonical pages; no raw edits, new pages, or merges. Rebuilt source/topic coverage and appended 15 gaps. No new contradictions or independent three-source promotion. Query outputs remain redundant. See [run receipt](../../output/lore-ingest-last-run.md) for review, quality, validation, and publication scope.
+
+
+## 2026-10-03T10:12:52-04:00: daily ingest/compile
+
+Operator: Codex executing Honeyclaw workflow. Fully reviewed 30 captures, extended 18 canonical pages, rebuilt 1157-source and 67-topic catalogs, and logged 30 gaps. Preserved and superseded incorrect retention interpretation and stale token rollout posture. Single-source claims remain provisional; query outputs add no new evidence. No raw edits or new canonical pages. See [run receipt](../../output/lore-ingest-last-run.md) for quality, review, validation, and publication status.

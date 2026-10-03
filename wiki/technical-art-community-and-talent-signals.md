@@ -1286,3 +1286,41 @@ Shader optimization depends-on target-hardware profiling; static switches trade 
 ### Decision and quality notes
 
 Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Which target scenes separate HoneyDrunk GPU cost, shader compilation/permutation cost, and first-use PSO hitches? See [[indexes/gaps]].
+
+
+## 2026-10-03: Basalt environment variety comes from reuse and art direction
+
+### Typed entities
+
+person: Artur Artinian; project: Sonata of the Stones; library: Unreal Engine; concept: asset reuse; concept: RGB mask.
+
+### Claims and evidence
+
+Artinian describes a basalt environment built from roughly five unique meshes: one pillar has six subtly different sculpted faces, with grouped variants and rotation/scale supporting composition. Tileable stone plus RGB edgewear/dirt/variation masks, decals, asymmetry, low-camera framing, and additional lighting break repetition while retaining material identity. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-02-rss-recreating-armenia-s-natural-monument-made-up-of-basalt-columns-in-3d.md)
+
+### Explicit relationships
+
+Environment variety uses reused geometry and masks; scene readability depends-on composition and lighting. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Artist interview and scene-specific account. No runtime performance figures or independently inspected project; dramatic lighting and limited unique assets do not guarantee device-budget compliance. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Can a HoneyDrunk environment reuse a small asset set while passing repetition, silhouette, lighting, and target-device checks? See [[indexes/gaps]].
+
+
+## 2026-10-03: Character anchors and tiered effects preserve multiplayer readability
+
+### Typed entities
+
+project: Marvel Rivals; project: NetEase Games; concept: visual anchor; concept: NPR/PBR shading; concept: asset tier.
+
+### Claims and evidence
+
+The Marvel Rivals art team describes preserving silhouettes, logos, signature equipment, and color anchors across redesigns and skins. Ability effects scale with gameplay role while a custom NPR/PBR model stabilizes character readability. Destruction uses controlled fragment segmentation and VFX-driven debris rather than physical simulation; cross-platform quality tiers and rendering budgets constrain lighting and effects. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-03-rss-behind-the-scenes-how-the-marvel-rivals-art-team-builds-a-character.md)
+
+### Explicit relationships
+
+Character recognition depends-on visual anchors; scalable effects use asset tiers and controlled debris. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Team interview, not an engine implementation or independent performance benchmark. The approach is project-specific and does not establish that all debris or destruction gameplay can discard physics. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which visual anchors, ability-tier cues, destruction cover rules, and rendering budgets qualify HoneyDrunk character variants across platforms? See [[indexes/gaps]].

@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-09-30
+## Compile coverage: 2026-10-03
 
-Reconciled 1127 raw documents against 1127 unique entries; ingested 15 attributed summaries. Existing records and dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
+Reconciled 1157 raw documents against 1157 unique entries; ingested 30 captures. Existing records and dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
 
 ## Entry format
 
@@ -1403,3 +1403,63 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [UE5 Shader Optimization: Materials, Custom HLSL, and Global Shaders with RDG](../../raw/2026-09-30-rss-shader-runtime-permutation-pso-costs.md) - Attributed summary compiled in [[technical-art-community-and-talent-signals]]; source-specific evidence remains provisional. - ingested 2026-09-30
 
 - [Cross-Platform Save Systems: Cloud Sync Done Right](../../raw/2026-09-30-rss-unity-offline-cloud-save-layering.md) - Attributed summary compiled in [[procedural-world-persistence]]; source-specific evidence remains provisional. - ingested 2026-09-30
+
+- [A GitHub token was stolen. Now what?](../../raw/2026-10-02-rss-a-github-token-was-stolen-now-what.md) - Credential compromise scope follows access and downstream secrets; canonical page: [[ai-coding-agent-security]]. - ingested 2026-10-03
+
+- [Actions retention now covers checks, runs, and statuses](../../raw/2026-10-02-rss-actions-retention-now-covers-checks-runs-and-statuses.md) - Expanded Actions retention is active; deleted data is not restored; canonical page: [[github-actions-platform-operations]]. - ingested 2026-10-03
+
+- [Actions Runner Controller release 0.15.0](../../raw/2026-10-02-rss-actions-runner-controller-release-0-15-0.md) - ARC 0.15.0 moves aggregation to metrics and exposes controller limits; canonical page: [[github-actions-platform-operations]]. - ingested 2026-10-03
+
+- [An Idea for Avoiding Sort Issues in a Common Explosion FX Setup](../../raw/2026-10-02-rss-an-idea-for-avoiding-sort-issues-in-a-common-explosion-fx-setup.md) - Camera-relative shockwave halves address transparent sort interference; canonical page: [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-10-03
+
+- [AutoSynthData: Generating Training Data for Enterprise Agents](../../raw/2026-10-02-rss-autosynthdata-generating-training-data-for-enterprise-agents.md) - AutoSynthData turns capability gaps into executed training tasks; canonical page: [[agent-evaluation-and-benchmarks]]. - ingested 2026-10-03
+
+- [Everything released in September 2026 for Azure Developer CLI](../../raw/2026-10-02-rss-everything-released-in-september-2026-for-azure-developer-cli.md) - September azd releases expose dependency and deployment controls; canonical page: [[azure-agent-automation-and-identity]]. - ingested 2026-10-03
+
+- [How API Contract Testing Prevents Production Failures](../../raw/2026-10-02-rss-how-api-contract-testing-prevents-production-failures.md) - Runtime response validation complements deployment contract tests; canonical page: [[api-testing-and-verification]]. - ingested 2026-10-03
+
+- [How to create a good LLM judge](../../raw/2026-10-02-rss-how-to-create-a-good-llm-judge.md) - LLM judges need failure-specific human labels and held-out validation; canonical page: [[agent-evaluation-and-benchmarks]]. - ingested 2026-10-03
+
+- [Introducing Clef: our open-source decision models, and new RL fine-tuning platform](../../raw/2026-10-02-rss-introducing-clef-our-open-source-decision-models-and-new-rl-fine-tunin.md) - Clef provides schema-bound decision probabilities; calibration still needs tests; canonical page: [[agent-evaluation-and-benchmarks]]. - ingested 2026-10-03
+
+- [Open-sourcing AstaBrief, the fast report-generation model in Asta](../../raw/2026-10-02-rss-open-sourcing-astabrief-the-fast-report-generation-model-in-asta.md) - AstaBrief preserves citation evaluation while simplifying report generation; canonical page: [[ai-for-science-and-chemistry]]. - ingested 2026-10-03
+
+- [Recreating Armenia's Natural Monument Made up of Basalt Columns in 3D](../../raw/2026-10-02-rss-recreating-armenia-s-natural-monument-made-up-of-basalt-columns-in-3d.md) - Basalt environment variety comes from reuse and art direction; canonical page: [[technical-art-community-and-talent-signals]]. - ingested 2026-10-03
+
+- [Solving the Identity Crisis for AI Agents](../../raw/2026-10-02-rss-solving-the-identity-crisis-for-ai-agents.md) - Uber carries attested human and agent provenance across each hop; canonical page: [[ai-agent-identity-and-workload-auth]]. - ingested 2026-10-03
+
+- [Unity 6.3 Memory Management: When to Use GC, Destroy, and Dispose](../../raw/2026-10-02-rss-unity-6-3-memory-management-when-to-use-gc-destroy-and-dispose.md) - Unity cleanup follows acquisition, ownership, and last use; canonical page: [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-10-03
+
+- [Unity Announces External Dependency Manager Package](../../raw/2026-10-02-rss-unity-announces-external-dependency-manager-package.md) - Unity EDM takes ownership of mobile native dependency resolution; canonical page: [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-10-03
+
+- [When to Use an LLM Knowledge Graph or a Vector RAG](../../raw/2026-10-02-rss-when-to-use-an-llm-knowledge-graph-or-a-vector-rag.md) - Graph retrieval adds relationships but requires canonicalization and validation; canonical page: [[agentic-retrieval-and-search]]. - ingested 2026-10-03
+
+- [An AI-generated boat that fails QA, and the fix that refused to run.](../../raw/2026-10-03-rss-an-ai-generated-boat-that-fails-qa-and-the-fix-that-refused-to-run.md) - Mesh repair gates follow asset role and actionable geometry evidence; canonical page: [[ai-assisted-game-development-pipelines]]. - ingested 2026-10-03
+
+- [Behind the Scenes: How the Marvel Rivals Art Team Builds a Character](../../raw/2026-10-03-rss-behind-the-scenes-how-the-marvel-rivals-art-team-builds-a-character.md) - Character anchors and tiered effects preserve multiplayer readability; canonical page: [[technical-art-community-and-talent-signals]]. - ingested 2026-10-03
+
+- [Building Low-Latency Turn-Based Game Clients: Canvas Rendering, Coordinate Systems, and State Reconciliation](../../raw/2026-10-03-rss-building-low-latency-turn-based-game-clients-canvas-rendering-coordina.md) - Turn-based clients separate board geometry and speculative presentation; canonical page: [[realtime-game-network-protocol-design]]. - ingested 2026-10-03
+
+- [Cut AI agent cost and improve accuracy with Code Execution in the Datadog MCP Server](../../raw/2026-10-03-rss-cut-ai-agent-cost-and-improve-accuracy-with-code-execution-in-the-data.md) - Datadog code execution joins data outside the model context; canonical page: [[mcp-tool-governance-and-app-surfaces]]. - ingested 2026-10-03
+
+- [GitHub Actions: macOS 14 runner image retirement](../../raw/2026-10-03-rss-github-actions-macos-14-runner-image-retirement.md) - macOS 14 retirement has imminent scheduled brownouts; canonical page: [[github-actions-platform-operations]]. - ingested 2026-10-03
+
+- [GPT-6 Astra, Sol, and Luna: For production agents in Microsoft Foundry](../../raw/2026-10-03-rss-gpt-6-astra-sol-and-luna-for-production-agents-in-microsoft-foundry.md) - Foundry model selection measures successful-task cost and serving constraints; canonical page: [[azure-agent-automation-and-identity]]. - ingested 2026-10-03
+
+- [Meeting you where you work: Unity Plugin for Grok Build](../../raw/2026-10-03-rss-meeting-you-where-you-work-unity-plugin-for-grok-build.md) - Unity extends shared official guidance to Grok Build; canonical page: [[ai-assisted-game-development-pipelines]]. - ingested 2026-10-03
+
+- [New features in Git 2.54: easier rebasing, hooks, and statistics](../../raw/2026-10-03-rss-new-features-in-git-2-54-easier-rebasing-hooks-and-statistics.md) - Git 2.54 adds limited history editing and configurable hooks; canonical page: [[git-storage-and-version-control-infrastructure]]. - ingested 2026-10-03
+
+- [Open TTS Leaderboard: Scalable Evaluation for Multilingual Text-to-Speech and Voice Cloning](../../raw/2026-10-03-rss-open-tts-leaderboard-scalable-evaluation-for-multilingual-text-to-spee.md) - Open TTS metrics complement human listening and hardware-specific latency; canonical page: [[voice-agent-platforms-2026]]. - ingested 2026-10-03
+
+- [Pi Durable](../../raw/2026-10-03-rss-pi-durable.md) - Pi Durable separates durable submissions from replay-safe effects; canonical page: [[ai-agent-harnesses]]. - ingested 2026-10-03
+
+- [Running AI agents safely in a microVM using docker sandbox](../../raw/2026-10-03-rss-running-ai-agents-safely-in-a-microvm-using-docker-sandbox.md) - MicroVM isolation leaves workspace and credential-mediated authority in scope; canonical page: [[ai-coding-agent-security]]. - ingested 2026-10-03
+
+- [Ship agents faster with expanded model choice, voice agents, and continuous optimization](../../raw/2026-10-03-rss-ship-agents-faster-with-expanded-model-choice-voice-agents-and-continu.md) - Foundry capability stages stay distinct in continuous agent optimization; canonical page: [[azure-agent-automation-and-identity]]. - ingested 2026-10-03
+
+- [Stateless GitHub App installation tokens rolled out](../../raw/2026-10-03-rss-stateless-github-app-installation-tokens-rolled-out.md) - Stateless installation tokens are fully rolled out; override header expires; canonical page: [[github-copilot-and-app-token-changes]]. - ingested 2026-10-03
+
+- [We tested our own WAF with frontier AI models. Here's what we found](../../raw/2026-10-03-rss-we-tested-our-own-waf-with-frontier-ai-models-here-s-what-we-found.md) - Adaptive WAF testing needs scoped replay and human finding validation; canonical page: [[ai-coding-agent-security]]. - ingested 2026-10-03
+
+- [Your Folder Structure Has Two Jobs, but Only Does One](../../raw/2026-10-03-rss-your-folder-structure-has-two-jobs-but-only-does-one.md) - Folder navigation and deterministic placement need separate tests; canonical page: [[ai-assisted-software-practice]]. - ingested 2026-10-03

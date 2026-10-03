@@ -2318,3 +2318,60 @@ Sandbox templates use OCI registry distribution; environment acceptance depends-
 ### Decision and quality notes
 
 Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Which pinned sandbox template passes HoneyDrunk restore/build/test workloads, including the reported build-hang failure class? See [[indexes/gaps]].
+
+
+## 2026-10-03: Credential compromise scope follows access and downstream secrets
+
+### Typed entities
+
+project: GitHub; project: Invictus; concept: credential blast radius; concept: evidence retention.
+
+### Claims and evidence
+
+Invictus distinguishes credential reach from activity established by telemetry: absent clone or API evidence does not clear accessible repositories. Its incident-response account follows valid secrets through repository contents and history into cloud, SaaS, and CI access; containment requires identifying owners and dependencies, rotating exposed credentials, and investigating endpoint theft as well as revoking the initial token. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-02-rss-a-github-token-was-stolen-now-what.md)
+
+### Explicit relationships
+
+Incident scope depends-on credential permissions and available telemetry; recovery uses downstream secret ownership. See [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+Practitioner incident account, not evidence of a HoneyDrunk compromise. Classic PAT reach remains bounded by scopes and identity permissions; an App private key has a different installation-wide risk. Plan-specific audit capabilities and retention need current verification before response planning. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk credential owners, repository-history scans, audit streams, and rotation dependency maps bound a token incident? See [[indexes/gaps]].
+
+
+## 2026-10-03: MicroVM isolation leaves workspace and credential-mediated authority in scope
+
+### Typed entities
+
+person: Andrew Lock; project: Docker Sandboxes; library: sbx; concept: direct workspace mount; concept: network proxy.
+
+### Claims and evidence
+
+Lock's sandbox walkthrough distinguishes microVM kernels from shared-kernel containers and describes proxy-injected authentication, network policies, and a private Docker engine. Direct mode exposes the working repository; branch mode creates a nested worktree but still permits access to the root. The account notes signing limitations, network-policy friction, configurable memory, and sometimes severe performance cost. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-03-rss-running-ai-agents-safely-in-a-microvm-using-docker-sandbox.md)
+
+### Explicit relationships
+
+Sandbox isolation depends-on mounts, network policy, and mediated credentials; branch work uses shared repository state. See [[container-supply-chain-and-compliance]].
+
+### Decision and quality notes
+
+April 7 secondary walkthrough captured October 3; experimental platform support and commands may be stale. Branch mode is workflow separation, not immutable repository isolation. The source's broad safety phrasing does not eliminate workspace destruction, allowed egress, injected-credential use, or prompt injection. Public login transcript/device-code and local-user-path examples are intentionally omitted from wiki content. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Do HoneyDrunk microVM tests bound root-workspace access, allowed egress, injected credential use, commit signing, and build performance? See [[indexes/gaps]].
+
+
+## 2026-10-03: Adaptive WAF testing needs scoped replay and human finding validation
+
+### Typed entities
+
+project: Cloudflare; concept: adaptive security evaluation; concept: target allowlist; concept: false-positive budget.
+
+### Claims and evidence
+
+Cloudflare describes an authorized staging test with code-enforced hostname allowlisting, redirects disabled, bounded attempts, recorded evidence, and untrusted response text. Models propose and review variations but cannot deploy enforcement rules. Of 1,107 attempts across 45 scenarios, its post-triage result set contains 558 blocked requests and 49 WAF-relevant findings; malformed, benign, duplicate, and out-of-scope observations are excluded. Candidates are replayed and evaluated for legitimate-traffic impact before deployment. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-03-rss-we-tested-our-own-waf-with-frontier-ai-models-here-s-what-we-found.md)
+
+### Explicit relationships
+
+Security findings depend-on valid requests, attribution, and safe reproduction; rules use false-positive checks. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Vendor case study of one WAF configuration, not a population-wide block rate or proof that every edge-pass exploited the origin. A redirect observation did not establish metadata access. Offensive payload forms are omitted; human replay and application patching remain separate requirements. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk authorized staging scopes, replay evidence, origin validation, and legitimate-traffic tests distinguish real findings from non-blocked noise? See [[indexes/gaps]].

@@ -5,6 +5,7 @@ Two GitHub platform changes affect automation cost and compatibility: GitHub App
 
 ## Claims
 - Starting April 27, 2026, GitHub began staged rollout of a new stateless GitHub App installation-token format; new `ghs_` tokens become `ghs_APPID_JWT`, grow to roughly 520 characters, and vary in length. confidence: 1 source, last-confirmed 2026-05-05. [source: raw/2026-05-03-rss-github-app-installation-token-format.md]
+  - superseded-by: [[github-copilot-and-app-token-changes#2026-10-03: Stateless installation tokens are fully rolled out; override header expires]], 2026-10-03T10:12:52-04:00. Reason: October 2 official completion notice supersedes staged-rollout operational posture; historical start date, variable length, and opacity remain valid. [completion notice](../raw/2026-10-03-rss-stateless-github-app-installation-tokens-rolled-out.md).
 - GitHub warns that apps relying on installation tokens being exactly 40 characters long may break under the new format. confidence: 1 source, last-confirmed 2026-05-05. [source: raw/2026-05-03-rss-github-app-installation-token-format.md]
 - Starting June 1, 2026, GitHub Copilot code review will be billed as AI Credits and will also consume GitHub Actions minutes from the user's existing plan. confidence: 1 source, last-confirmed 2026-05-05. [source: raw/2026-05-03-rss-github-copilot-code-review-actions-minutes.md]
 - Copilot code review uses an agentic tool-calling architecture that runs on GitHub Actions runners, including GitHub-hosted, self-hosted, and larger runners. confidence: 1 source, last-confirmed 2026-05-05. [source: raw/2026-05-03-rss-github-copilot-code-review-actions-minutes.md]
@@ -483,3 +484,22 @@ App token issuance depends-on signing authority; containment depends-on key revo
 ### Decision and quality notes
 
 First-party security research with sampling limits, not evidence of HoneyDrunk compromise or population-wide prevalence. Record owners and scopes without copying key material or exposed identifiers. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Does each HoneyDrunk GitHub App have an active owner, bounded installation scope, reviewed key rotation and revocation, and a retirement path for unused integrations? See [[indexes/gaps]].
+
+
+## 2026-10-03: Stateless installation tokens are fully rolled out; override header expires
+
+### Typed entities
+
+project: GitHub; concept: stateless installation token; concept: opaque credential; concept: header deprecation.
+
+### Claims and evidence
+
+The October 2 notice says the staged rollout is complete and newly minted installation tokens default to ghs_APPID_JWT, roughly 520 characters. Permissions, repository scoping, one-hour expiry, and the REST endpoint remain unchanged; existing tokens work until expiry. The temporary X-GitHub-Stateless-S2S-Token header is deprecated November 30, 2026. Integrations must avoid fixed-length validation/storage, header truncation, and legacy-only redaction. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-03-rss-stateless-github-app-installation-tokens-rolled-out.md)
+
+### Explicit relationships
+
+Token compatibility depends-on opaque variable-length handling; completed rollout supersedes the staged migration posture.
+
+### Decision and quality notes
+
+Official rollout snapshot supersedes pending rollout posture. The April notice also says lengths vary and clients must not validate or depend on JWT contents; retain opaque handling rather than replacing 40-character validation with exactly 520. No real credential values copied. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Do HoneyDrunk token stores, proxies, validators, redactors, and override-header removal pass variable-length installation-token tests? See [[indexes/gaps]].

@@ -147,3 +147,22 @@ Speech recognition uses structured phrase-list hints; deployment decisions depen
 ### Decision and quality notes
 
 Vendor release claims, not local measurements. Real-time availability is not inferred from the heading. Test mixed-language audio, vocabulary, and latency before depending on release benefits. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: Which Speech LLM 2607 endpoints support the needed phrase-list and multilingual behavior, and what replay suite detects service-side recognition or latency regressions? See [[indexes/gaps]].
+
+
+## 2026-10-03: Open TTS metrics complement human listening and hardware-specific latency
+
+### Typed entities
+
+project: Hugging Face Open TTS Leaderboard; library: Qwen3 ASR; library: WavLM; concept: WER/CER; concept: TTFA.
+
+### Claims and evidence
+
+The leaderboard separates ASR-based intelligibility, speaker-embedding similarity, offline batched speed, and streaming time-to-first-audio. TTFA uses batch size one, 50 English prompts, three warm-up exclusions, and median results on stated H200 or CPU hardware; non-streaming models cannot play before the full utterance arrives. Multilingual performance cannot be inferred from English ranking. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-03-rss-open-tts-leaderboard-scalable-evaluation-for-multilingual-text-to-spee.md)
+
+### Explicit relationships
+
+Voice comparison uses complementary metrics; deployment choice depends-on language, listening, and target hardware. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Leaderboard methodology snapshot, not a production voice recommendation. WER/CER and speaker similarity do not measure naturalness, expressiveness, or preference; scripts are announced for future release. Reference voices require appropriate rights and consent. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk languages, consented voices, listener judgments, and target-hardware TTFA tests qualify a TTS model? See [[indexes/gaps]].

@@ -62,3 +62,22 @@ Late-interaction scoring uses token representations; retrieval quality depends-o
 ### Decision and quality notes
 
 One author benchmark, not universal superiority. Evaluate held-out Lore questions, evidence truncation, and index cost together if retrieval requirements outgrow flat-file search. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: On held-out Lore questions, how do single-vector and multi-vector retrieval compare after controlling document truncation, lexical overlap, distractors, and compression cost? See [[indexes/gaps]].
+
+
+## 2026-10-03: Graph retrieval adds relationships but requires canonicalization and validation
+
+### Typed entities
+
+project: n8n; concept: vector RAG; concept: knowledge graph; concept: entity resolution; concept: HybridRAG.
+
+### Claims and evidence
+
+n8n presents vector retrieval for a few semantically related passages and graph traversal for explicit multi-hop relationships, with hybrid orchestration when both are needed. LLM-extracted triples require entity resolution and validation; schema-first construction improves consistency while schema-free discovery increases validation needs. Graph maintenance costs can exceed standard vector retrieval. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-02-rss-when-to-use-an-llm-knowledge-graph-or-a-vector-rag.md)
+
+### Explicit relationships
+
+Multi-hop retrieval uses relationships; graph quality depends-on validated entities and sources. See [[llm-wiki-and-knowledge-formats]].
+
+### Decision and quality notes
+
+Vendor design guidance. Graph paths improve inspectability but do not guarantee truthful answers; retrieval, extraction, and canonicalization can each fail. This does not authorize heavier Lore infrastructure below its scaling threshold. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk held-out questions need explicit relationship traversal, and what extraction/canonicalization errors and maintenance costs would justify it? See [[indexes/gaps]].

@@ -37,3 +37,22 @@ Anthropic's June 2026 chemistry work suggests frontier multimodal/reasoning mode
 ## Confidence and quality notes
 - Quality posture: early domain-eval signal; decision-useful for scouting only.
 - Privacy filter: no private lab data or unsafe procedural synthesis details were copied.
+
+
+## 2026-10-03: AstaBrief preserves citation evaluation while simplifying report generation
+
+### Typed entities
+
+project: Ai2; library: AstaBrief 8B; library: Qwen3-8B; concept: citation precision; concept: evidentiary scope.
+
+### Claims and evidence
+
+Ai2 describes Qwen3-8B post-training with SFT and DPO plus one-pass report generation from retrieved excerpts. Low-citation-density filtering delivered the strongest data-filter gains; relevance, content coverage, citation precision, and citation recall are separate metrics. Fast mode averaged 51.1 seconds across the full pipeline versus 178.5 seconds for Thinking mode, a different boundary from the nearly order-of-magnitude generation-only improvement. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-02-rss-open-sourcing-astabrief-the-fast-report-generation-model-in-asta.md)
+
+### Explicit relationships
+
+Scientific synthesis depends-on retrieved evidence and attribution filtering; source faithfulness uses scope checks beyond citation presence. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Vendor experiment largely performed in 2025; not rerun against today's frontier. A 14-question human study and sparse user feedback are limited evidence. Correct citation attachment does not alone preserve sample scope, tense, or descriptive-versus-prescriptive strength. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk synthesis tests measure citation support, source-scope preservation, relevance, and full-pipeline latency on private/local data? See [[indexes/gaps]].

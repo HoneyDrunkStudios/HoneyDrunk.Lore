@@ -111,3 +111,22 @@ Server-owned scoring uses deterministic replay; backward interpretation depends-
 ### Decision and quality notes
 
 Single-project experience. Replay legality does not establish bot resistance; migration and deployed-artifact checks require local cases. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Which leaderboard tests cover versioned replay, invalid actions, bot limits, daily versus lifetime records, migration loss, and deployed share-image rendering? See [[indexes/gaps]].
+
+
+## 2026-10-03: Turn-based clients separate board geometry and speculative presentation
+
+### Typed entities
+
+concept: normalized board coordinates; concept: client sequence; concept: authoritative reconciliation; concept: cached canvas.
+
+### Claims and evidence
+
+The authored client guide proposes cached static-board rendering with a dynamic overlay, a common normalized coordinate system for hit tests, enlarged touch/snap tolerance, and visual lift during dragging. Immutable move intents carry client sequence identifiers; speculative local feedback is confirmed or rolled back against authoritative server state. Audio buffers and throttling keep effects out of the render-critical path. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-03-rss-building-low-latency-turn-based-game-clients-canvas-rendering-coordina.md)
+
+### Explicit relationships
+
+Input geometry uses normalized coordinates; speculative presentation depends-on authoritative reconciliation. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Community design guide, not measured target-client performance. Canvas superiority, constant-time lookup, and frame-time examples depend on implementation; duplicate/out-of-order acknowledgements and reconnect semantics need additional protocol tests. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Do HoneyDrunk board clients handle touch transforms, rejected moves, duplicate/stale acknowledgements, reconnects, and target-device frame budgets? See [[indexes/gaps]].

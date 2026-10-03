@@ -801,6 +801,7 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ### Source-backed claims
 - GitHub says that starting 2026-10-01, checks, workflow runs, and statuses will be subject to each repository or organization GitHub Actions retention setting, with the public-repository maximum remaining 90 days; the change is not retroactive to runs before the effective date. Source: `raw/2026-09-04-rss-github-changelog-actions-actions-retention-will-cover-checks-workflow-.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-09-04.
+  - superseded-by: [[github-actions-platform-operations#2026-10-03: Expanded Actions retention is active; deleted data is not restored]], 2026-10-03T10:12:52-04:00. Reason: the preserved August source defines non-retroactivity as inability to restore previously evicted data, not exemption for pre-effective-date runs; the October notice confirms active cleanup. The prior exemption is unsupported. [August source](../raw/2026-09-04-rss-github-changelog-actions-actions-retention-will-cover-checks-workflow-.md); [October source](../raw/2026-10-02-rss-actions-retention-now-covers-checks-runs-and-statuses.md).
 - GitHub's early September 2026 Actions update adds a REST API endpoint, `GET /actions/runners/deprecations/{version}`, for repository, organization, and enterprise owners to retrieve runner deprecation dates for a specified runner version. Source: `raw/2026-09-04-rss-github-changelog-actions-github-actions-early-september-2026-updates.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-09-04.
 - The same update adds a `vulnerability-alerts` `GITHUB_TOKEN` permission with `read` or `none`, allowing workflows to access Dependabot alert data without broad repository permissions. Source: `raw/2026-09-04-rss-github-changelog-actions-github-actions-early-september-2026-updates.md`; page: [[ai-coding-agent-security]]. confidence: 1 source, last-confirmed 2026-09-04.
 - Reusable workflows now receive job context fields including `job.workflow_ref`, `job.workflow_sha`, `job.workflow_repository`, and `job.workflow_file_path`, improving provenance and policy logic for centrally managed workflows; the captured changelog says these fields are unavailable on GitHub Enterprise Server. Source: `raw/2026-09-04-rss-github-changelog-actions-github-actions-early-september-2026-updates.md`. confidence: 1 source, last-confirmed 2026-09-04.
@@ -1091,3 +1092,64 @@ The September announcement supersedes the June Enterprise Cloud enforcement date
 ### Decision and quality notes
 
 Official change notice preserved as an attributed summary. Flag: the exact execution minimum is absent and must not be inferred from 2.329.0. The date supersession above preserves the older account; the Data Residency schedule and registration threshold are not contradicted. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Which HoneyDrunk hosting products and runner versions are affected, and what execution minimum and deadlines does the runner-version-deprecation API report for each deployed version? See [[indexes/gaps]].
+
+
+## 2026-10-03: Expanded Actions retention is active; deleted data is not restored
+
+### Typed entities
+
+project: GitHub Actions; concept: retention policy; concept: historical evidence.
+
+### Claims and evidence
+
+The October 1 GitHub.com notice says checks, workflow runs, and statuses now follow the Actions retention setting alongside artifacts and logs, including checks/statuses produced by third-party apps. Organization and enterprise caps still apply; public repositories have a 90-day maximum. Changing retention does not restore removed data. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-02-rss-actions-retention-now-covers-checks-runs-and-statuses.md)
+
+### Explicit relationships
+
+Evidence availability depends-on retention configuration; the active notice supersedes pending-rollout guidance. See [[github-copilot-and-app-token-changes]].
+
+### Decision and quality notes
+
+Official archived announcement. The older August notice also supports the correction below but is the same policy lineage, not an independent operational test. GHES parity and actual repository settings are not established. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which release, compliance, and agent-evaluation records must HoneyDrunk export before configured retention expires? See [[indexes/gaps]].
+
+### Retention correction and confidence
+
+The historical exemption above is demoted to unsupported interpretation. Both official captures define non-retroactivity as no restoration of deleted data; neither grants pre-October runs indefinite retention. confidence: 2 sources, last-confirmed 2026-10-03 (same policy lineage; archival review, not independent service testing). [August notice](../raw/2026-09-04-rss-github-changelog-actions-actions-retention-will-cover-checks-workflow-.md); [active notice](../raw/2026-10-02-rss-actions-retention-now-covers-checks-runs-and-statuses.md).
+
+
+## 2026-10-03: ARC 0.15.0 moves aggregation to metrics and exposes controller limits
+
+### Typed entities
+
+project: GitHub Actions Runner Controller; library: ARC 0.15.0; concept: runner scale set; concept: reconciliation.
+
+### Claims and evidence
+
+GitHub reports in-place resource updates for patch upgrades, configurable shutdown grace, missing-scale-set reregistration, patch requests, metric-based runner status aggregation, listener QPS/burst settings, and global/per-controller reconcile concurrency. Successful runner-pod exit can skip the server removal check to accelerate cleanup. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-02-rss-actions-runner-controller-release-0-15-0.md)
+
+### Explicit relationships
+
+Runner-fleet operation depends-on controller concurrency, API limits, shutdown, and metrics. See [[kubernetes-platform-governance-and-cicd]].
+
+### Decision and quality notes
+
+Short official announcement; no local fleet upgrade or scale benchmark. Consumers of status fields need to validate the new metrics contract. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Do HoneyDrunk runner dashboards and upgrade tests cover metric aggregation, shutdown, scale-set recovery, and Kubernetes API pressure? See [[indexes/gaps]].
+
+
+## 2026-10-03: macOS 14 retirement has imminent scheduled brownouts
+
+### Typed entities
+
+project: GitHub Actions; concept: macOS 14 runner image; decision: runner migration.
+
+### Claims and evidence
+
+The October 1 notice schedules retirement of macos-14, macos-14-large, and macos-14-xlarge for November 2, 2026. Brownouts start October 5 at 14:00 UTC through October 6 at 00:00 UTC, followed by October 12, 16, 19, 23, 26, 29, and 30 with the same UTC window. Capacity may shrink before retirement. The notice suggests supported macOS arm64 labels. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-03-rss-github-actions-macos-14-runner-image-retirement.md)
+
+### Explicit relationships
+
+CI continuity depends-on runner lifecycle; image migration uses architecture and toolchain validation.
+
+### Decision and quality notes
+
+Official schedule snapshot; exact current image/tool availability still needs verification before changing CI. Intel-to-arm64 build, dependency, and signing compatibility are separate acceptance checks. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk workflows still select macOS 14, and which arm64 dependency/signing tests must pass before the first brownout? See [[indexes/gaps]].

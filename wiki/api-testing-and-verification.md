@@ -61,3 +61,22 @@ Reproducible SDKs depend-on generator availability and build inputs as well as a
 ### Decision and quality notes
 
 Vendor migration account, not legal interpretation or independently measured productivity. Treat generator continuity as a supply dependency and verify interface, streaming, error, and type contracts. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which generated SDK contracts and pinned build inputs protect HoneyDrunk from generator-provider loss, and what generator-use license terms require review before a replacement? See [[indexes/gaps]].
+
+
+## 2026-10-03: Runtime response validation complements deployment contract tests
+
+### Typed entities
+
+project: n8n; concept: API contract; concept: schema drift; concept: runtime validation.
+
+### Claims and evidence
+
+n8n distinguishes integration behavior, payload schema validation, and provider/consumer contracts. A successful HTTP response may still violate expected types or required fields after deployment. The article proposes explicit HTTP Request, Code validation, and violation-routing steps plus versioned contracts and execution history; validation is not automatic and the described approach does not work with built-in nodes. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-02-rss-how-api-contract-testing-prevents-production-failures.md)
+
+### Explicit relationships
+
+Downstream safety depends-on validation before response use; deployment tests and runtime checks detect different drift windows.
+
+### Decision and quality notes
+
+Vendor workflow guidance, not a delivered HoneyDrunk integration. Schema conformance alone cannot establish that consumer semantics or full end-to-end behavior are correct. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk external API contracts need per-response validation, safe violation routing, versioning, and scheduled drift probes? See [[indexes/gaps]].

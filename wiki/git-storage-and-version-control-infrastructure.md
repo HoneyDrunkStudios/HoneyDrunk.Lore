@@ -43,3 +43,22 @@ This page tracks architecture patterns for hosting Git repositories and version-
 
 ### Quality notes
 - Source is Cursor-authored engineering/product material. The architecture mechanisms are decision-useful, but performance and product-readiness claims should be independently validated before procurement or migration decisions.
+
+
+## 2026-10-03: Git 2.54 adds limited history editing and configurable hooks
+
+### Typed entities
+
+person: Andrew Lock; library: Git 2.54; concept: git history; concept: configured hook; concept: repository statistics.
+
+### Claims and evidence
+
+Lock describes experimental history reword/split operations that avoid checking out the target branch, with merge-containing history unsupported. Config-defined hooks complement traditional hooks but do not become automatically trusted configuration on clone. Repository structure statistics expose object/reference counts, inflated sizes, and large objects. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-03-rss-new-features-in-git-2-54-easier-rebasing-hooks-and-statistics.md)
+
+### Explicit relationships
+
+History editing rewrites descendant commits; hook adoption depends-on explicit local trust and configuration.
+
+### Decision and quality notes
+
+Secondary article published April 28 and captured October 3; later capture does not make it a newer release. A prose/command mismatch around hook listing should be checked against pinned Git documentation before use. No history-editing or hook commands were run. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which pinned Git versions and merge/history constraints qualify HoneyDrunk history tools and trusted hook installation? See [[indexes/gaps]].

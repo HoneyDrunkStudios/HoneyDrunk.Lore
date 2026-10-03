@@ -1588,3 +1588,60 @@ Release findings depend-on shipping relevance and inspection coverage; static de
 ### Decision and quality notes
 
 Author-reported tests on several projects, not independent accuracy measurement or proof of a playable release. Flag: runtime loading and unsupported serialization leave coverage gaps even after a successful scan. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Which runtime-loaded assets, serialization formats, package/namespace mappings, and playable-build checks complement HoneyDrunk static Unity release scans? See [[indexes/gaps]].
+
+
+## 2026-10-03: Camera-relative shockwave halves address transparent sort interference
+
+### Typed entities
+
+person: gaonpapa; concept: transparent particle sorting; concept: camera-relative shockwave.
+
+### Claims and evidence
+
+A RealtimeVFX contributor proposes splitting a ring shockwave into camera-relative front/back halves and killing particles selectively so the two halves can bracket the explosion in sort order. The described three-layer order avoids the interference seen when a whole ring competes with an explosion using only two sort values. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-02-rss-an-idea-for-avoiding-sort-issues-in-a-common-explosion-fx-setup.md)
+
+### Explicit relationships
+
+Shockwave composition uses camera-relative partitioning; sort stability depends-on renderer behavior. See [[technical-art-community-and-talent-signals]].
+
+### Decision and quality notes
+
+Community proposal; missing visual attachments were not inspected. This is a candidate technique, not proof across renderers or camera transitions. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which camera crossings, intersecting effects, and target-renderer scenes validate split-ring sorting without seams? See [[indexes/gaps]].
+
+
+## 2026-10-03: Unity cleanup follows acquisition, ownership, and last use
+
+### Typed entities
+
+project: Unity 6.3; library: Addressables 2.10; library: Collections 2.6; library: Memory Profiler 1.1; concept: resource ownership.
+
+### Claims and evidence
+
+The guide pairs ordinary managed reachability with GC, owned Unity instances with Destroy, acquired Addressables handles with Release/ReleaseInstance, and owned native/GPU allocations with disposal after final use. Handle or NativeArray struct copies do not create independent ownership; pools and ordinary prefab clones still extend required asset lifetime. Deferred destruction, asynchronous loads, disposal jobs, and shared bundle dependencies affect when memory can be reclaimed. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-02-rss-unity-6-3-memory-management-when-to-use-gc-destroy-and-dispose.md)
+
+### Explicit relationships
+
+Cleanup depends-on acquisition and outstanding consumers; repeatable validation uses settled Player snapshots. See [[procedural-world-persistence]].
+
+### Decision and quality notes
+
+Secondary guide scoped to 6000.3 conventional GameObject/MonoBehaviour work. The Japanese examples reportedly compiled, but the English edition was not recompiled, run in Player, or measured on devices. Compare repeated transitions at the same settled state; near-zero GC Alloc or an unchanged OS memory number is not a complete leak diagnosis. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Do HoneyDrunk Player transition tests detect retained handles, material clones, borrowed-view disposal, pending jobs, and premature shared-asset release? See [[indexes/gaps]].
+
+
+## 2026-10-03: Unity EDM takes ownership of mobile native dependency resolution
+
+### Typed entities
+
+project: Unity; library: External Dependency Manager; library: EDM4U; concept: native mobile dependency.
+
+### Claims and evidence
+
+Unity announces a free official UPM EDM package for Unity 2022.3 and later, forked from EDM4U and compatible with its XML dependency declarations. The announcement records Google EDM4U deprecation on October 26, 2026. Projects choose an active manager; SDK-bundled EDM4U should remain until the SDK migrates. EDM orchestrates dependencies resolved through Gradle, CocoaPods, or Swift Package Manager. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-02-rss-unity-announces-external-dependency-manager-package.md)
+
+### Explicit relationships
+
+Mobile builds depend-on native dependency resolution; Unity EDM supersedes EDM4U as the announced maintenance destination.
+
+### Decision and quality notes
+
+Official announcement, not a tested migration. Choosing EDM does not delete EDM4U or prove all SDK/build combinations compatible; the cited package docs target 2.1. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk SDKs bundle EDM4U, and do pinned Android/iOS builds pass after choosing Unity EDM? See [[indexes/gaps]].

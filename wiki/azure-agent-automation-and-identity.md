@@ -1178,3 +1178,60 @@ SDK upgrades depend-on service API and runtime compatibility; PostgreSQL authent
 ### Decision and quality notes
 
 Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Which pinned Search previews, Npgsql identity packages, Node runtimes, and SAS path tests qualify HoneyDrunk upgrades? See [[indexes/gaps]].
+
+
+## 2026-10-03: September azd releases expose dependency and deployment controls
+
+### Typed entities
+
+project: Azure Developer CLI; library: azd 1.33.0 through 1.34.2; file: azure.yaml; concept: extension contract.
+
+### Claims and evidence
+
+The September release roundup reports dependency-aware extension uninstall, stable/preview versioned gRPC contracts, top-level infrastructure/service layers, per-phase concurrency limits, and external authentication via Unix sockets or Windows named pipes. Fixes address compatible extension selection, concurrent startup, ACR build/log failures, disabled-service conditions, invalid YAML, and concurrent .NET publish artifacts. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-02-rss-everything-released-in-september-2026-for-azure-developer-cli.md)
+
+### Explicit relationships
+
+azd deployment depends-on version-compatible extensions and phase limits; authentication uses external hosts. See [[pipeline-template-contracts]].
+
+### Decision and quality notes
+
+Official release roundup; preview principal APIs are separate from stable contracts. Linked templates and PRs were not independently ingested or exercised. Redirect warnings and archived-template warnings are controls, not a complete supply-chain guarantee. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which pinned azd versions, disabled-service cases, authentication hosts, and concurrent publish tests qualify HoneyDrunk deployment upgrades? See [[indexes/gaps]].
+
+
+## 2026-10-03: Foundry model selection measures successful-task cost and serving constraints
+
+### Typed entities
+
+project: Microsoft Foundry; library: GPT-6 Astra; library: GPT-6 Sol; library: GPT-6 Luna; concept: task cost.
+
+### Claims and evidence
+
+Microsoft's September 22 announcement positions Astra for demanding reasoning/action, Sol for general production workflows, and Luna for high-volume extraction, summarization, and routing, while recommending workload evaluations and cost per task. It describes Standard serving for all three, Provisioned Throughput for Astra/Sol, and Priority Processing for Sol with deployment/location-specific availability. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-03-rss-gpt-6-astra-sol-and-luna-for-production-agents-in-microsoft-foundry.md)
+
+### Explicit relationships
+
+Model routing depends-on workload evaluation and serving constraints. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Archived vendor positioning and availability claims, not a current tenant entitlement or HoneyDrunk benchmark. Pricing tables and misdirected model links are not promoted as current rates/specs. Capability, locality, throughput, and total task cost must be verified separately. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk tasks and deployment locations qualify Astra/Sol/Luna routing using success rate, latency, and cost including failed attempts? See [[indexes/gaps]].
+
+
+## 2026-10-03: Foundry capability stages stay distinct in continuous agent optimization
+
+### Typed entities
+
+project: Microsoft Foundry; library: Microsoft Agent Framework; concept: voice agent; concept: long-running resilience; concept: tool discovery.
+
+### Claims and evidence
+
+The September 24 roundup describes voice agents, hosted long-running resilience, and Insights as public previews; hosted Toolboxes, tool search, A2A, and Routines are described as GA, with prompt-agent Toolboxes in preview. Rubric evaluator, trace/synthetic dataset generation, and Agent optimizer GA are announced for later that month; Foundry Toolkit voice support and October AI Gateway integration remain forthcoming in the capture. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-03-rss-ship-agents-faster-with-expanded-model-choice-voice-agents-and-continu.md)
+
+### Explicit relationships
+
+Optimization uses production traces and held-out evaluation; long-running work depends-on checkpoint recovery and runtime controls. See [[microsoft-dotnet-ai-stack]].
+
+### Decision and quality notes
+
+Official roundup with prospective milestones: elapsed dates do not prove shipment. Reported token savings are internal tool-search evaluations; model availability, egress policy, identity lifecycle enforcement, and runtime recovery need tenant/version tests. Customer outcomes are not generalized. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which Foundry preview/GA milestones, recovery gates, tool-discovery permission tests, and held-out optimization regressions are verified for HoneyDrunk? See [[indexes/gaps]].

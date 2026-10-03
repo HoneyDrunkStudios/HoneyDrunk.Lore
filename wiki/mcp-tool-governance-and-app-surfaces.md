@@ -1407,3 +1407,22 @@ Claim verification depends-on preserved tool-source identity; factual support an
 ### Decision and quality notes
 
 Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Which HoneyDrunk multi-source evaluation cases measure incorrect attribution and false rejections before verifier adoption? See [[indexes/gaps]].
+
+
+## 2026-10-03: Datadog code execution joins data outside the model context
+
+### Typed entities
+
+project: Datadog MCP Server; concept: code execution; concept: permission proxy; concept: observability investigation.
+
+### Claims and evidence
+
+Datadog announces GA JavaScript execution in a managed sandbox that queries and joins API results before returning selected evidence. The server mediates calls with existing user permissions while credentials stay outside the sandbox. In its 25-task, four-model, three-trial comparison, averaged input tokens fell from 159k to 43k and final-answer correctness rose from 74% to 90%. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-03-rss-cut-ai-agent-cost-and-improve-accuracy-with-code-execution-in-the-data.md)
+
+### Explicit relationships
+
+Investigation uses sandbox-side joins; API authorization depends-on existing caller permissions. See [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Vendor evaluation tied to observability tasks and named model/toolsets, not universal cost or accuracy improvements. API permissions and returned-data minimization remain necessary; credential exclusion does not remove data exposure. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk observability tasks verify code-execution joins, evidence fidelity, permission denial, and total cost against ordinary tools? See [[indexes/gaps]].

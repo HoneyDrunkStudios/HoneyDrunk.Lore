@@ -1372,3 +1372,60 @@ Trace analysis uses captured execution evidence; a verified fix depends-on targe
 ### Decision and quality notes
 
 Vendor preview announcement. Treat suggested causes as hypotheses and review evidence before changing a system. Availability and analysis costs are unverified for a HoneyDrunk deployment; no autonomous repair capability is inferred. Source-specific claims remain provisional single-source evidence; related accounts and derived queries add no independent confirmation. Open question: Which trace completeness checks, independently reviewed diagnoses, fresh evaluation cases, and measured outcomes would qualify Foundry findings for HoneyDrunk failure analysis? See [[indexes/gaps]].
+
+
+## 2026-10-03: AutoSynthData turns capability gaps into executed training tasks
+
+### Typed entities
+
+project: ServiceNow CoreAI; project: AutoSynthData; project: EnterpriseOps Gym; concept: verifier soundness; concept: curriculum.
+
+### Claims and evidence
+
+AutoSynthData represents a task as system specification, user prompt, and verifier. Sanitized capability cards derived from target failures and teacher successes guide novel generation without passing original evaluation prompts, entities, trajectories, or verifier details to the generator. Accepted tasks must be feasible and realistic, pass reference replay and negative verification, and survive bounded repair; batch review controls coverage and redundancy. Multiplied variants cannot themselves seed multiplication. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-02-rss-autosynthdata-generating-training-data-for-enterprise-agents.md)
+
+### Explicit relationships
+
+Curriculum generation uses failures; sample acceptance depends-on executed solutions and discriminating verifiers. See [[ai-research-automation-and-recursive-self-improvement]].
+
+### Decision and quality notes
+
+Vendor experiment reports SFT improvements in Hybrid and ITSM, not general enterprise transfer or completed RL validation. Diagnostic-benchmark-derived capability targeting still needs held-out leakage and generalization checks; teacher success alone is insufficient. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which held-out HoneyDrunk tasks, corrupted-state negative gates, bounded repairs, and batch-diversity checks validate synthetic training data? See [[indexes/gaps]].
+
+
+## 2026-10-03: LLM judges need failure-specific human labels and held-out validation
+
+### Typed entities
+
+person: Hamel Husain; concept: error analysis; concept: binary judge; concept: criteria drift.
+
+### Claims and evidence
+
+The newsletter adaptation recommends finding recurring failures in real traces, defining a domain-expert Pass/Fail rubric with critiques, and using code for deterministic checks. Prompt examples, development examples, and a hidden final test remain separate. Report failure recall (TPR), acceptable-output recognition (TNR), sample counts and uncertainty; precision additionally depends on failure prevalence. An always-Pass judge can appear 95% accurate while detecting no failures. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-02-rss-how-to-create-a-good-llm-judge.md)
+
+### Explicit relationships
+
+Judge trust depends-on human labels and held-out error rates; label maintenance depends-on criteria drift. See [[ai-assisted-software-practice]].
+
+### Decision and quality notes
+
+Authored evaluation guidance with illustrative arithmetic, not a benchmark. Sample ranges and 90% targets are examples, not universal gates. Revalidate after material model, product, or rubric changes and relabel affected cases; raw agreement alone is insufficient. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk failure rubrics, untouched test examples, TPR/TNR error budgets, and relabeling triggers qualify each judge? See [[indexes/gaps]].
+
+
+## 2026-10-03: Clef provides schema-bound decision probabilities; calibration still needs tests
+
+### Typed entities
+
+project: Cloudflare; library: Clef; library: Clef-flash; concept: bounded classification; concept: probability calibration.
+
+### Claims and evidence
+
+Cloudflare announces Apache-2.0 Clef/Clef-flash models hosted on Workers AI with vision input, a stated 64k context window, and Jev-compatible typed decisions. Its described inference uses a prefill pass and parallel schema-choice scoring rather than autoregressive explanation generation. Fine-tuning starts as an FDE service; a self-serve platform remains planned. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-02-rss-introducing-clef-our-open-source-decision-models-and-new-rl-fine-tunin.md)
+
+### Explicit relationships
+
+Workflow routing uses bounded probabilities; acceptance depends-on local calibration and error costs. See [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Vendor architecture and benchmark claims. Extracted benchmark tables lose headers, so cross-model numeric rankings are not promoted. Typed output and probabilities do not establish correctness, calibrated thresholds, or authorization to act. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Do Clef decisions pass HoneyDrunk held-out classification, calibration, latency, and abstention thresholds before automated routing? See [[indexes/gaps]].
