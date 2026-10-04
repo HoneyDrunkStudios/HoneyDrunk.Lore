@@ -1963,3 +1963,60 @@ Durability depends-on checkpoints and storage ownership; safe replay uses idempo
 ### Decision and quality notes
 
 Experimental API account, not independent crash testing. Exactly-once submission is not exactly-once external action: the payment example depends on external idempotency keys and refund semantics. Memoized approvals also need validity/invalidation tests; live registry replacement needs version/migration discipline. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Do HoneyDrunk harness tests cover crash windows, unsafe effects, expired approvals, ownership cancellation, background tasks, and schema/code migrations? See [[indexes/gaps]].
+
+
+## 2026-10-04: Workflow controls bound autonomy
+
+### Typed entities
+
+project: n8n; concept: autonomous agent; concept: tool governance.
+
+### Claims and evidence
+
+n8n describes observe/plan/act loops with tools and memory, deterministic branching, stopping conditions, execution history, and human approval at consequential tool calls. These are vendor recommendations; memory alone does not establish drift prevention, and audit completeness needs testing. confidence: 1 source, last-confirmed 2026-10-04 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-04-rss-autonomous-ai-agents-architecture-use-cases-and-key-risks.md)
+
+### Explicit relationships
+
+Autonomous execution depends-on bounded tool authority and observable outcomes.
+
+### Decision and quality notes
+
+Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Which HoneyDrunk tools need scoped access, approvals, deterministic stopping conditions, and verified audit coverage? See [[indexes/gaps]].
+
+
+## 2026-10-04: Programmable sandboxes retain an external controller
+
+### Typed entities
+
+project: Cloudflare Containers; library: Sandbox SDK; concept: Durable Object; concept: filesystem snapshot.
+
+### Claims and evidence
+
+Cloudflare describes the public-beta durable_object scheduling policy with runtime image/instance selection, native ctx.container controls, and immutable reusable filesystem snapshots. A Durable Object owns policy and lifecycle outside the Linux workspace. The reported 648 ms median is a linked benchmark result, not reproduced here. Legacy Container and Sandbox classes receive maintenance through December 31, 2026; deployments continue afterward but the classes stop receiving updates. confidence: 1 source, last-confirmed 2026-10-04 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-04-rss-cloudflare-containers-rebuilt-to-scale-agent-sandboxes.md)
+
+### Explicit relationships
+
+Sandbox lifecycle uses an external Durable Object; resumed files depend-on snapshots; rollout uses image selection at future starts.
+
+### Decision and quality notes
+
+Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Which pinned images, snapshot consistency and secret-exclusion tests, egress controls, migration checks, and startup measurements qualify HoneyDrunk sandboxes? See [[indexes/gaps]].
+
+
+## 2026-10-04: Reflection needs bounded external checks
+
+### Typed entities
+
+project: n8n; concept: reflection; concept: self-preference bias; concept: stopping criterion.
+
+### Claims and evidence
+
+n8n describes generate/critique/refine loops using the same model, separate reviewers, or external tools. Same-model critique can reinforce hallucinations; tool checking depends on data quality. Explicit iteration limits bound cost and latency. Reflection may be unnecessary when a single pass meets requirements. This is design guidance without measured reliability gains. confidence: 1 source, last-confirmed 2026-10-04 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-04-rss-reflection-pattern-how-ai-agents-self-correct-in-production-n8n-blog.md)
+
+### Explicit relationships
+
+Reflection uses explicit criteria and bounded refinement; factual validation depends-on evidence outside the generator.
+
+### Decision and quality notes
+
+Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Which held-out HoneyDrunk tasks demonstrate reflection gains after cost, latency, and false-correction penalties? See [[indexes/gaps]].

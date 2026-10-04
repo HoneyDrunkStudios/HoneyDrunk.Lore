@@ -356,3 +356,22 @@ This page tracks durable patterns for agent-readable, human-readable knowledge s
 
 ### Quality notes
 - README evidence only; use as a design scout for context tooling rather than a confirmed HoneyDrunk standard.
+
+
+## 2026-10-04: Repo-owned docs can publish through conventions
+
+### Typed entities
+
+person: Jag Reehal; project: Astro Starlight; project: GitHub; concept: documentation ownership.
+
+### Claims and evidence
+
+Reehal describes a fixed Markdown path and GitHub topic as a cross-repo discovery contract. A central build compares docs tree hashes, copies content, validates front matter, and publishes a shared site while ownership stays with source repos. The account lacks onboarding/search outcome measurements and identifies delayed build failures, cross-repo backlinks, and limited agent visibility as gaps. Markdown twins, llms.txt, and MCP search provide incremental discovery options. confidence: 1 source, last-confirmed 2026-10-04 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-04-rss-one-folder-one-topic-convention-based-design-for-docs.md)
+
+### Explicit relationships
+
+Central discovery uses repository topics and paths; trustworthy publication depends-on source ownership and schema/backlink checks.
+
+### Decision and quality notes
+
+Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Which repo-owned conventions and per-repo link checks improve HoneyDrunk discovery while keeping code docs beside code? See [[indexes/gaps]].

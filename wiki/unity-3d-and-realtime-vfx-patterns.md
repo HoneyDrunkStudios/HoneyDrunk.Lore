@@ -1645,3 +1645,22 @@ Mobile builds depend-on native dependency resolution; Unity EDM supersedes EDM4U
 ### Decision and quality notes
 
 Official announcement, not a tested migration. Choosing EDM does not delete EDM4U or prove all SDK/build combinations compatible; the cited package docs target 2.1. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk SDKs bundle EDM4U, and do pinned Android/iOS builds pass after choosing Unity EDM? See [[indexes/gaps]].
+
+
+## 2026-10-04: Playable ads need delivery-container validation
+
+### Typed entities
+
+project: Unity 2022; concept: WebGL repacking; concept: MRAID; concept: interaction-gated audio.
+
+### Claims and evidence
+
+LUMENFORM reports inlining WebGL payloads and loader into HTML with no external requests, interaction-gated audio, and an MRAID CTA tested in a local harness. Size budgets and stripping shape delivery. The 3D microsite is also labeled 18 files, so single-file delivery is not established for every showcased demo. Browser/local harness checks do not prove acceptance in a real ad-network SDK. confidence: 1 source, last-confirmed 2026-10-04 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-04-rss-shipping-single-file-html5-playable-ads-my-unity-2022-webgl-pipeline.md)
+
+### Explicit relationships
+
+Playable delivery depends-on payload budget, bridge behavior, and interaction-gated audio.
+
+### Decision and quality notes
+
+Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Which network-specific limits, real SDK harnesses, offline-request checks, stripped-code regressions, and CTAs qualify a HoneyDrunk playable? See [[indexes/gaps]].

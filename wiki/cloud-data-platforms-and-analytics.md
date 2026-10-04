@@ -59,3 +59,41 @@ Local join execution depends-on related-row colocation; single-shard routing dep
 ### Decision and quality notes
 
 Vendor architecture evidence, not an independent performance comparison. Distinguish reducing cross-shard join work from eliminating fan-out when evaluating partition keys. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: Which query predicates and entity relationships should drive partition keys, and how will HoneyDrunk measure cross-shard joins separately from query fan-out? See [[indexes/gaps]].
+
+
+## 2026-10-04: Analytics cost follows writes and query shape
+
+### Typed entities
+
+project: Bolna; project: PostgreSQL; project: ClickHouse; library: ClickPipes; concept: CDC.
+
+### Claims and evidence
+
+Bolna reports moving analytics from Datastream/BigQuery to ClickHouse/ClickPipes, replacing repeated dashboard FINAL deduplication with materialized views, limiting BI resources, and selectively using REPLICA IDENTITY FULL to address TOASTed JSONB mismatches at increased WAL cost. Writing final call state plus checkpoints rather than every transient update produced its largest reported saving. The approximately sixfold saving is workload-specific; detailed freshness is one or two minutes after call completion despite the real-time headline. confidence: 1 source, last-confirmed 2026-10-04 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-04-rss-bigquery-to-clickhouse-at-15m-call-minutes-a-day-what-broke-what-we-fi.md)
+
+### Explicit relationships
+
+Analytics cost depends-on producer write volume and deduplication placement.
+
+### Decision and quality notes
+
+Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Which durable checkpoints, crash-recovery guarantees, CDC correctness checks, and measured query costs justify reducing HoneyDrunk intermediate writes? See [[indexes/gaps]].
+
+
+## 2026-10-04: SQL local deployment is GA while local AI remains preview
+
+### Typed entities
+
+project: SQL Server; project: Azure Local; project: Foundry Local; concept: disconnected operations.
+
+### Claims and evidence
+
+Microsoft announces SQL Server on Azure Local GA for connected/disconnected deployments on Windows or Linux VMs. Connected management can use Azure Arc; disconnected operations continue locally. SQL Server licensing is separate from Azure Local infrastructure, with eligible licensing paths differing by connectivity. Foundry Local on Azure Local remains preview in this announcement and is not promoted to GA with SQL Server. confidence: 1 source, last-confirmed 2026-10-04 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-04-web-sql-server-on-azure-local-is-now-generally-available-microsoft-sql-ser.md)
+
+### Explicit relationships
+
+Local SQL uses Azure Local infrastructure; deployment depends-on connectivity and eligible licensing; local AI uses a separate preview service.
+
+### Decision and quality notes
+
+Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Which HoneyDrunk connectivity, hardware, high-availability, licensing, and inference requirements justify Azure Local evaluation? See [[indexes/gaps]].

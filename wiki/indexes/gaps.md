@@ -2,9 +2,9 @@
 
 Questions the wiki cannot currently answer. Populated by the Query operation when synthesis falls short, and by the Lint operation when entities are referenced but lack a backing page.
 
-## Compile status: 2026-09-29
+## Compile status: 2026-10-04
 
-Cataloged 647 dated gap entries alongside the current 67-page catalog. Added 15 questions and closed 0 gaps in this pass. Existing questions and their history are preserved below.
+Cataloged 707 dated gap entries alongside the current 67-page catalog. Added 15 questions and closed 0 gaps in this pass. Existing questions and their history are preserved below.
 
 ## Entry format
 
@@ -921,3 +921,22 @@ Cataloged 647 dated gap entries alongside the current 67-page catalog. Added 15 
 - Do HoneyDrunk token stores, proxies, validators, redactors, and override-header removal pass variable-length installation-token tests? - surfaced 2026-10-03 - context: [[github-copilot-and-app-token-changes]]; [source](../../raw/2026-10-03-rss-stateless-github-app-installation-tokens-rolled-out.md).
 - Which HoneyDrunk authorized staging scopes, replay evidence, origin validation, and legitimate-traffic tests distinguish real findings from non-blocked noise? - surfaced 2026-10-03 - context: [[ai-coding-agent-security]]; [source](../../raw/2026-10-03-rss-we-tested-our-own-waf-with-frontier-ai-models-here-s-what-we-found.md).
 - Can HoneyDrunk folder rules produce consistent placement while preserving navigation speed for both authors and readers? - surfaced 2026-10-03 - context: [[ai-assisted-software-practice]]; [source](../../raw/2026-10-03-rss-your-folder-structure-has-two-jobs-but-only-does-one.md).
+
+
+## 2026-10-04 ingest questions
+
+- Which HoneyDrunk tools need scoped access, approvals, deterministic stopping conditions, and verified audit coverage? - surfaced 2026-10-04 - context: [[ai-agent-harnesses]]; [source](../../raw/2026-10-04-rss-autonomous-ai-agents-architecture-use-cases-and-key-risks.md).
+- Which durable checkpoints, crash-recovery guarantees, CDC correctness checks, and measured query costs justify reducing HoneyDrunk intermediate writes? - surfaced 2026-10-04 - context: [[cloud-data-platforms-and-analytics]]; [source](../../raw/2026-10-04-rss-bigquery-to-clickhouse-at-15m-call-minutes-a-day-what-broke-what-we-fi.md).
+- Which clients, independent mirrors, monitoring, landmark freshness, and fallback tests would qualify MTCs for HoneyDrunk? - surfaced 2026-10-04 - context: [[post-quantum-security-and-cryptography]]; [source](../../raw/2026-10-04-rss-building-a-post-quantum-certificate-authority-with-merkle-tree-certifi.md).
+- Which independently reproduced calculations and expert acceptance criteria qualify a HoneyDrunk research harness? - surfaced 2026-10-04 - context: [[ai-for-science-and-chemistry]]; [source](../../raw/2026-10-04-rss-claude-shaped-science.md).
+- Which pinned images, snapshot consistency and secret-exclusion tests, egress controls, migration checks, and startup measurements qualify HoneyDrunk sandboxes? - surfaced 2026-10-04 - context: [[ai-agent-harnesses]]; [source](../../raw/2026-10-04-rss-cloudflare-containers-rebuilt-to-scale-agent-sandboxes.md).
+- Do HoneyDrunk puzzle tests cover symmetry duplicates, index/transform coverage, bank versioning, complete rules, and cache bounds? - surfaced 2026-10-04 - context: [[procedural-world-persistence]]; [source](../../raw/2026-10-04-rss-how-913-puzzles-became-7-304-levels-procedural-variation-on-a-precompu.md).
+- Which HoneyDrunk skills need source mappings, skipped-check failure gates, and runtime examples beyond static validation? - surfaced 2026-10-04 - context: [[ai-assisted-software-practice]]; [source](../../raw/2026-10-04-rss-intent-0-5-skills-you-can-maintain-tanstack-blog.md).
+- Which repo-owned conventions and per-repo link checks improve HoneyDrunk discovery while keeping code docs beside code? - surfaced 2026-10-04 - context: [[llm-wiki-and-knowledge-formats]]; [source](../../raw/2026-10-04-rss-one-folder-one-topic-convention-based-design-for-docs.md).
+- Which held-out HoneyDrunk tasks demonstrate reflection gains after cost, latency, and false-correction penalties? - surfaced 2026-10-04 - context: [[ai-agent-harnesses]]; [source](../../raw/2026-10-04-rss-reflection-pattern-how-ai-agents-self-correct-in-production-n8n-blog.md).
+- Which independently enforced residency, budgets, approvals, capacity, rollback, and workload signals qualify a HoneyDrunk infrastructure decision prototype? - surfaced 2026-10-04 - context: [[azure-agent-automation-and-identity]]; [source](../../raw/2026-10-04-rss-self-driving-infrastructure-with-pulumi-and-jev.md).
+- Which network-specific limits, real SDK harnesses, offline-request checks, stripped-code regressions, and CTAs qualify a HoneyDrunk playable? - surfaced 2026-10-04 - context: [[unity-3d-and-realtime-vfx-patterns]]; [source](../../raw/2026-10-04-rss-shipping-single-file-html5-playable-ads-my-unity-2022-webgl-pipeline.md).
+- Which HoneyDrunk tasks need negative side-effect assertions, isolated repeats, pinned artifacts, and separately accounted operational failures? - surfaced 2026-10-04 - context: [[agent-evaluation-and-benchmarks]]; [source](../../raw/2026-10-04-rss-the-agent-said-it-was-done-the-database-disagreed.md).
+- Which HoneyDrunk CEP integrations, distribution channels, host versions, and UXP API gaps need migration before applicable milestones? - surfaced 2026-10-04 - context: [[creative-tool-extension-packaging]]; [source](../../raw/2026-10-04-web-cep-to-uxp-creative-cloud-plugin-migration-timeline.md).
+- Which HoneyDrunk connectivity, hardware, high-availability, licensing, and inference requirements justify Azure Local evaluation? - surfaced 2026-10-04 - context: [[cloud-data-platforms-and-analytics]]; [source](../../raw/2026-10-04-web-sql-server-on-azure-local-is-now-generally-available-microsoft-sql-ser.md).
+- Which installed Adobe host/runtime pairs, subframe restrictions, Windows paths, and diagnostic opt-ins pass HoneyDrunk plugin tests? - surfaced 2026-10-04 - context: [[creative-tool-extension-packaging]]; [source](../../raw/2026-10-04-web-uxp-changelog-new-features-fixes-and-support-matrix.md).

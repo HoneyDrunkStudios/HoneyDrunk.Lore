@@ -1235,3 +1235,22 @@ Optimization uses production traces and held-out evaluation; long-running work d
 ### Decision and quality notes
 
 Official roundup with prospective milestones: elapsed dates do not prove shipment. Reported token savings are internal tool-search evaluations; model availability, egress policy, identity lifecycle enforcement, and runtime recovery need tenant/version tests. Customer outcomes are not generalized. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which Foundry preview/GA milestones, recovery gates, tool-discovery permission tests, and held-out optimization regressions are verified for HoneyDrunk? See [[indexes/gaps]].
+
+
+## 2026-10-04: Infrastructure decisions stay inside deterministic constraints
+
+### Typed entities
+
+project: Pulumi GeoDeploy; project: Jev; library: Pulumi Automation API; concept: closed-set decision.
+
+### Claims and evidence
+
+Pulumi describes GeoDeploy separating deterministic TypeScript pricing/bin-packing, Jev selections from priced candidates, and curated Pulumi provisioning. Code checks confidence gates and candidate membership, audits decisions, and falls back deterministically on AI-path errors. CPU-based monitor mode is a demonstrator; the article calls for additional production signals. Model confidence does not independently establish residency, capacity, authorization, or safe provisioning. confidence: 1 source, last-confirmed 2026-10-04 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-04-rss-self-driving-infrastructure-with-pulumi-and-jev.md)
+
+### Explicit relationships
+
+Provisioning depends-on deterministic constraints and curated modules; AI selection uses closed candidate sets and audited fallback.
+
+### Decision and quality notes
+
+Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Which independently enforced residency, budgets, approvals, capacity, rollback, and workload signals qualify a HoneyDrunk infrastructure decision prototype? See [[indexes/gaps]].

@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-10-03
+## Compile coverage: 2026-10-04
 
-Reconciled 1157 raw documents against 1157 unique entries; ingested 30 captures. Existing records and dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
+Reconciled 1172 raw documents against 1172 unique entries; ingested 15 captures. Existing records and dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
 
 ## Entry format
 
@@ -1463,3 +1463,33 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [We tested our own WAF with frontier AI models. Here's what we found](../../raw/2026-10-03-rss-we-tested-our-own-waf-with-frontier-ai-models-here-s-what-we-found.md) - Adaptive WAF testing needs scoped replay and human finding validation; canonical page: [[ai-coding-agent-security]]. - ingested 2026-10-03
 
 - [Your Folder Structure Has Two Jobs, but Only Does One](../../raw/2026-10-03-rss-your-folder-structure-has-two-jobs-but-only-does-one.md) - Folder navigation and deterministic placement need separate tests; canonical page: [[ai-assisted-software-practice]]. - ingested 2026-10-03
+
+- [Autonomous AI Agents: Architecture, Use Cases, and Key Risks](../../raw/2026-10-04-rss-autonomous-ai-agents-architecture-use-cases-and-key-risks.md) - Workflow controls bound autonomy; canonical page: [[ai-agent-harnesses]]. - ingested 2026-10-04
+
+- [BigQuery to ClickHouse at 15M Call Minutes a Day: What Broke, What We Fixed, and How We Cut Costs 6x](../../raw/2026-10-04-rss-bigquery-to-clickhouse-at-15m-call-minutes-a-day-what-broke-what-we-fi.md) - Analytics cost follows writes and query shape; canonical page: [[cloud-data-platforms-and-analytics]]. - ingested 2026-10-04
+
+- [Building a post-quantum certificate authority with Merkle Tree Certificates](../../raw/2026-10-04-rss-building-a-post-quantum-certificate-authority-with-merkle-tree-certifi.md) - MTC issuance couples certificates and transparency; canonical page: [[post-quantum-security-and-cryptography]]. - ingested 2026-10-04
+
+- [Claude-shaped science](../../raw/2026-10-04-rss-claude-shaped-science.md) - Checkable computation still needs domain judgment; canonical page: [[ai-for-science-and-chemistry]]. - ingested 2026-10-04
+
+- [Cloudflare Containers, rebuilt to scale agent sandboxes](../../raw/2026-10-04-rss-cloudflare-containers-rebuilt-to-scale-agent-sandboxes.md) - Programmable sandboxes retain an external controller; canonical page: [[ai-agent-harnesses]]. - ingested 2026-10-04
+
+- [How 913 Puzzles Became 7,304 Levels: Procedural Variation on a Precomputed Puzzle Bank](../../raw/2026-10-04-rss-how-913-puzzles-became-7-304-levels-procedural-variation-on-a-precompu.md) - Puzzle variation preserves a verified baseline; canonical page: [[procedural-world-persistence]]. - ingested 2026-10-04
+
+- [Intent 0.5: Skills You Can Maintain | TanStack Blog](../../raw/2026-10-04-rss-intent-0-5-skills-you-can-maintain-tanstack-blog.md) - Agent skills need source-bound maintenance; canonical page: [[ai-assisted-software-practice]]. - ingested 2026-10-04
+
+- [One Folder, One Topic: Convention-Based Design for Docs](../../raw/2026-10-04-rss-one-folder-one-topic-convention-based-design-for-docs.md) - Repo-owned docs can publish through conventions; canonical page: [[llm-wiki-and-knowledge-formats]]. - ingested 2026-10-04
+
+- [Reflection Pattern: How AI Agents Self-Correct in Production | n8n Blog](../../raw/2026-10-04-rss-reflection-pattern-how-ai-agents-self-correct-in-production-n8n-blog.md) - Reflection needs bounded external checks; canonical page: [[ai-agent-harnesses]]. - ingested 2026-10-04
+
+- [Self-driving infrastructure with Pulumi and Jev](../../raw/2026-10-04-rss-self-driving-infrastructure-with-pulumi-and-jev.md) - Infrastructure decisions stay inside deterministic constraints; canonical page: [[azure-agent-automation-and-identity]]. - ingested 2026-10-04
+
+- [Shipping single-file HTML5 playable ads: my Unity 2022 WebGL pipeline](../../raw/2026-10-04-rss-shipping-single-file-html5-playable-ads-my-unity-2022-webgl-pipeline.md) - Playable ads need delivery-container validation; canonical page: [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-10-04
+
+- [The Agent Said It Was Done. The Database Disagreed.](../../raw/2026-10-04-rss-the-agent-said-it-was-done-the-database-disagreed.md) - Terminal state and repeated trials expose hidden failures; canonical page: [[agent-evaluation-and-benchmarks]]. - ingested 2026-10-04
+
+- [CEP to UXP: Creative Cloud Plugin Migration Timeline](../../raw/2026-10-04-web-cep-to-uxp-creative-cloud-plugin-migration-timeline.md) - CEP retirement has distinct host milestones; canonical page: [[creative-tool-extension-packaging]]. - ingested 2026-10-04
+
+- [SQL Server on Azure Local is now generally available - Microsoft SQL Server Blog](../../raw/2026-10-04-web-sql-server-on-azure-local-is-now-generally-available-microsoft-sql-ser.md) - SQL local deployment is GA while local AI remains preview; canonical page: [[cloud-data-platforms-and-analytics]]. - ingested 2026-10-04
+
+- [UXP Changelog: New Features, Fixes, and Support Matrix](../../raw/2026-10-04-web-uxp-changelog-new-features-fixes-and-support-matrix.md) - UXP features depend on the host runtime matrix; canonical page: [[creative-tool-extension-packaging]]. - ingested 2026-10-04

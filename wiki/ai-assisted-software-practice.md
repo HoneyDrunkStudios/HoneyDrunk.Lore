@@ -1422,3 +1422,22 @@ Folder quality depends-on navigation and placement tests; dependency direction u
 ### Decision and quality notes
 
 Author's design proposal, not a universal architecture or verified placement guarantee. Import/export counts need edge-case conventions and enforcement, and cross-functional users may value role names. No shared-folder migration or skill installation performed. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Can HoneyDrunk folder rules produce consistent placement while preserving navigation speed for both authors and readers? See [[indexes/gaps]].
+
+
+## 2026-10-04: Agent skills need source-bound maintenance
+
+### Typed entities
+
+project: TanStack Intent; library: TypeScript; file: SKILL.md; concept: source-bound review.
+
+### Claims and evidence
+
+Intent 0.5 adds maintainer setup, fenced JS/TS/JSX/TSX compiler checks without execution, source-change reviews, CI drift checks, and repair proposals. Type checking needs TypeScript 5 or newer and a discoverable library entry point; skipped checks are reported. Review outcomes are tied to source and skill contents. Repair write mode fixes unambiguous metadata while suggested example edits require review. Static success does not establish runtime correctness. confidence: 1 source, last-confirmed 2026-10-04 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-04-rss-intent-0-5-skills-you-can-maintain-tanstack-blog.md)
+
+### Explicit relationships
+
+Skill accuracy depends-on source-bound review and example validation.
+
+### Decision and quality notes
+
+Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Which HoneyDrunk skills need source mappings, skipped-check failure gates, and runtime examples beyond static validation? See [[indexes/gaps]].

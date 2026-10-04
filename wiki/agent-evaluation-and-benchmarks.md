@@ -1429,3 +1429,22 @@ Workflow routing uses bounded probabilities; acceptance depends-on local calibra
 ### Decision and quality notes
 
 Vendor architecture and benchmark claims. Extracted benchmark tables lose headers, so cross-model numeric rankings are not promoted. Typed output and probabilities do not establish correctness, calibrated thresholds, or authorization to act. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Do Clef decisions pass HoneyDrunk held-out classification, calibration, latency, and abstention thresholds before automated routing? See [[indexes/gaps]].
+
+
+## 2026-10-04: Terminal state and repeated trials expose hidden failures
+
+### Typed entities
+
+project: ThinkingBox; project: ThinkingBox-Bench; project: OpenEnv; concept: terminal-state judge; concept: observed 20/20.
+
+### Claims and evidence
+
+The Microsoft/Toloka benchmark account grades required, missing, and extra backend effects across isolated repeated trials. pass@1 measures attempt success, pass@20 breadth of any success, and observed 20/20 tasks passing every recorded attempt. Finite observed consistency is not guaranteed future correctness. Clean tool termination can still fail state assertions. Most tasks use state checks, some add response rubrics. Costs use a dated snapshot and synthetic reconstructed workflows; rankings do not establish current production costs or HoneyDrunk readiness. Operational failures must be resolved or explicitly accounted for. confidence: 1 source, last-confirmed 2026-10-04 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-04-rss-the-agent-said-it-was-done-the-database-disagreed.md)
+
+### Explicit relationships
+
+Agent reliability depends-on terminal-state checks and isolated repetition; comparable evaluation uses pinned framework, data, and bundle identity.
+
+### Decision and quality notes
+
+Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Which HoneyDrunk tasks need negative side-effect assertions, isolated repeats, pinned artifacts, and separately accounted operational failures? See [[indexes/gaps]].

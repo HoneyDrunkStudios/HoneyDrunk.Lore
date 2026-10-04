@@ -56,3 +56,22 @@ Scientific synthesis depends-on retrieved evidence and attribution filtering; so
 ### Decision and quality notes
 
 Vendor experiment largely performed in 2025; not rerun against today's frontier. A 14-question human study and sparse user feedback are limited evidence. Correct citation attachment does not alone preserve sample scope, tense, or descriptive-versus-prescriptive strength. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk synthesis tests measure citation support, source-scope preservation, relevance, and full-pipeline latency on private/local data? See [[indexes/gaps]].
+
+
+## 2026-10-04: Checkable computation still needs domain judgment
+
+### Typed entities
+
+person: Matthew Schwartz; project: BootLoops; project: Claude; concept: scientific validation.
+
+### Claims and evidence
+
+Schwartz describes BootLoops combining ported scientific methods, high-precision reproducible checks, domain-expert steering, separate project sessions, markdown intermediate results, periodic plan consolidation, and adversarial checking. Technically correct cross-field findings were often uninteresting until experts reframed them. BootLoops is owned and maintained by Schwartz rather than Anthropic. Discoveries remain author accounts under further verification; missing highlight/failure-mode lists and unrelated footer news are not evidence. confidence: 1 source, last-confirmed 2026-10-04 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-04-rss-claude-shaped-science.md)
+
+### Explicit relationships
+
+Scientific usefulness depends-on domain judgment and reproducible checks; session continuity uses consolidated external plans.
+
+### Decision and quality notes
+
+Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Which independently reproduced calculations and expert acceptance criteria qualify a HoneyDrunk research harness? See [[indexes/gaps]].

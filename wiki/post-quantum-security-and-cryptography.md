@@ -84,3 +84,22 @@ Origin keyshare selection uses observed endpoint capabilities; hybrid key agreem
 ### Decision and quality notes
 
 Treat edge-to-origin and browser-to-edge compatibility separately. This source supports a migration measurement pattern, not universal latency gains or complete post-quantum authentication. Source count is provisional single-source support; repeated citations and derived summaries add no independent corroboration. Open question: What origin TLS capability, retry-rate, keyshare-size, fallback, and certificate-authentication evidence is needed before changing HoneyDrunk post-quantum transport assumptions? See [[indexes/gaps]].
+
+
+## 2026-10-04: MTC issuance couples certificates and transparency
+
+### Typed entities
+
+project: Cloudflare CA; project: Chrome; library: Boulder; library: Azul; concept: Merkle Tree Certificate.
+
+### Claims and evidence
+
+Cloudflare describes draft MTC issuance through append-only logs, cosigned tree heads, and inclusion proofs. Landmark-relative certificates depend on authenticated metadata distributed out of band; standalone certificates remain needed when landmarks are unavailable. Early 2027 Chrome root-store inclusion is a target subject to application and evaluation. Its bootstrap-CA Chrome experiment used classical signatures, not completed production post-quantum authentication. confidence: 1 source, last-confirmed 2026-10-04 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-04-rss-building-a-post-quantum-certificate-authority-with-merkle-tree-certifi.md)
+
+### Explicit relationships
+
+MTC authentication depends-on trusted cosigners and inclusion proofs; landmark efficiency depends-on update freshness and fallback.
+
+### Decision and quality notes
+
+Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Which clients, independent mirrors, monitoring, landmark freshness, and fallback tests would qualify MTCs for HoneyDrunk? See [[indexes/gaps]].

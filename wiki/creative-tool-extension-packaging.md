@@ -75,3 +75,46 @@ Domain-specific linting uses API scope contracts; plugin correctness depends-on 
 ### Decision and quality notes
 
 August 19 vendor description of an initial rule set. A clean lint run is not proof of correct transactions or all plugin behavior. Asynchronous external commands in Bolt and synchronous Premiere transaction callbacks concern different scopes and do not contradict each other. Source-specific claims remain provisional single-source evidence; related accounts and derived queries add no independent confirmation. Open question: Which Premiere lock, transaction, escaping-action, async-callback, and undo tests complement configurable lint rules for a HoneyDrunk plugin? See [[indexes/gaps]].
+
+
+## 2026-10-04: CEP retirement has distinct host milestones
+
+### Typed entities
+
+project: Adobe Creative Cloud; library: CEP; library: UXP; concept: host-specific migration.
+
+### Claims and evidence
+
+Adobe announces CEP removal from new flagship-app versions starting December 2029 with at least two years from each UXP public beta. Photoshop stops new Marketplace CEP submissions in March 2027 and disables CEP by default in December 2027. Premiere stops new submissions in December 2027, InDesign in January 2028; both disable it by default in December 2028. After Effects, Illustrator, and Media Encoder reach both milestones in December 2028. Existing Marketplace plugins can receive updates until removal. The Photoshop submission milestone does not govern external distribution. ExtendScript and Acrobat/Express/Lightroom are outside this transition; future beta dates remain targets. confidence: 1 source, last-confirmed 2026-10-04 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-04-web-cep-to-uxp-creative-cloud-plugin-migration-timeline.md)
+
+### Explicit relationships
+
+UXP migration supersedes CEP as the forward development path; compatibility depends-on host milestones and architectural changes.
+
+### Decision and quality notes
+
+Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Which HoneyDrunk CEP integrations, distribution channels, host versions, and UXP API gaps need migration before applicable milestones? See [[indexes/gaps]].
+
+
+## 2026-10-04: UXP features depend on the host runtime matrix
+
+### Typed entities
+
+project: Adobe UXP; project: Photoshop; project: Premiere; project: InDesign; file: manifest.json; concept: runtime compatibility.
+
+### Claims and evidence
+
+Adobe lists UXP 9.4 queueMicrotask support, WebView response status codes, and opt-in exception/rejection reporting. UXP 9.3 restricts uxpHost messaging to the main document. Its captured matrix maps 9.3 to Photoshop 27.7, Premiere 26.3, and InDesign 21.4; 9.4 has no host assignments. A listed runtime feature does not establish availability in a deployed host; beta/prerelease schedules differ. confidence: 1 source, last-confirmed 2026-10-04 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-04-web-uxp-changelog-new-features-fixes-and-support-matrix.md)
+
+### Explicit relationships
+
+Plugin capability depends-on host/runtime mapping; diagnostics uses manifest opt-in.
+
+### Decision and quality notes
+
+Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Which installed Adobe host/runtime pairs, subframe restrictions, Windows paths, and diagnostic opt-ins pass HoneyDrunk plugin tests? See [[indexes/gaps]].
+
+
+## Historical packaging and current migration policy
+
+The original 2019 CEP/MXI material remains a historical packaging-pattern reference, as already qualified above. Adobe's September 24, 2026 migration policy supplies the newer host-specific development direction; it does not contradict historic package mechanics. No prior claim requires supersession. Follow [[creative-tool-extension-packaging#2026-10-04: CEP retirement has distinct host milestones]] for the captured policy and its future milestones.

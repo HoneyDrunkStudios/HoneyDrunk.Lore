@@ -48,3 +48,22 @@ Cloud save uses replaceable sync over local persistence; cross-device restoratio
 ### Decision and quality notes
 
 Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Which interrupted-write, divergent offline progress, old-schema, and service-failure tests qualify HoneyDrunk game saves? See [[indexes/gaps]].
+
+
+## 2026-10-04: Puzzle variation preserves a verified baseline
+
+### Typed entities
+
+project: Meowdoku; concept: verified puzzle bank; concept: geometric symmetry; concept: deterministic level selection.
+
+### Claims and evidence
+
+The author derives levels from a preverified bank through rotations/reflections of regions and solutions. Pure level selection lets the server reconstruct boards and validate submitted answers without trusting client board state. Banks are fetched on demand with bounded client preloading. The claimed 913 times eight count is nominal: the capture does not prove all transformed boards are unique or that every bank size visits every index/transform pair. confidence: 1 source, last-confirmed 2026-10-04 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-04-rss-how-913-puzzles-became-7-304-levels-procedural-variation-on-a-precompu.md)
+
+### Explicit relationships
+
+Puzzle validity depends-on verified baseline content and matching transformations; server validation uses deterministic reconstruction.
+
+### Decision and quality notes
+
+Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Do HoneyDrunk puzzle tests cover symmetry duplicates, index/transform coverage, bank versioning, complete rules, and cache bounds? See [[indexes/gaps]].
