@@ -97,3 +97,43 @@ Local SQL uses Azure Local infrastructure; deployment depends-on connectivity an
 ### Decision and quality notes
 
 Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Which HoneyDrunk connectivity, hardware, high-availability, licensing, and inference requirements justify Azure Local evaluation? See [[indexes/gaps]].
+
+
+## 2026-10-05: DAB 2.1.5 adds native types and tighter endpoint authorization
+
+### Typed entities
+
+project: Data API builder; library: Microsoft.DataApiBuilder.Core; concept: SQL JSON; concept: SQL vector; concept: MCP authorization.
+
+### Claims and evidence
+
+- Microsoft announces stable DAB 2.1.5 with native SQL json/vector support through REST and GraphQL, an embeddable Core NuGet package, multi-segment API base paths, and a .NET 10 engine. JSON column values are returned as serialized JSON strings, rather than automatically nested objects. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-data-api-builder-2-1-5-json-and-vector-data-type-support-and-more.md)
+- The release reports MCP Host/Origin allowlists, role-gated entity discovery, shared create/update authorization, a health probe, restricted GraphQL sorting, bounded nested filters, loopback-only configuration writes, stricter production EasyAuth validation, and a separate non-root container variant. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-data-api-builder-2-1-5-json-and-vector-data-type-support-and-more.md)
+
+### Explicit relationships
+
+DAB uses entity permissions for vector exposure; MCP discovery depends-on caller authorization. See [[mcp-tool-governance-and-app-surfaces]].
+
+### Decision and quality notes
+
+Official release report; linked release notes and local policy regressions were not tested. CRUD support for vector columns does not itself prove a similarity-search API. Underlying database native-type support must be checked separately. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which pinned database/DAB pairs pass JSON serialization, vector CRUD, role-gated discovery, restricted sorting, origin, and configuration-access tests? See [[indexes/gaps]].
+
+
+## 2026-10-05: DiskANN GA scope remains distinct from every SQL deployment
+
+### Typed entities
+
+project: Azure SQL Database; project: Azure SQL Managed Instance; project: Microsoft Fabric; concept: DiskANN; concept: asynchronous index maintenance.
+
+### Claims and evidence
+
+- Microsoft announces DiskANN vector index/search GA in Azure SQL Database, Azure SQL Managed Instance with the always-up-to-date policy, and SQL database in Microsoft Fabric. It describes approximate graph navigation, asynchronous index maintenance with insert/update/delete support, iterative filtering, and optimizer choice between exact and approximate strategies. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-diskann-vector-index-and-vector-search-are-now-generally-available-in-.md)
+- The example uses TOP WITH APPROXIMATE and VECTOR_SEARCH with relational predicates. The article says similarity can compose with joins and row-level security rather than requiring a separately reconciled vector store. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-diskann-vector-index-and-vector-search-are-now-generally-available-in-.md)
+
+### Explicit relationships
+
+Vector retrieval uses relational filters and security; freshness depends-on asynchronous index maintenance. See [[agentic-retrieval-and-search]].
+
+### Decision and quality notes
+
+Official archived GA report; it does not establish GA for standalone SQL Server or other Managed Instance update policies. A mentioned billion-vector demonstration was not inspected, and no latency/recall guarantee is inferred. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk SQL deployment policy and mutation/freshness, selective-filter, tenant-security, recall, and query-plan tests qualify DiskANN? See [[indexes/gaps]].

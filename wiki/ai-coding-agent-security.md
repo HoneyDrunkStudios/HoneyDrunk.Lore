@@ -2375,3 +2375,42 @@ Security findings depend-on valid requests, attribution, and safe reproduction; 
 ### Decision and quality notes
 
 Vendor case study of one WAF configuration, not a population-wide block rate or proof that every edge-pass exploited the origin. A redirect observation did not establish metadata access. Offensive payload forms are omitted; human replay and application patching remain separate requirements. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk authorized staging scopes, replay evidence, origin validation, and legitimate-traffic tests distinguish real findings from non-blocked noise? See [[indexes/gaps]].
+
+
+## 2026-10-05: Governance below the harness requires complete mediation
+
+### Typed entities
+
+project: Docker AI Governance; concept: confused deputy; concept: runtime enforcement; concept: fleet policy.
+
+### Claims and evidence
+
+- Docker argues that untrusted documents can redirect an agent acting with legitimate authority and that per-harness policy can drift or leave alternate execution channels uncovered. It proposes runtime enforcement across processes, tool calls, credentials, network access, and spend with a common audit record. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-below-the-harness-governing-a-multi-model-multi-harness-world.md)
+
+### Explicit relationships
+
+Agent authority depends-on runtime policy; prompt-only guardrails do not replace external enforcement. See [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Vendor position paper, not a proof that one runtime covers every SaaS agent or permitted exfiltration channel. Claims of fleet-wide coverage need bypass and deployment-specific tests. No incident or compromise of HoneyDrunk is inferred. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk execution and tool channels are mediated, and do alternate-channel tests prove fleet policy coverage? See [[indexes/gaps]].
+
+
+## 2026-10-05: Cloud sandbox portability preserves separate authority decisions
+
+### Typed entities
+
+project: Docker Cloud Sandboxes; project: Sandbox Kit specification; concept: microVM; concept: credential proxy; concept: capability request.
+
+### Claims and evidence
+
+- Docker reports a local/cloud sbx workflow using microVMs with separate kernels and Docker daemons, movable filesystems, and reusable OCI Kits. Local and cloud credentials/policies are configured separately. Kit declarations request access; the runtime decides grants and enforces policy outside the agent. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-trust-docker-for-the-agents-you-don-t.md)
+- Conference demos reportedly denied host-socket access and repository deletion while recording policy outcomes. The recap acknowledges that network rules cannot determine whether an allowed message reaches the intended customer; narrow action permissions remain necessary. CNCF stewardship is a commitment, not evidence of completed transfer. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-trust-docker-for-the-agents-you-don-t.md)
+
+### Explicit relationships
+
+A portable agent environment uses Kits; effective authority depends-on environment-specific runtime grants. See [[container-supply-chain-and-compliance]].
+
+### Decision and quality notes
+
+Vendor recap and demos, not independent containment certification. This and the governance position paper are correlated Docker evidence, not independent security corroboration. Linked demos and cloud billing were not tested. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk local/cloud tests bound moved files, credentials, effective grants, forbidden sends, host access, and auditable denials? See [[indexes/gaps]].

@@ -124,3 +124,23 @@ Browser-native creative tooling is credible for lightweight indie/artist workflo
 
 ### Quality notes
 - Community/product post with early feedback. Verify license, source/repo availability, export schema stability, browser support, and production runtime behavior before adoption.
+
+
+## 2026-10-05: Particle snapshot reproducibility requires fixed timesteps
+
+### Typed entities
+
+project: NixieFX; library: PixiJS; concept: fixed timestep; concept: particle-state snapshot; concept: pixel hash.
+
+### Claims and evidence
+
+- The author reports identical rounded particle state and pixels with a fixed seed, timestep, and sampled time on one macOS/Chromium WebGL setup using nixie-fx 0.1.17 and PixiJS 8.22.0. Changing only timestep changed positions and pixel hashes; disabling the live ticker allowed explicit test stepping. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-snapshot-testing-a-particle-effect-in-pixijs-8-what-has-to-stay-fixed-.md)
+- The example compares state at multiple times and records that gravity/drag settings had no effect when the required velocity module was off despite successful validation. It recommends state snapshots as the main check and pixels as a stricter environment-sensitive check; cross-device portability and browser CI were not verified. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-snapshot-testing-a-particle-effect-in-pixijs-8-what-has-to-stay-fixed-.md)
+
+### Explicit relationships
+
+Snapshot reproducibility depends-on seed, time integration, and rendering environment; static validation does not establish active runtime modules. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Project-involved author, AI-assisted experiment, one machine and one 2D adapter. Rounded state equality is not full internal-state equality; pixel identity is not cross-GPU determinism. This qualifies the earlier deterministic-runtime claim without asserting a contradictory implementation. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which pinned HoneyDrunk VFX environments and multi-time state checks detect timestep drift, silent module no-ops, and backend limits? See [[indexes/gaps]].

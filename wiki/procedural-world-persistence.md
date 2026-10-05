@@ -67,3 +67,23 @@ Puzzle validity depends-on verified baseline content and matching transformation
 ### Decision and quality notes
 
 Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Do HoneyDrunk puzzle tests cover symmetry duplicates, index/transform coverage, bank versioning, complete rules, and cache bounds? See [[indexes/gaps]].
+
+
+## 2026-10-05: Puzzle search must distinguish budget exhaustion from impossibility
+
+### Typed entities
+
+project: water-sort-solver; concept: weighted best-first search; concept: state canonicalization; concept: exhaustive search.
+
+### Claims and evidence
+
+- The author describes sorting tube representations to collapse symmetric states, pruning redundant moves, and a weighted search with a non-admissible heuristic and bounded retries. The method seeks useful hints, without guaranteeing shortest paths. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-how-i-built-a-water-sort-puzzle-solver-in-about-300-lines-of-javascrip.md)
+- After guided search fails, the reported solver uses breadth-first exploration and returns impossible only if the reachable queue is exhausted; reaching its state cap returns unknown. Input validation checks color counts and tube capacity before search. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-how-i-built-a-water-sort-puzzle-solver-in-about-300-lines-of-javascrip.md)
+
+### Explicit relationships
+
+Hint search uses canonicalized states; impossibility depends-on exhaustive coverage of the implemented rules.
+
+### Decision and quality notes
+
+Single author demo, disclosed AI-assisted code; linked repository and timings were not reproduced. The purported unpruned fallback still uses applyPour with the earlier sealed-tube rule, so completeness must be established for the exact game rules before treating impossibility as proof. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Do HoneyDrunk puzzle tests prove pruning/canonicalization validity, replayable hints, and impossible-versus-unknown semantics under the actual rules? See [[indexes/gaps]].

@@ -2,9 +2,9 @@
 
 Questions the wiki cannot currently answer. Populated by the Query operation when synthesis falls short, and by the Lint operation when entities are referenced but lack a backing page.
 
-## Compile status: 2026-10-04
+## Compile status: 2026-10-05
 
-Cataloged 707 dated gap entries alongside the current 67-page catalog. Added 15 questions and closed 0 gaps in this pass. Existing questions and their history are preserved below.
+Cataloged 722 dated gap entries alongside the current 67-page catalog. Added 15 questions and closed 0 gaps in this pass. Existing questions and their history are preserved below.
 
 ## Entry format
 
@@ -940,3 +940,22 @@ Cataloged 707 dated gap entries alongside the current 67-page catalog. Added 15 
 - Which HoneyDrunk CEP integrations, distribution channels, host versions, and UXP API gaps need migration before applicable milestones? - surfaced 2026-10-04 - context: [[creative-tool-extension-packaging]]; [source](../../raw/2026-10-04-web-cep-to-uxp-creative-cloud-plugin-migration-timeline.md).
 - Which HoneyDrunk connectivity, hardware, high-availability, licensing, and inference requirements justify Azure Local evaluation? - surfaced 2026-10-04 - context: [[cloud-data-platforms-and-analytics]]; [source](../../raw/2026-10-04-web-sql-server-on-azure-local-is-now-generally-available-microsoft-sql-ser.md).
 - Which installed Adobe host/runtime pairs, subframe restrictions, Windows paths, and diagnostic opt-ins pass HoneyDrunk plugin tests? - surfaced 2026-10-04 - context: [[creative-tool-extension-packaging]]; [source](../../raw/2026-10-04-web-uxp-changelog-new-features-fixes-and-support-matrix.md).
+
+
+## 2026-10-05 ingest questions
+
+- Which held-out HoneyDrunk cases, prohibited side effects, judge agreement thresholds, and repeat-run budgets gate prompt/model/retrieval changes? - surfaced 2026-10-05 - context: [[agent-evaluation-and-benchmarks]]; [source](../../raw/2026-10-05-rss-ai-evals-guardrails-security-a-deep-dive.md).
+- Which pinned Aspire features, persisted-telemetry access/retention controls, REPL permissions, and migration tests qualify HoneyDrunk upgrades? - surfaced 2026-10-05 - context: [[microsoft-dotnet-ai-stack]]; [source](../../raw/2026-10-05-rss-aspire-13-6-your-dashboard-gets-memory.md).
+- Which HoneyDrunk execution and tool channels are mediated, and do alternate-channel tests prove fleet policy coverage? - surfaced 2026-10-05 - context: [[ai-coding-agent-security]]; [source](../../raw/2026-10-05-rss-below-the-harness-governing-a-multi-model-multi-harness-world.md).
+- Which HoneyDrunk terminal scenarios pass output-wait, timeout, cancellation, shared-view, and pinned-CLI replay tests? - surfaced 2026-10-05 - context: [[microsoft-dotnet-ai-stack]]; [source](../../raw/2026-10-05-rss-bringing-rich-terminal-experiences-to-aspire.md).
+- Which HoneyDrunk retrieval tests cover chunk boundaries, binary ranking/abstention, checkout-offset freshness, hard scope filters, and vector/metadata privacy? - surfaced 2026-10-05 - context: [[agentic-retrieval-and-search]]; [source](../../raw/2026-10-05-rss-building-a-rag-pipeline-for-semantic-code-search-a-developer-diary-and.md).
+- Which target-device, assistive-technology, input-only, sound-off, and player tests establish the selected HoneyDrunk accessibility requirements? - surfaced 2026-10-05 - context: [[unity-3d-and-realtime-vfx-patterns]]; [source](../../raw/2026-10-05-rss-building-accessible-games-wcag-for-interactive-content.md).
+- Which pinned database/DAB pairs pass JSON serialization, vector CRUD, role-gated discovery, restricted sorting, origin, and configuration-access tests? - surfaced 2026-10-05 - context: [[cloud-data-platforms-and-analytics]]; [source](../../raw/2026-10-05-rss-data-api-builder-2-1-5-json-and-vector-data-type-support-and-more.md).
+- Which HoneyDrunk SQL deployment policy and mutation/freshness, selective-filter, tenant-security, recall, and query-plan tests qualify DiskANN? - surfaced 2026-10-05 - context: [[cloud-data-platforms-and-analytics]]; [source](../../raw/2026-10-05-rss-diskann-vector-index-and-vector-search-are-now-generally-available-in-.md).
+- Do HoneyDrunk puzzle tests prove pruning/canonicalization validity, replayable hints, and impossible-versus-unknown semantics under the actual rules? - surfaced 2026-10-05 - context: [[procedural-world-persistence]]; [source](../../raw/2026-10-05-rss-how-i-built-a-water-sort-puzzle-solver-in-about-300-lines-of-javascrip.md).
+- Which HoneyDrunk corpus, exact-neighbor reference, mutation rate, total-memory budget, and recall/latency targets justify ANN tuning? - surfaced 2026-10-05 - context: [[agentic-retrieval-and-search]]; [source](../../raw/2026-10-05-rss-how-vector-database-search-billions-of-vectors-in-milliseconds.md).
+- Which HoneyDrunk trace paths pass context-trust, sampling, span-coverage, OTLP export, access, retention, and verified pricing checks? - surfaced 2026-10-05 - context: [[opentelemetry-genai-observability-and-ecosystem]]; [source](../../raw/2026-10-05-rss-introducing-cloudflare-traces-follow-requests-through-our-entire-platf.md).
+- Which HoneyDrunk prompt regressions require per-case gates, calibrated judge rubrics, and evaluation-only tracing isolated from production cost? - surfaced 2026-10-05 - context: [[agent-evaluation-and-benchmarks]]; [source](../../raw/2026-10-05-rss-prompt-testing-frameworks-for-production-ai-workflows.md).
+- Which pinned HoneyDrunk VFX environments and multi-time state checks detect timestep drift, silent module no-ops, and backend limits? - surfaced 2026-10-05 - context: [[browser-native-gpu-creative-tools]]; [source](../../raw/2026-10-05-rss-snapshot-testing-a-particle-effect-in-pixijs-8-what-has-to-stay-fixed-.md).
+- Which HoneyDrunk local/cloud tests bound moved files, credentials, effective grants, forbidden sends, host access, and auditable denials? - surfaced 2026-10-05 - context: [[ai-coding-agent-security]]; [source](../../raw/2026-10-05-rss-trust-docker-for-the-agents-you-don-t.md).
+- Which HoneyDrunk decision needs verified multi-hop paths, and do tests reject ambiguous identities, expired policies, missing edges, and cross-tenant traversal? - surfaced 2026-10-05 - context: [[agentic-retrieval-and-search]]; [source](../../raw/2026-10-05-rss-use-graph-rag-when-relationships-are-part-of-the-evidence.md).

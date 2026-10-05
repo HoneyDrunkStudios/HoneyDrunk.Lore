@@ -1664,3 +1664,23 @@ Playable delivery depends-on payload budget, bridge behavior, and interaction-ga
 ### Decision and quality notes
 
 Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Which network-specific limits, real SDK harnesses, offline-request checks, stripped-code regressions, and CTAs qualify a HoneyDrunk playable? See [[indexes/gaps]].
+
+
+## 2026-10-05: Accessible game interaction needs player and platform evidence
+
+### Typed entities
+
+project: Ocean View Games; concept: game accessibility; concept: input remapping; concept: captions; concept: assistive technology.
+
+### Claims and evidence
+
+- The practitioner guide adapts perceivable, operable, understandable, and robust design to games: redundant visual/audio cues, remappable controls, hold/toggle alternatives, adjustable timing and sensitivity, captions, predictable navigation, and persistent settings. Web menus can use semantic elements and focus management. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-building-accessible-games-wcag-for-interactive-content.md)
+- It distinguishes automated checks from disabled-player testing and recommends defining the required target during discovery with platform/device evidence throughout development. Native accessibility integrations and browser screen-reader behavior require different testing. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-building-accessible-games-wcag-for-interactive-content.md)
+
+### Explicit relationships
+
+Accessible gameplay depends-on input flexibility and perceivable cues; conformance evidence depends-on target platform and actual user testing.
+
+### Decision and quality notes
+
+Practitioner guidance, not a conformance audit or legal determination. Specific WCAG thresholds, procurement obligations, Unity feature support, and flash safety require primary standards/platform verification before implementation; no universal rule for all games is inferred. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which target-device, assistive-technology, input-only, sound-off, and player tests establish the selected HoneyDrunk accessibility requirements? See [[indexes/gaps]].

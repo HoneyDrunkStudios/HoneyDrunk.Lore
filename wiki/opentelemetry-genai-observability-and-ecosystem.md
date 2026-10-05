@@ -644,3 +644,23 @@ Instrumentation conformance uses emitted telemetry; coverage depends-on pinned v
 ### Decision and quality notes
 
 Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Which pinned HoneyDrunk instrumentation versions and scenarios satisfy required spans, attributes, and metric conventions? See [[indexes/gaps]].
+
+
+## 2026-10-05: Cloudflare tracing exposes supported request operations in open beta
+
+### Typed entities
+
+project: Cloudflare Traces; concept: W3C trace context; concept: OTLP export; concept: head sampling; concept: Trace Rules.
+
+### Claims and evidence
+
+- Cloudflare announces open-beta domain tracing for supported security, transform, routing, cache, Worker, and origin operations with baseline sampling and per-rule overrides. Incoming trace context acceptance is policy-controlled; forwarding context and exporting platform/application spans to a shared OTLP backend can connect the request path. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-introducing-cloudflare-traces-follow-requests-through-our-entire-platf.md)
+- The roadmap separately lists broader instrumentation, authenticated context propagation, ad hoc tracing, and longer retention. The article schedules unified observability pricing changes for December 1, 2026; its table does not make every future feature currently available. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-introducing-cloudflare-traces-follow-requests-through-our-entire-platf.md)
+
+### Explicit relationships
+
+End-to-end tracing depends-on propagation policy and downstream instrumentation; incident visibility depends-on sampling and supported spans.
+
+### Decision and quality notes
+
+Official archived beta report with malformed extracted links; roadmap and current capabilities remain separate. The paid ingestion period is unspecified in the captured pricing table, so no monthly cost estimate is derived. Production telemetry access through MCP requires scoped permissions and privacy review. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk trace paths pass context-trust, sampling, span-coverage, OTLP export, access, retention, and verified pricing checks? See [[indexes/gaps]].

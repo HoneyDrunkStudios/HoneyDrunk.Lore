@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-10-04
+## Compile coverage: 2026-10-05
 
-Reconciled 1172 raw documents against 1172 unique entries; ingested 15 captures. Existing records and dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
+Reconciled 1187 raw documents against 1187 unique entries; ingested 15 captures. Existing records and dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
 
 ## Entry format
 
@@ -1493,3 +1493,33 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [SQL Server on Azure Local is now generally available - Microsoft SQL Server Blog](../../raw/2026-10-04-web-sql-server-on-azure-local-is-now-generally-available-microsoft-sql-ser.md) - SQL local deployment is GA while local AI remains preview; canonical page: [[cloud-data-platforms-and-analytics]]. - ingested 2026-10-04
 
 - [UXP Changelog: New Features, Fixes, and Support Matrix](../../raw/2026-10-04-web-uxp-changelog-new-features-fixes-and-support-matrix.md) - UXP features depend on the host runtime matrix; canonical page: [[creative-tool-extension-packaging]]. - ingested 2026-10-04
+
+- [AI Evals, Guardrails & Security - A Deep Dive](../../raw/2026-10-05-rss-ai-evals-guardrails-security-a-deep-dive.md) - Outcome checks and calibrated judges need maintained test sets; canonical page: [[agent-evaluation-and-benchmarks]]. - ingested 2026-10-05
+
+- [Aspire 13.6: Your dashboard gets memory](../../raw/2026-10-05-rss-aspire-13-6-your-dashboard-gets-memory.md) - Aspire 13.6 persists telemetry while preview features require separate qualification; canonical page: [[microsoft-dotnet-ai-stack]]. - ingested 2026-10-05
+
+- [Below the Harness: Governing a Multi-Model, Multi-Harness World](../../raw/2026-10-05-rss-below-the-harness-governing-a-multi-model-multi-harness-world.md) - Governance below the harness requires complete mediation; canonical page: [[ai-coding-agent-security]]. - ingested 2026-10-05
+
+- [Bringing rich terminal experiences to Aspire](../../raw/2026-10-05-rss-bringing-rich-terminal-experiences-to-aspire.md) - Aspire terminal automation waits for observable state; canonical page: [[microsoft-dotnet-ai-stack]]. - ingested 2026-10-05
+
+- [Building a RAG Pipeline for Semantic Code Search: A Developer Diary and Field Notes - The JetBrains Blog](../../raw/2026-10-05-rss-building-a-rag-pipeline-for-semantic-code-search-a-developer-diary-and.md) - Code retrieval trades binary storage against relevance calibration; canonical page: [[agentic-retrieval-and-search]]. - ingested 2026-10-05
+
+- [Building Accessible Games: WCAG for Interactive Content](../../raw/2026-10-05-rss-building-accessible-games-wcag-for-interactive-content.md) - Accessible game interaction needs player and platform evidence; canonical page: [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-10-05
+
+- [Data API builder 2.1.5: JSON and Vector Data Type Support, and More](../../raw/2026-10-05-rss-data-api-builder-2-1-5-json-and-vector-data-type-support-and-more.md) - DAB 2.1.5 adds native types and tighter endpoint authorization; canonical page: [[cloud-data-platforms-and-analytics]]. - ingested 2026-10-05
+
+- [DiskANN Vector Index and Vector Search Are Now Generally Available in Azure SQL](../../raw/2026-10-05-rss-diskann-vector-index-and-vector-search-are-now-generally-available-in-.md) - DiskANN GA scope remains distinct from every SQL deployment; canonical page: [[cloud-data-platforms-and-analytics]]. - ingested 2026-10-05
+
+- [How I built a water sort puzzle solver in about 300 lines of JavaScript](../../raw/2026-10-05-rss-how-i-built-a-water-sort-puzzle-solver-in-about-300-lines-of-javascrip.md) - Puzzle search must distinguish budget exhaustion from impossibility; canonical page: [[procedural-world-persistence]]. - ingested 2026-10-05
+
+- [How Vector Database Search Billions of Vectors in Milliseconds](../../raw/2026-10-05-rss-how-vector-database-search-billions-of-vectors-in-milliseconds.md) - HNSW tuning needs measured recall and resource limits; canonical page: [[agentic-retrieval-and-search]]. - ingested 2026-10-05
+
+- [Introducing Cloudflare Traces: follow requests through our entire platform](../../raw/2026-10-05-rss-introducing-cloudflare-traces-follow-requests-through-our-entire-platf.md) - Cloudflare tracing exposes supported request operations in open beta; canonical page: [[opentelemetry-genai-observability-and-ecosystem]]. - ingested 2026-10-05
+
+- [Prompt Testing Frameworks for Production AI Workflows](../../raw/2026-10-05-rss-prompt-testing-frameworks-for-production-ai-workflows.md) - Prompt baselines need per-case regression review; canonical page: [[agent-evaluation-and-benchmarks]]. - ingested 2026-10-05
+
+- [Snapshot-testing a particle effect in PixiJS 8: what has to stay fixed for the same frame twice](../../raw/2026-10-05-rss-snapshot-testing-a-particle-effect-in-pixijs-8-what-has-to-stay-fixed-.md) - Particle snapshot reproducibility requires fixed timesteps; canonical page: [[browser-native-gpu-creative-tools]]. - ingested 2026-10-05
+
+- [Trust Docker for the agents you don’t](../../raw/2026-10-05-rss-trust-docker-for-the-agents-you-don-t.md) - Cloud sandbox portability preserves separate authority decisions; canonical page: [[ai-coding-agent-security]]. - ingested 2026-10-05
+
+- [Use Graph RAG when relationships are part of the evidence](../../raw/2026-10-05-rss-use-graph-rag-when-relationships-are-part-of-the-evidence.md) - Graph paths need operational provenance and hard boundaries; canonical page: [[agentic-retrieval-and-search]]. - ingested 2026-10-05

@@ -81,3 +81,62 @@ Multi-hop retrieval uses relationships; graph quality depends-on validated entit
 ### Decision and quality notes
 
 Vendor design guidance. Graph paths improve inspectability but do not guarantee truthful answers; retrieval, extraction, and canonicalization can each fail. This does not authorize heavier Lore infrastructure below its scaling threshold. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk held-out questions need explicit relationship traversal, and what extraction/canonicalization errors and maintenance costs would justify it? See [[indexes/gaps]].
+
+
+## 2026-10-05: Code retrieval trades binary storage against relevance calibration
+
+### Typed entities
+
+project: Air Context; project: JetBrains; concept: syntax-aware chunking; concept: binary quantization; concept: Hamming distance.
+
+### Claims and evidence
+
+- JetBrains describes syntax-aware chunking for nine languages with line-based fallback elsewhere, declaration/comment attachment, normalized chunks, abbreviated file paths, and source-file judges plus end-to-end retrieval evaluation. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-building-a-rag-pipeline-for-semantic-code-search-a-developer-diary-and.md)
+- Its reported pipeline retains 4,096 dimensions as sign bits and compares Hamming distance, reducing vector payload size 32-fold against float32 while sacrificing recall. Narrower similarity-score ranges limit absolute relevance thresholds, so it retains float16 for that use case. It reports storing coordinates and vectors rather than code content and reconstructing snippets from the local checkout; embeddings run on vendor-operated infrastructure. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-building-a-rag-pipeline-for-semantic-code-search-a-developer-diary-and.md)
+
+### Explicit relationships
+
+Code retrieval uses structure-aware chunks; coordinate reconstruction depends-on checkout consistency; threshold calibration depends-on vector representation. See [[cloud-vector-storage-security]].
+
+### Decision and quality notes
+
+Vendor public-preview design diary, not an independent performance or privacy audit. Local reconstruction does not mean code never reaches vendor embedding infrastructure; vectors and metadata remain sensitive. Embedded directory scope is relevance context, not an authorization filter. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk retrieval tests cover chunk boundaries, binary ranking/abstention, checkout-offset freshness, hard scope filters, and vector/metadata privacy? See [[indexes/gaps]].
+
+
+## 2026-10-05: HNSW tuning needs measured recall and resource limits
+
+### Typed entities
+
+concept: HNSW; concept: approximate nearest neighbors; concept: Recall@k; concept: quantization.
+
+### Claims and evidence
+
+- The newsletter explains hierarchical graph traversal and the tradeoffs of neighbor count, construction search breadth, and query search breadth. More exploration can improve recall while increasing work; graph links and vector payloads consume memory, and compression changes the accuracy/storage tradeoff. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-how-vector-database-search-billions-of-vectors-in-milliseconds.md)
+
+### Explicit relationships
+
+Approximate retrieval depends-on graph construction, embedding metric, and query exploration; recall evaluation uses exact-neighbor reference results.
+
+### Decision and quality notes
+
+Secondary educational explanation. Its latency/recall numbers are illustrative, and the headline does not establish a billion-vector benchmark. Quantizing float payloads does not imply the same percentage reduction for total index memory. Embedding dimensions are not individually interpretable semantic facts. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk corpus, exact-neighbor reference, mutation rate, total-memory budget, and recall/latency targets justify ANN tuning? See [[indexes/gaps]].
+
+
+## 2026-10-05: Graph paths need operational provenance and hard boundaries
+
+### Typed entities
+
+concept: Graph RAG; concept: entity resolution; concept: effective date; concept: operational provenance; concept: bounded traversal.
+
+### Claims and evidence
+
+- The sponsored article distinguishes relationship-aware retrieval over operational records from Microsoft GraphRAG extraction/community summarization. Vector ranking finds candidate evidence, while typed sourced relationships establish which service, version, customer, and policy actually connect. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-use-graph-rag-when-relationships-are-part-of-the-evidence.md)
+- It recommends resolving ambiguous entities explicitly, enforcing tenant/effective-date/edge/hop constraints before model consumption, citing path sources and policy text, and surfacing missing or contradictory links. Graphs near relational source records can reduce copying and reconciliation, but need owners and update paths. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-use-graph-rag-when-relationships-are-part-of-the-evidence.md)
+
+### Explicit relationships
+
+Relationship-aware answering depends-on entity resolution and current sourced edges; vector relevance does not establish authorization. See [[llm-wiki-and-knowledge-formats]].
+
+### Decision and quality notes
+
+Oracle-sponsored design guidance, not a HoneyDrunk database selection or benchmark. Operationally sourced edges and model-extracted triples have different validation needs. No new Lore graph infrastructure is authorized or required by this capture. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk decision needs verified multi-hop paths, and do tests reject ambiguous identities, expired policies, missing edges, and cross-tenant traversal? See [[indexes/gaps]].

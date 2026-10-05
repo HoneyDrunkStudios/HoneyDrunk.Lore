@@ -1448,3 +1448,43 @@ Agent reliability depends-on terminal-state checks and isolated repetition; comp
 ### Decision and quality notes
 
 Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Which HoneyDrunk tasks need negative side-effect assertions, isolated repeats, pinned artifacts, and separately accounted operational failures? See [[indexes/gaps]].
+
+
+## 2026-10-05: Outcome checks and calibrated judges need maintained test sets
+
+### Typed entities
+
+concept: golden test set; concept: held-out calibration; concept: repeated evaluation; concept: grader hierarchy.
+
+### Claims and evidence
+
+- The captured newsletter recommends matching deterministic checks to verifiable contracts, calibrated judges to subjective rubrics, and human review to high-stakes decisions. Product-specific cases should include in-scope, refusal, and adversarial behavior, with held-out examples and versioned evidence. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-ai-evals-guardrails-security-a-deep-dive.md)
+- It distinguishes regression from capability suites and success in any attempt from success in every attempt. It emphasizes final-state checks for agents while using trajectories to diagnose failures; repetition helps distinguish regressions from sampling noise. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-ai-evals-guardrails-security-a-deep-dive.md)
+
+### Explicit relationships
+
+Release confidence depends-on representative cases and calibrated graders; production failures reinforce regression coverage. See [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Secondary educational source. The captured body ends at a subscription teaser: guardrail/security sections advertised in the introduction are not available as detailed evidence. Example suite sizes and repeat counts are suggestions, not validated universal thresholds. Outcome success does not excuse forbidden side effects. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which held-out HoneyDrunk cases, prohibited side effects, judge agreement thresholds, and repeat-run budgets gate prompt/model/retrieval changes? See [[indexes/gaps]].
+
+
+## 2026-10-05: Prompt baselines need per-case regression review
+
+### Typed entities
+
+project: n8n; concept: prompt regression; concept: deterministic metrics; concept: LLM judge; concept: evaluation dataset.
+
+### Claims and evidence
+
+- n8n describes comparing versioned prompt baselines on fixed representative cases using deterministic or AI-judged metrics and checking both aggregate scores and individual regressions. Its evaluation trigger runs once per dataset row; evaluation-only branches avoid adding scoring cost to ordinary runs. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-prompt-testing-frameworks-for-production-ai-workflows.md)
+- The guide describes optional LangSmith tracing for self-hosted LangChain-based n8n workflows and explicitly excludes n8n Cloud from that integration. Its built-in correctness/helpfulness scores use a 1-5 scale. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-prompt-testing-frameworks-for-production-ai-workflows.md)
+
+### Explicit relationships
+
+Prompt comparison depends-on common cases and metrics; diagnosis uses traces alongside outcome scores.
+
+### Decision and quality notes
+
+Vendor tooling guide. Numeric judge scores require held-out human calibration; the separate newsletter preference for pass/fail is a design choice rather than evidence that numeric grading cannot work. Framework popularity and superiority are not independently established. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk prompt regressions require per-case gates, calibrated judge rubrics, and evaluation-only tracing isolated from production cost? See [[indexes/gaps]].

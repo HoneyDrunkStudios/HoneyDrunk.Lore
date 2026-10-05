@@ -970,3 +970,43 @@ UIAgent uses IChatClient; committed document state depends-on accepted proposals
 ### Decision and quality notes
 
 Experimental integration sample requiring .NET 11 RC1 and a prerelease package, not a production stability guarantee. This extends the earlier Blazor preview entry without superseding its experimental status. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Which failed-stream, cancellation, undecided-proposal, approval, and snapshot/patch reconciliation tests qualify a HoneyDrunk Blazor agent UI? See [[indexes/gaps]].
+
+
+## 2026-10-05: Aspire 13.6 persists telemetry while preview features require separate qualification
+
+### Typed entities
+
+project: Aspire; library: Aspire.Hosting.Java; library: Aspire.Hosting.Rust; library: Aspire.Hosting.Azure.Sandboxes; concept: dashboard persistence.
+
+### Claims and evidence
+
+- Microsoft reports SQLite-backed resource and telemetry runs retained after AppHost shutdown, read-only historical browsing, up to ten runs per application with pinning, and default limits of 100,000 entries each for console logs, structured logs, and traces. Standalone Resume persistence requires opting in and a stable application name. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-aspire-13-6-your-dashboard-gets-memory.md)
+- The announcement identifies Java/Rust hosting packages, Azure Container Apps Sandboxes, and database REPL integration as preview, terminal dock APIs as experimental, and AddDotnetProject as prerelease. REPLs opt in, run only in run mode, and use real resource credentials with full write access. Volume mounts can supply a common environment-variable path locally and after deployment. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-aspire-13-6-your-dashboard-gets-memory.md)
+
+### Explicit relationships
+
+Historical dashboard investigation uses persisted telemetry; REPL access depends-on explicit opt-in and actual database authority. See [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Official archived release report, no installed-version or migration test. Telemetry persistence needs retention and access review; it is not a secure archival guarantee. Preview sandboxes default to denied egress and authenticated external endpoints according to this capture; those defaults require local verification. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which pinned Aspire features, persisted-telemetry access/retention controls, REPL permissions, and migration tests qualify HoneyDrunk upgrades? See [[indexes/gaps]].
+
+
+## 2026-10-05: Aspire terminal automation waits for observable state
+
+### Typed entities
+
+project: Aspire; library: TerminalService; library: Charmbracelet VHS; concept: pseudo-terminal; concept: terminal automation.
+
+### Claims and evidence
+
+- Microsoft describes WithTerminal support introduced in 13.5 for projects, executables, and containers; multiple interactive views share the same PTY and resizing. Aspire 13.6 adds docked terminals and database REPL commands, plus richer escape-sequence and graphics support. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-bringing-rich-terminal-experiences-to-aspire.md)
+- The experimental terminal APIs expose text/key input and waiting for visible text with timeouts and cancellation. The experimental tape playback command drives an already running resource terminal using VHS-style scripts and prints the final screen; it does not render a video or create recording files. confidence: 1 source, last-confirmed 2026-10-05 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-05-rss-bringing-rich-terminal-experiences-to-aspire.md)
+
+### Explicit relationships
+
+Terminal automation uses observable screen conditions; reliable replay depends-on resource identity, timeout, and cancellation. See [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Official feature explanation and illustrative code; videos and implementations were not separately inspected. Shared terminal views share authority rather than isolate sessions. Experimental APIs may change. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk terminal scenarios pass output-wait, timeout, cancellation, shared-view, and pinned-CLI replay tests? See [[indexes/gaps]].
