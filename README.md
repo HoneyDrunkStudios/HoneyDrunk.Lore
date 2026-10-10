@@ -14,7 +14,7 @@ Claude can still use Lore for decision-making. The important split is:
 - Claude consumes the compiled `wiki/`, `wiki/indexes/`, and `output/query-*.md` files as shared knowledge.
 - Any recommendation based on Lore should cite the wiki/source page and state confidence or gaps.
 
-[`AGENTS.md`](./AGENTS.md) is the single agent instruction file. Claude Code reads it directly, so there is no separate `CLAUDE.md`.
+[`AGENTS.md`](./AGENTS.md) is the single agent instruction file. Current Claude Code versions can read it directly; confirm the session's loaded instructions because ancestor files and settings affect discovery. There is no separate `CLAUDE.md`.
 
 ### Ingest a new source
 1. Drop the source file into `raw/` (markdown, PDF, transcript, repo dump — whatever).
