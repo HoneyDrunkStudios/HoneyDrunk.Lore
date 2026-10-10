@@ -1488,3 +1488,22 @@ Prompt comparison depends-on common cases and metrics; diagnosis uses traces alo
 ### Decision and quality notes
 
 Vendor tooling guide. Numeric judge scores require held-out human calibration; the separate newsletter preference for pass/fail is a design choice rather than evidence that numeric grading cannot work. Framework popularity and superiority are not independently established. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk prompt regressions require per-case gates, calibrated judge rubrics, and evaluation-only tracing isolated from production cost? See [[indexes/gaps]].
+
+
+## 2026-10-10: Ambient quality diagnosis uses trajectories and deployed source snapshots
+
+### Typed entities
+
+project: Google AQuA; project: ADK recipes; project: BigQuery; concept: trajectory review; concept: source snapshot; concept: evidence cluster; concept: replay.
+
+### Claims and evidence
+
+Google describes AQuA as an out-of-request-path reference implementation that samples, reviews, clusters, verifies, and tracks production trajectories. Diagnosis is on demand against an immutable deployed-source snapshot and proposes cited edits without applying changes or opening PRs. The reported verification samples at most three transcripts per cluster, rather than validating every cluster member; skipped, uncaptured, and over-cap work remains explicit. Tracking auto-resolves after 14 days unseen, which is a tracking heuristic rather than proof of a fix. Static user-turn replay does not restore external state or reproduce adaptive conversation dependencies. confidence: 1 source, last-confirmed 2026-10-10 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-08-rss-the-outer-loop-insights-first-an-ambient-quality-agent-that-diagnoses-.md)
+
+### Explicit relationships
+
+Root-cause diagnosis uses deployed source and cited trajectories; regression evidence depends-on reproducible tool/environment state. See [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Vendor reference demonstration, not independent production-quality validation. Reported synthetic replay gains and costs are workload-specific. Project-local storage does not by itself prove every model/data processing boundary; assess retention, IAM, judge calibration, and data flows. No HoneyDrunk deployment performed. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which trace-to-revision binding, judge calibration, rare-failure sampling, skipped-work accounting, privacy controls, and stateful replay tests qualify a HoneyDrunk quality outer loop? See [[indexes/gaps]].

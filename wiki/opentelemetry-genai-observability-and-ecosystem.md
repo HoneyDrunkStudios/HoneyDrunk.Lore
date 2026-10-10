@@ -664,3 +664,41 @@ End-to-end tracing depends-on propagation policy and downstream instrumentation;
 ### Decision and quality notes
 
 Official archived beta report with malformed extracted links; roadmap and current capabilities remain separate. The paid ingestion period is unspecified in the captured pricing table, so no monthly cost estimate is derived. Production telemetry access through MCP requires scoped permissions and privacy review. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk trace paths pass context-trust, sampling, span-coverage, OTLP export, access, retention, and verified pricing checks? See [[indexes/gaps]].
+
+
+## 2026-10-10: OTLP export design distinguishes customer software from platform routing
+
+### Typed entities
+
+project: OpenTelemetry; library: OTLP; project: Collector; concept: telemetry destination; concept: tenant routing; concept: semantic conventions.
+
+### Claims and evidence
+
+The OTel article distinguishes SDK instrumentation and customer endpoint configuration for self-hosted software from operator-managed destinations for hosted platforms. It recommends documented OTLP transports, signal toggles, consistent metadata, and optional per-signal endpoints. Dedicated tenant Collectors trade resource cost for isolation; shared pipelines require routing and operational control. Its examples have uneven signal support and preview features, so an OTLP label alone does not establish all-signal interoperability. confidence: 1 source, last-confirmed 2026-10-10 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-08-rss-otel-native-by-design-building-products-that-export-to-any-observabili.md)
+
+### Explicit relationships
+
+Telemetry export uses OTLP and semantic conventions; tenant delivery depends-on authenticated routing and destination controls.
+
+### Decision and quality notes
+
+Ecosystem design guidance written by observability vendors, not a tenant-isolation certification. HTTP base endpoint path construction differs from per-signal/gRPC endpoint handling. Credentials, sample headers, and redacted polling code are not copied. Validate exporter failures, privacy and cross-tenant isolation locally. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which signal/transport, trusted tenant routing, endpoint validation, secret storage, backpressure, and cross-tenant delivery tests qualify HoneyDrunk telemetry export? See [[indexes/gaps]].
+
+
+## 2026-10-10: OBI trace-log enrichment has write-path and context limits
+
+### Typed entities
+
+project: OpenTelemetry eBPF Instrumentation; library: OBI; concept: trace-log correlation; concept: synchronous write; concept: placeholder filtering.
+
+### Claims and evidence
+
+The OBI post describes opt-in stdout/stderr annotation during active request context; file/network appenders and background/startup logs are outside that coverage. It requires CAP_SYS_ADMIN and a kernel without lockdown; common write-path support needs Linux 6.0+, while older kernels cover writev only. Async/buffered logging may lose or misattribute context, and Java virtual threads are not yet enriched. For SDK-instrumented traces, OBI adds trace ID only to avoid incompatible span links. The shipper must drop all-NUL placeholders, and writes above 8 KiB can split. confidence: 1 source, last-confirmed 2026-10-10 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-08-rss-zero-code-trace-log-correlation-with-obi.md)
+
+### Explicit relationships
+
+OBI correlation depends-on kernel privileges, synchronous writes, and active context; log delivery uses placeholder filtering.
+
+### Decision and quality notes
+
+Official feature explanation, not validated attribution under HoneyDrunk backpressure. .NET needs a synchronous console writer per this source. Test duplicate/split/misattributed records on one low-risk service before rollout; no app redeploy does not mean no pipeline change. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which kernel/privilege, .NET writer, concurrent-request/backpressure, SDK-span, all-NUL filtering, and large-record tests qualify OBI correlation for HoneyDrunk? See [[indexes/gaps]].

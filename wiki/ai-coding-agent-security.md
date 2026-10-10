@@ -2414,3 +2414,46 @@ A portable agent environment uses Kits; effective authority depends-on environme
 ### Decision and quality notes
 
 Vendor recap and demos, not independent containment certification. This and the governance position paper are correlated Docker evidence, not independent security corroboration. Linked demos and cloud billing were not tested. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk local/cloud tests bound moved files, credentials, effective grants, forbidden sends, host access, and auditable denials? See [[indexes/gaps]].
+
+
+## 2026-10-10: Defensive autonomy requires bounded organizational risk
+
+### Typed entities
+
+person: Dave Chismon; project: NCSC; concept: potency; concept: scope; concept: criticality; concept: rollout confidence; concept: recoverability.
+
+### Claims and evidence
+
+NCSC proposes assessing defensive automation by potency, scope, criticality, rollout confidence, and recoverability. It favors explainable advice and well-evidenced, tightly scoped interventions; read-only collection still carries exfiltration risk. Organizational impact and accountability constrain defenders, and task success alone cannot establish that an automated change is low risk. confidence: 1 source, last-confirmed 2026-10-10 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-08-rss-one-does-not-simply-defend-agentically.md)
+
+### Explicit relationships
+
+Defensive autonomy depends-on demonstrated impact and recovery boundaries; human-directed action uses explainable evidence.
+
+### Decision and quality notes
+
+Primary government practitioner framework, not a measured universal risk score or authorization to change systems. No exploit procedures promoted. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which defensive actions have explicit owners, estate boundaries, business-criticality evidence, staged rollout tests, and proven recovery paths before HoneyDrunk automates them? See [[indexes/gaps]].
+
+
+## 2026-10-10: Agent authority includes enforced mandates and external expectations
+
+### Typed entities
+
+person: Jeremy Gordon; project: Thoughtworks; concept: actual authority; concept: apparent authority; concept: designated principal; concept: independent stop control.
+
+### Claims and evidence
+
+Thoughtworks distinguishes architecture-enforced authority from the authority others infer through the interface and communication channel. It recommends named ownership, narrow mandates, separated credentials, approved destinations, spending limits, nonexpanding delegation, and independently controlled audit/stop mechanisms. Soft pause blocks new work while retaining state; hard stop covers the agent tree, credentials, egress, and evidence. confidence: 1 source, last-confirmed 2026-10-10 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-08-rss-real-world-lessons-in-agentic-authority-and-overreach.md)
+
+### Explicit relationships
+
+Actual authority depends-on external enforcement; apparent authority uses interface and channel signals. See [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+Governance recommendation, not a jurisdiction-specific legal conclusion. Litigation narratives and reported evaluation incidents are secondary accounts; no current liability, case status, or incident counts promoted. No sensitive personal narrative copied. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk agents have a named principal, accurate external authority signals, spending/delegation limits, and independently tested pause/stop/audit controls? See [[indexes/gaps]].
+
+
+## 2026-10-10: Consolidated authority-control recommendation
+
+NCSC and two Thoughtworks articles reinforce a recommendation to bound autonomous action with explicit scope, organizational accountability, and controls outside model-written prompts. confidence: 3 sources, last-confirmed 2026-10-10 (archived recommendations; two publisher organizations, with the Thoughtworks accounts correlated). [NCSC](../raw/2026-10-08-rss-one-does-not-simply-defend-agentically.md); [engineering discipline](../raw/2026-10-08-rss-quality-is-speed-where-engineering-discipline-moves-in-the-ai-era.md); [authority](../raw/2026-10-08-rss-real-world-lessons-in-agentic-authority-and-overreach.md). Support for the recommendation is stronger than a single opinion; this is not measured proof of containment or a promotion of each article's incident claims. Enforcement effectiveness still depends-on local bypass, recovery, and audit tests.

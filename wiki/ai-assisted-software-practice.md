@@ -1441,3 +1441,22 @@ Skill accuracy depends-on source-bound review and example validation.
 ### Decision and quality notes
 
 Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Which HoneyDrunk skills need source mappings, skipped-check failure gates, and runtime examples beyond static validation? See [[indexes/gaps]].
+
+
+## 2026-10-10: AI delivery discipline moves toward evidence and enforceable permissions
+
+### Typed entities
+
+person: Joe Murray; person: Martin Fowler; project: Thoughtworks; concept: evidence checkpoint; concept: internal quality.
+
+### Claims and evidence
+
+The Thoughtworks interview frames 3/3/3 as adjustable evidence checkpoints rather than universal delivery deadlines. It argues that integrated software, feedback, and legacy behavior comparison matter more than output volume. Whether internal code quality reliably accelerates AI work is presented as a hypothesis; vendor modernization estimates are not controlled benchmarks. Agent rigor includes permission, network, isolation, and audit controls. confidence: 1 source, last-confirmed 2026-10-10 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-08-rss-quality-is-speed-where-engineering-discipline-moves-in-the-ai-era.md)
+
+### Explicit relationships
+
+AI delivery uses working-software evidence; autonomous execution depends-on constrained authority. See [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Consultancy interview and commercial examples; no HoneyDrunk productivity result or mandated three-month schedule inferred. Same-publisher articles are correlated support. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which value, usability, feasibility, production-behavior, and safety evidence must HoneyDrunk experiments show at each adjustable delivery checkpoint? See [[indexes/gaps]].

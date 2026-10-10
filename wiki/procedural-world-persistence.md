@@ -87,3 +87,22 @@ Hint search uses canonicalized states; impossibility depends-on exhaustive cover
 ### Decision and quality notes
 
 Single author demo, disclosed AI-assisted code; linked repository and timings were not reproduced. The purported unpruned fallback still uses applyPour with the earlier sealed-tube rule, so completeness must be established for the exact game rules before treating impossibility as proof. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Do HoneyDrunk puzzle tests prove pruning/canonicalization validity, replayable hints, and impossible-versus-unknown semantics under the actual rules? See [[indexes/gaps]].
+
+
+## 2026-10-10: Echo Weaver separates loop state from durable player knowledge
+
+### Typed entities
+
+project: Echo Weaver; project: Moonlight Kids; project: Unity 6; concept: loop reset; concept: streamed ownership; decision: separate run state and remembered knowledge.
+
+### Claims and evidence
+
+In Unity's developer interview, Echo Weaver retains run-specific string-keyed state in memory while chunks stream, discards its lightweight essentials scene and run dictionary at reset, and serializes remembered knowledge across loops. Static geometry remains loaded. Recreating door interaction components fixed reset UI state; moving carryable objects out of chunk ownership fixed disappearing or duplicated items. Persistent scene ownership is not by itself a cross-loop save guarantee. confidence: 1 source, last-confirmed 2026-10-10 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-08-rss-echo-weaver-building-a-time-loop-metroidbrainia-in-unity-6.md)
+
+### Explicit relationships
+
+Loop resets use explicit state lifetimes; streamed inventory integrity depends-on ownership outside unloadable chunks. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Developer production account relayed by Unity, not independently inspected code. A time loop still requires state persistence within each run. Validate disk writes, version migration, carry/reset behavior, and stable keys locally. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which streamed-item ownership, door/UI reset, in-loop reload, cross-loop knowledge, interrupted-save, and migration tests qualify HoneyDrunk game persistence? See [[indexes/gaps]].

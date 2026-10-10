@@ -1010,3 +1010,22 @@ Terminal automation uses observable screen conditions; reliable replay depends-o
 ### Decision and quality notes
 
 Official feature explanation and illustrative code; videos and implementations were not separately inspected. Shared terminal views share authority rather than isolate sessions. Experimental APIs may change. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk terminal scenarios pass output-wait, timeout, cancellation, shared-view, and pinned-CLI replay tests? See [[indexes/gaps]].
+
+
+## 2026-10-10: C# Dev Kit pre-release changes project loading and build costs
+
+### Typed entities
+
+library: C# Dev Kit; library: Native AOT; project: VS Code; concept: project cache.
+
+### Claims and evidence
+
+Microsoft describes C# Dev Kit 11.0 as a pre-release replacing the 3.3 architecture with cached project loading, active-file priority, and a consolidated Native AOT server. It adds incremental build acceleration, MSBuild editing support, and C# Doctor environmental checks. The reported memory reductions measure Dev Kit server processes, excluding Roslyn and VS Code; first-load cache creation differs from later cached loads. confidence: 1 source, last-confirmed 2026-10-10 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-08-rss-a-faster-lighter-c-dev-kit.md)
+
+### Explicit relationships
+
+C# Dev Kit uses project caches and Native AOT; perceived responsiveness depends-on cache state and solution structure.
+
+### Decision and quality notes
+
+Official pre-release announcement and vendor measurements; no HoneyDrunk timings reproduced. Committing caches is an author suggestion requiring artifact/privacy review, not a Lore policy. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned Dev Kit version, cold/warm worktree loads, total-process memory measurements, and cache artifact review qualify a HoneyDrunk tooling pilot? See [[indexes/gaps]].

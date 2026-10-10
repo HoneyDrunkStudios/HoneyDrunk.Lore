@@ -293,3 +293,12 @@ Operator: Codex executing Honeyclaw workflow. Ingested 15 attributed summaries i
 ## 2026-10-03T10:12:52-04:00: daily ingest/compile
 
 Operator: Codex executing Honeyclaw workflow. Fully reviewed 30 captures, extended 18 canonical pages, rebuilt 1157-source and 67-topic catalogs, and logged 30 gaps. Preserved and superseded incorrect retention interpretation and stale token rollout posture. Single-source claims remain provisional; query outputs add no new evidence. No raw edits or new canonical pages. See [run receipt](../../output/lore-ingest-last-run.md) for quality, review, validation, and publication status.
+
+
+## 2026-10-10 Lore ingest/compile
+
+- Timestamp: 2026-10-10T10:05:18-04:00; operator: Codex executing the authorized Honeyclaw workflow.
+- Ingested 15 raw sources; updated 12 canonical pages; rebuilt sources/topics/gaps; added 16 questions.
+- Resolved the synchronous-only workflow contradiction with preserved history; consolidated authority controls across three documents with publisher correlation disclosed.
+- No raw/query mutations or new credential replacements; sensitive personal/attack details excluded from wiki synthesis.
+- Source coverage, hashes, new links, metadata, privacy and generated-content whitespace validated; 384 archived-source formatting warnings retained under raw immutability; explicit self-review approved. See [run summary](../../output/lore-ingest-last-run.md) for complete inputs, pages, limitations, and publication scope.

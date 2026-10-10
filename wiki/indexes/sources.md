@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-10-08
+## Compile coverage: 2026-10-10
 
-Reconciled 1187 raw documents against 1187 unique entries; ingested 0 captures. Existing records and dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
+Reconciled 1202 raw documents against 1202 unique entries; ingested 15 captures. Existing records and dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
 
 ## Entry format
 
@@ -1523,3 +1523,33 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [Trust Docker for the agents you don’t](../../raw/2026-10-05-rss-trust-docker-for-the-agents-you-don-t.md) - Cloud sandbox portability preserves separate authority decisions; canonical page: [[ai-coding-agent-security]]. - ingested 2026-10-05
 
 - [Use Graph RAG when relationships are part of the evidence](../../raw/2026-10-05-rss-use-graph-rag-when-relationships-are-part-of-the-evidence.md) - Graph paths need operational provenance and hard boundaries; canonical page: [[agentic-retrieval-and-search]]. - ingested 2026-10-05
+
+- [A faster, lighter C# Dev Kit](../../raw/2026-10-08-rss-a-faster-lighter-c-dev-kit.md) - C# Dev Kit pre-release changes project loading and build costs; canonical page: [[microsoft-dotnet-ai-stack]]. - ingested 2026-10-10
+
+- [Connect Azure Functions to more services with managed connectors](../../raw/2026-10-08-rss-connect-azure-functions-to-more-services-with-managed-connectors.md) - Managed connectors extend code-first Functions in public preview; canonical page: [[azure-agent-automation-and-identity]]. - ingested 2026-10-10
+
+- [Dynamic Workflows in Azure Functions Hosted Skills: Durable, AI-Led Work for Event-Driven Apps](../../raw/2026-10-08-rss-dynamic-workflows-in-azure-functions-hosted-skills-durable-ai-led-work.md) - Dynamic Workflows permit async tools while retaining durable execution limits; canonical page: [[azure-agent-automation-and-identity]]. - ingested 2026-10-10
+
+- [Echo Weaver: Building a time-loop metroidbrainia in Unity 6](../../raw/2026-10-08-rss-echo-weaver-building-a-time-loop-metroidbrainia-in-unity-6.md) - Echo Weaver separates loop state from durable player knowledge; canonical page: [[procedural-world-persistence]]. - ingested 2026-10-10
+
+- [How Silver Pines Used Rotoscoping to Create Its Unsettling Horror](../../raw/2026-10-08-rss-how-silver-pines-used-rotoscoping-to-create-its-unsettling-horror.md) - Silver Pines trades simple geometry for intensive handmade animation; canonical page: [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-10-10
+
+- [How to Make a Stylized Game-Ready Minecart Prop Using Hand-Painted Textures](../../raw/2026-10-08-rss-how-to-make-a-stylized-game-ready-minecart-prop-using-hand-painted-tex.md) - Stylized props allocate topology to final silhouettes and test final lighting; canonical page: [[technical-art-community-and-talent-signals]]. - ingested 2026-10-10
+
+- [Multimodal open d1 decision models for the edge](../../raw/2026-10-08-rss-multimodal-open-d1-decision-models-for-the-edge.md) - Open d1 models classify structured decisions without token generation; canonical page: [[edge-ai-and-ai-infrastructure-2026]]. - ingested 2026-10-10
+
+- [One does not simply defend agentically](../../raw/2026-10-08-rss-one-does-not-simply-defend-agentically.md) - Defensive autonomy requires bounded organizational risk; canonical page: [[ai-coding-agent-security]]. - ingested 2026-10-10
+
+- [OTel-Native by Design - Building Products That Export to Any Observability Stack](../../raw/2026-10-08-rss-otel-native-by-design-building-products-that-export-to-any-observabili.md) - OTLP export design distinguishes customer software from platform routing; canonical page: [[opentelemetry-genai-observability-and-ecosystem]]. - ingested 2026-10-10
+
+- [Quality is speed: Where engineering discipline moves in the AI era](../../raw/2026-10-08-rss-quality-is-speed-where-engineering-discipline-moves-in-the-ai-era.md) - AI delivery discipline moves toward evidence and enforceable permissions; canonical page: [[ai-assisted-software-practice]]. - ingested 2026-10-10
+
+- [Real-world lessons in agentic authority and overreach](../../raw/2026-10-08-rss-real-world-lessons-in-agentic-authority-and-overreach.md) - Agent authority includes enforced mandates and external expectations; canonical page: [[ai-coding-agent-security]]. - ingested 2026-10-10
+
+- [Software Supply Chain Attack on @subql/common: Overview and Response Guidance](../../raw/2026-10-08-rss-software-supply-chain-attack-on-subql-common-overview-and-response-gui.md) - Compromised publishing pipelines defeat provenance-only trust; canonical page: [[container-supply-chain-and-compliance]]. - ingested 2026-10-10
+
+- [The Outer Loop, Insights First: An Ambient Quality Agent That Diagnoses Your Production Agent](../../raw/2026-10-08-rss-the-outer-loop-insights-first-an-ambient-quality-agent-that-diagnoses-.md) - Ambient quality diagnosis uses trajectories and deployed source snapshots; canonical page: [[agent-evaluation-and-benchmarks]]. - ingested 2026-10-10
+
+- [UWP and WinUI 3 apps: UI testing with MSTest](../../raw/2026-10-08-rss-uwp-and-winui-3-apps-ui-testing-with-mstest.md) - MSTest UI hosting tests the real dispatcher and packaging model; canonical page: [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-10-10
+
+- [Zero-code trace-log correlation with OBI](../../raw/2026-10-08-rss-zero-code-trace-log-correlation-with-obi.md) - OBI trace-log enrichment has write-path and context limits; canonical page: [[opentelemetry-genai-observability-and-ecosystem]]. - ingested 2026-10-10

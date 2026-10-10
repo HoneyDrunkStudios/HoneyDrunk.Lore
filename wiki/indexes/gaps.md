@@ -2,9 +2,9 @@
 
 Questions the wiki cannot currently answer. Populated by the Query operation when synthesis falls short, and by the Lint operation when entities are referenced but lack a backing page.
 
-## Compile status: 2026-10-08
+## Compile status: 2026-10-10
 
-Cataloged 722 dated gap entries alongside the current 67-page catalog. Added 0 questions and closed 0 gaps in this pass. Existing questions and their history are preserved below.
+Cataloged 738 dated gap entries alongside the current 67-page catalog. Added 16 questions and closed 0 gaps in this pass. Existing questions and their history are preserved below.
 
 ## Entry format
 
@@ -959,3 +959,35 @@ Cataloged 722 dated gap entries alongside the current 67-page catalog. Added 0 q
 - Which pinned HoneyDrunk VFX environments and multi-time state checks detect timestep drift, silent module no-ops, and backend limits? - surfaced 2026-10-05 - context: [[browser-native-gpu-creative-tools]]; [source](../../raw/2026-10-05-rss-snapshot-testing-a-particle-effect-in-pixijs-8-what-has-to-stay-fixed-.md).
 - Which HoneyDrunk local/cloud tests bound moved files, credentials, effective grants, forbidden sends, host access, and auditable denials? - surfaced 2026-10-05 - context: [[ai-coding-agent-security]]; [source](../../raw/2026-10-05-rss-trust-docker-for-the-agents-you-don-t.md).
 - Which HoneyDrunk decision needs verified multi-hop paths, and do tests reject ambiguous identities, expired policies, missing edges, and cross-tenant traversal? - surfaced 2026-10-05 - context: [[agentic-retrieval-and-search]]; [source](../../raw/2026-10-05-rss-use-graph-rag-when-relationships-are-part-of-the-evidence.md).
+
+- Which pinned Dev Kit version, cold/warm worktree loads, total-process memory measurements, and cache artifact review qualify a HoneyDrunk tooling pilot? - surfaced 2026-10-10 - context: [[microsoft-dotnet-ai-stack]]; [source](../../raw/2026-10-08-rss-a-faster-lighter-c-dev-kit.md).
+
+- Which connector languages, plans, regions, identity grants, event delivery guarantees, and connection-failure tests qualify HoneyDrunk code-first integration? - surfaced 2026-10-10 - context: [[azure-agent-automation-and-identity]]; [source](../../raw/2026-10-08-rss-connect-azure-functions-to-more-services-with-managed-connectors.md).
+
+- Which pinned Hosted Skills version and async/retry/idempotency, policy-revocation, session-isolation, result-delivery, and external-approval tests qualify a Lore workflow? - surfaced 2026-10-10 - context: [[azure-agent-automation-and-identity]]; [source](../../raw/2026-10-08-rss-dynamic-workflows-in-azure-functions-hosted-skills-durable-ai-led-work.md).
+
+- Which streamed-item ownership, door/UI reset, in-loop reload, cross-loop knowledge, interrupted-save, and migration tests qualify HoneyDrunk game persistence? - surfaced 2026-10-10 - context: [[procedural-world-persistence]]; [source](../../raw/2026-10-08-rss-echo-weaver-building-a-time-loop-metroidbrainia-in-unity-6.md).
+
+- Which target-device frame, load, atlas, lighting/refraction, and player-readability measurements justify HoneyDrunk 2D rendering changes? - surfaced 2026-10-10 - context: [[unity-3d-and-realtime-vfx-patterns]]; [source](../../raw/2026-10-08-rss-echo-weaver-building-a-time-loop-metroidbrainia-in-unity-6.md).
+
+- Can HoneyDrunk mood-bearing blockouts and animation samples meet readability and production-time budgets before committing to a rotoscoped art pipeline? - surfaced 2026-10-10 - context: [[unity-3d-and-realtime-vfx-patterns]]; [source](../../raw/2026-10-08-rss-how-silver-pines-used-rotoscoping-to-create-its-unsettling-horror.md).
+
+- Which deformation, silhouette, UV repetition, texel-density, and final-engine lighting checks qualify a HoneyDrunk stylized prop? - surfaced 2026-10-10 - context: [[technical-art-community-and-talent-signals]]; [source](../../raw/2026-10-08-rss-how-to-make-a-stylized-game-ready-minecart-prop-using-hand-painted-tex.md).
+
+- Which pinned model/license/code review, device memory/latency, abstention calibration, and held-out multimodal tests qualify HoneyDrunk edge decisions? - surfaced 2026-10-10 - context: [[edge-ai-and-ai-infrastructure-2026]]; [source](../../raw/2026-10-08-rss-multimodal-open-d1-decision-models-for-the-edge.md).
+
+- Which defensive actions have explicit owners, estate boundaries, business-criticality evidence, staged rollout tests, and proven recovery paths before HoneyDrunk automates them? - surfaced 2026-10-10 - context: [[ai-coding-agent-security]]; [source](../../raw/2026-10-08-rss-one-does-not-simply-defend-agentically.md).
+
+- Which signal/transport, trusted tenant routing, endpoint validation, secret storage, backpressure, and cross-tenant delivery tests qualify HoneyDrunk telemetry export? - surfaced 2026-10-10 - context: [[opentelemetry-genai-observability-and-ecosystem]]; [source](../../raw/2026-10-08-rss-otel-native-by-design-building-products-that-export-to-any-observabili.md).
+
+- Which value, usability, feasibility, production-behavior, and safety evidence must HoneyDrunk experiments show at each adjustable delivery checkpoint? - surfaced 2026-10-10 - context: [[ai-assisted-software-practice]]; [source](../../raw/2026-10-08-rss-quality-is-speed-where-engineering-discipline-moves-in-the-ai-era.md).
+
+- Which HoneyDrunk agents have a named principal, accurate external authority signals, spending/delegation limits, and independently tested pause/stop/audit controls? - surfaced 2026-10-10 - context: [[ai-coding-agent-security]]; [source](../../raw/2026-10-08-rss-real-world-lessons-in-agentic-authority-and-overreach.md).
+
+- Do HoneyDrunk lockfiles and installation/import logs show exposure to the reported package, and which protected-workflow, release-review, runner-isolation, and credential-recovery controls are verified? - surfaced 2026-10-10 - context: [[container-supply-chain-and-compliance]]; [source](../../raw/2026-10-08-rss-software-supply-chain-attack-on-subql-common-overview-and-response-gui.md).
+
+- Which trace-to-revision binding, judge calibration, rare-failure sampling, skipped-work accounting, privacy controls, and stateful replay tests qualify a HoneyDrunk quality outer loop? - surfaced 2026-10-10 - context: [[agent-evaluation-and-benchmarks]]; [source](../../raw/2026-10-08-rss-the-outer-loop-insights-first-an-ambient-quality-agent-that-diagnoses-.md).
+
+- Which exact Windows app/package model, clean-agent dependencies, dispatcher lifecycle, package-SID permissions, and failing-test exit checks qualify HoneyDrunk UI CI? - surfaced 2026-10-10 - context: [[dotnet-runtime-and-mobile-2026]]; [source](../../raw/2026-10-08-rss-uwp-and-winui-3-apps-ui-testing-with-mstest.md).
+
+- Which kernel/privilege, .NET writer, concurrent-request/backpressure, SDK-span, all-NUL filtering, and large-record tests qualify OBI correlation for HoneyDrunk? - surfaced 2026-10-10 - context: [[opentelemetry-genai-observability-and-ecosystem]]; [source](../../raw/2026-10-08-rss-zero-code-trace-log-correlation-with-obi.md).

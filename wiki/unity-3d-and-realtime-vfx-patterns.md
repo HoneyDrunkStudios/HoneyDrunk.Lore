@@ -1684,3 +1684,41 @@ Accessible gameplay depends-on input flexibility and perceivable cues; conforman
 ### Decision and quality notes
 
 Practitioner guidance, not a conformance audit or legal determination. Specific WCAG thresholds, procurement obligations, Unity feature support, and flash safety require primary standards/platform verification before implementation; no universal rule for all games is inferred. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which target-device, assistive-technology, input-only, sound-off, and player tests establish the selected HoneyDrunk accessibility requirements? See [[indexes/gaps]].
+
+
+## 2026-10-10: Echo Weaver profiles asset loading and layered 2D rendering
+
+### Typed entities
+
+project: Echo Weaver; project: Unity 6; library: URP; concept: sprite atlas; concept: frame budget.
+
+### Claims and evidence
+
+The Echo Weaver team reports atlas compression, build-time stripping and per-frame recreation of decoration, adjacent-chunk preloading, composited sprites, fewer lighting layers, and lower-end refraction variants. Instantiation work is spread across frames rather than removed from the main thread. Frame Debugger inspection guides material and draw-call consolidation. Its built-in object pooling replaces a custom pool, and playtests led to coarser timer presentation and persistent shortcut discovery cues. confidence: 1 source, last-confirmed 2026-10-10 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-08-rss-echo-weaver-building-a-time-loop-metroidbrainia-in-unity-6.md)
+
+### Explicit relationships
+
+Rendering optimization uses frame inspection; streamed presentation depends-on neighboring chunks and bounded instantiation. See [[procedural-world-persistence]].
+
+### Decision and quality notes
+
+Single project interview. The reported memory result and visual compromises are workload-specific. Linked API examples are not verified implementation guidance; no Unity upgrade or HoneyDrunk optimization is established. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which target-device frame, load, atlas, lighting/refraction, and player-readability measurements justify HoneyDrunk 2D rendering changes? See [[indexes/gaps]].
+
+
+## 2026-10-10: Silver Pines trades simple geometry for intensive handmade animation
+
+### Typed entities
+
+person: Linus Larsson; project: Silver Pines; project: Wych Elm; library: ProBuilder; library: Powersprite Animator; concept: rotoscoping.
+
+### Claims and evidence
+
+Larsson describes a two-person level team using Unity/ProBuilder geometry, billboard props, painted-over photographs, and mood-bearing blockouts before playtesting. Character production combines rotoscoping, bone rigs with manual correction, and freehand frames; the player alone reportedly uses over 1,800 drawn frames. Reversed reference motion contributes uncanny animation, while composition and landmarks maintain spatial coherence. confidence: 1 source, last-confirmed 2026-10-10 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-08-rss-how-silver-pines-used-rotoscoping-to-create-its-unsettling-horror.md)
+
+### Explicit relationships
+
+Silver Pines uses ProBuilder and sprite animation; small-team production depends-on constrained geometry and explicit animation labor budgets. See [[technical-art-community-and-talent-signals]].
+
+### Decision and quality notes
+
+Artist/developer interview, not measured production savings. Simple modeling tools do not eliminate animation labor. No personal contact details or unrelated biography promoted. Source-specific claims remain provisional; derived queries add no independent support. Open question: Can HoneyDrunk mood-bearing blockouts and animation samples meet readability and production-time budgets before committing to a rotoscoped art pipeline? See [[indexes/gaps]].

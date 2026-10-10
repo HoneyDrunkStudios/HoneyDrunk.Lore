@@ -836,3 +836,22 @@ Instrument selection depends-on event versus cumulative/current values; active-r
 ### Decision and quality notes
 
 Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Do HoneyDrunk metric consumers distinguish increments, cumulative totals, current state, and matching active-request tag sets? See [[indexes/gaps]].
+
+
+## 2026-10-10: MSTest UI hosting tests the real dispatcher and packaging model
+
+### Typed entities
+
+library: MSTest.Sdk; library: Microsoft.Testing.Platform; project: UWP; project: WinUI 3; concept: UI dispatcher; concept: package identity; concept: AppContainer.
+
+### Claims and evidence
+
+Microsoft describes MSTest 4.5/MTP 2.5 UI tests running setup, test, and cleanup on the real app dispatcher; an STA thread alone does not create it. Unpackaged WinUI starts directly, while packaged/UWP hosts use a full-trust sidecar and AUMID activation. AppContainer pipe access targets the exact package SID. The host must propagate test failure to its exit code, and package identity is distinct from trust level. UWP still needs the desktop MSBuild/UWP build toolchain. confidence: 1 source, last-confirmed 2026-10-10 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-08-rss-uwp-and-winui-3-apps-ui-testing-with-mstest.md)
+
+### Explicit relationships
+
+UI tests depend-on the app dispatcher; packaged testing uses activation and machine policy. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Official hosting guidance and examples, not a passing HoneyDrunk CI lane. Test actual agent image, package model, runtime dependencies, non-elevated context where required, and a deliberately failing test exit code. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which exact Windows app/package model, clean-agent dependencies, dispatcher lifecycle, package-SID permissions, and failing-test exit checks qualify HoneyDrunk UI CI? See [[indexes/gaps]].

@@ -836,6 +836,7 @@ project: Azure Functions hosted skills; project: Durable Functions; concept: str
 
 - Microsoft’s article describes hosted skills, formerly Serverless Agents, producing structured plans from explicitly allowed tools and subagents. Runtime validation precedes Durable Functions orchestration; dependency scheduling, persisted intermediate outputs, and durable timers support execution across request completion and worker restarts. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-web-azure-functions-dynamic-workflows.md)
 - The captured handler contract requires synchronous functions with one dictionary argument, JSON-serializable results, and idempotency because execution can repeat after failures. Queue-triggered work must explicitly deliver results, and management tools cover start, status, list, cancel, and terminate. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-web-azure-functions-dynamic-workflows.md)
+  - superseded-by: [[azure-agent-automation-and-identity#2026-10-10: Dynamic Workflows permit async tools while retaining durable execution limits]]; timestamp: 2026-10-10; reason: the newer October 8 official description explicitly permits both def and async def. The September snapshot remains historical; only its synchronous-only constraint is superseded. [newer source](../raw/2026-10-08-rss-dynamic-workflows-in-azure-functions-hosted-skills-durable-ai-led-work.md)
 
 ### Explicit relationships
 
@@ -1254,3 +1255,43 @@ Provisioning depends-on deterministic constraints and curated modules; AI select
 ### Decision and quality notes
 
 Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Which independently enforced residency, budgets, approvals, capacity, rollback, and workload signals qualify a HoneyDrunk infrastructure decision prototype? See [[indexes/gaps]].
+
+
+## 2026-10-10: Managed connectors extend code-first Functions in public preview
+
+### Typed entities
+
+project: Azure Functions; project: Azure Connector Namespace; library: Connector SDK; concept: managed connection.
+
+### Claims and evidence
+
+Microsoft reports public-preview Functions integration with Connector Namespace for .NET isolated, Python, and Node.js, exposing connector triggers and typed action clients. Its RFP example retrieves SharePoint content, uses Content Understanding, applies deterministic routing, and posts a Teams card. The namespace manages service connections; application code still owns processing and error handling. Hosting-plan and regional support require the versioned availability documentation. confidence: 1 source, last-confirmed 2026-10-10 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-08-rss-connect-azure-functions-to-more-services-with-managed-connectors.md)
+
+### Explicit relationships
+
+Azure Functions uses Connector Namespace for managed connections; document routing uses deterministic application rules. See [[azure-service-bus-and-functions-messaging]].
+
+### Decision and quality notes
+
+Preview sample, not deployed integration evidence. One code fragment has an existing redaction marker; no repaired code is inferred. Logic Apps remains the source-suggested option for predominantly visual connector orchestration. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which connector languages, plans, regions, identity grants, event delivery guarantees, and connection-failure tests qualify HoneyDrunk code-first integration? See [[indexes/gaps]].
+
+
+## 2026-10-10: Dynamic Workflows permit async tools while retaining durable execution limits
+
+### Typed entities
+
+project: Azure Functions Hosted Skills; project: Durable Functions; project: Durable Task Scheduler; library: azurefunctions-agents-runtime; concept: workflow DAG; concept: idempotency key.
+
+### Claims and evidence
+
+Microsoft describes a public-preview runtime in which an LLM submits a typed DAG and Durable Functions executes it outside the planning loop. Workflow tools accept one dictionary argument, return JSON-serializable values, and may be synchronous or asynchronous. Activities execute at least once; a stable per-task idempotency key supports downstream deduplication. Only WorkflowRetryableError is retried for workflow tools, and decorator retry/timeout policy takes precedence over generated policy. Stateless tools must not depend on turn-local memory or files. confidence: 1 source, last-confirmed 2026-10-10 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-08-rss-dynamic-workflows-in-azure-functions-hosted-skills-durable-ai-led-work.md)
+
+The source describes pre-start DAG validation and activity-time authorization against deployed policy, session-scoped workflow access, and persisted execution policy for replay. Preview limits include 50 nodes, 10 parallel tasks, 10 active workflows per session, and waits up to 24 hours. Direct workflow tools are Python decorators; MCP/shell operations require wrappers or permitted leaf subagents. Plans cannot be rewritten in flight and have no built-in human question/answer suspension. start_workflow returns an ID; result retrieval or explicit delivery is separate. Subagent/tool LLM calls and durable storage remain chargeable. confidence: 1 source, last-confirmed 2026-10-10 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-08-rss-dynamic-workflows-in-azure-functions-hosted-skills-durable-ai-led-work.md)
+
+### Explicit relationships
+
+Dynamic Workflows uses Durable Functions and allowlisted tools; repeated side effects depend-on receiving-end idempotency. This newer handler contract supersedes the earlier synchronous-only claim. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Official preview specification, not crash/security tests. Its structured synthetic benchmark reports identical outputs and median results from three paired runs per size; token/latency savings do not generalize to exploratory work. The onboarding example mentions waiting for approval, but the explicit limitation says there is no human-in-the-loop; a timer alone is not an approval protocol. The concluding expression-language sentence is ambiguous; use the explicit strict equals/not_equals contract instead. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned Hosted Skills version and async/retry/idempotency, policy-revocation, session-isolation, result-delivery, and external-approval tests qualify a Lore workflow? See [[indexes/gaps]].

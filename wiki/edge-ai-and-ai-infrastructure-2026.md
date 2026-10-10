@@ -1282,3 +1282,22 @@ Quail scheduling uses future query structure; throughput comparisons depend-on w
 ### Decision and quality notes
 
 Vendor-authored benchmark account, not a general interactive-generation rate or reproduced HoneyDrunk cost result. The mechanism is a candidate when an application controls a batch; headline throughput does not establish chat-serving value. Source-specific claims remain provisional single-source evidence; related accounts and derived query outputs add no independent confirmation. Open question: Which HoneyDrunk batch workloads, accuracy checks, baseline settings, and cross-query cache needs would make query-aware inference outperform ordinary serving? See [[indexes/gaps]].
+
+
+## 2026-10-10: Open d1 models classify structured decisions without token generation
+
+### Typed entities
+
+project: Liquid AI; library: d1-3B; library: d1-omni-600M; concept: single-pass decision model; concept: multimodal benchmark.
+
+### Claims and evidence
+
+Liquid AI reports open-weight d1-3B for text/images and experimental d1-omni-600M for text/images or text/audio. These models answer structured questions in one forward pass instead of autoregressive token generation. Reported short-input edge latencies are not long-state or image latencies: the table shows substantially slower 3.4K-token and image cases. No public vision/audio benchmark results or omni speed figures are reported. The example requires model-supplied remote code. confidence: 1 source, last-confirmed 2026-10-10 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-08-rss-multimodal-open-d1-decision-models-for-the-edge.md)
+
+### Explicit relationships
+
+d1 structured decisions use single-pass inference; deployment depends-on reviewed model code, input shape, and device-specific measurement. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Vendor release and benchmark only. Open-weight does not establish license suitability, safe remote-code execution, calibration, or medical/robotics fitness. The prose says under 50 ms while its Orin Nano table says 50 ms; use the table value and avoid the blanket wording. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned model/license/code review, device memory/latency, abstention calibration, and held-out multimodal tests qualify HoneyDrunk edge decisions? See [[indexes/gaps]].

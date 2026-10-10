@@ -1324,3 +1324,22 @@ Character recognition depends-on visual anchors; scalable effects use asset tier
 ### Decision and quality notes
 
 Team interview, not an engine implementation or independent performance benchmark. The approach is project-specific and does not establish that all debris or destruction gameplay can discard physics. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which visual anchors, ability-tier cues, destruction cover rules, and rendering budgets qualify HoneyDrunk character variants across platforms? See [[indexes/gaps]].
+
+
+## 2026-10-10: Stylized props allocate topology to final silhouettes and test final lighting
+
+### Typed entities
+
+person: Raphael Fabris; library: Maya; library: ZBrush; library: Substance 3D Painter; project: Unreal Engine; concept: silhouette topology; concept: renderer validation.
+
+### Claims and evidence
+
+Fabris describes replacing blockout topology after sculpted silhouette changes, placing geometry around silhouette and bevel detail for a nondeforming prop, and treating a bent rail separately. His process uses organized fill-layer hand painting and early checks in the final Unreal lighting scene because Painter and engine presentation differ. UV reuse trades density against visibly mirrored detail. confidence: 1 source, last-confirmed 2026-10-10 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-08-rss-how-to-make-a-stylized-game-ready-minecart-prop-using-hand-painted-tex.md)
+
+### Explicit relationships
+
+Final topology depends-on deformation and silhouette; texture evaluation uses the target renderer. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Artist case study, not a universal topology recipe or verified runtime asset budget. Tool recommendations are attributed practice, not procurement guidance. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which deformation, silhouette, UV repetition, texel-density, and final-engine lighting checks qualify a HoneyDrunk stylized prop? See [[indexes/gaps]].

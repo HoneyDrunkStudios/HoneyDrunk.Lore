@@ -242,3 +242,22 @@ Container isolation depends-on the host kernel; untrusted execution uses a threa
 ### Decision and quality notes
 
 Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Which HoneyDrunk untrusted workloads share a kernel, and what patching, privilege, and microVM checks match their threat model? See [[indexes/gaps]].
+
+
+## 2026-10-10: Compromised publishing pipelines defeat provenance-only trust
+
+### Typed entities
+
+project: GMO Flatt Security; library: @subql/common; project: GitHub Actions; concept: trusted publishing; concept: lifecycle execution; concept: credential exposure.
+
+### Claims and evidence
+
+Flatt reports malicious @subql/common 5.8.3 publication through a compromised GitHub Actions trusted-publisher workflow on October 5. Its analysis describes execution both at install and import, persistent credential theft, and follow-on workflow abuse. Disabling lifecycle scripts limits install-time execution but does not prevent malicious import behavior. Provenance attests a build path rather than proving that a compromised path produced safe code. confidence: 1 source, last-confirmed 2026-10-10 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-08-rss-software-supply-chain-attack-on-subql-common-overview-and-response-gui.md)
+
+### Explicit relationships
+
+Trusted publishing depends-on pipeline integrity; incident recovery depends-on credential exposure assessment and host containment. See [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Primary researcher/vendor early report, not independent reproduction or evidence that HoneyDrunk installed the package. No malicious endpoints, payloads, personal email, credential paths, or runnable exploit material promoted. Historical safe-version and npm-default/config claims are not current remediation instructions; verify the pinned client and upstream advisory before operational action. Source-specific claims remain provisional; derived queries add no independent support. Open question: Do HoneyDrunk lockfiles and installation/import logs show exposure to the reported package, and which protected-workflow, release-review, runner-isolation, and credential-recovery controls are verified? See [[indexes/gaps]].
