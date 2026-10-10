@@ -64,4 +64,4 @@ The `wiki/` directory is an Obsidian vault. Open it as a vault to get graph view
 - Boundaries: `HoneyDrunk.Studio/repos/HoneyDrunk.Lore/boundaries.md`
 - Schema and operations: [`AGENTS.md`](./AGENTS.md)
 
-The flat-file implementation is the v1. When `HoneyDrunk.Knowledge` and `HoneyDrunk.Agents` exist, the operations delegate to those Nodes — the wiki content stays where it is. See the *Conversion note* at the bottom of [`AGENTS.md`](./AGENTS.md).
+The flat-file implementation is the v1. `HoneyDrunk.Knowledge` and `HoneyDrunk.Agents` currently exist as scaffolds. Delegate operations only after the needed contracts are implemented and verified; the wiki content stays where it is. See the *Conversion note* at the bottom of [`AGENTS.md`](./AGENTS.md).
