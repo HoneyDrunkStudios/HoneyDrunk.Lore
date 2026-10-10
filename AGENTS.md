@@ -121,7 +121,7 @@ Reference: LLM Wiki v2 — https://gist.github.com/rohitg00/2067ab416f7bbe447c19
 
 ## Conversion note (for future agents)
 
-The flat-file implementation is intentional and temporary. When `HoneyDrunk.Knowledge` and `HoneyDrunk.Agents` exist:
+The flat-file implementation is intentional and temporary. Those repositories currently exist as scaffolds. Only after the required Knowledge and Agents contracts/runtimes are implemented, verified and selected for integration should this future conversion occur:
 
 - Ingest delegates to `IDocumentIngester`
 - Retrieval delegates to `IRetrievalPipeline`
@@ -129,3 +129,7 @@ The flat-file implementation is intentional and temporary. When `HoneyDrunk.Know
 - This AGENTS.md becomes the agent configuration, not the implementation
 
 The verbs (ingest, compile, query, lint) are deliberately the future contract method names. Keep them stable.
+
+## Instruction maintenance verification
+
+For changes to this operating manual, check links, schema consistency and `git diff --check`. For privacy tooling changes, run `python -m unittest discover -s tools -p test_lore_privacy.py -v`. Instruction maintenance does not start an ingestion or scheduled job.
