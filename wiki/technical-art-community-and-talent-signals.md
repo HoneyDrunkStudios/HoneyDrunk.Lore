@@ -1343,3 +1343,22 @@ Final topology depends-on deformation and silhouette; texture evaluation uses th
 ### Decision and quality notes
 
 Artist case study, not a universal topology recipe or verified runtime asset budget. Tool recommendations are attributed practice, not procurement guidance. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which deformation, silhouette, UV repetition, texel-density, and final-engine lighting checks qualify a HoneyDrunk stylized prop? See [[indexes/gaps]].
+
+
+## 2026-10-12: Modular lighthouse art uses shared materials and staged composition
+
+### Typed entities
+
+person: Albert Serrano; project: Unreal Engine; library: Blender; library: ZBrush; library: Substance 3D Designer; library: Substance 3D Painter; concept: modular environment; concept: vegetation atlas.
+
+### Claims and evidence
+
+- Serrano describes a Blender blockout checked in Unreal for proportions and camera composition, followed by tileable materials, trims, reusable sculpted wood modules, and a plant atlas with engine-adjustable color. A second camera area reuses the established material set. An extra vertex-color channel applies tinted plaster between wall surfaces; selective decals, particles, lighting and water motion finish the scene. confidence: 1 source, last-confirmed 2026-10-12 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-12-web-how-to-build-an-atmospheric-stylized-lighthouse-scene-with-a-custom-mo.md)
+
+### Explicit relationships
+
+The lighthouse scene uses modular assets and shared materials; visual continuity depends-on composition and material blending. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Artist interview without runtime measurements or an inspected project. Lightweight intent is not a proven frame budget, and an Unreal material workflow does not establish a Unity implementation. Public creative attribution retained; unrelated biography and contact profiles omitted. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk modular environment passes texel-density, repetition, blend-channel, overdraw, camera-readability, and target-engine performance checks? See [[indexes/gaps]].

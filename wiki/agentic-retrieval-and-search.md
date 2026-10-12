@@ -140,3 +140,23 @@ Relationship-aware answering depends-on entity resolution and current sourced ed
 ### Decision and quality notes
 
 Oracle-sponsored design guidance, not a HoneyDrunk database selection or benchmark. Operationally sourced edges and model-extracted triples have different validation needs. No new Lore graph infrastructure is authorized or required by this capture. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk decision needs verified multi-hop paths, and do tests reject ambiguous identities, expired policies, missing edges, and cross-tenant traversal? See [[indexes/gaps]].
+
+
+## 2026-10-12: Closed-set RAG decisions still require probability calibration
+
+### Typed entities
+
+project: Jev; project: TypeSafe; concept: closed-set decision; concept: calibration; concept: abstention; concept: grounding check.
+
+### Claims and evidence
+
+- Thoughtworks proposes using Jev choices, scores, and binary probabilities for document classification, retrieval routing, reranking, context sufficiency, and post-generation support checks. The author describes probability bands for automatic decisions, fallback, and review, while explicitly recommending local calibration and a low-risk shadow comparison before replacement. confidence: 1 source, last-confirmed 2026-10-12 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-12-rss-how-jev-can-help-improve-the-efficiency-of-rag-pipelines.md)
+- At the article's early-October snapshot, Jev is described as proprietary hosted early access, with benchmarks primarily from its vendor. Fixed output choices constrain format but can still produce confidently wrong selections; the source also notes the lack of explanatory output and the need to assess residency and vendor risk. confidence: 1 source, last-confirmed 2026-10-12 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-12-rss-how-jev-can-help-improve-the-efficiency-of-rag-pipelines.md)
+
+### Explicit relationships
+
+RAG routing uses structured decisions; safe abstention depends-on calibrated probabilities and complete candidate choices. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Practitioner proposal, not a controlled latency/cost result. Example 0.9/0.6 bands are not universal thresholds. The rhetorical claim of no hallucinations is interpreted narrowly as constrained output format, not factual correctness; sentence splitting is not proven claim decomposition. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk routing labels, calibrated abstention bands, privacy constraints, claim boundaries, and shadow-run quality/cost results justify a decision-model pilot? See [[indexes/gaps]].

@@ -1722,3 +1722,42 @@ Silver Pines uses ProBuilder and sprite animation; small-team production depends
 ### Decision and quality notes
 
 Artist/developer interview, not measured production savings. Simple modeling tools do not eliminate animation labor. No personal contact details or unrelated biography promoted. Source-specific claims remain provisional; derived queries add no independent support. Open question: Can HoneyDrunk mood-bearing blockouts and animation samples meet readability and production-time budgets before committing to a rotoscoped art pipeline? See [[indexes/gaps]].
+
+
+## 2026-10-12: Worker-thread allocations require evidence beyond the main-thread view
+
+### Typed entities
+
+project: Unity; project: GOT Online; project: Mono; concept: managed allocation; concept: retained heap.
+
+### Claims and evidence
+
+- GameOptim says GOT Online Mono mode marks worker-thread allocation functions with a Thread prefix and exposes function, object-type, size, count, and heap-comparison views. It reports that worker allocations may be absent from the expected Unity Profiler GC.Alloc view while still contributing to collection pressure or retained heap growth. confidence: 1 source, last-confirmed 2026-10-12 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-12-rss-how-can-unity-developers-track-managed-heap-allocations-on-worker-thre.md)
+
+### Explicit relationships
+
+GOT Online uses Mono allocation statistics; memory diagnosis depends-on thread coverage and retained-object evidence.
+
+### Decision and quality notes
+
+Vendor tutorial without a pinned Unity profiler comparison. Do not generalize the visibility claim to all Unity versions or IL2CPP. Allocation volume alone does not establish a leak; cloud-upload permissions and representative device measurements remain unverified. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which Unity version and scripting backend reproduce worker-allocation visibility, retention, overhead, and privacy-safe capture on HoneyDrunk target devices? See [[indexes/gaps]].
+
+
+## 2026-10-12: Standalone VR needs thermal-duration device evidence
+
+### Typed entities
+
+project: Unity; project: Vive Focus 3; concept: frame budget; concept: thermal soak; concept: stereo rendering; concept: displayed-frame timing.
+
+### Claims and evidence
+
+- The practitioner article frames 90 Hz as roughly 11.1 ms per frame and 72 Hz as 13.9 ms before allowing runtime headroom. It recommends device profiling that distinguishes CPU and GPU limits, reduced steady-state allocations, stereo-compatible batching/shaders, and heavy-scene tests lasting at least 30 minutes to expose thermal degradation. confidence: 1 source, last-confirmed 2026-10-12 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-12-rss-standalone-vr-gives-you-11-milliseconds-a-frame-the-editor-will-not-wa.md)
+- For timing-sensitive stimuli, the author argues for recording actual displayed-frame timing and missed-frame evidence alongside session measurements. Its illustrative overlay instead samples Unity delta time and counts large intervals, so it is not itself a compositor-confirmed dropped-frame or presentation-timestamp instrument. confidence: 1 source, last-confirmed 2026-10-12 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-12-rss-standalone-vr-gives-you-11-milliseconds-a-frame-the-editor-will-not-wa.md)
+
+### Explicit relationships
+
+Sustained VR performance depends-on target hardware, thermal state, and CPU/GPU headroom; timing-sensitive measurements depend-on actual presentation evidence.
+
+### Decision and quality notes
+
+Practitioner guidance, not measured HoneyDrunk device acceptance or clinical validation. MSAA, foveation, light, and postprocessing choices require SDK/content-specific tests; the clinical anecdote does not establish medical fitness. No private personal narrative retained. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which target headset, refresh rate, compositor timing, stereo shader, scene, and thermal-soak checks establish HoneyDrunk sustained frame and stimulus fidelity? See [[indexes/gaps]].

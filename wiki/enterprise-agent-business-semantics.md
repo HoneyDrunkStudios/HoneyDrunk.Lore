@@ -141,3 +141,29 @@ Proposed practice pattern, not proof that an ontology or model upgrade guarantee
 The recurring practice claim is that enterprise-agent reliability depends-on governed business definitions and explicit relationships beyond data access alone. confidence: 3 sources, last-confirmed 2026-09-15 (archived captures and existing cited synthesis; no live refresh). Support: [Databricks meaning layer](../raw/2026-08-22-rss-thoughtworks-insights-agents-on-databricks-the-platform-is-ready-your-.md), [AI-ready data](../raw/2026-09-14-rss-thoughtworks-insights-ai-ready-data-the-anthology-part-1.md), and [semantic guidance and sensors](../raw/2026-09-14-rss-thoughtworks-insights-harnessing-the-agent-semantic-reliability-at-sca.md).
 
 This strengthens the claim from a one-article suggestion to repeated practitioner guidance, with moderate confidence for architectural consideration. All three are Thoughtworks publications, so supporting count is not independent-publisher corroboration or empirical proof of improved outcomes. Product-specific and sensor-specific claims retain their individual support counts. Existing claims and dates are preserved; no supersession is warranted. Local acceptance still depends-on owner-approved definitions and regression evidence.
+
+
+## 2026-10-12: Business context needs accountable ownership throughout its lifecycle
+
+### Typed entities
+
+project: Thoughtworks; concept: context lifecycle; concept: semantic layer; concept: definition owner; concept: decision lineage.
+
+### Claims and evidence
+
+- Thoughtworks recommends starting with one decision outcome, identifying its technical, policy and business context, assigning domain owners, and tracing decisions to source definitions. It proposes ongoing curation within daily workflows and reusable semantic interfaces. A semantic layer can distribute definitions consistently but cannot establish which competing definition is correct without accountable human verification. confidence: 1 source, last-confirmed 2026-10-12 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-12-rss-why-context-is-the-real-bottleneck-for-ai-agents.md)
+
+### Explicit relationships
+
+Reliable business decisions depend-on verified meaning and ownership; context lifecycle management uses lineage and continuous curation. See [[llm-wiki-and-knowledge-formats]].
+
+### Decision and quality notes
+
+Practitioner strategy guidance. Its secondary incident narrative and executive survey are not independent evidence of a technical mechanism or measured benefit. Capturing context must preserve confidentiality boundaries; source ingestion does not approve a business rule. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk decision has named context owners, approved versioned definitions, confidentiality boundaries, and regression evidence that would reveal semantic drift? See [[indexes/gaps]].
+
+
+## 2026-10-12: Governed-meaning guidance reinforced across four captures
+
+The recommendation that business agents need verified definitions, relationships, and accountable context ownership beyond data access is reinforced by a fourth Thoughtworks article. confidence: 4 sources, last-confirmed 2026-10-12 (archived sources reviewed, including two attributed-summary captures; no live refresh). [Databricks meaning layer](../raw/2026-08-22-rss-thoughtworks-insights-agents-on-databricks-the-platform-is-ready-your-.md); [AI-ready data](../raw/2026-09-14-rss-thoughtworks-insights-ai-ready-data-the-anthology-part-1.md); [semantic guidance and sensors](../raw/2026-09-14-rss-thoughtworks-insights-harnessing-the-agent-semantic-reliability-at-sca.md); [context lifecycle](../raw/2026-10-12-rss-why-context-is-the-real-bottleneck-for-ai-agents.md).
+
+This strengthens repeated practitioner guidance at moderate confidence, while all four documents remain publisher-correlated and do not establish measured HoneyDrunk outcomes. The earlier three-source assessment remains a dated historical record. Specific product features, survey figures, and incident narratives do not inherit this support count. Acceptance depends-on approved definitions and local semantic regression evidence; no contradictory claim is replaced.

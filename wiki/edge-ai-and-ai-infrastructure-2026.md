@@ -1301,3 +1301,23 @@ d1 structured decisions use single-pass inference; deployment depends-on reviewe
 ### Decision and quality notes
 
 Vendor release and benchmark only. Open-weight does not establish license suitability, safe remote-code execution, calibration, or medical/robotics fitness. The prose says under 50 ms while its Orin Nano table says 50 ms; use the table value and avoid the blanket wording. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned model/license/code review, device memory/latency, abstention calibration, and held-out multimodal tests qualify HoneyDrunk edge decisions? See [[indexes/gaps]].
+
+
+## 2026-10-12: GPU time budgets separate occupancy from useful computation
+
+### Typed entities
+
+project: Ai2; concept: hierarchical fair-share; concept: GPU time budget; concept: minimum runtime; concept: preemption; concept: utilization.
+
+### Claims and evidence
+
+- Ai2 describes replacing priority-driven scheduling with hierarchical GPU-time budgets and fair-share over a default seven-day window. Funded jobs receive a protected minimum runtime before possible preemption; unallocated work consumes spare capacity without budget charges and is preemptible immediately. Availability, occupancy, impact, and utilization are distinct measures. confidence: 1 source, last-confirmed 2026-10-12 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-12-rss-impactful-scheduling-for-gpu-clusters.md)
+- In its reported 30-day rollout, teams received 98% of demand-capped owed time while cluster occupancy stayed at 98%; 18% of delivered time was unallocated. Observed debug-job p90 wait fell from two hours to 30 seconds, distinct from the hand-built simulation's six-hours-to-five-minutes result. The article discloses baseline sample variance, lost volatile interactive state, and possible fragmentation for large jobs. confidence: 1 source, last-confirmed 2026-10-12 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-12-rss-impactful-scheduling-for-gpu-clusters.md)
+
+### Explicit relationships
+
+Fair-share scheduling uses budgeted occupancy history; preemption depends-on minimum-runtime and resumability contracts. High occupancy does not establish high GPU utilization.
+
+### Decision and quality notes
+
+First-party operational report, not a transferable performance guarantee. Eight-hour protection caps and planned restorable sessions do not establish safe checkpoint recovery for every workload. Simulated and observed outcomes remain separate. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk workloads need GPU scheduling, and what checkpoint, interactive-state, fragmentation, fairness, and actual-utilization measurements would justify it? See [[indexes/gaps]].

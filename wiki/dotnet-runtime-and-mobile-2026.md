@@ -855,3 +855,42 @@ UI tests depend-on the app dispatcher; packaged testing uses activation and mach
 ### Decision and quality notes
 
 Official hosting guidance and examples, not a passing HoneyDrunk CI lane. Test actual agent image, package model, runtime dependencies, non-elevated context where required, and a deliberately failing test exit code. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which exact Windows app/package model, clean-agent dependencies, dispatcher lifecycle, package-SID permissions, and failing-test exit checks qualify HoneyDrunk UI CI? See [[indexes/gaps]].
+
+
+## 2026-10-12: Enumeration optimization depends on runtime and collection shape
+
+### Typed entities
+
+person: Andrew Lock; project: .NET; library: Reflection.Emit; concept: struct enumerator boxing; concept: DynamicMethod; concept: deabstraction.
+
+### Claims and evidence
+
+- Lock shows boxed struct enumerators when a List is traversed through IEnumerable on older tested runtimes. A generated DynamicMethod can call a concrete enumerator when its type cannot be referenced directly, but gains vary: the reported .NET 9 List case removes allocation while increasing execution time, whereas the custom linked-list case improves both. The tested .NET 10 cases already avoid those allocations and outperform the generated method. confidence: 1 source, last-confirmed 2026-10-12 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-12-rss-making-foreach-on-an-ienumerable-allocation-free-using-reflection-and-.md)
+
+### Explicit relationships
+
+Enumeration cost depends-on static type, concrete collection, and runtime optimization; dynamic enumeration uses emitted IL and explicit disposal.
+
+### Decision and quality notes
+
+January practitioner microbenchmarks, not fresh runtime validation or a universal allocation-free guarantee. Do not copy the illustrative IL helper into production without method-shape, fallback, disposal, and dynamic-code compatibility checks. Measure actual hot paths before accepting reflection complexity. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk hot paths still allocate on the pinned runtime, and do concrete-type alternatives, emitted-code compatibility, disposal/fallback tests, and end-to-end timing justify optimization? See [[indexes/gaps]].
+
+
+## 2026-10-12: NativeAOT substitutions trade reachable features for binary size
+
+### Typed entities
+
+person: Andrew Lock; project: dd-dotnet; library: ClrMD; project: Sizoscope; file: ILLink.Substitutions.xml; concept: dead-code elimination.
+
+### Claims and evidence
+
+- Lock reports that a ClrMD upgrade retained an authentication dependency chain through a runtime-tested SymbolServer property. For dd-dotnet's stated unused path, replacing that property with false through a linker substitution enabled further elimination. In the reported NativeAOT setup, an explicit compiler substitution argument was needed rather than embedding the XML alone. confidence: 1 source, last-confirmed 2026-10-12 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-12-rss-stripping-extra-dependencies-in-net-nativeaot-apps-using-linker-substi.md)
+- The case reports 22-25% smaller binaries relative to the upgraded pre-substitution builds. The final-versus-original comparison also changes .NET 8 to .NET 10, so its 14-16% overall reduction cannot be attributed to the substitution alone. confidence: 1 source, last-confirmed 2026-10-12 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-12-rss-stripping-extra-dependencies-in-net-nativeaot-apps-using-linker-substi.md)
+
+### Explicit relationships
+
+NativeAOT trimming depends-on reachable code; linker substitution changes behavior to enable elimination. Binary analysis uses size diagnostics and dependency evidence.
+
+### Decision and quality notes
+
+Single implementation report with platform/version-specific numbers. A substitution is safe only while the removed path remains outside the supported contract; upgrades can invalidate member matching or assumptions. No HoneyDrunk authentication path or dependency changed. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk NativeAOT binaries have measured dependency growth, and what pinned-member, substitution-effectiveness, supported-auth-path, and platform regression checks justify removing a path? See [[indexes/gaps]].

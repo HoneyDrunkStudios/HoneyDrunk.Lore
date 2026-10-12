@@ -125,3 +125,22 @@ Burst scheduling uses virtual nodes; placement depends-on selectors, tolerations
 ### Decision and quality notes
 
 Vendor implementation account with an unsupported personal companion demo. Trial one bursty job and verify current limits, costs, and workload compatibility rather than replacing all pools. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which bursty AKS job fits ACI feature, addressing, identity, networking, and cost constraints, and how will its isolation policy and unsupported demo dependencies be validated? See [[indexes/gaps]].
+
+
+## 2026-10-12: flux9s presents live Flux relationships with opt-in mutation
+
+### Typed entities
+
+project: flux9s; project: Flux Operator; project: Kubernetes; library: kube-rs; concept: Watch API; concept: read-only default.
+
+### Claims and evidence
+
+- The flux9s author announces version 1.0 with Watch API-driven resource views, a read-only startup mode, dependency graphs, reconciliation history, and FluxReport health views. FluxInstance and ResourceSet inventories feed downstream discovery; optional label-based CRD discovery exposes additional Flux ecosystem resources as view-only. confidence: 1 source, last-confirmed 2026-10-12 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-12-rss-flux9s-ga-flux-cluster-state-from-the-terminal.md)
+
+### Explicit relationships
+
+flux9s uses Kubernetes watches and Flux inventories; operational access depends-on kubeconfig authority. Graph inspection complements GitOps reconciliation.
+
+### Decision and quality notes
+
+Maintainer release account, not installation or cluster verification. A read-only interface default does not reduce the underlying credential permissions, and opting into mutation needs its own operational scope. No cluster access performed. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which Flux versions, watch/reconnect cases, inventory edges, log permissions, and least-privilege kubeconfig tests qualify a HoneyDrunk flux9s pilot? See [[indexes/gaps]].

@@ -2,9 +2,9 @@
 
 Questions the wiki cannot currently answer. Populated by the Query operation when synthesis falls short, and by the Lint operation when entities are referenced but lack a backing page.
 
-## Compile status: 2026-10-11
+## Compile status: 2026-10-12
 
-Cataloged 738 dated gap entries alongside the current 67-page catalog. Added 0 questions and closed 0 gaps in this pass. Existing questions and their history are preserved below.
+Cataloged 753 dated gap entries alongside the current 67-page catalog. Added 15 questions and closed 0 gaps in this pass. Existing questions and their history are preserved below.
 
 ## Entry format
 
@@ -991,3 +991,21 @@ Cataloged 738 dated gap entries alongside the current 67-page catalog. Added 0 q
 - Which exact Windows app/package model, clean-agent dependencies, dispatcher lifecycle, package-SID permissions, and failing-test exit checks qualify HoneyDrunk UI CI? - surfaced 2026-10-10 - context: [[dotnet-runtime-and-mobile-2026]]; [source](../../raw/2026-10-08-rss-uwp-and-winui-3-apps-ui-testing-with-mstest.md).
 
 - Which kernel/privilege, .NET writer, concurrent-request/backpressure, SDK-span, all-NUL filtering, and large-record tests qualify OBI correlation for HoneyDrunk? - surfaced 2026-10-10 - context: [[opentelemetry-genai-observability-and-ecosystem]]; [source](../../raw/2026-10-08-rss-zero-code-trace-log-correlation-with-obi.md).
+
+## 2026-10-12 ingest questions
+
+- Which HoneyDrunk search tasks need exhaustive sets, audited blanks, contamination checks, and separate discovery/row/cell scores under fixed cost and latency budgets? - surfaced 2026-10-12 - context: [[agent-evaluation-and-benchmarks]]; [source](../../raw/2026-10-12-rss-atlas-evaluating-agents-on-search-intensive-tasks.md).
+- Which HoneyDrunk replay cases preserve snapshot parity, transaction/session semantics, pacing, deterministic ordering, native ID-generation coverage, and production-data access controls? - surfaced 2026-10-12 - context: [[cloud-data-platforms-and-analytics]]; [source](../../raw/2026-10-12-rss-beyond-synthetic-testing-capturing-and-replaying-real-database-workloa.md).
+- Which pinned Agent binding version, schema/auth checks, resource cleanup, cancellation, replay, and repeated-side-effect tests qualify a HoneyDrunk Python workflow? - surfaced 2026-10-12 - context: [[azure-agent-automation-and-identity]]; [source](../../raw/2026-10-12-rss-bring-agentic-reasoning-to-python-function-apps-with-azure-functions-a.md).
+- Which Flux versions, watch/reconnect cases, inventory edges, log permissions, and least-privilege kubeconfig tests qualify a HoneyDrunk flux9s pilot? - surfaced 2026-10-12 - context: [[kubernetes-platform-governance-and-cicd]]; [source](../../raw/2026-10-12-rss-flux9s-ga-flux-cluster-state-from-the-terminal.md).
+- Which azd version, environment scope, effective repair settings, no-prompt behavior, and deployment retry tests preserve HoneyDrunk approval boundaries? - surfaced 2026-10-12 - context: [[azure-agent-automation-and-identity]]; [source](../../raw/2026-10-12-rss-github-copilot-meets-azure-developer-cli-ai-assisted-project-setup-and.md).
+- Which Unity version and scripting backend reproduce worker-allocation visibility, retention, overhead, and privacy-safe capture on HoneyDrunk target devices? - surfaced 2026-10-12 - context: [[unity-3d-and-realtime-vfx-patterns]]; [source](../../raw/2026-10-12-rss-how-can-unity-developers-track-managed-heap-allocations-on-worker-thre.md).
+- Which HoneyDrunk routing labels, calibrated abstention bands, privacy constraints, claim boundaries, and shadow-run quality/cost results justify a decision-model pilot? - surfaced 2026-10-12 - context: [[agentic-retrieval-and-search]]; [source](../../raw/2026-10-12-rss-how-jev-can-help-improve-the-efficiency-of-rag-pipelines.md).
+- Which HoneyDrunk workloads need GPU scheduling, and what checkpoint, interactive-state, fragmentation, fairness, and actual-utilization measurements would justify it? - surfaced 2026-10-12 - context: [[edge-ai-and-ai-infrastructure-2026]]; [source](../../raw/2026-10-12-rss-impactful-scheduling-for-gpu-clusters.md).
+- Which HoneyDrunk hot paths still allocate on the pinned runtime, and do concrete-type alternatives, emitted-code compatibility, disposal/fallback tests, and end-to-end timing justify optimization? - surfaced 2026-10-12 - context: [[dotnet-runtime-and-mobile-2026]]; [source](../../raw/2026-10-12-rss-making-foreach-on-an-ienumerable-allocation-free-using-reflection-and-.md).
+- Which HoneyDrunk scan tools pass target/redirect/DNS, alternate-egress, callback isolation, credential-response, resource-limit, and unused-permission audit tests? - surfaced 2026-10-12 - context: [[ai-coding-agent-security]]; [source](../../raw/2026-10-12-rss-of-course-it-escapes-how-zeroquarry-contains-security-agents.md).
+- Which target headset, refresh rate, compositor timing, stereo shader, scene, and thermal-soak checks establish HoneyDrunk sustained frame and stimulus fidelity? - surfaced 2026-10-12 - context: [[unity-3d-and-realtime-vfx-patterns]]; [source](../../raw/2026-10-12-rss-standalone-vr-gives-you-11-milliseconds-a-frame-the-editor-will-not-wa.md).
+- Which HoneyDrunk NativeAOT binaries have measured dependency growth, and what pinned-member, substitution-effectiveness, supported-auth-path, and platform regression checks justify removing a path? - surfaced 2026-10-12 - context: [[dotnet-runtime-and-mobile-2026]]; [source](../../raw/2026-10-12-rss-stripping-extra-dependencies-in-net-nativeaot-apps-using-linker-substi.md).
+- Do HoneyDrunk dependency and endpoint records show the reported Tensorlake release or persistence, and what current incident guidance and verified containment state govern credential recovery? - surfaced 2026-10-12 - context: [[container-supply-chain-and-compliance]]; [source](../../raw/2026-10-12-rss-tensorlake-npm-package-compromised-a-worm-with-a-hostage-token-that-wi.md).
+- Which HoneyDrunk decision has named context owners, approved versioned definitions, confidentiality boundaries, and regression evidence that would reveal semantic drift? - surfaced 2026-10-12 - context: [[enterprise-agent-business-semantics]]; [source](../../raw/2026-10-12-rss-why-context-is-the-real-bottleneck-for-ai-agents.md).
+- Which HoneyDrunk modular environment passes texel-density, repetition, blend-channel, overdraw, camera-readability, and target-engine performance checks? - surfaced 2026-10-12 - context: [[technical-art-community-and-talent-signals]]; [source](../../raw/2026-10-12-web-how-to-build-an-atmospheric-stylized-lighthouse-scene-with-a-custom-mo.md).

@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-10-11
+## Compile coverage: 2026-10-12
 
-Reconciled 1202 raw documents against 1202 unique entries; ingested 0 captures. Existing records and dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
+Reconciled 1217 raw documents against 1217 unique entries; ingested 15 captures. Existing records and dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
 
 ## Entry format
 
@@ -1553,3 +1553,21 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [UWP and WinUI 3 apps: UI testing with MSTest](../../raw/2026-10-08-rss-uwp-and-winui-3-apps-ui-testing-with-mstest.md) - MSTest UI hosting tests the real dispatcher and packaging model; canonical page: [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-10-10
 
 - [Zero-code trace-log correlation with OBI](../../raw/2026-10-08-rss-zero-code-trace-log-correlation-with-obi.md) - OBI trace-log enrichment has write-path and context limits; canonical page: [[opentelemetry-genai-observability-and-ecosystem]]. - ingested 2026-10-10
+
+## 2026-10-12 ingest
+
+- [ATLAS: Evaluating Agents on Search-Intensive Tasks](../../raw/2026-10-12-rss-atlas-evaluating-agents-on-search-intensive-tasks.md) - Search benchmark preview with separate discovery, cell, and whole-row scoring; vendor results and pending artifacts retained as caveats. - ingested 2026-10-12
+- [Beyond synthetic testing: Capturing and replaying real database workloads at Airbnb](../../raw/2026-10-12-rss-beyond-synthetic-testing-capturing-and-replaying-real-database-workloa.md) - Proxy-based database replay with transactional context, shared snapshots, production-data controls, and an explicit auto-increment coverage tradeoff. - ingested 2026-10-12
+- [Bring agentic reasoning to Python function apps with Azure Functions Agent bindings (preview)](../../raw/2026-10-12-rss-bring-agentic-reasoning-to-python-function-apps-with-azure-functions-a.md) - Preview Python Agent bindings with explicit invocation, per-invocation resources, and activity-backed durable replay. - ingested 2026-10-12
+- [flux9s GA: Flux cluster state, from the terminal](../../raw/2026-10-12-rss-flux9s-ga-flux-cluster-state-from-the-terminal.md) - Flux terminal UI release with watches, dependency inventories, and read-only defaults; underlying Kubernetes authority remains separate. - ingested 2026-10-12
+- [GitHub Copilot meets Azure Developer CLI: AI-assisted project setup and error troubleshooting](../../raw/2026-10-12-rss-github-copilot-meets-azure-developer-cli-ai-assisted-project-setup-and.md) - April azd/Copilot setup and troubleshooting account; distinguishes interactive approvals from optional automatic fixes and retries. - ingested 2026-10-12
+- [How Can Unity Developers Track Managed Heap Allocations on Worker Threads?](../../raw/2026-10-12-rss-how-can-unity-developers-track-managed-heap-allocations-on-worker-thre.md) - Vendor Mono worker-thread allocation views, with version/backend and leak-diagnosis limits retained. - ingested 2026-10-12
+- [How Jev can help improve the efficiency of RAG pipelines](../../raw/2026-10-12-rss-how-jev-can-help-improve-the-efficiency-of-rag-pipelines.md) - Jev proposal for RAG decisions with calibration, fallback, early-access, and hosted-data limits. - ingested 2026-10-12
+- [Impactful scheduling for GPU clusters](../../raw/2026-10-12-rss-impactful-scheduling-for-gpu-clusters.md) - Ai2 GPU-time budgeting and time-slicing case study; distinguishes measured rollout, simulation, occupancy, and utilization. - ingested 2026-10-12
+- [Making foreach on an IEnumerable allocation-free using reflection and dynamic methods](../../raw/2026-10-12-rss-making-foreach-on-an-ienumerable-allocation-free-using-reflection-and-.md) - Runtime-specific enumeration benchmarks; allocation removal can cost time, and tested .NET 10 cases already benefit from JIT optimization. - ingested 2026-10-12
+- [Of course it escapes: how ZeroQuarry contains security agents](../../raw/2026-10-12-rss-of-course-it-escapes-how-zeroquarry-contains-security-agents.md) - Layered security-agent containment design with target scope, mediated tools, callback provenance, and capability accounting; no security guarantee inferred. - ingested 2026-10-12
+- [Standalone VR Gives You 11 Milliseconds a Frame. The Editor Will Not Warn You.](../../raw/2026-10-12-rss-standalone-vr-gives-you-11-milliseconds-a-frame-the-editor-will-not-wa.md) - VR device and thermal testing guidance; distinguishes illustrative frame-interval overlays from verified presentation timing. - ingested 2026-10-12
+- [Stripping extra dependencies in .NET NativeAOT apps using linker substitutions](../../raw/2026-10-12-rss-stripping-extra-dependencies-in-net-nativeaot-apps-using-linker-substi.md) - NativeAOT dependency analysis and linker substitution case; behavior assumptions and runtime-upgrade confounding retained. - ingested 2026-10-12
+- [Tensorlake npm Package Compromised: A Worm With a Hostage Token That Wipes Your Machine If You Revoke It](../../raw/2026-10-12-rss-tensorlake-npm-package-compromised-a-worm-with-a-hostage-token-that-wi.md) - Reported Tensorlake 0.5.144 compromise illustrates provenance limits, endpoint persistence, and incident-specific containment sequencing. - ingested 2026-10-12
+- [Why context is the real bottleneck for AI agents](../../raw/2026-10-12-rss-why-context-is-the-real-bottleneck-for-ai-agents.md) - Context lifecycle guidance emphasizes domain ownership, decision lineage, and the limits of semantic tooling alone. - ingested 2026-10-12
+- [How to Build an Atmospheric Stylized Lighthouse Scene with a Custom Modular Set](../../raw/2026-10-12-web-how-to-build-an-atmospheric-stylized-lighthouse-scene-with-a-custom-mo.md) - Stylized environment interview on modular reuse, material blending, vegetation atlases, and final composition; no performance claim promoted. - ingested 2026-10-12

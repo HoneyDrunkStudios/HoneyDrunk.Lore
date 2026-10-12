@@ -261,3 +261,22 @@ Trusted publishing depends-on pipeline integrity; incident recovery depends-on c
 ### Decision and quality notes
 
 Primary researcher/vendor early report, not independent reproduction or evidence that HoneyDrunk installed the package. No malicious endpoints, payloads, personal email, credential paths, or runnable exploit material promoted. Historical safe-version and npm-default/config claims are not current remediation instructions; verify the pinned client and upstream advisory before operational action. Source-specific claims remain provisional; derived queries add no independent support. Open question: Do HoneyDrunk lockfiles and installation/import logs show exposure to the reported package, and which protected-workflow, release-review, runner-isolation, and credential-recovery controls are verified? See [[indexes/gaps]].
+
+
+## 2026-10-12: Tensorlake incident report adds persistence and recovery-order concerns
+
+### Typed entities
+
+project: StepSecurity; library: tensorlake; project: npm; project: GitHub Actions; concept: provenance; concept: endpoint persistence; concept: incident containment.
+
+### Claims and evidence
+
+- StepSecurity's October 8 report identifies tensorlake 0.5.144 as a malicious release published through its real repository with provenance. It describes developer-targeted install execution, credential theft, propagation, and persistence in agent/editor configuration. Its reported token-monitor component reacts destructively to credential rejection, making containment and credential-response sequencing an incident-specific concern. confidence: 1 source, last-confirmed 2026-10-12 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-12-rss-tensorlake-npm-package-compromised-a-worm-with-a-hostage-token-that-wi.md)
+
+### Explicit relationships
+
+Package trust depends-on source and release-path integrity beyond provenance; recovery depends-on understanding endpoint persistence. See [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Single security-vendor incident report, not local exposure evidence or a current remediation runbook. Retain the reported affected version for investigation, but do not treat the historical fallback version as currently safe. No payload, destructive command, attacker endpoint, contact identifier, or credential material copied into wiki prose; no remediation executed. Source-specific claims remain provisional; derived queries add no independent support. Open question: Do HoneyDrunk dependency and endpoint records show the reported Tensorlake release or persistence, and what current incident guidance and verified containment state govern credential recovery? See [[indexes/gaps]].

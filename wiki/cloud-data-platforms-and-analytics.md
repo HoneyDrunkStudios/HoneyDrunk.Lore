@@ -137,3 +137,23 @@ Vector retrieval uses relational filters and security; freshness depends-on asyn
 ### Decision and quality notes
 
 Official archived GA report; it does not establish GA for standalone SQL Server or other Managed Instance update policies. A mentioned billion-vector demonstration was not inspected, and no latency/recall guarantee is inferred. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk SQL deployment policy and mutation/freshness, selective-filter, tenant-security, recall, and query-plan tests qualify DiskANN? See [[indexes/gaps]].
+
+
+## 2026-10-12: Database replay preserves transaction context and exposes its blind spots
+
+### Typed entities
+
+project: Airbnb; project: MySQL; library: ProxySQL; concept: workload replay; concept: transaction ordering; concept: snapshot parity.
+
+### Claims and evidence
+
+- Airbnb describes proxy-level query capture, transaction reconstruction, five-minute log buckets, and synchronized workers that preserve relative timing. Load mode measures errors, latency and resource use against one target; compatibility mode compares two targets restored from the same snapshot. Its migration account identifies incomplete ordering with LIMIT as a source of differing results. confidence: 1 source, last-confirmed 2026-10-12 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-12-rss-beyond-synthetic-testing-capturing-and-replaying-real-database-workloa.md)
+- The processor pins captured generated IDs into inserts so dependent queries remain comparable; the source explicitly acknowledges that this bypasses testing the target's native auto-increment generation. Captured SQL is treated as production data with encryption, limited access, bounded capture windows, and production-equivalent replay environments. confidence: 1 source, last-confirmed 2026-10-12 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-12-rss-beyond-synthetic-testing-capturing-and-replaying-real-database-workloa.md)
+
+### Explicit relationships
+
+Compatibility replay depends-on common starting state and transaction context; ID rewriting uses captured values and limits coverage of native ID generation. See [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+First-party engineering account with unknown publication date in the capture. Reported scale and performance are workload-specific. Replay does not prove arbitrary concurrent schedules or all database features equivalent; production data protections remain part of the method. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk replay cases preserve snapshot parity, transaction/session semantics, pacing, deterministic ordering, native ID-generation coverage, and production-data access controls? See [[indexes/gaps]].

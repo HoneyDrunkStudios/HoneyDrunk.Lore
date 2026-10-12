@@ -1295,3 +1295,42 @@ Dynamic Workflows uses Durable Functions and allowlisted tools; repeated side ef
 ### Decision and quality notes
 
 Official preview specification, not crash/security tests. Its structured synthetic benchmark reports identical outputs and median results from three paired runs per size; token/latency savings do not generalize to exploratory work. The onboarding example mentions waiting for approval, but the explicit limitation says there is no human-in-the-loop; a timer alone is not an approval protocol. The concluding expression-language sentence is ambiguous; use the explicit strict equals/not_equals contract instead. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned Hosted Skills version and async/retry/idempotency, policy-revocation, session-isolation, result-delivery, and external-approval tests qualify a Lore workflow? See [[indexes/gaps]].
+
+
+## 2026-10-12: Python Agent bindings keep invocation and durable replay under application control
+
+### Typed entities
+
+project: Azure Functions; project: Durable Functions; library: Microsoft Agent Framework; concept: bounded reasoning; file: .agent.md instruction file.
+
+### Claims and evidence
+
+- Microsoft describes preview Python Agent bindings requiring Python 3.13 or later and Microsoft Agent Framework as the only supported provider in this capture. A handler receives an Agent built from raw Markdown instructions and an invocation-owned client factory, then explicitly invokes it. Instruction files do not parse model configuration or YAML front matter; deterministic application code retains input, authorization, and output responsibilities. confidence: 1 source, last-confirmed 2026-10-12 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-12-rss-bring-agentic-reasoning-to-python-function-apps-with-azure-functions-a.md)
+- The Durable integration schedules an extension-managed activity through context.call_agent(), records its result in orchestration history, and reuses that result on orchestrator replay. Live clients and credentials are scoped to an invocation and closed on success, failure, or cancellation; cached definitions are separate from live resources. confidence: 1 source, last-confirmed 2026-10-12 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-12-rss-bring-agentic-reasoning-to-python-function-apps-with-azure-functions-a.md)
+
+### Explicit relationships
+
+Agent bindings use Microsoft Agent Framework; durable replay depends-on recorded activity results. Application policy uses deterministic validation around bounded model calls. See [[microsoft-dotnet-ai-stack]].
+
+### Decision and quality notes
+
+Official preview walkthrough, not local failure or security testing. Replay reuse is not an exactly-once guarantee for external side effects. The sample field-selection helper is not complete schema validation or authorization. This binding API is distinct from Hosted Skills Dynamic Workflows and does not supersede that API contract. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned Agent binding version, schema/auth checks, resource cleanup, cancellation, replay, and repeated-side-effect tests qualify a HoneyDrunk Python workflow? See [[indexes/gaps]].
+
+
+## 2026-10-12: Captured azd Copilot setup separates interactive approval from automatic repair
+
+### Typed entities
+
+project: Azure Developer CLI; project: GitHub Copilot; library: GitHub CLI; file: azure.yaml; concept: automatic retry.
+
+### Claims and evidence
+
+- Microsoft's April 21 article describes azd 1.23.11-or-later prerequisites, Copilot access and GitHub CLI, with preview project setup that checks a clean worktree, obtains MCP tool consent, and offers configuration/infrastructure changes for approval. Error handling offers explanations, guidance, or repair; separate configuration can enable automatic fixes and retry. confidence: 1 source, last-confirmed 2026-10-12 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-12-rss-github-copilot-meets-azure-developer-cli-ai-assisted-project-setup-and.md)
+
+### Explicit relationships
+
+azd scaffolding uses Copilot and MCP tools; repair authority depends-on error-handling configuration and cloud identity. See [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Older vendor article captured in October, not a new October feature or current CLI verification. Interactive consent and configurable automatic repair describe different modes, not a contradiction. Approval in the default flow does not establish unattended safety or authorize infrastructure changes. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which azd version, environment scope, effective repair settings, no-prompt behavior, and deployment retry tests preserve HoneyDrunk approval boundaries? See [[indexes/gaps]].

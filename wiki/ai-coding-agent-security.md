@@ -2457,3 +2457,23 @@ Governance recommendation, not a jurisdiction-specific legal conclusion. Litigat
 ## 2026-10-10: Consolidated authority-control recommendation
 
 NCSC and two Thoughtworks articles reinforce a recommendation to bound autonomous action with explicit scope, organizational accountability, and controls outside model-written prompts. confidence: 3 sources, last-confirmed 2026-10-10 (archived recommendations; two publisher organizations, with the Thoughtworks accounts correlated). [NCSC](../raw/2026-10-08-rss-one-does-not-simply-defend-agentically.md); [engineering discipline](../raw/2026-10-08-rss-quality-is-speed-where-engineering-discipline-moves-in-the-ai-era.md); [authority](../raw/2026-10-08-rss-real-world-lessons-in-agentic-authority-and-overreach.md). Support for the recommendation is stronger than a single opinion; this is not measured proof of containment or a promotion of each article's incident claims. Enforcement effectiveness still depends-on local bypass, recovery, and audit tests.
+
+
+## 2026-10-12: Security-agent containment combines scoped tools with independent enforcement
+
+### Typed entities
+
+project: ZeroQuarry; concept: target authorization; concept: egress control; concept: out-of-band evidence; concept: capability audit.
+
+### Claims and evidence
+
+- ZeroQuarry describes launch-time target authorization, tool-enforced scope and redirect checks, public-address DNS checks, external rate/resource limits, and scan-specific tool sets. Source/binary workers lack network tools and container egress; remote scans use a mediated request tool. An external callback collector separates public evidence submission from authenticated per-scan retrieval and binds accepted callbacks to allocated probes. confidence: 1 source, last-confirmed 2026-10-12 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-12-rss-of-course-it-escapes-how-zeroquarry-contains-security-agents.md)
+- The vendor describes non-root, restricted containers, temporary target credentials hidden from model-facing tools, and opt-in bounded account registration with wrap-up accounting for unused permission. It explicitly calls the container one containment layer rather than a separate-kernel sandbox. confidence: 1 source, last-confirmed 2026-10-12 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-12-rss-of-course-it-escapes-how-zeroquarry-contains-security-agents.md)
+
+### Explicit relationships
+
+Security scans depend-on authorized targets and externally enforced capabilities; callback verification uses scan-scoped provenance. See [[container-supply-chain-and-compliance]].
+
+### Decision and quality notes
+
+Vendor design account, not independent containment certification. No-escape assertions, secondary incident narratives, and absolute anti-collusion claims are not promoted as established outcomes. Tool denylists and prompts alone are insufficient evidence of network isolation; bypass paths and credential-bearing responses need testing. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk scan tools pass target/redirect/DNS, alternate-egress, callback isolation, credential-response, resource-limit, and unused-permission audit tests? See [[indexes/gaps]].

@@ -1507,3 +1507,23 @@ Root-cause diagnosis uses deployed source and cited trajectories; regression evi
 ### Decision and quality notes
 
 Vendor reference demonstration, not independent production-quality validation. Reported synthetic replay gains and costs are workload-specific. Project-local storage does not by itself prove every model/data processing boundary; assess retention, IAM, judge calibration, and data flows. No HoneyDrunk deployment performed. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which trace-to-revision binding, judge calibration, rare-failure sampling, skipped-work accounting, privacy controls, and stateful replay tests qualify a HoneyDrunk quality outer loop? See [[indexes/gaps]].
+
+
+## 2026-10-12: ATLAS separates entity discovery, cell accuracy, and complete rows
+
+### Typed entities
+
+project: Exa; project: ATLAS; concept: search completeness; concept: golden answer table; concept: row F1.
+
+### Claims and evidence
+
+- Exa previews 547 search-intensive tasks built from anonymized search demand, with entity discovery and multi-hop enrichment. It describes independent construction agents, provider-blinded search, verification and repair, and a sampled audit. Discovery F1 scores entities, item F1 scores cells, and row F1 requires a fully correct row. Ungraded cells are excluded; verified blank cells are graded separately from unknown values. confidence: 1 source, last-confirmed 2026-10-12 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-12-rss-atlas-evaluating-agents-on-search-intensive-tasks.md)
+- The captured evaluation reports no tested configuration below $1 per task exceeding 0.5 row F1, and a best tested row F1 of 0.66 at $8.92 and 18 minutes. These are vendor experiment results, not general limits on search. Tasks, golden tables, and the grader are promised for later release in this preview. confidence: 1 source, last-confirmed 2026-10-12 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-12-rss-atlas-evaluating-agents-on-search-intensive-tasks.md)
+
+### Explicit relationships
+
+ATLAS uses audited answer tables; completeness evaluation depends-on discovery coverage, enrichment correctness, and a stated compute budget. See [[agentic-retrieval-and-search]].
+
+### Decision and quality notes
+
+Benchmark-owner preview; no independent reproduction or artifact-release verification. Provider comparisons and error estimates remain provisional. Separate blank, unknown, missed, and incorrect evidence when designing a local evaluation. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk search tasks need exhaustive sets, audited blanks, contamination checks, and separate discovery/row/cell scores under fixed cost and latency budgets? See [[indexes/gaps]].
