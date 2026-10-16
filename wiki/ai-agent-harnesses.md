@@ -2020,3 +2020,24 @@ Reflection uses explicit criteria and bounded refinement; factual validation dep
 ### Decision and quality notes
 
 Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Which held-out HoneyDrunk tasks demonstrate reflection gains after cost, latency, and false-correction penalties? See [[indexes/gaps]].
+
+
+## 2026-10-16: Behavioral harness value depends on the model and task
+
+### Typed entities
+
+person: Naresh Jain; project: Specmatic; project: GPT-6 Sol; project: GPT-6 Luna; concept: behavioral harness; concept: independent acceptance gate.
+
+### Claims and evidence
+
+- Jain reports ten paired runs per model on one greenfield Java service at low reasoning effort. An external evaluator checked 178 behaviors. Sol passed all ten runs with and without the development harness; Luna passed three without and ten with it. The harness combined specifications/examples with executable feedback, so their separate contributions were not isolated. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-are-harnesses-worth-the-cost.md)
+- The harness increased measured token use and elapsed time for both models. Reported API-equivalent generation costs put harnessed Luna below unharnessed Sol, but exclude harness authoring, maintenance, and human repair. A final-gate-only condition was proposed rather than measured. Ten successes do not establish long-run reliability. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-are-harnesses-worth-the-cost.md)
+- Failures included deferred-request recovery, missing monitor links, message-header/payload conformance, and configuration mismatches. Expectations came from supplied contracts and fixtures independent of generated implementation tests; agents were instructed to preserve them. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-are-harnesses-worth-the-cost.md)
+
+### Explicit relationships
+
+Behavioral verification uses independent contracts and side-effect observations; feedback cadence depends-on measured failure patterns. This evidence informs [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Single practitioner experiment with an unusually complete brief. Do not turn its model ranking or cost estimate into a default. Compare accepted outcomes, latency, repair, and maintenance on representative local work. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk tasks justify continuous feedback versus a final acceptance gate after including failed attempts, human repair, and harness maintenance? See [[indexes/gaps]].

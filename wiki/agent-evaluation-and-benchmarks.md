@@ -1527,3 +1527,68 @@ ATLAS uses audited answer tables; completeness evaluation depends-on discovery c
 ### Decision and quality notes
 
 Benchmark-owner preview; no independent reproduction or artifact-release verification. Provider comparisons and error estimates remain provisional. Separate blank, unknown, missed, and incorrect evidence when designing a local evaluation. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk search tasks need exhaustive sets, audited blanks, contamination checks, and separate discovery/row/cell scores under fixed cost and latency budgets? See [[indexes/gaps]].
+
+
+## 2026-10-16: RL environment discovery is separate from runtime and reward validity
+
+### Typed entities
+
+project: Hugging Face Hub; library: Harbor; library: Verifiers; library: OpenEnv; library: NeMo Gym; concept: taskset; concept: verifier reward.
+
+### Claims and evidence
+
+- Hugging Face describes RL environments as tagged dataset repositories, with task files and framework-specific loaders. Tags improve discovery and loading snippets; they neither convert incompatible files nor start execution infrastructure. The release focuses on tasksets, with runtime responsibilities remaining in the frameworks. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-welcome-rl-environments-to-the-hub.md)
+- The Harbor oracle example checks a reference solution without a model call. OpenEnv distinguishes a missing verifier reward from model failure, and NeMo's structured-output example rewards schema adherence rather than factual correctness. Runtime failures, successful execution, and valid task outcomes therefore require separate interpretation. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-welcome-rl-environments-to-the-hub.md)
+
+### Explicit relationships
+
+Environment discovery uses dataset metadata; execution depends-on compatible files and runtimes; meaningful evaluation depends-on verifier semantics.
+
+### Decision and quality notes
+
+Official release/tutorial evidence without executed samples. Pin datasets, harnesses, runtime dependencies, and reward code; inspect container/tool privileges and model-proxy connectivity before a pilot. No infrastructure was launched. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned HoneyDrunk tasksets pass reference-solution checks, cross-framework loading, reward-validity review, and explicit runtime-error accounting? See [[indexes/gaps]].
+
+
+## 2026-10-16 consolidation: evaluate model and harness as a task system
+
+Measure accepted outcomes and recorded task cost for the model/harness pairing, including failed attempts and feedback overhead. confidence: 3 sources, last-confirmed 2026-10-16 (two archived attributed summaries and one complete experiment reviewed; stronger support for this measurement principle, not replicated model rankings or savings). [Arena comparison](../raw/2026-09-20-rss-arena-coding-harness-cost-evaluation.md), [Osmani task-cost discussion](../raw/2026-09-24-rss-claude-task-cost-cache-and-retry-measurement.md), [Jain experiment](../raw/2026-10-13-rss-are-harnesses-worth-the-cost.md). These are distinct authored accounts with different methods and incentives; the first two are retained summaries rather than full experimental artifacts. The earlier September consolidation remains historical evidence, and overlapping citations are not extra independent votes. See [[ai-agent-harnesses]] for the new experiment's limits.
+
+
+## 2026-10-16: Agent evaluation combines deterministic checks with calibrated judgment
+
+### Typed entities
+
+project: Google Developers; library: OpenInference; project: OpenTelemetry; concept: critical user journey; concept: fixed evaluation dataset; concept: judge calibration.
+
+### Claims and evidence
+
+- The guide derives scenarios from critical user journeys and recommends deterministic unit checks, deterministic scenario checks, model-based judging, and integration checks. Comparable runs retain a fixed dataset while production traces can supply separately reviewed future cases. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-evaluating-ai-agents-moving-past-the-vibe-check.md)
+- It recommends explicit pass/fail criteria for model judges, calibration against human labels, and recording latency, tokens, cost, and tool calls alongside outcomes. Shared trace conventions help compare implementations, but model-generated explanations of failure remain hypotheses rather than proven causes. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-evaluating-ai-agents-moving-past-the-vibe-check.md)
+
+### Explicit relationships
+
+Evaluation uses fixed scenarios and recorded traces; trustworthy judging depends-on human calibration and explicit criteria. See [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Practitioner guidance published by Google, not a universal numerical threshold or measured HoneyDrunk result. Production traces need privacy review before reuse. Aggregate scores should not conceal regressions on critical cases; tutorial iteration counts are not a delivery forecast. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk user journeys, fixed cases, calibrated judge labels, privacy-filtered traces, and critical-case regression rules define an agent release gate? See [[indexes/gaps]].
+
+
+## 2026-10-16: Harbor sandbox integration isolates execution without validating rewards
+
+### Typed entities
+
+project: Harbor; project: Docker Sandboxes; concept: per-task microVM; concept: evaluation network policy; concept: reward hacking.
+
+### Claims and evidence
+
+- Docker describes Harbor sandbox support in a nightly build, with a stable release planned for October 23 rather than established in this October 16 capture. Tasks run in isolated microVMs; cloud Compose workloads can place multiple containers inside one sandbox. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-harbor-docker-sandboxes-run-safe-reproducible-agent-evals.md)
+- The cloud integration exposes network configuration for setup and evaluation phases; local public/no-network options remain subject to host policy. The vendor reports testing 64 concurrent sandboxes, which does not establish a customer quota or workload-independent capacity. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-harbor-docker-sandboxes-run-safe-reproducible-agent-evals.md)
+
+### Explicit relationships
+
+Reproducible evaluation depends-on pinned runtime/task versions and controlled networking; valid outcomes depend-on reward integrity beyond sandbox isolation. See [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Vendor integration tutorial with nightly and future-release limits. VM containment alone does not prevent an agent modifying exposed tests or reward files. Local/cloud feature parity, host escape prevention, and benchmark validity are not established here. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned Harbor/Docker task proves setup-versus-evaluation egress, local/cloud policy behavior, reward-file protection, and concurrency limits? See [[indexes/gaps]].

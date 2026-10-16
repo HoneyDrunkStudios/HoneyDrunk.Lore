@@ -157,3 +157,23 @@ Compatibility replay depends-on common starting state and transaction context; I
 ### Decision and quality notes
 
 First-party engineering account with unknown publication date in the capture. Reported scale and performance are workload-specific. Replay does not prove arbitrary concurrent schedules or all database features equivalent; production data protections remain part of the method. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk replay cases preserve snapshot parity, transaction/session semantics, pacing, deterministic ordering, native ID-generation coverage, and production-data access controls? See [[indexes/gaps]].
+
+
+## 2026-10-16: Schema migration safety spans compatibility, locks, and data correctness
+
+### Typed entities
+
+project: PostgreSQL; concept: expand-contract; concept: bounded backfill; concept: lock acquisition; concept: dual-write reconciliation.
+
+### Claims and evidence
+
+- BoundLayer frames safe schema change as separate expand, migrate, switch, verify, and contract phases that preserve coexisting application versions. Lock acquisition, transaction duration, resource headroom, replica lag, and service outcomes matter even when DDL itself is fast. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-zero-downtime-postgresql-migrations-a-production-playbook-for-safe-sch.md)
+- The guide separates constraint introduction from validation transactions, describes concurrent-index invalid-artifact recovery, and calls for bounded idempotent backfills with observable progress. Mutable source data needs race protection; old/new divergence and unknown consumers must be resolved before contraction. A successful SQL exit or zero remaining rows does not prove business correctness. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-zero-downtime-postgresql-migrations-a-production-playbook-for-safe-sch.md)
+
+### Explicit relationships
+
+Safe schema evolution depends-on mixed-version compatibility and verified data invariants; backfill uses bounded work and reconciliation. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Practitioner playbook, not an executed migration or a universal zero-downtime guarantee. Exact PostgreSQL locking/version semantics require primary documentation before implementation; examples are not copied as a HoneyDrunk SQL Server runbook. Recreating dropped schema does not restore lost data. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk schema change has mixed-version, lock-wait, concurrent-backfill, data-reconciliation, and recovery evidence before destructive contraction? See [[indexes/gaps]].

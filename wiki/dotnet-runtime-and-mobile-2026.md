@@ -3,6 +3,8 @@
 ## Decision-useful summary
 .NET 11 is making runtime/process work more operationally useful: MAUI moves Android/iOS/Mac Catalyst/tvOS apps to CoreCLR by default, while `System.Diagnostics.Process` gains safer one-call execution/capture APIs, explicit handle inheritance, kill/detach lifetime controls, and trimmer-friendly `SafeProcessHandle` paths. For HoneyDrunk, this is relevant to mobile C# prototypes and local agent/tool runners that need deadlock-free process execution and orphan-process control. Preview status means measure before adopting. [sources: raw/2026-05-16-rss-net-blog-net-maui-moves-to-coreclr-in-net-11.md; raw/2026-05-16-rss-net-blog-process-api-improvements-in-net-11.md]
 
+Release-stage reconciliation: the summary above retains the May preview perspective. superseded-by: [RC2 capture assessment](#2026-10-16-net-11-rc2-advances-the-captured-release-stage), 2026-10-16T16:55:15-04:00; newer first-party release evidence establishes RC2 with go-live support as the latest stage represented here. This supersedes the release-stage framing only, not the historical feature claims or the need for validation.
+
 ## Claims
 - Starting in .NET 11 Preview 4, CoreCLR is the default runtime for .NET MAUI apps on Android, iOS, Mac Catalyst, and tvOS; Blazor WebAssembly remains on Mono. confidence: 1 source, last-confirmed 2026-05-17. [source: raw/2026-05-16-rss-net-blog-net-maui-moves-to-coreclr-in-net-11.md]
 - The MAUI/CoreCLR move is intended to unify mobile with server/desktop runtime behavior and unlock tiered JIT, ReadyToRun, PGO, and a clearer NativeAOT path, but Microsoft reports community regressions in larger Android app startup/package size and recommends app-specific measurement. confidence: 1 source, last-confirmed 2026-05-17. [source: raw/2026-05-16-rss-net-blog-net-maui-moves-to-coreclr-in-net-11.md]
@@ -894,3 +896,43 @@ NativeAOT trimming depends-on reachable code; linker substitution changes behavi
 ### Decision and quality notes
 
 Single implementation report with platform/version-specific numbers. A substitution is safe only while the removed path remains outside the supported contract; upgrades can invalidate member matching or assumptions. No HoneyDrunk authentication path or dependency changed. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk NativeAOT binaries have measured dependency growth, and what pinned-member, substitution-effectiveness, supported-auth-path, and platform regression checks justify removing a path? See [[indexes/gaps]].
+
+
+## 2026-10-16: .NET 11 RC2 advances the captured release stage
+
+### Typed entities
+
+project: .NET 11 RC2; library: NuGet; library: .NET MAUI; concept: go-live support; concept: file locking.
+
+### Claims and evidence
+
+- Microsoft announced RC2 on October 13 with a go-live support license and Visual Studio 2026 Insiders / VS Code C# Dev Kit support. This advances the release stage beyond the page's May preview summary and September RC1 snapshot; it does not establish general availability. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-announcing-net-11-release-candidate-2.md)
+- The announcement lists incremental CBOR reading, experimental composite ML-KEM/HPKE APIs, configurable initial HTTP/2 concurrency, and CLI configuration of minimum package publication age. It also flags iOS/tvOS file locking disabled by default and QuickGrid virtualization APIs leaving experimental status. Linked detailed release notes were not part of this capture. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-announcing-net-11-release-candidate-2.md)
+
+### Explicit relationships
+
+RC2 supersedes the earlier release-stage snapshot; upgrade acceptance depends-on target-runtime compatibility and rollback evidence. NuGet publication-age controls relate to [[dotnet-dependency-security-and-nuget]].
+
+### Decision and quality notes
+
+Official announcement, not a tested upgrade. Feature names are scouting leads; no API signatures, cryptographic fitness, or production compatibility are inferred. Earlier preview/RC1 behavior remains dated history. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned SDK/package/device tests cover RC2 file-locking changes, package-age policy, mobile behavior, and rollback before a HoneyDrunk upgrade? See [[indexes/gaps]].
+
+
+## 2026-10-16: dotnetup preview manages local toolchains separately from deployed runtimes
+
+### Typed entities
+
+project: dotnetup; project: .NET SDK; file: global.json; concept: release channel; concept: self-contained application.
+
+### Claims and evidence
+
+- Microsoft introduces dotnetup in preview as a user-local, non-administrator toolchain manager. Initialization changes shell setup and installs an SDK; project requirements can be derived from global.json. A major-version channel and a latest channel have different upgrade scope, while exact versions remain pinning choices. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-introducing-dotnetup-a-toolchain-manager-for-net.md)
+- Updating the local toolchain does not patch self-contained deployed applications; those require republishing. Windows administrator installers and further CI integration are described as future work rather than delivered preview features. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-introducing-dotnetup-a-toolchain-manager-for-net.md)
+
+### Explicit relationships
+
+Toolchain selection uses project requirements and explicit channels; deployed runtime security depends-on application packaging and republishing. See [[dotnet-dependency-security-and-nuget]].
+
+### Decision and quality notes
+
+Official preview introduction, not a validated replacement for existing installers or CI setup. No installer commands ran and no shell profile changed. Cleanup behavior, channel policy, and rollback need local tests. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned dotnetup preview tests cover global.json selection, channel boundaries, cleanup, existing SDK coexistence, and self-contained republishing? See [[indexes/gaps]].

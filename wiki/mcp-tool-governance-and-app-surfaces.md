@@ -1426,3 +1426,24 @@ Investigation uses sandbox-side joins; API authorization depends-on existing cal
 ### Decision and quality notes
 
 Vendor evaluation tied to observability tasks and named model/toolsets, not universal cost or accuracy improvements. API permissions and returned-data minimization remain necessary; credential exclusion does not remove data exposure. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk observability tasks verify code-execution joins, evidence fidelity, permission denial, and total cost against ordinary tools? See [[indexes/gaps]].
+
+
+## 2026-10-16: Azure MCP 3.0 changes tool discovery and authority assumptions
+
+### Typed entities
+
+project: Azure MCP Server 3.0; project: Azure SRE Agent; concept: operation plane; concept: read-only mode; concept: database grants; concept: structured tool output.
+
+### Claims and evidence
+
+- Microsoft announces stable Azure MCP Server 3.0 with additional backup, resilience, and SRE tools; underlying Azure SRE Agent integration remains preview. Learn-only discovery does not execute operations, and Advisor apply supplies infrastructure rules rather than applying live changes. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-azure-mcp-server-3-0-stable-release-more-tools-more-possibilities.md)
+- The release introduces opt-in structured output, operation-plane metadata, pipeline federation support, stricter unknown-option errors, renamed commands, and response/configuration changes. Content-only output remains the default. Clients need compatibility tests for discovery and response parsing. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-azure-mcp-server-3-0-stable-release-more-tools-more-possibilities.md)
+- Security changes include broader SSRF checks, exact case-insensitive tool selection, excluding email/SMS sends from read-only mode, and safer defaults for newly created resources. MySQL/PostgreSQL query tools are classified destructive, non-idempotent, and non-read-only; the SQL-verb filter is removed. Database permissions remain the execution boundary, and creation defaults do not retrofit existing resources. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-azure-mcp-server-3-0-stable-release-more-tools-more-possibilities.md)
+
+### Explicit relationships
+
+MCP tool exposure depends-on server mode and tool selection; actual data authority depends-on database grants and workload identity. See [[azure-agent-automation-and-identity]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Official release notes without local invocation. Stable server packaging does not promote preview dependent services. Metadata classifications assist policy but do not prove enforcement or safe arbitrary SQL. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned Azure MCP 3.0 client tests cover renamed tools, output formats, read-only exclusions, database grants, and federated identity before an upgrade? See [[indexes/gaps]].

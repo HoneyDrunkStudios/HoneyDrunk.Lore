@@ -1761,3 +1761,84 @@ Sustained VR performance depends-on target hardware, thermal state, and CPU/GPU 
 ### Decision and quality notes
 
 Practitioner guidance, not measured HoneyDrunk device acceptance or clinical validation. MSAA, foveation, light, and postprocessing choices require SDK/content-specific tests; the clinical anecdote does not establish medical fitness. No private personal narrative retained. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which target headset, refresh rate, compositor timing, stereo shader, scene, and thermal-soak checks establish HoneyDrunk sustained frame and stimulus fidelity? See [[indexes/gaps]].
+
+
+## 2026-10-16: GOT stutter classification is a specific diagnostic heuristic
+
+### Typed entities
+
+project: Unity; project: GOT Online; concept: frame-time threshold; concept: function-stack statistics.
+
+### Claims and evidence
+
+- GameOptim says GOT Online classifies a frame only when its duration exceeds both 83.33 ms and twice the mean duration of the preceding three frames. Overview reports expose execution time, percentage, and call counts for relevant function stacks. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-how-can-unity-developers-identify-and-analyze-stuttering-frames-with-g.md)
+
+### Explicit relationships
+
+GOT classification uses two simultaneous thresholds; root-cause investigation depends-on stack evidence and target-device timing.
+
+### Decision and quality notes
+
+Vendor feature description without local validation. Inference: this heuristic can miss sustained slow frames and misses below 83.33 ms; it is not a universal VR frame-budget or compositor-timing acceptance test. Existing device/thermal guidance remains applicable. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned GOT/Unity/device tests cover threshold edges, sustained slowness, overhead, and compositor timing beyond the reported stutter heuristic? See [[indexes/gaps]].
+
+
+## 2026-10-16: XR accessibility needs complete alternative task paths
+
+### Typed entities
+
+project: Unity; concept: XR accessibility; concept: input abstraction; concept: per-user settings; concept: task completion.
+
+### Claims and evidence
+
+- The practitioner guide proposes multiple routes for essential tasks: seated and one-handed operation, remapping and hold/toggle alternatives, reachable controls, visual equivalents for sound, adjustable text, and comfort options. Scene logic responds to activation intent rather than a specific controller gesture. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-your-xr-app-quietly-assumes-a-standing-adult-with-two-hands.md)
+- It recommends testing the full scenario seated, one-handed, and with sound off, alongside disabled-user participation and task-completion measurements. In shared scenes, personal caption and height settings should not mutate everyone's world state. Its illustrative code is an architectural sketch rather than a complete implementation. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-your-xr-app-quietly-assumes-a-standing-adult-with-two-hands.md)
+
+### Explicit relationships
+
+Accessible XR depends-on alternative input/output paths and user testing; shared-world integrity depends-on keeping personal presentation settings local.
+
+### Decision and quality notes
+
+Practitioner guidance, not accessibility certification or medical validation. The example toggle flag does not implement complete hold/release behavior. Public personal/clinical anecdotes and contact details are excluded; target-platform and user evidence remain necessary. Source-specific claims remain provisional; derived queries add no independent support. Open question: Can each essential HoneyDrunk XR task finish seated, one-handed, and sound-off with personal settings isolated and measured by users with relevant access needs? See [[indexes/gaps]].
+
+
+## 2026-10-16: Foxy Dumplings case study separates platform adapters from shared gameplay
+
+### Typed entities
+
+project: Foxy Dumplings; project: Soft Crunch Games; project: Unity; concept: platform adapter; concept: control capability; concept: cloud-save conflict.
+
+### Claims and evidence
+
+- The team describes building all target platforms from one project/branch/commit with platform services behind interfaces and runtime/build configuration. The article concerns development toward a planned 2027 release, not an already shipped cross-platform product. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-how-soft-crunch-games-built-foxy-dumplings-for-every-platform.md)
+- Independent complete control schemes account for capability differences such as touch versus right-click. Device profiling drove render-target resolution/HDR/depth choices and font-atlas upload changes; the reported gains and atlas sizes are specific to this game. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-how-soft-crunch-games-built-foxy-dumplings-for-every-platform.md)
+- The described save system combines shared binary saves with platform cloud services and Unity Cloud Save, timestamp-based slot reconciliation, deletion tombstones, and synchronization at the main menu. Offline retry and suspend handling are discussed; clock-skew correctness and durable completion under forced suspension are not demonstrated. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-how-soft-crunch-games-built-foxy-dumplings-for-every-platform.md)
+
+### Explicit relationships
+
+Shared gameplay uses platform service interfaces; portable controls depend-on actual input capabilities. Save convergence depends-on conflict and deletion semantics. See [[procedural-world-persistence]].
+
+### Decision and quality notes
+
+Developer case study published by Unity, not independent performance or shipping evidence. Build-matrix coverage and native save behavior need target-device tests; encryption alone does not establish authentication or conflict correctness. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk platform matrix proves complete controls, save tombstones, clock-skew conflict handling, offline recovery, and forced-suspend durability? See [[indexes/gaps]].
+
+
+## 2026-10-16: Input acceptance is separate from sampling and rebinding
+
+### Typed entities
+
+project: Unity 6.3; library: Input System 1.20; concept: action ownership; concept: input buffer; concept: pointer ownership; concept: binding override.
+
+### Claims and evidence
+
+- The documentation-based guide separates Dynamic Update input collection from physics consumption. A boolean pending request means at least one event, not a timed queue; consumers must clear it even when gameplay rejects the action. Mouse displacement and stick velocity require different time treatment, and analog magnitude should not be normalized away. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-unity-6-3-input-system-a-practical-guide-to-gameplay-ui-and-rebinding.md)
+- Pause/time scale, enabled actions, and gameplay acceptance are distinct. Clearing transition-frame input does not fully handle held confirm/attack buttons; release-before-reacceptance may be needed. UI pointer ownership should persist from press to release, and text focus is separate from hover. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-unity-6-3-input-system-a-practical-guide-to-gameplay-ui-and-rebinding.md)
+- Shared project-wide actions are borrowed resources; PlayerInput consumers and rebinding must use the intended player action instance. Interactive rebinds require disposal on every exit and restoration according to current modal state. Persisted binding overrides need stable-ID migration, correct load order, and per-profile targeting; successful JSON parsing does not prove all bindings migrated. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-unity-6-3-input-system-a-practical-guide-to-gameplay-ui-and-rebinding.md)
+
+### Explicit relationships
+
+Gameplay input depends-on centralized acceptance and single-consumer semantics; rebind persistence uses the same runtime action asset. UI ownership uses pointer identity and interaction lifetime.
+
+### Decision and quality notes
+
+The source explicitly says its code was not compiled or tested in Unity or on hardware. Retain design constraints as review leads, not a verified drop-in implementation. UI Toolkit-only and uGUI/mixed setups differ; local multiplayer and touch require additional configuration. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which Unity device tests cover held-button menu/focus transitions, variable render/physics rates, UI drag ownership, rebind cancellation, profile isolation, and binding-ID migration? See [[indexes/gaps]].

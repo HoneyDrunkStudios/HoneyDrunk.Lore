@@ -702,3 +702,44 @@ OBI correlation depends-on kernel privileges, synchronous writes, and active con
 ### Decision and quality notes
 
 Official feature explanation, not validated attribution under HoneyDrunk backpressure. .NET needs a synchronous console writer per this source. Test duplicate/split/misattributed records on one low-risk service before rollout; no app redeploy does not mean no pipeline change. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which kernel/privilege, .NET writer, concurrent-request/backpressure, SDK-span, all-NUL filtering, and large-record tests qualify OBI correlation for HoneyDrunk? See [[indexes/gaps]].
+
+
+## 2026-10-16: Production profiles sample a specific live execution window
+
+### Typed entities
+
+project: Cloudflare Workers; project: Durable Objects; library: V8; concept: CPU profile; concept: allocation profile; concept: source map.
+
+### Claims and evidence
+
+- Cloudflare describes on-demand CPU and memory profiles for an active selected Worker version, with flamegraph inspection and downloadable artifacts. Ordinary Workers sample a running isolate; named Durable Objects route to their live primary actor. Low traffic can prevent capture because the service does not start a new isolate solely to profile it. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-introducing-on-demand-cpu-and-memory-profiling-with-flamegraphs-for-wo.md)
+- Memory profiles contain allocations during the chosen window, so earlier startup allocations are absent. Continuous profiling is described as future work. The internal examples found duplicate serialization work and instrumentation that still allocated despite being considered disabled; these are workload-specific observations. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-introducing-on-demand-cpu-and-memory-profiling-with-flamegraphs-for-wo.md)
+
+### Explicit relationships
+
+Profiling depends-on live execution, selected version, and sampling window; readable stacks use source maps. Profiles complement traces and aggregate telemetry.
+
+### Decision and quality notes
+
+Official product and internal case-study evidence. Do not generalize reported speedups or confuse sampled allocations with complete retained-heap evidence. Access, retention, source-map exposure, and capture overhead require local review. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk profiling cases need startup or rare-event coverage, and what version selection, sampling, overhead, artifact access, and retention controls qualify capture? See [[indexes/gaps]].
+
+
+## 2026-10-16: Versioned process metrics preserve configuration shape, not query semantics
+
+### Typed entities
+
+project: OpenTelemetry Collector Contrib 0.160.0; library: mdatagen; file: metadata.yaml; concept: semantic convention; concept: migration feature gate.
+
+### Claims and evidence
+
+- OpenTelemetry describes release-candidate process metrics in hostmetrics using version-suffixed metadata keys whose suffixes are removed at emission. Separate enable-new and disable-old gates control migration; the capture says both gates default off in 0.160.0. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-versioned-metrics-shipping-the-first-release-candidate-metrics-in-host.md)
+- When old/new definitions share an emitted name, dual publication resolves conflicts rather than emitting incompatible duplicate metrics: attribute changes combine old/new attributes, and type changes favor the new type, with warnings. Renamed metrics and changed semantics can still require dashboard/query changes despite an unchanged configuration block. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-versioned-metrics-shipping-the-first-release-candidate-metrics-in-host.md)
+- The process scraper is the first adopter; broader system metrics stabilization is future work. The proposed six-month RC window is followed by stability-criteria review, not an unconditional stable release date. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-versioned-metrics-shipping-the-first-release-candidate-metrics-in-host.md)
+
+### Explicit relationships
+
+Metric migration uses versioned metadata and feature gates; observability continuity depends-on backend, query, alert, and semantic validation.
+
+### Decision and quality notes
+
+Primary implementation explanation, not local Collector acceptance. RC metrics are represented as beta in metadata because mdatagen lacks an RC stability label. Configuration compatibility does not imply stable values, types, cardinality, or dashboard output. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk Collector migration proves gate combinations, emitted names/types/attributes, CPU semantics, alert queries, cardinality, and rollback behavior? See [[indexes/gaps]].

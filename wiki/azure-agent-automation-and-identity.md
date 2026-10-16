@@ -1334,3 +1334,65 @@ azd scaffolding uses Copilot and MCP tools; repair authority depends-on error-ha
 ### Decision and quality notes
 
 Older vendor article captured in October, not a new October feature or current CLI verification. Interactive consent and configurable automatic repair describe different modes, not a contradiction. Approval in the default flow does not establish unattended safety or authorize infrastructure changes. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which azd version, environment scope, effective repair settings, no-prompt behavior, and deployment retry tests preserve HoneyDrunk approval boundaries? See [[indexes/gaps]].
+
+
+## 2026-10-16: Container Apps guidance makes reliability and cost workload-specific
+
+### Typed entities
+
+project: Azure Container Apps; concept: availability zone; concept: readiness probe; concept: revision rollout; concept: private ingress; concept: egress policy.
+
+### Claims and evidence
+
+- The captured Microsoft architecture guide connects replica/zone choices, health probes, autoscaling, resource limits, and load/failure testing to workload reliability targets. It describes revision-based canary or blue-green rollout and repeatable infrastructure configuration as operational practices. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-web-architecture-best-practices-for-azure-container-apps.md)
+- Its security guidance combines managed identity, Key Vault, private connectivity, outbound controls, and scrubbed telemetry. Additional ingress, isolation, and compute options are tradeoffs to validate against workload needs rather than a blanket configuration. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-web-architecture-best-practices-for-azure-container-apps.md)
+
+### Explicit relationships
+
+Container Apps reliability depends-on capacity, health checks, and tested recovery; private ingress complements separately enforced egress policy. See [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Official architecture snapshot modified September 23, not evidence of HoneyDrunk configuration or acceptance. Broad claims about zero idle cost, automatic isolation, or instrumentation-free telemetry are not promoted as guarantees; storage support, session lifecycle, and signal coverage require feature-specific verification. No resource creation is authorized by this research. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk SLO, load/failover, revision rollback, network, telemetry, and measured-cost tests justify selected Container Apps settings? See [[indexes/gaps]].
+
+
+## 2026-10-16: Container Apps permission review includes secret-use authority
+
+### Typed entities
+
+project: Azure Container Apps; project: Azure Key Vault; concept: managed identity; concept: job start permission; concept: secret-use authority.
+
+### Claims and evidence
+
+- The captured Microsoft security overview distinguishes system-assigned identity lifecycle from independently managed user-assigned identities and recommends Key Vault-backed secrets and least privilege. App secrets are scoped at application level, separate from individual revisions. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-web-security-overview-for-azure-container-apps.md)
+- It warns that wildcard role actions can include listSecrets, returning plaintext values. For jobs, start permission can permit use of known job secrets and identities available to containers even when a custom role omits listSecrets. Removing direct secret-read permission therefore does not establish absence of secret-use authority. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-web-security-overview-for-azure-container-apps.md)
+
+### Explicit relationships
+
+Effective job authority depends-on executable workloads, available identities, and secret references; least privilege uses the full permission surface. See [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+Official security snapshot modified September 11. This and the architecture guide share a publisher and are not independent verification. No effective-role audit, credential access, or rotation was performed; confidential-compute and token-store descriptions do not prove a deployed privacy boundary. Source-specific claims remain provisional; derived queries add no independent support. Open question: Do HoneyDrunk Container Apps role tests cover wildcard secret reads, job-start secret use, managed-identity scope, and revision-independent secret exposure? See [[indexes/gaps]].
+
+
+## 2026-10-16: Container Apps scaling needs a viable wake-up path and validated configuration
+
+### Typed entities
+
+project: Azure Container Apps; library: KEDA; concept: revision; concept: event scaling; concept: managed identity; concept: replica target.
+
+### Claims and evidence
+
+- The captured Microsoft guide says scaling-rule edits create revisions, multiple rules can trigger scale-out, and event-driven app rules differ from jobs. Apps without ingress need a custom wake-up rule or a positive minimum replica count; otherwise scaling to zero leaves no restart trigger. CPU/memory and event policies require workload-specific review. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-web-set-scaling-rules-in-azure-container-apps.md)
+- The guide documents custom-scaler defaults of 30-second polling and 300-second cooldown, with polling not applying to HTTP/TCP and a specific note limiting cooldown to the final replica-to-zero transition. Scale-down stabilization is a separate mechanism. Replica counts are targets, and maintenance may temporarily add replicas. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-web-set-scaling-rules-in-azure-container-apps.md)
+- For supported Azure scaler resources, managed identity avoids storing connection secrets. The capture notes multiple-revision behavior, recommends single mode for non-HTTP event rules, and distinguishes Container Apps app rules from job execution triggers. It does not prove that scale-to-zero eliminates all environment/storage costs. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-web-set-scaling-rules-in-azure-container-apps.md)
+- Source contradiction: several Bicep examples reverse the intended limits to maxReplicas 0 / minReplicas 5, and the TCP Bicep example incorrectly places the connection setting under http. The same capture's prose, ARM examples, and CLI examples instead use min 0 / max 5 and a TCP rule. The consistent examples are the more-likely intent; malformed Bicep is not a deployable reference. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-web-set-scaling-rules-in-azure-container-apps.md)
+
+### Explicit relationships
+
+Autoscaling depends-on reachable triggers, supported identity, and tested capacity; immutable revisions preserve prior rule configurations. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Official captured page modified May 20, with internally inconsistent snippets. superseded-by: [consistent scaling interpretation](#2026-10-16-container-apps-scaling-needs-a-viable-wake-up-path-and-validated-configuration), 2026-10-16T17:04:49-04:00; malformed Bicep interpretation is superseded by mutually consistent prose/ARM/CLI evidence within this source, preserving the rejected example above. This is a documented inference, not executed Bicep validation. Ambiguous HTTP concurrency wording and version-sensitive limits require primary refresh before implementation. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned Container Apps/KEDA tests verify wake-up from zero, bounds/schema, HTTP metric semantics, identity, cooldown versus stabilization, and measured full cost? See [[indexes/gaps]].

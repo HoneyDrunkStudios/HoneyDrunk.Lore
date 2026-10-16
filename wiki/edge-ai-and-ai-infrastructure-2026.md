@@ -1321,3 +1321,44 @@ Fair-share scheduling uses budgeted occupancy history; preemption depends-on min
 ### Decision and quality notes
 
 First-party operational report, not a transferable performance guarantee. Eight-hour protection caps and planned restorable sessions do not establish safe checkpoint recovery for every workload. Simulated and observed outcomes remain separate. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk workloads need GPU scheduling, and what checkpoint, interactive-state, fragmentation, fairness, and actual-utilization measurements would justify it? See [[indexes/gaps]].
+
+
+## 2026-10-16: Sparse local-agent model claims need full workload and memory accounting
+
+### Typed entities
+
+project: Liquid AI; project: LFM2.5-24B-A2B; library: vLLM; library: llama.cpp; concept: mixture of experts; concept: local inference.
+
+### Claims and evidence
+
+- Liquid AI describes a reasoning-only model with 24B total parameters, 2B active per token, and a 131K context window. It reports tool/instruction-following strengths with weaker results than some larger comparison models on knowledge and coding tasks; the release benchmarks are vendor-run. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-run-fast-private-agents-on-device-with-lfm2-5-24b-a2b.md)
+- The reported 184 tokens/second on M5 Max is a device decode measurement, while over 21K output tokens/second on B300 is high-concurrency throughput. They are different operating points. The source lists local serving integrations but does not establish HoneyDrunk device fit or end-to-end agent reliability. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-run-fast-private-agents-on-device-with-lfm2-5-24b-a2b.md)
+
+### Explicit relationships
+
+Local agents use a model-serving backend and harness; task quality depends-on model, tool policy, and runtime configuration. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Vendor release evidence. Inference: active-parameter count alone does not establish total memory needs, and local inference does not make network tools private. License, quantization, context memory, and actual egress remain unverified. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which model revision/license, quantization, context-memory budget, private-task quality, tool-egress, and end-to-end latency tests qualify a HoneyDrunk local-agent pilot? See [[indexes/gaps]].
+
+
+## 2026-10-16: MicroVM checkpoints separate local execution from durable publication
+
+### Typed entities
+
+project: DigitalOcean Managed Agents; library: Firecracker; library: PostgreSQL; concept: copy-on-write disk; concept: checkpoint; concept: lazy restore; concept: credential proxy.
+
+### Claims and evidence
+
+- DigitalOcean describes a public-preview architecture using Firecracker/KVM isolation, namespaced networking, metadata leases in PostgreSQL, and content-addressed snapshot artifacts in Spaces. Warm resume uses lazy memory/disk loading; the reported sub-200 ms p50 assumes prepared host/network/cache conditions and is not a cold-import or end-to-end response guarantee. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-building-a-computer-that-can-pause-and-resume-in-milliseconds-inside-t.md)
+- Writes enter a private local disk overlay; local acknowledgement can precede remote durability. Checkpointing pauses and seals memory, CPU, and disk state, then execution can resume before artifact publication completes. A checkpoint becomes complete after artifacts publish and metadata commits; it does not roll back external side effects or recreate existing network connections. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-building-a-computer-that-can-pause-and-resume-in-milliseconds-inside-t.md)
+- The described service replaces caller-supplied identity headers, authenticates ownership, and uses per-hop mTLS. Optional externally enforced network rules and credential injection can constrain destinations and keep selected provider credentials outside guest memory. Destination allowlisting alone does not authorize each operation, and explicitly supplied environment secrets have different exposure. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-building-a-computer-that-can-pause-and-resume-in-milliseconds-inside-t.md)
+
+### Explicit relationships
+
+Snapshot durability depends-on artifact publication and metadata commit; safe replay depends-on external-operation reconciliation. Proxy credential protection uses host-side policy. See [[distributed-systems-patterns]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Detailed vendor architecture, not independent measurements or a HoneyDrunk deployment. Isolation, lease readiness, endpoint health, and durability are distinct properties. Preexisting redaction markers in image URLs remain only in the immutable capture; no secret-like URL material is promoted. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which checkpoint crash-window, external-effect, cold/warm resume, proxy-policy, and credential-exposure tests qualify a HoneyDrunk microVM evaluation? See [[indexes/gaps]].

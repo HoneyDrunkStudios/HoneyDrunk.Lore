@@ -195,3 +195,43 @@ Agent identity depends-on workload attestation and registry binding; tool author
 ### Decision and quality notes
 
 Internal architecture case study with 2025 implementation and 2026 roadmap. Registry authorization, signature/audience checks, and actual tool policy are required; agent-provided metadata alone is not attestation. Dynamic/unified policy direction is future vision, not a universal deployed standard. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Do HoneyDrunk delegated calls reject agent impersonation, wrong audiences, stale tokens, and lost originating-user context at every hop? See [[indexes/gaps]].
+
+
+## 2026-10-16: Identity linking requires proof beyond a matching email
+
+### Typed entities
+
+project: WorkOS; library: Better Auth; library: AshAuthentication; project: Pingvin Share X; concept: issuer-subject identity; concept: account linking; concept: MFA.
+
+### Claims and evidence
+
+- WorkOS groups three reported account-linking failures: accepting unverified provider email, ignoring an unverified local account, and failing to compare the provider email with the matched local account. The common issue is an ownership decision made from incomplete identity evidence. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-three-oauth-account-takeovers-one-bug-auto-linking-by-email.md)
+- The article recommends lookup by issuer and subject, treating email matches as hints, validating provider authority and ownership on both sides, preserving existing MFA, and failing callback checks closed. Linking should not overwrite stored email, roles, or recovery settings; uncertain ownership requires proof through the existing account. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-three-oauth-account-takeovers-one-bug-auto-linking-by-email.md)
+
+### Explicit relationships
+
+Account linking depends-on verified ownership and trusted issuer semantics; an email match does not establish identity. See [[ai-coding-agent-security]] for execution trust boundaries.
+
+### Decision and quality notes
+
+Vendor-authored synthesis of external advisories, not independent verification of CVEs, fixed versions, or HoneyDrunk exposure. Retain the durable trust-boundary lesson; primary advisories and target implementation need review before patch guidance. No exploit payloads or personal addresses copied. Source-specific claims remain provisional; derived queries add no independent support. Open question: Do HoneyDrunk identity-link tests reject unverified local/provider identities, non-authoritative issuers, mismatched emails, MFA bypass, and callback validation failure? See [[indexes/gaps]].
+
+
+## 2026-10-16: Google OAuth DPoP announcement binds refresh tokens
+
+### Typed entities
+
+project: Google OAuth; concept: DPoP; concept: proof key; concept: refresh token; concept: bearer access token.
+
+### Claims and evidence
+
+- Google announces DPoP support for OAuth refresh tokens: a client-held private key signs proofs associated with the bound token. The capture explicitly says access tokens remain standard bearer tokens, so refresh-token binding does not remove access-token theft risk. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-announcing-dpop-support-for-google-oauth-securing-refresh-tokens.md)
+- Proof construction includes request method, target URI, issuance time, unique identifier, and nonce handling. The client must protect its private key. The article distinguishes OAuth binding from browser-session protection and says core consumer OAuth does not provide RFC 8693 token exchange. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-announcing-dpop-support-for-google-oauth-securing-refresh-tokens.md)
+
+### Explicit relationships
+
+Refresh-token replay resistance depends-on proof-key custody and valid proofs; bearer access tokens retain separate exposure. DPoP complements the earlier delegation standards discussion.
+
+### Decision and quality notes
+
+First-party announcement, not a tested identity integration. Broader multi-hop/STS delegation suggestions need service-specific verification; no blanket Google token-exchange or sender-binding guarantee is inferred. No key material or credential examples are copied. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk clients support Google refresh-token DPoP, protected key lifecycle, nonce/clock recovery, and separate bearer-access-token controls? See [[indexes/gaps]].

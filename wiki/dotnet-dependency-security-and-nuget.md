@@ -143,3 +143,22 @@ Pinned package verification depends-on accepted signer certificates across confi
 ### Decision and quality notes
 
 Official dated migration record. Consult the original for exact fingerprints and trust commands, then validate old and newly signed packages; no fingerprint or policy change is invented here. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which HoneyDrunk CI and developer NuGet scopes pin Microsoft author fingerprints, and do both old and newly signed packages verify after the trust-policy migration? See [[indexes/gaps]].
+
+
+## 2026-10-16: October servicing capture is a versioned patch-discovery record
+
+### Typed entities
+
+project: .NET; project: .NET Framework; concept: runtime servicing; concept: security advisory; concept: deployment inventory.
+
+### Claims and evidence
+
+- Microsoft lists .NET 10.0.13, 9.0.21, and 8.0.32 in the October servicing announcement, covering security and non-security fixes. The capture links detailed release/security information and separate .NET Framework updates without including enough advisory detail to establish severity or affected configurations. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-net-and-net-framework-october-2026-servicing-releases-updates.md)
+
+### Explicit relationships
+
+Patch assessment depends-on deployed runtime/package inventory and primary advisories; local SDK updates do not establish deployment remediation. See [[dotnet-runtime-and-mobile-2026]].
+
+### Decision and quality notes
+
+Official dated release matrix. These are captured versions, not an evergreen latest-version recommendation or proof of HoneyDrunk patch status. Earlier servicing entries remain historical snapshots; no CVE count or severity is invented. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which deployed HoneyDrunk runtimes and self-contained artifacts are affected by the October advisories, and what rebuild, regression, and rollout evidence confirms remediation? See [[indexes/gaps]].

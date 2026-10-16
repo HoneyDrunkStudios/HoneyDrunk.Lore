@@ -2477,3 +2477,23 @@ Security scans depend-on authorized targets and externally enforced capabilities
 ### Decision and quality notes
 
 Vendor design account, not independent containment certification. No-escape assertions, secondary incident narratives, and absolute anti-collusion claims are not promoted as established outcomes. Tool denylists and prompts alone are insufficient evidence of network isolation; bypass paths and credential-bearing responses need testing. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk scan tools pass target/redirect/DNS, alternate-egress, callback isolation, credential-response, resource-limit, and unused-permission audit tests? See [[indexes/gaps]].
+
+
+## 2026-10-16: Containment and governance address different agent risks
+
+### Typed entities
+
+project: Docker Sandboxes; concept: prompt injection; concept: tool poisoning; concept: scoped identity; concept: egress policy.
+
+### Claims and evidence
+
+- Docker frames agent security around malicious instructions, tool definitions, credential exposure, excessive autonomy, and downstream actions. Its proposed controls combine workload isolation, short-lived scoped credentials, restricted network access, explicit approval policy, and audit records. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-ai-agent-security-risks-what-can-go-wrong-when-agents-act-on-their-own.md)
+- The article treats inter-agent messages and retrieved material as untrusted input. A sandbox limits reachable resources, while governance still decides which operations and external services the agent may use. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-ai-agent-security-risks-what-can-go-wrong-when-agents-act-on-their-own.md)
+
+### Explicit relationships
+
+Agent containment uses execution boundaries; permitted side effects depend-on scoped authority and destination controls. See [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+Vendor synthesis with secondary incident anecdotes. Absolute escape-prevention claims and suggestions that isolation alone justifies automatic approval are not adopted. This reinforces existing Docker guidance without counting the same publisher as independent confirmation. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk sandbox tests cover mounted credentials, tool poisoning, permitted-destination misuse, and untrusted messages between agents? See [[indexes/gaps]].

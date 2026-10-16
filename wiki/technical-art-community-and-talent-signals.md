@@ -1362,3 +1362,44 @@ The lighthouse scene uses modular assets and shared materials; visual continuity
 ### Decision and quality notes
 
 Artist interview without runtime measurements or an inspected project. Lightweight intent is not a proven frame budget, and an Unreal material workflow does not establish a Unity implementation. Public creative attribution retained; unrelated biography and contact profiles omitted. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk modular environment passes texel-density, repetition, blend-channel, overdraw, camera-readability, and target-engine performance checks? See [[indexes/gaps]].
+
+
+## 2026-10-16: Geometry Nodes workshop separates shipped building blocks from design proposals
+
+### Typed entities
+
+project: Blender; concept: Geometry Nodes; library: nodebpy; project: Molecular Nodes; concept: GPU evaluation; concept: asset review; concept: explicit export.
+
+### Claims and evidence
+
+- The October 5 workshop report distinguishes recent node additions from work-in-progress modal tools, exposed bakes/views, export nodes, dynamic sockets, and GPU evaluation. Proposed export writes require explicit triggering; optional automatic writes would reset off each session. GPU work prioritizes Vulkan/Metal and keeping data resident because CPU/GPU transfers can erase gains. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-geometry-nodes-workshop-september-2026.md)
+- The report describes Molecular Nodes storing node groups as Python through nodebpy, while built-in Blender asset integration remains unresolved. Diff/merge drivers and splitting assets into separate blend files are proposed collaboration approaches. nodebpy opens blend files, so the report calls for sandboxing untrusted input. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-geometry-nodes-workshop-september-2026.md)
+- Experimental cloth still lacks self-collision and has a weak bending constraint. The workshop favors solver-specific groups with compatible effector interfaces before a generalized multiphysics abstraction. These are design priorities and limits, not delivered production guarantees. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-geometry-nodes-workshop-september-2026.md)
+
+### Explicit relationships
+
+Node asset review uses explicit source representation and versioning; safe export depends-on explicit write controls. GPU benefit depends-on residency and supported operations. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Primary workshop account, not release acceptance. Preserve earlier Blender release history; do not label every discussed node as shipped. Reproduce round trips and final-engine results before choosing an asset pipeline. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned Blender/nodebpy versions pass asset round-trip, sandbox, export, physics-limit, and CPU/GPU transfer tests for HoneyDrunk content? See [[indexes/gaps]].
+
+
+## 2026-10-16: Creature-chef workflow retains editable sculpt and garment stages
+
+### Typed entities
+
+person: Yuriy Barchuk; project: Breakfast - Chef Extraordinaire; library: ZBrush; library: Marvelous Designer; library: Maya; project: Unreal Engine 5.7; concept: retopology.
+
+### Claims and evidence
+
+- The artist describes blocking silhouette and non-human anatomy before adapting garment patterns around tail and legs. Flattened garment patterns are retopologized, UVs transferred, and the mesh conformed back to the simulation before sculpt cleanup and thickness. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-sculpting-scales-simulating-clothes-for-creature-chef-in-zbrush-marvel.md)
+- Scale details use separate sculpt layers and morph targets for reversible intensity changes, followed by cleanup and hand-painted variation over procedural textures. Retopology, baking, posing, and final-engine lighting remain separate stages; the head/body texture allocation prioritizes their visual importance. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-sculpting-scales-simulating-clothes-for-creature-chef-in-zbrush-marvel.md)
+
+### Explicit relationships
+
+Editable creature assets use staged topology, UV, and sculpt representations; final appearance depends-on baking and engine lighting. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Single artist production account, not an asset license, performance benchmark, or proof of game-ready deformation. Exact subdivision, texture, and foliage settings are case-specific. Personal biography and contact profiles are omitted. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk creature asset passes garment/UV round-trip, mouth and tail deformation, texture-memory, source-license, and target-engine lighting checks? See [[indexes/gaps]].

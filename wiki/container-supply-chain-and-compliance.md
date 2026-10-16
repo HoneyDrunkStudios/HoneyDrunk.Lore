@@ -280,3 +280,23 @@ Package trust depends-on source and release-path integrity beyond provenance; re
 ### Decision and quality notes
 
 Single security-vendor incident report, not local exposure evidence or a current remediation runbook. Retain the reported affected version for investigation, but do not treat the historical fallback version as currently safe. No payload, destructive command, attacker endpoint, contact identifier, or credential material copied into wiki prose; no remediation executed. Source-specific claims remain provisional; derived queries add no independent support. Open question: Do HoneyDrunk dependency and endpoint records show the reported Tensorlake release or persistence, and what current incident guidance and verified containment state govern credential recovery? See [[indexes/gaps]].
+
+
+## 2026-10-16: Credential ownership changes can expand registry authority
+
+### Typed entities
+
+project: Docker Hub; concept: personal access token; concept: account conversion; concept: credential ownership; concept: registry supply chain.
+
+### Claims and evidence
+
+- Docker reports that account-to-organization conversions reassigned PAT ownership without rotating the secret or requiring the named owner's consent. A holder could then use the transferred token with the target's registry permissions; Docker distinguishes this from web-console or password/MFA account takeover. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-docker-hub-security-advisory-personal-access-tokens-transferred-during.md)
+- The advisory reports a September 30 fix removing transfers and October 8 deactivation of transferred tokens except explicit owner opt-outs. Its investigation found no evidence of exploitation, while acknowledging that unused transferred credentials leave no authentication-log trace. These are vendor findings, not proof that no exposure occurred. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-docker-hub-security-advisory-personal-access-tokens-transferred-during.md)
+
+### Explicit relationships
+
+Registry trust depends-on credential lifecycle and consent; reassigned credentials can undermine image provenance. See [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+First-party dated incident report. No HoneyDrunk exposure conclusion follows from this capture or an absent notification. Attack steps, account identifiers, and contact details are omitted; current incident guidance requires a separate refresh before response work. Source-specific claims remain provisional; derived queries add no independent support. Open question: Do HoneyDrunk registry records show converted accounts or transferred credentials, and do ownership-change tests prove consent, credential replacement, and audit coverage? See [[indexes/gaps]].

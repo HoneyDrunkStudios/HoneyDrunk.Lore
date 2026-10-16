@@ -351,3 +351,45 @@ Retry placement uses originating-error context; useful retries depend-on call-gr
 ### Decision and quality notes
 
 Single authored source; source observations and capture recommendations remain provisional. No HoneyDrunk implementation or independently verified outcome is established. Older publication dates remain as recorded in the capture; the confirmation date means archival review. Related reports and derived queries add no independent support. Open question: Do HoneyDrunk retry tests cover deep call chains, correlated overload, missing ownership metadata, and useful retry placement? See [[indexes/gaps]].
+
+
+## 2026-10-16: Durable history preserves coordination while external effects need reconciliation
+
+### Typed entities
+
+library: Durable Task .NET SDK 1.26.0; project: Durable Task Scheduler; concept: operation journal; concept: immutable proposal; concept: revision fence; concept: authoritative ledger.
+
+### Claims and evidence
+
+- The Microsoft article distinguishes replay of recorded activity results from the failure window before acknowledgement. Activities can be redelivered after an external operation succeeds, so stable business identities, persisted intent, and provider reconciliation remain application responsibilities. Event notifications wake a workflow; authoritative approval or payment records decide the outcome. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-durable-task-in-the-real-world-what-problems-does-it-actually-solve.md)
+- Its provisioning example separates resource readiness from tenant activation. A polling deadline does not cancel provider work; compensation first prevents new submissions, reconciles in-flight operations, and checks exclusive ownership. Uncertain cleanup remains an intervention case. The webhook example serializes entity counters but still needs destination-enforced generation/revision fencing and reliable follow-up admission. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-durable-task-in-the-real-world-what-problems-does-it-actually-solve.md)
+- For incident agents, model generation is an activity that saves an immutable proposal with evidence, action fingerprint, and policy version. Approval binds to that proposal, and execution rechecks current authority and safety. Recomputing an unrecorded model result is not guaranteed to recover the same decision. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-durable-task-in-the-real-world-what-problems-does-it-actually-solve.md)
+
+### Explicit relationships
+
+Durable coordination uses recorded activity history; safe side effects depends-on external receipts and stable operation identity. Agent approval depends-on immutable proposal identity. See [[azure-agent-automation-and-identity]] and [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Official design examples explicitly omit adapters and are not a compiled/tested sample. Existing queues, databases, or ARM reconciliation may suffice; no exactly-once guarantee or new runtime mandate is inferred. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk workflow needs durable coordination, and do worker-crash, lost-acknowledgement, late-approval, stale-revision, and in-flight-cleanup tests preserve authoritative state? See [[indexes/gaps]].
+
+
+## 2026-10-16: Physical fleets require recovery and energy evidence in the development loop
+
+### Typed entities
+
+person: Kuldeep Singh; project: retail sensor fleet; concept: hardware-in-loop testing; concept: virtual device emulator; concept: resumable firmware update; concept: energy budget.
+
+### Claims and evidence
+
+- Singh describes modernizing a large battery-powered sensor fleet using a physical sensor farm, power/radio measurement, device diagnostics, and virtual devices/store simulation. Simulation exposed scale limits but did not replace physical validation of firmware, radio, or hardware behavior. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-when-software-meets-hardware.md)
+- Intermittent connectivity and energy consumption shaped communication and diagnostics. Firmware deployment combined secure download, validation, partition swapping, stored progress, and staged rollouts with device/fleet visibility. Recovery must account for interruption and irreversible battery expenditure, not only reverting software. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-when-software-meets-hardware.md)
+- The team captured experiments and operational discoveries alongside decisions. AI helped shorten experimentation and tooling cycles; the account does not supply a controlled productivity comparison. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-when-software-meets-hardware.md)
+
+### Explicit relationships
+
+Fleet confidence depends-on physical measurements, scale simulation, and recovery drills; firmware operations use durable progress and staged rollout. See [[robotics-foundation-models-and-embodied-ai]] and [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+First-person engineering case study. Fleet counts and outcomes are author-reported, not independently audited. Its periodic-reboot workaround is not generalized memory-management guidance; operator interfaces need their own authority controls. No HoneyDrunk hardware acceptance is claimed. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk hardware pilot measures energy and radio behavior, interrupted-update recovery, offline command handling, diagnostic authority, and fleet-scale limits? See [[indexes/gaps]].

@@ -1153,3 +1153,23 @@ CI continuity depends-on runner lifecycle; image migration uses architecture and
 ### Decision and quality notes
 
 Official schedule snapshot; exact current image/tool availability still needs verification before changing CI. Intel-to-arm64 build, dependency, and signing compatibility are separate acceptance checks. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk workflows still select macOS 14, and which arm64 dependency/signing tests must pass before the first brownout? See [[indexes/gaps]].
+
+
+## 2026-10-16: Workflow lockfile preview pins an onboarded dependency graph
+
+### Typed entities
+
+project: GitHub Actions; project: Dependabot; file: .github/workflows/actions.lock; concept: transitive dependency pinning; concept: workflow onboarding.
+
+### Claims and evidence
+
+- GitHub announces public-preview workflow lockfiles generated through the gh actions-lock extension. The repository lockfile records exact commits for actions and reusable workflows, including transitive references, while workflow source may retain readable tags. Adoption is per workflow, and onboarded dependencies must be represented in the lockfile. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-github-actions-workflow-lockfiles-in-public-preview.md)
+- The announcement describes an optional Require lockfile administration policy and Dependabot updates to matching locked entries. Locking fixes the selected dependency identity; it does not establish that the selected code is trustworthy. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-github-actions-workflow-lockfiles-in-public-preview.md)
+
+### Explicit relationships
+
+Workflow reproducibility uses reviewed exact dependency commits; supply-chain trust depends-on provenance and code review. See [[container-supply-chain-and-compliance]].
+
+### Decision and quality notes
+
+Official preview announcement, not verified availability across HoneyDrunk repositories or runner configurations. Do not confuse actions.lock with Agentic Workflow generated lock files. No workflow, policy, or dependency was changed by this ingest. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk pilot workflow proves transitive/reusable-workflow locking, missing-entry failure, Dependabot updates, and runner support before enforcing lockfiles? See [[indexes/gaps]].

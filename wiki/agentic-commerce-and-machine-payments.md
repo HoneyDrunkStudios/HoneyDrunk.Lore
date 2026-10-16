@@ -70,3 +70,23 @@ Agentic commerce moves AI from passive assistance toward software agents that ca
 
 ### Quality notes
 - Cloudflare source is product-authored and partly forward-looking. It is strong evidence for market direction but not enough for implementation without current docs, pricing, legal, and settlement review.
+
+
+## 2026-10-16: Payment mandates need cumulative organizational context
+
+### Typed entities
+
+project: Thoughtworks; concept: agent mandate; concept: accountable principal; concept: cumulative commitment; concept: revocation; concept: independent audit.
+
+### Claims and evidence
+
+- Thoughtworks argues that individually permitted purchases can accumulate supplier concentration, information disclosure, renewal obligations, or other commitments outside intended authority. Its proposed authority model connects agent identity, accountable owner, purpose, budget, counterparties, duration, and prior commitments. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-why-agentic-payments-require-an-executable-model-of-organizational-aut.md)
+- The proposal separates deterministic limits from contextual escalation, preserves independent records of requests, evidence, decisions and settlements, and assigns responsibility for revocation and disputes. It explicitly cautions that a model-generated explanation is not a faithful causal audit record and that autonomous enterprise spending is not yet established as routine. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-13-rss-why-agentic-payments-require-an-executable-model-of-organizational-aut.md)
+
+### Explicit relationships
+
+Agentic payments depend-on bounded authority and cumulative commitment review; valid payment execution does not establish acceptable organizational outcomes. See [[enterprise-agent-business-semantics]] and [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+Architecture opinion from the same publisher as earlier commerce coverage, not independent outcome evidence, legal guidance, or permission to spend. Unverified market volumes, funding figures, and regulatory claims are not promoted. Source-specific claims remain provisional; derived queries add no independent support. Open question: What HoneyDrunk mandate would bind principal, purpose, cumulative commitments, revocation, audit evidence, and exception ownership before any agent purchasing pilot? See [[indexes/gaps]].
