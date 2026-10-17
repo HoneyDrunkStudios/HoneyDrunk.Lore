@@ -821,6 +821,8 @@ project: Azure Content Understanding; concept: CU 1.0; concept: CU 2.0 preview; 
 
 Extraction design depends-on the selected API contract; uncertain classification uses confidence as an input to further checks. This extends the field-confidence calibration section without treating preview features as GA.
 
+superseded-by: [field confidence versus classification review](#2026-10-17-extraction-confidence-prioritizes-review-within-a-calibrated-scope), 2026-10-17T10:08:57-04:00. Reason: the newer detailed customer account explicitly states that CU v1 has no classification confidence. Replace the broad classification-confidence implication with field-level calibration and classification review for v1; no conclusion about other API versions is inferred. The prior wording is preserved above.
+
 ### Decision and quality notes
 
 Vendor announcement snapshot. Evaluate quality and review thresholds on representative documents; storage placement alone is not a complete data-flow or privacy guarantee. Source-specific claims remain provisional single-source evidence; related sources and derived summaries are not independent confirmation of these details. Open question: Which required Lore extraction features belong to CU GA versus preview, and what versioned corpus tests establish chunk quality, provenance, storage flows, cost, and review thresholds? See [[indexes/gaps]].
@@ -1396,3 +1398,43 @@ Autoscaling depends-on reachable triggers, supported identity, and tested capaci
 ### Decision and quality notes
 
 Official captured page modified May 20, with internally inconsistent snippets. superseded-by: [consistent scaling interpretation](#2026-10-16-container-apps-scaling-needs-a-viable-wake-up-path-and-validated-configuration), 2026-10-16T17:04:49-04:00; malformed Bicep interpretation is superseded by mutually consistent prose/ARM/CLI evidence within this source, preserving the rejected example above. This is a documented inference, not executed Bicep validation. Ambiguous HTTP concurrency wording and version-sensitive limits require primary refresh before implementation. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned Container Apps/KEDA tests verify wake-up from zero, bounds/schema, HTTP metric semantics, identity, cooldown versus stabilization, and measured full cost? See [[indexes/gaps]].
+
+
+## 2026-10-17: Extraction confidence prioritizes review within a calibrated scope
+
+### Typed entities
+
+project: Azure Content Understanding; concept: grounding; concept: field calibration; concept: held-out document; concept: blank-value policy; decision: review routing.
+
+### Claims and evidence
+
+- Microsoft describes grounding extracted fields in source evidence and using a separate shared confidence model as a risk-ranking signal. Workflow owners calibrate thresholds by document family/version/source and field against human-checked examples; they do not retrain that service model. Empty results need a separate policy, and fields without useful error separation stay in review. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-web-from-extraction-to-action-using-grounding-and-confidence-to-build-reli.md)
+- The customer evaluation used over 22,000 fields from over 1,000 documents and a held-out set. Its targeted selection covered over 80% of known errors with 41% fewer selected field values, but every field and classification still received human review. The source says Content Understanding v1 supplies no classification confidence; neither the 41% figure nor the opening broader marketing claim establishes staff-time savings or straight-through processing. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-web-from-extraction-to-action-using-grounding-and-confidence-to-build-reli.md)
+
+### Explicit relationships
+
+Review routing depends-on field-specific calibration and grounding; continuing validity depends-on held-out checks and drift monitoring. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Vendor customer account. Public receipt-lab calibration results are distinct from held-out customer outcomes. Sample unflagged results as well as flagged ones; revalidate on document, schema, analyzer, or model changes. The three related Microsoft captures reinforce calibration guidance but are not independent validation. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which HoneyDrunk document policy has field/type-specific held-out calibration, explicit blank handling, review of unflagged samples, and revalidation after service/model changes? See [[indexes/gaps]].
+
+
+## 2026-10-17: Container Apps diagnosis starts with revision and replica evidence
+
+### Typed entities
+
+project: Azure Container Apps; project: Azure Monitor; concept: revision health; concept: replica logs; concept: secret refresh; concept: managed-identity lifecycle.
+
+### Claims and evidence
+
+- The Microsoft guide branches diagnosis by failure stage: image/template failures before revision creation, crash/probe/init failures in an existing revision, then configuration/identity and ingress/traffic problems. System, console, and HTTP logs expose different evidence and replica fields; HTTP logs require environment diagnostic settings. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-web-troubleshoot-common-deployment-failures-in-azure-container-apps.md)
+- The guide distinguishes application-scoped secrets from revision-scoped environment references: ordinary app-secret updates do not create a revision and need restart/new revision to take effect. Unversioned Key Vault references have a separate retrieval/active-revision restart mechanism. Init identity access depends on environment type and identitySettings; role propagation and managed-identity authorization caching are different delays. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-web-troubleshoot-common-deployment-failures-in-azure-container-apps.md)
+
+### Explicit relationships
+
+Deployment diagnosis uses revision and replica evidence; secret availability depends-on reference, identity, network, and lifecycle configuration. See [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Official captured troubleshooting guide, no live Azure inspection. Treat remediation commands as context-dependent proposals, not authorization to expose ingress, enable registry admin, shift all traffic, increase resources, or print secrets. Exact default-probe values and CLI/schema compatibility were not independently checked and are not promoted as deployment defaults. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which HoneyDrunk Container Apps runbook verifies revision/replica log fields, effective probes, identity lifecycle, secret refresh, and reversible traffic recovery on its pinned configuration? See [[indexes/gaps]].

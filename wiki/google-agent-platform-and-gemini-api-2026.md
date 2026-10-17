@@ -344,3 +344,27 @@ Antigravity SDK uses local model backends; hybrid execution depends-on both loca
 ### Decision and quality notes
 
 Official walkthrough, with no independent hardware or privacy measurements. The permissive sample tool policy is demonstration configuration. Local support extends earlier self-hosting coverage without superseding hosted execution. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent confirmation of these details. Open question: Which matched acceptance cases, memory and latency budgets, tool policies, and recorded data flows would qualify local versus hybrid Antigravity execution for HoneyDrunk repository tasks? See [[indexes/gaps]].
+
+
+## 2026-10-17: ADK recipe packaging separates patterns, setup skills, and service examples
+
+### Typed entities
+
+project: google/adk-recipes; project: Horizon; library: ADK; concept: recipe manifest; concept: setup skill; concept: deployment example.
+
+### Claims and evidence
+
+- Google describes core/ reference patterns, plugins/ installable vertical skills, and contrib/ deployable examples with manifests and agent-facing documentation. Horizon illustrates cross-session memory, sandboxing, and behavioral rubrics; retail setup provisions retrieval data while its contrib counterpart hosts the service. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-rss-three-layers-one-repo-a-tour-of-google-adk-recipes.md)
+- The article says Agent Garden promotion is a separate editorial decision from repository inclusion. Its retail retrieval example returns unrelated catalog items alongside the requested headphones, so a successful setup transcript alone does not demonstrate relevance or complete retrieval acceptance. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-rss-three-layers-one-repo-a-tour-of-google-adk-recipes.md)
+
+### Explicit relationships
+
+Service examples depend-on setup artifacts; discoverability uses manifests; adoption depends-on independent quality, permission, and deployment review. See [[ai-agent-harnesses]] and [[agentic-retrieval-and-search]].
+
+### Decision and quality notes
+
+The capture contains production-oriented promotional wording but an explicit final disclaimer that recipes are unofficial demonstrations and starting points, not for production use. Preserve that support boundary; no skill was installed or infrastructure deployed. Local in-memory sessions also do not prove durable cross-session acceptance. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which pinned ADK recipe passes dependency/permission review, durable-state recovery, relevant retrieval cases, and deployment validation beyond its demo rubric? See [[indexes/gaps]].
+
+### Source contradiction resolution
+
+The capture calls the scaffold a "production template" and promotes production deployment, but its final support disclaimer says the recipes are demonstrations and not for production use. The production-readiness interpretation is retained here as rejected source framing. superseded-by: [the scoped recipe assessment](#2026-10-17-adk-recipe-packaging-separates-patterns-setup-skills-and-service-examples), 2026-10-17T10:08:57-04:00. Reason: the same publisher's explicit support disclaimer is more specific than its promotional description; runnable examples do not establish supported production readiness. This resolves support posture, not the usability of individual components. [source](../raw/2026-10-17-rss-three-layers-one-repo-a-tour-of-google-adk-recipes.md)

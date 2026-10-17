@@ -2,9 +2,9 @@
 
 Questions the wiki cannot currently answer. Populated by the Query operation when synthesis falls short, and by the Lint operation when entities are referenced but lack a backing page.
 
-## Compile status: 2026-10-16
+## Compile status: 2026-10-17
 
-Cataloged 783 dated gap entries alongside the current 67-page catalog. Added 30 questions and closed 0 gaps in this pass. Existing questions and their history are preserved below.
+Cataloged 798 dated gap entries alongside the current 67-page catalog. Added 15 questions and closed 0 gaps in this pass. Existing questions and their history are preserved below.
 
 ## Entry format
 
@@ -1047,3 +1047,22 @@ Cataloged 783 dated gap entries alongside the current 67-page catalog. Added 30 
 - Which HoneyDrunk Collector migration proves gate combinations, emitted names/types/attributes, CPU semantics, alert queries, cardinality, and rollback behavior? - surfaced 2026-10-16 - context: [[opentelemetry-genai-observability-and-ecosystem]]; [source](../../raw/2026-10-16-rss-versioned-metrics-shipping-the-first-release-candidate-metrics-in-host.md).
 - Which HoneyDrunk hardware pilot measures energy and radio behavior, interrupted-update recovery, offline command handling, diagnostic authority, and fleet-scale limits? - surfaced 2026-10-16 - context: [[distributed-systems-patterns]]; [source](../../raw/2026-10-16-rss-when-software-meets-hardware.md).
 - Which pinned Container Apps/KEDA tests verify wake-up from zero, bounds/schema, HTTP metric semantics, identity, cooldown versus stabilization, and measured full cost? - surfaced 2026-10-16 - context: [[azure-agent-automation-and-identity]]; [source](../../raw/2026-10-16-web-set-scaling-rules-in-azure-container-apps.md).
+
+
+## 2026-10-17 ingest questions
+
+- Which pinned Unity upgrade has reproducible old/new device baselines, plugin compatibility, installed-save migration, and staged recovery evidence? - surfaced 2026-10-17 - context: [[unity-3d-and-realtime-vfx-patterns]]; [source](../../raw/2026-10-17-rss-a-unity-upgrade-compiles-fine-that-is-the-problem.md).
+- Which HoneyDrunk Aspire run/resume tests verify restart behavior, disk permissions, sensitive-data retention, and mounted storage without committing telemetry? - surfaced 2026-10-17 - context: [[microsoft-dotnet-ai-stack]]; [source](../../raw/2026-10-17-rss-adding-persistence-to-the-aspire-dashboard.md).
+- Which shared-screen game tests cover conflicting actions, duplicate IDs, lost broadcasts, clock drift, role isolation, and signed-video access expiry? - surfaced 2026-10-17 - context: [[realtime-game-network-protocol-design]]; [source](../../raw/2026-10-17-rss-an-escape-game-on-the-tv-played-with-phones-keeping-5-screens-in-sync.md).
+- Which HoneyDrunk export policy tests cover schema drift, IPv6 and nested sensitive fields, failed transforms, disabled-job recovery, and retained delivery offsets? - surfaced 2026-10-17 - context: [[opentelemetry-genai-observability-and-ecosystem]]; [source](../../raw/2026-10-17-rss-filter-reshape-and-redact-logs-before-export-with-transformers.md).
+- Which HoneyDrunk blockout proves route readability, maximum-speed traversal, meaningful dead ends, world-state changes, and affordable systemic edge cases? - surfaced 2026-10-17 - context: [[technical-art-community-and-talent-signals]]; [source](../../raw/2026-10-17-rss-hidden-design-decisions-behind-believable-open-world-cities.md).
+- Which HoneyDrunk pool/cache tests cover both writer-reader directions, capability differences, connection-reset defaults, and non-BMP Unicode? - surfaced 2026-10-17 - context: [[cloud-data-platforms-and-analytics]]; [source](../../raw/2026-10-17-rss-inside-hyperdrive-how-we-solved-a-rare-hyperdrive-mysql-caching-bug.md).
+- Which HoneyDrunk classifier gates withstand policy-shaped untrusted arguments while deterministic permissions still reject unauthorized execution? - surfaced 2026-10-17 - context: [[ai-coding-agent-security]]; [source](../../raw/2026-10-17-rss-jev-as-a-judge-how-counterfeit-policy-steers-jev.md).
+- Which HoneyDrunk federation tests reject wrong subjects/audiences, enforce imported-environment permissions, and refresh long-running jobs without reusing identity tokens? - surfaced 2026-10-17 - context: [[ai-agent-identity-and-workload-auth]]; [source](../../raw/2026-10-17-rss-pulumi-esc-now-issues-oidc-tokens-for-any-service.md).
+- Which distributed SQL tests verify volatile-call counts, session settings, transaction time, sequence rollback gaps, and failure recovery under cross-shard updates? - surfaced 2026-10-17 - context: [[cloud-data-platforms-and-analytics]]; [source](../../raw/2026-10-17-rss-sequences-and-other-volatiles-in-neki.md).
+- Which HoneyDrunk evaluation suite binds versions and privacy-filtered traces to held-out cases, full-thread constraints, deterministic final state, and human-calibrated judges? - surfaced 2026-10-17 - context: [[agent-evaluation-and-benchmarks]]; [source](../../raw/2026-10-17-rss-the-most-common-questions-about-agent-evals-answered.md).
+- Which pinned ADK recipe passes dependency/permission review, durable-state recovery, relevant retrieval cases, and deployment validation beyond its demo rubric? - surfaced 2026-10-17 - context: [[google-agent-platform-and-gemini-api-2026]]; [source](../../raw/2026-10-17-rss-three-layers-one-repo-a-tour-of-google-adk-recipes.md).
+- Which HoneyDrunk Apple workflow verifies arm64 dependencies, signing, simulator/device behavior, and recorded image versions on the GA Xcode 27 labels? - surfaced 2026-10-17 - context: [[github-actions-platform-operations]]; [source](../../raw/2026-10-17-rss-xcode-27-runner-image-generally-available.md).
+- Which HoneyDrunk AOT candidate has target-platform, serialization, reflection, authentication, UI, and persistence evidence without relying on suppressed warnings? - surfaced 2026-10-17 - context: [[dotnet-runtime-and-mobile-2026]]; [source](../../raw/2026-10-17-web-bringing-native-aot-to-the-aspire-dashboard.md).
+- Which HoneyDrunk document policy has field/type-specific held-out calibration, explicit blank handling, review of unflagged samples, and revalidation after service/model changes? - surfaced 2026-10-17 - context: [[azure-agent-automation-and-identity]]; [source](../../raw/2026-10-17-web-from-extraction-to-action-using-grounding-and-confidence-to-build-reli.md).
+- Which HoneyDrunk Container Apps runbook verifies revision/replica log fields, effective probes, identity lifecycle, secret refresh, and reversible traffic recovery on its pinned configuration? - surfaced 2026-10-17 - context: [[azure-agent-automation-and-identity]]; [source](../../raw/2026-10-17-web-troubleshoot-common-deployment-failures-in-azure-container-apps.md).

@@ -130,3 +130,23 @@ Input geometry uses normalized coordinates; speculative presentation depends-on 
 ### Decision and quality notes
 
 Community design guide, not measured target-client performance. Canvas superiority, constant-time lookup, and frame-time examples depend on implementation; duplicate/out-of-order acknowledgements and reconnect semantics need additional protocol tests. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Do HoneyDrunk board clients handle touch transforms, rejected moves, duplicate/stale acknowledgements, reconnects, and target-device frame budgets? See [[indexes/gaps]].
+
+
+## 2026-10-17: Shared-screen games separate authoritative state from role projections
+
+### Typed entities
+
+project: Nocturne au musee; project: Supabase; library: Next.js; library: Three.js; concept: optimistic concurrency; concept: idempotent action; concept: role projection.
+
+### Claims and evidence
+
+- The browser-game author describes server-side action application with a conditional versioned SQL save; conflicting writes reload state and replay the action. Only a public projection is broadcast on a private listen-only channel; player-specific documents are returned through an identity-checked route. Duplicate gestures carry IDs that the server counts once. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-rss-an-escape-game-on-the-tv-played-with-phones-keeping-5-screens-in-sync.md)
+- Playback is represented by start time, offset, pause state, and rate, with server time used to compute position after reload. The author describes purchase-checked video access followed by temporary signed-URL redirects, and Three.js rooms loaded on entry. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-rss-an-escape-game-on-the-tv-played-with-phones-keeping-5-screens-in-sync.md)
+
+### Explicit relationships
+
+Client rendering uses projected authoritative state; action replay depends-on concurrency and deduplication rules; private information depends-on route and channel authorization. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Self-reported architecture, not a security or synchronization audit. A redirect exposes its signed destination to the recipient; it does not hide a bearer URL. Clock estimation, lost broadcasts, reconnects, replay side effects, authorization expiry, and signed-link reuse remain unverified. Feed category says Unity, but the captured implementation is browser/Three.js. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which shared-screen game tests cover conflicting actions, duplicate IDs, lost broadcasts, clock drift, role isolation, and signed-video access expiry? See [[indexes/gaps]].

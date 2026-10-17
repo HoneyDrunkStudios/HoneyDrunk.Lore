@@ -1592,3 +1592,27 @@ Reproducible evaluation depends-on pinned runtime/task versions and controlled n
 ### Decision and quality notes
 
 Vendor integration tutorial with nightly and future-release limits. VM containment alone does not prevent an agent modifying exposed tests or reward files. Local/cloud feature parity, host escape prevention, and benchmark validity are not established here. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned Harbor/Docker task proves setup-versus-evaluation egress, local/cloud policy behavior, reward-file protection, and concurrency limits? See [[indexes/gaps]].
+
+
+## 2026-10-17: Evaluation covers trajectories and persisted outcomes as well as answers
+
+### Typed entities
+
+project: LangSmith; library: Harbor; library: agentevals; concept: offline dataset; concept: online evaluation; concept: human calibration; concept: final-state check.
+
+### Claims and evidence
+
+- LangChain recommends starting with one important behavior, a small trace-derived dataset, and a recorded baseline, then converting observed failures into new cases. Offline comparisons use selected datasets; online checks inspect real traces and feed future regression examples. Code checks, narrow model judges, human labels, and pairwise comparisons serve different purposes. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-rss-the-most-common-questions-about-agent-evals-answered.md)
+- The guide evaluates individual steps, full threads/trajectories, and final environment state. It describes clean per-task environments for state-changing agents and sampling/filtering to control online evaluation cost. A cited Jev cost/label-agreement experiment remains workload-specific and does not establish suitability as a security gate. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-rss-the-most-common-questions-about-agent-evals-answered.md)
+
+### Explicit relationships
+
+Release comparison uses stable datasets and recorded versions; meaningful agent success depends-on allowed trajectories and verified final state. See [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Vendor methodology guidance, not a validated HoneyDrunk benchmark. Ten to twenty examples are a starting point, not a release sufficiency threshold. Preserve held-out cases, failure recall, privacy filtering, critical-case checks, and evaluator independence when iterating on scores. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which HoneyDrunk evaluation suite binds versions and privacy-filtered traces to held-out cases, full-thread constraints, deterministic final state, and human-calibrated judges? See [[indexes/gaps]].
+
+## 2026-10-17 consolidation: fixed cases and human checks anchor evaluation
+
+Representative evaluation cases, reproducible baselines, and human checks on model-judge outputs receive stronger methodological support across three distinct authored accounts. confidence: 3 sources, last-confirmed 2026-10-17 (archived accounts; no independent execution). [GitHub production evaluation](../raw/2026-09-18-rss-github-production-llm-evaluation.md), [Google-published evaluation guidance](../raw/2026-10-16-rss-evaluating-ai-agents-moving-past-the-vibe-check.md), [LangChain evaluation guide](../raw/2026-10-17-rss-the-most-common-questions-about-agent-evals-answered.md). This strengthens the measurement practice, not shared numerical outcomes, evaluator security, or HoneyDrunk acceptance. The older GitHub evidence is an attributed summary; repeated citations and query outputs do not add votes.

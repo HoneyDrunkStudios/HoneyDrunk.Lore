@@ -235,3 +235,23 @@ Refresh-token replay resistance depends-on proof-key custody and valid proofs; b
 ### Decision and quality notes
 
 First-party announcement, not a tested identity integration. Broader multi-hop/STS delegation suggestions need service-specific verification; no blanket Google token-exchange or sender-binding guarantee is inferred. No key material or credential examples are copied. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk clients support Google refresh-token DPoP, protected key lifecycle, nonce/clock recovery, and separate bearer-access-token controls? See [[indexes/gaps]].
+
+
+## 2026-10-17: OIDC federation pins environment identity and refresh semantics
+
+### Typed entities
+
+project: Pulumi ESC; project: Anthropic; concept: OIDC audience; concept: immutable subject; concept: identity-token exchange; concept: refresh lifecycle.
+
+### Claims and evidence
+
+- Pulumi describes fn::open::oidc minting v2 tokens for a chosen audience on environment open, with one-minute to one-hour duration and a one-hour default. The shared v2 issuer requires a trust policy matching the environment's immutable organization/environment-ID subject as well as issuer and audience. Imports retain the declaring environment's subject and require its open permission. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-rss-pulumi-esc-now-issues-oidc-tokens-for-any-service.md)
+- The Anthropic example treats each identity token as single-use for exchange; a long-running process needs a newly minted identity token before refreshing the resulting access credential. Existing cloud-login providers retain a different issuer. Token issuance is recorded in the organization audit log. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-rss-pulumi-esc-now-issues-oidc-tokens-for-any-service.md)
+
+### Explicit relationships
+
+Federation depends-on signature, issuer, audience, and subject validation; long-running access depends-on fresh exchange inputs and downstream credential lifetime. See [[azure-agent-automation-and-identity]].
+
+### Decision and quality notes
+
+Vendor integration description, not a tested federation setup. Short expiry reduces exposure duration but does not enforce least privilege by itself, prevent exfiltration, or define the exchanged credential's permissions. No live tokens or example identity values are copied. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which HoneyDrunk federation tests reject wrong subjects/audiences, enforce imported-environment permissions, and refresh long-running jobs without reusing identity tokens? See [[indexes/gaps]].

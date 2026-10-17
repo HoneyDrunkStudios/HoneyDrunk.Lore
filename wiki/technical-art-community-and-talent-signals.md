@@ -1403,3 +1403,23 @@ Editable creature assets use staged topology, UV, and sculpt representations; fi
 ### Decision and quality notes
 
 Single artist production account, not an asset license, performance benchmark, or proof of game-ready deformation. Exact subdivision, texture, and foliage settings are case-specific. Personal biography and contact profiles are omitted. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk creature asset passes garment/UV round-trip, mouth and tail deformation, texture-memory, source-license, and target-engine lighting checks? See [[indexes/gaps]].
+
+
+## 2026-10-17: World layouts prove traversal and systemic scope before environment production
+
+### Typed entities
+
+person: Nathan Cheever; project: Mafia III; project: New Bordeaux; concept: route hierarchy; concept: world state; concept: proxy blockout.
+
+### Claims and evidence
+
+- Cheever describes planning routes, landmarks, districts, infrastructure, and possible world states, then testing a 3D proxy at representative and maximum traversal speeds before costly environment production. Painted projections on simple geometry enabled rapid layout and sightline iteration; district artist/designer ownership preserved local design history. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-rss-hidden-design-decisions-behind-believable-open-world-cities.md)
+- The retrospective distinguishes planned opportunities from shipped systems: electrical infrastructure remained noninteractive, while trains were removed because traffic, physics, and NPC edge cases exceeded their priority. More than 30 major layout iterations are reported for New Bordeaux. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-rss-hidden-design-decisions-behind-believable-open-world-cities.md)
+
+### Explicit relationships
+
+Readable world layout depends-on traversal metrics and landmarks; systemic scope uses edge-case and production-cost evidence. See [[procedural-world-persistence]] and [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Attributed practitioner retrospective. The checklist transfers as a design hypothesis, not a universal map-size or iteration-count target. Planned infrastructure affordances are not evidence those interactions shipped. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which HoneyDrunk blockout proves route readability, maximum-speed traversal, meaningful dead ends, world-state changes, and affordable systemic edge cases? See [[indexes/gaps]].

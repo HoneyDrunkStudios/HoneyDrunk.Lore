@@ -1842,3 +1842,23 @@ Gameplay input depends-on centralized acceptance and single-consumer semantics; 
 ### Decision and quality notes
 
 The source explicitly says its code was not compiled or tested in Unity or on hardware. Retain design constraints as review leads, not a verified drop-in implementation. UI Toolkit-only and uGUI/mixed setups differ; local multiplayer and touch require additional configuration. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which Unity device tests cover held-button menu/focus transitions, variable render/physics rates, UI drag ownership, rebind cancellation, profile isolation, and binding-ID migration? See [[indexes/gaps]].
+
+
+## 2026-10-17: Engine upgrades need behavioral and installed-update baselines
+
+### Typed entities
+
+project: Unity; concept: engine migration; concept: device baseline; concept: serialized asset diff; decision: upgrade acceptance.
+
+### Claims and evidence
+
+- The practitioner recommends a tagged reproducible baseline, written critical flows, and weakest-device startup, frame-time, memory, and size measurements before changing the editor. Packages, native plugins, shaders, input, and generated platform projects need a compatibility audit; compilation alone can miss behavior changes. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-rss-a-unity-upgrade-compiles-fine-that-is-the-problem.md)
+- The proposed migration isolates automatic editor serialization from manual fixes, progresses through major versions, and compares physical-device behavior including updating an existing install, saved data, permissions, purchases, and suspend/resume. Staged release and old-client backend tolerance are part of the process. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-rss-a-unity-upgrade-compiles-fine-that-is-the-problem.md)
+
+### Explicit relationships
+
+Upgrade acceptance depends-on device and save-migration evidence; serialized asset review uses isolated migration changes. See [[procedural-world-persistence]].
+
+### Decision and quality notes
+
+Practitioner experience, not a Unity support policy or a tested HoneyDrunk upgrade. The preferred LTS cadence is the author's judgment; exact supported targets require current platform requirements. No editor, package, or saved data was changed. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which pinned Unity upgrade has reproducible old/new device baselines, plugin compatibility, installed-save migration, and staged recovery evidence? See [[indexes/gaps]].

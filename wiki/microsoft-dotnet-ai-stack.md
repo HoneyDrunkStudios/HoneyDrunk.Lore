@@ -1029,3 +1029,23 @@ C# Dev Kit uses project caches and Native AOT; perceived responsiveness depends-
 ### Decision and quality notes
 
 Official pre-release announcement and vendor measurements; no HoneyDrunk timings reproduced. Committing caches is an author suggestion requiring artifact/privacy review, not a Lore policy. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned Dev Kit version, cold/warm worktree loads, total-process memory measurements, and cache artifact review qualify a HoneyDrunk tooling pilot? See [[indexes/gaps]].
+
+
+## 2026-10-17: Dashboard persistence moves debugging evidence onto disk
+
+### Typed entities
+
+project: Aspire; library: SQLite; library: Dapper; library: Dapper.AOT; concept: telemetry run; concept: persisted-data protection.
+
+### Claims and evidence
+
+- Microsoft describes Aspire 13.6 storing each AppHost-launched run in a separate SQLite database. AppHost selects Run mode; standalone defaults to None with a temporary database, while Resume reopens the same application database without a run selector. Container retention additionally needs storage outside the disposable container. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-rss-adding-persistence-to-the-aspire-dashboard.md)
+- The implementation filters, counts, sorts, and pages telemetry in SQL before materialization, using Dapper and generated Dapper.AOT mappings. Default storage is under the user profile's .aspire/dashboard directory, with configurable alternatives; persisted configuration and telemetry can contain secrets. The reported 76% private-memory reduction is a particular vendor benchmark with one run per version. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-rss-adding-persistence-to-the-aspire-dashboard.md)
+
+### Explicit relationships
+
+Dashboard history uses SQLite; safe retention depends-on disk access and data-location controls. See [[opentelemetry-genai-observability-and-ecosystem]] and [[dotnet-runtime-and-mobile-2026]].
+
+### Decision and quality notes
+
+Extends the October 5 release record with implementation detail. These Microsoft accounts are correlated, not independent reproductions. A user-profile location reduces accidental source commits but does not establish encryption, appropriate retention, or authorized sharing. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which HoneyDrunk Aspire run/resume tests verify restart behavior, disk permissions, sensitive-data retention, and mounted storage without committing telemetry? See [[indexes/gaps]].

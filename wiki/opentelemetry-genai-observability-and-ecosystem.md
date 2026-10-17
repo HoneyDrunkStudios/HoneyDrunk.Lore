@@ -743,3 +743,23 @@ Metric migration uses versioned metadata and feature gates; observability contin
 ### Decision and quality notes
 
 Primary implementation explanation, not local Collector acceptance. RC metrics are represented as beta in metadata because mdatagen lacks an RC stability label. Configuration compatibility does not imply stable values, types, cardinality, or dashboard output. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk Collector migration proves gate combinations, emitted names/types/attributes, CPU semantics, alert queries, cardinality, and rollback behavior? See [[indexes/gaps]].
+
+
+## 2026-10-17: Telemetry export transformations fail closed at the delivery boundary
+
+### Typed entities
+
+project: Cloudflare Logpush; project: Bufstream; library: Apache DataFusion; library: Apache Arrow; concept: fail-closed export; concept: FFI buffer ownership.
+
+### Claims and evidence
+
+- Cloudflare describes per-dataset SQL Transformers filtering and projecting batches before NDJSON export. Its Go delivery service invokes Rust DataFusion in process using typed Arrow IPC batches and dataset-generated schemas; plans are reused within a job time slice. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-rss-filter-reshape-and-redact-logs-before-export-with-transformers.md)
+- On transform failure the described service neither advances the delivery offset nor exports the original batch. It retries with increasing delays, reports errors, and eventually disables persistently failing jobs. Go input buffers are borrowed only during the call; Rust output is copied into Go memory and explicitly released. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-rss-filter-reshape-and-redact-logs-before-export-with-transformers.md)
+
+### Explicit relationships
+
+Redacted export depends-on fail-closed transformation; safe cross-runtime execution depends-on explicit buffer ownership. See [[cloud-data-platforms-and-analytics]].
+
+### Decision and quality notes
+
+Vendor engineering account, not proof that a particular SQL redaction policy covers all sensitive data. The example IP mask is not general IPv6/PII coverage. Synthetic batch throughput is not end-to-end capacity; retry/disable behavior also requires alerting and recovery validation. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which HoneyDrunk export policy tests cover schema drift, IPv6 and nested sensitive fields, failed transforms, disabled-job recovery, and retained delivery offsets? See [[indexes/gaps]].

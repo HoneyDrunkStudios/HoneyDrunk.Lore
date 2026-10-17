@@ -936,3 +936,23 @@ Toolchain selection uses project requirements and explicit channels; deployed ru
 ### Decision and quality notes
 
 Official preview introduction, not a validated replacement for existing installers or CI setup. No installer commands ran and no shell profile changed. Cleanup behavior, channel policy, and rollback need local tests. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned dotnetup preview tests cover global.json selection, channel boundaries, cleanup, existing SDK coexistence, and self-contained republishing? See [[indexes/gaps]].
+
+
+## 2026-10-17: Aspire Native AOT ships a matched dashboard runtime and asset set
+
+### Typed entities
+
+project: Aspire; library: Blazor; library: Fluent UI; library: Dapper.AOT; concept: Native AOT; concept: generated serialization metadata; concept: trimming.
+
+### Claims and evidence
+
+- Microsoft describes Aspire 13.6 packaging an OS/architecture-specific Native AOT dashboard targeting .NET 11 with matched browser assets and framework code. The executable needs no separately installed .NET runtime, while the CLI still ensures a runtime for other Aspire functionality and older AppHosts retain the managed dashboard path. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-web-bringing-native-aot-to-the-aspire-dashboard.md)
+- The work combines experimental Blazor hooks, Fluent UI updates, Dapper.AOT, generated JSON resolver registration, and preserved reflection dependencies. The article explicitly says this does not make Native AOT generally supported for Blazor Web Apps; suppressing warnings does not preserve missing metadata. Its startup and size improvements are vendor measurements. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-web-bringing-native-aot-to-the-aspire-dashboard.md)
+
+### Explicit relationships
+
+AOT correctness depends-on generated code, registered metadata, and preserved reflection paths; dashboard distribution uses matched native binaries and assets. See [[microsoft-dotnet-ai-stack]].
+
+### Decision and quality notes
+
+Implementation account without local publish or authentication tests. Dashboard success is not general Blazor AOT support, and a runtime-independent executable is not a runtime-free CLI installation. Keep target-platform, authentication, persistence, and UI-path acceptance separate. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which HoneyDrunk AOT candidate has target-platform, serialization, reflection, authentication, UI, and persistence evidence without relying on suppressed warnings? See [[indexes/gaps]].

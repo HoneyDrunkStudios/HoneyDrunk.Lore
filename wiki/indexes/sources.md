@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-10-16
+## Compile coverage: 2026-10-17
 
-Reconciled 1247 raw documents against 1247 unique entries; ingested 30 captures in this pass. Existing records and dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
+Reconciled 1262 raw documents against 1262 unique entries; ingested 15 captures in this pass. Existing records and dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
 
 ## Entry format
 
@@ -1609,3 +1609,19 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [Versioned metrics: Shipping the first Release Candidate metrics in hostmetrics](../../raw/2026-10-16-rss-versioned-metrics-shipping-the-first-release-candidate-metrics-in-host.md) - OTel process metric RC migration separates schema compatibility from emitted semantics and downstream validation. Canonical page: [[opentelemetry-genai-observability-and-ecosystem]]. - ingested 2026-10-16
 - [When Software Meets Hardware](../../raw/2026-10-16-rss-when-software-meets-hardware.md) - IoT case study integrates physical testing, scale simulation, energy budgets, and firmware recovery. Canonical page: [[distributed-systems-patterns]]. - ingested 2026-10-16
 - [Set scaling rules in Azure Container Apps](../../raw/2026-10-16-web-set-scaling-rules-in-azure-container-apps.md) - Container Apps scaling capture exposes wake-up requirements and inconsistent Bicep examples resolved against ARM/CLI prose. Canonical page: [[azure-agent-automation-and-identity]]. - ingested 2026-10-16
+
+- [A Unity Upgrade Compiles Fine. That Is the Problem.](../../raw/2026-10-17-rss-a-unity-upgrade-compiles-fine-that-is-the-problem.md) - Engine upgrades need behavioral and installed-update baselines. Canonical page: [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-10-17
+- [Adding persistence to the Aspire dashboard](../../raw/2026-10-17-rss-adding-persistence-to-the-aspire-dashboard.md) - Dashboard persistence moves debugging evidence onto disk. Canonical page: [[microsoft-dotnet-ai-stack]]. - ingested 2026-10-17
+- [An escape game on the TV, played with phones: keeping 5 screens in sync](../../raw/2026-10-17-rss-an-escape-game-on-the-tv-played-with-phones-keeping-5-screens-in-sync.md) - Shared-screen games separate authoritative state from role projections. Canonical page: [[realtime-game-network-protocol-design]]. - ingested 2026-10-17
+- [Filter, reshape, and redact logs before export with Transformers](../../raw/2026-10-17-rss-filter-reshape-and-redact-logs-before-export-with-transformers.md) - Telemetry export transformations fail closed at the delivery boundary. Canonical page: [[opentelemetry-genai-observability-and-ecosystem]]. - ingested 2026-10-17
+- [Hidden Design Decisions Behind Believable Open-World Cities](../../raw/2026-10-17-rss-hidden-design-decisions-behind-believable-open-world-cities.md) - World layouts prove traversal and systemic scope before environment production. Canonical page: [[technical-art-community-and-talent-signals]]. - ingested 2026-10-17
+- [Inside Hyperdrive: How we solved a rare Hyperdrive MySQL caching bug](../../raw/2026-10-17-rss-inside-hyperdrive-how-we-solved-a-rare-hyperdrive-mysql-caching-bug.md) - Shared protocol caches require one canonical response representation. Canonical page: [[cloud-data-platforms-and-analytics]]. - ingested 2026-10-17
+- [Jev as a judge: How counterfeit policy steers Jev](../../raw/2026-10-17-rss-jev-as-a-judge-how-counterfeit-policy-steers-jev.md) - Adversarial classifier evidence limits tool-risk gating. Canonical page: [[ai-coding-agent-security]]. - ingested 2026-10-17
+- [Pulumi ESC now issues OIDC tokens for any service](../../raw/2026-10-17-rss-pulumi-esc-now-issues-oidc-tokens-for-any-service.md) - OIDC federation pins environment identity and refresh semantics. Canonical page: [[ai-agent-identity-and-workload-auth]]. - ingested 2026-10-17
+- [Sequences and other volatiles in Neki](../../raw/2026-10-17-rss-sequences-and-other-volatiles-in-neki.md) - Distributed expression evaluation preserves volatility and cardinality. Canonical page: [[cloud-data-platforms-and-analytics]]. - ingested 2026-10-17
+- [The Most Common Questions About Agent Evals, Answered](../../raw/2026-10-17-rss-the-most-common-questions-about-agent-evals-answered.md) - Evaluation covers trajectories and persisted outcomes as well as answers. Canonical page: [[agent-evaluation-and-benchmarks]]. - ingested 2026-10-17
+- [Three layers, one repo: a tour of google/adk-recipes](../../raw/2026-10-17-rss-three-layers-one-repo-a-tour-of-google-adk-recipes.md) - ADK recipe packaging separates patterns, setup skills, and service examples. Canonical page: [[google-agent-platform-and-gemini-api-2026]]. - ingested 2026-10-17
+- [Xcode 27 runner image generally available](../../raw/2026-10-17-rss-xcode-27-runner-image-generally-available.md) - Xcode 27 runner graduation supersedes the preview status. Canonical page: [[github-actions-platform-operations]]. - ingested 2026-10-17
+- [Bringing Native AOT to the Aspire dashboard](../../raw/2026-10-17-web-bringing-native-aot-to-the-aspire-dashboard.md) - Aspire Native AOT ships a matched dashboard runtime and asset set. Canonical page: [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-10-17
+- [From extraction to action: Using grounding and confidence to build reliable document workflows](../../raw/2026-10-17-web-from-extraction-to-action-using-grounding-and-confidence-to-build-reli.md) - Extraction confidence prioritizes review within a calibrated scope. Canonical page: [[azure-agent-automation-and-identity]]. - ingested 2026-10-17
+- [Troubleshoot common deployment failures in Azure Container Apps](../../raw/2026-10-17-web-troubleshoot-common-deployment-failures-in-azure-container-apps.md) - Container Apps diagnosis starts with revision and replica evidence. Canonical page: [[azure-agent-automation-and-identity]]. - ingested 2026-10-17

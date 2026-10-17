@@ -888,6 +888,8 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ## 2026-09-11 Xcode 27 macOS runner image update
 
+Historical status and preview-specific advice retained below. superseded-by: [October GA status](#2026-10-17-xcode-27-runner-graduation-supersedes-the-preview-status), 2026-10-17T10:08:57-04:00. Reason: the newer official October 15 announcement explicitly graduates the same labels from preview to GA; arm64-only scope remains. Local build validation is still required.
+
 ### Sources
 - [GitHub Changelog: Xcode 27 runner image now runs on macOS 27](../raw/2026-09-11-rss-github-changelog-actions-xcode-27-runner-image-now-runs-on-macos-27.md)
 
@@ -1173,3 +1175,22 @@ Workflow reproducibility uses reviewed exact dependency commits; supply-chain tr
 ### Decision and quality notes
 
 Official preview announcement, not verified availability across HoneyDrunk repositories or runner configurations. Do not confuse actions.lock with Agentic Workflow generated lock files. No workflow, policy, or dependency was changed by this ingest. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk pilot workflow proves transitive/reusable-workflow locking, missing-entry failure, Dependabot updates, and runner support before enforcing lockfiles? See [[indexes/gaps]].
+
+
+## 2026-10-17: Xcode 27 runner graduation supersedes the preview status
+
+### Typed entities
+
+project: GitHub Actions; project: Xcode 27; project: macOS 27; concept: arm64 runner; concept: toolchain image.
+
+### Claims and evidence
+
+- GitHub's October 15 changelog announces GA for its macOS 27 / Xcode 27 hosted runner image. Labels remain xcode-27 and xcode-27-xlarge and the image is Apple Silicon arm64 only, not Intel. Each image targets one major Xcode version. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-rss-xcode-27-runner-image-generally-available.md)
+
+### Explicit relationships
+
+The GA announcement supersedes the September preview status; workflow compatibility depends-on toolchain, OS, and architecture. See [[dotnet-runtime-and-mobile-2026]].
+
+### Decision and quality notes
+
+Official release-status evidence, not an Apple build acceptance result. Existing labels do not freeze image contents, and GA does not establish HoneyDrunk signing, native dependency, or simulator compatibility. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which HoneyDrunk Apple workflow verifies arm64 dependencies, signing, simulator/device behavior, and recorded image versions on the GA Xcode 27 labels? See [[indexes/gaps]].

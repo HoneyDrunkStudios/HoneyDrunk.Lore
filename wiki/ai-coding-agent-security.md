@@ -2497,3 +2497,23 @@ Agent containment uses execution boundaries; permitted side effects depend-on sc
 ### Decision and quality notes
 
 Vendor synthesis with secondary incident anecdotes. Absolute escape-prevention claims and suggestions that isolation alone justifies automatic approval are not adopted. This reinforces existing Docker guidance without counting the same publisher as independent confirmation. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk sandbox tests cover mounted credentials, tool poisoning, permitted-destination misuse, and untrusted messages between agents? See [[indexes/gaps]].
+
+
+## 2026-10-17: Adversarial classifier evidence limits tool-risk gating
+
+### Typed entities
+
+project: Jev; project: Datadog Security Labs; library: LangChain; concept: counterfeit policy; concept: classifier recall; concept: deterministic authorization.
+
+### Claims and evidence
+
+- Datadog reports that policy-shaped text placed in untrusted inputs reduced Noul prompt-injection recall from 82.90% to 3.88% across its four-dataset evaluation; Choice recall fell from 85.46% to 9.69%. These are classifier-label results, not proof of downstream compromise. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-rss-jev-as-a-judge-how-counterfeit-policy-steers-jev.md)
+- In its simulated unauthorized file-edit scenario, changing only a requester-editable profile description lowered average risk probability from 0.893 to 0.290 across 40 runs per condition, below the middleware's 0.5 blocking threshold. The experiment establishes a changed assessment, not a demonstrated unauthorized persistent write or a universal bypass rate. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-rss-jev-as-a-judge-how-counterfeit-policy-steers-jev.md)
+
+### Explicit relationships
+
+Risk classification uses untrusted task content; execution authority depends-on deterministic permission checks outside classifier judgment. See [[agent-evaluation-and-benchmarks]] and [[agentic-retrieval-and-search]].
+
+### Decision and quality notes
+
+Security-research report from a vendor with a competing product; methods and sample sizes matter. Ordinary-label agreement and low-cost judging do not establish adversarial robustness. Existing Jev routing/calibration guidance remains valid within its scope. Payloads, synthetic identities, contact details, and document contents are not reproduced in wiki text. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which HoneyDrunk classifier gates withstand policy-shaped untrusted arguments while deterministic permissions still reject unauthorized execution? See [[indexes/gaps]].

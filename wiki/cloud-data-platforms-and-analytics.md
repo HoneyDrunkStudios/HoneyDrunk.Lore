@@ -177,3 +177,43 @@ Safe schema evolution depends-on mixed-version compatibility and verified data i
 ### Decision and quality notes
 
 Practitioner playbook, not an executed migration or a universal zero-downtime guarantee. Exact PostgreSQL locking/version semantics require primary documentation before implementation; examples are not copied as a HoneyDrunk SQL Server runbook. Recreating dropped schema does not restore lost data. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk schema change has mixed-version, lock-wait, concurrent-backfill, data-reconciliation, and recovery evidence before destructive contraction? See [[indexes/gaps]].
+
+
+## 2026-10-17: Shared protocol caches require one canonical response representation
+
+### Typed entities
+
+project: Cloudflare Hyperdrive; project: MySQL; library: mysql2; concept: capability negotiation; concept: canonical cache encoding; concept: pooled-session reset.
+
+### Claims and evidence
+
+- Cloudflare attributes rare empty results and hangs to Client and Endpoint nodes sharing a datacenter cache while storing differently encoded MySQL responses. Worker-facing capability translation changed result-set terminators; the fix stores canonical Hyperdrive-capability bytes regardless of writer and translates for the receiving client. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-rss-inside-hyperdrive-how-we-solved-a-rare-hyperdrive-mysql-caching-bug.md)
+- The account also reports fixing incomplete Unicode negotiation by using utf8mb4 and restoring that encoding after COM_RESET_CONNECTION, which otherwise reverted to the server default. Reported incident frequency and 99.99% connection success are vendor observations, not guarantees for arbitrary applications. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-rss-inside-hyperdrive-how-we-solved-a-rare-hyperdrive-mysql-caching-bug.md)
+
+### Explicit relationships
+
+Correct shared caching depends-on canonical wire encoding; connection reuse depends-on restored session invariants. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+First-party incident analysis without local reproduction. Query equality alone does not prove wire-format compatibility. Test both cache-writer/read directions, negotiated capabilities, reset state, and non-BMP text before extrapolating. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which HoneyDrunk pool/cache tests cover both writer-reader directions, capability differences, connection-reset defaults, and non-BMP Unicode? See [[indexes/gaps]].
+
+
+## 2026-10-17: Distributed expression evaluation preserves volatility and cardinality
+
+### Typed entities
+
+project: PlanetScale Neki; project: PostgreSQL; concept: volatile expression; concept: statement cardinality; concept: authoritative sequence shard; concept: session settings.
+
+### Claims and evidence
+
+- PlanetScale describes Neki evaluating sequence operations through the router using an authoritative shard, rather than allowing independent shards to allocate conflicting values. Volatile SELECT expressions need evaluation at the resulting table-expression cardinality; immutable computations can be reused where semantics permit. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-rss-sequences-and-other-volatiles-in-neki.md)
+- For the demonstrated UPDATE with nextval, Neki first reads key/shard columns with FOR UPDATE, evaluates a sequence value for each incoming row, and sends parameterized updates to the owning shards. Stable-expression pushdown must preserve session dependencies; transaction-start time is coordinated in the router. Sequence allocation is not gapless, and reset/cycle behavior is explicitly outside the article's uniqueness discussion. confidence: 1 source, last-confirmed 2026-10-17 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-17-rss-sequences-and-other-volatiles-in-neki.md)
+
+### Explicit relationships
+
+Distributed planning depends-on expression semantics, session state, and cardinality; sequence allocation uses an authoritative shard. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Implementation explanation, not complete PostgreSQL equivalence or failover proof. Router-only does not mean all work is shard-local. The account acknowledges nondeterministic volatile-predicate outcomes under different valid plans; do not turn its examples into a universal SQL evaluation-order rule. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which distributed SQL tests verify volatile-call counts, session settings, transaction time, sequence rollback gaps, and failure recovery under cross-shard updates? See [[indexes/gaps]].
