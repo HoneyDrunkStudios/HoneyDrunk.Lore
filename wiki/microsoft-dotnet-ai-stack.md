@@ -1049,3 +1049,23 @@ Dashboard history uses SQLite; safe retention depends-on disk access and data-lo
 ### Decision and quality notes
 
 Extends the October 5 release record with implementation detail. These Microsoft accounts are correlated, not independent reproductions. A user-profile location reduces accidental source commits but does not establish encryption, appropriate retention, or authorized sharing. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which HoneyDrunk Aspire run/resume tests verify restart behavior, disk permissions, sensitive-data retention, and mounted storage without committing telemetry? See [[indexes/gaps]].
+
+
+## 2026-10-18: Aspire models the dependencies of a distributed agent application
+
+### Typed entities
+
+project: AlpineAI; project: Aspire; project: Microsoft Foundry; library: Microsoft Agent Framework; concept: A2A specialist tool; concept: hosted agent.
+
+### Claims and evidence
+
+- The June 9 AlpineAI demo models .NET/Python specialist agents, a Go telemetry generator, model deployments, conversation storage, and frontend dependencies in one Aspire AppHost. MAF wraps A2A specialists and a Foundry prompt agent as advisor tools. The chat advisor uses a hosted Responses endpoint; the voice advisor is a separate WebSocket service sharing the specialist network. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-distributed-multi-agent-systems-with-aspire-and-microsoft-agent-framew.md)
+- The sample separates configured Foundry prompt agents from custom-code hosted agents, and makes sensitive OpenTelemetry content opt-in. Service references, readiness, placement, and traces are represented alongside model dependencies. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-distributed-multi-agent-systems-with-aspire-and-microsoft-agent-framew.md)
+
+### Explicit relationships
+
+AlpineAI uses Aspire and Microsoft Agent Framework; chat and voice depend-on shared specialists. See [[multi-agent-architectures]] and [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+A June demo captured in October is not a new October release or production acceptance. Synthetic resort telemetry does not validate safety advice. C# and TypeScript snippets are illustrative and not compiled here; service discovery does not establish authentication, delegation limits, or retry safety. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned HoneyDrunk agent graph proves specialist authorization, bounded delegation, partial-failure handling, conversation recovery, and privacy-safe trace correlation? See [[indexes/gaps]].

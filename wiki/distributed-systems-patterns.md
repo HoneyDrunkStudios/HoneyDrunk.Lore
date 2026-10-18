@@ -393,3 +393,44 @@ Fleet confidence depends-on physical measurements, scale simulation, and recover
 ### Decision and quality notes
 
 First-person engineering case study. Fleet counts and outcomes are author-reported, not independently audited. Its periodic-reboot workaround is not generalized memory-management guidance; operator interfaces need their own authority controls. No HoneyDrunk hardware acceptance is claimed. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk hardware pilot measures energy and radio behavior, interrupted-update recovery, offline command handling, diagnostic authority, and fleet-scale limits? See [[indexes/gaps]].
+
+
+## 2026-10-18: D1 keeps routing near queries and reconciles lifecycle state asynchronously
+
+### Typed entities
+
+project: Cloudflare D1; project: Durable Objects; project: Workers KV; project: Hyperdrive; project: PostgreSQL; concept: creation checkpoint; concept: eventual enforcement.
+
+### Claims and evidence
+
+- Cloudflare describes initializing a SQLite Durable Object before committing its database mapping to PostgreSQL. That commit is the creation checkpoint even if the response is lost. Failed attempts use fresh database and object IDs; heartbeat reconciliation marks orphaned objects deleted and repairs best-effort KV metadata writes. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-under-the-hood-off-the-hot-path-how-d1-scales-to-millions-of-databases.md)
+- HTTP queries normally resolve routing from durable Workers KV, with Hyperdrive/Postgres fallback on misses; bindings carry routing and scoped authorization. The object stores active/deleted state and rejects requests after learning deletion even if KV is stale. This reduces central dependence, not an absolute guarantee every query avoids it. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-under-the-hood-off-the-hot-path-how-d1-scales-to-millions-of-databases.md)
+- Usage ingestion uses bounded consumers and buffered per-database deltas aggregated into account totals, avoiding repeated full scans and hot-row updates. Enforcement accepts delayed queues, replicas, caches, and heartbeats; analytical billing and row-limit flows use separate ClickHouse-backed paths. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-under-the-hood-off-the-hot-path-how-d1-scales-to-millions-of-databases.md)
+
+### Explicit relationships
+
+D1 uses authoritative PostgreSQL metadata and edge routing; eventual repair depends-on heartbeats and object-owned writes. See [[cloud-data-platforms-and-analytics]].
+
+### Decision and quality notes
+
+Vendor architecture description. Internal retries do not prove client-level create idempotency after a lost response, strict quotas, immediate revocation, or a bounded recovery SLA. No SQL snippets or cache-key tricks were adopted; current product limits are not refreshed. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk control-plane tests cover lost creation responses, orphan cleanup, stale delete routing, queue replay, bounded consumer load, and acceptable quota/revocation lag? See [[indexes/gaps]].
+
+
+## 2026-10-18: Admission budgets make rejection an explicit application outcome
+
+### Typed entities
+
+project: PlanetScale Traffic Control; project: PostgreSQL; concept: leaky-bucket meter; concept: queue shaping; concept: token budget; concept: estimated query cost.
+
+### Claims and evidence
+
+- PlanetScale distinguishes a leaky-bucket meter admitting work immediately from a queue that delays work until it drains. Its Traffic Control account uses resource share and burst capacity, estimates cost before execution, and reconciles measured cost afterward; queries must satisfy every matching budget. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-what-today-s-software-owes-to-bronze-age-clocks.md)
+- The article proposes observing warning-mode budgets and preparing application handling before blocking work. It distinguishes per-query resource caps and worker constraints from simple request counts; elapsed-time replenishment is not the same as waiting for work to finish. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-what-today-s-software-owes-to-bronze-age-clocks.md)
+
+### Explicit relationships
+
+Admission control uses explicit budgets; reliability depends-on bounded retry and rejection handling. See [[cloud-data-platforms-and-analytics]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Vendor explanation, not an exhaustive survey of database governors or a mandate for model-based admission. Its analogy between inference and deterministic gates does not override the wiki evidence that classifiers need independent authorization. Distributed atomicity, fairness, clock behavior, and refunds need implementation-specific evidence. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk workload has explicit rejection behavior, bounded retries, atomic concurrent budget accounting, clock-skew handling, and fair cost reconciliation? See [[indexes/gaps]].

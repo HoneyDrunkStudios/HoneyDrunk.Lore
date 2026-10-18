@@ -1423,3 +1423,23 @@ Readable world layout depends-on traversal metrics and landmarks; systemic scope
 ### Decision and quality notes
 
 Attributed practitioner retrospective. The checklist transfers as a design hypothesis, not a universal map-size or iteration-count target. Planned infrastructure affordances are not evidence those interactions shipped. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which HoneyDrunk blockout proves route readability, maximum-speed traversal, meaningful dead ends, world-state changes, and affordable systemic edge cases? See [[indexes/gaps]].
+
+
+## 2026-10-18: Hand-painted shadows use a separate projection pass in a Blender film workflow
+
+### Typed entities
+
+project: BONI IS SCARED; project: EUTHANAZIES; project: Blender; project: Kitsu; concept: shadow-mask reprojection; concept: shot review; concept: hybrid 2D/3D production.
+
+### Claims and evidence
+
+- The studio interview describes building 3D characters, rigs, cameras, and environments, then stylizing with drawn textures/normals, smear frames, and painted shadows. A static-camera render without depth of field provides the surface for drawing shadow masks, which are reprojected before the final animated-camera render with depth of field. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-web-creating-a-thriller-animated-series-with-hand-drawn-textures-in-blende.md)
+- The team reports Geometry Nodes setups for cables/snow, curve-based environment deformation, version control, and Kitsu playblast review to coordinate distributed artists. The completed trailer establishes a proof of concept; a story-focused pilot remains dependent on further production. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-web-creating-a-thriller-animated-series-with-hand-drawn-textures-in-blende.md)
+
+### Explicit relationships
+
+Hybrid film rendering uses 3D composition and 2D reprojection; distributed shot review depends-on versioned publishes. See [[ai-assisted-game-development-pipelines]] and [[game-camera-systems]].
+
+### Decision and quality notes
+
+Practitioner interview, not a realtime rendering benchmark or a delivered full series. Unnecessary personal biography, financial circumstances, and contact details were omitted. Camera movement, deforming surfaces, occlusion, labor, and target-engine feasibility need a representative shot test. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk stylized shot verifies reprojection through motion, deformation and occlusion, versioned review, artist effort, and any required realtime-engine adaptation? See [[indexes/gaps]].

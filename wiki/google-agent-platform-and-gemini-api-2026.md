@@ -368,3 +368,23 @@ The capture contains production-oriented promotional wording but an explicit fin
 ### Source contradiction resolution
 
 The capture calls the scaffold a "production template" and promotes production deployment, but its final support disclaimer says the recipes are demonstrations and not for production use. The production-readiness interpretation is retained here as rejected source framing. superseded-by: [the scoped recipe assessment](#2026-10-17-adk-recipe-packaging-separates-patterns-setup-skills-and-service-examples), 2026-10-17T10:08:57-04:00. Reason: the same publisher's explicit support disclaimer is more specific than its promotional description; runnable examples do not establish supported production readiness. This resolves support posture, not the usability of individual components. [source](../raw/2026-10-17-rss-three-layers-one-repo-a-tour-of-google-adk-recipes.md)
+
+
+## 2026-10-18: ADK optimization evidence separates accepted changes from synthetic gains
+
+### Typed entities
+
+project: google/adk-python; project: Gemini 4 Argon; concept: lazy import; concept: session-copy isolation; concept: held-out benchmark.
+
+### Claims and evidence
+
+- Google reports two shipped optimizations from six proposals: filter session events before copying, using a cycle-safe copier preserving shared references and mocks, and defer heavy imports while preserving patchable module attributes. All open-source unit tests passed for an earlier lazy-import candidate that still failed 25 internal test targets. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-optimizing-a-200-000-line-python-codebase-overnight-with-gemini-4-argo.md)
+- Maintainers rejected caches with stale-identity risk, private telemetry implementation access, and changes without useful held-out gains. Reported long-session preparation savings apply to InMemorySessionService; external stores do not share that copy path. Faster package import did not improve new-process time to first model request because loading moved to the first turn. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-optimizing-a-200-000-line-python-codebase-overnight-with-gemini-4-argo.md)
+
+### Explicit relationships
+
+Performance acceptance depends-on independent workload measurements and downstream compatibility; maintainers supersede unsafe proposals with narrower changes. See [[ai-assisted-software-practice]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Vendor case study with an independent-from-agent benchmark, not independently reproduced by Lore. An 11-hour run is not a general autonomous-success rate. End-to-end tests here isolate framework overhead using instant models/tools; do not promote the preparation percentage as whole-agent speedup. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk performance change preserves aliasing, mock/public contracts, and cold first-request behavior on held-out real workloads beyond passing the local suite? See [[indexes/gaps]].

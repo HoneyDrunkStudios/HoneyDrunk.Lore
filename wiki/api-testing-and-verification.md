@@ -80,3 +80,23 @@ Downstream safety depends-on validation before response use; deployment tests an
 ### Decision and quality notes
 
 Vendor workflow guidance, not a delivered HoneyDrunk integration. Schema conformance alone cannot establish that consumer semantics or full end-to-end behavior are correct. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk external API contracts need per-response validation, safe violation routing, versioning, and scheduled drift probes? See [[indexes/gaps]].
+
+
+## 2026-10-18: Hermetic service graphs test composition within explicit emulator limits
+
+### Typed entities
+
+project: Azure Chaos Studio; project: Aspire; library: Aspire.Hosting.Testing; library: WireMock; concept: hermetic environment; concept: readiness check.
+
+### Claims and evidence
+
+- The May 28 Chaos Studio account describes real service binaries composed with Cosmos/Storage emulators, a community Key Vault emulator, and a WireMock dependency stub. It reports roughly 90 hermetic scenarios covering long-running operations and fault flows beyond per-service tests with mocked collaborators. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-how-azure-chaos-studio-ships-with-hermetic-aspire-end-to-end-tests.md)
+- The author emphasizes health-based readiness, production-like AppHost wiring, teardown, and recording stub assumptions. These tests supply reproducible feedback for agent changes, but emulator and stub boundaries remain part of the evidence. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-how-azure-chaos-studio-ships-with-hermetic-aspire-end-to-end-tests.md)
+
+### Explicit relationships
+
+Composition testing uses real service graphs; validity depends-on resource isolation and modeled dependencies. See [[microsoft-dotnet-ai-stack]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+The source calls the design per-test isolation, but fixture lifetime and resource uniqueness must be checked in an actual suite. Its illustrative readiness call checks a named resource, not automatically every service. Local fault scenarios do not establish live cloud identity, regional outage, or provider acceptance. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk scenario verifies fixture lifetime, unique state, all required readiness checks, cleanup after failure, and explicit emulator/stub assumptions before provider validation? See [[indexes/gaps]].

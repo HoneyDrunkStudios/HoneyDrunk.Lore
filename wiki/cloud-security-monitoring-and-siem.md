@@ -83,3 +83,31 @@ TLS fingerprint hunting uses structured telemetry and contextual baselines; usef
 ### Decision and quality notes
 
 Practitioner hunting summary, not a validated HoneyDrunk detection. No individual user/address data or executable query payloads were promoted. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Do HoneyDrunk telemetry sources contain JA4/JA4S fields, and what expected-client baselines and contextual checks distinguish useful anomalies from benign rarity or missing mappings? See [[indexes/gaps]].
+
+
+## 2026-10-18: OCSF normalization needs semantic tests as well as typed representations
+
+### Typed entities
+
+project: Atlassian; project: Databricks; project: OCSF; library: TypeGo; concept: security-event normalization; concept: canary promotion.
+
+### Claims and evidence
+
+- The Atlassian/Databricks account describes transforming heterogeneous security logs into OCSF before lakehouse storage, representing the schema in Go types, and correlating standardized entities across event sources. Query and cost improvements are reported for its own workloads. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-reducing-the-noise-how-atlassian-built-an-ocsf-security-lakehouse-on-d.md)
+- Its self-service mapping workflow still generates tests, submits reviewed changes, validates canaries at scale, and waits through a soak before production promotion. Schema versions, unmapped fields, and entity meaning remain substantive validation concerns; planned agent hunts and context graphs are roadmap items. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-reducing-the-noise-how-atlassian-built-an-ocsf-security-lakehouse-on-d.md)
+
+### Explicit relationships
+
+Security correlation uses normalized OCSF entities; safe mapping promotion depends-on tests, review, and canary evidence. See [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Source-interpretation flag: the assertion that typed schemas make invalid mappings impossible overstates what compilation proves. Types constrain representation; the account itself retains regression and canary gates. No schema adoption, measured HoneyDrunk performance, or commercial comparison is established. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk telemetry mappings validate timestamp and identity semantics, unmapped-field retention, schema upgrades, privacy, and canary rollback beyond type checking? See [[indexes/gaps]].
+
+### Source interpretation resolution
+
+The account says embedding OCSF in Go types guarantees correctness and prevents invalid mappings. An interpretation that compile success guarantees semantically correct event transformations is retained here as rejected framing. superseded-by: [bounded interpretation](#ocsf-mapping-interpretation-2026-10-18), 2026-10-18T10:05:47-04:00; reasoning: The same account requires local regression tests, review, canary validation, and soak. Typed representation is the supported narrow claim; correct timestamps, identity mapping, and event meaning still need validation.
+
+<a id="ocsf-mapping-interpretation-2026-10-18"></a>
+
+Selected interpretation: The same account requires local regression tests, review, canary validation, and soak. Typed representation is the supported narrow claim; correct timestamps, identity mapping, and event meaning still need validation. confidence: 1 source, last-confirmed 2026-10-18. [captured source](../raw/2026-10-18-rss-reducing-the-noise-how-atlassian-built-an-ocsf-security-lakehouse-on-d.md)

@@ -2517,3 +2517,51 @@ Risk classification uses untrusted task content; execution authority depends-on 
 ### Decision and quality notes
 
 Security-research report from a vendor with a competing product; methods and sample sizes matter. Ordinary-label agreement and low-cost judging do not establish adversarial robustness. Existing Jev routing/calibration guidance remains valid within its scope. Payloads, synthetic identities, contact details, and document contents are not reproduced in wiki text. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which HoneyDrunk classifier gates withstand policy-shaped untrusted arguments while deterministic permissions still reject unauthorized execution? See [[indexes/gaps]].
+
+
+## 2026-10-18: SPACE separates VM containment from network-policy enforcement
+
+### Typed entities
+
+project: Perplexity SPACE; project: Computer; concept: microVM isolation; concept: external credential proxy; concept: checkpoint recovery.
+
+### Claims and evidence
+
+- Perplexity announces open-sourcing SPACE and describes microVM workspaces, a lifecycle control plane, incremental file snapshots and checkpoints, with platform credentials and network controls managed outside the untrusted sandbox. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-open-sourcing-space-the-sandbox-platform-behind-computer.md)
+- The account reports no VM-to-host escape in 108 attempts, while some attempts bypassed network restrictions. It says those weaknesses were fixed and the identified methods failed follow-up tests. The reported creation-speed gains and production scale are vendor measurements, not independent security or performance guarantees. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-open-sourcing-space-the-sandbox-platform-behind-computer.md)
+
+### Explicit relationships
+
+SPACE uses external network and credential controls; sandbox containment depends-on multiple independently tested boundaries. See [[edge-ai-and-ai-infrastructure-2026]] and [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+Source-interpretation flag: broad resilience wording must be read against the disclosed network bypasses. Follow-up success on identified techniques does not prove every egress path or credential flow safe. Licensing, supported host configuration, and external-effect recovery need repository review before adoption. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned SPACE deployment tests VM isolation separately from egress, credential handling, checkpoint consistency, external side effects, and restored-session authority? See [[indexes/gaps]].
+
+### Source interpretation resolution
+
+The announcement describes SPACE as resilient against network bypass. An interpretation that its security evaluation found no boundary failures is retained here as rejected framing. superseded-by: [bounded interpretation](#space-security-interpretation-2026-10-18), 2026-10-18T10:05:47-04:00; reasoning: The same source explicitly reports network-policy bypasses, fixes, and limited follow-up tests. Its specific results govern over its broad introduction; VM-to-host containment and egress enforcement are separate claims.
+
+<a id="space-security-interpretation-2026-10-18"></a>
+
+Selected interpretation: The same source explicitly reports network-policy bypasses, fixes, and limited follow-up tests. Its specific results govern over its broad introduction; VM-to-host containment and egress enforcement are separate claims. confidence: 1 source, last-confirmed 2026-10-18. [captured source](../raw/2026-10-18-rss-open-sourcing-space-the-sandbox-platform-behind-computer.md)
+
+
+## 2026-10-18: CVE coverage does not inventory tool composition or effective authority
+
+### Typed entities
+
+person: Amine Raji; project: MCP; concept: tool composition; concept: deployment-specific exposure; concept: tool-definition drift; concept: privacy-filtered audit.
+
+### Claims and evidence
+
+- Raji separates implementation/approval bugs from unsafe defaults, prompt injection, dangerous combinations of tools, and malicious packages. His fleet-agent account identifies secret reach, shared identity, model-selected target scope, and uncapped extraction despite clean dependency scans; these are attributed observations, not a measured prevalence survey. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-why-your-cve-program-misses-most-ai-agent-vulnerabilities.md)
+- The proposed inventory records identity, grants, reachable data, untrusted inputs, and egress, and supplements package advisories with class-wide review. Tool-definition comparison can detect metadata drift, but its sample launches the server first, automatically writes a missing baseline, and shows one list_tools response; it is not a safe approval/bootstrap or exhaustive paginated inventory implementation. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-why-your-cve-program-misses-most-ai-agent-vulnerabilities.md)
+
+### Explicit relationships
+
+Agent risk depends-on effective grants and egress as well as package state; drift detection uses reviewed baselines. See [[mcp-tool-governance-and-app-surfaces]] and [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+Practitioner synthesis with secondary incident references. CVE counts, affected versions, taxonomy completeness, and legal reporting dates are not independently verified or promoted as current guidance. The source advocates full argument logging; Lore retains only privacy-filtered audit metadata and necessary redacted content, per AGENTS.md. No commands, attack payloads, contact details, or example identities were copied or executed. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk agent inventory joins grants, data reach, egress, reviewed tool baselines, complete discovery, and privacy-filtered audit evidence beyond dependency scans? See [[indexes/gaps]].

@@ -217,3 +217,63 @@ Distributed planning depends-on expression semantics, session state, and cardina
 ### Decision and quality notes
 
 Implementation explanation, not complete PostgreSQL equivalence or failover proof. Router-only does not mean all work is shard-local. The account acknowledges nondeterministic volatile-predicate outcomes under different valid plans; do not turn its examples into a universal SQL evaluation-order rule. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which distributed SQL tests verify volatile-call counts, session settings, transaction time, sequence rollback gaps, and failure recovery under cross-shard updates? See [[indexes/gaps]].
+
+
+## 2026-10-18: SQL time-zone changes have product and historical boundaries
+
+### Typed entities
+
+project: Microsoft SQL; project: Azure SQL Managed Instance; concept: regional time-zone definition; concept: session override; concept: historical conversion.
+
+### Claims and evidence
+
+- Microsoft's October 15 capture distinguishes OS updates for SQL Server on Windows from Linux-to-Windows zone mappings and Azure database/session settings. Interim substitute zones match the affected regions' future offsets, not their complete historical rules; installing a zone update does not rewrite explicit conversion expressions. The interim zone for most of BC does not apply to locations aligned with Alberta. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-canada-s-2026-time-zone-updates-guidance-for-microsoft-sql.md)
+- The capture says Managed Instance instance-level time zones are creation-time choices. Eligible Always-up-to-date instances can instead override supported current-time functions at database/session scope, without changing instance settings or SQL Agent schedules. An interim instance migration may require a second migration when the final zone becomes available; existing stored values are not converted by these settings. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-canada-s-2026-time-zone-updates-guidance-for-microsoft-sql.md)
+
+### Explicit relationships
+
+Regional conversion depends-on deployed zone definitions and query scope; instance migration depends-on scheduling and dependency validation. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Archived vendor guidance, not a live confirmation of regional law or service rollout. Exact offsets, availability, syntax, and migration choices require current official documentation and target-deployment checks before use. No migration commands or legal deadline are promoted as an operational instruction. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk deployments need regional time-zone handling, and do historical conversions, session reuse, SQL Agent schedules, and target zone availability pass boundary tests? See [[indexes/gaps]].
+
+
+## 2026-10-18: Pipeline efficiency separates traffic reduction from data-fidelity requirements
+
+### Typed entities
+
+project: Cloudflare; project: Logfwdr; project: Buftee; project: ClickHouse; library: zstd; concept: weighted sampling; concept: partial aggregation.
+
+### Claims and evidence
+
+- Cloudflare describes splitting product schemas, changing compression, sending non-regional events once before late replication, and moving sampling/aggregation earlier. Buftee retention supports catch-up after inter-region disruption; data constrained to a region stays within its boundary. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-rewinding-the-exponential-how-we-keep-hardware-usage-down.md)
+- Sampling supports estimates with recorded sampling rates, while rollups preserve selected dimensions and metrics and narrow the questions retained data can answer. The account compares sampled estimates across key frequencies and reports staged measurements of traffic, CPU, and memory; savings are workload-specific and overlapping interventions are not universal additive percentages. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-rewinding-the-exponential-how-we-keep-hardware-usage-down.md)
+
+### Explicit relationships
+
+Late replication depends-on buffering and recovery; sampling uses weights; aggregation depends-on selected dimensions. See [[distributed-systems-patterns]] and [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+First-party engineering account, not a prescription to discard forensic records. Approximate estimates and predetermined aggregates have different fidelity limits; exact distinct-count behavior is not established by the prose. Projections are not observed future capacity savings. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk telemetry can tolerate weighted sampling or selected aggregates, and do rare-event fidelity, residency, retention-window recovery, and measured CPU/network cost remain acceptable? See [[indexes/gaps]].
+
+
+## 2026-10-18: SqlClient Pool V2 targets concurrent cold connection creation
+
+### Typed entities
+
+library: Microsoft.Data.SqlClient; library: System.Threading.Channels; concept: Pool V2; concept: cold-start benchmark; concept: managed thread-pool pressure.
+
+### Claims and evidence
+
+- Microsoft describes Pool V2 as opt-in from SqlClient 7.1.0, enabled before any connections open, allowing concurrent new connections instead of legacy per-pool serial creation. Its benchmark clears the pool and holds all connections until all callers open; measured means cover the whole cold-start operation, not single-open latency, query execution, or warm reuse. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-try-sqlclient-s-new-connection-pool-for-faster-parallel-connections.md)
+- The capture explicitly says OpenAsync still queues synchronous network work onto managed thread-pool threads. Higher network latency can therefore increase thread pressure; representative startup/burst/high-latency measurement and concurrency controls remain relevant. It describes restart with the switch disabled as rollback. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-try-sqlclient-s-new-connection-pool-for-faster-parallel-connections.md)
+
+### Explicit relationships
+
+Pool V2 uses channels and concurrent creation; realized latency depends-on network delay and thread-pool capacity. See [[dotnet-runtime-and-mobile-2026]].
+
+### Decision and quality notes
+
+Archived release/benchmark description; package availability and current implementation must be checked before adoption. No switch was changed. EF Core/Dapper compatibility claims do not demonstrate a particular application workload or remove server connection limits. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned SqlClient workload verifies cold bursts, warm reuse, cancellation, server limits, high-latency thread pressure, and restart rollback before enabling Pool V2? See [[indexes/gaps]].

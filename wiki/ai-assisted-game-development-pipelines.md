@@ -170,3 +170,23 @@ Agent guidance uses a shared Unity skill repository; acceptance depends-on proje
 ### Decision and quality notes
 
 Official announcement extends earlier Codex coverage without contradicting it. Shared guidance does not guarantee identical agent behavior or build success; install/trust commands were not executed. Usage metrics and linked demos are not independent validation. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Do chosen HoneyDrunk agent/plugin versions apply matching Unity guidance and pass project build, device, and visual checks? See [[indexes/gaps]].
+
+
+## 2026-10-18: Genre-specific wire schemas constrain structure without proving game quality
+
+### Typed entities
+
+project: Spawn Point; project: Godot; library: Pydantic; concept: discriminated union; concept: guided decoding; concept: wire-format adapter.
+
+### Claims and evidence
+
+- Spawn Point v5 replaces a broad model-facing GameBrief with genre-specific wire types and converts them back to the existing internal model. The author reports roughly threefold shorter system prompts and smaller edit prompts; closing objects and choosing a genre first constrain incompatible field combinations in the tested decoding setup. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-how-splitting-one-giant-json-schema-into-per-genre-schemas-shrank-my-p.md)
+- The report also records lower pass rates on older and human-written prompt sets, differing quantized results, and possible wrong-genre choices. Improvements on the new-capability set are not a like-for-like comparison because v4 lacked the shooter genre. Schema conformance does not establish the playable game satisfies the request. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-how-splitting-one-giant-json-schema-into-per-genre-schemas-shrank-my-p.md)
+
+### Explicit relationships
+
+Spawn Point uses constrained wire schemas and Godot components; acceptance depends-on full-pipeline evaluation across old and new tasks. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Author-reported small-set results with run variance; neither ratios nor decoder ordering generalize without pinned-backend tests. This is a Godot project despite the Unity feed category. The existing internal schema is not evidence all application invariants are enforced. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk structured-output pilot tests decoder branch order, closed nested objects, wire round-trips, wrong-genre selection, and playable acceptance across prior tasks and quantizations? See [[indexes/gaps]].

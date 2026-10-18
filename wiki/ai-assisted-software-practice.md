@@ -1460,3 +1460,47 @@ AI delivery uses working-software evidence; autonomous execution depends-on cons
 ### Decision and quality notes
 
 Consultancy interview and commercial examples; no HoneyDrunk productivity result or mandated three-month schedule inferred. Same-publisher articles are correlated support. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which value, usability, feasibility, production-behavior, and safety evidence must HoneyDrunk experiments show at each adjustable delivery checkpoint? See [[indexes/gaps]].
+
+
+## 2026-10-18: Review the repairs and verify that the change actually took effect
+
+### Typed entities
+
+person: IdleCultivation; project: Myriad Immortal Sect; concept: silent no-op; concept: repair regression; concept: behavioral verification.
+
+### Claims and evidence
+
+- The developer describes reviewing newly applied fixes as a separate batch and finding seven issues introduced by repairs. One text-based edit silently matched nothing after reformatting, while its commit note claimed success; checking actual behavior exposed the mismatch. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-four-rounds-of-review-on-my-own-work-and-what-each-caught.md)
+- Other reported failures include inconsistent cooldown and button-readiness thresholds, configuration overrides applied before initialization, and a guard skipped when its surrounding suite already failed. Varying the reviewer or returning without the original mental model exposed assumptions missed in the first pass. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-four-rounds-of-review-on-my-own-work-and-what-each-caught.md)
+
+### Explicit relationships
+
+Review confidence depends-on applied-code and behavior evidence; repair batches can cause new defects. See [[ai-assisted-game-development-pipelines]] and [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+One practitioner retrospective, covering September 4-6 work despite October publication. It does not establish an optimal number of review rounds, independent reviewer effectiveness, or a controlled defect-rate improvement. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk checks prove edits applied, critical guards executed, and repaired behavior agrees with UI thresholds and initialization order? See [[indexes/gaps]].
+
+
+## 2026-10-18: SQL agent skills package setup guidance with executable scenario checks
+
+### Typed entities
+
+project: Microsoft SQL Agent Skills; project: Azure SQL Developer Hub; concept: passwordless connection; concept: scenario evaluation.
+
+### Claims and evidence
+
+- Microsoft's September 29 announcement describes SQL skills covering Entra connections, pooling, migrations, troubleshooting, and vector search, paired with Developer Hub prompts for several application stacks. It says shipped prompts are evaluated using real agents, databases, and generated-app checks. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-how-to-build-an-app-on-azure-sql-with-an-ai-coding-agent.md)
+- The capture distinguishes hosted Azure SQL from a local container preview and provides machine-readable Hub pages. A tested prompt is still a starting point whose generated application needs connection, schema, build, and scenario checks in the target project. confidence: 1 source, last-confirmed 2026-10-18 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-18-rss-how-to-build-an-app-on-azure-sql-with-an-ai-coding-agent.md)
+
+### Explicit relationships
+
+SQL skills use task-specific references; scenario confidence depends-on executable database and application checks. See [[cloud-data-platforms-and-analytics]] and [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Vendor announcement, not a skills installation or verified HoneyDrunk integration. Free-offer eligibility, plugin contents, version support, and provisioning effects are not refreshed here. No setup command or cloud creation was executed. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which reviewed SQL skill revision and target-project checks establish least-privilege Entra access, migration safety, tenant isolation, and generated-app behavior? See [[indexes/gaps]].
+
+### 2026-10-18 consolidation: check changes against executable behavior
+
+The solo-game retrospective, Chaos Studio composition suite, and Google ADK optimization review independently describe checking proposed changes against executable behavior beyond the author's description. Their agreement strengthens this methodological claim, not a numerical productivity claim or proof any suite is complete. confidence: 3 sources, last-confirmed 2026-10-18. Sources: [game review retrospective](../raw/2026-10-18-rss-four-rounds-of-review-on-my-own-work-and-what-each-caught.md); [Chaos Studio test account](../raw/2026-10-18-rss-how-azure-chaos-studio-ships-with-hermetic-aspire-end-to-end-tests.md); [ADK optimization account](../raw/2026-10-18-rss-optimizing-a-200-000-line-python-codebase-overnight-with-gemini-4-argo.md). These are three distinct authored accounts; each source-specific outcome remains provisional. No new confidence is assigned to unrelated claims on this page.
