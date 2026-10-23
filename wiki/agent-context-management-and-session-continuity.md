@@ -174,3 +174,23 @@ Memory availability depends-on caller identity and conversation policy; webhook 
 ### Decision and quality notes
 
 Vendor beta capabilities, not verified tenant-isolation guarantees. This extends the separate durable-file storage pattern; durable storage itself does not establish caller-specific access. Recheck implementation behavior and costs before adoption. Source-specific claims remain provisional single-source evidence; related accounts and derived queries add no independent confirmation. Open question: Do HoneyDrunk shared conversations and webhooks enforce caller identity, user-versus-agent credential scope, and personal-memory boundaries when participants or access policies change? See [[indexes/gaps]].
+
+
+## 2026-10-23: MemCurrent separates trace history from consolidated retrieval memory
+
+### Typed entities
+
+project: MemCurrent; project: Agent Bricks Memory; project: Genie; project: Lakebase; concept: episodic trace; concept: derived memory; concept: offline consolidation.
+
+### Claims and evidence
+
+- Databricks describes append-only session traces alongside a mutable derived-memory file hierarchy backed by a database. A session-start index advertises available memory; search and fetch retrieve details from both forms. Explicit requests use online tools, while an offline pipeline extracts implicit lessons, splits oversized files, merges duplicates, and resolves conflicts. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-memcurrent-designing-persistent-memory-for-production-agents.md)
+- The internal evaluation contains 114 cases from 29 users and 2,233 history sessions, with manually reviewed rubrics, three repeats, and gold-memory injection as an upper reference. The open-source conversation benchmarks instead use a simple QA agent and full-context baseline. Ablations favor derived memory over episodic-only retrieval on the internal task; adding episodic access recovers some details lost in distillation. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-memcurrent-designing-persistent-memory-for-production-agents.md)
+
+### Explicit relationships
+
+MemCurrent uses episodic traces and derived memory; useful retrieval depends-on index visibility, consolidation, and task-level evaluation. See [[llm-wiki-and-knowledge-formats]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Vendor-reported private enterprise benchmark; synthetic recall tasks and enterprise actions are different workloads, and gains are not a universal backend ranking. The proposed memory architecture does not change Lore into agent runtime memory or authorize personal-memory collection. Published examples were kept at mechanism level; private sessions and user details were not reproduced. Caller isolation, provenance, deletion, and stale-conflict handling still need independent evidence. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which memory evaluation proves useful task outcomes, caller isolation, provenance, deletion propagation, stale/conflicting preference resolution, and bounded consolidation cost beyond synthetic fact recall? See [[indexes/gaps]].

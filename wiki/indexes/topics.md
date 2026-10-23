@@ -1,6 +1,6 @@
 # Topics
 
-Auto-maintained catalog rebuilt from all concept pages on 2026-10-21. Each page appears once; follow its relationships for related topics.
+Auto-maintained catalog rebuilt from all concept pages on 2026-10-23. Each page appears once; follow its relationships for related topics.
 
 Coverage: 67 concept pages. Counts below are distinct, explicitly named existing raw files cited anywhere on a page, including historical claims. Grouped date ranges and wildcard citations are excluded. These counts are retrieval metadata, not independent supporting-source counts for every claim. A large page bibliography does not strengthen an unrelated single-source claim.
 
@@ -11,31 +11,31 @@ The previous topic index is preserved verbatim in [topic history](../../output/t
 | Concept page | Explicit raw-file citations | Latest recorded confirmation |
 | --- | ---: | --- |
 | [[dotnet-dependency-security-and-nuget\|.NET Dependency Security and NuGet]] | 8 | 2026-10-16 |
-| [[dotnet-runtime-and-mobile-2026\|.NET Runtime and Mobile 2026]] | 47 | 2026-10-17 |
-| [[agent-context-management-and-session-continuity\|Agent Context Management and Session Continuity]] | 7 | 2026-09-28 |
-| [[agent-evaluation-and-benchmarks\|Agent Evaluation and Benchmarks]] | 107 | 2026-10-17 |
+| [[dotnet-runtime-and-mobile-2026\|.NET Runtime and Mobile 2026]] | 48 | 2026-10-23 |
+| [[agent-context-management-and-session-continuity\|Agent Context Management and Session Continuity]] | 8 | 2026-10-23 |
+| [[agent-evaluation-and-benchmarks\|Agent Evaluation and Benchmarks]] | 108 | 2026-10-23 |
 | [[agentic-commerce-and-machine-payments\|Agentic Commerce and Machine Payments]] | 3 | 2026-10-16 |
 | [[agentic-retrieval-and-search\|Agentic Retrieval and Search]] | 7 | 2026-10-12 |
-| [[ai-agent-harnesses\|AI Agent Harnesses]] | 197 | 2026-10-16 |
+| [[ai-agent-harnesses\|AI Agent Harnesses]] | 200 | 2026-10-23 |
 | [[ai-agent-identity-and-workload-auth\|AI Agent Identity and Workload Auth]] | 12 | 2026-10-17 |
-| [[ai-coding-agent-security\|AI Coding Agent Security]] | 193 | 2026-10-18 |
+| [[ai-coding-agent-security\|AI Coding Agent Security]] | 195 | 2026-10-23 |
 | [[ai-for-financial-research-and-investment\|AI for Financial Research and Investment]] | 1 | 2026-08-22 |
 | [[ai-for-science-and-chemistry\|AI for Science and Chemistry]] | 3 | 2026-10-04 |
 | [[ai-hardware-and-companion-devices-2026\|AI Hardware and Companion Devices 2026]] | 2 | 2026-06-21 |
 | [[ai-policy-and-governance-2026\|AI Policy and Governance 2026]] | 9 | 2026-09-12 |
 | [[ai-research-automation-and-recursive-self-improvement\|AI Research Automation and Recursive Self-Improvement]] | 2 | 2026-07-05 |
-| [[ai-assisted-game-development-pipelines\|AI-Assisted Game Development Pipelines]] | 10 | 2026-10-18 |
+| [[ai-assisted-game-development-pipelines\|AI-Assisted Game Development Pipelines]] | 11 | 2026-10-23 |
 | [[ai-assisted-software-practice\|AI-Assisted Software Practice]] | 104 | 2026-10-18 |
 | [[api-testing-and-verification\|API Testing and Verification]] | 5 | 2026-10-18 |
 | [[apple-platform-security-and-memory-safety\|Apple Platform Security and Memory Safety]] | 1 | 2026-05-26 |
-| [[azure-agent-automation-and-identity\|Azure Agent Automation and Identity]] | 72 | 2026-10-17 |
+| [[azure-agent-automation-and-identity\|Azure Agent Automation and Identity]] | 73 | 2026-10-23 |
 | [[azure-sdk-for-rust\|Azure SDK for Rust]] | 3 | 2026-08-12 |
 | [[azure-service-bus-and-functions-messaging\|Azure Service Bus and Azure Functions Messaging]] | 2 | 2026-05-17 |
 | [[browser-snapshot-source-quality\|Browser Snapshot Source Quality]] | 62 | 2026-08-24 |
 | [[browser-native-gpu-creative-tools\|Browser-Native GPU Creative Tools]] | 5 | 2026-10-05 |
 | [[csharp-memory-safety-and-unsafe-code\|C# Memory Safety and Unsafe Code]] | 2 | 2026-08-26 |
 | [[claude-platform-2026\|Claude Platform 2026]] | 35 | 2026-08-23 |
-| [[cloud-data-platforms-and-analytics\|Cloud Data Platforms and Analytics]] | 13 | 2026-10-18 |
+| [[cloud-data-platforms-and-analytics\|Cloud Data Platforms and Analytics]] | 14 | 2026-10-23 |
 | [[cloud-security-monitoring-and-siem\|Cloud Security Monitoring and SIEM]] | 4 | 2026-10-18 |
 | [[cloud-sovereignty-and-platform-governance\|Cloud Sovereignty and Platform Governance]] | 2 | 2026-08-17 |
 | [[cloud-vector-storage-security\|Cloud Vector Storage Security]] | 1 | 2026-08-12 |
@@ -51,7 +51,7 @@ The previous topic index is preserved verbatim in [topic history](../../output/t
 | [[game-camera-systems\|Game Camera Systems]] | 2 | 2026-09-22 |
 | [[gamedev-production-and-community-signals\|Gamedev Production and Community Signals]] | 44 | 2026-09-15 |
 | [[generative-ui-and-a2ui\|Generative UI and A2UI]] | 3 | 2026-06-20 |
-| [[git-storage-and-version-control-infrastructure\|Git Storage and Version Control Infrastructure]] | 2 | 2026-10-03 |
+| [[git-storage-and-version-control-infrastructure\|Git Storage and Version Control Infrastructure]] | 3 | 2026-10-23 |
 | [[github-actions-platform-operations\|GitHub Actions Platform Operations]] | 67 | 2026-10-17 |
 | [[github-copilot-and-app-token-changes\|GitHub Copilot and App Token Changes]] | 34 | 2026-10-03 |
 | [[godot-2026-mobile-and-4-7-cycle\|Godot 2026 Mobile and 4.7 Cycle]] | 14 | 2026-05-26 |
@@ -61,9 +61,9 @@ The previous topic index is preserved verbatim in [topic history](../../output/t
 | [[llm-wiki-and-knowledge-formats\|LLM Wiki and Knowledge Formats]] | 16 | 2026-10-04 |
 | [[malware-infrastructure-and-resilient-c2\|Malware Infrastructure and Resilient C2]] | 2 | 2026-08-20 |
 | [[mcp-tool-governance-and-app-surfaces\|MCP Tool Governance and App Surfaces]] | 108 | 2026-10-16 |
-| [[microsoft-dotnet-ai-stack\|Microsoft .NET AI Stack]] | 75 | 2026-10-18 |
+| [[microsoft-dotnet-ai-stack\|Microsoft .NET AI Stack]] | 76 | 2026-10-23 |
 | [[mobile-ai-and-react-native-2026\|Mobile AI and React Native 2026]] | 2 | 2026-06-18 |
-| [[multi-agent-architectures\|Multi-Agent Architectures]] | 13 | 2026-09-04 |
+| [[multi-agent-architectures\|Multi-Agent Architectures]] | 15 | 2026-10-23 |
 | [[openai-frontier-models-and-codex-2026\|OpenAI Frontier Models and Codex 2026]] | 16 | 2026-09-08 |
 | [[opentelemetry-genai-observability-and-ecosystem\|OpenTelemetry GenAI Observability and Ecosystem Mapping]] | 35 | 2026-10-17 |
 | [[pipeline-template-contracts\|Pipeline Template Contracts]] | 1 | 2026-09-19 |
@@ -72,8 +72,8 @@ The previous topic index is preserved verbatim in [topic history](../../output/t
 | [[realtime-chat-service-contracts\|Realtime Chat Service Contracts]] | 1 | 2026-09-22 |
 | [[realtime-game-network-protocol-design\|Realtime Game Network Protocol Design]] | 7 | 2026-10-17 |
 | [[robotics-foundation-models-and-embodied-ai\|Robotics Foundation Models and Embodied AI]] | 2 | 2026-09-22 |
-| [[technical-art-community-and-talent-signals\|Technical Art Community and Talent Signals]] | 85 | 2026-10-18 |
-| [[unity-3d-and-realtime-vfx-patterns\|Unity 3D and Realtime VFX Patterns]] | 106 | 2026-10-17 |
+| [[technical-art-community-and-talent-signals\|Technical Art Community and Talent Signals]] | 86 | 2026-10-23 |
+| [[unity-3d-and-realtime-vfx-patterns\|Unity 3D and Realtime VFX Patterns]] | 107 | 2026-10-23 |
 | [[voice-agent-platforms-2026\|Voice Agent Platforms 2026]] | 6 | 2026-10-03 |
 | [[web-3d-runtime-tradeoffs\|Web 3D Runtime Tradeoffs]] | 2 | 2026-06-28 |
 | [[windows-component-registration-and-service-boundaries\|Windows Component Registration and Service Boundaries]] | 1 | 2026-09-22 |

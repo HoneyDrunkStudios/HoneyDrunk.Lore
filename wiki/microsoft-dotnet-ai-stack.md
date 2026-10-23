@@ -1069,3 +1069,23 @@ AlpineAI uses Aspire and Microsoft Agent Framework; chat and voice depend-on sha
 ### Decision and quality notes
 
 A June demo captured in October is not a new October release or production acceptance. Synthetic resort telemetry does not validate safety advice. C# and TypeScript snippets are illustrative and not compiled here; service discovery does not establish authentication, delegation limits, or retry safety. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned HoneyDrunk agent graph proves specialist authorization, bounded delegation, partial-failure handling, conversation recovery, and privacy-safe trace correlation? See [[indexes/gaps]].
+
+
+## 2026-10-23: Copilot SDK provider routing retains a separate agent runtime
+
+### Typed entities
+
+project: GitHub Copilot SDK; project: Microsoft Foundry; library: Azure.Identity; concept: provider routing; concept: inference authentication; concept: capability restriction.
+
+### Claims and evidence
+
+- Microsoft's October 19 C# sample separates the local Copilot CLI runtime from the inference provider. ProviderConfig routes a .NET 10 session to a Foundry-compatible Responses endpoint; runtime model identity and provider wire-model name are separate settings. Bringing a provider does not remove the local orchestration runtime. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-bring-your-own-model-to-the-github-copilot-sdk-with-c.md)
+- The sample disables tools, skills, configuration discovery, and host Git operations to isolate one model request. Its default inference authentication uses an Azure CLI credential callback; an explicitly configured API key selects a different path. The callback is marked experimental, and the small output limit also covers reasoning tokens, so an empty answer can result from budget exhaustion. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-bring-your-own-model-to-the-github-copilot-sdk-with-c.md)
+
+### Explicit relationships
+
+Copilot SDK uses a local runtime and a separately configured model provider; capability growth depends-on explicit tool and authentication policy. See [[github-copilot-and-app-token-changes]] and [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+Vendor learning sample, not a verified production integration or a HoneyDrunk credential policy. User Secrets and Azure CLI login describe this sample only. No SDK was installed and no endpoint was contacted. Pin SDK/CLI compatibility and verify auth refresh, cancellation, provider protocol, and least privilege before adoption. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which pinned Copilot SDK and CLI combination proves provider compatibility, token refresh, cancellation, reasoning-budget behavior, and capability restrictions under HoneyDrunk credential policy? See [[indexes/gaps]].

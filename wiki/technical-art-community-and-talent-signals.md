@@ -1443,3 +1443,23 @@ Hybrid film rendering uses 3D composition and 2D reprojection; distributed shot 
 ### Decision and quality notes
 
 Practitioner interview, not a realtime rendering benchmark or a delivered full series. Unnecessary personal biography, financial circumstances, and contact details were omitted. Camera movement, deforming surfaces, occlusion, labor, and target-engine feasibility need a representative shot test. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk stylized shot verifies reprojection through motion, deformation and occlusion, versioned review, artist effort, and any required realtime-engine adaptation? See [[indexes/gaps]].
+
+
+## 2026-10-23: Painterly shading manipulates normals inside renderer-specific graphs
+
+### Typed entities
+
+person: Theodore Daley; project: YMA Painterly; project: Cinema 4D; project: Houdini; project: Redshift; project: Octane; concept: object-space normal; concept: painterly material.
+
+### Claims and evidence
+
+- The artist interview describes using object-space normals and vector transformations to mix hand-painted textures into a material, with controls for base/accent colors, brush scale, contrast, and normal influence. Normal strength can return to the underlying geometric normal rather than permanently changing mesh geometry. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-how-to-make-3d-look-like-a-stylized-painting-with-shaders-in-houdini-c.md)
+- The described package has 12 shader presets and tileable 4K textures, with separate Cinema 4D Redshift/Octane and Houdini Redshift versions, including Solaris. The creator reports reorganizing a large node network into labeled groups and focused controls; renderer math and node differences required version-specific work. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-how-to-make-3d-look-like-a-stylized-painting-with-shaders-in-houdini-c.md)
+
+### Explicit relationships
+
+YMA Painterly uses painted textures and normal transformations; renderer portability depends-on the target graph and renderer. See [[unity-3d-and-realtime-vfx-patterns]] and [[creative-tool-extension-packaging]].
+
+### Decision and quality notes
+
+Commercial artist interview with affiliate disclosure; product counts and compatibility are source-reported. This is a DCC rendering workflow, not a Unity shader, realtime performance result, universal OpenPBR portability proof, or a purchase recommendation. Unnecessary biography and personal/social links were omitted. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which representative painterly asset verifies deformation and motion stability, lighting response, render cost, licensing, and any required target-engine shader adaptation? See [[indexes/gaps]].

@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-10-21
+## Compile coverage: 2026-10-23
 
-Reconciled 1277 raw documents against 1277 unique entries; ingested 0 captures in this pass. Existing records and dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
+Reconciled 1292 raw documents against 1292 unique entries; ingested 15 captures in this pass. Existing records and dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
 
 ## Entry format
 
@@ -1644,3 +1644,22 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [What today's software owes to Bronze Age clocks](../../raw/2026-10-18-rss-what-today-s-software-owes-to-bronze-age-clocks.md) - Admission-control guidance separates metering, shaping, cost budgets, and expected rejection handling. Canonical page: [[distributed-systems-patterns]]. - ingested 2026-10-18
 - [Why Your CVE Program Misses Most AI Agent Vulnerabilities](../../raw/2026-10-18-rss-why-your-cve-program-misses-most-ai-agent-vulnerabilities.md) - Agent vulnerability coverage needs composition and authority inventory; tool-hash samples have bootstrap and completeness limits. Canonical page: [[ai-coding-agent-security]]. - ingested 2026-10-18
 - [Creating a Thriller Animated Series with Hand-Drawn Textures in Blender](../../raw/2026-10-18-web-creating-a-thriller-animated-series-with-hand-drawn-textures-in-blende.md) - Blender interview combines 2D shadow reprojection with versioned distributed shot review. Canonical page: [[technical-art-community-and-talent-signals]]. - ingested 2026-10-18
+
+
+## 2026-10-23 compile additions
+
+- [Bring Your Own Model to the GitHub Copilot SDK with C#](../../raw/2026-10-21-rss-bring-your-own-model-to-the-github-copilot-sdk-with-c.md) - Copilot BYOK changes inference routing while retaining the CLI runtime and a deliberately restricted sample session. Canonical page: [[microsoft-dotnet-ai-stack]]. - ingested 2026-10-23
+- [From baseline to Secure Software Factory: securing the systems that build your software](../../raw/2026-10-21-rss-from-baseline-to-secure-software-factory-securing-the-systems-that-bui.md) - Software-factory guidance places task authority and security enforcement outside model control. Canonical page: [[ai-coding-agent-security]]. - ingested 2026-10-23
+- [Get Your .NET MAUI App Ready for Xcode 27](../../raw/2026-10-21-rss-get-your-net-maui-app-ready-for-xcode-27.md) - MAUI scene migration preserves lifecycle behavior and needs target-runtime checks beyond a build. Canonical page: [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-10-23
+- [GitHub’s model for secret detection: Finding more secrets with less noise](../../raw/2026-10-21-rss-githubs-model-for-secret-detection-finding-more-secrets-with-less-nois.md) - GitHub combines regex candidates with context classification and separates offline quality from online acceptance. Canonical page: [[ai-coding-agent-security]]. - ingested 2026-10-23
+- [How to Make 3D Look Like a Stylized Painting with Shaders in Houdini & C4D](../../raw/2026-10-21-rss-how-to-make-3d-look-like-a-stylized-painting-with-shaders-in-houdini-c.md) - Painterly material interview separates reusable normal/texture controls from renderer-specific implementations. Canonical page: [[technical-art-community-and-talent-signals]]. - ingested 2026-10-23
+- [How To Use Decision Models for Evals](../../raw/2026-10-21-rss-how-to-use-decision-models-for-evals.md) - Decision-model evaluation separates classification thresholds, calibration, sample denominators, and infeasible folds. Canonical page: [[agent-evaluation-and-benchmarks]]. - ingested 2026-10-23
+- [I taught my game generator to make cozy farms, drawing every tile in Python. Here's what broke along the way](../../raw/2026-10-21-rss-i-taught-my-game-generator-to-make-cozy-farms-drawing-every-tile-in-py.md) - Farm generator retrospective ties deterministic art, save isolation, training balance, and browser-input testing to acceptance. Canonical page: [[ai-assisted-game-development-pipelines]]. - ingested 2026-10-23
+- [Making every harness durable](../../raw/2026-10-21-rss-making-every-harness-durable.md) - Durable-harness uses log/queue recovery while treating interrupted non-replayable tools as uncertain outcomes. Canonical page: [[ai-agent-harnesses]]. - ingested 2026-10-23
+- [MemCurrent: Designing Persistent Memory for Production Agents](../../raw/2026-10-21-rss-memcurrent-designing-persistent-memory-for-production-agents.md) - MemCurrent pairs append-only traces with consolidated derived files and separates recall benchmarks from enterprise action tasks. Canonical page: [[agent-context-management-and-session-continuity]]. - ingested 2026-10-23
+- [PostgreSQL to SQL Field Notes: Connections](../../raw/2026-10-21-rss-postgresql-to-sql-field-notes-connections.md) - SQL connection guidance is qualified by finite workload, worker, pool, and service-tier limits. Canonical page: [[cloud-data-platforms-and-analytics]]. - ingested 2026-10-23
+- [Redesigning source control at Anthropic](../../raw/2026-10-21-rss-redesigning-source-control-at-anthropic.md) - Scion centralizes source-control computation and sparse object retrieval for a specialized agent-scale monorepo. Canonical page: [[git-storage-and-version-control-infrastructure]]. - ingested 2026-10-23
+- [The Thin Orchestrator: How We Made Our AI Agents More Reliable by Giving the Router Less to Do](../../raw/2026-10-21-rss-the-thin-orchestrator-how-we-made-our-ai-agents-more-reliable-by-givin.md) - Meta isolates domain reasoning behind thin routing and reusable deterministic workflow templates. Canonical page: [[multi-agent-architectures]]. - ingested 2026-10-23
+- [The Unity Native Plugin Bug Is Never the Call. It Is the Thread.](../../raw/2026-10-21-rss-the-unity-native-plugin-bug-is-never-the-call-it-is-the-thread.md) - Unity native plugin guidance combines callback threading with lifetime, clean packaging, and release-device evidence. Canonical page: [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-10-23
+- [Your Agent Runs in a Docker Sandbox. Now It Can Join a Team.](../../raw/2026-10-21-rss-your-agent-runs-in-a-docker-sandbox-now-it-can-join-a-team.md) - BAND adds outbound room coordination while local sandbox authority and credential/network policy remain separate. Canonical page: [[multi-agent-architectures]]. - ingested 2026-10-23
+- [Managed identities in Azure Container Apps](../../raw/2026-10-21-web-managed-identities-in-azure-container-apps.md) - Container Apps identity availability, workload selection, target grants, and caching are separate controls. Canonical page: [[azure-agent-automation-and-identity]]. - ingested 2026-10-23

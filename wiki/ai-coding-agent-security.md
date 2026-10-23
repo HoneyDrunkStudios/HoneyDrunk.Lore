@@ -2565,3 +2565,43 @@ Agent risk depends-on effective grants and egress as well as package state; drif
 ### Decision and quality notes
 
 Practitioner synthesis with secondary incident references. CVE counts, affected versions, taxonomy completeness, and legal reporting dates are not independently verified or promoted as current guidance. The source advocates full argument logging; Lore retains only privacy-filtered audit metadata and necessary redacted content, per AGENTS.md. No commands, attack payloads, contact details, or example identities were copied or executed. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk agent inventory joins grants, data reach, egress, reviewed tool baselines, complete discovery, and privacy-filtered audit evidence beyond dependency scans? See [[indexes/gaps]].
+
+
+## 2026-10-23: Software-factory controls belong outside the agent decision loop
+
+### Typed entities
+
+project: Agent Baseline; project: Secure Software Factory; project: Docker Sandboxes; concept: environmental enforcement; concept: expiring authority; concept: skill supply chain.
+
+### Claims and evidence
+
+- Docker describes the Secure Software Factory as an application of Agent Baseline outcomes to input, design, assembly, build, and verification. It names identity, supply chain, networking, runtime isolation, orchestration, and a three-level maturity model as architecture elements. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-from-baseline-to-secure-software-factory-securing-the-systems-that-bui.md)
+- The central recommendation is to enforce credential, tool, dependency, and network boundaries in the environment, independently of model decisions. The article treats consumed skills as supply-chain inputs and calls for task-scoped authority, external policy/audit records, and human accountability. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-from-baseline-to-secure-software-factory-securing-the-systems-that-bui.md)
+
+### Explicit relationships
+
+Secure Software Factory uses Agent Baseline; permitted agent action depends-on environmental authority rather than an agent-generated plan. See [[ai-agent-harnesses]] and [[container-supply-chain-and-compliance]].
+
+### Decision and quality notes
+
+First-party architecture announcement, not a full assessment of the linked reference paper or proof that a sandbox contains every attack. Several quoted companies in one article still count as one captured source. No change to HoneyDrunk controls, access, or infrastructure is authorized by this evidence. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which HoneyDrunk agent workflow proves task-scoped expiring authority, environmental egress/tool enforcement, reviewed skill provenance, and an audit trail the worker cannot rewrite? See [[indexes/gaps]].
+
+
+## 2026-10-23: Secret detection combines broad candidates with contextual classification
+
+### Typed entities
+
+project: GitHub secret scanning; library: ModernBERT; library: ONNX; concept: hard negative; concept: grouped evaluation split; concept: alert threshold.
+
+### Claims and evidence
+
+- GitHub describes a two-stage scanner: high-recall regex candidate generation followed by a fine-tuned ModernBERT classifier using the candidate, path, type, and nearby context. Training includes product-derived examples, annotated/weakly labeled candidates, and validated synthetic hard negatives. Rows sharing a repository, candidate, or example are grouped before dataset splitting. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-githubs-model-for-secret-detection-finding-more-secrets-with-less-nois.md)
+- The model is exported to quantized ONNX and thresholds are selected offline then checked on production-like traffic. GitHub reports improved precision/recall offline and owner-weighted alert acceptance online, with reduced serving cost and median post-push scan time versus its prior LLM pipeline; those metrics describe different outcomes and are not interchangeable. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-githubs-model-for-secret-detection-finding-more-secrets-with-less-nois.md)
+
+### Explicit relationships
+
+Secret classification depends-on contextual evidence and threshold validation; deterministic candidate generation uses regex coverage. See [[agent-evaluation-and-benchmarks]] and [[dotnet-dependency-security-and-nuget]].
+
+### Decision and quality notes
+
+Vendor-reported evaluation with no independent replication. Owner-weighted acceptance is not a direct false-negative measure. A test/documentation context can contain a real leaked credential; contextual suppression is not proof of harmlessness. The pipeline does not establish complete coverage or justify weakening existing secret controls. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which secret-scanning evaluation preserves rare credential recall, repository/value-grouped splits, calibrated suppression, and audited false negatives without treating test fixtures as automatically safe? See [[indexes/gaps]].

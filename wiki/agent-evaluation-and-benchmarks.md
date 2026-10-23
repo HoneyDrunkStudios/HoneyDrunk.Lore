@@ -1616,3 +1616,24 @@ Vendor methodology guidance, not a validated HoneyDrunk benchmark. Ten to twenty
 ## 2026-10-17 consolidation: fixed cases and human checks anchor evaluation
 
 Representative evaluation cases, reproducible baselines, and human checks on model-judge outputs receive stronger methodological support across three distinct authored accounts. confidence: 3 sources, last-confirmed 2026-10-17 (archived accounts; no independent execution). [GitHub production evaluation](../raw/2026-09-18-rss-github-production-llm-evaluation.md), [Google-published evaluation guidance](../raw/2026-10-16-rss-evaluating-ai-agents-moving-past-the-vibe-check.md), [LangChain evaluation guide](../raw/2026-10-17-rss-the-most-common-questions-about-agent-evals-answered.md). This strengthens the measurement practice, not shared numerical outcomes, evaluator security, or HoneyDrunk acceptance. The older GitHub evidence is an attributed summary; repeated citations and query outputs do not add votes.
+
+
+## 2026-10-23: Decision-model thresholds and probability calibration require separate validation
+
+### Typed entities
+
+person: Hamel Husain; person: Antaripa Saha; concept: decision threshold; concept: Platt scaling; concept: held-out evaluation; concept: infeasible constraint.
+
+### Claims and evidence
+
+- The study distinguishes threshold tuning for a precision/recall tradeoff from probability calibration. It uses saved model scores, stratified cross-validation with shared splits, and fitting only on training examples. Platt scaling can improve or worsen probability error, and a score is not automatically a calibrated chance of failure. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-how-to-use-decision-models-for-evals.md)
+- The headline describes 100 leasing-agent traces, but the methodological footnote excludes two internal QA examples from performance, leaving 98 production traces with 61 labeled failures and 37 without a labeled failure. Costs cover 100 calls; these denominators must remain separate. The source recommends narrower failure-mode judges and a final held-out check outside prompt development. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-how-to-use-decision-models-for-evals.md)
+- Source contradiction retained: the suggested tuning prompt says report when no threshold meets both 80% minimums instead of relaxing them. Footnote 9 says the experiment actually falls back to unconstrained F1 in infeasible training splits, retains those validation predictions in averages, and records 36/100 such splits for Perplexity and 29/100 for Liquid d1-ultra. Therefore the aggregate comparison does not establish that those models consistently satisfy both minima. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-how-to-use-decision-models-for-evals.md)
+
+### Explicit relationships
+
+Threshold choice depends-on error costs and feasible constraints; calibrated probabilities depend-on held-out labels and measured fitting behavior. See [[agentic-retrieval-and-search]] and [[azure-agent-automation-and-identity]].
+
+### Decision and quality notes
+
+Single small, privately sourced dataset; reported rankings and prices are historical experiment observations, not live model advice. superseded-by: [qualified threshold interpretation](#2026-10-23-decision-model-thresholds-and-probability-calibration-require-separate-validation), 2026-10-23T18:48:20-04:00; the stricter interpretation of the comparison as minimum-constrained throughout is superseded by the explicit fold audit, which is more specific than the prose prompt. The rejected interpretation is retained in the claim above; no prior wiki text is removed. Latency runs are not controlled comparative throughput results, and calibration method selection can itself overfit. Private traces and domain-specific evaluation prompts were not copied. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which HoneyDrunk classifier has trustworthy labels, grouped held-out splits, explicit infeasible-threshold handling, minimum validation precision/recall, calibration checks, and measured accepted-outcome cost? See [[indexes/gaps]].

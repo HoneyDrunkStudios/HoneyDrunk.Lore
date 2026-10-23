@@ -1438,3 +1438,24 @@ Deployment diagnosis uses revision and replica evidence; secret availability dep
 ### Decision and quality notes
 
 Official captured troubleshooting guide, no live Azure inspection. Treat remediation commands as context-dependent proposals, not authorization to expose ingress, enable registry admin, shift all traffic, increase resources, or print secrets. Exact default-probe values and CLI/schema compatibility were not independently checked and are not promoted as deployment defaults. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which HoneyDrunk Container Apps runbook verifies revision/replica log fields, effective probes, identity lifecycle, secret refresh, and reversible traffic recovery on its pinned configuration? See [[indexes/gaps]].
+
+
+## 2026-10-23: Container Apps identity lifecycle controls token availability separately from role grants
+
+### Typed entities
+
+project: Azure Container Apps; project: Microsoft Entra ID; concept: system-assigned identity; concept: user-assigned identity; concept: identity lifecycle; concept: target authorization.
+
+### Claims and evidence
+
+- The captured Microsoft guide distinguishes system-assigned identity lifetime from independent user-assigned identities. Assigning an identity does not itself grant target-resource permissions; application tokens represent the workload rather than an end user. Ordinary identity edits do not automatically restart an app or create a revision, with a documented exception for apps deployed before April 11, 2022. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-web-managed-identities-in-azure-container-apps.md)
+- Init-container access depends on environment type: the capture allows it for consumption workload profiles, but excludes consumption-only and dedicated workload-profile environments. identitySettings can restrict availability to Init, Main, All, or None; None still permits platform uses such as registry pull, scaling, and Key Vault references without exposing tokens to application code. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-web-managed-identities-in-azure-container-apps.md)
+- The guide notes resource-URI authorization caching around 24 hours with no supported forced refresh, distinct from role-assignment propagation. User-assigned credentials require explicit client selection. Supported scale rules select identity instead of secret-based auth; exact schema/API compatibility remains a deployment-specific check. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-web-managed-identities-in-azure-container-apps.md)
+
+### Explicit relationships
+
+Container Apps identity access depends-on environment type and lifecycle settings; resource access depends-on target grants and workload identity. See [[ai-agent-identity-and-workload-auth]] and [[cloud-data-platforms-and-analytics]].
+
+### Decision and quality notes
+
+Official documentation capture with unknown publication date; October 21 is the clipping date only. Corroborates the October 17 troubleshooting guide, but the shared publisher is not independent validation. Lifecycle None does not revoke resource grants or prove immediate revocation of already issued tokens. The illustrative template contains placeholders and a trailing comma and is not copied as deployable JSON. No Azure resource or role was inspected or modified. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which Container Apps environment and pinned API tests prove init/main token availability, explicit user-assigned selection, platform-only identity use, target least privilege, and acceptable revocation/cache delay? See [[indexes/gaps]].

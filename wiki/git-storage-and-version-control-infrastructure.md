@@ -62,3 +62,24 @@ History editing rewrites descendant commits; hook adoption depends-on explicit l
 ### Decision and quality notes
 
 Secondary article published April 28 and captured October 3; later capture does not make it a newer release. A prose/command mismatch around hook listing should be checked against pinned Git documentation before use. No history-editing or hook commands were run. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which pinned Git versions and merge/history constraints qualify HoneyDrunk history tools and trusted hook installation? See [[indexes/gaps]].
+
+
+## 2026-10-23: Scion trades offline symmetry for server-side source-control operations
+
+### Typed entities
+
+project: Anthropic; project: Scion; project: Antique; project: Git; project: Spanner; concept: changeset log; concept: content-addressed cache; concept: sparse checkout.
+
+### Claims and evidence
+
+- Anthropic describes Scion as a centralized system for its unusually large, mostly online agent/CI workload. Server-created changesets record changed files relative to the first parent and content-addressed blob references; derived structures answer history, blame, and ancestry queries. Ref updates use a separate compare-and-swap rather than coordinating every changeset through a global branch update. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-redesigning-source-control-at-anthropic.md)
+- Clients fetch requested trees/blobs into bounded caches and sparse or virtualized working copies. Node, regional, and authoritative tiers expose the same object RPCs, while enforced tiering protects failure domains from cache-miss floods. CI can request metadata or make some writes through APIs without a full checkout. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-redesigning-source-control-at-anthropic.md)
+- Reported infrastructure and checkout improvements compare Anthropic's own prior Git deployment and workload. The authors explicitly say Scion is unsuitable as a general Git replacement and requires bespoke review/search/CI migration. Their changed merge-queue/testing approach accepts concurrency conflicts in that environment; it is not evidence to remove HoneyDrunk review or required checks. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-redesigning-source-control-at-anthropic.md)
+
+### Explicit relationships
+
+Scion uses changeset logs and derived indexes; sparse checkout depends-on immutable object lookup; operational safety depends-on failure-domain isolation. See [[github-actions-platform-operations]] and [[ai-assisted-software-practice]].
+
+### Decision and quality notes
+
+First-party engineering case study, updated October 15, with no independent load or failure tests. Distinguish server-side operation patterns from the much larger product migration. Internal token availability and monorepo scale limit transferability; no alternative forge was selected or configured. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which measured HoneyDrunk clone, metadata-query, and CI bottlenecks justify server-side caching or sparse access, and what failure/permission tests would precede any source-control architecture change? See [[indexes/gaps]].

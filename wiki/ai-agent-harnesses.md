@@ -2041,3 +2041,30 @@ Behavioral verification uses independent contracts and side-effect observations;
 ### Decision and quality notes
 
 Single practitioner experiment with an unusually complete brief. Do not turn its model ranking or cost estimate into a default. Compare accepted outcomes, latency, repair, and maintenance on representative local work. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk tasks justify continuous feedback versus a final acceptance gate after including failed attempts, human repair, and harness maintenance? See [[indexes/gaps]].
+
+
+## 2026-10-23: Durable harness recovery distinguishes completed calls from uncertain side effects
+
+### Typed entities
+
+project: durable-harness; project: Workflow SDK; concept: World backend; concept: intent log; concept: replay policy; concept: durable document.
+
+### Claims and evidence
+
+- Vercel describes recording call intent and outcomes in a durable log, with a queued turn resuming on another worker after failure. Recorded completed results are reused; interrupted tools marked safe can be replayed, while other interrupted calls return an uncertain outcome to the model. Mirrored harness session records rebuild transcripts independently of worker lifetime. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-making-every-harness-durable.md)
+- The article separates session logs/documents from execution workspaces: virtual files can live in log-backed documents, scratch files can be turn-local, and real shells use per-session sandboxes with persistent workspace drives. World abstracts storage, queue, and streaming with local and hosted backends. Credentials for host-side tools need not enter the sandbox. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-making-every-harness-durable.md)
+
+### Explicit relationships
+
+durable-harness uses logged outcomes and queue-backed recovery; safe side effects depend-on application idempotency and outcome reconciliation. See [[distributed-systems-patterns]] and [[agent-context-management-and-session-continuity]].
+
+### Decision and quality notes
+
+Vendor architecture announcement, not a crash-injection test. The refund wording about never running twice means the described runtime avoids automatic replay of uncertain calls; it is not proof of global exactly-once effects if a provider committed before logging, or the model later issues another request. Recorded completion and actual provider completion differ in a crash window. Verify authority again after restore; durable state does not grant fresh permission. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which durable-agent tests cover crashes before/after provider commit and log commit, uncertain outcomes, idempotency keys, restored authority, document consistency, and isolated workspace recovery? See [[indexes/gaps]].
+
+
+## 2026-10-23 consolidation: reliability uses explicit controls outside model reasoning
+
+Execution reliability needs explicit non-model control mechanisms as well as model reasoning. Meta's thin router supplies sequencing/reliability gates, Docker's factory architecture supplies environmental authority boundaries, and Vercel's durable harness supplies recorded outcomes and recovery policy. confidence: 3 sources, last-confirmed 2026-10-23 (complete archived accounts reviewed; no independent execution). [Meta account](../raw/2026-10-21-rss-the-thin-orchestrator-how-we-made-our-ai-agents-more-reliable-by-givin.md), [Docker architecture](../raw/2026-10-21-rss-from-baseline-to-secure-software-factory-securing-the-systems-that-bui.md), [Vercel recovery design](../raw/2026-10-21-rss-making-every-harness-durable.md).
+
+This strengthens the shared design rationale, not one vendor stack, numerical benefit, complete security boundary, or exactly-once guarantee. These sources address different failure modes and are not replications of the same experiment. Unreinforced product-specific claims remain weaker, provisional evidence. Relationships: runtime reliability depends-on explicit state, authority, and failure policies; see [[multi-agent-architectures]] and [[ai-coding-agent-security]].

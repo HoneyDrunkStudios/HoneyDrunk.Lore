@@ -294,3 +294,43 @@ Multi-agent systems are warranted only when a single agent hits hard limits: con
 
 ### Quality notes
 - Single practitioner exercise; useful pattern evidence, not proof that the approach generalizes to all HoneyDrunk delivery work.
+
+
+## 2026-10-23: A thin orchestrator separates deterministic gates from specialist reasoning
+
+### Typed entities
+
+project: Meta; concept: thin orchestrator; concept: isolated specialist; concept: workflow template; concept: deterministic gate; concept: domain knowledge.
+
+### Claims and evidence
+
+- Meta describes a fixed routing/reliability protocol around 14 isolated specialists and more than 20 workflows. The orchestrator reads instructions, checks existing targets, gathers/discovers inputs, checks warnings/reviewers, delegates, and reports outcomes; it performs no domain code generation. Workflow templates sequence shared specialists instead of adding an agent per workflow. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-the-thin-orchestrator-how-we-made-our-ai-agents-more-reliable-by-givin.md)
+- Domain files load at specialist execution time rather than into the router. The article reports context cross-contamination in the earlier monolithic agent and faster column preparation after the redesign. Its quoted external multi-agent study is distinct evidence that was not independently read in this pass, and its internal percentages are not controlled HoneyDrunk results. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-the-thin-orchestrator-how-we-made-our-ai-agents-more-reliable-by-givin.md)
+
+### Explicit relationships
+
+Thin orchestration uses explicit sequencing and isolated knowledge; specialist execution depends-on required inputs and reliability gates. See [[ai-agent-harnesses]] and [[enterprise-agent-business-semantics]].
+
+### Decision and quality notes
+
+First-party retrospective, not proof that all intent classification is deterministic or that isolated workers cannot hallucinate. The paper explains a concrete multi-domain need and does not supersede the existing single-agent default. Retry/escalation claims need bounded, idempotent recovery checks; runtime knowledge updates also need provenance and version control. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which workflow has measured context interference that warrants specialists, and do deterministic routing, required-field collection, reviewer gates, idempotent retries, and versioned knowledge hold under failures? See [[indexes/gaps]].
+
+
+## 2026-10-23: BAND rooms connect isolated agents without granting shared workspace authority
+
+### Typed entities
+
+project: BAND; project: Docker Sandboxes; project: Repo Doctor; concept: room mention; concept: outbound connection; concept: credential proxy; concept: mounted workspace.
+
+### Claims and evidence
+
+- Docker's demo connects a local microVM agent to a BAND room through outbound WebSocket and API traffic. BAND supplies persistent participant identities, mention routing, message history, and tool events; each agent retains its own model, tools, infrastructure, and workspace. Mention delivery narrows an agent's conversation context. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-your-agent-runs-in-a-docker-sandbox-now-it-can-join-a-team.md)
+- The described sandbox keeps actual credentials on the host and inserts them into scoped outbound requests while exposing placeholders to the worker. The BAND kit pre-allows platform/package traffic and the sample adds its model destination. Only the local repository worker needs the local mounted workspace; hosted collaborators can communicate without receiving that mount. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-your-agent-runs-in-a-docker-sandbox-now-it-can-join-a-team.md)
+
+### Explicit relationships
+
+BAND uses outbound room messaging; repository mutation depends-on the local worker's tools and mounted workspace. Sandbox isolation depends-on effective network and credential policies. See [[ai-coding-agent-security]] and [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+Vendor demo, not an authorization or exfiltration assessment. Outbound-only does not prevent data leaving through allowed destinations; room membership and mentions are not task authorization. The article opens with a mutable latest image but demonstrates a numbered image tag, neither of which establishes immutable digest provenance. No room, account, credential, sandbox, or peer communication was created. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which collaboration policy proves sender authorization, prompt-injection boundaries, room/transcript privacy, mounted-workspace limits, credential destination scoping, and pinned kit provenance? See [[indexes/gaps]].

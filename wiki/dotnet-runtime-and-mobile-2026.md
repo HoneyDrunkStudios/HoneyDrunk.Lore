@@ -956,3 +956,24 @@ AOT correctness depends-on generated code, registered metadata, and preserved re
 ### Decision and quality notes
 
 Implementation account without local publish or authentication tests. Dashboard success is not general Blazor AOT support, and a runtime-independent executable is not a runtime-free CLI installation. Keep target-platform, authentication, persistence, and UI-path acceptance separate. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which HoneyDrunk AOT candidate has target-platform, serialization, reflection, authentication, UI, and persistence evidence without relying on suppressed warnings? See [[indexes/gaps]].
+
+
+## 2026-10-23: MAUI scene migration requires lifecycle and integration checks
+
+### Typed entities
+
+project: .NET MAUI; project: Xcode 27; library: MauiUISceneDelegate; concept: scene manifest; concept: cold-start link; decision: platform support policy.
+
+### Claims and evidence
+
+- The October 19 Microsoft capture attributes the scene-lifecycle requirement to apps built with Xcode 27, rather than an OS update alone. Existing project files are not retrofitted by package/workload updates. The described migration reconciles a scene delegate and matching manifest for every shipping iOS/Mac Catalyst configuration, while preserving the application delegate and custom window behavior. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-get-your-net-maui-app-ready-for-xcode-27.md)
+- The article requires matching Apple workloads and Xcode and identifies MAUI 10.0.110 as including relevant scene-side App Actions and WebAuthenticator handling. It separates scene adoption from newer SDK minimum OS targets. Custom URL/user-activity routing, notification cold starts, window readiness, and exactly-once App Actions completion need behavioral tests; a successful build alone is insufficient. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-get-your-net-maui-app-ready-for-xcode-27.md)
+- The described MAUI CLI migration skill is experimental guidance downloaded from a public catalog. Installing guidance alone does not migrate an app. Debug/Release launch, authentication, warm/cold links, pause/resume, shortcuts, and Mac Catalyst remain separate verification obligations. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-get-your-net-maui-app-ready-for-xcode-27.md)
+
+### Explicit relationships
+
+Scene lifecycle uses registered delegates and matching manifests; migration acceptance depends-on compatible toolchains and preserved callback behavior. See [[ai-assisted-software-practice]].
+
+### Decision and quality notes
+
+Archived vendor migration guidance, not live Apple support verification. Exact versions and support floors need a current primary-source check before implementation. Existing runner-image GA evidence does not prove application compatibility. No project, SDK, skill, or deployment target was changed. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which MAUI targets and shipping plist configurations prove scene registration, supported OS policy, window readiness, authentication, warm/cold links, notification routing, and App Actions on matching Debug/Release toolchains? See [[indexes/gaps]].

@@ -1862,3 +1862,23 @@ Upgrade acceptance depends-on device and save-migration evidence; serialized ass
 ### Decision and quality notes
 
 Practitioner experience, not a Unity support policy or a tested HoneyDrunk upgrade. The preferred LTS cadence is the author's judgment; exact supported targets require current platform requirements. No editor, package, or saved data was changed. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which pinned Unity upgrade has reproducible old/new device baselines, plugin compatibility, installed-save migration, and staged recovery evidence? See [[indexes/gaps]].
+
+
+## 2026-10-23: Native plugin boundaries include thread, lifecycle, and release configuration
+
+### Typed entities
+
+project: Unity; library: AndroidJavaProxy; library: IL2CPP; concept: native bridge; concept: callback queue; concept: code stripping; concept: platform lifecycle.
+
+### Claims and evidence
+
+- The practitioner proposes one C# feature interface with Android, iOS, and Editor-fake implementations. Native code translates platform calls; Android dependencies/merged manifests/R8 rules and iOS frameworks/plist settings belong in reproducible build configuration. iOS callbacks and returned strings require explicit static callback routing and memory ownership. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-the-unity-native-plugin-bug-is-never-the-call-it-is-the-thread.md)
+- Native callbacks may arrive off the Unity main thread. The proposed bridge queues Unity-facing work for Update rather than directly touching UI or scene objects from a native callback. Pause/resume and release artifacts need physical-device checks; native/reflection entry points can be stripped even when Editor behavior looks correct. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-the-unity-native-plugin-bug-is-never-the-call-it-is-the-thread.md)
+
+### Explicit relationships
+
+Native bridge correctness depends-on thread affinity, lifetime, and preserved entry points; reproducible packaging uses platform-specific build configuration. See [[creative-tool-extension-packaging]] and [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+Practitioner guidance, not compiled or device-tested code. The title's absolute claim that bugs are never the call is rhetorical; the body also identifies build, memory-ownership, and lifecycle failures. The sample queue is unbounded and omits cancellation, shutdown, and exception policy, so it is not a production dispatcher specification. Actual stripping depends on the configured backend and platform; this is not evidence every release uses identical settings. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which native bridge tests prove bounded main-thread dispatch, callback lifetime after stop/dispose, pause/resume, string ownership, and clean signed release behavior with platform stripping rules on real devices? See [[indexes/gaps]].

@@ -277,3 +277,23 @@ Pool V2 uses channels and concurrent creation; realized latency depends-on netwo
 ### Decision and quality notes
 
 Archived release/benchmark description; package availability and current implementation must be checked before adoption. No switch was changed. EF Core/Dapper compatibility claims do not demonstrate a particular application workload or remove server connection limits. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned SqlClient workload verifies cold bursts, warm reuse, cancellation, server limits, high-latency thread pressure, and restart rollback before enabling Pool V2? See [[indexes/gaps]].
+
+
+## 2026-10-23: SQL connection architecture does not remove finite workload capacity
+
+### Typed entities
+
+project: PostgreSQL; project: Microsoft SQL; library: Microsoft.Data.SqlClient; concept: backend process; concept: connection pool; concept: workload capacity.
+
+### Claims and evidence
+
+- The Microsoft field note contrasts PostgreSQL's dedicated backend processes with Microsoft SQL assigning workers when requests execute. It explains why idle sessions need not reserve a dedicated SQL worker and why client connection pooling changes the cost of opening/closing application connections. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-postgresql-to-sql-field-notes-connections.md)
+- Source contradiction retained: broad prose says applications need not worry about connection quantity/duration and calls manual count management an antipattern. The same source explicitly limits practical capacity by workload, hardware, service tier, and other resources and still recommends resource monitoring. Its 32,767 connection figure is an instance maximum, not a supported simultaneous-workload target for every SQL deployment. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-postgresql-to-sql-field-notes-connections.md)
+
+### Explicit relationships
+
+Connection behavior depends-on engine architecture, client pooling, and workload limits; request execution uses finite workers and memory. See [[distributed-systems-patterns]] and [[dotnet-runtime-and-mobile-2026]].
+
+### Decision and quality notes
+
+Vendor comparison with promotional framing. superseded-by: [bounded connection interpretation](#2026-10-23-sql-connection-architecture-does-not-remove-finite-workload-capacity), 2026-10-23T18:48:20-04:00; the unbounded reading of the broad prose is superseded by its specific workload/service-tier caveat and the earlier Pool V2 section. The rejected prose interpretation is preserved above. The October 6 publication predates the October 18 Pool V2 report even though captured later; neither source establishes actual HoneyDrunk capacity. Pooling, transaction lifetime, timeouts, and bounded concurrency remain workload questions. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which SQL deployment and client-pool load tests establish session/worker limits, transaction duration, connection leaks, cancellation, cold bursts, and bounded concurrency at the selected service tier? See [[indexes/gaps]].

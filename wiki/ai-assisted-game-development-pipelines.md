@@ -190,3 +190,24 @@ Spawn Point uses constrained wire schemas and Godot components; acceptance depen
 ### Decision and quality notes
 
 Author-reported small-set results with run variance; neither ratios nor decoder ordering generalize without pinned-backend tests. This is a Godot project despite the Unity feed category. The existing internal schema is not evidence all application invariants are enforced. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk structured-output pilot tests decoder branch order, closed nested objects, wire round-trips, wrong-genre selection, and playable acceptance across prior tasks and quantizations? See [[indexes/gaps]].
+
+
+## 2026-10-23: Spawn Point farm generation couples deterministic assets with behavioral acceptance
+
+### Typed entities
+
+project: Spawn Point; project: Godot 4; library: NumPy; concept: procedural terrain; concept: save isolation; concept: quantized regression set; concept: browser input.
+
+### Claims and evidence
+
+- The author describes generating farm ground as a single image from masks, blur, noisy thresholding, and seeded details. A missing SciPy dependency broke CI; replacing it with NumPy exposed a boundary-padding artifact. Y-sorting plus foot-level collision footprints addressed occlusion without making tree canopies impassable. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-i-taught-my-game-generator-to-make-cozy-farms-drawing-every-tile-in-py.md)
+- Farm persistence records world state in Godot user storage; automated recording/playtest agents must not contaminate player saves, and restart must clear the intended save. A shooter-style aim policy caused the farmer to face enemies instead of movement, showing why shared components still need genre-specific semantics. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-i-taught-my-game-generator-to-make-cozy-farms-drawing-every-tile-in-py.md)
+- A training patch improved incidental pest requests but regressed peaceful farms and named farmers because synthetic data overrepresented pests and default names. The next patch balanced cases and replayed prior examples; residual fish-as-pest output needed code normalization. Small sealed/development/real-prompt results and quantized builds remain distinct. Browser tests needed protocol-generated input for pointer capture; phone-sized headless Chrome was not physical-phone testing. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-21-rss-i-taught-my-game-generator-to-make-cozy-farms-drawing-every-tile-in-py.md)
+
+### Explicit relationships
+
+Spawn Point uses model-generated briefs and deterministic Godot/assets; quality depends-on save isolation, genre semantics, regression data, and real input delivery. See [[procedural-world-persistence]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Same project and author as the October 18 schema report, not independent replication. Its new farm examples extend that history without erasing earlier regressions. No generated game, screenshot, hardware compatibility, or numeric result was independently validated. Exact percentages are not promoted as release guarantees. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which game-generation acceptance checks isolate bot/player saves, verify restart and direction semantics, test clean dependency installs, preserve peaceful/named-character cases, and distinguish browser emulation from physical-device input? See [[indexes/gaps]].
