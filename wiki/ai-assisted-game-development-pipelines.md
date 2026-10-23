@@ -211,3 +211,23 @@ Spawn Point uses model-generated briefs and deterministic Godot/assets; quality 
 ### Decision and quality notes
 
 Same project and author as the October 18 schema report, not independent replication. Its new farm examples extend that history without erasing earlier regressions. No generated game, screenshot, hardware compatibility, or numeric result was independently validated. Exact percentages are not promoted as release guarantees. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which game-generation acceptance checks isolate bot/player saves, verify restart and direction semantics, test clean dependency installs, preserve peaceful/named-character cases, and distinguish browser emulation from physical-device input? See [[indexes/gaps]].
+
+
+## 2026-10-23: Unity CLI telemetry describes automation activity rather than accepted outcomes
+
+### Typed entities
+
+project: Unity CLI; project: Unity Pipeline; project: Unity agent plugin; concept: telemetry cohort; concept: command event; concept: connected Editor.
+
+### Claims and evidence
+
+- Unity reports aggregated CLI activity from July 20 through October 13, excluding employees and telemetry opt-outs. Its automation category includes known AI tools, MCP mode, and other piped/scripted runs; a large automation share therefore is not a pure measure of autonomous coding agents. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-meeting-you-where-you-work-inside-200m-unity-cli-events.md)
+- The most frequent commands interact with a running Editor, inspect connected Editor status, and discover Pipeline instances. The article describes a setup-to-agent-handoff pattern and shared official plugin skills, with a separate signed-in-user/agent cohort window. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-meeting-you-where-you-work-inside-200m-unity-cli-events.md)
+
+### Explicit relationships
+
+Unity CLI uses Pipeline to operate a connected Editor; interpreting activity depends-on cohort and classification definitions. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Vendor telemetry, not success rate, accepted game quality, productivity, or a representative count of all Unity developers. Events, command runs, and unique users are distinct denominators; market/country rankings are unnecessary here. This extends the earlier plugin account without adding independent tool validation. No Editor command or install was run. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which Unity agent workflow measures accepted scene/build outcomes, failures, repair effort, and human review time separately from command/event counts? See [[indexes/gaps]].

@@ -2605,3 +2605,24 @@ Secret classification depends-on contextual evidence and threshold validation; d
 ### Decision and quality notes
 
 Vendor-reported evaluation with no independent replication. Owner-weighted acceptance is not a direct false-negative measure. A test/documentation context can contain a real leaked credential; contextual suppression is not proof of harmlessness. The pipeline does not establish complete coverage or justify weakening existing secret controls. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which secret-scanning evaluation preserves rare credential recall, repository/value-grouped splits, calibrated suppression, and audited false negatives without treating test fixtures as automatically safe? See [[indexes/gaps]].
+
+
+## 2026-10-23: Monitoring eligibility is distinct from observed coverage and independent fix verification
+
+### Typed entities
+
+project: METR; project: Redwood Research; project: OpenAI; concept: agent monitor; concept: compaction coverage; concept: trajectory parity; concept: independent assessment.
+
+### Claims and evidence
+
+- METR reports a three-week high-access pilot focused on OpenAI's internal asynchronous monitoring system as it existed on or before July 21. Eligibility estimates do not establish end-to-end monitored coverage; compaction, errors, trigger timing, and client/scaffold paths can change what actually reaches a monitor. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-red-teaming-openai-s-internal-agent-monitoring-systems.md)
+- The report recommends accounting for all intended inference against monitor records, periodic monitoring independent of turn completion, parity between agent and monitor context, and isolation of worker execution from monitoring controls. Some findings were demonstrated while others remained in-principle or unvalidated. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-red-teaming-openai-s-internal-agent-monitoring-systems.md)
+- OpenAI subsequently stated production-impacting vulnerabilities were patched and described broader intended coverage. METR explicitly says it did not evaluate those claims. The public report is a limited, vendor-redactable subset of a deeper private assessment, with independence/transparency limits acknowledged. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-red-teaming-openai-s-internal-agent-monitoring-systems.md)
+
+### Explicit relationships
+
+Monitoring assurance depends-on measured coverage, context parity, protected triggers, and independent verification; a remediation statement does not supersede validation evidence. See [[agent-evaluation-and-benchmarks]] and [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Historical high-access research, not a statement that current Codex or OpenAI safeguards remain vulnerable or are fully fixed. Do not conflate eligibility, delivered monitor requests, successful analysis, and effective intervention. No exploit mechanics, disabling headers, private report contents, or tracking canary were copied into the wiki. Tamper-resistant audit goals still require privacy filtering and retention controls. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which agent-monitoring audit reconciles all inference, compaction, worker actions, successful monitor delivery, protected triggers, and independently verified remediation without exposing private traces? See [[indexes/gaps]].

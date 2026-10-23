@@ -1882,3 +1882,24 @@ Native bridge correctness depends-on thread affinity, lifetime, and preserved en
 ### Decision and quality notes
 
 Practitioner guidance, not compiled or device-tested code. The title's absolute claim that bugs are never the call is rhetorical; the body also identifies build, memory-ownership, and lifecycle failures. The sample queue is unbounded and omits cancellation, shutdown, and exception policy, so it is not a production dispatcher specification. Actual stripping depends on the configured backend and platform; this is not evidence every release uses identical settings. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which native bridge tests prove bounded main-thread dispatch, callback lifetime after stop/dispose, pause/resume, string ownership, and clean signed release behavior with platform stripping rules on real devices? See [[indexes/gaps]].
+
+
+## 2026-10-23: MethodReload narrows edits and retains device-specific binding limits
+
+### Typed entities
+
+project: Unity; library: com.unity.pipeline; concept: MethodReload; concept: interpreted method body; concept: IL2CPP stripping; concept: development player.
+
+### Claims and evidence
+
+- Unity describes experimental MethodReload in Pipeline 0.7.0-exp.1 for Unity 6+. Public void/IEnumerator entry methods must be tagged before compilation so a woven dispatcher can invoke replacement interpreted bodies. Fields, type layout, call sites, and general structural edits still require the normal compile/reload path. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-skipping-domain-reload-faster-iteration-using-the-methodreload-feature.md)
+- The interpreter supports a limited C# subset and is slower than compiled code. Device pushes use player preprocessor definitions and require exposed members already present in the IL2CPP player; missing calls warn and may throw. Running coroutines retain their creation-time body. The watcher changes asset-refresh behavior and re-applies overrides after reconnect; release builds use compiled bodies. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-skipping-domain-reload-faster-iteration-using-the-methodreload-feature.md)
+- Source contradiction retained: the final tip says an edit working in the Editor will work on hardware. Earlier limitations explicitly say Editor bindings can resolve on demand while device builds lack stripped/unexposed members. Editor interpreter success checks language coverage but cannot establish device API availability or runtime acceptance. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-skipping-domain-reload-faster-iteration-using-the-methodreload-feature.md)
+
+### Explicit relationships
+
+MethodReload uses compile-time dispatch and interpreted replacements; device success depends-on player members, platform defines, and lifecycle. See [[ai-assisted-game-development-pipelines]].
+
+### Decision and quality notes
+
+Experimental vendor feature, not installed or device-tested here. superseded-by: [device-qualified reload assessment](#2026-10-23-methodreload-narrows-edits-and-retains-device-specific-binding-limits), 2026-10-23T18:55:13-04:00; the universal Editor-to-hardware promise is superseded by the more specific binding/stripping limitations retained above. Verify original compiled behavior after a clean build and bound watcher/device authority. A method-body reload does not recreate state or prove production performance. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which MethodReload experiment tests player defines, stripped/missing APIs, coroutine replacement, refresh restoration, reconnects, and parity with a clean compiled device build? See [[indexes/gaps]].

@@ -1463,3 +1463,23 @@ YMA Painterly uses painted textures and normal transformations; renderer portabi
 ### Decision and quality notes
 
 Commercial artist interview with affiliate disclosure; product counts and compatibility are source-reported. This is a DCC rendering workflow, not a Unity shader, realtime performance result, universal OpenPBR portability proof, or a purchase recommendation. Unnecessary biography and personal/social links were omitted. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which representative painterly asset verifies deformation and motion stability, lighting response, render cost, licensing, and any required target-engine shader adaptation? See [[indexes/gaps]].
+
+
+## 2026-10-23: Bluey hybrid rendering makes camera constraints part of the art pipeline
+
+### Typed entities
+
+project: Bluey's Happy Snaps; project: Gameloft Brisbane; project: Unreal Engine; project: Maya; concept: layered character card; concept: SDF texture; concept: Control Rig; concept: camera constraint.
+
+### Claims and evidence
+
+- The studio interview describes layered camera-facing character planes, SDF masks and shader-driven eyes, skinned skeletons, and Unreal Control Rig. Artists author a hero view, transfer animation across directional views, then adjust it; held props and acute camera views need flattening to preserve the 2D illusion. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-bluey-s-simple-2d-look-required-gameloft-s-most-technically-challenging-art-pipeline.md)
+- Environments use authored colors, highlights/shadows, multiple UV layers, and controlled outlines rather than general dynamic lighting. Character rigs and outlines were performance costs on low-end targets, prompting other asset/LOD/compression tradeoffs. Rig revisions could invalidate animation, and brand approval covered interactions and cinematic behavior as well as assets. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-bluey-s-simple-2d-look-required-gameloft-s-most-technically-challenging-art-pipeline.md)
+
+### Explicit relationships
+
+Hybrid 2D/3D rendering depends-on camera, rig, material, and interaction constraints; production reuse uses coordinated asset/version approval. See [[game-camera-systems]] and [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Studio interview, not a reusable shader implementation or independent performance benchmark. The interview varies between seven and eight authored angles, so the durable claim is multi-view authoring rather than an exact universal count. A freely explored world still has camera/NPC constraints; unlit style is not inexpensive by definition. Personal/social links and unnecessary biography were omitted. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which hybrid character prototype verifies all allowed camera angles, prop interactions, rig-update compatibility, outline readability, and weakest-target frame cost before committing to a multi-view art pipeline? See [[indexes/gaps]].

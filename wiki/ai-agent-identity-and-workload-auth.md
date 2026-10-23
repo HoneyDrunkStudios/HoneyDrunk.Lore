@@ -255,3 +255,23 @@ Federation depends-on signature, issuer, audience, and subject validation; long-
 ### Decision and quality notes
 
 Vendor integration description, not a tested federation setup. Short expiry reduces exposure duration but does not enforce least privilege by itself, prevent exfiltration, or define the exchanged credential's permissions. No live tokens or example identity values are copied. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which HoneyDrunk federation tests reject wrong subjects/audiences, enforce imported-environment permissions, and refresh long-running jobs without reusing identity tokens? See [[indexes/gaps]].
+
+
+## 2026-10-23: OAuth consent and token theft require flow-specific authorization controls
+
+### Typed entities
+
+project: OAuth; project: Unit 42; concept: consent phishing; concept: device authorization; concept: callback binding; concept: refresh-token revocation; concept: connector isolation.
+
+### Claims and evidence
+
+- Unit 42 distinguishes token/account hijacking, malicious scoped consent, and abusive OAuth redirection. Legitimate sign-in and MFA do not by themselves prove the user authorized the intended client, connector, session, or downstream scope. Device and code flows have different binding and social-engineering risks. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-the-current-landscape-of-oauth-attacks.md)
+- The analysis recommends inventorying verified client/callback identities, limiting scopes, reviewing third-party consent, checking initiating-session/user and tenant/connector bindings, and auditing grants/revocation. Long-lived refresh access can outlast password changes in some deployments; actual expiry, sender binding, conditional access, and provider revocation behavior remain flow/configuration-specific. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-the-current-landscape-of-oauth-attacks.md)
+
+### Explicit relationships
+
+OAuth authority depends-on validated flow/session/tenant binding and granted scope; containment depends-on token lifetime, sender constraints, and revocation. See [[ai-coding-agent-security]] and [[mcp-tool-governance-and-app-surfaces]].
+
+### Decision and quality notes
+
+Threat-research synthesis, not an OAuth specification or proof that every token defeats MFA, password reset, conditional access, or network restrictions. Its universal wording is narrowed to the described bearer-token and consent scenarios; the earlier Google refresh-token DPoP record remains distinct. Exploit URLs, victim examples, campaign identifiers, and personal data were omitted. No consent policy or registered application was changed. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which OAuth integrations prove initiating-user/session binding, exact callbacks, client/tenant/connector isolation, narrow grants, sender-constrained token behavior, and provider-specific revocation after compromise? See [[indexes/gaps]].

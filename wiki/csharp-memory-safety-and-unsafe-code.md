@@ -65,3 +65,24 @@ C# is adding a stricter caller-unsafe model that now starts in the C# 15 preview
 - Sources checked: May 2026 memory-safety source and August 2026 C# 15 preview source.
 - Confidence posture: strengthened to two Microsoft sources for the direction of caller-unsafe redesign, with the timing corrected to C# 15 preview / .NET 11 Preview 7.
 - Known gap: exact final syntax, analyzer defaults, documentation requirements, and .NET 12/C# 16 changes still require verification before HoneyDrunk policy enforcement.
+
+
+## 2026-10-23: C# 15 language defaults and memory-safety preview use different switches
+
+### Typed entities
+
+project: C# 15; project: .NET 11 SDK; concept: union type; concept: closed hierarchy; concept: language version; concept: requires-unsafe; concept: compiler feature flag.
+
+### Claims and evidence
+
+- The captured language overview identifies C# 15 as the net11.0 default in a still-prerelease .NET 11 SDK and lists collection-constructor arguments, unions, closed hierarchies, extension indexers, labeled loop jumps, and certain non-virtual static interface members on older runtimes. These are not all gated like the separate memory-safety preview. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-web-what-s-new-in-c-15.md)
+- Memory-safety syntax/pointer relaxations use preview language mode, while requires-unsafe caller rules additionally need the updated-memory-safety-rules feature flag. Pointer declarations/address-taking are separated from pointed-to access; unsafe expressions also require AllowUnsafeBlocks. Assembly metadata records updated rules. A safety annotation is a caller contract, not proof that an extern implementation is safe. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-web-what-s-new-in-c-15.md)
+- Closed hierarchies fix direct descendants within the declaring assembly, but a non-closed descendant can still be derived elsewhere. Older-runtime support for ordinary static interface helpers does not imply support for default instance implementations or static abstract/virtual dispatch. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-web-what-s-new-in-c-15.md)
+
+### Explicit relationships
+
+Memory-safety behavior depends-on language mode and feature flag; exhaustiveness depends-on case/hierarchy boundaries. See [[dotnet-runtime-and-mobile-2026]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Official captured overview, unknown publication date, no compiler execution. Extends the already preserved May/August timing history; later clipping does not mean a newly released stable SDK. Shared Microsoft publication does not provide independent safety validation. Exact syntax, runtime targets, and diagnostics require pinned toolchain tests before code or analyzer changes. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which pinned compiler tests separate default C# 15 features from memory-safety preview switches and verify caller obligations, closed descendants, serialization, and older-runtime interface limits? See [[indexes/gaps]].

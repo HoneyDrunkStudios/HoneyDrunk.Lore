@@ -162,3 +162,24 @@ Patch assessment depends-on deployed runtime/package inventory and primary advis
 ### Decision and quality notes
 
 Official dated release matrix. These are captured versions, not an evergreen latest-version recommendation or proof of HoneyDrunk patch status. Earlier servicing entries remain historical snapshots; no CVE count or severity is invented. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which deployed HoneyDrunk runtimes and self-contained artifacts are affected by the October advisories, and what rebuild, regression, and rollout evidence confirms remediation? See [[indexes/gaps]].
+
+
+## 2026-10-23: Package integrity depends on trusted evidence and enforced verification
+
+### Typed entities
+
+project: Trail of Bits; project: NuGet; project: Sigstore; project: Go checksum database; concept: lockfile hash; concept: signer identity; concept: repository compromise.
+
+### Claims and evidence
+
+- Trail of Bits tests 25 dependency managers against simulated malicious repository responses while keeping private signing keys uncompromised. Its findings separate content-hash enforcement, repository/developer signatures, identity-based attestations, and transparency logs. A hash learned only from the compromised server or a signature never checked is not equivalent to independently trusted verification. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-package-managers-have-an-integrity-problem.md)
+- The tested ecosystems differ in whether default install paths enforce stored hashes, require extra configuration, or treat hashes as identifiers. The NuGet discussion makes lockfile and signer policy explicit configuration questions. Trusted publishing may mean repository authentication without artifact attestation; signer identity and release version are separate trust decisions. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-package-managers-have-an-integrity-problem.md)
+- The experiment is one package, version, and platform per manager, including less common Ubuntu configurations for some tools. A lockfile's presence does not establish cryptographic enforcement, and a verified signature does not prove that signed code is benign. Registry signing also retains trust in the registry signing authority. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-package-managers-have-an-integrity-problem.md)
+
+### Explicit relationships
+
+Package integrity depends-on trusted hashes/identities and fail-closed verification; provenance uses signatures and transparency evidence. See [[container-supply-chain-and-compliance]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Original research report with bounded threat model; captured findings are historical observations, not a live vulnerability matrix or universal default-policy claim. Author-key compromise and secure package-manager updates lie outside parts of the experiment. Do not adopt its broad NuGet signature wording or Windows execution-policy footnote as verified security guarantees. Pinned positive/negative restore tests and current official docs are needed before policy changes. No package feed or trust setting was changed. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which pinned restore paths reject tampered content, missing/untrusted signatures, changed lockfiles, and wrong attestation identities while preserving intended update and certificate-rotation behavior? See [[indexes/gaps]].

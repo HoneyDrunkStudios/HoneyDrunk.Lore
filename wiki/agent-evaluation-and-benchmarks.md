@@ -1637,3 +1637,44 @@ Threshold choice depends-on error costs and feasible constraints; calibrated pro
 ### Decision and quality notes
 
 Single small, privately sourced dataset; reported rankings and prices are historical experiment observations, not live model advice. superseded-by: [qualified threshold interpretation](#2026-10-23-decision-model-thresholds-and-probability-calibration-require-separate-validation), 2026-10-23T18:48:20-04:00; the stricter interpretation of the comparison as minimum-constrained throughout is superseded by the explicit fold audit, which is more specific than the prose prompt. The rejected interpretation is retained in the claim above; no prior wiki text is removed. Latency runs are not controlled comparative throughput results, and calibration method selection can itself overfit. Private traces and domain-specific evaluation prompts were not copied. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which HoneyDrunk classifier has trustworthy labels, grouped held-out splits, explicit infeasible-threshold handling, minimum validation precision/recall, calibration checks, and measured accepted-outcome cost? See [[indexes/gaps]].
+
+
+## 2026-10-23: SRE diagnosis comparison changes context and permissions together
+
+### Typed entities
+
+project: Radar; project: SREGym; project: Kubernetes; concept: paired benchmark; concept: change history; concept: diagnosis deadline; concept: read-only identity.
+
+### Claims and evidence
+
+- The Radar maintainer reports one run per arm on 50 SREGym faults using the same coding agent/model: raw kubectl/shell versus read-only MCP context with shell fallback blocked. Context-arm diagnosis was faster and slightly more accurate in that experiment, but the arms also differed in write authority. The report explicitly says this does not isolate which context component caused the difference. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-before-you-evaluate-an-ai-sre-give-your-existing-agent-context.md)
+- The contextual tools combine ranked current failures, retained changes, resource relationships, and error-focused redacted logs. The shell arm sometimes changed resources or read Secrets during diagnosis; a task described as investigation was not intrinsically read-only. Fixed-time correctness, repeat runs, actual token cost, and replayed local incidents are proposed evaluation measures. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-before-you-evaluate-an-ai-sre-give-your-existing-agent-context.md)
+
+### Explicit relationships
+
+Diagnosis quality depends-on context, authority, and time budget; read-only investigation uses enforced resource permissions rather than task wording. See [[ai-agent-identity-and-workload-auth]] and [[kubernetes-platform-governance-and-cicd]].
+
+### Decision and quality notes
+
+Vendor-maintained tool comparison with a model judge, single attempts, and newly injected faults favorable to recent-change tracking. Its table isolates diagnosis outcomes, not remediation or a clean context-only causal effect. The later claim to measure context alone is qualified here by the explicit permission confound. Tool-call savings are not measured dollar savings. No live cluster, kubeconfig, token, or fault was created; sensitive command examples were omitted. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which SRE comparison holds model and effective read-only authority constant, repeats faults, checks judge labels, records token cost, and tests both recent and older local incidents at a fixed deadline? See [[indexes/gaps]].
+
+
+## 2026-10-23: ThinkingBox training separates repeated success from breadth and serving cost
+
+### Typed entities
+
+project: ThinkingBox-Training; project: ThinkingBox-Bench; project: Qwen3.8-27B; library: GRPO; concept: terminal-state reward; concept: parser parity; concept: policy-relative task difficulty.
+
+### Claims and evidence
+
+- The follow-up uses executable terminal-state outcomes as training rewards on a fixed, base-policy-selected pool outside the 507 benchmark tasks. Intermediate success probabilities identify tasks likely to yield contrasting rewards. Backend failures are refilled rather than labeled agent failures, and minority narrow rubric checks may still invoke an LLM judge. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-turning-database-grading-into-rl-rewards-post-training-agents-with-thinkingbox.md)
+- The reported checkpoint improves average attempt success and observed all-20 success while losing some at-least-once task coverage. The example preserved booking/payment state in all 20 attempts but matched every expected record in only 19; those are different outcomes. Finite observed 20/20 success is not a lifetime reliability guarantee. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-turning-database-grading-into-rl-rewards-post-training-agents-with-thinkingbox.md)
+- Training/evaluation share tool-output parsing, argument interpretation, and isolated task state; disjoint tasks still share framework, task style, simulated-user machinery, and some tools. The public sample list is not the private 187-task pool. Comparative serving-cost estimates exclude training and dataset-probe cost and are not cloud invoices. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-turning-database-grading-into-rl-rewards-post-training-agents-with-thinkingbox.md)
+
+### Explicit relationships
+
+Stateful RL uses executable outcomes and isolated episodes; transfer evidence depends-on data separation, parser parity, and repeated evaluation. See [[ai-assisted-software-practice]] and [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+Joint first-party benchmark/training account, correlated with the earlier ThinkingBox report rather than independent replication. Terminal state can miss unsafe intermediate actions or unmodeled side effects, so outcome reward alone is not an authorization gate. The full reward is not exclusively deterministic. No fine-tuning, endpoint call, GPU allocation, or private dataset retrieval occurred; sample credentials and contact details were omitted. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which stateful-agent training evaluation proves disjoint authorized tasks, parser parity, hidden side-effect/trajectory checks, repeatability versus breadth, and full cost including probes and training? See [[indexes/gaps]].

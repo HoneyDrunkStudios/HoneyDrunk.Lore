@@ -977,3 +977,23 @@ Scene lifecycle uses registered delegates and matching manifests; migration acce
 ### Decision and quality notes
 
 Archived vendor migration guidance, not live Apple support verification. Exact versions and support floors need a current primary-source check before implementation. Existing runner-image GA evidence does not prove application compatibility. No project, SDK, skill, or deployment target was changed. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which MAUI targets and shipping plist configurations prove scene registration, supported OS policy, window readiness, authentication, warm/cold links, notification routing, and App Actions on matching Debug/Release toolchains? See [[indexes/gaps]].
+
+
+## 2026-10-23: CBOR serialization still needs an application data contract
+
+### Typed entities
+
+library: System.Formats.Cbor; library: CborReader; library: CborWriter; concept: binary serialization; concept: conformance mode; concept: unknown field.
+
+### Claims and evidence
+
+- Lock introduces CBOR as a binary format with native byte strings, typed values, and definite or indefinite-length containers. Potential savings depend on data shape; the example contrasts binary values with JSON base64 overhead rather than demonstrating every payload becomes smaller. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-an-introduction-to-compact-binary-object-representation-cbor-in-net.md)
+- The described .NET APIs read/write primitives and containers rather than automatically mapping arbitrary application objects. Conformance modes affect ordering and validation; PeekState inspects the next value and ReadEncodedValue can consume an unknown value. The example DBSC challenge serializes multiple top-level values before separate Data Protection encryption. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-an-introduction-to-compact-binary-object-representation-cbor-in-net.md)
+
+### Explicit relationships
+
+CBOR uses typed binary values; secure decoding depends-on size/depth limits, schema expectations, and conformance policy. See [[realtime-game-network-protocol-design]] and [[csharp-memory-safety-and-unsafe-code]].
+
+### Decision and quality notes
+
+Secondary introduction, not a verified package history, API-availability matrix, or benchmark. The title uses Compact while the body also names the standard Concise Binary Object Representation; use CBOR without inventing a new format. The decoder assumes known shapes and finite counts and is not a general indefinite-container parser. Serialization alone does not provide authenticity or confidentiality. No package was installed or sample compiled. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which CBOR use case proves payload savings, unknown-field behavior, indefinite-container handling, resource limits, and authentication boundaries with the pinned .NET package? See [[indexes/gaps]].

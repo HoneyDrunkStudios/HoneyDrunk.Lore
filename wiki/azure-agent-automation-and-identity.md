@@ -1459,3 +1459,44 @@ Container Apps identity access depends-on environment type and lifecycle setting
 ### Decision and quality notes
 
 Official documentation capture with unknown publication date; October 21 is the clipping date only. Corroborates the October 17 troubleshooting guide, but the shared publisher is not independent validation. Lifecycle None does not revoke resource grants or prove immediate revocation of already issued tokens. The illustrative template contains placeholders and a trailing comma and is not copied as deployable JSON. No Azure resource or role was inspected or modified. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which Container Apps environment and pinned API tests prove init/main token availability, explicit user-assigned selection, platform-only identity use, target least privilege, and acceptable revocation/cache delay? See [[indexes/gaps]].
+
+
+## 2026-10-23: Blue-green traffic rollback does not restore shared application state
+
+### Typed entities
+
+project: Azure Container Apps; concept: active revision; concept: revision label; concept: traffic weight; concept: blue-green deployment; concept: rollback.
+
+### Claims and evidence
+
+- The captured guide combines multiple active revisions, deterministic revision suffixes, labels, and explicit traffic weights. A candidate with zero weighted app traffic remains reachable through its label-specific hostname for tests; zero weight is not an access-control boundary. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-web-blue-green-deployment-in-azure-container-apps.md)
+- Source inconsistency retained: the rollback CLI comment says send traffic to green, but its actual weights are blue=100/green=0 and the surrounding prose/ARM example describe restoring blue. Those mutually consistent instructions establish the intended rollback direction. Reassigning traffic does not undo database, secret, queue, or other external-state mutations. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-web-blue-green-deployment-in-azure-container-apps.md)
+
+### Explicit relationships
+
+Blue-green routing uses revision labels and weights; rollback safety depends-on compatible shared state and target-revision health. See [[distributed-systems-patterns]] and [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+Official snapshot with unknown original publication date, illustrative old/preview API versions, and no deployment validation. superseded-by: [blue rollback interpretation](#2026-10-23-blue-green-traffic-rollback-does-not-restore-shared-application-state), 2026-10-23T18:55:13-04:00; the incorrect green comment is superseded by actual weights and consistent prose/ARM evidence, with the rejected comment preserved above. Test labels, secrets, schema compatibility, background workers, and in-flight work before a traffic change. No external ingress, resource, revision, or traffic was changed. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which blue-green release verifies label access controls, candidate health, shared schema/secret compatibility, background processing, in-flight requests, and rollback beyond restoring traffic weights? See [[indexes/gaps]].
+
+
+## 2026-10-23: Secret lifecycle and execution permission extend beyond direct secret reads
+
+### Typed entities
+
+project: Azure Container Apps; project: Azure Key Vault; concept: listSecrets permission; concept: job execution template; concept: secret reference; concept: rotation; concept: revision lifecycle.
+
+### Claims and evidence
+
+- The guide defines app-scoped secrets outside revisions: ordinary value edits do not create revisions or automatically refresh running instances. Versionless Key Vault references have a separate documented retrieval/restart mechanism; secret-reference wiring is distinct from the source value and selected identity. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-web-manage-secrets-in-azure-container-apps.md)
+- Wildcard operational roles can include plaintext listSecrets access. Job start permission can also enable a caller-controlled execution template to use known job secrets and available managed identities even without listSecrets. Effective resource scope and usable execution authority must therefore be reviewed alongside direct read permissions. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-web-manage-secrets-in-azure-container-apps.md)
+- Secrets can feed environment variables, scale rules, or selected/all mounted secret files. The guide recommends removing references and deactivating referencing revisions before deletion. Key Vault resolution depends on managed identity, target grants, enabled source values, and network reachability. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-web-manage-secrets-in-azure-container-apps.md)
+
+### Explicit relationships
+
+Secret exposure depends-on effective role and execution authority; safe rotation depends-on reference type, identity, refresh, and revision behavior. See [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+Official snapshot with unknown publication date; corroborates earlier Microsoft security/troubleshooting captures without independent replication. Example ARM fragments contain missing expression brackets/annotations and are not deployable templates; versioned URLs in docs are not HoneyDrunk policy to pin secret versions. Exact refresh interval and tool support need current target checks. No secret was listed/read, permission granted, or resource changed; example values and identity IDs were not copied. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which secret-rotation and job-authority checks prove least-privilege effective permissions, revision refresh, selected volume exposure, safe removal, network failure behavior, and controlled execution-template overrides? See [[indexes/gaps]].

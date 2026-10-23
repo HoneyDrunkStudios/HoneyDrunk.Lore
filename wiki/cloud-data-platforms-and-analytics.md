@@ -297,3 +297,23 @@ Connection behavior depends-on engine architecture, client pooling, and workload
 ### Decision and quality notes
 
 Vendor comparison with promotional framing. superseded-by: [bounded connection interpretation](#2026-10-23-sql-connection-architecture-does-not-remove-finite-workload-capacity), 2026-10-23T18:48:20-04:00; the unbounded reading of the broad prose is superseded by its specific workload/service-tier caveat and the earlier Pool V2 section. The rejected prose interpretation is preserved above. The October 6 publication predates the October 18 Pool V2 report even though captured later; neither source establishes actual HoneyDrunk capacity. Pooling, transaction lifetime, timeouts, and bounded concurrency remain workload questions. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which SQL deployment and client-pool load tests establish session/worker limits, transaction duration, connection leaks, cancellation, cold bursts, and bounded concurrency at the selected service tier? See [[indexes/gaps]].
+
+
+## 2026-10-23: Cascading deletion couples transaction size to locks and replication
+
+### Typed entities
+
+project: PostgreSQL; project: PlanetScale; concept: cascading delete; concept: lock queue; concept: logical replication; concept: soft delete; concept: bounded reaper.
+
+### Claims and evidence
+
+- PlanetScale describes large cascading deletes holding table locks while producing row/index/WAL work. A queued exclusive schema change can make subsequent writes wait behind it; missing indexes on referencing columns amplify lookup cost. A migration lock timeout bounds one wait but does not remove the large transaction itself. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-i-don-t-trust-on-delete-cascade.md)
+- The article distinguishes publisher child deletes from subscriber trigger behavior under logical replication. Omitted child tables, subscriber-only children, and unusable replica identity can break the assumed cleanup contract. Its alternative combines an immediate logical-delete flag, filtering all relevant reads, and later bounded physical deletion. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-i-don-t-trust-on-delete-cascade.md)
+
+### Explicit relationships
+
+Deletion safety depends-on transaction bounds, complete relationships, and replication topology; soft deletion uses application visibility rules plus eventual physical cleanup. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Practitioner database guidance, not a prohibition on every cascade or a tested migration. Soft deletion moves obligations to every read path, uniqueness, restoration, retention, and cleanup; it does not by itself fulfill data removal. Whole-database publication may expose more data and is not an automatic recommendation. No schema, retention rule, or record was changed. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which deletion workflow tests cascade fan-out, foreign-key indexes, queued DDL, subscriber-only state, replica identity, soft-delete visibility, and bounded irreversible cleanup? See [[indexes/gaps]].

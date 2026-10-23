@@ -388,3 +388,24 @@ Performance acceptance depends-on independent workload measurements and downstre
 ### Decision and quality notes
 
 Vendor case study with an independent-from-agent benchmark, not independently reproduced by Lore. An 11-hour run is not a general autonomous-success rate. End-to-end tests here isolate framework overhead using instant models/tools; do not promote the preparation percentage as whole-agent speedup. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk performance change preserves aliasing, mock/public contracts, and cold first-request behavior on held-out real workloads beyond passing the local suite? See [[indexes/gaps]].
+
+
+## 2026-10-23: Governed self-evolution remains a simulated policy-constrained proposal
+
+### Typed entities
+
+project: Project Chrysalis; project: Google ADK; project: Cloud KMS; library: Open Policy Agent; concept: counterfactual replay; concept: signed patch; concept: human-approved topology.
+
+### Claims and evidence
+
+- Google describes a simulated cache-stampede walkthrough that synthesizes an in-memory limiter, checks syntax/policy/provenance, records lessons, and gates specialist-graph changes on human approval. The architecture combines temporary mitigation, derived operational memory, and in-memory topology updates at different timescales. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-architecting-governed-self-evolving-ai-agents-on-google-cloud.md)
+- The demonstration removes server errors partly by shedding most requests with HTTP 429. An offline vectorized replay searches candidate token-bucket policies; its sub-millisecond sweep time is not established as end-to-end BigQuery service latency or live incident recovery time. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-architecting-governed-self-evolving-ai-agents-on-google-cloud.md)
+- Source conflict retained: the policy gate requires a replenishment rate of at least 10 requests/second, while the later reported replay optimum is 5 requests/second. Treat the lower rate as an offline candidate outside that stated feasible policy, not evidence that it can pass the same production gate unchanged. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-architecting-governed-self-evolving-ai-agents-on-google-cloud.md)
+
+### Explicit relationships
+
+Self-evolution depends-on external policy and human authority; signed artifacts use provenance checks, not proof of semantic safety. See [[ai-coding-agent-security]] and [[multi-agent-architectures]].
+
+### Decision and quality notes
+
+First-party research/demo architecture, not production acceptance or a causal-safety proof. superseded-by: [policy-qualified demo assessment](#2026-10-23-governed-self-evolution-remains-a-simulated-policy-constrained-proposal), 2026-10-23T18:55:13-04:00; the interpretation that the reported optimum satisfies every stated gate is superseded by the explicit incompatible rates. Preserve both values above. The source calls the architecture production-grade, but its reported outcomes are simulated and do not establish that readiness. Signatures and AST filtering do not prove behavior, authorization completeness, or immutable-memory correctness; short telemetry deltas alone do not establish causal credit. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which self-evolving-agent simulation separates admissible policy search from unconstrained optima, 429 shedding from fulfilled demand, signed provenance from behavior, and approved topology from worker authority? See [[indexes/gaps]].

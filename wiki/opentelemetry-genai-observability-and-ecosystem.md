@@ -763,3 +763,23 @@ Redacted export depends-on fail-closed transformation; safe cross-runtime execut
 ### Decision and quality notes
 
 Vendor engineering account, not proof that a particular SQL redaction policy covers all sensitive data. The example IP mask is not general IPv6/PII coverage. Synthetic batch throughput is not end-to-end capacity; retry/disable behavior also requires alerting and recovery validation. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which HoneyDrunk export policy tests cover schema drift, IPv6 and nested sensitive fields, failed transforms, disabled-job recovery, and retained delivery offsets? See [[indexes/gaps]].
+
+
+## 2026-10-23: Security behavior changes can ship within stable OpenTelemetry API versions
+
+### Typed entities
+
+project: OpenTelemetry; concept: SDK versioning; concept: Contrib component; concept: security exception; concept: source/binary compatibility; concept: telemetry loss.
+
+### Claims and evidence
+
+- The October 22 OpenTelemetry policy account allows narrowly necessary security changes to stable SDK/Contrib behavior, defaults, and supported values in minor or patch releases while retaining source/binary and plugin-interface compatibility. Stable API compatibility and semantic-convention/deprecation rules remain separate boundaries. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-strengthening-opentelemetry-security-while-preserving-api-stability.md)
+- The exception cannot rename/remove public APIs or configuration parameters or carry unrelated incompatibilities. Release notes must explain security benefit, before/after behavior, newly rejected input, lost/truncated telemetry, migration actions, and override risks. A compiling upgrade can still alter startup, resource limits, exports, dashboards, or alerts. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-rss-strengthening-opentelemetry-security-while-preserving-api-stability.md)
+
+### Explicit relationships
+
+Safe telemetry upgrades depend-on documented behavior changes and representative validation; API stability does not supersede operational checks. See [[dotnet-dependency-security-and-nuget]] and [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+Primary policy announcement, not a particular SDK patch or a measured local regression. The memory-limit example is hypothetical and is not recorded as an implemented default. No telemetry setting, exception, override, or dependency version was changed. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which SDK/Contrib patch review verifies release-note security changes, configuration acceptance, telemetry truncation/drop behavior, dashboards, alerts, and removal of any temporary unsafe override? See [[indexes/gaps]].
