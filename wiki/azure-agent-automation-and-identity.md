@@ -1500,3 +1500,26 @@ Secret exposure depends-on effective role and execution authority; safe rotation
 ### Decision and quality notes
 
 Official snapshot with unknown publication date; corroborates earlier Microsoft security/troubleshooting captures without independent replication. Example ARM fragments contain missing expression brackets/annotations and are not deployable templates; versioned URLs in docs are not HoneyDrunk policy to pin secret versions. Exact refresh interval and tool support need current target checks. No secret was listed/read, permission granted, or resource changed; example values and identity IDs were not copied. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which secret-rotation and job-authority checks prove least-privilege effective permissions, revision refresh, selected volume exposure, safe removal, network failure behavior, and controlled execution-template overrides? See [[indexes/gaps]].
+
+
+## 2026-10-25: Finite Container Apps jobs require explicit execution authority and queue semantics
+
+### Typed entities
+
+project: Azure Container Apps jobs; project: KEDA; project: Azure Storage Queue; project: Azure Container Registry; concept: execution template; concept: job replica; concept: at-least-once processing; decision: job start authority.
+
+### Claims and evidence
+
+- The jobs guide distinguishes continuously running apps from finite executions triggered manually, by UTC five-field cron, or by event-scale polling. Parallelism is replicas per execution; completion count is successful replicas required. Replica timeout can expire before retry attempts finish, and long-running replicas may be interrupted by platform maintenance, requiring retry-safe at-least-once work. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-web-jobs-in-azure-container-apps.md)
+- Jobs Operator and Contributor wildcard action grants include plaintext listSecrets access. Even a custom role omitting listSecrets but allowing start can submit an overriding execution template that uses known job secrets and available managed identities. A supplied template replaces the whole template for that execution, not selected fields, and does not rewrite the default job configuration. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-web-jobs-in-azure-container-apps.md)
+- The event-driven tutorial polls queue length every sixty seconds with a maximum ten executions per interval and one-message target. It instructs workers not to delete messages until processing finishes. Queue-depth scaling starts workers but is not an exactly-once per-message delivery guarantee; visibility expiry, worker failure, and duplicate effects still require workload handling. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-web-tutorial-deploy-an-event-driven-job-by-using-azure-container-apps.md)
+- The tutorial uses user-assigned managed identity for private image pull but a connection-string job secret for the queue/scaler. Registry identity therefore does not eliminate queue credential exposure or job-start authority. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-web-tutorial-deploy-an-event-driven-job-by-using-azure-container-apps.md)
+- The jobs reference limits scheduled/event execution history to the most recent hundred results and directs full history to the configured log provider; Dapr and ingress are unsupported. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-web-jobs-in-azure-container-apps.md)
+
+### Explicit relationships
+
+Job scaling uses event-source volume; safe effects depend-on idempotent processing and message lifecycle. Effective authority depends-on start templates, secrets, and identity availability. See [[distributed-systems-patterns]] and [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+Two related official captures with unknown publication dates; they are one publisher, not independent validation. Existing secret-management evidence is corroborated. The jobs guide’s sample advanced ARM fragment has a missing comma and legacy-looking fields, and its scheduled ARM paragraph is mislabeled manual; neither example is adopted as deployable code. Sidecar readiness at startup does not prove downstream service availability or remove general transient-error handling. No Azure resources, permissions, secrets, or executions were accessed. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which finite-worker tests verify template/start authority, identity and queue grants, visibility/duplicate handling, interruption recovery, polling/concurrency limits, complete logs, and target API compatibility? See [[indexes/gaps]].

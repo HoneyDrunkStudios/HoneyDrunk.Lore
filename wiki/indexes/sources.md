@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-10-24
+## Compile coverage: 2026-10-25
 
-Reconciled 1307 raw documents against 1307 unique entries; ingested 0 new sources in this pass. Existing records and dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
+Reconciled 1322 raw documents against 1322 unique entries; ingested 15 new sources in this pass. Existing records and dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
 
 ## Entry format
 
@@ -1682,3 +1682,19 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [Blue-green deployment in Azure Container Apps](../../raw/2026-10-23-web-blue-green-deployment-in-azure-container-apps.md) - Container Apps blue-green guidance separates label tests, traffic weights, and shared-state rollback limits. Canonical page: [[azure-agent-automation-and-identity]]. - ingested 2026-10-23
 - [Manage secrets in Azure Container Apps](../../raw/2026-10-23-web-manage-secrets-in-azure-container-apps.md) - Container Apps secret guidance joins rotation/reference behavior with wildcard and job-start exposure. Canonical page: [[azure-agent-automation-and-identity]]. - ingested 2026-10-23
 - [What's new in C# 15](../../raw/2026-10-23-web-what-s-new-in-c-15.md) - C# 15 overview distinguishes ordinary language defaults from separately enabled memory-safety preview rules. Canonical page: [[csharp-memory-safety-and-unsafe-code]]. - ingested 2026-10-23
+
+- [Aspire Multi-repo Rollout at Scale with Agentic AI](../../raw/2026-10-25-rss-aspire-multi-repo-rollout-at-scale-with-agentic-ai.md) - Windows 365 MARS uses deterministic repo/cloud metrics, readiness gates, scoped repair, and reviewed learning; outcomes remain author-reported. - ingested 2026-10-25
+- [Audio-Reactive UI in Unity UI Toolkit: Fire, Lasers and Rain That Follow the Music](../../raw/2026-10-25-rss-audio-reactive-ui-in-unity-ui-toolkit-fire-lasers-and-rain-that-follow-the-music.md) - UI Toolkit music demo separates animation signal ownership and records simulated web audio analysis and input limits. - ingested 2026-10-25
+- [Generating daily path puzzles with exactly one solution (backbite, parity pruning and clue minimization)](../../raw/2026-10-25-rss-generating-daily-path-puzzles-with-exactly-one-solution-backbite-parity-pruning-and-clue-minimization.md) - Tracewise generates Hamiltonian paths and checks uniqueness with bounded search; reproducibility and global minimality remain qualified. - ingested 2026-10-25
+- [How abliterated models can get you pwned](../../raw/2026-10-25-rss-how-abliterated-models-can-get-you-pwned.md) - Modified-model tool backdoor demonstrated with dummy credentials; records runtime containment and finite-evaluation limits without payloads. - ingested 2026-10-25
+- [How Sensible Harness can help teams create an AI-first delivery environment](../../raw/2026-10-25-rss-how-sensible-harness-can-help-teams-create-an-ai-first-delivery-environment.md) - Thoughtworks describes tested skill templates, role handoffs, acceptance gates, blocked QA states, and task cost estimates. - ingested 2026-10-25
+- [How Specializing the Vocabulary of SLMs Can Cut Inference Cost by 77% in Real Applications](../../raw/2026-10-25-rss-how-specializing-the-vocabulary-of-slms-can-cut-inference-cost-by-77-in-real-applications.md) - VocabX author preview reports workload-specific tokenizer/runtime savings and a quality tradeoff from fusing decision tokens. - ingested 2026-10-25
+- [How Tripo P2.0 & Astra Work Together in Blender and Unity](../../raw/2026-10-25-rss-how-tripo-p2-0-astra-work-together-in-blender-and-unity.md) - Tripo vendor interview describes generated-part handoffs, human asset QA, and qualified early-to-mid production fit. - ingested 2026-10-25
+- [Introducing 1Password for Agents](../../raw/2026-10-25-rss-introducing-1password-for-agents.md) - Approved credential autofill announcement distinguishes partner rollout status, regional/account limits, and session authority. - ingested 2026-10-25
+- [ObservabilityCON 2026: A guide to all the announcements from Grafana Labs](../../raw/2026-10-25-rss-observabilitycon-2026-a-guide-to-all-the-announcements-from-grafana-labs.md) - Grafana roundup separates GA features and previews, bounded recovery windows, graph context, and unverified vendor benefits. - ingested 2026-10-25
+- [Powering the Agent Development Lifecycle with any framework, from ADK to LangChain and beyond](../../raw/2026-10-25-rss-powering-the-agent-development-lifecycle-with-any-framework-from-adk-to-langchain-and-beyond.md) - Experimental Agents CLI extensions pin command overrides and expose native bypass; LangChain support and SBOM demo are qualified. - ingested 2026-10-25
+- [Scaling GitOps With Release Promotion](../../raw/2026-10-25-rss-scaling-gitops-with-release-promotion.md) - GitOps promotion retains release/cohort verification history and gates propagation; fleet anecdotes are not universal thresholds. - ingested 2026-10-25
+- [Compensating Transaction pattern](../../raw/2026-10-25-web-compensating-transaction-pattern.md) - Compensation preserves durable domain-specific undo and concurrent changes; strict reverse order and original-state restoration are not universal. - ingested 2026-10-25
+- [Jobs in Azure Container Apps](../../raw/2026-10-25-web-jobs-in-azure-container-apps.md) - Finite jobs reference covers execution/replica semantics, effective start authority, retry-safe work, history limits, and restrictions. - ingested 2026-10-25
+- [Tutorial: Deploy an event-driven job by using Azure Container Apps](../../raw/2026-10-25-web-tutorial-deploy-an-event-driven-job-by-using-azure-container-apps.md) - Event job tutorial separates queue polling and message processing, image-pull identity and queue-secret authority. - ingested 2026-10-25
+- [Validation in ASP.NET Core](../../raw/2026-10-25-web-validation-in-asp-net-core.md) - ASP.NET Core 11.0-view validation capture covers silent metadata gaps, cross-assembly discovery, async rules, and localization/version boundaries. - ingested 2026-10-25

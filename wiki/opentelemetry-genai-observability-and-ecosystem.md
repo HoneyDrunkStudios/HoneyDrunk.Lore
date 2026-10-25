@@ -783,3 +783,24 @@ Safe telemetry upgrades depend-on documented behavior changes and representative
 ### Decision and quality notes
 
 Primary policy announcement, not a particular SDK patch or a measured local regression. The memory-limit example is hypothetical and is not recorded as an implemented default. No telemetry setting, exception, override, or dependency version was changed. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which SDK/Contrib patch review verifies release-note security changes, configuration acceptance, telemetry truncation/drop behavior, dashboards, alerts, and removal of any temporary unsafe override? See [[indexes/gaps]].
+
+
+## 2026-10-25: Grafana announcement separates GA telemetry features from previews
+
+### Typed entities
+
+project: Grafana Cloud; project: Adaptive Telemetry; project: Knowledge Graph; concept: dropped-trace recovery window; concept: managed sandbox; concept: session replay; decision: preview evaluation.
+
+### Claims and evidence
+
+- Grafana’s October 20 roundup labels Watchers, log full-text search, volumetric/diversity trace sampling, custom graph entities/relationships, and graph runtime context as generally available. Managed Sandboxes, Pages, Workflows, Session Replay, and agent graph coverage are public previews; Mobile Observability, SQL Server discovery, service ownership, and past-incident context are private previews in this snapshot. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-observabilitycon-2026-a-guide-to-all-the-announcements-from-grafana-labs.md)
+- Adaptive Logs Archive is a public preview routing selected logs to customer-owned object storage; replay is a separate private preview. Dropped-trace lookup is described as by trace ID within the last 24 hours. Diversity sampling retains unique attribute combinations every fifteen minutes. These bounded mechanisms do not establish arbitrary historical reconstruction or zero loss. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-observabilitycon-2026-a-guide-to-all-the-announcements-from-grafana-labs.md)
+- The roundup connects frontend, service, infrastructure, and custom operational context through its Knowledge Graph, and describes reviewed code-change proposals from Managed Sandboxes. Cost reductions, information-density improvements, and customer query timings are vendor/customer reports without HoneyDrunk workload validation. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-observabilitycon-2026-a-guide-to-all-the-announcements-from-grafana-labs.md)
+
+### Explicit relationships
+
+Agent investigation uses correlated telemetry and graph context; adoption depends-on feature maturity, recovery windows, ownership, privacy, and scoped sandbox authority. See [[cloud-data-platforms-and-analytics]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Vendor product roundup, not a current support matrix or operational acceptance. Native OpenTelemetry SDK reuse does not establish React Native/Flutter target compatibility. Validate consent/redaction for session replay, prompt content, and mobile traces; cost-first active-series safeguards do not guarantee total bill ceilings. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which telemetry pilot verifies preview eligibility, graph correctness, trace/archive recovery windows, rare-event fidelity, consent/redaction, mobile target support, and actual total cost? See [[indexes/gaps]].

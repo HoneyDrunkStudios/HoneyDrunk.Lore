@@ -409,3 +409,24 @@ Self-evolution depends-on external policy and human authority; signed artifacts 
 ### Decision and quality notes
 
 First-party research/demo architecture, not production acceptance or a causal-safety proof. superseded-by: [policy-qualified demo assessment](#2026-10-23-governed-self-evolution-remains-a-simulated-policy-constrained-proposal), 2026-10-23T18:55:13-04:00; the interpretation that the reported optimum satisfies every stated gate is superseded by the explicit incompatible rates. Preserve both values above. The source calls the architecture production-grade, but its reported outcomes are simulated and do not establish that readiness. Signatures and AST filtering do not prove behavior, authorization completeness, or immutable-memory correctness; short telemetry deltas alone do not establish causal credit. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which self-evolving-agent simulation separates admissible policy search from unconstrained optima, 429 shedding from fulfilled demand, signed provenance from behavior, and approved topology from worker authority? See [[indexes/gaps]].
+
+
+## 2026-10-25: Agents CLI extensions pin command replacements but permit native bypass
+
+### Typed entities
+
+project: Agents CLI; project: LangChain; project: LangGraph; project: Cloud Run; file: agents-cli-extension.yaml; file: agents-cli-extensions.yaml; concept: command override; concept: extension trust; concept: native bypass.
+
+### Claims and evidence
+
+- Google describes an extension system introduced in Agents CLI 1.5.0 and marked experimental in 1.8.0. Git-distributed manifests replace specific commands or add new ones; project scope wins over user scope, active command sources are inspectable, and a lockfile records exact SHAs. Install restores a pin while extension update advances it and renews third-party trust prompts. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-powering-the-agent-development-lifecycle-with-any-framework-from-adk-to-langchain-and-beyond.md)
+- The 1.8.0 LangChain template replaces run/playground/eval generation and handles publishing by target while retaining shared deployment and grading paths. eval.dataset and eval.optimize explicitly refuse unsupported ADK-dependent operations; publishing also refuses the Agent Runtime target. Its weather tool is simulated, so successful sample output is not a live weather or general framework-equivalence test. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-powering-the-agent-development-lifecycle-with-any-framework-from-adk-to-langchain-and-beyond.md)
+- The SBOM deployment wrapper shows a critical-vulnerability scan before delegating to native deploy. The loader sets AGENTS_CLI_DISABLE_OVERRIDES to prevent recursive wrapping, and help explicitly documents using that variable to bypass overrides. The worked verification swaps real scans for echo statements; it does not demonstrate enforced production vulnerability blocking. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-powering-the-agent-development-lifecycle-with-any-framework-from-adk-to-langchain-and-beyond.md)
+
+### Explicit relationships
+
+Agents CLI uses pinned extension code and command vectors; mandatory deployment policy depends-on independently protected execution/CI authority. LangChain lifecycle support depends-on supported command and deployment target. See [[ai-agent-harnesses]] and [[container-supply-chain-and-compliance]].
+
+### Decision and quality notes
+
+Official tutorial for an experimental system, not an installed or tested integration. superseded-by: [bypass-aware policy interpretation](#2026-10-25-agents-cli-extensions-pin-command-replacements-but-permit-native-bypass), 2026-10-25T10:07:03-04:00; the source’s broad enterprise-enforcement framing is superseded as an unavoidable security guarantee by its explicit native-bypass mechanism and demo-only scan verification, both preserved above. Pin CLI and extension versions; local code, project precedence, mutable dependencies, and shared temporary output paths need separate review. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which extension pilot verifies pinned restoration, project/user precedence, unsupported-command refusals, target compatibility, real scanner failure, and policy enforcement outside the documented native bypass? See [[indexes/gaps]].

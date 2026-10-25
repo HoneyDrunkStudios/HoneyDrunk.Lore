@@ -106,3 +106,23 @@ Loop resets use explicit state lifetimes; streamed inventory integrity depends-o
 ### Decision and quality notes
 
 Developer production account relayed by Unity, not independently inspected code. A time loop still requires state persistence within each run. Validate disk writes, version migration, carry/reset behavior, and stable keys locally. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which streamed-item ownership, door/UI reset, in-loop reload, cross-loop knowledge, interrupted-save, and migration tests qualify HoneyDrunk game persistence? See [[indexes/gaps]].
+
+
+## 2026-10-25: Daily path puzzles require completed uniqueness proofs and versioned determinism
+
+### Typed entities
+
+project: Tracewise; library: kotlin.random.Random; concept: Hamiltonian path; concept: backbite move; concept: parity pruning; concept: bounded solver; concept: clue minimality.
+
+### Claims and evidence
+
+- The Tracewise author starts from a valid snake path and uses backbite reversals to vary a Hamiltonian path while preserving validity. A DFS counts up to two solutions with checkerboard parity, dead-end, and connectivity pruning; alternative solutions guide new clues, followed by removal attempts that retain uniqueness. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-generating-daily-path-puzzles-with-exactly-one-solution-backbite-parity-pruning-and-clue-minimization.md)
+- The source explicitly treats solver node-cap exhaustion as not proven unique and adds clues. It reports same-date repeatability and a month of generation tests, with desktop JVM timings for daily boards and larger practice boards. Those tests and timings were not reproduced, and a date seed alone does not establish compatibility across future Kotlin/runtime or generator changes. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-generating-daily-path-puzzles-with-exactly-one-solution-backbite-parity-pruning-and-clue-minimization.md)
+
+### Explicit relationships
+
+Puzzle acceptance depends-on completed uniqueness checking; daily reconstruction uses seeded generation plus a compatible algorithm/runtime contract. This extends earlier bounded-search and save-version evidence on this page.
+
+### Decision and quality notes
+
+Practitioner implementation account with partial code. The removal heuristic is not proof of a globally minimum clue count, uniform random sampling, guaranteed phone latency, or unbounded-date correctness. Test unknown versus unique outcomes and pin generator, PRNG, date/time-zone, and rule versions before using shared dailies. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which puzzle corpus verifies path validity, completed uniqueness proofs, node-cap unknown states, deterministic date/time-zone behavior across pinned runtimes, and phone latency? See [[indexes/gaps]].

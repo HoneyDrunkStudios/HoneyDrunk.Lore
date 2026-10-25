@@ -2068,3 +2068,51 @@ Vendor architecture announcement, not a crash-injection test. The refund wording
 Execution reliability needs explicit non-model control mechanisms as well as model reasoning. Meta's thin router supplies sequencing/reliability gates, Docker's factory architecture supplies environmental authority boundaries, and Vercel's durable harness supplies recorded outcomes and recovery policy. confidence: 3 sources, last-confirmed 2026-10-23 (complete archived accounts reviewed; no independent execution). [Meta account](../raw/2026-10-21-rss-the-thin-orchestrator-how-we-made-our-ai-agents-more-reliable-by-givin.md), [Docker architecture](../raw/2026-10-21-rss-from-baseline-to-secure-software-factory-securing-the-systems-that-bui.md), [Vercel recovery design](../raw/2026-10-21-rss-making-every-harness-durable.md).
 
 This strengthens the shared design rationale, not one vendor stack, numerical benefit, complete security boundary, or exactly-once guarantee. These sources address different failure modes and are not replications of the same experiment. Unreinforced product-specific claims remain weaker, provisional evidence. Relationships: runtime reliability depends-on explicit state, authority, and failure policies; see [[multi-agent-architectures]] and [[ai-coding-agent-security]].
+
+
+## 2026-10-25: Fleet remediation uses deterministic health evidence and reviewed learning
+
+### Typed entities
+
+person: Jeff Liu; project: Windows 365; project: MARS; project: Aspire; library: Microsoft Agent Framework; library: GitHub Copilot SDK; concept: Metric Engine; concept: readiness gate; decision: reviewed skill promotion.
+
+### Claims and evidence
+
+- The Windows 365 account describes MARS applying check, plan, fix, validate, and learn stages to individual repositories. C# metrics define health using local file/AST evidence or external build/PR snapshots. Structured plans precede fixes; per-repository sessions use scoped tools, and existing end-to-end cloud tests validate proposed changes. Aspire multi-repository support is a custom extension of its primitives, not a built-in multi-repository feature. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-aspire-multi-repo-rollout-at-scale-with-agentic-ai.md)
+- The reliability baseline pins tooling, uses shared AppHost fixtures, waits on resource readiness, captures resource logs, and implements service-specific readiness behind standard endpoints. A local healthy process or file metric is not equivalent to a completed cloud gate. Playground fixtures replace external DevOps responses while exercising the same orchestration paths. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-aspire-multi-repo-rollout-at-scale-with-agentic-ai.md)
+- Repeated successful recipes from at least three repositories become AUTO-LEARNED proposals for human review before entering skills. The account describes both fleet convergence/stall termination and local max_iterations edges, so its no-fixed-iteration wording does not establish an unbounded local retry policy. Reported 50-plus onboarded repositories and estimated 4–8 hours saved per repository are author-reported outcomes, not a controlled productivity comparison. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-aspire-multi-repo-rollout-at-scale-with-agentic-ai.md)
+
+### Explicit relationships
+
+MARS uses Aspire resources, deterministic metrics, and graph workflows; promotion depends-on external validation and human review. This extends [[microsoft-dotnet-ai-stack]] and [[multi-agent-architectures]].
+
+### Decision and quality notes
+
+Vendor engineering case study. The two 700-plus test descriptions do not establish an independently reconciled denominator for MARS-only versus target-service tests. Full conversation tracing in the example is privacy-sensitive and is not adopted as a default; secret parameters and operational dashboard commands need separate authorization controls. No live fleet, CI run, or package was inspected. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which HoneyDrunk rollout proves per-repository isolation, independently protected health gates, bounded retries, cloud-result freshness, reviewed recipe promotion, and privacy-filtered traces? See [[indexes/gaps]].
+
+
+## 2026-10-25: Sensible Harness treats generated agent guidance as a tested artifact
+
+### Typed entities
+
+project: Sensible Harness; project: Thoughtworks; concept: template drift; concept: acceptance gate; concept: blocked QA scenario; concept: task cost accounting.
+
+### Claims and evidence
+
+- Thoughtworks describes runtime-neutral guidelines, rendered skill templates, committed outputs, template-drift CI, and prose tests. Business-analysis, developer, and QA roles exchange requirements, approved plans, implementation, and assessments through explicit workflow gates. QA marks unexecuted scenarios blocked rather than passed. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-how-sensible-harness-can-help-teams-create-an-ai-first-delivery-environment.md)
+- The developer flow records acceptance criteria in an approved plan, uses TDD cycles and conventional commits, and checks CI after PR creation and review-comment changes. Model routing is assigned per skill, and model-rate cost estimates are posted per task. The article describes repository-relative A–F audits across ten dimensions, without supplying an independent audit-accuracy or delivery-productivity evaluation. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-how-sensible-harness-can-help-teams-create-an-ai-first-delivery-environment.md)
+
+### Explicit relationships
+
+Sensible Harness uses versioned templates and explicit role handoffs; decision usefulness depends-on acceptance evidence and honest blocked-state reporting. See [[ai-assisted-software-practice]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Internal tool/hackathon account. Claims that gates cannot be skipped remain unverified without implementation and bypass tests. Model-rate reports are not total delivery cost including maintenance, human time, subscriptions, and retries. The source workflow does not change HoneyDrunk approval or ticket policy. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which harness pilot verifies template drift, acceptance-criteria coverage, gate bypass resistance, truthful blocked QA states, and full accepted-outcome cost? See [[indexes/gaps]].
+
+
+## 2026-10-25 consolidation: explicit control mechanisms gain broader design support
+
+The October 23 design rationale is reinforced by two additional authored accounts: MARS uses deterministic metrics and reviewed learning, and Sensible Harness uses tested rendered guidance and workflow checkpoints. Together with the earlier Meta router, Docker authority-boundary, and Vercel recovery accounts, five sources describe explicit mechanisms outside model reasoning. confidence: 5 sources, last-confirmed 2026-10-25 (archived accounts synthesized; no independent execution). [MARS](../raw/2026-10-25-rss-aspire-multi-repo-rollout-at-scale-with-agentic-ai.md), [Sensible Harness](../raw/2026-10-25-rss-how-sensible-harness-can-help-teams-create-an-ai-first-delivery-environment.md), [Meta](../raw/2026-10-21-rss-the-thin-orchestrator-how-we-made-our-ai-agents-more-reliable-by-givin.md), [Docker](../raw/2026-10-21-rss-from-baseline-to-secure-software-factory-securing-the-systems-that-bui.md), [Vercel](../raw/2026-10-21-rss-making-every-harness-durable.md).
+
+This strengthens a shared design rationale, with moderate confidence for scouting. The accounts address different failure modes and are not replications of one experiment or proof of complete containment, numerical savings, or exactly-once effects. Source-specific product claims remain provisional. Relationships: harness reliability depends-on explicit artifacts, authority, state, and failure policy; see [[multi-agent-architectures]] and [[ai-coding-agent-security]].

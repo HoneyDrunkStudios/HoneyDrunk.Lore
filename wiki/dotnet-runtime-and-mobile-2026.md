@@ -997,3 +997,25 @@ CBOR uses typed binary values; secure decoding depends-on size/depth limits, sch
 ### Decision and quality notes
 
 Secondary introduction, not a verified package history, API-availability matrix, or benchmark. The title uses Compact while the body also names the standard Concise Binary Object Representation; use CBOR without inventing a new format. The decoder assumes known shapes and finite counts and is not a general indefinite-container parser. Serialization alone does not provide authenticity or confidentiality. No package was installed or sample compiled. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which CBOR use case proves payload savings, unknown-field behavior, indefinite-container handling, resource limits, and authentication boundaries with the pinned .NET package? See [[indexes/gaps]].
+
+
+## 2026-10-25: Generated validation metadata is a behavior boundary in Minimal APIs and Blazor
+
+### Typed entities
+
+library: Microsoft.Extensions.Validation; library: DataAnnotationsValidator; concept: source-generated metadata; concept: assembly discovery; concept: asynchronous validation; concept: localized error; file: Program.cs.
+
+### Claims and evidence
+
+- The captured ASP.NET Core 11.0 documentation uses AddValidation and generated metadata for Minimal APIs and Blazor, excluding MVC/Razor Pages from this pipeline. Missing service registration or undiscovered types means no automatic Minimal API validation; Blazor falls back to top-level DataAnnotations without nested/collection validation or generated localization. Missing metadata can be silent despite analyzers catching some configurations. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-web-validation-in-asp-net-core.md)
+- Blazor graph roots use ValidatableType in regular C# files, with reachable types discovered automatically. A generator cannot inspect another generator’s output, so model types inside Razor components are unsupported. Separate model assemblies need their own validation registration/generator invocation, called from the host; host-only registration does not generate referenced-assembly metadata. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-web-validation-in-asp-net-core.md)
+- The guide orders property validation before type-level and object validation, skipping later stages after earlier errors. Async rules can run concurrently without ordered completion; async invocation calls only the async implementation. Minimal APIs use that path, and Blazor field validation and EditForm submission use the asynchronous path in the described .NET 11 behavior. Localization requires a localizer factory and selected CurrentUICulture; registration alone does not choose culture. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-web-validation-in-asp-net-core.md)
+- The snapshot says ValidatableType/SkipValidation attributes are experimental for .NET 10 with embedded-attribute workarounds in qualifying Web/Razor projects, but no longer experimental in .NET 11. Nullable Minimal API value-type validation is described as a limitation before .NET 11. These version-specific statements do not establish support in an older pinned project. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-web-validation-in-asp-net-core.md)
+
+### Explicit relationships
+
+Automatic validation depends-on registration, discovery, assembly boundaries, and framework/version. Localized messages depend-on generated metadata plus resource and culture configuration. See [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+Official 11.0-view snapshot with duplicated fallback tables and several links pointing to the 10.0 view; publication date is unknown. Duplicate passages are one source. Async support, nested graph coverage, member-path errors, cross-assembly discovery, and culture behavior need pinned-version tests before implementation. No package, framework version, warning suppression, or application code was changed. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which pinned Minimal API/Blazor tests verify invalid-handler exclusion, nested/cross-assembly discovery, silent-metadata failures, async cancellation/order, member paths, and localized fallback behavior? See [[indexes/gaps]].

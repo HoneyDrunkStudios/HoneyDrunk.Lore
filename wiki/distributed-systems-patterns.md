@@ -434,3 +434,24 @@ Admission control uses explicit budgets; reliability depends-on bounded retry an
 ### Decision and quality notes
 
 Vendor explanation, not an exhaustive survey of database governors or a mandate for model-based admission. Its analogy between inference and deterministic gates does not override the wiki evidence that classifiers need independent authorization. Distributed atomicity, fairness, clock behavior, and refunds need implementation-specific evidence. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk workload has explicit rejection behavior, bounded retries, atomic concurrent budget accounting, clock-skew handling, and fair cost reconciliation? See [[indexes/gaps]].
+
+
+## 2026-10-25: Compensation restores a valid business outcome rather than the original snapshot
+
+### Typed entities
+
+project: Azure Container Apps; project: Azure Service Bus; project: Azure Cosmos DB; concept: compensating transaction; concept: idempotent undo; concept: irreversible step; concept: durable progress.
+
+### Claims and evidence
+
+- The Microsoft pattern warns that restoring an original snapshot can overwrite concurrent changes. Compensation records forward progress and domain-specific undo information, preserves that evidence durably, resumes after failure, and makes repeatable undo commands idempotent. A compensated business outcome can differ from the pre-operation state, such as a partial refund. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-web-compensating-transaction-pattern.md)
+- An introductory workflow/diagram rewinds steps in reverse order, but the explicit considerations allow another order or parallel undo when business dependencies demand it. Transient failures may be retried first, alternative forward paths may be preferable, and high-impact choices can pause for human review. Irreversible steps should follow critical validation rather than be assumed undoable. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-web-compensating-transaction-pattern.md)
+- The reference Azure flow coordinates commands through Service Bus, persists execution/compensation state in Cosmos DB, and escalates repeated failures via dead letters, correlated telemetry, and operator intervention. It recommends managed identity and least privilege. This is an illustrative design, not an exactly-once or automatic cross-service transaction guarantee. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-web-compensating-transaction-pattern.md)
+
+### Explicit relationships
+
+Compensation depends-on durable undo evidence, domain rules, and idempotency; recovery uses retry, alternate progress, and explicit escalation. See [[azure-service-bus-and-functions-messaging]] and [[azure-agent-automation-and-identity]].
+
+### Decision and quality notes
+
+Official architecture capture with unknown publication date. superseded-by: [dependency-aware compensation interpretation](#2026-10-25-compensation-restores-a-valid-business-outcome-rather-than-the-original-snapshot), 2026-10-25T10:07:03-04:00; a universal strict-reverse-order reading of the introductory diagram is superseded by the source’s explicit exception allowing different order and parallel steps, with both statements retained above. The pattern is unsuitable where temporary inconsistency is unacceptable or no valid compensation is possible. No workflow or data store was changed. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which workflow proves concurrent-update-safe compensation, durable progress recovery, idempotent retries, uncertain-outcome reconciliation, irreversible-step ordering, and manual escalation? See [[indexes/gaps]].

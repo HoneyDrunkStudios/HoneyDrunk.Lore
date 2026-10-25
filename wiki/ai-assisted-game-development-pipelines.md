@@ -231,3 +231,23 @@ Unity CLI uses Pipeline to operate a connected Editor; interpreting activity dep
 ### Decision and quality notes
 
 Vendor telemetry, not success rate, accepted game quality, productivity, or a representative count of all Unity developers. Events, command runs, and unique users are distinct denominators; market/country rankings are unnecessary here. This extends the earlier plugin account without adding independent tool validation. No Editor command or install was run. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which Unity agent workflow measures accepted scene/build outcomes, failures, repair effort, and human review time separately from command/event counts? See [[indexes/gaps]].
+
+
+## 2026-10-25: Generated 3D parts require reviewed DCC and engine handoffs
+
+### Typed entities
+
+project: Tripo P2.0; project: Tripo H3.1; project: Astra; project: Blender; project: Unity; concept: part assembly; concept: deformation review; decision: asset admission.
+
+### Claims and evidence
+
+- The Tripo interview divides work between specialized mesh generation and agent-driven DCC/engine assembly. Separately generated body, head, hair, or props allow component-specific refinement before assembly, rigging, animation, and integration. Reported controls include mesh density, topology, part separation, materials, scale, orientation, and pivot. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-how-tripo-p2-0-astra-work-together-in-blender-and-unity.md)
+- The interview calls generated assets production-ready in broad promotional language, but later locates present workflow fit in early-to-mid production and acknowledges manual refinement of deformation, facial expressions, secondary motion, and hero assets. Its explicit QA includes silhouette, proportions, part alignment, joints in motion, and consistent materials. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-how-tripo-p2-0-astra-work-together-in-blender-and-unity.md)
+
+### Explicit relationships
+
+Generated asset admission depends-on human art direction, DCC cleanup, and target-engine checks; Tripo generation uses Astra-assisted downstream workflows. See [[technical-art-community-and-talent-signals]] and [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Vendor interview, not licensed production acceptance or a reproducible speed comparison. superseded-by: [qualified asset-readiness interpretation](#2026-10-25-generated-3d-parts-require-reviewed-dcc-and-engine-handoffs), 2026-10-25T10:07:03-04:00; the universal production-ready interpretation is superseded by the same source’s narrower production-stage answer and explicit cleanup caveats, with the earlier wording preserved above. No asset was generated, purchased, imported, or admitted. Fan-game examples establish neither redistribution rights nor project suitability. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which generated asset passes provenance/licensing, silhouette, topology, UV/material, scale/pivot, rig deformation, animation, and target-device performance review before admission? See [[indexes/gaps]].

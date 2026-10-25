@@ -144,3 +144,23 @@ flux9s uses Kubernetes watches and Flux inventories; operational access depends-
 ### Decision and quality notes
 
 Maintainer release account, not installation or cluster verification. A read-only interface default does not reduce the underlying credential permissions, and opting into mutation needs its own operational scope. No cluster access performed. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which Flux versions, watch/reconnect cases, inventory edges, log permissions, and least-privilege kubeconfig tests qualify a HoneyDrunk flux9s pilot? See [[indexes/gaps]].
+
+
+## 2026-10-25: Release promotion retains verification history between rollout waves
+
+### Typed entities
+
+person: Jesse Suen; project: ApplicationSet Progressive Syncs; project: Rancher Fleet; project: OCM; concept: release promotion; concept: verification history; concept: blast radius.
+
+### Claims and evidence
+
+- Suen distinguishes GitOps synchronization and rollout sequencing from tracking an identified release, its verification history, and eligibility for the next cluster cohort. Existing tools already have wave/partition health gates; the argument is to assess the remaining promotion contract rather than assume every controller broadcasts blindly. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-scaling-gitops-with-release-promotion.md)
+- The contributed account describes an unnamed fleet of over 200 clusters where validation took weeks and propagation about an hour. It proposes starting with a small group, requiring explicit checks before advancing, and keeping later groups on the previous version after failure. Those fleet sizes and timings are anecdotal context, not universal thresholds or a measured tool comparison. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-scaling-gitops-with-release-promotion.md)
+
+### Explicit relationships
+
+Release promotion uses version identity, cohort state, and retained evidence; safe rollout depends-on tested failure-to-advance behavior. See [[distributed-systems-patterns]] and [[github-actions-platform-operations]].
+
+### Decision and quality notes
+
+Practitioner/vendor-associated contributed guidance. Do not infer that a new promotion product is necessary if existing tooling satisfies the contract. Halt behavior is distinct from restoring databases, secrets, and in-flight effects after a failed wave. No cluster or release configuration was changed. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which release workflow records immutable version/cohort identity and verification history, proves failed-wave halting, and validates shared-state compatibility and recovery? See [[indexes/gaps]].

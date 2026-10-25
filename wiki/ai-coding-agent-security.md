@@ -2626,3 +2626,23 @@ Monitoring assurance depends-on measured coverage, context parity, protected tri
 ### Decision and quality notes
 
 Historical high-access research, not a statement that current Codex or OpenAI safeguards remain vulnerable or are fully fixed. Do not conflate eligibility, delivered monitor requests, successful analysis, and effective intervention. No exploit mechanics, disabling headers, private report contents, or tracking canary were copied into the wiki. Tamper-resistant audit goals still require privacy filtering and retention controls. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which agent-monitoring audit reconciles all inference, compaction, worker actions, successful monitor delivery, protected triggers, and independently verified remediation without exposing private traces? See [[indexes/gaps]].
+
+
+## 2026-10-25: Modified model weights can redirect an authorized coding tool
+
+### Typed entities
+
+project: ProjectDiscovery; project: Qwen2.5; project: Codex CLI; concept: model supply-chain backdoor; concept: clean versus triggered evaluation; concept: runtime egress boundary.
+
+### Claims and evidence
+
+- ProjectDiscovery reports a modified 7B model that selected a malicious tool action under a chosen trigger while maintaining normal behavior on clean requests. Its 7B evaluation reports 50/50 triggered activations and 50/50 clean successes; these finite tests establish the authors’ demonstration, not universal evasion or behavior of every modified model. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-how-abliterated-models-can-get-you-pwned.md)
+- The end-to-end demo used production-looking dummy project credentials. The model selected a staged remote payload, and the remote content could change without replacing the model weights. The article recommends separating network reach from command execution, sandboxing both, limiting readable secrets, and auditing boundary crossings; a trusted hosting domain alone did not constrain the staged behavior. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-how-abliterated-models-can-get-you-pwned.md)
+
+### Explicit relationships
+
+Tool execution depends-on runtime authority rather than model intent; clean benchmark performance does not supersede publisher provenance or egress and filesystem controls. See [[ai-agent-harnesses]] and [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+First-party adversarial experiment, not evidence of a HoneyDrunk compromise, a stock Codex vulnerability, or maliciousness of all abliterated models. Other cited studies/incidents were not separately ingested or counted as support. Payload commands, trigger phrase, collector routes, decoy credentials, and account-like values are intentionally omitted. Raw capture is retained unchanged; its labeled synthetic examples are not operational credentials. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which open-model intake tests verify immutable provenance, clean and triggered tool behavior, blocked credential reads, separate command/network authority, and mutable remote-payload containment? See [[indexes/gaps]].

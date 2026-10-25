@@ -1903,3 +1903,23 @@ MethodReload uses compile-time dispatch and interpreted replacements; device suc
 ### Decision and quality notes
 
 Experimental vendor feature, not installed or device-tested here. superseded-by: [device-qualified reload assessment](#2026-10-23-methodreload-narrows-edits-and-retains-device-specific-binding-limits), 2026-10-23T18:55:13-04:00; the universal Editor-to-hardware promise is superseded by the more specific binding/stripping limitations retained above. Verify original compiled behavior after a clean build and bound watcher/device authority. A method-body reload does not recreate state or prove production performance. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which MethodReload experiment tests player defines, stripped/missing APIs, coroutine replacement, refresh restoration, reconnects, and parity with a clean compiled device build? See [[indexes/gaps]].
+
+
+## 2026-10-25: Audio-reactive UI separates signal ownership and target-platform behavior
+
+### Typed entities
+
+person: twitched; project: Cascade Audio Studio; library: Cascade; project: Unity UI Toolkit; concept: tween handle; concept: additive motion; concept: simulated audio analysis.
+
+### Claims and evidence
+
+- The author synchronizes visual genre changes through one shared morph value, separates loudness-driven scale from beat-driven movement, and retains effect-loop handles for pause/resume. The turntable stores its angle directly rather than reading a resolved style value that lagged one frame, and measures scratch speed each frame to stop stale motion when the pointer stops. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-audio-reactive-ui-in-unity-ui-toolkit-fire-lasers-and-rain-that-follow-the-music.md)
+- In this web build, the ring and beats use a tempo-based simulated signal rather than live spectrum analysis; reverse scratches are silent, only the level mixer fader affects sound, and playback waits for a user gesture. These are reported demo/platform constraints, not proof that every Unity web audio implementation has identical limitations. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-audio-reactive-ui-in-unity-ui-toolkit-fire-lasers-and-rain-that-follow-the-music.md)
+
+### Explicit relationships
+
+Cascade uses UI Toolkit scheduling; responsive animation depends-on distinct property ownership and explicit state. Native and web behavior depends-on target audio capabilities. See [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+Library-author demonstration, not a performance benchmark or engine support matrix. Randomized loop lengths do not prove mathematically nonrepeating motion. No demo, package, audio path, or physical input was tested; visual animation is distinct from real audio-analysis acceptance. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which target builds verify real versus simulated audio analysis, pause/resume, rapid morph interruption, scratch-stop behavior, audio unlock, and weakest-device frame cost? See [[indexes/gaps]].

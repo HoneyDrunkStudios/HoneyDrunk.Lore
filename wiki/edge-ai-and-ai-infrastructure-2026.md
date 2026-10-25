@@ -1362,3 +1362,24 @@ Snapshot durability depends-on artifact publication and metadata commit; safe re
 ### Decision and quality notes
 
 Detailed vendor architecture, not independent measurements or a HoneyDrunk deployment. Isolation, lease readiness, endpoint health, and durability are distinct properties. Preexisting redaction markers in image URLs remain only in the immutable capture; no secret-like URL material is promoted. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which checkpoint crash-window, external-effect, cold/warm resume, proxy-policy, and credential-exposure tests qualify a HoneyDrunk microVM evaluation? See [[indexes/gaps]].
+
+
+## 2026-10-25: Vocabulary specialization measures decode cost and preserves decision tokens
+
+### Typed entities
+
+project: Dharma AI; project: VocabX; project: Qwen3-4B; library: vLLM; concept: macro token; concept: cost-weighted vocabulary; concept: LM head; concept: grading decision.
+
+### Claims and evidence
+
+- Dharma AI describes rebuilding subword vocabulary plus budgeted multiword macros using field-dependent token cost, with a statistical estimate for sampled-out candidates. Vocabulary size also affects output-layer work; adding tokens can reduce sequence length while increasing serving cost. The reported 7.4 output/input cost ratio is workload- and hardware-dependent, not a general billing rule. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-how-specializing-the-vocabulary-of-slms-can-cut-inference-cost-by-77-in-real-applications.md)
+- For a Portuguese essay grader, seven tokenizer variants used the same base, training recipe, data, and seed, then 500 requests on an RTX 5090 with vLLM. The selected variant reportedly reduced average response tokens from 350 to 101 and runtime-derived inference cost by 77%, with a composite bench score rising from 0.703 to 0.810. It changes tokenizer/vocabulary and retrains variants; this is not a drop-in change to unchanged deployed weights. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-how-specializing-the-vocabulary-of-slms-can-cut-inference-cost-by-77-in-real-applications.md)
+- A more compact macro fused each grade with its JSON structure and scored 0.689; separating the grade cost two extra tokens per response and improved both measured quality and runtime cost in that experiment. Broader fifteen model/domain comparisons report estimated cost, which is distinct from the grader’s measured runtime-based result. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-how-specializing-the-vocabulary-of-slms-can-cut-inference-cost-by-77-in-real-applications.md)
+
+### Explicit relationships
+
+VocabX uses cost-weighted vocabulary adaptation; useful compression depends-on preserving task decisions and measuring complete serving behavior. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Author preview of a paper still in preparation/review; detailed tables and methodology are not fully available in this capture. No independent replication, significance estimate, provider invoice savings, retraining amortization, or out-of-domain robustness is established. Title-level savings remain a scoped experimental result. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which specialized workload preserves decision quality and out-of-domain handling while measuring tokenizer retraining, vocabulary memory, batch/context effects, and total serving cost? See [[indexes/gaps]].

@@ -275,3 +275,23 @@ OAuth authority depends-on validated flow/session/tenant binding and granted sco
 ### Decision and quality notes
 
 Threat-research synthesis, not an OAuth specification or proof that every token defeats MFA, password reset, conditional access, or network restrictions. Its universal wording is narrowed to the described bearer-token and consent scenarios; the earlier Google refresh-token DPoP record remains distinct. Exploit URLs, victim examples, campaign identifiers, and personal data were omitted. No consent policy or registered application was changed. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which OAuth integrations prove initiating-user/session binding, exact callbacks, client/tenant/connector isolation, narrow grants, sender-constrained token behavior, and provider-specific revocation after compromise? See [[indexes/gaps]].
+
+
+## 2026-10-25: Approved credential autofill and authenticated session authority are distinct
+
+### Typed entities
+
+person: John Torrey; project: 1Password for Agents; concept: credential autofill; concept: sign-in approval; concept: integration availability; concept: authenticated session.
+
+### Claims and evidence
+
+- The October 22 announcement describes agents requesting a selected vault login and the user approving destination-site autofill, keeping passwords and one-time codes outside the model’s credential-handling path. It says safeguards differ by integration; this is the vendor’s design claim, not independently verified browser isolation. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-introducing-1password-for-agents.md)
+- Availability is explicitly staged: some partner integrations are rolling out while others, including the named OpenAI and Anthropic integrations, are coming soon. The capture states Individual/Family accounts on the .com service are supported at no additional cost, with .eu and .ca unsupported at that time. These are dated announcement terms, not live availability or pricing advice. confidence: 1 source, last-confirmed 2026-10-25 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-25-rss-introducing-1password-for-agents.md)
+
+### Explicit relationships
+
+1Password autofill uses selected-login approval; post-login action authority depends-on the authenticated session and destination permissions. Secret invisibility does not supersede task scope, consent, or audit requirements. See [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Vendor announcement with partner-specific rollout statements. Verify destination binding, model-visible DOM/screenshots, OTP handling, disconnect behavior, and already-created sessions before reliance. Disconnecting a vault integration is not proof that destination sessions or downstream grants are revoked. No vault, login, integration, or account setting was accessed. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which supported credential integration verifies destination binding, model-visible data, OTP isolation, task-scoped session actions, and disconnect versus destination-session revocation? See [[indexes/gaps]].
