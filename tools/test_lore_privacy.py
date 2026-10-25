@@ -86,6 +86,46 @@ class PrivacyTests(unittest.TestCase):
         for token in ['ghp_' + 'a' * 36, 'Bearer ' + 'b' * 30, 'AKIA' + 'A' * 16]:
             self.assertNotEqual(privacy.redact_text(token), token)
 
+    def test_connection_string_passwords(self):
+        password = 'Synthetic-' + 'p' * 12
+        for value in ['postgresql://admin:' + password + '@db.example.invalid:5432/app',
+                      'DATABASE_URL=postgres://admin:' + password + '@db.example.invalid/app',
+                      'mongodb+srv://reader:' + password + '@cluster0.example.invalid/db',
+                      'redis://:' + password + '@10.0.2.15:6379/0',
+                      'amqps://guest:' + password + '@broker.example.invalid',
+                      'Server=db.example.invalid;User Id=sa;Password=' + password + ';Encrypt=true',
+                      'Host=db;Username=app;Pwd=' + password + ';']:
+            with self.subTest(form=value[:20]):
+                cleaned, count = privacy.redact_secrets(value)
+                self.assertEqual(count, 1)
+                self.assertNotIn(password, cleaned)
+                self.assertEqual(privacy.redact_secrets(cleaned), (cleaned, 0))
+        self.assertEqual(privacy.redact_text('postgresql://admin:' + password + '@db.example.invalid/app'),
+                         'postgresql://admin:[redacted-secret-like-value]@db.example.invalid/app')
+
+    def test_connection_strings_without_passwords_kept(self):
+        for value in ['postgresql://db.example.invalid:5432/app',
+                      'https://abc123@o456.ingest.sentry.io/789',
+                      'Server=(localdb)\\Lore;Database=Lore;Integrated Security=true;',
+                      'https://example.org:8443/path',
+                      'https://example.org:8443?next=a@b',
+                      'var password = GetPassword();']:
+            with self.subTest(form=value[:20]):
+                self.assertEqual(privacy.redact_text(value), value)
+
+    def test_glued_env_dump(self):
+        # Scraped pages often lose newlines, so keys run straight into the next variable.
+        dump = ('AWS_ACCESS_KEY_ID=AKIA' + 'B' * 16 + '8AWS_SECRET_ACCESS_KEY=' + 'c' * 40
+                + '9STRIPE_SECRET_KEY=sk_live_' + 'd' * 24 + '10')
+        cleaned = privacy.redact_text(dump)
+        for value in ['B' * 16, 'c' * 40, 'd' * 24]:
+            self.assertNotIn(value, cleaned)
+
+    def test_stripe_keys(self):
+        for prefix in ['sk_live_', 'sk_test_', 'rk_live_', 'whsec_']:
+            with self.subTest(prefix=prefix):
+                self.assertNotIn('e' * 24, privacy.redact_text('key ' + prefix + 'e' * 24))
+
     def test_browser_metadata_body_and_filename(self):
         with tempfile.TemporaryDirectory() as directory, patch.object(browser, 'RAW', Path(directory)):
             name = browser.write_raw('https://example.org/' + fake_token(), fake_token(),
