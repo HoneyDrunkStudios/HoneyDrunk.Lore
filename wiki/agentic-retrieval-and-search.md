@@ -160,3 +160,24 @@ RAG routing uses structured decisions; safe abstention depends-on calibrated pro
 ### Decision and quality notes
 
 Practitioner proposal, not a controlled latency/cost result. Example 0.9/0.6 bands are not universal thresholds. The rhetorical claim of no hallucinations is interpreted narrowly as constrained output format, not factual correctness; sentence splitting is not proven claim decomposition. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk routing labels, calibrated abstention bands, privacy constraints, claim boundaries, and shadow-run quality/cost results justify a decision-model pilot? See [[indexes/gaps]].
+
+
+## 2026-10-27: EmbeddingGemma 2 shares a vector space across selectively loaded encoders
+
+### Typed entities
+
+project: EmbeddingGemma 2; library: sentence-transformers; concept: multimodal retrieval; concept: Matryoshka truncation; concept: query/document prompt.
+
+### Claims and evidence
+
+- Google describes one checkpoint with a shared 768-dimensional space and selectively loaded text/code, vision, and audio encoders, ranging from 270M text/code parameters to 740M with all modalities. It states Apache 2.0 licensing and sentence-transformers 6.1.0 or later for the illustrated integration. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-rss-embeddinggemma-2-the-developer-guide.md)
+- The guide distinguishes search-query and document prompts, media inputs without a prompt, and normalized truncation to smaller dimensions. Query and document dimensions must match. The shared 8,192-token context includes all modalities; video defaults to one sampled frame per second and audio expects 16 kHz mono. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-rss-embeddinggemma-2-the-developer-guide.md)
+- The vendor reports modality-dependent quality loss with truncation and compatible existing embeddings when enabling additional encoders from the same checkpoint. Parameter count and vector-storage arithmetic do not measure end-to-end device memory, indexing cost, or retrieval quality. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-rss-embeddinggemma-2-the-developer-guide.md)
+
+### Explicit relationships
+
+Multimodal retrieval uses shared embeddings; index compatibility depends-on checkpoint, prompts, dimensions, normalization, and preprocessing. See [[edge-ai-and-ai-infrastructure-2026]].
+
+### Decision and quality notes
+
+Official developer guide; benchmark percentages remain vendor-reported. Image-only tables are not transcribed or inferred. No runtime, model download, license audit, or index migration was performed. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which pinned multimodal retrieval corpus verifies query/document prompts, preprocessing, dimensions, recall, device memory, and migration compatibility before choosing encoder and truncation settings? See [[indexes/gaps]].

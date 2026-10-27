@@ -900,6 +900,8 @@ Single implementation report with platform/version-specific numbers. A substitut
 
 ## 2026-10-16: .NET 11 RC2 advances the captured release stage
 
+superseded-by: [October out-of-band release-stage evidence](#2026-10-27-october-out-of-band-servicing-advances-patch-levels-and-the-net-11-release-stage); timestamp: 2026-10-27T10:10:17-04:00; reason: The October 25 official announcement advances RC2 to RC3 for the listed security fixes. The RC2 observation remains dated history; RC3 is not GA.
+
 ### Typed entities
 
 project: .NET 11 RC2; library: NuGet; library: .NET MAUI; concept: go-live support; concept: file locking.
@@ -1019,3 +1021,86 @@ Automatic validation depends-on registration, discovery, assembly boundaries, an
 ### Decision and quality notes
 
 Official 11.0-view snapshot with duplicated fallback tables and several links pointing to the 10.0 view; publication date is unknown. Duplicate passages are one source. Async support, nested graph coverage, member-path errors, cross-assembly discovery, and culture behavior need pinned-version tests before implementation. No package, framework version, warning suppression, or application code was changed. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which pinned Minimal API/Blazor tests verify invalid-handler exclusion, nested/cross-assembly discovery, silent-metadata failures, async cancellation/order, member paths, and localized fallback behavior? See [[indexes/gaps]].
+
+
+## 2026-10-27: October out-of-band servicing advances patch levels and the .NET 11 release stage
+
+### Typed entities
+
+project: .NET 8; project: .NET 9; project: .NET 10; project: .NET 11 RC3; concept: Brotli decompression; concept: Linux tarball ownership; decision: packaging-specific remediation.
+
+### Claims and evidence
+
+- Microsoft lists .NET 8.0.33, 9.0.22, 10.0.14, and .NET 11 RC3 for the October 25 out-of-band release. The announcement says the October 13 release incompletely addressed CVE-2026-70197 and CVE-2026-102870, with fixes supplied in this update. RC3 advances the captured release stage without establishing general availability. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-rss-net-october-2026-out-of-band-security-updates.md)
+- The post identifies Brotli memory-corruption exposure through request decompression, automatic HttpClient response decompression, and Brotli APIs; the two middleware/client decompression options are not enabled by default. It states .NET Framework is unaffected. Linux tarball ownership exposure differs: source-build artifacts on .NET 10/11, also ASP.NET Core runtime tarballs on .NET 8/9. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-rss-net-october-2026-out-of-band-security-updates.md)
+- Framework-dependent deployments need the updated targeted runtime and restart. Self-contained applications need rebuild/republish; containers need rebuilt redeployment; source-build and affected tarball consumers need refreshed artifacts. A host runtime listing alone does not verify bundled deployments. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-rss-net-october-2026-out-of-band-security-updates.md)
+
+### Explicit relationships
+
+OOB servicing supersedes earlier captured patch levels and RC2 for these fixes. Remediation depends-on deployment packaging and loaded runtime. See [[dotnet-dependency-security-and-nuget]].
+
+### Decision and quality notes
+
+Official dated release announcement. Advisory links were not live-refreshed and no HoneyDrunk runtime inventory or upgrade was performed. Reported versions are captured release evidence, not an evergreen latest-version recommendation. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which framework-dependent, self-contained, container, source-build, and tarball deployments verify the OOB fixes with loaded-runtime and regression evidence? See [[indexes/gaps]].
+
+
+## 2026-10-27: ASP.NET rate limiting needs bounded partitions and complete middleware wiring
+
+### Typed entities
+
+library: Microsoft.AspNetCore.RateLimiting; library: System.Threading.RateLimiting; concept: partition key; concept: chained lease; file: Program.cs; decision: explicit rejection behavior.
+
+### Claims and evidence
+
+- The 11.0-view documentation distinguishes fixed/sliding windows, token buckets, and concurrent-request limits. Global policies and explicitly attached named policies have different scope. Endpoint policies require routing before UseRateLimiter. HoneyDrunk inference: identity-based partitions also need authentication-order tests. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-web-rate-limiting-middleware-in-asp-net-core.md)
+- Each distinct partition key caches limiter state, so unbounded attacker-controlled headers or keys can exhaust resources. DisableRateLimiting can bypass global and named limits. Status-code re-execution must be ordered so the re-executed endpoint is evaluated; test bypass and error paths as well as normal endpoints. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-web-rate-limiting-middleware-in-asp-net-core.md)
+- A chained request must acquire all leases. Disposal releases concurrency permits but does not refund time-based permits already consumed before a later rejection. Direct per-partition token-bucket construction creates separate timers, unlike shared-timer helpers. Explicit 429 handling and available RetryAfter metadata avoid assumptions about rejection behavior. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-web-rate-limiting-middleware-in-asp-net-core.md)
+
+### Explicit relationships
+
+Fair load shedding depends-on authenticated bounded partitions, scope, ordering, and measured queue behavior. Rate limiting does not replace upstream DDoS defenses. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Official versioned documentation. The named-chain snippet omits UseRateLimiter and app execution, so it is incomplete standalone code. RetryAfter is not provided by every limiter; request-ID, IP, Host, User-Agent, or API-key examples are not trusted identity policy. No code or load test was run. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which pinned rate-limit tests prove bounded partitions, authenticated identity, middleware/re-execution ordering, disable attributes, chain permit accounting, queues, and explicit rejection semantics? See [[indexes/gaps]].
+
+
+## 2026-10-27: HTTP resilience defaults must match operation safety and observability compatibility
+
+### Typed entities
+
+library: Microsoft.Extensions.Http.Resilience; library: Polly; library: HttpClient; library: Grpc.Net.ClientFactory; library: Application Insights; concept: retry-safe operation; concept: hedging.
+
+### Claims and evidence
+
+- Microsoft recommends one composed resilience handler rather than stacked handlers. The standard outer-to-inner pipeline is concurrency limiting, total timeout, retry, circuit breaker, and attempt timeout; documented defaults include three retries with exponential jitter, a 30-second total timeout, and a 10-second attempt timeout. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-web-build-resilient-http-apps-key-development-patterns.md)
+- Standard retries apply to all HTTP methods by default, so writes can repeat after uncertain outcomes. DisableFor and DisableForUnsafeHttpMethods are explicit controls, while safe retries still need operation-specific idempotency. Hedging adds parallel attempts and per-endpoint controls, which can multiply effects and dependency load. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-web-build-resilient-http-apps-key-development-patterns.md)
+- The capture distinguishes Polly TimeoutRejectedException from TimeoutException, names older gRPC client-factory incompatibility through 2.63.0, and notes Application Insights telemetry loss at 2.22.0 or earlier with a particular registration order. Upgrading or documented ordering changes address those described compatibility cases. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-web-build-resilient-http-apps-key-development-patterns.md)
+
+### Explicit relationships
+
+HTTP reliability depends-on operation semantics, composed timing, bounded concurrency, and telemetry. Service discovery and hedging also depend-on endpoint identity. See [[distributed-systems-patterns]] and [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Official documentation snapshot; defaults and compatibility ranges need pinned-package tests. The dynamic reload example mixes HttpRetryStrategyOptions retrieval with HttpStandardResilienceOptions binding and nested configuration, so it is not a validated copy/paste recipe. Do not adopt its warning-suppression snippet as a fix. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which pinned HTTP client tests prove no duplicate writes, bounded retry/hedge load, total versus attempt timeout, cancellation, dynamic option binding, gRPC compatibility, and complete telemetry? See [[indexes/gaps]].
+
+
+## 2026-10-27: Service discovery resolves endpoint names without establishing transport trust
+
+### Typed entities
+
+library: Microsoft.Extensions.ServiceDiscovery; library: HttpClient; concept: logical service name; concept: scheme priority; concept: pass-through DNS; concept: endpoint configuration.
+
+### Claims and evidence
+
+- Microsoft describes host-level discovery registration plus per-client or default HttpClient integration. Configuration providers map logical names to endpoints, while the default pass-through provider returns a DnsEndPoint without performing external resolution, allowing platform DNS to complete the work. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-web-service-discovery-in-net.md)
+- A https+http scheme preference selects HTTPS endpoints first and falls back to HTTP only if none are found. All schemes are allowed by default; explicit AllowedSchemes with AllowAllSchemes disabled can restrict selection. Preference and resolution do not alone establish authentication, certificate/host-name behavior, or acceptable downgrade policy. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-web-service-discovery-in-net.md)
+
+### Explicit relationships
+
+Service routing uses configuration and platform DNS; secure transport depends-on allowed schemes, endpoint authority, and certificate validation. See [[azure-agent-automation-and-identity]].
+
+### Decision and quality notes
+
+Official library guide with unknown publication date. Configuration precedence, resolver refresh, metadata, TLS, and retry/hedging composition need pinned integration tests; examples with physical endpoints are not verified secure deployment recipes. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which discovery tests verify configuration precedence, refresh/failure, HTTPS-only policy, logical versus resolved host validation, platform DNS, and retry/hedging endpoint behavior? See [[indexes/gaps]].

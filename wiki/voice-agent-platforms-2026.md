@@ -166,3 +166,24 @@ Voice comparison uses complementary metrics; deployment choice depends-on langua
 ### Decision and quality notes
 
 Leaderboard methodology snapshot, not a production voice recommendation. WER/CER and speaker similarity do not measure naturalness, expressiveness, or preference; scripts are announced for future release. Reference voices require appropriate rights and consent. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which HoneyDrunk languages, consented voices, listener judgments, and target-hardware TTFA tests qualify a TTS model? See [[indexes/gaps]].
+
+
+## 2026-10-27: Live voice tool execution and result scheduling are separate controls
+
+### Typed entities
+
+project: Google ADK; project: Gemini 3.8 Live; library: FunctionTool; concept: asynchronous generator; concept: response scheduling; concept: single-flight; concept: cancellation.
+
+### Claims and evidence
+
+- The Google guide describes ADK live-session async-generator tools as non-blocking with pending acknowledgement and optional progress yields. A one-yield generator can keep background work conversational without repeated progress, while a return-once FunctionTool with scheduling may not produce an initial verbal acknowledgement. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-rss-step-by-step-guide-build-a-voice-agent-that-never-goes-silent-using-ad.md)
+- WHEN_IDLE defers result delivery until a natural pause; INTERRUPT and SILENT have different speech/history effects. User barge-in interrupts playback but does not cancel tools. The guide describes stop_streaming cancellation and cleanup, and warns that repeated model calls need implementation-level single-flight or idempotency controls. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-rss-step-by-step-guide-build-a-voice-agent-that-never-goes-silent-using-ad.md)
+- The source reports first words falling from 14.4 to 1.2 seconds in its sales-report benchmark while backend work still takes about 13 seconds. It requires bidirectional run_live sessions and lists google-adk 2.10.0 or later with Gemini 3.8 Live; these are captured requirements, not measured end-to-end HoneyDrunk behavior. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-rss-step-by-step-guide-build-a-voice-agent-that-never-goes-silent-using-ad.md)
+
+### Explicit relationships
+
+Conversational responsiveness uses non-blocking execution; delivery depends-on scheduling, and cancellation depends-on explicit task control. See [[google-agent-platform-and-gemini-api-2026]].
+
+### Decision and quality notes
+
+Official demo/tutorial with synthetic progress/results and image-only summary tables. Never-goes-silent wording is bounded by the explicit no-initial-ack case and network/model failures. No live audio/device/provider session was tested; sample figures and demo endpoint identifiers are omitted. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which live voice tests cover first acknowledgement, duplicate calls, barge-in versus cancellation, connection cleanup, stale results, scheduling modes, and network failure on real audio targets? See [[indexes/gaps]].

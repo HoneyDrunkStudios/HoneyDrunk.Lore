@@ -455,3 +455,45 @@ Compensation depends-on durable undo evidence, domain rules, and idempotency; re
 ### Decision and quality notes
 
 Official architecture capture with unknown publication date. superseded-by: [dependency-aware compensation interpretation](#2026-10-25-compensation-restores-a-valid-business-outcome-rather-than-the-original-snapshot), 2026-10-25T10:07:03-04:00; a universal strict-reverse-order reading of the introductory diagram is superseded by the source’s explicit exception allowing different order and parallel steps, with both statements retained above. The pattern is unsuitable where temporary inconsistency is unacceptable or no valid compensation is possible. No workflow or data store was changed. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which workflow proves concurrent-update-safe compensation, durable progress recovery, idempotent retries, uncertain-outcome reconciliation, irreversible-step ordering, and manual escalation? See [[indexes/gaps]].
+
+
+## 2026-10-27: Range-cache composition requires representation identity and bounded missing-byte work
+
+### Typed entities
+
+project: Cloudflare Pingora; project: R2; concept: aligned cache chunk; concept: in-flight coalescing; concept: If-Range; concept: representation validator.
+
+### Claims and evidence
+
+- Cloudflare describes replacing customer-sized range slices with fixed cache chunks, serving cached bytes, joining suitable in-flight downloads, and fetching missing aligned coverage. A response can combine cached and upstream pieces while returning only the requested byte range; small requests can still fetch a whole chunk. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-rss-origin-range-requests-serving-large-files-without-range-request-tuning.md)
+- Composition checks range coverage, total size, and entity-tag consistency. If-Range mismatch falls back to the full representation; transformations that would invalidate compressed-byte ranges also use a full response. Ordinary cache eligibility and origin byte-range support still apply. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-rss-origin-range-requests-serving-large-files-without-range-request-tuning.md)
+- The engineering account reports roughly halved R2 p99 first-byte latency and about 6% less tiered-cache traffic after a later composition improvement. Those are deployment-specific observations rather than universal speed or bandwidth guarantees. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-rss-origin-range-requests-serving-large-files-without-range-request-tuning.md)
+
+### Explicit relationships
+
+Safe range composition depends-on representation identity, range metadata, and coordinated ownership of cached/in-flight data. See [[cloud-data-platforms-and-analytics]].
+
+### Decision and quality notes
+
+Vendor production account. All-plan availability is the captured announcement state; no cache rule or origin was changed. Content mutation, abort handling, validators, and target workloads need independent tests. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which large-object tests cover representation changes, partial overlap, disconnects, compressed transforms, unsatisfiable ranges, and actual bandwidth and tail-latency effects? See [[indexes/gaps]].
+
+
+## 2026-10-27: Retries require transient-fault classification and a single coordinated attempt budget
+
+### Typed entities
+
+concept: transient fault; concept: idempotency; concept: retry amplification; concept: uncertain outcome; concept: circuit breaker.
+
+### Claims and evidence
+
+- Microsoft recommends cancelling non-transient failures and choosing bounded immediate or delayed retries for appropriate transient failures. Aggressive repeated attempts can worsen overload; interactive and batch workloads need different latency budgets and persistent faults may require a circuit breaker. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-web-retry-pattern.md)
+- A successful remote operation with a lost response can be executed twice by a retry. Policies therefore need operation-specific idempotency and transaction reasoning. Nested retry layers compound attempts and delay; retry logic belongs where enough context exists to coordinate those layers. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-web-retry-pattern.md)
+- The pattern recommends testing failure conditions, load and race behavior, and logging recoverable attempts without making every recovered event a terminal error. Retry is not a substitute for fixing permanent business failures or inadequate capacity. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-web-retry-pattern.md)
+
+### Explicit relationships
+
+Safe retry depends-on transient classification, bounded timing, idempotency, and context. Recovery also uses compensation when appropriate; see [[azure-service-bus-and-functions-messaging]].
+
+### Decision and quality notes
+
+Official design guidance with unknown publication date. No universal retry count, backoff, or exactly-once outcome is inferred. Apply local cancellation, cost, and authority rules before adopting a retry policy. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which caller/dependency tests prove one end-to-end retry budget, cancellation, backoff, uncertain-outcome reconciliation, idempotency, and bounded load under sustained failure? See [[indexes/gaps]].

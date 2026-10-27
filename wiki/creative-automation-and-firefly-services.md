@@ -124,3 +124,23 @@ Adobe Photoshop API v2 in Firefly Services is now a production-oriented creative
 
 ### Quality notes
 - Secondary beta report. No generated media, user prompts beyond generic examples, private creator data, or account-specific access details were promoted.
+
+
+## 2026-10-27: Adobe Translate Connectors integrate governed text services without localizing the design
+
+### Typed entities
+
+project: Adobe Express; project: Translate Connectors; project: Connector Playground; concept: enterprise translation service; concept: localized-page review.
+
+### Claims and evidence
+
+- Adobe describes registering an organization-approved translation service in the existing Express Translate panel, with provider-defined languages and optional tone configuration. Express creates a page per target language under the original template constraints; layout, imagery, typography, and text expansion still need human review. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-web-introducing-translate-connectors-bring-your-organization-s-translation.md)
+- The connector developer owns service hosting/adaptation, authentication, configuration, and end-to-end Playground tests. Private sharing, internal listing, and reviewed public listing are distinct distribution paths. Public connector access is gated; general-purpose add-ons remain a separate surface. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-web-introducing-translate-connectors-bring-your-organization-s-translation.md)
+
+### Explicit relationships
+
+Translate Connectors uses an existing enterprise service and Express UI; safe localization depends-on provider governance, credentials, and visual review. See [[creative-tool-extension-packaging]].
+
+### Decision and quality notes
+
+Adobe announcement and access workflow snapshot. No form was submitted, service registered, account changed, or credential obtained. Hosted templates do not remove responsibility for authentication, data handling, cost, or translated-copy review. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which translation integration verifies enterprise eligibility, service authentication, terminology, retention, expanded-text layout, template locks, and distribution permissions? See [[indexes/gaps]].

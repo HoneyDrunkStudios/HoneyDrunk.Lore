@@ -1483,3 +1483,23 @@ Hybrid 2D/3D rendering depends-on camera, rig, material, and interaction constra
 ### Decision and quality notes
 
 Studio interview, not a reusable shader implementation or independent performance benchmark. The interview varies between seven and eight authored angles, so the durable claim is multi-view authoring rather than an exact universal count. A freely explored world still has camera/NPC constraints; unlit style is not inexpensive by definition. Personal/social links and unnecessary biography were omitted. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which hybrid character prototype verifies all allowed camera angles, prop interactions, rig-update compatibility, outline readability, and weakest-target frame cost before committing to a multi-view art pipeline? See [[indexes/gaps]].
+
+
+## 2026-10-27: Blender animation operators preserve versioned playback and pose-conversion semantics
+
+### Typed entities
+
+project: Blender 5.2 LTS; concept: pose rotation mode; concept: playback loop mode; concept: in-between operator; concept: rig migration.
+
+### Claims and evidence
+
+- The captured 5.2 release notes add constraint copying, bone duplication/renaming, object-mode in-between tools, Graph Editor selection/visibility/modifier controls, and a default change to Only Insert Available. They describe idempotent animation_pause separately from the play toggle and several playback end/restore/bounce modes. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-web-blender-5-2-lts-animation-rigging.md)
+- Pose-library conversion has explicit rotation-mode limits: quaternion/axis-angle to Euler uses a nearby Euler representation; Euler to quaternion/axis-angle assumes XYZ order; Euler-to-Euler assumes matching order. Preroll does not override the negative-frame preference. These details matter when automating or migrating animation assets. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-web-blender-5-2-lts-animation-rigging.md)
+
+### Explicit relationships
+
+Rig/animation compatibility depends-on versioned operator defaults and rotation conventions. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Official release-note snapshot with unknown publication date; the page title alone does not establish installed version, final availability, or exporter compatibility. No Blender, rig, saved action, or engine export was exercised. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which saved-rig and automation tests verify keying defaults, mixed rotation orders, bone rename/constraints, playback state, preroll, and exported animation after a pinned Blender upgrade? See [[indexes/gaps]].

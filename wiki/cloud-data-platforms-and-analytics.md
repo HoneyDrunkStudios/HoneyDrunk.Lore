@@ -317,3 +317,23 @@ Deletion safety depends-on transaction bounds, complete relationships, and repli
 ### Decision and quality notes
 
 Practitioner database guidance, not a prohibition on every cascade or a tested migration. Soft deletion moves obligations to every read path, uniqueness, restoration, retention, and cleanup; it does not by itself fulfill data removal. Whole-database publication may expose more data and is not an automatic recommendation. No schema, retention rule, or record was changed. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which deletion workflow tests cascade fan-out, foreign-key indexes, queued DDL, subscriber-only state, replica identity, soft-delete visibility, and bounded irreversible cleanup? See [[indexes/gaps]].
+
+
+## 2026-10-27: Neki shard groups align transaction locality with query keys
+
+### Typed entities
+
+project: PlanetScale Neki; project: PostgreSQL; concept: shard group; concept: reference table; concept: global secondary index; concept: cross-shard commit.
+
+### Claims and evidence
+
+- PlanetScale defines a shard group as related tables sharing compatible key hashing and ranges, allowing customer-related rows and transactions to stay on one shard. The capture explicitly says transactions spanning shards commit each shard separately, without atomic commit or a shared snapshot; colocation does not make queries without routing predicates single-shard. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-rss-shard-design-doesn-t-start-from-your-tables.md)
+- Replicated reference tables keep common lookups local. A global secondary index maps an alternate identifier to the shard key, replacing a fan-out lookup with two routed reads; preexisting rows need a backfill before enabling it. Reshard and MoveTables workflows can change placement, but this article does not establish failure-atomic index maintenance or zero-cost migration. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-rss-shard-design-doesn-t-start-from-your-tables.md)
+
+### Explicit relationships
+
+Transaction locality depends-on shared routing keys and query shape; alternate-key lookup uses an explicitly maintained index. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Vendor product architecture, not a proposal to shard HoneyDrunk or alter SQL Server schemas. Hashing, reference replication, and GSI semantics are Neki-specific; do not generalize them to full distributed PostgreSQL transaction equivalence. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which transaction/query inventory justifies colocation, and which cross-shard failure, reference-table update, GSI backfill, stale lookup, and reshard tests establish acceptable semantics? See [[indexes/gaps]].

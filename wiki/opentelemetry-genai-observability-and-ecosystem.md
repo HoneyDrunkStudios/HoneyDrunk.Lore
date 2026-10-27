@@ -804,3 +804,23 @@ Agent investigation uses correlated telemetry and graph context; adoption depend
 ### Decision and quality notes
 
 Vendor product roundup, not a current support matrix or operational acceptance. Native OpenTelemetry SDK reuse does not establish React Native/Flutter target compatibility. Validate consent/redaction for session replay, prompt content, and mobile traces; cost-first active-series safeguards do not guarantee total bill ceilings. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which telemetry pilot verifies preview eligibility, graph correctness, trace/archive recovery windows, rare-event fidelity, consent/redaction, mobile target support, and actual total cost? See [[indexes/gaps]].
+
+
+## 2026-10-27: Agent behavior SLOs require trustworthy evaluator coverage and explicit response policy
+
+### Typed entities
+
+project: Grafana Agent Observability; concept: behavior SLI; concept: error budget; concept: groundedness; concept: fulfillment; concept: evaluator calibration.
+
+### Claims and evidence
+
+- Grafana proposes separate evaluation-backed measures for groundedness, fulfillment, toxicity, latency, and cost rather than one blended quality score. Deterministic checks and model judges can produce pass rates that feed time-window SLOs and budget-burn signals. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-web-what-if-your-agent-s-hallucinations-had-a-budget-how-to-start-using-sl.md)
+- The illustrated fulfillment target is 95% over 30 days, chosen from observed evaluation scores and adjusted by operators. Replay before prompt/model changes and cumulative budget tracking are proposed controls; the example target is not a universal acceptable failure rate. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-web-what-if-your-agent-s-hallucinations-had-a-budget-how-to-start-using-sl.md)
+
+### Explicit relationships
+
+Behavior budgets depend-on evaluator validity, denominator coverage, and operator action. Fast or error-free inference does not establish task quality. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Vendor product/design article, not a measured reliability trial. Inference for HoneyDrunk: explicitly account for sampled, missing, failed, and version-changed evaluations so the budget cannot improve by dropping difficult cases. Regex is incomplete secret detection, and an error budget is not permission for credential leaks or prohibited actions. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which behavior SLOs have calibrated judges, privacy-safe traces, explicit denominators and missing-evaluation handling, rare-failure checks, and tested budget-burn response policies? See [[indexes/gaps]].

@@ -2646,3 +2646,44 @@ Tool execution depends-on runtime authority rather than model intent; clean benc
 ### Decision and quality notes
 
 First-party adversarial experiment, not evidence of a HoneyDrunk compromise, a stock Codex vulnerability, or maliciousness of all abliterated models. Other cited studies/incidents were not separately ingested or counted as support. Payload commands, trigger phrase, collector routes, decoy credentials, and account-like values are intentionally omitted. Raw capture is retained unchanged; its labeled synthetic examples are not operational credentials. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which open-model intake tests verify immutable provenance, clean and triggered tool behavior, blocked credential reads, separate command/network authority, and mutable remote-payload containment? See [[indexes/gaps]].
+
+
+## 2026-10-27: Railway incident distinguishes stored-secret compromise from precautionary revocation
+
+### Typed entities
+
+project: Railway; concept: build infrastructure; concept: encrypted environment variable; concept: downstream credential revocation; concept: preliminary incident scope.
+
+### Claims and evidence
+
+- Railway reports unauthorized internal access during October 20–22, including encrypted environment variables and later CI credentials enabling some decryption. Its preliminary account puts potentially compromised variables in at most 1.85% of workspaces, while provider revocation requests and risk notifications were broader. A revocation notice therefore does not establish confirmed theft. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-rss-preliminary-report-oct-21st-security-incident.md)
+- The report says running customer services remained online while builds and control-plane features were interrupted. It states individual accounts were not logged into, leaves source-code access unresolved pending forensics, and describes credential rerotation after eviction, rebuilt tooling, and accelerated single-tenant builder rollout. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-rss-preliminary-report-oct-21st-security-incident.md)
+- An October 26 update reports restored service for existing users with new signups still paused. The initial attribution to abliterated models and distillation intent is an investigation hypothesis, not an established causal explanation or independent attribution. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-rss-preliminary-report-oct-21st-security-incident.md)
+
+### Explicit relationships
+
+Credential blast radius depends-on decryption authority, CI access, and downstream grants; revocation scope differs from confirmed compromise. See [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+Preliminary provider self-report with ongoing forensics. The text gives inconsistent 09:25/09:35 notification minutes, so no exact notification minute is promoted. Provider assurance of safety is not independent acceptance. Credential values, support contact details, customer traces, and attacker payloads are omitted. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which build/control-plane secrets inventory proves separation of storage and decryption authority, downstream revocation coverage, post-eviction rotation, and independently verified recovery? See [[indexes/gaps]].
+
+
+## 2026-10-27: Python syntax filtering is distinct from session and IAM containment
+
+### Typed entities
+
+project: AWS MCP Server; library: CPython; concept: structural pattern matching; concept: AST validation; concept: runtime proxy; concept: session isolation.
+
+### Claims and evidence
+
+- The researcher reports bypassing aws___run_script Python restrictions because pattern matching performed implicit attribute reads outside the checked syntax, and a mutable replacement for an immutable runtime type enabled further access. The reported result was command execution and environment/filesystem access inside the session Lambda. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-rss-breaking-the-aws-mcp-python-sandbox.md)
+- The exposed credentials belonged to the AWS-owned sandbox execution role, not the test customer IAM user. The researcher reports explicit denial for attempted AWS actions except caller-identity lookup, no internet access, and no access to other sessions or customer data. The timeline says the report was marked resolved October 23. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-rss-breaking-the-aws-mcp-python-sandbox.md)
+
+### Explicit relationships
+
+Language restrictions depend-on complete semantic mediation; blast-radius containment also depends-on process/session isolation, egress, and least-privilege IAM. See [[mcp-tool-governance-and-app-surfaces]].
+
+### Decision and quality notes
+
+Single researcher disclosure, not an independent test or present-day AWS guarantee. Resolution status is author-reported and finite negative tests do not prove all permissions absent. Exploit code, reconstruction chain, environment output, and identifiers are deliberately omitted. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which code-tool containment tests cover implicit language operations, proxy semantics, credential exposure, effective IAM denies, egress, and cross-session isolation independently? See [[indexes/gaps]].

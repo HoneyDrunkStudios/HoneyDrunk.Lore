@@ -874,6 +874,8 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 - Low-trust events such as `pull_request_target` default to read-only cache access; explicit write/write-only overrides are possible but are called out as dangerous by GitHub. confidence: 1 source, last-confirmed 2026-09-10
 - Job-level cache-mode settings supersede workflow-level settings, and reusable workflows cannot gain more cache access than the caller grants. confidence: 1 source, last-confirmed 2026-09-10
 
+superseded-by: [explicit caller-limit qualification](#2026-10-27-cache-authority-follows-explicit-caller-limits-and-trigger-scope); timestamp: 2026-10-27T10:10:17-04:00; reason: The newer detailed official reference says only an explicit caller mode is a ceiling. Without one, a callee can request write despite a low-trust read default; preserve the earlier wording but narrow its unconditional reading, including the earlier caller-authority relationship statement.
+
 ### Explicit relationships
 - `cache-mode` uses explicit permission values to reduce implicit cache write authority in GitHub Actions.
 - Reusable workflows depend-on caller-granted cache authority and cannot escalate cache access beyond the caller.
@@ -1194,3 +1196,24 @@ The GA announcement supersedes the September preview status; workflow compatibil
 ### Decision and quality notes
 
 Official release-status evidence, not an Apple build acceptance result. Existing labels do not freeze image contents, and GA does not establish HoneyDrunk signing, native dependency, or simulator compatibility. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which HoneyDrunk Apple workflow verifies arm64 dependencies, signing, simulator/device behavior, and recorded image versions on the GA Xcode 27 labels? See [[indexes/gaps]].
+
+
+## 2026-10-27: Cache authority follows explicit caller limits and trigger scope
+
+### Typed entities
+
+project: GitHub Actions; library: actions/cache; concept: cache-mode; concept: reusable workflow; concept: cache poisoning; concept: merge-ref scope.
+
+### Claims and evidence
+
+- GitHub distinguishes immutable cache entries, exact key/version hits, prefix fallback, and branch/default-branch scope. A false cache-hit flag does not mean restoration failed: prefix fallback may have restored content. No restored cache proves trusted or complete dependencies. Base caches can be readable to fork pull requests, so credentials must not be cached. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-web-dependency-caching-reference.md)
+- The reference says low-trust default-branch triggers default to read-only cache access, with explicit write overrides reintroducing poisoning risk. An explicit caller workflow/job cache-mode caps a reusable workflow; if the caller has no explicit mode, the callee can request write despite a low-trust read default. read and write-only are distinct capability sets, not a simple ordered ladder. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-web-dependency-caching-reference.md)
+- Pull-request-created caches use the merge-ref scope and are not reusable by the base branch or sibling PRs. Skipped or read-only cache saves can leave a successful workflow; cache retention, configured storage limits, throughput limits, and billing budgets are separate operational concerns. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-web-dependency-caching-reference.md)
+
+### Explicit relationships
+
+Reusable workflow cache authority depends-on explicit caller limits, event scope, and downstream content trust. Restored files can become executable inputs. See [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Official reference snapshot. No cache was read, created, deleted, or permission changed; no live billing/limit verification is claimed. Examples and older summaries do not supersede the explicit caller-default exception. Repository publication review must still check workflow code and trusted provenance. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which caller/callee workflows explicitly cap cache modes, exclude secrets, test merge-ref/fallback scope, and reject untrusted executable cache content without relying on successful save status? See [[indexes/gaps]].

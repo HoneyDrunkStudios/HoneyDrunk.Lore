@@ -1504,3 +1504,24 @@ Vendor announcement, not a skills installation or verified HoneyDrunk integratio
 ### 2026-10-18 consolidation: check changes against executable behavior
 
 The solo-game retrospective, Chaos Studio composition suite, and Google ADK optimization review independently describe checking proposed changes against executable behavior beyond the author's description. Their agreement strengthens this methodological claim, not a numerical productivity claim or proof any suite is complete. confidence: 3 sources, last-confirmed 2026-10-18. Sources: [game review retrospective](../raw/2026-10-18-rss-four-rounds-of-review-on-my-own-work-and-what-each-caught.md); [Chaos Studio test account](../raw/2026-10-18-rss-how-azure-chaos-studio-ships-with-hermetic-aspire-end-to-end-tests.md); [ADK optimization account](../raw/2026-10-18-rss-optimizing-a-200-000-line-python-codebase-overnight-with-gemini-4-argo.md). These are three distinct authored accounts; each source-specific outcome remains provisional. No new confidence is assigned to unrelated claims on this page.
+
+
+## 2026-10-27: Claude Code review account ties convergence to exact-commit evidence and layered recovery
+
+### Typed entities
+
+project: Claude Code; file: REVIEW.md; concept: risk-tier approval; concept: exact-commit review; concept: review convergence; concept: incident regression corpus.
+
+### Claims and evidence
+
+- The team describes local executable verification, fresh-context review, required CI, automated bug and separate security review, risk-based human approval, a merge queue, flags, staged rollout, and author/on-call recovery. Trusted-author and sensitive-path rules restrict lighter approval routes; automated approval cannot fill a required human slot and changed commits can require reapproval. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-rss-how-the-claude-code-team-does-code-review.md)
+- The authors report merged PRs more than doubling from June to September while revert share fell by over 40%. They also report fewer review rounds after caps, later diff-only passes, class-level fixes, and duplicate suppression. These are internal before/after observations, not causal proof that automation alone improved quality. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-rss-how-the-claude-code-team-does-code-review.md)
+- Past incidents and reverts become expert-checked daily reviewer evaluations. Clean-PR runs and human responses to findings measure noise and harmful fixes. The article acknowledges that automatically tightening approval on incident/revert deterioration is not yet implemented and team-wide context sharing has no formal process. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-rss-how-the-claude-code-team-does-code-review.md)
+
+### Explicit relationships
+
+Review confidence depends-on executed checks, change risk, reviewer calibration, and current commit identity. Recovery uses flags and staged release. See [[ai-agent-harnesses]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Primary team process account, not HoneyDrunk policy or authorization for automatic merging. Public product availability and internal low-risk merge rules are separate claims; no service plan or review setting was changed. Anecdotal productivity estimates are not promoted. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which review workflow proves exact-head gates, risk and trusted-author rules, sensitive-path human approval, calibrated incident/clean-PR tests, bounded rounds, and rollback with measured human repair time? See [[indexes/gaps]].

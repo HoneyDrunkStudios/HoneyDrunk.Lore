@@ -1923,3 +1923,83 @@ Cascade uses UI Toolkit scheduling; responsive animation depends-on distinct pro
 ### Decision and quality notes
 
 Library-author demonstration, not a performance benchmark or engine support matrix. Randomized loop lengths do not prove mathematically nonrepeating motion. No demo, package, audio path, or physical input was tested; visual animation is distinct from real audio-analysis acceptance. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which target builds verify real versus simulated audio analysis, pause/resume, rapid morph interruption, scratch-stop behavior, audio unlock, and weakest-device frame cost? See [[indexes/gaps]].
+
+
+## 2026-10-27: Late display translation is a bounded migration tactic for legacy UI strings
+
+### Typed entities
+
+project: Battle of Pirates; project: Unity UGUI; file: Resources translation dictionary; concept: LateUpdate translation; concept: original-string restoration.
+
+### Claims and evidence
+
+- The developer reports adding English with a late-running display component and a tab-separated dictionary rather than wrapping literals across about 130 C# UI files. Exact translations and longest-first boundary-aware fragments also cover displayed server messages. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-rss-how-i-added-english-to-my-solo-dev-unity-mmo-without-touching-130-ui-f.md)
+- The account skips input-field text, preserves rich-text segments and dictionary boundary spaces, and stores originals for switching back. It compares string references to skip unchanged text. This does not prove zero runtime cost or correctness across dynamic UI creation, arbitrary user text, pluralization, or other UI systems. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-rss-how-i-added-english-to-my-solo-dev-unity-mmo-without-touching-130-ui-f.md)
+
+### Explicit relationships
+
+Display translation uses original-string state and boundary-aware matching; acceptance depends-on UI lifecycle and user-input exclusion. See [[gamedev-production-and-community-signals]].
+
+### Decision and quality notes
+
+Solo-developer shipping account, not independently played or profiled. Treat it as a temporary legacy migration pattern; no general localization replacement or zero-risk guarantee is adopted. Example player identity omitted. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which localization tests cover dynamic and destroyed UI, rich text, input fields, user/server messages, language switching, plural forms, and target-device frame cost? See [[indexes/gaps]].
+
+
+## 2026-10-27: Quest mesh budgets are profiling hypotheses rather than universal frame guarantees
+
+### Typed entities
+
+project: Unity; project: Meta Quest; concept: stereo rendering; concept: draw-call budget; concept: thermal profiling; decision: measured scene optimization.
+
+### Claims and evidence
+
+- The practitioner checklist proposes simplification, LODs, spatial mesh combining/atlases, compatible batching, lighting/overdraw reduction, and on-device verification. Its 72 Hz target corresponds to about 13.9 ms per frame, but CPU and GPU bottlenecks need separate measurements. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-web-meta-quest-72-fps-the-unity-mesh-optimization-checklist.md)
+- The article proposes draw-call, triangle, texture-size, foveation, and memory-saving figures while advertising a mesh tool. Those thresholds and savings lack a reproducible workload in the capture and do not establish current platform requirements or guaranteed frame rate. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-web-meta-quest-72-fps-the-unity-mesh-optimization-checklist.md)
+
+### Explicit relationships
+
+Optimization acceptance depends-on target hardware, rendering path, scene content, and sustained device measurements. See [[technical-art-community-and-talent-signals]].
+
+### Decision and quality notes
+
+Promotional practitioner source flagged for overbroad claims. Texture size is not itself shaded-pixel count, stereo does not universally double every cost, and the Android define in the sample is broader than Quest. Keep prior thermal-duration device guidance; do not adopt blanket zero-light, fixed-size, or no-quality-loss rules. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which worst-case Quest scenes measure CPU/GPU time, thermal duration, culling effects, texture memory, stereo compatibility, and visual quality before applying numerical mesh budgets? See [[indexes/gaps]].
+
+
+## 2026-10-27: Lua allocation growth and retained C# references require different investigations
+
+### Typed entities
+
+project: Unity; project: GOT Online; library: xLua; library: ToLua; concept: allocation call stack; concept: retained managed reference; concept: destroyed Unity object.
+
+### Claims and evidence
+
+- GameOptim separates overall Lua heap/object trends, per-frame allocation call stacks, and C# objects retained in Lua-plugin caches. Growth is an investigation signal rather than proof of a leak; compare sampling points and whether retained references are still needed. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-rss-how-can-you-diagnose-lua-memory-issues-in-unity-games.md)
+- The described tooling can reverse allocation stacks and compare cached managed-object counts, including destroyed UnityEngine.Object wrappers. The article reports poorer source location under bytecode, including a zero ending-line field, and names uLua, ToLua, SLua, and xLua support with a native-library-name override. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-rss-how-can-you-diagnose-lua-memory-issues-in-unity-games.md)
+
+### Explicit relationships
+
+Leak diagnosis depends-on allocation sites and cross-runtime reference ownership rather than heap size alone. See [[ai-assisted-game-development-pipelines]].
+
+### Decision and quality notes
+
+Tool-vendor tutorial; bytecode line behavior and supported bridges are tool-specific claims, not universal Lua guarantees. Source/symbol handling and reporting accuracy require pinned build validation. No Unity Editor, native library, or profiling session was run. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which pinned Lua bridge and device build verifies allocation attribution, bytecode symbols, cached-reference release, destroyed-object counts, and repeated scene-lifecycle recovery? See [[indexes/gaps]].
+
+
+## 2026-10-27: Scaled Unity workflows combine modular assets with explicit build validation
+
+### Typed entities
+
+project: Mega Cat Studios; project: Backyard Baseball; project: Unity; library: Addressables; file: assembly definition; concept: asset ownership; concept: import validation.
+
+### Claims and evidence
+
+- Mega Cat describes small additive scenes, self-contained prefabs/components, purpose-based assets, Addressables, and assembly definitions to limit dependencies and scene conflicts. It retains a prototype phase prioritizing playability and says architectural complexity should earn its cost. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-web-scaling-unity-workflows-lessons-from-medium-to-large-projects.md)
+- The account combines requirement-oriented unit tests, import rules, manual QA, small changes, regular integration, text serialization, and explicit scene/prefab ownership. These controls reduce conflict and regression risk but do not guarantee semantic merge correctness or no runtime regressions. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-web-scaling-unity-workflows-lessons-from-medium-to-large-projects.md)
+
+### Explicit relationships
+
+Production scaling uses modular dependencies and owned assets; release safety depends-on executable gameplay and asset checks. See [[ai-assisted-game-development-pipelines]].
+
+### Decision and quality notes
+
+Studio case study published by Unity. Its claim that OnValidate always fires before building is not adopted as a build gate; use explicitly invoked validation for required checks. Addressables and YAML auto-merging need lifecycle and semantic tests. No game was played, built, or inspected in Unity. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which Unity release checks explicitly validate asset imports/references, Addressables lifetime, additive-scene state, assembly boundaries, gameplay regressions, and semantic prefab merges? See [[indexes/gaps]].

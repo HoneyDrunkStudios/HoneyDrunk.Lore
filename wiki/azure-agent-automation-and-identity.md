@@ -1523,3 +1523,85 @@ Job scaling uses event-source volume; safe effects depend-on idempotent processi
 ### Decision and quality notes
 
 Two related official captures with unknown publication dates; they are one publisher, not independent validation. Existing secret-management evidence is corroborated. The jobs guide’s sample advanced ARM fragment has a missing comma and legacy-looking fields, and its scheduled ARM paragraph is mislabeled manual; neither example is adopted as deployable code. Sidecar readiness at startup does not prove downstream service availability or remove general transient-error handling. No Azure resources, permissions, secrets, or executions were accessed. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which finite-worker tests verify template/start authority, identity and queue grants, visibility/duplicate handling, interruption recovery, polling/concurrency limits, complete logs, and target API compatibility? See [[indexes/gaps]].
+
+
+## 2026-10-27: Container Apps probes measure distinct startup, liveness, and readiness conditions
+
+### Typed entities
+
+project: Azure Container Apps; concept: startup probe; concept: liveness probe; concept: readiness probe; concept: TCP reachability.
+
+### Claims and evidence
+
+- Microsoft distinguishes startup success, ongoing liveness, and readiness to accept requests. HTTP probe success is a status from 200 through 399; TCP success is connection establishment. The capture allows one probe of each type per container and excludes exec, named ports, and gRPC probes. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-web-health-probes-in-azure-container-apps.md)
+- The portal adds default ingress-target TCP probes to the main container when each type is absent, excluding GPU profiles; sidecars receive no automatic defaults. Multiple-revision rollouts should wait for readiness before traffic movement, while single-revision mode shifts automatically once ready. Slow startups need deliberately tuned thresholds. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-web-health-probes-in-azure-container-apps.md)
+
+### Explicit relationships
+
+Traffic readiness depends-on probe meaning and timing. TCP reachability does not prove dependency or business health. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Official documentation snapshot with unknown publication date. Its illustrative JavaScript liveness handler sets status without completing the response; do not copy it as executable reference. Dependency-heavy liveness needs separate restart-amplification review. No Azure endpoint was exercised. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which pinned deployment verifies complete probe responses, dependency failure, slow startup, sidecars/GPU exceptions, and readiness-gated traffic without restart amplification? See [[indexes/gaps]].
+
+
+## 2026-10-27: Revision rollback preserves templates while shared application configuration remains mutable
+
+### Typed entities
+
+project: Azure Container Apps; concept: revision template; concept: application-scope configuration; concept: label routing; concept: readiness gate.
+
+### Claims and evidence
+
+- Microsoft describes immutable revision templates for container images/configuration and scaling changes, while application-scope settings apply across revisions without creating one. Secrets, ingress/traffic/labels, registry credentials, and Dapr settings are application-scoped; changed secret values require restart for a container to see them. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-web-update-and-deploy-changes-in-azure-container-apps.md)
+- Single-revision mode keeps old traffic until provisioning, replica scaling within the new limits, and startup/readiness checks succeed. Multiple-revision mode gives manual activation and traffic control. Labels route directly to one revision independently of weighted application-URL traffic, so zero weight alone does not make a candidate inaccessible. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-web-update-and-deploy-changes-in-azure-container-apps.md)
+- The capture describes a default retained history of 100 inactive revisions and a preview control for that limit. Its introduction says two revision modes while its table includes deployment labels in preview; retain Single and Multiple as the established modes and record label-preview behavior separately until the target API is verified. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-web-update-and-deploy-changes-in-azure-container-apps.md)
+
+### Explicit relationships
+
+Revision rollback depends-on shared-configuration and data compatibility as well as template history. Label access uses its own route. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Official snapshot; no deployment, traffic shift, or API migration occurred. Zero-downtime language is a readiness-gated platform behavior, not proof of application correctness, data rollback, or uninterrupted background work. Existing blue-green limits remain in force. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which revision tests verify shared secret/config compatibility, label access, replica readiness, weighted traffic, background work, retained rollback artifacts, and the pinned preview API? See [[indexes/gaps]].
+
+
+## 2026-10-27: Container Apps HTTP logs add routing evidence with sensitive fields and correlation limits
+
+### Typed entities
+
+project: Azure Container Apps; project: Log Analytics; concept: console log; concept: system log; concept: HTTP log; concept: request correlation; concept: PII.
+
+### Claims and evidence
+
+- Microsoft distinguishes application stdout/stderr and sidecar console logs, platform system logs, and opt-in HTTP ingress logs through environment diagnostic settings. The capture names ContainerAppConsoleLogs_CL, ContainerAppSystemLogs_CL, and ContainerAppHTTPLogs; the HTTP table may appear only after several minutes. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-web-monitor-logs-in-azure-container-apps-with-log-analytics.md)
+- HTTP diagnostics include revision/replica, response details/flags, duration in milliseconds, and upstream attempt count. Status zero means a client disconnect before response start. RequestId can come from the client and is not guaranteed to be a UUID; replica/time-window correlation alone does not prove that every nearby console line belongs to the same request. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-web-monitor-logs-in-azure-container-apps-with-log-analytics.md)
+- Path includes query strings that can contain credentials, and XForwardedFor contains end-user IPs. Captured triage queries are investigation examples; zero observed rows or a coarse error-rate change alone does not establish a routing fault or completed diagnosis. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-web-monitor-logs-in-azure-container-apps-with-log-analytics.md)
+
+### Explicit relationships
+
+Deployment diagnosis uses revision-specific ingress and application evidence; safe telemetry depends-on redaction, access control, retention, and validated correlation. See [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Official reference; no Azure query, log export, or diagnostic setting was run. The example aggregate count of forwarded chains is not a verified distinct-person count. Raw request IDs, IPs, queries, and customer log content are omitted. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which logging tests verify table delivery, units, revision/replica joins, untrusted request IDs, disconnects/retries, query-string redaction, IP retention, and missing-data alerts? See [[indexes/gaps]].
+
+
+## 2026-10-27: Container Apps profile selection separates replica elasticity from reserved-node capacity
+
+### Typed entities
+
+project: Azure Container Apps; concept: Consumption profile; concept: Dedicated profile; concept: Flexible preview; concept: reserved runtime capacity; concept: GPU quota.
+
+### Claims and evidence
+
+- Microsoft distinguishes usage-billed Consumption replicas with optional scale-to-zero, per-instance Dedicated reserved pools, and Flexible preview with consumption-style usage plus management fee, single-tenant compute, and no scale-to-zero. The capture requires at least a /25 subnet for Flexible. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-web-workload-profiles-in-azure-container-apps.md)
+- Multiple apps can share profile capacity and runtime reserves reduce allocatable resources below nominal node size. App replica limits and profile-instance scaling therefore need joint capacity planning. Dedicated GPU profiles require environment-creation configuration and capacity requests; region and size availability are specific to the captured snapshot. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-web-workload-profiles-in-azure-container-apps.md)
+
+### Explicit relationships
+
+Capacity and cost depend-on profile type, placement, replicas, instance limits, runtime reserve, network, and quota. See [[edge-ai-and-ai-infrastructure-2026]].
+
+### Decision and quality notes
+
+Official preview/availability snapshot, not a price quote or live region/quota check. Do not read the final per-instance billing paragraph as overriding Consumption/Flexible per-replica distinctions. No subnet, profile, quota request, or cloud resource was created. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which measured workload verifies cold-start tolerance, profile/replica capacity, runtime headroom, shared-app contention, quota/region support, subnet requirements, and total cost before profile selection? See [[indexes/gaps]].

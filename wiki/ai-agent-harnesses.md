@@ -2116,3 +2116,51 @@ Internal tool/hackathon account. Claims that gates cannot be skipped remain unve
 The October 23 design rationale is reinforced by two additional authored accounts: MARS uses deterministic metrics and reviewed learning, and Sensible Harness uses tested rendered guidance and workflow checkpoints. Together with the earlier Meta router, Docker authority-boundary, and Vercel recovery accounts, five sources describe explicit mechanisms outside model reasoning. confidence: 5 sources, last-confirmed 2026-10-25 (archived accounts synthesized; no independent execution). [MARS](../raw/2026-10-25-rss-aspire-multi-repo-rollout-at-scale-with-agentic-ai.md), [Sensible Harness](../raw/2026-10-25-rss-how-sensible-harness-can-help-teams-create-an-ai-first-delivery-environment.md), [Meta](../raw/2026-10-21-rss-the-thin-orchestrator-how-we-made-our-ai-agents-more-reliable-by-givin.md), [Docker](../raw/2026-10-21-rss-from-baseline-to-secure-software-factory-securing-the-systems-that-bui.md), [Vercel](../raw/2026-10-21-rss-making-every-harness-durable.md).
 
 This strengthens a shared design rationale, with moderate confidence for scouting. The accounts address different failure modes and are not replications of one experiment or proof of complete containment, numerical savings, or exactly-once effects. Source-specific product claims remain provisional. Relationships: harness reliability depends-on explicit artifacts, authority, state, and failure policy; see [[multi-agent-architectures]] and [[ai-coding-agent-security]].
+
+
+## 2026-10-27: A software-factory readiness verdict must prove every expected lane completed
+
+### Typed entities
+
+project: Kiro Crew; file: prepare-pr skill; concept: trusted review workflow; concept: PR readiness; concept: review retrospective; decision: bounded correction loop.
+
+### Claims and evidence
+
+- Kiro describes isolated product testing plus role/model-varied review, severity-based findings, and a readiness aggregation that means every expected lane ran and passed. A lack of failing statuses is explicitly insufficient when checks may not yet have run. Fork-controlled code, paths, and symlinks are treated as untrusted; review rules and credentials belong on the trusted side. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-rss-keeping-a-software-factory-stable-at-1-000-prs-a-week.md)
+- The prepare-pr loop checks findings against code, fixes real problems, answers disputed ones with evidence, and rereads CI after a push. Retrospectives and a conductor revisit changes that grow across rounds; release-level product tests and post-merge security checks remain separate from PR readiness. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-rss-keeping-a-software-factory-stable-at-1-000-prs-a-week.md)
+- The account describes risk-tiered automatic merges for simple changes and continuing work on coverage, security scans, own-host tests, and process. Its weekly volume and coverage figures do not establish independent quality, realized cost, or applicability to another team. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-rss-keeping-a-software-factory-stable-at-1-000-prs-a-week.md)
+
+### Explicit relationships
+
+Readiness depends-on complete expected-lane accounting and trusted rules; review convergence uses bounded feedback and proportional fixes. See [[github-actions-platform-operations]] and [[ai-assisted-software-practice]].
+
+### Decision and quality notes
+
+Vendor engineering account. No Kiro workflow was executed and no HoneyDrunk gate, merge policy, hosting, or feature-approval process is changed. The smallest-fix advice remains bounded by reachable security, crash, and data-loss problems; it does not establish that any local attacker is irrelevant. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which readiness aggregator fails closed on absent/skipped/stale lanes, separates untrusted artifacts from judge authority, bounds repair growth, and validates packaged real-user flows? See [[indexes/gaps]].
+
+
+## 2026-10-27: Harness guidance evaluates the complete task environment rather than the model alone
+
+### Typed entities
+
+project: Thoughtworks; concept: agent harness; concept: context engineering; concept: task state; concept: feedback sensor; concept: effective permission.
+
+### Claims and evidence
+
+- Thoughtworks defines a harness as the environment supplying context, tools, instructions, state, and feedback around a model. Frameworks/SDKs can be components; appropriate research, coding, and enterprise harnesses need different tools and constraints rather than one universal checklist. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-rss-what-is-an-ai-agent-harness-a-practical-guide.md)
+- The guide calls for realistic whole-agent task evaluation, visible failures, recoverable progress, bounded action permissions, and executable checks. More context or a stronger model alone does not establish a better task outcome. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-rss-what-is-an-ai-agent-harness-a-practical-guide.md)
+
+### Explicit relationships
+
+Agent performance depends-on model, context, tools, environment, and feedback; effective authority depends-on enforced runtime boundaries. See [[agent-context-management-and-session-continuity]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Conceptual practitioner guide reinforcing existing vocabulary, not new benchmark evidence or proof that a Markdown rule is enforced. Retained in the canonical harness article; no duplicate concept page or new framework is introduced. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which representative harness task suite measures completion, intervention, recovery, permission boundaries, context limits, and total accepted-outcome cost separately from model scores? See [[indexes/gaps]].
+
+
+## 2026-10-27 consolidation: complete gates strengthen the explicit-control design rationale
+
+The five authored accounts retained in the October 25 consolidation are reinforced by the Claude Code layered-review account and Kiro readiness account: both make executed checks, review boundaries, and recovery mechanisms explicit. confidence: 7 sources, last-confirmed 2026-10-27 (archived authored accounts synthesized; no independent execution). [Earlier five-source consolidation](#2026-10-25-consolidation-explicit-control-mechanisms-gain-broader-design-support), [Claude Code](../raw/2026-10-27-rss-how-the-claude-code-team-does-code-review.md), [Kiro](../raw/2026-10-27-rss-keeping-a-software-factory-stable-at-1-000-prs-a-week.md).
+
+This is moderate support for a design rationale across distinct authored accounts, not seven replications of one experiment. The conceptual Thoughtworks guide is consistent but adds no independent measurement and is not counted again. Product-specific safety, throughput, revert-rate, and cost claims remain provisional. Harness reliability depends-on complete external checks and explicit state/authority/recovery policy; see [[ai-assisted-software-practice]] and [[agent-evaluation-and-benchmarks]].

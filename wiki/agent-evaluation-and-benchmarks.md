@@ -1678,3 +1678,24 @@ Stateful RL uses executable outcomes and isolated episodes; transfer evidence de
 ### Decision and quality notes
 
 Joint first-party benchmark/training account, correlated with the earlier ThinkingBox report rather than independent replication. Terminal state can miss unsafe intermediate actions or unmodeled side effects, so outcome reward alone is not an authorization gate. The full reward is not exclusively deterministic. No fine-tuning, endpoint call, GPU allocation, or private dataset retrieval occurred; sample credentials and contact details were omitted. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which stateful-agent training evaluation proves disjoint authorized tasks, parser parity, hidden side-effect/trajectory checks, repeatability versus breadth, and full cost including probes and training? See [[indexes/gaps]].
+
+
+## 2026-10-27: Document classification probabilities need semantic aggregation and held-out validation
+
+### Typed entities
+
+project: Laya; project: Jev; project: Claude Sonnet; concept: abstention threshold; concept: document-wide quantifier; concept: probability calibration.
+
+### Claims and evidence
+
+- The Thoughtworks two-day exploration uses locally runnable Laya with a 512-token English context and typed choices, scores, and binary questions. It reports abstaining on examples outside the configured categories, but a probability distribution alone does not establish calibrated uncertainty. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-rss-evaluating-decision-models-for-document-categorization.md)
+- In the described section aggregation, choice/score takes the most confident section and a sufficiently confident section can make a binary answer yes. A compliant section therefore cannot prove whole-document compliance; asking for any violation better matches existential aggregation. Sentence-based chunking reduced sections and latency in the author experiment. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-rss-evaluating-decision-models-for-document-categorization.md)
+- On six technical documents both Laya and Claude Sonnet classified five correctly, while mean latency was 1.72 seconds and 1.45 seconds respectively. Four simultaneous label dimensions cost roughly 3–4 times domain-only latency in the illustrated examples; neither result establishes general equivalence or a speed advantage. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-rss-evaluating-decision-models-for-document-categorization.md)
+
+### Explicit relationships
+
+Document-wide correctness depends-on aggregation semantics, category coverage, and calibrated abstention. See [[agentic-retrieval-and-search]].
+
+### Decision and quality notes
+
+Small practitioner experiment using generated and selected documents; model revision, hardware, repetitions, representative sampling, and independent probability calibration are not established. Keep all numerical results provisional. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which held-out long-document cases test rare violations, mixed domains, chunk boundaries, calibrated abstention, out-of-domain inputs, and full classification latency? See [[indexes/gaps]].

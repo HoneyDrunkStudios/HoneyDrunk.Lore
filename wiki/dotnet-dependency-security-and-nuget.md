@@ -147,6 +147,8 @@ Official dated migration record. Consult the original for exact fingerprints and
 
 ## 2026-10-16: October servicing capture is a versioned patch-discovery record
 
+superseded-by: [October out-of-band patch evidence](dotnet-runtime-and-mobile-2026.md#2026-10-27-october-out-of-band-servicing-advances-patch-levels-and-the-net-11-release-stage); timestamp: 2026-10-27T10:10:17-04:00; reason: The newer official October 25 announcement lists 8.0.33, 9.0.22, and 10.0.14 and says two October 13 fixes were incomplete. The earlier release matrix is preserved as history, not evidence of complete remediation.
+
 ### Typed entities
 
 project: .NET; project: .NET Framework; concept: runtime servicing; concept: security advisory; concept: deployment inventory.
@@ -183,3 +185,23 @@ Package integrity depends-on trusted hashes/identities and fail-closed verificat
 ### Decision and quality notes
 
 Original research report with bounded threat model; captured findings are historical observations, not a live vulnerability matrix or universal default-policy claim. Author-key compromise and secure package-manager updates lie outside parts of the experiment. Do not adopt its broad NuGet signature wording or Windows execution-policy footnote as verified security guarantees. Pinned positive/negative restore tests and current official docs are needed before policy changes. No package feed or trust setting was changed. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which pinned restore paths reject tampered content, missing/untrusted signatures, changed lockfiles, and wrong attestation identities while preserving intended update and certificate-rotation behavior? See [[indexes/gaps]].
+
+
+## 2026-10-27: Brotli exposure follows actual decompression paths and bundled dependencies
+
+### Typed entities
+
+project: Brotli; project: Node.js; project: Bun; project: Envoy; concept: CVE-2026-111497; concept: transitive decompression; decision: artifact-level patch verification.
+
+### Claims and evidence
+
+- Wiz describes an out-of-bounds write in the Brotli decoder reached by processing attacker-controlled compressed input. Exposure includes direct APIs and automatic decompression of fetched responses; merely finding an installed runtime does not establish an exploitable path. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-rss-broccoli2shell-everything-you-need-to-know-about-the-critical-brotli-d.md)
+- The captured matrix spans upstream/backported Brotli libraries and multiple downstream runtimes and proxies. Its recommended remediation includes rebuilding bundled or statically linked artifacts, redeploying containers, restarting processes, and checking the loaded component; temporary decompression restrictions do not replace patching. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-rss-broccoli2shell-everything-you-need-to-know-about-the-critical-brotli-d.md)
+
+### Explicit relationships
+
+Runtime exposure depends-on untrusted-input reachability and the loaded decoder. Patch closure depends-on rebuilt artifacts as well as package inventory. See [[dotnet-runtime-and-mobile-2026]] and [[container-supply-chain-and-compliance]].
+
+### Decision and quality notes
+
+Security-vendor synthesis. Cloud prevalence percentages describe Wiz observations, not HoneyDrunk exposure. Exact downstream patch tables are a dated discovery lead requiring vendor-specific confirmation before action; no patch or exploit was run. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which deployed artifacts actually decompress untrusted Brotli input, and which loaded-library, rebuild, restart, and regression evidence closes each affected path? See [[indexes/gaps]].

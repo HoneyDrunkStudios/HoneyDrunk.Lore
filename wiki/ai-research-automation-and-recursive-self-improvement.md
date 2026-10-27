@@ -73,3 +73,23 @@ Anthropic's Institute essay argues AI systems are already accelerating AI develo
 
 ### Quality notes
 - Interview/practitioner evidence; useful for workflow design vocabulary, not proof that any specific autoresearch platform is reliable.
+
+
+## 2026-10-27: LitPivot keeps literature choice and proposal revision under researcher control
+
+### Typed entities
+
+project: LitPivot; project: Asta Paper Finder; concept: proposal facet; concept: literature-initiated pivot; concept: blinded grounding assessment.
+
+### Claims and evidence
+
+- Ai2 describes selecting problem, contribution, or evaluation facets, grouping retrieved papers by that facet, choosing evidence, and reviewing suggested edits with supporting excerpts. Changes rerank literature and flag potentially inconsistent proposal facets; researchers accept, edit, or reject revisions. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-rss-litpivot-developing-research-ideas-through-dynamic-contextualization-w.md)
+- The reported study has 17 researchers developing assigned ideas under two conditions using the same paper collection. Two blinded experts assessed literature grounding; perceived novelty/usefulness were participant reports. Five follow-up users explored their own projects for 30 minutes. These results do not independently establish scientific novelty or downstream discovery success. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-rss-litpivot-developing-research-ideas-through-dynamic-contextualization-w.md)
+
+### Explicit relationships
+
+Research revision uses selected literature and linked excerpts; evaluation plans depend-on the current contribution. See [[agentic-retrieval-and-search]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Primary research-team blog describing bounded studies. Linked papers were not newly fetched; excerpt fidelity, retrieval coverage, study statistics, and longer-term outcomes remain unverified. Participant example and personal details omitted. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which research workflow verifies excerpt fidelity, relevant-literature coverage, cross-facet consistency, novelty beyond self-report, and researcher control over evidence selection? See [[indexes/gaps]].

@@ -1383,3 +1383,24 @@ VocabX uses cost-weighted vocabulary adaptation; useful compression depends-on p
 ### Decision and quality notes
 
 Author preview of a paper still in preparation/review; detailed tables and methodology are not fully available in this capture. No independent replication, significance estimate, provider invoice savings, retraining amortization, or out-of-domain robustness is established. Title-level savings remain a scoped experimental result. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which specialized workload preserves decision quality and out-of-domain handling while measuring tokenizer retraining, vocabulary memory, batch/context effects, and total serving cost? See [[indexes/gaps]].
+
+
+## 2026-10-27: Disaggregated KV safety requires rejection propagation and ownership through transfer completion
+
+### Typed entities
+
+project: Cloudflare Workers AI; project: GLM-5.3; library: SGLang; library: Mooncake; concept: KV page lifetime; concept: rejected handoff; concept: deferred release.
+
+### Claims and evidence
+
+- Cloudflare reports 155 cross-request responses for GLM-5.3 prompts exceeding a 681,280-token prefill pool during August 27–September 9, despite an advertised 1,048,576-token window. Rejected requests transferred placeholder state and decode attended over stale pages; successful HTTP streaming and plausible output did not prove request isolation. The provider reports no other hosted model affected and no evidence of deliberate exploitation beyond tests. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-rss-cross-request-kv-cache-exposure-in-the-glm-5-3-workers-ai-model-and-ou.md)
+- The account describes enlarging the pool and patching admission/rejection handling before restoration. It separately addresses late RDMA writes, abort confirmations, page offload, and failed transfers with deferred release on both roles and bounded transfer batches. It recommends a build including the relevant fixes, citing SGLang 0.5.22 or later in the captured snapshot. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-rss-cross-request-kv-cache-exposure-in-the-glm-5-3-workers-ai-model-and-ou.md)
+- Checksum/canary coverage remains model-dependent; a per-read page-tag prototype had been disabled after reliability issues. Zero-on-release and broader ownership checking are unfinished work in this report. Enabling one detection flag or fitting the nominal context therefore does not prove the whole transfer lifecycle safe. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-27-rss-cross-request-kv-cache-exposure-in-the-glm-5-3-workers-ai-model-and-ou.md)
+
+### Explicit relationships
+
+Tenant isolation depends-on rejection propagation, page ownership, and transfer completion across nodes. Capacity checking uses actual running-engine metrics. See [[ai-coding-agent-security]] and [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Provider incident engineering report; scope, counters, no-exploitation finding, and remediation are reported evidence, not independently reproduced. The release table is more precise than introductory version shorthand. No customer prompt data, marker strings, payload, or reproduction script is copied. Formal verification is future work, not a completed proof. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which inference tests verify actual pool/context capacity, cross-tenant markers, admission failures, abort/disconnect races, late transfers, offload lifetimes, and active checksum coverage for each model? See [[indexes/gaps]].
