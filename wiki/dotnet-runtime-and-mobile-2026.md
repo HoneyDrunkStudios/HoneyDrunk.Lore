@@ -1104,3 +1104,44 @@ Service routing uses configuration and platform DNS; secure transport depends-on
 ### Decision and quality notes
 
 Official library guide with unknown publication date. Configuration precedence, resolver refresh, metadata, TLS, and retry/hedging composition need pinned integration tests; examples with physical endpoints are not verified secure deployment recipes. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which discovery tests verify configuration precedence, refresh/failure, HTTPS-only policy, logical versus resolved host validation, platform DNS, and retry/hedging endpoint behavior? See [[indexes/gaps]].
+
+
+## 2026-10-28: Blazor component licensing and framework contributions have different scopes
+
+### Typed entities
+
+project: Blazor; project: Infragistics; library: IgniteUI.Blazor.Lite; library: IgniteUI.Blazor.GridLite; concept: interactive render mode; concept: analyzer.
+
+### Claims and evidence
+
+- Microsoft announces more than 50 MIT-licensed open-source Infragistics Blazor controls as a subset of the broader commercial offering. Core controls and Grid Lite use separate packages, and Blazor Web Apps require an interactive render mode for these components. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-rss-blazor-welcomes-open-source-contributions-from-infragistics.md)
+- The announcement distinguishes analyzers already merged for .NET 11, including unnecessary StateHasChanged calls and stale authentication-state usage, from an Ignite UI setup scaffolder still under review. A published agent skill guides setup; neither it nor the announcement proves a particular app's accessibility or trimming behavior. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-rss-blazor-welcomes-open-source-contributions-from-infragistics.md)
+
+### Explicit relationships
+
+Ignite UI uses Blazor interactive rendering; setup depends-on package, theme, and service configuration; framework analyzers complement component libraries.
+
+### Decision and quality notes
+
+Official announcement dated October 27. License scope is the named open-source subset, not every Infragistics product. Merged contributions are not evidence of .NET 11 GA or a released scaffolder. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which exact component packages and licenses meet the chosen app needs, and do interactive rendering, accessibility, authentication updates, and trimmed publication pass local checks? See [[indexes/gaps]].
+
+
+## 2026-10-28: HybridCache coordination and invalidation are not cluster-wide guarantees
+
+### Typed entities
+
+library: Microsoft.Extensions.Caching.Hybrid; library: IDistributedCache; concept: cache stampede; concept: logical tag invalidation; concept: local cache; concept: Native AOT.
+
+### Claims and evidence
+
+- The captured ASP.NET Core 10 reference describes primary in-process caching plus an optional out-of-process secondary cache. One HybridCache instance coordinates concurrent factory calls per key; separate instances do not share that coordination, and factory cancellation occurs when all waiting callers cancel. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-web-hybridcache-library-in-asp-net-core.md)
+- Tag invalidation marks older values as misses without physically deleting their payloads. The wildcard invalidates all HybridCache data, not a prefix pattern. The reference explicitly says key/tag invalidation affects the current server and secondary storage but does not clear other servers' in-memory caches. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-web-hybridcache-library-in-asp-net-core.md)
+- Keys must distinguish data and avoid unbounded raw user input. AddDistributedMemoryCache is not a shared secondary store and is skipped as redundant with the default primary cache. Instance reuse requires genuinely immutable values, while Native AOT requires compatible serialization and trimming configuration. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-web-hybridcache-library-in-asp-net-core.md)
+
+### Explicit relationships
+
+HybridCache uses local memory and optional distributed storage; stampede coordination depends-on instance identity; safe reuse depends-on immutability. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Official reference; prioritize explicit cache-scope caveats over broad performance descriptions. Tags are not deletion/erasure guarantees. Package, preview-buffer API, serializer, and AOT behavior require pinned-version checks; examples are not production tests. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which multi-instance tests establish stale-read bounds, tenant-safe keys, cancellation, payload retention after tag invalidation, serializer compatibility, and AOT behavior? See [[indexes/gaps]].

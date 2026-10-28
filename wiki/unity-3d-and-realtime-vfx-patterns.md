@@ -2003,3 +2003,24 @@ Production scaling uses modular dependencies and owned assets; release safety de
 ### Decision and quality notes
 
 Studio case study published by Unity. Its claim that OnValidate always fires before building is not adopted as a build gate; use explicitly invoked validation for required checks. Addressables and YAML auto-merging need lifecycle and semantic tests. No game was played, built, or inspected in Unity. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which Unity release checks explicitly validate asset imports/references, Addressables lifetime, additive-scene state, assembly boundaries, gameplay regressions, and semantic prefab merges? See [[indexes/gaps]].
+
+
+## 2026-10-28: Unity logical collection differs from resident-memory reclamation
+
+### Typed entities
+
+project: Unity 6; library: Boehm GC; concept: managed heap; concept: resident memory; concept: large-object allocation; project: CoreCLR.
+
+### Claims and evidence
+
+- The Unity learning article distinguishes unreachable-object collection and free-list reuse from releasing physical pages. Retained virtual or dirty memory after collection can reflect reusable heap capacity; heap size alone does not prove a live-object leak. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-web-understanding-memory-management-in-unity.md)
+- For the described Boehm-based Unity runtime, conservative non-moving collection does not compact live objects. Large allocations need contiguous blocks, and freed blocks can later be repurposed. Repeated manual collection to force reclamation can disrupt reuse and add CPU cost. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-web-understanding-memory-management-in-unity.md)
+- The article explicitly makes large-object thresholds and reclamation cadence dependent on platform, build, and engine version. It discusses CoreCLR as a changing runtime direction, not proof that every current Unity build uses a compacting collector. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-web-understanding-memory-management-in-unity.md)
+
+### Explicit relationships
+
+Managed allocation uses reusable heap blocks; resident footprint depends-on collector and OS behavior; profiling depends-on exact engine, backend, and device. See [[csharp-memory-safety-and-unsafe-code]].
+
+### Decision and quality notes
+
+Unity-hosted educational article, updated September 18. Flag its simplified OS commitment/page-size explanation and mixed C-style allocation example as teaching material, not portable API facts. Exact thresholds, cadence, and locality benefits need implementation or device evidence. No Unity Editor/device tests run. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which pinned Unity/backend/device measurements separate live objects, reserved heap, resident/dirty pages, fragmentation, and frame-time cost across repeated lifecycle and collection cycles? See [[indexes/gaps]].

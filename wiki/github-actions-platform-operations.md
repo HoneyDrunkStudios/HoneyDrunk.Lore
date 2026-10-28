@@ -1217,3 +1217,65 @@ Reusable workflow cache authority depends-on explicit caller limits, event scope
 ### Decision and quality notes
 
 Official reference snapshot. No cache was read, created, deleted, or permission changed; no live billing/limit verification is claimed. Examples and older summaries do not supersede the explicit caller-default exception. Repository publication review must still check workflow code and trusted provenance. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which caller/callee workflows explicitly cap cache modes, exclude secrets, test merge-ref/fallback scope, and reject untrusted executable cache content without relying on successful save status? See [[indexes/gaps]].
+
+
+## 2026-10-28: Ephemeral Windows runners retain a node-cache tradeoff
+
+### Typed entities
+
+project: GitHub Actions; project: AKS; project: Actions Runner Controller; concept: ephemeral runner; concept: image cache; concept: prebuilt toolchain.
+
+### Claims and evidence
+
+- Thoughtworks describes replacing shared Windows build VMs with ephemeral runner pods on AKS, using node-local image reuse and preinstalled tools. Its approximately 14 GB image reportedly took 5-10 minutes cold and 10-20 seconds cached; scaling nodes away can remove that cache advantage. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-rss-the-14-gb-cold-start-problem-rebuilding-self-hosted-github-actions-run.md)
+- The account reports pipeline time falling from about 40 minutes to 10-15 minutes and a lower monthly compute bill. Its 50-pod configuration is a ceiling, not sustained concurrency evidence. Scoped GitHub App authentication and Azure Workload Identity do not establish that every credential path is secretless. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-rss-the-14-gb-cold-start-problem-rebuilding-self-hosted-github-actions-run.md)
+
+### Explicit relationships
+
+Ephemeral jobs use reusable worker-node images; warm-start latency depends-on node lifetime; prebuilt toolchains depend-on image maintenance. See [[kubernetes-platform-governance-and-cicd]].
+
+### Decision and quality notes
+
+Single implementation account with incomplete measurement/cost boundaries. Pod disposal and warm shared nodes are different isolation layers. Kubernetes adoption is not implied; include coordinator, observability, maintenance, and cold-start costs in any comparison. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which queue, execution, cold/warm image, isolation, concurrency, and total-cost measurements justify a runner design for the real workload, including scale-to-zero recovery? See [[indexes/gaps]].
+
+
+## 2026-10-28: Reusable workflows pass authority and secrets at explicit boundaries
+
+### Typed entities
+
+project: GitHub Actions; concept: workflow_call; concept: environment secret; concept: cache-mode; concept: nested workflow; concept: matrix output.
+
+### Claims and evidence
+
+- The captured reference says reusable-workflow environment selection belongs to the called job, while the caller still passes the secret. An environment secret overrides a same-named repository or organization secret. A required declaration checks passing, not whether the eventual value is nonempty. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-web-reuse-workflows.md)
+- Nested workflows must remain accessible and cannot elevate token permissions; secrets must be forwarded at every hop. Matrix outputs come from the last successful completion that sets a value, with the documented empty-string exception, rather than aggregating all matrix results. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-web-reuse-workflows.md)
+- An explicit caller cache-mode caps the callee, while an omitted mode may allow a callee to request write despite a low-trust read default. Read and write-only are distinct capabilities. Local same-repository dollar-slash or dot-slash references without an @ref use the caller commit; the dollar-slash syntax is unavailable in GitHub Enterprise Server. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-web-reuse-workflows.md)
+
+### Explicit relationships
+
+Nested workflows depend-on caller access and per-hop secret forwarding; cache authority depends-on explicit caller limits; matrix outputs depend-on completion order.
+
+### Decision and quality notes
+
+Official reference corroborates the October 27 cache correction without adding an independent publisher. Validate nonempty required secrets without logging values. Sample inline output interpolation is not a safe pattern for untrusted values. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which caller/callee tests verify empty secrets, environment precedence, every forwarding hop, explicit cache caps, deterministic matrix aggregation, and target GitHub edition syntax? See [[indexes/gaps]].
+
+
+## 2026-10-28: Workflow dependency locking complements isolation and secret controls
+
+### Typed entities
+
+project: GitHub Actions; concept: dependency lockfile; concept: script injection; concept: environment approval; concept: just-in-time runner; concept: OIDC trust.
+
+### Claims and evidence
+
+- GitHub's captured secure-use reference prefers workflow dependency lockfiles for exact transitive commits and source identity verification, with full-SHA pins as a fallback where lockfiles cannot be adopted. Dependency locking does not replace source review or prove locked code is benign. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-web-secure-use-reference.md)
+- The reference separates least-privilege job tokens, environment-secret approval, transformed-value masking, and untrusted-input handling. Privileged workflow triggers, untrusted checkouts/artifacts, and shared runner resources remain separate paths to compromise. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-web-secure-use-reference.md)
+- The JIT runner section specifies at most one job per registration but warns that reused hardware still needs a clean environment. Disposable runner registration does not prove host isolation. Short-lived OIDC credentials still depend on scoped trust and permissions. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-web-secure-use-reference.md)
+
+### Explicit relationships
+
+Workflow trust depends-on dependency identity and reviewed code; secret protection uses multiple controls; JIT registration depends-on clean host provisioning. See [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Official reference with broad introductory language that must be read alongside its narrower JIT and secret-scope sections. No blanket impossibility-of-compromise claim is adopted. Lockfile and Dependabot support need actual target-version validation; no workflow settings changed. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which workflows prove transitive lock enforcement, safe handling of untrusted inputs/artifacts, environment-secret approval, scoped OIDC, and clean runner hosts under negative tests? See [[indexes/gaps]].

@@ -3,6 +3,8 @@
 ## Decision-useful summary
 A2UI v0.9 is Google's framework-agnostic generative UI standard for letting agents declare UI intent against existing component catalogs and design systems. The useful architectural signal is separation of concerns: agents should stream structured UI declarations while clients render with native React/Flutter/Lit/Angular/custom components, enabling portable generative UI without replacing the frontend stack. [source: raw/2026-05-08-rss-google-developers-blog-a2ui-v0-9-the-new-standard-for-portable-framewo.md]
 
+> superseded-by: [format-specific streaming guidance](#2026-10-28-inference-format-is-separate-from-a2ui-transport-and-streaming); 2026-10-28T10:19:08-04:00. The earlier general streaming recommendation is narrowed by the newer official SDK description: Direct JSON streams incrementally, while Express compilation waits for a complete reply. The prior statement is preserved as historical guidance.
+
 ## Claims
 - A2UI v0.9 defines a framework-agnostic way for local or remote agents to communicate UI intent to client applications, allowing generated UI to use an existing component catalog/design system across web, mobile, and other clients. confidence: 1 source, last-confirmed 2026-05-08. [source: raw/2026-05-08-rss-google-developers-blog-a2ui-v0-9-the-new-standard-for-portable-framewo.md]
 - A2UI v0.9 includes an Agent SDK for Python, shared web-core client library, official renderers/version bumps for React, Flutter, Lit, and Angular, and a community-renderer path. confidence: 1 source, last-confirmed 2026-05-08. [source: raw/2026-05-08-rss-google-developers-blog-a2ui-v0-9-the-new-standard-for-portable-framewo.md]
@@ -101,3 +103,24 @@ A2UI v0.9 is Google's framework-agnostic generative UI standard for letting agen
 
 ### Quality notes
 - Vendor architecture guidance; useful for design direction, but A2UI/MCP Apps interoperability should be validated against real host clients before adoption.
+
+
+## 2026-10-28: Inference format is separate from A2UI transport and streaming
+
+### Typed entities
+
+project: A2UI; library: A2UI Agent SDK; concept: Express inference format; concept: component catalog; project: Jev; project: Apparite.
+
+### Claims and evidence
+
+- Google describes inference formats as prompt-generation and compiler pairs that translate model output into validated A2UI JSON against a component catalog. Express changes the model-facing representation while preserving the transport and renderer contract. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-rss-fast-reliable-a2ui-with-swappable-inference-formats.md)
+- The described Python and TypeScript SDKs stream Direct JSON incrementally but compile Express only after the complete reply. Macros can fetch existing data by identifier; schema validation alone does not establish authorization for those data reads or server actions. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-rss-fast-reliable-a2ui-with-swappable-inference-formats.md)
+- The format evaluation uses 51 tasks on one named model. Apparite's separate decision-model example reports 11 prompts and predefined layout grammar; the agent SDKs do not yet include that decision-model inference format. The advertised speedups are bounded experiments, not universal end-to-end latency guarantees. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-rss-fast-reliable-a2ui-with-swappable-inference-formats.md)
+
+### Explicit relationships
+
+Express uses a catalog-derived compiler; rendering depends-on standard A2UI messages; controlled layout generation uses predefined grammar. See [[mcp-tool-governance-and-app-surfaces]].
+
+### Decision and quality notes
+
+Official vendor post, dated October 27. Preserve catalog constraints and measure first useful screen separately from completion. Structural validity does not guarantee safe actions, correct data, accessibility, or semantic correctness. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which UI workload benefits from Direct JSON streaming, complete-reply Express, or predefined decisions after measuring first useful screen, completion, validation failures, accessibility, and action authorization? See [[indexes/gaps]].

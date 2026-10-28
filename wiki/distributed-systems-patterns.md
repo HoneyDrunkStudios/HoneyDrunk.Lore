@@ -497,3 +497,23 @@ Safe retry depends-on transient classification, bounded timing, idempotency, and
 ### Decision and quality notes
 
 Official design guidance with unknown publication date. No universal retry count, backoff, or exactly-once outcome is inferred. Apply local cancellation, cost, and authority rules before adopting a retry policy. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which caller/dependency tests prove one end-to-end retry budget, cancellation, backoff, uncertain-outcome reconciliation, idempotency, and bounded load under sustained failure? See [[indexes/gaps]].
+
+
+## 2026-10-28: Version migrations need explicit contracts and retirement handling
+
+### Typed entities
+
+project: n8n; concept: API version; concept: cache key; concept: deprecation; concept: workflow migration.
+
+### Claims and evidence
+
+- The n8n guide distinguishes path, header, date-based, and query-parameter versioning. A date identifies a contract version but does not describe its breaking changes; header or query versions require caches to distinguish the selected version. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-rss-api-versioning-strategies-for-stable-workflow-integrations.md)
+- The guide proposes explicit version configuration, retirement-signal monitoring, separate handling for a retired endpoint, and replay of failed execution data during migration testing. A provider's documented deprecation and sunset behavior must be checked rather than assumed from the generic examples. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-rss-api-versioning-strategies-for-stable-workflow-integrations.md)
+
+### Explicit relationships
+
+Versioned integrations depend-on provider contracts; cache correctness depends-on version-aware keys; migration uses response validation and failure routing. See [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+Vendor educational guidance, not a tested integration or universal HTTP-header contract. Version pinning cannot extend provider support indefinitely. Omit captured execution data and credential examples from reusable notes. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which integration inventory records pinned versions, retirement dates, cache variation, response-contract tests, and a safe failure path before provider migration? See [[indexes/gaps]].

@@ -1404,3 +1404,24 @@ Tenant isolation depends-on rejection propagation, page ownership, and transfer 
 ### Decision and quality notes
 
 Provider incident engineering report; scope, counters, no-exploitation finding, and remediation are reported evidence, not independently reproduced. The release table is more precise than introductory version shorthand. No customer prompt data, marker strings, payload, or reproduction script is copied. Formal verification is future work, not a completed proof. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which inference tests verify actual pool/context capacity, cross-tenant markers, admission failures, abort/disconnect races, late transfers, offload lifetimes, and active checksum coverage for each model? See [[indexes/gaps]].
+
+
+## 2026-10-28: LFM3 specialization claims require whole-device and task evaluation
+
+### Typed entities
+
+project: Liquid AI; project: LFM3; library: transformers; concept: multimodal model; concept: decision model; concept: edge inference.
+
+### Claims and evidence
+
+- Liquid AI describes six roughly 2B-class text, vision, audio, omni, and decision variants derived from LFM3-1.7B-Base. The backbone mixes convolution, sliding-window attention, and global attention; modality-specific encoders and a speech codec extend the shared model. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-rss-build-specialized-multimodal-models-with-lfm3.md)
+- The release offers single-GPU fine-tuning examples and reports model-specific benchmarks, quantized text weights near 1 GB, and a 256K text context window. Weight size is not total runtime memory, and context capacity is not evidence of usable latency on every device. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-rss-build-specialized-multimodal-models-with-lfm3.md)
+- The d1 variants answer typed questions with reported calibrated probabilities; the robotics examples separately cover orchestration, navigation, and action chunks. Sample loaders enable remote model code. The release alone does not establish task-specific calibration, safe robot control, or reviewed executable dependencies. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-rss-build-specialized-multimodal-models-with-lfm3.md)
+
+### Explicit relationships
+
+LFM3 variants depend-on a shared backbone and modality adapters; specialization uses task data; deployment depends-on backend, memory, and executable-code trust. See [[robotics-foundation-models-and-embodied-ai]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+First-party model announcement; performance, calibration, and single-GPU claims remain provisional outside the reported setup. Open weights do not establish unrestricted licensing. Do not run sample code or infer HoneyDrunk device acceptance from this ingest. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which pinned LFM3 weights, license, reviewed loader, device memory/latency measurements, and held-out task/calibration tests justify a specific local deployment? See [[indexes/gaps]].

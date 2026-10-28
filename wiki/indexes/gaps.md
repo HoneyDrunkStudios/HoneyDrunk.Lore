@@ -2,9 +2,9 @@
 
 Questions the wiki cannot currently answer. Populated by the Query operation when synthesis falls short, and by the Lint operation when entities are referenced but lack a backing page.
 
-## Compile status: 2026-10-27
+## Compile status: 2026-10-28
 
-Cataloged 888 dated gap entries alongside the current 67-page catalog. Added 30 questions and closed 0 gaps in this pass. Existing questions and their history are preserved below.
+Cataloged 903 dated gap entries alongside the current 67-page catalog. Added 15 questions and closed 0 gaps in this pass. Existing questions and their history are preserved below.
 
 ## Entry format
 
@@ -1176,3 +1176,22 @@ Cataloged 888 dated gap entries alongside the current 67-page catalog. Added 30 
 - Which Unity release checks explicitly validate asset imports/references, Addressables lifetime, additive-scene state, assembly boundaries, gameplay regressions, and semantic prefab merges? - surfaced 2026-10-27 - context: [[unity-3d-and-realtime-vfx-patterns]]; [source](../../raw/2026-10-27-web-scaling-unity-workflows-lessons-from-medium-to-large-projects.md).
 - Which discovery tests verify configuration precedence, refresh/failure, HTTPS-only policy, logical versus resolved host validation, platform DNS, and retry/hedging endpoint behavior? - surfaced 2026-10-27 - context: [[dotnet-runtime-and-mobile-2026]]; [source](../../raw/2026-10-27-web-service-discovery-in-net.md).
 - Which measured workload verifies cold-start tolerance, profile/replica capacity, runtime headroom, shared-app contention, quota/region support, subnet requirements, and total cost before profile selection? - surfaced 2026-10-27 - context: [[azure-agent-automation-and-identity]]; [source](../../raw/2026-10-27-web-workload-profiles-in-azure-container-apps.md).
+
+
+## 2026-10-28 ingest gaps
+
+- Which integration inventory records pinned versions, retirement dates, cache variation, response-contract tests, and a safe failure path before provider migration? - surfaced 2026-10-28 - context: [[distributed-systems-patterns]]; [source](../../raw/2026-10-28-rss-api-versioning-strategies-for-stable-workflow-integrations.md).
+- Which exact component packages and licenses meet the chosen app needs, and do interactive rendering, accessibility, authentication updates, and trimmed publication pass local checks? - surfaced 2026-10-28 - context: [[dotnet-runtime-and-mobile-2026]]; [source](../../raw/2026-10-28-rss-blazor-welcomes-open-source-contributions-from-infragistics.md).
+- Which pinned LFM3 weights, license, reviewed loader, device memory/latency measurements, and held-out task/calibration tests justify a specific local deployment? - surfaced 2026-10-28 - context: [[edge-ai-and-ai-infrastructure-2026]]; [source](../../raw/2026-10-28-rss-build-specialized-multimodal-models-with-lfm3.md).
+- Which UI workload benefits from Direct JSON streaming, complete-reply Express, or predefined decisions after measuring first useful screen, completion, validation failures, accessibility, and action authorization? - surfaced 2026-10-28 - context: [[generative-ui-and-a2ui]]; [source](../../raw/2026-10-28-rss-fast-reliable-a2ui-with-swappable-inference-formats.md).
+- Do workflow and cloud audit records show unauthorized execution or rapidly deleted runs, and are secret access, protected environments, cloud trust, and runner isolation independently verified? - surfaced 2026-10-28 - context: [[ai-coding-agent-security]]; [source](../../raw/2026-10-28-rss-gheist-attempted-scaled-abuse-of-stolen-github-tokens-stumbles.md).
+- Which pinned Collector configuration uses only guaranteed OTTL surfaces, removes retired gates, and passes transform error-path, missing-field, and privacy-output tests? - surfaced 2026-10-28 - context: [[opentelemetry-genai-observability-and-ecosystem]]; [source](../../raw/2026-10-28-rss-opentelemetry-transformation-language-reaches-v1.md).
+- Which target browsers, real GPUs, constrained networks, and repeated cold/warm runs validate UI visibility, input responsiveness, pack completeness, and playable time for the actual game? - surfaced 2026-10-28 - context: [[web-3d-runtime-tradeoffs]]; [source](../../raw/2026-10-28-rss-our-godot-web-build-drew-its-first-frame-at-1-5-s-but-showed-a-usable-.md).
+- Which queue, execution, cold/warm image, isolation, concurrency, and total-cost measurements justify a runner design for the real workload, including scale-to-zero recovery? - surfaced 2026-10-28 - context: [[github-actions-platform-operations]]; [source](../../raw/2026-10-28-rss-the-14-gb-cold-start-problem-rebuilding-self-hosted-github-actions-run.md).
+- Which workload requires stronger Git read/write scale, and what tests prove acknowledged-write durability, read freshness, same-reference contention, failover, and compaction behavior? - surfaced 2026-10-28 - context: [[git-storage-and-version-control-infrastructure]]; [source](../../raw/2026-10-28-rss-the-bridge-to-agent-scale-git-infrastructure.md).
+- Which pinned Blender and engine round trips verify extension support, colors, node references, animation/visibility, memory peaks, and meshopt import behavior? - surfaced 2026-10-28 - context: [[technical-art-community-and-talent-signals]]; [source](../../raw/2026-10-28-web-blender-5-2-lts-pipeline-i-o.md).
+- Which app identities and component scopes have only required backend and Key Vault permissions, and do negative access, role-based secret listing, rotation, and failure tests pass? - surfaced 2026-10-28 - context: [[azure-agent-automation-and-identity]]; [source](../../raw/2026-10-28-web-connect-to-other-azure-or-partner-services-by-using-dapr-components.md).
+- Which multi-instance tests establish stale-read bounds, tenant-safe keys, cancellation, payload retention after tag invalidation, serializer compatibility, and AOT behavior? - surfaced 2026-10-28 - context: [[dotnet-runtime-and-mobile-2026]]; [source](../../raw/2026-10-28-web-hybridcache-library-in-asp-net-core.md).
+- Which caller/callee tests verify empty secrets, environment precedence, every forwarding hop, explicit cache caps, deterministic matrix aggregation, and target GitHub edition syntax? - surfaced 2026-10-28 - context: [[github-actions-platform-operations]]; [source](../../raw/2026-10-28-web-reuse-workflows.md).
+- Which workflows prove transitive lock enforcement, safe handling of untrusted inputs/artifacts, environment-secret approval, scoped OIDC, and clean runner hosts under negative tests? - surfaced 2026-10-28 - context: [[github-actions-platform-operations]]; [source](../../raw/2026-10-28-web-secure-use-reference.md).
+- Which pinned Unity/backend/device measurements separate live objects, reserved heap, resident/dirty pages, fragmentation, and frame-time cost across repeated lifecycle and collection cycles? - surfaced 2026-10-28 - context: [[unity-3d-and-realtime-vfx-patterns]]; [source](../../raw/2026-10-28-web-understanding-memory-management-in-unity.md).

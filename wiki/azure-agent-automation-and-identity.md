@@ -1605,3 +1605,23 @@ Capacity and cost depend-on profile type, placement, replicas, instance limits, 
 ### Decision and quality notes
 
 Official preview/availability snapshot, not a price quote or live region/quota check. Do not read the final per-instance billing paragraph as overriding Consumption/Flexible per-replica distinctions. No subnet, profile, quota request, or cloud resource was created. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which measured workload verifies cold-start tolerance, profile/replica capacity, runtime headroom, shared-app contention, quota/region support, subnet requirements, and total cost before profile selection? See [[indexes/gaps]].
+
+
+## 2026-10-28: Dapr component identity and secret-store access are separate boundaries
+
+### Typed entities
+
+project: Azure Container Apps; project: Dapr; project: Azure Key Vault; concept: managed identity; concept: component scope; concept: secret-store reference.
+
+### Claims and evidence
+
+- Microsoft recommends managed identity for Azure Dapr components that support it, with azureClientId required for user-assigned identities. Components without that support can reference a Dapr secret store; the Key Vault store can itself authenticate with managed identity. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-web-connect-to-other-azure-or-partner-services-by-using-dapr-components.md)
+- The Container Apps schema separately defines component scopes, secret-store references, and sensitive metadata references. The reference warns that some built-in roles can list component secret values. A secretRef or scoped manifest does not by itself prove least-privilege backend or management-plane authorization. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-web-connect-to-other-azure-or-partner-services-by-using-dapr-components.md)
+
+### Explicit relationships
+
+Dapr components depend-on scoped app identity and backend permissions; unsupported authentication uses a secret-store reference; secret management depends-on role permissions.
+
+### Decision and quality notes
+
+Official configuration reference, not a deployed connection test. Inline secret examples and sample identities are omitted. Managed identity removes particular stored credential paths, not every application or administration risk. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which app identities and component scopes have only required backend and Key Vault permissions, and do negative access, role-based secret listing, rotation, and failure tests pass? See [[indexes/gaps]].

@@ -1503,3 +1503,23 @@ Rig/animation compatibility depends-on versioned operator defaults and rotation 
 ### Decision and quality notes
 
 Official release-note snapshot with unknown publication date; the page title alone does not establish installed version, final availability, or exporter compatibility. No Blender, rig, saved action, or engine export was exercised. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which saved-rig and automation tests verify keying defaults, mixed rotation orders, bone rename/constraints, playback state, preroll, and exported animation after a pinned Blender upgrade? See [[indexes/gaps]].
+
+
+## 2026-10-28: Blender pipeline notes require format-specific round trips
+
+### Typed entities
+
+project: Blender 5.2 LTS; concept: glTF; concept: USD; concept: Alembic; concept: color space; concept: export compatibility.
+
+### Claims and evidence
+
+- The captured Blender notes list glTF point-cloud handling, meshopt export, iridescence and dispersion material extensions, export-stopping hooks, and node sorting by name. These producer features do not establish support in a downstream renderer or importer. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-web-blender-5-2-lts-pipeline-i-o.md)
+- USD changes include working-space conversion on import, color-space tagging on export, configurable flushing, and NURBS export as meshes. Alembic additions include visibility and camera F-curves; movie metadata support limits panoramic cameras to full equirectangular views. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-web-blender-5-2-lts-pipeline-i-o.md)
+
+### Explicit relationships
+
+Asset interchange depends-on producer and consumer format support; USD import uses working-space conversion; Alembic animation uses F-curves. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Official release-note snapshot with unknown publication date. Flagged source defects: the importer list repeats a meshopt export statement, and one Alembic link contains a repository-path typo. Do not infer meshopt import support or released-binary acceptance from those lines; no raw edits made. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which pinned Blender and engine round trips verify extension support, colors, node references, animation/visibility, memory peaks, and meshopt import behavior? See [[indexes/gaps]].

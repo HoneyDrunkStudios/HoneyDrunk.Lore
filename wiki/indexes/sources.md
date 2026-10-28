@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-10-27
+## Compile coverage: 2026-10-28
 
-Reconciled 1352 raw documents against 1352 unique entries; ingested 30 new sources in this pass. Existing records and dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
+Reconciled 1367 raw documents against 1367 unique entries; ingested 15 new sources in this pass. Existing records and dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
 
 ## Entry format
 
@@ -1729,3 +1729,22 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [Scaling Unity workflows: Lessons from medium to large projects](../../raw/2026-10-27-web-scaling-unity-workflows-lessons-from-medium-to-large-projects.md) - Mega Cat Unity workflow account joins modular scenes/assemblies, asset ownership, and executable validation while qualifying OnValidate assumptions. Canonical page: [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-10-27
 - [Service discovery in .NET](../../raw/2026-10-27-web-service-discovery-in-net.md) - .NET discovery reference separates logical routing, configuration/pass-through resolvers, scheme fallback, and transport trust. Canonical page: [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-10-27
 - [Workload profiles in Azure Container Apps](../../raw/2026-10-27-web-workload-profiles-in-azure-container-apps.md) - Container Apps profile overview separates Consumption, Dedicated, and Flexible preview scaling, billing, placement, and quota constraints. Canonical page: [[azure-agent-automation-and-identity]]. - ingested 2026-10-27
+
+
+## 2026-10-28 sources
+
+- [API Versioning Strategies for Stable Workflow Integrations](../../raw/2026-10-28-rss-api-versioning-strategies-for-stable-workflow-integrations.md) - Version migrations need explicit contracts and retirement handling. Canonical page: [[distributed-systems-patterns]]. - ingested 2026-10-28
+- [Blazor Welcomes Open-Source Contributions from Infragistics](../../raw/2026-10-28-rss-blazor-welcomes-open-source-contributions-from-infragistics.md) - Blazor component licensing and framework contributions have different scopes. Canonical page: [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-10-28
+- [Build specialized multimodal models with LFM3](../../raw/2026-10-28-rss-build-specialized-multimodal-models-with-lfm3.md) - LFM3 specialization claims require whole-device and task evaluation. Canonical page: [[edge-ai-and-ai-infrastructure-2026]]. - ingested 2026-10-28
+- [Fast, reliable A2UI, with swappable inference formats](../../raw/2026-10-28-rss-fast-reliable-a2ui-with-swappable-inference-formats.md) - Inference format is separate from A2UI transport and streaming. Canonical page: [[generative-ui-and-a2ui]]. - ingested 2026-10-28
+- [Gheist: Attempted Scaled Abuse of Stolen GitHub Tokens Stumbles](../../raw/2026-10-28-rss-gheist-attempted-scaled-abuse-of-stolen-github-tokens-stumbles.md) - Gheist separates workflow token permissions from secret exposure. Canonical page: [[ai-coding-agent-security]]. - ingested 2026-10-28
+- [OpenTelemetry Transformation Language reaches v1](../../raw/2026-10-28-rss-opentelemetry-transformation-language-reaches-v1.md) - OTTL v1 stabilizes a bounded language surface. Canonical page: [[opentelemetry-genai-observability-and-ecosystem]]. - ingested 2026-10-28
+- [Our Godot web build drew its first frame at 1.5 s but showed a usable screen at 10.3 s — here's what moving things around did](../../raw/2026-10-28-rss-our-godot-web-build-drew-its-first-frame-at-1-5-s-but-showed-a-usable-.md) - Godot startup needs distinct render, interaction, and playable milestones. Canonical page: [[web-3d-runtime-tradeoffs]]. - ingested 2026-10-28
+- [The 14 GB cold-start problem: Rebuilding self-hosted GitHub Actions runners on Azure Kubernetes Service](../../raw/2026-10-28-rss-the-14-gb-cold-start-problem-rebuilding-self-hosted-github-actions-run.md) - Ephemeral Windows runners retain a node-cache tradeoff. Canonical page: [[github-actions-platform-operations]]. - ingested 2026-10-28
+- [The bridge to agent-scale Git infrastructure](../../raw/2026-10-28-rss-the-bridge-to-agent-scale-git-infrastructure.md) - GitHub narrows serialization while separating durable storage and reads. Canonical page: [[git-storage-and-version-control-infrastructure]]. - ingested 2026-10-28
+- [Blender 5.2 LTS: Pipeline & I/O](../../raw/2026-10-28-web-blender-5-2-lts-pipeline-i-o.md) - Blender pipeline notes require format-specific round trips. Canonical page: [[technical-art-community-and-talent-signals]]. - ingested 2026-10-28
+- [Connect to other Azure or partner services by using Dapr components](../../raw/2026-10-28-web-connect-to-other-azure-or-partner-services-by-using-dapr-components.md) - Dapr component identity and secret-store access are separate boundaries. Canonical page: [[azure-agent-automation-and-identity]]. - ingested 2026-10-28
+- [HybridCache library in ASP.NET Core](../../raw/2026-10-28-web-hybridcache-library-in-asp-net-core.md) - HybridCache coordination and invalidation are not cluster-wide guarantees. Canonical page: [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-10-28
+- [Reuse workflows](../../raw/2026-10-28-web-reuse-workflows.md) - Reusable workflows pass authority and secrets at explicit boundaries. Canonical page: [[github-actions-platform-operations]]. - ingested 2026-10-28
+- [Secure use reference](../../raw/2026-10-28-web-secure-use-reference.md) - Workflow dependency locking complements isolation and secret controls. Canonical page: [[github-actions-platform-operations]]. - ingested 2026-10-28
+- [Understanding Memory Management in Unity](../../raw/2026-10-28-web-understanding-memory-management-in-unity.md) - Unity logical collection differs from resident-memory reclamation. Canonical page: [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-10-28

@@ -83,3 +83,30 @@ Scion uses changeset logs and derived indexes; sparse checkout depends-on immuta
 ### Decision and quality notes
 
 First-party engineering case study, updated October 15, with no independent load or failure tests. Distinguish server-side operation patterns from the much larger product migration. Internal token availability and monorepo scale limit transferability; no alternative forge was selected or configured. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which measured HoneyDrunk clone, metadata-query, and CI bottlenecks justify server-side caching or sparse access, and what failure/permission tests would precede any source-control architecture change? See [[indexes/gaps]].
+
+
+## 2026-10-28: GitHub narrows serialization while separating durable storage and reads
+
+### Typed entities
+
+project: GitHub; project: Spokes; project: Azure Blob Storage; concept: per-reference serialization; concept: virtual replica; concept: read reconciliation.
+
+### Claims and evidence
+
+- GitHub describes a staged migration: first move repository replicas to Azure, then evolve storage. Per-reference serialization lets disjoint reference writes overlap instead of waiting behind one repository-wide lock; shared-reference contention and cross-region round trips remain. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-rss-the-bridge-to-agent-scale-git-infrastructure.md)
+- A virtual write replica streams changes to object storage and participates in durability acknowledgement, coalescing disjoint transactions. Virtual read replicas warm caches from object storage outside the write quorum. Background reconciliation initially supports only some reads; serving all reads requires inline freshness reconciliation. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-rss-the-bridge-to-agent-scale-git-infrastructure.md)
+- The reported 3-4x throughput improvement comes from GitHub's internal realistic-traffic tests. The bridge retains quorum limits and describes further redesign as upcoming, so it is neither a claim of unlimited writes nor proof that the final architecture is fully deployed. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-rss-the-bridge-to-agent-scale-git-infrastructure.md)
+
+### Explicit relationships
+
+Disjoint writes use per-reference serialization; virtual reads depend-on object-store reconciliation; durable acknowledgement depends-on the virtual write replica. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+First-party engineering account published October 21. Architecture evidence is useful for evaluating coordination boundaries; reported traffic, migration percentages, and performance are dated vendor observations, not capacity targets for HoneyDrunk. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which workload requires stronger Git read/write scale, and what tests prove acknowledged-write durability, read freshness, same-reference contention, failover, and compaction behavior? See [[indexes/gaps]].
+
+### Cross-source consolidation: separate durable state from serving work
+
+The Cursor Continuity, Anthropic Scion, and GitHub Spokes accounts strengthen the architectural rationale for separating durable repository state from cache/serving work and narrowing coordination to the state that requires ordering. This is a compiler inference across different systems, not a shared implementation or replicated performance result. confidence: 3 sources, last-confirmed 2026-10-28; moderate support for the design pattern, provisional for transfer to HoneyDrunk. [Cursor capture](../raw/2026-08-21-rss-tldr-ai-git-at-any-scale-27-minute-read.md), [Anthropic capture](../raw/2026-10-21-rss-redesigning-source-control-at-anthropic.md), [GitHub capture](../raw/2026-10-28-rss-the-bridge-to-agent-scale-git-infrastructure.md).
+
+Each account retains its own acknowledgement, read-freshness, failure, and migration boundaries. Different publishers provide broader design evidence, not three confirmations of any one throughput number. No source-control migration is selected by this synthesis.

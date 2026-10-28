@@ -824,3 +824,24 @@ Behavior budgets depend-on evaluator validity, denominator coverage, and operato
 ### Decision and quality notes
 
 Vendor product/design article, not a measured reliability trial. Inference for HoneyDrunk: explicitly account for sampled, missing, failed, and version-changed evaluations so the budget cannot improve by dropping difficult cases. Regex is incomplete secret detection, and an error budget is not permission for credential leaks or prohibited actions. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which behavior SLOs have calibrated judges, privacy-safe traces, explicit denominators and missing-evaluation handling, rare-failure checks, and tested budget-burn response policies? See [[indexes/gaps]].
+
+
+## 2026-10-28: OTTL v1 stabilizes a bounded language surface
+
+### Typed entities
+
+project: OpenTelemetry Collector Contrib; library: OTTL; library: xottl; library: xprofile; concept: compatibility guarantee; concept: feature gate.
+
+### Claims and evidence
+
+- The project announces OTTL stability for traces, metrics, and logs starting with Collector Contrib v0.164.0. The 1.x promise covers documented grammar, standard-function compatibility, and the stable Go API; additive syntax remains possible. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-rss-opentelemetry-transformation-language-reaches-v1.md)
+- New experimental functions live in the separately versioned xottl surface. Lambda functions still require their own feature gate, profiles remain in xprofile at 0.x, and transform-processor stabilization is described as future work. OTTL v1 therefore does not graduate every consuming component or experimental feature. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-rss-opentelemetry-transformation-language-reaches-v1.md)
+- Upgrade guidance requires reviewing intervening changelogs and removing obsolete functions or feature gates, including ottl.set.allowNil at v0.164.0. Backward compatibility within 1.x does not erase migration work from older 0.x configurations. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-rss-opentelemetry-transformation-language-reaches-v1.md)
+
+### Explicit relationships
+
+OTTL consumers depend-on versioned syntax and function sets; experimental lambdas use separate gates; telemetry sanitization depends-on actual emitted-output tests.
+
+### Decision and quality notes
+
+Official release announcement. The September lambda page remains compatible with this newer evidence and is not superseded. Product stability does not establish correct redaction or privacy-safe telemetry for a local schema. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which pinned Collector configuration uses only guaranteed OTTL surfaces, removes retired gates, and passes transform error-path, missing-field, and privacy-output tests? See [[indexes/gaps]].

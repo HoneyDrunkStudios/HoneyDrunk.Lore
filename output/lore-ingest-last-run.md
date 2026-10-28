@@ -1,103 +1,77 @@
 # Lore daily ingest/compile run
 
-- Timestamp: 2026-10-27T10:10:17-04:00
-- Operator: Codex executing the authorized Honeyclaw workflow.
-- Raw sources ingested: **30** (15 October 26 captures and 15 October 27 captures); all fully read. Inventory now **1,352** raw documents and unique source records.
-- Canonical wiki pages created/updated: **0 / 18**; all **67** canonical pages retained.
-- Indexes rebuilt: sources, topics, and gaps; audit history extended.
-- Contradictions/supersessions resolved: **3**, with prior wording retained and timestamped reasoning.
-- Gaps logged/closed: **30 / 0**; **888** dated questions retained.
-- Query outputs checked: **13**; new crystallizations: **0**.
-- Blockers: **none** after bounded validation and explicit author self-review.
+- Timestamp: 2026-10-28T10:19:08-04:00
+- Operator: Codex executing the authorized Honeyclaw daily ingest/compile prompt.
+- Result: **15 raw sources ingested; 12 existing concept pages updated; 0 concept pages created.**
+- Catalog: **1,367 raw documents; 67 concept pages; 903 dated gaps.**
+- Blockers: **None after content review and local validation.** Publication outcome is verified separately after this receipt is committed.
 
 ## Raw sources ingested
 
-- [2026-10-26-rss-broccoli2shell-everything-you-need-to-know-about-the-critical-brotli-d.md](../raw/2026-10-26-rss-broccoli2shell-everything-you-need-to-know-about-the-critical-brotli-d.md)
-- [2026-10-26-rss-embeddinggemma-2-the-developer-guide.md](../raw/2026-10-26-rss-embeddinggemma-2-the-developer-guide.md)
-- [2026-10-26-rss-evaluating-decision-models-for-document-categorization.md](../raw/2026-10-26-rss-evaluating-decision-models-for-document-categorization.md)
-- [2026-10-26-rss-how-i-added-english-to-my-solo-dev-unity-mmo-without-touching-130-ui-f.md](../raw/2026-10-26-rss-how-i-added-english-to-my-solo-dev-unity-mmo-without-touching-130-ui-f.md)
-- [2026-10-26-rss-litpivot-developing-research-ideas-through-dynamic-contextualization-w.md](../raw/2026-10-26-rss-litpivot-developing-research-ideas-through-dynamic-contextualization-w.md)
-- [2026-10-26-rss-net-october-2026-out-of-band-security-updates.md](../raw/2026-10-26-rss-net-october-2026-out-of-band-security-updates.md)
-- [2026-10-26-rss-origin-range-requests-serving-large-files-without-range-request-tuning.md](../raw/2026-10-26-rss-origin-range-requests-serving-large-files-without-range-request-tuning.md)
-- [2026-10-26-rss-preliminary-report-oct-21st-security-incident.md](../raw/2026-10-26-rss-preliminary-report-oct-21st-security-incident.md)
-- [2026-10-26-web-health-probes-in-azure-container-apps.md](../raw/2026-10-26-web-health-probes-in-azure-container-apps.md)
-- [2026-10-26-web-introducing-translate-connectors-bring-your-organization-s-translation.md](../raw/2026-10-26-web-introducing-translate-connectors-bring-your-organization-s-translation.md)
-- [2026-10-26-web-meta-quest-72-fps-the-unity-mesh-optimization-checklist.md](../raw/2026-10-26-web-meta-quest-72-fps-the-unity-mesh-optimization-checklist.md)
-- [2026-10-26-web-rate-limiting-middleware-in-asp-net-core.md](../raw/2026-10-26-web-rate-limiting-middleware-in-asp-net-core.md)
-- [2026-10-26-web-retry-pattern.md](../raw/2026-10-26-web-retry-pattern.md)
-- [2026-10-26-web-update-and-deploy-changes-in-azure-container-apps.md](../raw/2026-10-26-web-update-and-deploy-changes-in-azure-container-apps.md)
-- [2026-10-26-web-what-if-your-agent-s-hallucinations-had-a-budget-how-to-start-using-sl.md](../raw/2026-10-26-web-what-if-your-agent-s-hallucinations-had-a-budget-how-to-start-using-sl.md)
-- [2026-10-27-rss-breaking-the-aws-mcp-python-sandbox.md](../raw/2026-10-27-rss-breaking-the-aws-mcp-python-sandbox.md)
-- [2026-10-27-rss-cross-request-kv-cache-exposure-in-the-glm-5-3-workers-ai-model-and-ou.md](../raw/2026-10-27-rss-cross-request-kv-cache-exposure-in-the-glm-5-3-workers-ai-model-and-ou.md)
-- [2026-10-27-rss-how-can-you-diagnose-lua-memory-issues-in-unity-games.md](../raw/2026-10-27-rss-how-can-you-diagnose-lua-memory-issues-in-unity-games.md)
-- [2026-10-27-rss-how-the-claude-code-team-does-code-review.md](../raw/2026-10-27-rss-how-the-claude-code-team-does-code-review.md)
-- [2026-10-27-rss-keeping-a-software-factory-stable-at-1-000-prs-a-week.md](../raw/2026-10-27-rss-keeping-a-software-factory-stable-at-1-000-prs-a-week.md)
-- [2026-10-27-rss-shard-design-doesn-t-start-from-your-tables.md](../raw/2026-10-27-rss-shard-design-doesn-t-start-from-your-tables.md)
-- [2026-10-27-rss-step-by-step-guide-build-a-voice-agent-that-never-goes-silent-using-ad.md](../raw/2026-10-27-rss-step-by-step-guide-build-a-voice-agent-that-never-goes-silent-using-ad.md)
-- [2026-10-27-rss-what-is-an-ai-agent-harness-a-practical-guide.md](../raw/2026-10-27-rss-what-is-an-ai-agent-harness-a-practical-guide.md)
-- [2026-10-27-web-blender-5-2-lts-animation-rigging.md](../raw/2026-10-27-web-blender-5-2-lts-animation-rigging.md)
-- [2026-10-27-web-build-resilient-http-apps-key-development-patterns.md](../raw/2026-10-27-web-build-resilient-http-apps-key-development-patterns.md)
-- [2026-10-27-web-dependency-caching-reference.md](../raw/2026-10-27-web-dependency-caching-reference.md)
-- [2026-10-27-web-monitor-logs-in-azure-container-apps-with-log-analytics.md](../raw/2026-10-27-web-monitor-logs-in-azure-container-apps-with-log-analytics.md)
-- [2026-10-27-web-scaling-unity-workflows-lessons-from-medium-to-large-projects.md](../raw/2026-10-27-web-scaling-unity-workflows-lessons-from-medium-to-large-projects.md)
-- [2026-10-27-web-service-discovery-in-net.md](../raw/2026-10-27-web-service-discovery-in-net.md)
-- [2026-10-27-web-workload-profiles-in-azure-container-apps.md](../raw/2026-10-27-web-workload-profiles-in-azure-container-apps.md)
+All 15 captures were read in full. Existing untracked source artifacts are included byte-for-byte in the intended commit so citations remain available after publication. No raw file was edited or deleted.
 
-## Canonical pages updated
+- [API Versioning Strategies for Stable Workflow Integrations](../raw/2026-10-28-rss-api-versioning-strategies-for-stable-workflow-integrations.md)
+- [Blazor Welcomes Open-Source Contributions from Infragistics](../raw/2026-10-28-rss-blazor-welcomes-open-source-contributions-from-infragistics.md)
+- [Build specialized multimodal models with LFM3](../raw/2026-10-28-rss-build-specialized-multimodal-models-with-lfm3.md)
+- [Fast, reliable A2UI, with swappable inference formats](../raw/2026-10-28-rss-fast-reliable-a2ui-with-swappable-inference-formats.md)
+- [Gheist: Attempted Scaled Abuse of Stolen GitHub Tokens Stumbles](../raw/2026-10-28-rss-gheist-attempted-scaled-abuse-of-stolen-github-tokens-stumbles.md)
+- [OpenTelemetry Transformation Language reaches v1](../raw/2026-10-28-rss-opentelemetry-transformation-language-reaches-v1.md)
+- [Our Godot web build drew its first frame at 1.5 s but showed a usable screen at 10.3 s — here's what moving things around did](../raw/2026-10-28-rss-our-godot-web-build-drew-its-first-frame-at-1-5-s-but-showed-a-usable-.md)
+- [The 14 GB cold-start problem: Rebuilding self-hosted GitHub Actions runners on Azure Kubernetes Service](../raw/2026-10-28-rss-the-14-gb-cold-start-problem-rebuilding-self-hosted-github-actions-run.md)
+- [The bridge to agent-scale Git infrastructure](../raw/2026-10-28-rss-the-bridge-to-agent-scale-git-infrastructure.md)
+- [Blender 5.2 LTS: Pipeline & I/O](../raw/2026-10-28-web-blender-5-2-lts-pipeline-i-o.md)
+- [Connect to other Azure or partner services by using Dapr components](../raw/2026-10-28-web-connect-to-other-azure-or-partner-services-by-using-dapr-components.md)
+- [HybridCache library in ASP.NET Core](../raw/2026-10-28-web-hybridcache-library-in-asp-net-core.md)
+- [Reuse workflows](../raw/2026-10-28-web-reuse-workflows.md)
+- [Secure use reference](../raw/2026-10-28-web-secure-use-reference.md)
+- [Understanding Memory Management in Unity](../raw/2026-10-28-web-understanding-memory-management-in-unity.md)
 
-- [agent-evaluation-and-benchmarks](../wiki/agent-evaluation-and-benchmarks.md)
-- [agentic-retrieval-and-search](../wiki/agentic-retrieval-and-search.md)
-- [ai-agent-harnesses](../wiki/ai-agent-harnesses.md)
-- [ai-assisted-software-practice](../wiki/ai-assisted-software-practice.md)
+## Wiki pages updated
+
 - [ai-coding-agent-security](../wiki/ai-coding-agent-security.md)
-- [ai-research-automation-and-recursive-self-improvement](../wiki/ai-research-automation-and-recursive-self-improvement.md)
 - [azure-agent-automation-and-identity](../wiki/azure-agent-automation-and-identity.md)
-- [cloud-data-platforms-and-analytics](../wiki/cloud-data-platforms-and-analytics.md)
-- [creative-automation-and-firefly-services](../wiki/creative-automation-and-firefly-services.md)
 - [distributed-systems-patterns](../wiki/distributed-systems-patterns.md)
-- [dotnet-dependency-security-and-nuget](../wiki/dotnet-dependency-security-and-nuget.md)
 - [dotnet-runtime-and-mobile-2026](../wiki/dotnet-runtime-and-mobile-2026.md)
 - [edge-ai-and-ai-infrastructure-2026](../wiki/edge-ai-and-ai-infrastructure-2026.md)
+- [generative-ui-and-a2ui](../wiki/generative-ui-and-a2ui.md)
+- [git-storage-and-version-control-infrastructure](../wiki/git-storage-and-version-control-infrastructure.md)
 - [github-actions-platform-operations](../wiki/github-actions-platform-operations.md)
 - [opentelemetry-genai-observability-and-ecosystem](../wiki/opentelemetry-genai-observability-and-ecosystem.md)
 - [technical-art-community-and-talent-signals](../wiki/technical-art-community-and-talent-signals.md)
 - [unity-3d-and-realtime-vfx-patterns](../wiki/unity-3d-and-realtime-vfx-patterns.md)
-- [voice-agent-platforms-2026](../wiki/voice-agent-platforms-2026.md)
+- [web-3d-runtime-tradeoffs](../wiki/web-3d-runtime-tradeoffs.md)
 
-## Reconciliation and consolidation
+Reconciled sources, rebuilt every topic row from canonical page metadata and explicit raw-file citations, updated gap coverage, and appended the audit index. All source records, historical gap questions, and prior claim text are preserved. Each new source section includes typed entities, explicit relationships, citations, confirmation date, provisional confidence, decision limits, and an open question. Routing to existing canonical pages avoided duplicate articles; no merge was needed.
 
-All 30 captures were routed into existing canonical topics using keyword and concept scans; no duplicate concept page was created or canonical merge required. New sections record typed entities, explicit relationships, citations, per-claim support counts and confirmation dates, decision limits, and a sourcing question. Existing wiki prose, source records, dated gaps, and audit history are preserved.
+## Reconciliation and crystallization
 
-Resolved three earlier statements using newer, more detailed official evidence:
-
-1. The October servicing matrix is superseded for patch discovery by the October 25 OOB versions and the admission that two October 13 fixes were incomplete.
-2. The .NET 11 RC2 release-stage snapshot is superseded by RC3 for the listed security fixes, without claiming GA.
-3. The unconditional reusable-workflow cache ceiling is narrowed: an explicit caller mode caps authority; an omitted mode can allow a callee write request despite a low-trust read default.
-
-Seven distinct authored accounts now support the existing explicit-controls design rationale. This is moderate support across different designs, not seven replications of one experiment. New conceptual guidance does not add an independent measurement. Product-specific numbers, security guarantees, and single-source findings remain provisional; no historical claim date was advanced merely by rebuilding an index.
-
-Read all 13 historical query outputs. Their 75 distinct explicit raw-file references already occur in canonical content, and their durable points remain represented. They add no independent support; no new crystallization is warranted. This compile is not a full historical lint, retention-decay audit, or live product-support refresh.
+- Supersession: **1**. Preserved the general A2UI streaming recommendation and attached a timestamped `superseded-by:` link narrowing it to format-specific behavior. The newer official description says Direct JSON streams incrementally, while Express waits for a complete reply.
+- OTTL v1 does not contradict the older experimental-lambda status. Stable grammar/functions/API, experimental functions and profiles, and pending transform-processor graduation are recorded separately.
+- Three distinct authored Git infrastructure accounts strengthen the design rationale for separating durable state from serving/cache work and narrowing coordination. This is explicitly a compiler inference with moderate confidence, not three replicated performance results.
+- All **13** historical query outputs were reviewed; their **75** distinct explicit raw-file citations already occur in canonical pages. Their durable points repeat compiled evidence, so **0** new crystallizations and **0** independent support increments were warranted.
+- Added **15** sourcing questions; closed **0** gaps. They cover API retirement, Blazor compatibility, LFM3 evaluation, UI latency/authorization, workflow exposure, OTTL compatibility/privacy, browser startup, runner costs/isolation, Git consistency, asset round trips, Dapr permissions, cache invalidation, reusable-workflow boundaries, workflow security, and Unity memory profiling. See [gaps](../wiki/indexes/gaps.md#2026-10-28-ingest-gaps).
 
 ## Quality and privacy posture
 
-- Pages wholly rewritten: **0**. Source quality limits are recorded in all **30** new sections; the Quest promotional checklist is explicitly flagged within its canonical page rather than treated as a platform requirement.
-- Weak claims: small classification and research studies, vendor performance figures, preliminary incident attribution, tool-specific profiling support, preview availability, and untested sample behavior remain qualified. No benchmark or local/provider/device acceptance is claimed.
-- Material sample caveats include incomplete probe responses and limiter wiring, HTTP reload-option inconsistency, broad Android targeting, and OnValidate assumptions. Voice execution versus scheduling/cancellation, encrypted storage versus decryption access, and successful inference versus tenant isolation remain distinct.
-- Privacy: **0** secret-value replacements in generated prose, with deliberate omission of attack payloads, credential examples, unnecessary personal/example identities, and customer telemetry. Best-effort scanning found one match in the immutable ASP.NET raw capture: the public code expression assigning the API-key header to a variable, not a credential value. The exact expression was reviewed; raw remains unchanged.
-- Decision usefulness: use findings for scoped inventory and test design. Dated announcements do not establish current service availability, HoneyDrunk adoption, patch completion, safe automatic merges, or authorization for infrastructure/account changes. Open questions identify evidence that would change decisions.
+- Whole pages rewritten: **0**. New Blender and Unity sections explicitly flag ambiguous release-note wording and simplified teaching claims. Blender's repeated meshopt export line does not prove import support; the Unity article's page sizes, commitment model, cadence, and thresholds are not adopted as portable guarantees.
+- Weak claims remain provisional: vendor model/calibration figures, internal Git throughput, runner cost/capacity figures, the small local Godot experiment, evolving incident scope, and untested library/component behavior. Rebuilding catalogs does not refresh historical claims or make repeated publisher material independent evidence.
+- Privacy replacements in generated content: **0**. Best-effort secret scanning found no matches in generated additions or the 15 raw captures. Payloads, attack collection paths/addresses, sample credential values, unnecessary identity details, and private execution data were deliberately omitted from wiki prose. This is not a privacy certification of the historical corpus.
+- Decision usefulness: the new sections identify evidence needed before adoption. No runtime, device, provider, deployment, security-incident, or performance acceptance is inferred from archived prose. No configuration, account, infrastructure, or workflow changes are authorized by these research findings.
 
 ## Validation and explicit review
 
-Source records exactly reconcile with all 1,352 raw documents; each new source has a canonical citation. All 67 topic rows reconcile with page metadata and distinct explicit raw-file citations. All 858 historical gap questions and 1,322 prior source records remain unchanged; 30 questions and source records were added. Historical wiki lines remain in order and audit history is preserved verbatim.
+Validation reconciles **1,367** source records with all raw documents and verifies citations for every new source. All **67** topic rows match current titles, explicit distinct raw citations, and existing confirmation dates. All **888** historical dated gap entries and **1,352** prior source records remain present; **15** new entries were added to each relevant catalog.
 
-SHA-256 verification covers all 1,353 raw files including `.gitkeep`, with no edits/deletions. All 1,502 baseline files outside the 23-file generated scope are unchanged, including unrelated sourcing receipts and signal reports. All 2,776 checked local Markdown file links and new wikilinks resolve; new supersession anchors resolve. External URLs and historical fragment anchors were not live-validated. Whitespace checks pass for generated content. Nine trailing-space lines in four immutable raw captures are retained unchanged as source evidence; these source-only whitespace findings are a documented preservation exception, not a content-quality blocker. Generated additions have no best-effort secret-pattern matches; the single raw scanner false positive is documented above. This is not a certification of the historical corpus.
+SHA-256 verification covers all **1,368** raw files, including `.gitkeep`, without changes. All **1,513** baseline files outside the 17-file generated scope are unchanged, including query outputs, unrelated sourcing receipts, and signal reports. Historical canonical lines remain in order. Local Markdown file links resolve; all new wikilinks and the new supersession target resolve. Two preexisting display-title wikilinks in the Azure page do not resolve as filenames (`AI Agent Harnesses` and `Microsoft .NET AI Stack`); they are unchanged historical warnings, outside this bounded ingest. External URLs and historical fragment anchors were not live-validated.
 
-Explicit author self-review: **Approved**. Risk: low; confidence: high for this bounded ingest. Reviewed the complete intended content and final diff for source fidelity, inaccurate numerical/authority claims, source-count inflation, raw immutability, historical preservation, missing source artifacts, privacy, links, schema/index consistency, concurrent arrivals, and publication scope. Review corrections: clarified that a false cache-hit flag can accompany a successful prefix restore; explicitly labeled the inferred authentication-order test; included all referenced raw artifacts in the staging plan. No remaining blocking findings, requested changes, or suggestions. The linked immutable raw captures are included in the publication scope so new citations do not depend on untracked files.
+Generated-content whitespace checks and best-effort privacy scans pass. The staged check reports nine trailing-space lines in three immutable raw captures (Dapr, HybridCache, and Unity memory). They are preserved byte-for-byte under the raw contract; generated content has no whitespace findings. All 15 staged raw blobs match their local source bytes. No application tests are required for this prose/index-only change; no native GitHub review, hosted CI, Sonar analysis, or independent reviewer result is claimed.
 
-Applied Lore's AGENTS contract and Studio's canonical working agreement, review rubric, PR review rules, charter, governing ADR-0011/0044 amendments, numbered Grid invariants, Lore boundaries/invariants, and node/relationship/contract/compatibility catalogs. Relevant safeguards are secret exclusion, evidence provenance, scoped authorization, non-destructive history, and truthful outcome reporting. No executable, dependency, API, CI, cloud, account, or infrastructure behavior changes; runtime tests are not needed for this prose/index-only change. No independent review, native GitHub review, CI, or Sonar result is claimed.
+Explicit author review: **Approved**; risk **Low**, review confidence **High** for this bounded documentation change. Checked source fidelity, authority and numerical scope, confidence inflation, source availability after publication, raw immutability, historical preservation, privacy, links, index consistency, and publication scope against the final intended diff. Review corrections included refreshing the gap header, limiting same-commit workflow wording to local references without an @ref, and retaining complete-reply versus streaming and instance-local versus distributed-cache distinctions. No remaining blocking findings or requested changes.
+
+Applied Lore's AGENTS contract, the publishing skill and memory preflight, and Studio's current working agreement and review rubric. Relevant Grid safeguards are privacy, attributable evidence, scoped authority, and non-destructive history. Lore remains descriptive research, not architecture governance. No executable, package, public API, CI, deployment, or cross-node behavior changes occur. The publishing skill's old Greptile/bypass-label language is superseded by its canonical working-agreement precedence; no retired review automation is invoked.
 
 ## Publication scope
 
-Safe intended scope: **53 files**: 30 existing untracked raw captures added byte-for-byte, 18 updated canonical pages, four indexes, and this receipt. No raw capture is edited. The existing scoped branch `docs/lore-ingest-2026-10-10` matched fetched upstream before this pass. Two preexisting modified sourcing receipts and all untracked signal-review reports are excluded and preserved. Final raw inventory/hash and upstream comparisons are repeated before commit/push to detect concurrent arrivals.
+Intended scope: **32 files**: 15 immutable raw additions, 12 concept pages, four indexes, and this receipt. The existing scoped branch `docs/lore-ingest-2026-10-10` matched fetched upstream at start. Two preexisting modified sourcing receipts and all untracked signal-review reports remain excluded. Raw inventory/hashes, staged scope, and upstream state are rechecked before commit/push.
 
-No PR creation or merge was requested. The publishing skill contains obsolete Greptile and bypass-label guidance; its canonical-working-agreement precedence applies. Publication uses the existing Git authentication path and a Conventional Commit with an Authorship trailer. This receipt precedes commit/push; the execution response reports remote verification or failure.
+The commit uses a Conventional Commit subject and `Authorship: agent-codex` trailer through the existing Git authentication path. No PR creation or merge was requested or performed; this pass does not assert existing PR readiness. This receipt precedes publication; the execution response reports the actual commit/push outcome.

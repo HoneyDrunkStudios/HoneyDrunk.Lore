@@ -2687,3 +2687,23 @@ Language restrictions depend-on complete semantic mediation; blast-radius contai
 ### Decision and quality notes
 
 Single researcher disclosure, not an independent test or present-day AWS guarantee. Resolution status is author-reported and finite negative tests do not prove all permissions absent. Exploit code, reconstruction chain, environment output, and identifiers are deliberately omitted. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which code-tool containment tests cover implicit language operations, proxy semantics, credential exposure, effective IAM denies, egress, and cross-session isolation independently? See [[indexes/gaps]].
+
+
+## 2026-10-28: Gheist separates workflow token permissions from secret exposure
+
+### Typed entities
+
+project: GitHub Actions; project: Wiz Research; concept: Gheist campaign; concept: compromised token; concept: environment approval; concept: runner isolation.
+
+### Claims and evidence
+
+- Wiz reports compromised GitHub tokens being used to plant workflows, extract secrets through workflow logs, and delete the runs. Its October account describes blocked public-repository runs but successful private/enterprise activity; this is a bounded researcher observation, not proof that every public repository is protected. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-rss-gheist-attempted-scaled-abuse-of-stolen-github-tokens-stumbles.md)
+- The report distinguishes restricted GITHUB_TOKEN permissions from access to the secrets context, and describes expanded risk on self-hosted runners. Its defensive guidance combines credential revocation, exposure review, environment approvals, scoped cloud trust, and investigation of runner hosts; deleting a branch or run does not undo disclosure. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-rss-gheist-attempted-scaled-abuse-of-stolen-github-tokens-stumbles.md)
+
+### Explicit relationships
+
+Workflow execution uses repository authority; secret access depends-on more than job-token permissions; runner compromise can cause broader credential exposure. See [[github-actions-platform-operations]].
+
+### Decision and quality notes
+
+Primary research report with an evolving campaign and imperfect payloads; no HoneyDrunk exposure was established. Executable payloads, collection paths, attacker addresses, and unnecessary account identifiers are not promoted into the wiki. Current incident action requires environment-specific evidence. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Do workflow and cloud audit records show unauthorized execution or rapidly deleted runs, and are secret access, protected environments, cloud trust, and runner isolation independently verified? See [[indexes/gaps]].

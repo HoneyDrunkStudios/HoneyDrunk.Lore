@@ -72,3 +72,23 @@ For browser-first 3D/XR/metaverse-style workloads, the 2026-05-06 DEV.to benchma
 
 ### Quality notes
 - 80 Level source is an interview with the platform team. It is useful for scouting but not neutral benchmark evidence.
+
+
+## 2026-10-28: Godot startup needs distinct render, interaction, and playable milestones
+
+### Typed entities
+
+project: Godot; concept: boot pack; concept: loading overlay; concept: first useful UI; concept: playable time; concept: single-threaded web export.
+
+### Claims and evidence
+
+- A practitioner compares three local variants of one Godot 4.7.2 export. Removing an overlay's video wait improved visibility; an early menu plus smaller boot pack improved it further. First-visit median UI visibility moved from 10,344 ms to 1,647 ms, while playable time moved from 11,196 ms to 5,972 ms. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-rss-our-godot-web-build-drew-its-first-frame-at-1-5-s-but-showed-a-usable-.md)
+- Each result is a median of three runs in headless Chrome on Linux with SwiftShader, loopback serving, and no network throttling. The early-menu variant also froze for up to 1,200 ms before play. In this single-threaded export, load_threaded_request blocked and reported loaded at the first poll; a threaded export was not tested. confidence: 1 source, last-confirmed 2026-10-28 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-28-rss-our-godot-web-build-drew-its-first-frame-at-1-5-s-but-showed-a-usable-.md)
+
+### Explicit relationships
+
+First useful UI depends-on overlay removal and boot dependencies; playable time depends-on scene loading; early visibility can expose later stalls. See [[godot-2026-mobile-and-4-7-cycle]].
+
+### Decision and quality notes
+
+Small practitioner experiment, not a general engine benchmark or deployed public-build change. Several changes were combined, so the extra playable-time gain is not causally isolated. The durable finding is measurement separation, not a promised speedup. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which target browsers, real GPUs, constrained networks, and repeated cold/warm runs validate UI visibility, input responsiveness, pack completeness, and playable time for the actual game? See [[indexes/gaps]].
