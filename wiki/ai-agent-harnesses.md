@@ -2164,3 +2164,71 @@ Conceptual practitioner guide reinforcing existing vocabulary, not new benchmark
 The five authored accounts retained in the October 25 consolidation are reinforced by the Claude Code layered-review account and Kiro readiness account: both make executed checks, review boundaries, and recovery mechanisms explicit. confidence: 7 sources, last-confirmed 2026-10-27 (archived authored accounts synthesized; no independent execution). [Earlier five-source consolidation](#2026-10-25-consolidation-explicit-control-mechanisms-gain-broader-design-support), [Claude Code](../raw/2026-10-27-rss-how-the-claude-code-team-does-code-review.md), [Kiro](../raw/2026-10-27-rss-keeping-a-software-factory-stable-at-1-000-prs-a-week.md).
 
 This is moderate support for a design rationale across distinct authored accounts, not seven replications of one experiment. The conceptual Thoughtworks guide is consistent but adds no independent measurement and is not counted again. Product-specific safety, throughput, revert-rate, and cost claims remain provisional. Harness reliability depends-on complete external checks and explicit state/authority/recovery policy; see [[ai-assisted-software-practice]] and [[agent-evaluation-and-benchmarks]].
+
+
+## 2026-11-01: Droid separates programmatic tool execution from benchmark and recovery claims
+
+### Typed entities
+
+project: Factory Droid; concept: programmatic tool calling; concept: prompt cache; concept: bounded recovery; concept: accepted-outcome cost. file: raw/2026-10-31-rss-droid-1-0-building-a-frontier-harness.md.
+
+### Claims and evidence
+
+- Factory describes a JavaScript Script tool with no ambient filesystem/network access, mediated tool calls, bounded printed output, concurrent independent calls, and background completion. Raw results remain program variables or searchable logs rather than all entering model context. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-droid-1-0-building-a-frontier-harness.md)
+- Its harness account combines append-only prompt caching, lazy tool discovery, measured startup work, bounded stream retries, repeated-call detection, and larger compaction summaries. Proposed changes run across affected model families and require engineer review. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-droid-1-0-building-a-frontier-harness.md)
+- Factory reports Terminal-Bench 4 comparisons with three trials per task, per-passed-task cost/time, and special rerun/moderation/substitution rules. The same-model Sol comparison is cheaper but about 10% slower than Codex; the headline efficiency claim is not a universal latency win. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-droid-1-0-building-a-frontier-harness.md)
+
+### Explicit relationships
+
+Programmatic execution uses deterministic checks around model-authored programs; performance depends-on task, model, cache reuse, tool costs, and benchmark selection. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Vendor experiment and production telemetry, not independent replication. Direct-call examples include modeled estimates; tokenizer/model changes complicate base-prompt comparisons. Mediation alone does not prove tool authorization or containment. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which whole-task harness evaluation measures success, unsafe side effects, cache reuse, tail latency, recovery, and full accepted-outcome cost across model families? See [[indexes/gaps]].
+
+
+## 2026-11-01: Junior routes enforced behavior through egress policy and event watches
+
+### Typed entities
+
+project: Junior; project: Sentry; concept: credential proxy; concept: operation policy; concept: idempotent PR tool; concept: event watch. file: raw/2026-11-01-rss-a-little-determinism.md.
+
+### Claims and evidence
+
+- The Junior account places actual credentials at an egress proxy, with signed short-lived sandbox context and operation-tagged trusted-tool calls. It describes denying alternative PR-creation paths so a native tool owns footer insertion and idempotency, while preserving other shell work. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-rss-a-little-determinism.md)
+- PR creation automatically registers watches for checks/review/closure events to resume work rather than repeatedly polling. Workspace-specific sandbox selection routes repository setup; replacing a sandbox can lose local state and is a recovery tradeoff, not universal safe reconstruction. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-rss-a-little-determinism.md)
+
+### Explicit relationships
+
+Predictable task behavior depends-on enforced operation policy and authenticated event delivery; credential injection uses the proxy. See [[ai-coding-agent-security]] and [[multi-agent-architectures]].
+
+### Decision and quality notes
+
+Practitioner implementation account; its broad claim that all outbound traffic passes policy is not an independent bypass audit. Event authenticity, duplication, head freshness, costs, and local-state durability need tests. Source examples do not authorize installing these controls here. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which egress/watch tests cover alternate HTTP/GraphQL operations, actor binding, replayed events, exact-head freshness, duplicate PR requests, sandbox state loss, and credential destination limits? See [[indexes/gaps]].
+
+
+## 2026-11-01: Agent speed needs full-session profiling rather than inference-only comparisons
+
+### Typed entities
+
+concept: time to first token; concept: decode throughput; concept: thinking budget; concept: tool latency; concept: suspend/resume. file: raw/2026-11-01-rss-making-agents-fast-what-i-ve-learnt-over-the-last-12-months.md.
+
+### Claims and evidence
+
+- The practitioner guide distinguishes first-token latency, output-token rate, thinking budget, and cache reuse. It argues full task duration also includes tools, process startup, storage/network behavior, provisioning, and resume; a faster inference tier only accelerates its fraction of work. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-rss-making-agents-fast-what-i-ve-learnt-over-the-last-12-months.md)
+- The account recommends measuring repeated process/shell startup, oversized tool results, polling, snapshot storage, memory pressure, and time from resume to a useful request. Tools that expose the needed operation directly can remove repeated work; independent calls may run concurrently where dependencies permit. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-rss-making-agents-fast-what-i-ve-learnt-over-the-last-12-months.md)
+
+### Explicit relationships
+
+Task latency depends-on the complete critical path and quality target; asynchronous completion can supersede wasteful polling. See [[agent-context-management-and-session-continuity]].
+
+### Decision and quality notes
+
+Practitioner heuristics and illustrative timings, not controlled provider or hardware comparisons. Retain privacy-safe observable traces; private reasoning traces are not required telemetry. Reducing thinking budget or stopping background processes requires workload/state checks. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which task traces separate inference, tools, startup, IO, polling, and resume latency while retaining completion quality, recovery state, and total cost? See [[indexes/gaps]].
+
+
+## 2026-11-01 consolidation: bounded recovery and operation policy reinforce explicit controls
+
+The seven authored accounts in the October 27 consolidation are reinforced by Factory's reviewed cross-model changes/bounded recovery and Junior's operation policy/event watches. confidence: 9 sources, last-confirmed 2026-11-01 (archived authored design accounts; no independent execution). [Earlier seven-source synthesis](#2026-10-27-consolidation-complete-gates-strengthen-the-explicit-control-design-rationale), [Factory](../raw/2026-10-31-rss-droid-1-0-building-a-frontier-harness.md), [Junior](../raw/2026-11-01-rss-a-little-determinism.md).
+
+This gives moderate support to the shared design rationale that reliability depends-on explicit state, authority, recovery, and verification outside model reasoning. It is not nine replications, a pooled benchmark, or proof of complete containment. Martin Alderson's heuristics are consistent context rather than another measured replication. Unreinforced product claims retain provisional confidence; no existing claim date is refreshed by bibliography growth.

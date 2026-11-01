@@ -1145,3 +1145,85 @@ HybridCache uses local memory and optional distributed storage; stampede coordin
 ### Decision and quality notes
 
 Official reference; prioritize explicit cache-scope caveats over broad performance descriptions. Tags are not deletion/erasure guarantees. Package, preview-buffer API, serializer, and AOT behavior require pinned-version checks; examples are not production tests. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which multi-instance tests establish stale-read bounds, tenant-safe keys, cancellation, payload retention after tag invalidation, serializer compatibility, and AOT behavior? See [[indexes/gaps]].
+
+
+## 2026-11-01: Syncfusion toolkit licensing is separate from the commercial suite and pending setup tooling
+
+### Typed entities
+
+library: Syncfusion.Blazor.Toolkit; project: ASP.NET Core; concept: MIT license; concept: scaffolder; concept: render mode. file: raw/2026-10-31-rss-blazor-welcomes-open-source-contributions-from-syncfusion.md.
+
+### Claims and evidence
+
+- Microsoft describes the Syncfusion Toolkit for Blazor as an MIT-licensed component subset available for commercial use without a license key or Community License eligibility. The broader commercial suite is separate. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-blazor-welcomes-open-source-contributions-from-syncfusion.md)
+- The account distinguishes merged framework/scaffolding fixes and end-to-end validation work from a toolkit setup scaffolder and assistant skill still under review. A setup contribution under review is not a released page generator. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-blazor-welcomes-open-source-contributions-from-syncfusion.md)
+
+### Explicit relationships
+
+Toolkit adoption depends-on package-specific licensing, registration, theming, and render modes; framework contributions benefit applications beyond that toolkit.
+
+### Decision and quality notes
+
+Official collaboration announcement, distinct from the earlier Infragistics announcement. Vendor quality claims do not replace accessibility, trimming, or real-application tests. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which Syncfusion toolkit components and pinned package pass license-scope, server/client registration, rendering, accessibility, theming, and trimmed-publish checks? See [[indexes/gaps]].
+
+
+## 2026-11-01: Dev Proxy exercises real HTTP resilience paths and exhausted outcomes
+
+### Typed entities
+
+project: Dev Proxy; library: Microsoft.Extensions.Http.Resilience; concept: RetryAfterPlugin; concept: LatencyPlugin; concept: unsafe retry. file: raw/2026-10-31-web-test-retries-and-timeouts-in-net-apps-that-use-microsoft-extensions-ht.md.
+
+### Claims and evidence
+
+- The Microsoft guide routes an unchanged app through Dev Proxy to observe retryable HTTP responses and delayed attempts. RetryAfterPlugin must precede GenericRandomErrorPlugin so early calls can be checked before the error plugin terminates handling. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-web-test-retries-and-timeouts-in-net-apps-that-use-microsoft-extensions-ht.md)
+- Its default-handler example has three retries, a ten-second attempt timeout, and thirty-second total timeout; total timeout can prevent all planned attempts. Exhausted response-status retries return the last error response, while total timeout follows an exception path. Unsafe methods need explicit retry exclusions or demonstrated idempotency. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-web-test-retries-and-timeouts-in-net-apps-that-use-microsoft-extensions-ht.md)
+
+### Explicit relationships
+
+Resilience acceptance uses observable attempts and terminal handling; total timing depends-on all attempts/backoff. See [[distributed-systems-patterns]] and [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+Official how-to, not a run against HoneyDrunk. A mocked inner handler can exercise a correctly composed pipeline; only mocks that bypass the pipeline miss it. Random 50% failures are exploratory, so deterministic sequences are preferable for repeatable assertions. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which real-pipeline tests verify proxy routing/plugin order, Retry-After, unsafe-method single execution, exhausted-response handling, cancellation, and total versus attempt timeout? See [[indexes/gaps]].
+
+
+## 2026-11-01: dotnet test modes and extension arguments must match the actual test host
+
+### Typed entities
+
+library: Microsoft.Testing.Platform; library: Microsoft.Testing.Extensions.TrxReport; project: VSTest; file: global.json; concept: runner selection. file: raw/2026-11-01-web-testing-with-dotnet-test.md.
+
+### Claims and evidence
+
+- The reference distinguishes default VSTest mode from .NET 10+ MTP mode requiring MTP 1.7+. Legacy MTP-through-VSTest uses TestingPlatformDotnetTestSupport and forwarded arguments, can ignore VSTest options, and has an MTP 2/.NET 10 compatibility removal boundary. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-web-testing-with-dotnet-test.md)
+- MTP mode uses global.json runner selection; from .NET 11 Preview 6 a recognized DOTNET_TEST_RUNNER environment value overrides that file for the process. Project/solution/module selectors and framework-specific flags must match the runner; mixed extensions can reject unsupported arguments. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-web-testing-with-dotnet-test.md)
+- A report-trx flag does not install its extension: every targeted app must register TrxReport. Missing extensions can yield invalid-argument exit code 5, surfaced as MSBuild exit 1 in the legacy route; forwarding with a separator avoids parser ambiguity. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-web-testing-with-dotnet-test.md)
+
+### Explicit relationships
+
+Reliable test reporting depends-on selected runner, project capabilities, registered extensions, and exit propagation; shared arguments depend-on every target understanding them.
+
+### Decision and quality notes
+
+Official compatibility guide with version boundaries. Its generic non-MSTest conditional is illustrative and is not enough to identify every possible framework in a mixed solution. No local xUnit standard or CI runner was migrated. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned SDK/MTP/framework matrix verifies runner precedence, selectors, extension registration, argument forwarding, zero tests, and failure/exit reporting for every target? See [[indexes/gaps]].
+
+
+## 2026-11-01: The .NET 11 SDK snapshot adds versioned CLI and test capabilities without reverting RC3
+
+### Typed entities
+
+project: .NET 11 SDK; library: Microsoft.Testing.Platform; concept: Native AOT CLI; concept: MSBuild server; concept: reproducible container; concept: package cooldown. file: raw/2026-11-01-web-what-s-new-in-the-sdk-and-tooling-for-net-11.md.
+
+### Claims and evidence
+
+- The October 28 documentation snapshot still labels itself updated for RC2. It describes Unix SDK symlink deduplication, a default AOT CLI with managed fallback, warm MSBuild behavior, file-based app improvements, and watch/device workflows; these are scoped capabilities rather than proof all commands run natively or Windows receives deduplication. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-web-what-s-new-in-the-sdk-and-tooling-for-net-11.md)
+- Its MTP path adds device-aware testing, run-level timeout/failure limits, per-module results layout, traversal aggregation, and framework-template options. The separately distributed affected-test extension remains experimental and has selection/device/parallel/minimum-test incompatibilities. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-web-what-s-new-in-the-sdk-and-tooling-for-net-11.md)
+- Container reproducibility depends-on stable inputs and SOURCE_DATE_EPOCH; package minimum-publication-age selection is source configuration with explicit failure when no eligible floating version exists. The documented wildcard optimization requires SDK 11.0.100 or Visual Studio 18.12, and its benchmark is not all-build performance. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-web-what-s-new-in-the-sdk-and-tooling-for-net-11.md)
+
+### Explicit relationships
+
+SDK behavior depends-on exact SDK, runner, platform, and extension versions. The older RC2 label does not supersede the newer RC3 servicing evidence; package cooldown complements [[dotnet-dependency-security-and-nuget]].
+
+### Decision and quality notes
+
+Official feature snapshot flagged for a stale release-stage label relative to the dated OOB announcement. Telemetry/server statements need pinned behavior checks, not assumptions of no export or global opt-in. xUnit v3 template availability does not change HoneyDrunk test policy; no SDK or test framework changed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which SDK/device/CI checks verify AOT fallback, build-server environment precedence, actual test discovery/artifacts, affected-test exclusions, reproducible digests, and cooldown failure behavior? See [[indexes/gaps]].

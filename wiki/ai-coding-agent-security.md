@@ -2707,3 +2707,64 @@ Workflow execution uses repository authority; secret access depends-on more than
 ### Decision and quality notes
 
 Primary research report with an evolving campaign and imperfect payloads; no HoneyDrunk exposure was established. Executable payloads, collection paths, attacker addresses, and unnecessary account identifiers are not promoted into the wiki. Current incident action requires environment-specific evidence. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Do workflow and cloud audit records show unauthorized execution or rapidly deleted runs, and are secret access, protected environments, cloud trust, and runner isolation independently verified? See [[indexes/gaps]].
+
+
+## 2026-11-01: Package firewall preview is an npm install-time policy layer
+
+### Typed entities
+
+project: GitHub package firewall; library: npm; concept: package cooldown; concept: advisory; concept: exception policy. file: raw/2026-10-31-rss-github-package-firewall-in-public-preview.md.
+
+### Claims and evidence
+
+- GitHub describes an Enterprise Cloud public-preview proxy inspecting metadata and package downloads against configurable cooldown, advisory, and attestation policies. Endpoints or registries must actually send requests through it. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-github-package-firewall-in-public-preview.md)
+- The captured preview supports npm only, is free during preview, and anticipates metered GA billing. It is not evidence of NuGet support, a general package-verification guarantee, or a permanent free service. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-github-package-firewall-in-public-preview.md)
+
+### Explicit relationships
+
+Install-time policy uses a controlled package path and depends-on endpoint routing and governed exceptions. See [[container-supply-chain-and-compliance]] and [[dotnet-dependency-security-and-nuget]].
+
+### Decision and quality notes
+
+Official preview announcement. No proxy, billing, registry, or organization setting changed; bypass resistance and false positives remain untested. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which npm installation paths enforce the firewall, reject bypasses, audit exceptions, and measure false positives, availability, and future metered cost? See [[indexes/gaps]].
+
+
+## 2026-11-01: Actions defenses leave input, artifact, and persistent-runner trust boundaries
+
+### Typed entities
+
+project: GitHub Actions; project: Wiz Research; library: actions/checkout; concept: privileged trigger; concept: artifact provenance; concept: approval freshness. file: raw/2026-11-01-rss-the-pwn-request-reckoning-what-still-works-against-github-actions.md.
+
+### Claims and evidence
+
+- Wiz distinguishes action-embedded fork-checkout checks, platform cache permissions, and event policy from script-input, downloaded-artifact, and persistent-runner trust. Older immutable checkout pins retain older behavior; custom checkout and other privileged triggers need their own authorization. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-rss-the-pwn-request-reckoning-what-still-works-against-github-actions.md)
+- The report recommends current actor permissions, approving an exact head, validating arguments as data, clean isolated runner hosts, and treating artifacts from lower-trust runs as untrusted even when their build succeeded. External-contributor approval is not a blanket gate on privileged base-defined workflows. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-rss-the-pwn-request-reckoning-what-still-works-against-github-actions.md)
+- Its timeline describes December 2, 2026 default public-repository pull_request_target enforcement as scheduled, not already active on this November 1 pass. Exact version/backport dates and policy scope remain report-attributed rather than a fresh GitHub verification. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-rss-the-pwn-request-reckoning-what-still-works-against-github-actions.md)
+
+### Explicit relationships
+
+Workflow safety depends-on transitive trust across events, code, artifacts, and hosts; dependency pinning uses patched reviewed code. See [[github-actions-platform-operations]].
+
+### Decision and quality notes
+
+Primary researcher synthesis, not a HoneyDrunk audit or proof every described platform setting is current. Security examples are summarized defensively; executable payloads and collection paths are omitted. Existing caveats about secret scope remain. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which privileged workflow tests verify patched resolved checkout code, exact-head actor approval, injection-safe inputs, untrusted artifacts, clean hosts, and the scheduled event-policy transition? See [[indexes/gaps]].
+
+
+## 2026-11-01: Cross-frame feature composition can defeat an otherwise isolated preview
+
+### Typed entities
+
+project: ChatGPT; library: MathLive; project: Parameter; concept: postMessage; concept: sender-window authorization; concept: inherited origin. file: raw/2026-11-01-web-do-the-math-how-we-took-over-chatgpt-accounts.md.
+
+### Claims and evidence
+
+- Parameter reports a chain where an isolated preview reached a privileged math-keyboard listener that accepted layout changes without sufficient sender validation. Attacker-controlled markup created an unsandboxed same-origin document; an allowed third-party script path supplied execution despite CSP. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-web-do-the-math-how-we-took-over-chatgpt-accounts.md)
+- The researchers report authenticated private-conversation access in controlled accounts and an October 26 fix across two frontend versions rejecting the cross-frame messages. This is author-reported historical resolution, not proof of a currently exploitable issue or independent verification of the fix. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-web-do-the-math-how-we-took-over-chatgpt-accounts.md)
+
+### Explicit relationships
+
+Preview containment depends-on every privileged message bridge; safe receivers use origin and exact-window checks, structured data, and persistent sandboxing. CSP complements these controls.
+
+### Decision and quality notes
+
+Primary disclosure; retain control-level facts only. Payloads, account/session data, API extraction routes, and exfiltration details are excluded. The root issue is browser trust composition rather than proof that a model ignored instructions; source headline overstates what was directly exercised beyond demonstrated data access. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which cross-feature browser tests reject wrong-origin/window messages, unsafe markup and child documents, and unauthorized same-origin actions across all deployed frontend variants? See [[indexes/gaps]].

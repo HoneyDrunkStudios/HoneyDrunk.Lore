@@ -845,3 +845,43 @@ OTTL consumers depend-on versioned syntax and function sets; experimental lambda
 ### Decision and quality notes
 
 Official release announcement. The September lambda page remains compatible with this newer evidence and is not superseded. Product stability does not establish correct redaction or privacy-safe telemetry for a local schema. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which pinned Collector configuration uses only guaranteed OTTL surfaces, removes retired gates, and passes transform error-path, missing-field, and privacy-output tests? See [[indexes/gaps]].
+
+
+## 2026-11-01: OBI 1.0 stability has configuration and telemetry scope boundaries
+
+### Typed entities
+
+project: OpenTelemetry eBPF Instrumentation; library: OBI; concept: Config v2; concept: telemetry schema; concept: experimental runtime metrics. file: raw/2026-10-31-rss-opentelemetry-ebpf-instrumentation-reaches-v1-0-0.md.
+
+### Claims and evidence
+
+- OpenTelemetry announces OBI 1.0 with documented configuration/deployment compatibility, a generated Config v2 schema, migration/validation commands, and versioned telemetry definitions. Config v1 remains compatible but frozen without fixes or new features. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-opentelemetry-ebpf-instrumentation-reaches-v1-0-0.md)
+- Stable and developing semantic conventions coexist; telemetry corrections and evolving conventions can still change output. Runtime metrics remain experimental, detailed AI extraction requires explicit feature/payload settings, and the Collector receiver retains a separate v0 release line. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-opentelemetry-ebpf-instrumentation-reaches-v1-0-0.md)
+
+### Explicit relationships
+
+OBI configuration compatibility depends-on documented interfaces; dashboards depend-on emitted telemetry and migration guidance; payload capture uses an explicit privacy decision.
+
+### Decision and quality notes
+
+Official release announcement whose supporting links still target rc.2 documents. Do not infer universal protocol coverage or remove earlier trace-log kernel/write-path caveats. Canary actual output and keep sensitive content capture disabled unless selected and validated. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned OBI/receiver and kernel configuration passes Config v2 validation, telemetry-schema migration, correlation, payload-redaction, and dashboard canary checks? See [[indexes/gaps]].
+
+
+## 2026-11-01: Collector dependency reduction requires compile-time detector selection
+
+### Typed entities
+
+project: OpenTelemetry Collector; library: ocb; library: otelconf; concept: resource detector; concept: build tag; concept: dependency inventory. file: raw/2026-11-01-rss-only-include-resource-detectors-you-need-by-building-your-own-collecto.md.
+
+### Claims and evidence
+
+- OpenTelemetry explains that runtime detector configuration alone may still compile dependencies for unused environments, including internal-telemetry otelconf dependencies even when the resource-detection processor is absent. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-rss-only-include-resource-detectors-you-need-by-building-your-own-collecto.md)
+- The account describes compile-time omit_detector build tags and ocb resource detection selection, with support attributed to v0.163.1. Its example Kubernetes binary shrinks from 182 MB to 147 MB and removes thirteen modules; these are build-specific measurements. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-rss-only-include-resource-detectors-you-need-by-building-your-own-collecto.md)
+
+### Explicit relationships
+
+Collector distribution uses compile-time detector selection to bound size and dependency inventory; runtime processor configuration and symbol stripping do not remove imported code.
+
+### Decision and quality notes
+
+Official implementation article flagged for mixed example versions: dist version 0.199.0 alongside v0.163.x component references. Pin compatible builder/components and inspect the actual binary and telemetry; fewer dependencies alone is not a security proof. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned ocb manifest proves required internal/application resource attributes, compatible module versions, actual dependency removal, startup, and telemetry behavior? See [[indexes/gaps]].

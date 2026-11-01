@@ -150,3 +150,44 @@ Client rendering uses projected authoritative state; action replay depends-on co
 ### Decision and quality notes
 
 Self-reported architecture, not a security or synchronization audit. A redirect exposes its signed destination to the recipient; it does not hide a bearer URL. Clock estimation, lost broadcasts, reconnects, replay side effects, authorization expiry, and signed-link reuse remain unverified. Feed category says Unity, but the captured implementation is browser/Three.js. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which shared-screen game tests cover conflicting actions, duplicate IDs, lost broadcasts, clock drift, role isolation, and signed-video access expiry? See [[indexes/gaps]].
+
+
+## 2026-11-01: Rollback snapshot completeness is a testable simulation invariant
+
+### Typed entities
+
+project: Mushroom Wars 2; concept: CopyFrom; concept: snapshot completeness; concept: confirmed-state hash; concept: value-type state. file: raw/2026-10-31-rss-one-forgotten-field-out-of-a-hundred-hunting-a-desync-in-mushroom-wars.md.
+
+### Claims and evidence
+
+- The developer attributes a desync to a new unit field omitted from handwritten CopyFrom: discarded predicted state survived restoration. Client-state hash mismatch rates exposed the regression when manual gameplay could not reliably reproduce its timing. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-one-forgotten-field-out-of-a-hundred-hunting-a-desync-in-mushroom-wars.md)
+- The reported repair combines randomized copy-equality tests, including private base-class fields and nested reference data, with moving blittable fields into a value-type struct copied by assignment. Remaining reference fields still need explicit deep-copy coverage. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-one-forgotten-field-out-of-a-hundred-hunting-a-desync-in-mushroom-wars.md)
+
+### Explicit relationships
+
+Incomplete snapshots caused divergent simulation; full value-state copying fixed one omission path; regression detection uses hashes and copy invariants. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Same developer and incident as the later rollback overview, not independent confirmation. The printed reflection sketch lacks the stated base-class traversal and helper implementations; it is not a drop-in complete test. Struct assignment is shallow for references. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which snapshot tests cover private inherited fields, nested references, aliasing, restored RNG state, newly added fields, and replay hashes after every rollback? See [[indexes/gaps]].
+
+
+## 2026-11-01: Cross-platform rollback needs reproducible state and bounded history
+
+### Typed entities
+
+project: Mushroom Wars 2; concept: lockstep; concept: rollback history; concept: canonical input order; concept: deterministic math; concept: dispute replay. file: raw/2026-11-01-rss-ten-years-of-rollback-netcode-in-a-cross-platform-rts-without-fixed-po.md.
+
+### Claims and evidence
+
+- The developer describes fixed-tick client simulation with input relay, periodic snapshots, and replay for late inputs. Canonical player/sequence ordering, rollback-owned randomness, stable iteration, and complete snapshots are necessary; platform physics/time and randomized hashes can introduce divergence. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-rss-ten-years-of-rollback-netcode-in-a-cross-platform-rts-without-fixed-po.md)
+- The account reports plain-float cross-platform deployment under constrained compilers/math, but also hardware divergence and fast-math/Burst caveats. It proposes quantity-specific integer units as another option; neither floats nor integers establish whole-system determinism by themselves. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-rss-ten-years-of-rollback-netcode-in-a-cross-platform-rts-without-fixed-po.md)
+- Confirmed-tick state hashes detect divergence; a headless replay can arbitrate two-client disputes. The repeated omitted-field incident is the same evidence as the October 31 copy article, not independent confirmation; one-tick rollback self-checking is suggested continuous validation. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-rss-ten-years-of-rollback-netcode-in-a-cross-platform-rts-without-fixed-po.md)
+
+### Explicit relationships
+
+Rollback correctness depends-on complete state, stable input ordering, bounded history, and repeatable numeric behavior; confirmed replay uses independent authority for disputes.
+
+### Decision and quality notes
+
+Single developer retrospective. The sample silently drops too-old input and leaves initialization/missing snapshots, duplicate commands, trust, bounded storage, and resimulation budget incomplete. Do not promote its cost numbers or raw-byte hashing as universal: padding, layout, endianness, floats, and schema need canonicalization. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which cross-device replay tests cover input deduplication, same-tick order, old-input recovery, snapshot boundaries, canonical hashes/RNG, arithmetic bounds, and bounded catch-up cost? See [[indexes/gaps]].

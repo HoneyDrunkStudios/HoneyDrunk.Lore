@@ -517,3 +517,43 @@ Versioned integrations depend-on provider contracts; cache correctness depends-o
 ### Decision and quality notes
 
 Vendor educational guidance, not a tested integration or universal HTTP-header contract. Version pinning cannot extend provider support indefinitely. Omit captured execution data and credential examples from reusable notes. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which integration inventory records pinned versions, retirement dates, cache variation, response-contract tests, and a safe failure path before provider migration? See [[indexes/gaps]].
+
+
+## 2026-11-01: Local-first separates responsiveness, offline operation, and ownership
+
+### Typed entities
+
+project: Hologram; concept: local-first; concept: offline write; concept: CRDT; concept: server authority; concept: sync reconciliation. file: raw/2026-10-31-rss-local-first-means-three-different-things.md.
+
+### Claims and evidence
+
+- The Hologram author distinguishes local responsiveness, offline capability, and data ownership as different meanings of local-first. A server-authoritative sync design can provide local reads/writes while retaining server validation; it does not provide server independence by definition. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-local-first-means-three-different-things.md)
+- The account distinguishes durable catch-up/merge from transient broadcasts and explains that convergent replicas alone do not enforce global uniqueness, capacity, or authorization invariants. Client data scope, permission changes, old-schema writes, storage eviction, and operations needing server confirmation remain design work. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-local-first-means-three-different-things.md)
+
+### Explicit relationships
+
+Offline synchronization depends-on conflict and authorization semantics; convergence does not supersede business invariants; financial/irreversible actions may depend-on server confirmation.
+
+### Decision and quality notes
+
+Practitioner definition and product direction, not a universal taxonomy or current comparative tool matrix. CRDT convergence does not by itself make invariant preservation impossible; coordination, escrow, or redesigned operations require separate evidence. No HoneyDrunk data authority changes. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which offline operations have explicit conflict, revocation, schema-upgrade, data-loss, and invariant-preserving reconciliation behavior, and which require online confirmation? See [[indexes/gaps]].
+
+
+## 2026-11-01: Backoff complements proactive pacing and operation-specific retry safety
+
+### Typed entities
+
+project: n8n; concept: rate limit; concept: queue shaping; concept: Retry-After; concept: jitter; concept: retry budget. file: raw/2026-10-31-rss-throttling-vs-rate-limiting-backoff-strategies-for-workflows.md.
+
+### Claims and evidence
+
+- The n8n guide distinguishes rejecting excess requests from delaying/queueing them, and recommends understanding fixed/sliding windows and token/leaky-bucket policies before setting batches or concurrency. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-throttling-vs-rate-limiting-backoff-strategies-for-workflows.md)
+- It recommends honoring Retry-After, capped attempts/delays with jitter, and checking idempotency before repeating side effects. Batch/wait controls pace calls; Retry On Fail has configured waits, while increasing delays can require custom workflow logic and exhausted retries need an error route. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-throttling-vs-rate-limiting-backoff-strategies-for-workflows.md)
+
+### Explicit relationships
+
+Overload recovery uses pacing and bounded backoff; repeatability depends-on operation semantics and coordinated concurrency. See [[dotnet-runtime-and-mobile-2026]].
+
+### Decision and quality notes
+
+Vendor educational framing; providers use throttling terminology differently. Built-in Retry On Fail is not evidence of automatic exponential backoff or a globally shared quota. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which workflow tests honor provider delays, cap total attempts/time across workers, avoid duplicate effects, and route exhausted or permanent failures visibly? See [[indexes/gaps]].

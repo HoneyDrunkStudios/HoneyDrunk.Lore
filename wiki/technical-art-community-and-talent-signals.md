@@ -1523,3 +1523,23 @@ Asset interchange depends-on producer and consumer format support; USD import us
 ### Decision and quality notes
 
 Official release-note snapshot with unknown publication date. Flagged source defects: the importer list repeats a meshopt export statement, and one Alembic link contains a repository-path typo. Do not infer meshopt import support or released-binary acceptance from those lines; no raw edits made. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which pinned Blender and engine round trips verify extension support, colors, node references, animation/visibility, memory peaks, and meshopt import behavior? See [[indexes/gaps]].
+
+
+## 2026-11-01: Blender 5.3 splat notes describe upcoming import and rendering with material limits
+
+### Typed entities
+
+project: Blender 5.3; concept: Gaussian splat; concept: point cloud; concept: PLY; concept: SPZ; concept: color management. file: raw/2026-11-01-web-blender-5-3-rendering.md.
+
+### Claims and evidence
+
+- The upcoming-development snapshot describes Gaussian splat PLY/SPZ import, point-cloud attributes, Geometry Nodes processing, and Workbench/EEVEE/Cycles rendering. It explicitly lacks export support and notes coordinate-convention adjustments for some SPZ producers. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-web-blender-5-3-rendering.md)
+- The notes flag performance, sRGB-trained radiance versus linear rendering errors, and incorrect Apply Transform handling of new splat attributes. Shader-node and per-project OpenColorIO additions are separate from validated asset interchange or relighting quality. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-web-blender-5-3-rendering.md)
+
+### Explicit relationships
+
+Splat appearance depends-on point attributes, transforms, render space, and producer conventions; future 5.3 behavior does not supersede the separate 5.2 LTS pipeline snapshot.
+
+### Decision and quality notes
+
+Official development notes explicitly captured before final release. Treat features as upcoming, preserve limitations, and validate a pinned build; no installed Blender or engine round trip was exercised. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned Blender 5.3 build and splat fixtures verify PLY/SPZ orientation, attribute-preserving transforms, low-opacity/high-radiance color, performance, and the lack of export? See [[indexes/gaps]].

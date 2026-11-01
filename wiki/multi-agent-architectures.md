@@ -334,3 +334,23 @@ BAND uses outbound room messaging; repository mutation depends-on the local work
 ### Decision and quality notes
 
 Vendor demo, not an authorization or exfiltration assessment. Outbound-only does not prevent data leaving through allowed destinations; room membership and mentions are not task authorization. The article opens with a mutable latest image but demonstrates a numbered image tag, neither of which establishes immutable digest provenance. No room, account, credential, sandbox, or peer communication was created. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which collaboration policy proves sender authorization, prompt-injection boundaries, room/transcript privacy, mounted-workspace limits, credential destination scoping, and pinned kit provenance? See [[indexes/gaps]].
+
+
+## 2026-11-01: Swarm leadership claims require counterfactual influence and prompt-order controls
+
+### Typed entities
+
+project: Raindrop; library: Jev; concept: agent swarm; concept: counterfactual replay; concept: prompt-order bias; concept: shared channel. file: raw/2026-11-01-rss-the-surprising-leadership-dynamics-in-agent-swarms.md.
+
+### Claims and evidence
+
+- Raindrop reports 2,160 eight-agent simulated outage teams: 86% included a multi-agent plan, but only 105 met its leader criterion based on counterfactual replay, influence weight, and at least two affected teammates. Issuing a plan is different from demonstrating influence. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-rss-the-surprising-leadership-dynamics-in-agent-swarms.md)
+- Rotating model/name assignments and reversing the roster linked first-listed names to about three times as much plan issuance. The shared-channel comparison reports fewer duplicate actions; these findings concern this constrained simulation rather than a general production coordination guarantee. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-rss-the-surprising-leadership-dynamics-in-agent-swarms.md)
+
+### Explicit relationships
+
+Measured influence depends-on replay controls and leader thresholds; agent coordination uses shared communication and depends-on prompt construction. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Single vendor experiment with small replay counts per order and a 60-post classifier check. Model rankings and percentages are provisional; explicit private notes in the study are not a requirement to capture private reasoning. No multi-agent runtime or default changed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which representative swarm evaluation randomizes roster/model/order, calibrates the order classifier, measures total cost and task safety, and compares coordination against one capable agent? See [[indexes/gaps]].

@@ -2024,3 +2024,66 @@ Managed allocation uses reusable heap blocks; resident footprint depends-on coll
 ### Decision and quality notes
 
 Unity-hosted educational article, updated September 18. Flag its simplified OS commitment/page-size explanation and mixed C-style allocation example as teaching material, not portable API facts. Exact thresholds, cadence, and locality benefits need implementation or device evidence. No Unity Editor/device tests run. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which pinned Unity/backend/device measurements separate live objects, reserved heap, resident/dirty pages, fragmentation, and frame-time cost across repeated lifecycle and collection cycles? See [[indexes/gaps]].
+
+
+## 2026-11-01: Utility AI forecasting and authored openings tune play experience
+
+### Typed entities
+
+project: Mushroom Wars 2; concept: Utility AI; concept: arrival forecast; concept: opening book; concept: reaction delay. file: raw/2026-10-31-rss-how-the-bot-in-mushroom-wars-2-works-forecasting-openings-and-honest-d.md.
+
+### Claims and evidence
+
+- The developer describes scoring targets using future production, travel time, potential reinforcement, and counterattack risk rather than current unit counts alone. A pure inexpensive forecast is reused across many candidate decisions. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-how-the-bot-in-mushroom-wars-2-works-forecasting-openings-and-honest-d.md)
+- Authored randomized openings bridge early-game weaknesses; synchronized attacks schedule departures backward from a common arrival time. Difficulty tuning changes perception/reconsideration delay while multiplayer onboarding bots avoid the campaign resource advantages. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-how-the-bot-in-mushroom-wars-2-works-forecasting-openings-and-honest-d.md)
+- A replay-trained ability-use network was abandoned after unsatisfactory results. Forecast-based utility and filtered short simulations are proposed middle options, not demonstrated universal replacements for learned policies. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-how-the-bot-in-mushroom-wars-2-works-forecasting-openings-and-honest-d.md)
+
+### Explicit relationships
+
+Bot planning uses future-state estimates; fair difficulty depends-on observable delay and player expectations; short simulation depends-on deterministic rules. See [[realtime-game-network-protocol-design]].
+
+### Decision and quality notes
+
+Single developer production account. Reaction distributions and reinforcement shares are suggested tuning values, not measured human norms. Sample forecast omits full game rules and candidate safety checks. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which bot playtests verify forecast accuracy, opening variety, reinforcement assumptions, synchronized arrival, perceived fairness, and decision cost on the weakest target? See [[indexes/gaps]].
+
+
+## 2026-11-01: Editor inference trades package isolation against GPU lifecycle and memory work
+
+### Typed entities
+
+project: Sound Finder; library: ONNX Runtime; concept: compute shader; concept: GPU buffer pool; concept: domain reload; concept: editor budget. file: raw/2026-10-31-rss-running-neural-networks-in-a-unity-editor-tool-with-compute-shaders.md.
+
+### Claims and evidence
+
+- Sound Finder describes a C#/HLSL editor-only inference runtime to avoid shipping runtime/native dependencies into customer builds. It compares intermediate stages against external references before timing kernels; it explicitly did not benchmark Unity Sentis. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-running-neural-networks-in-a-unity-editor-tool-with-compute-shaders.md)
+- The author reports command-buffer batching increased live pooled buffers and slowed diffusion/decoding, while attempted half-precision math failed to improve the tested DX11/DX12 paths. Quantized disk weights can expand back to full GPU precision, so smaller downloads do not imply smaller resident GPU use. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-running-neural-networks-in-a-unity-editor-tool-with-compute-shaders.md)
+- Editor responsiveness uses main-thread GPU queues, per-update time slices, asynchronous readbacks, and disposal on domain reload. The optional Stable Audio path still has visible blocking stages. Model redistribution and optional-download licensing remain separate package concerns. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-running-neural-networks-in-a-unity-editor-tool-with-compute-shaders.md)
+
+### Explicit relationships
+
+Editor inference depends-on numerical reference checks, graphics backend, buffer lifetime, reload cleanup, and UI budgets. See [[edge-ai-and-ai-infrastructure-2026]].
+
+### Decision and quality notes
+
+Single asset-author account tested on Windows and a laptop RTX 4060; timing/correlation claims are not general correctness or speed guarantees. Do not infer legal clearance or a faster Sentis alternative. No model was downloaded or executed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which editor/backend tests verify model-stage error tolerances, peak/resident GPU memory, pending readbacks, reload cleanup, UI responsiveness, and selected weight redistribution terms? See [[indexes/gaps]].
+
+
+## 2026-11-01: Production limits need real content and weakest-device validation
+
+### Typed entities
+
+project: Mushroom Wars 2; concept: renderer capacity; concept: allocation-free battle; concept: baked path; concept: guest identity. file: raw/2026-11-01-rss-220-000-units-instead-of-4-000-and-other-production-stories-from-mushr.md.
+
+### Claims and evidence
+
+- The developer reports an old unit-capacity formula combined with off-map content and rendering layers to reserve/process about 220,000 units. Correcting capacity and drawing only active particles repaired the low-end memory problem; build-time map-capacity validation is proposed prevention. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-rss-220-000-units-instead-of-4-000-and-other-production-stories-from-mushr.md)
+- The same account describes pooled allocation-free battles with GC disabled and collection between battles, plus editor-baked static-map spline paths. A missed allocation can exhaust memory with GC disabled, and prebaked routes do not generalize to dynamic worlds. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-rss-220-000-units-instead-of-4-000-and-other-production-stories-from-mushr.md)
+- An iOS guest-progress incident is attributed to reinstall removing PlayerPrefs and changing a device identifier; Keychain storage reportedly stopped the complaints. The account also notes developer-account transfer can disrupt access. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-rss-220-000-units-instead-of-4-000-and-other-production-stories-from-mushr.md)
+
+### Explicit relationships
+
+Content growth caused a capacity failure; runtime stability depends-on measured allocation and memory bounds; account recovery depends-on durable identity beyond disposable preferences.
+
+### Decision and quality notes
+
+Single developer retrospective; reported capacities and timing are project-specific. Do not treat GC disabling as a default, Keychain persistence as guaranteed across lifecycle/transfer, or a stored identifier as proof of authentication. Native platform evidence is still required. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which weakest-device/content checks verify computed capacities, active draw counts, battle allocations, baked-path validity, and guest recovery across reinstall and account transfer? See [[indexes/gaps]].

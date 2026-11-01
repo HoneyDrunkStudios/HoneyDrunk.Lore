@@ -265,6 +265,9 @@ GitHub Actions has two May 2026 operational changes that matter for CI/CD reliab
 
 ## 2026-06-12 compile additions: Agentic Workflows public preview and runner images
 
+superseded-by: [agentic-workflows-graduate-with-separate-execution-and-model-budget-controls](#2026-11-01-agentic-workflows-graduate-with-separate-execution-and-model-budget-controls); timestamp: 2026-11-01T09:05:10-05:00; reason: October 28 first-party announcement graduates Agentic Workflows to GA; this supersedes only its preview status, not unrelated runner history. The earlier text is retained as dated history.
+
+
 ### Source-backed claims
 - GitHub Agentic Workflows is in public preview and compiles natural-language Markdown automation definitions into standard GitHub Actions YAML, reusing existing runner groups and policy constraints. Source: `raw/2026-06-12-web-github-changelog-github-agentic-workflows-is-now-in-public-preview-github-chan.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-12.
 - GitHub describes Agentic Workflows safeguards including read-only default permissions, integrity filter rules, sandboxed container execution behind the Agent Workflow Firewall, safe outputs validation, and a threat-detection job before proposed changes are applied. Source: `raw/2026-06-12-web-github-changelog-github-agentic-workflows-is-now-in-public-preview-github-chan.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-12.
@@ -1161,6 +1164,9 @@ Official schedule snapshot; exact current image/tool availability still needs ve
 
 ## 2026-10-16: Workflow lockfile preview pins an onboarded dependency graph
 
+superseded-by: [workflow-lockfiles-reach-ga-without-making-locked-code-trustworthy](#2026-11-01-workflow-lockfiles-reach-ga-without-making-locked-code-trustworthy); timestamp: 2026-11-01T09:05:10-05:00; reason: October 28 first-party announcement graduates dependency lockfiles to GA on the stated cloud plans; dependency-review caveats remain. The earlier text is retained as dated history.
+
+
 ### Typed entities
 
 project: GitHub Actions; project: Dependabot; file: .github/workflows/actions.lock; concept: transitive dependency pinning; concept: workflow onboarding.
@@ -1279,3 +1285,63 @@ Workflow trust depends-on dependency identity and reviewed code; secret protecti
 ### Decision and quality notes
 
 Official reference with broad introductory language that must be read alongside its narrower JIT and secret-scope sections. No blanket impossibility-of-compromise claim is adopted. Lockfile and Dependabot support need actual target-version validation; no workflow settings changed. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which workflows prove transitive lock enforcement, safe handling of untrusted inputs/artifacts, environment-secret approval, scoped OIDC, and clean runner hosts under negative tests? See [[indexes/gaps]].
+
+
+## 2026-11-01: Workflow lockfiles reach GA without making locked code trustworthy
+
+### Typed entities
+
+project: GitHub Actions; library: gh-actions-lock; file: .github/workflows/actions.lock; concept: transitive dependency; concept: Require lockfile policy. file: raw/2026-10-31-rss-github-actions-workflow-lockfiles-are-generally-available.md.
+
+### Claims and evidence
+
+- GitHub announces workflow dependency lockfile GA on Free, Team, Enterprise Cloud, and Enterprise Cloud with data residency. The CLI extension records exact commits while workflow source can keep readable tags or branches; onboarded workflows require their dependencies in the lockfile. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-github-actions-workflow-lockfiles-are-generally-available.md)
+- The announcement includes per-workflow adoption, coordinated Dependabot lock updates, optional administrative enforcement, and read-only stale-lock verification. Dependency identity is fixed, but dependency safety still requires review. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-github-actions-workflow-lockfiles-are-generally-available.md)
+
+### Explicit relationships
+
+The October GA announcement supersedes the earlier lockfile preview status; reproducibility depends-on complete transitive resolution and reviewed updates.
+
+### Decision and quality notes
+
+Official dated availability evidence. Do not confuse actions.lock with Agentic Workflow generated YAML/lock artifacts. No repository policy was enabled. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pilot verifies GA eligibility, missing/transitive entries, stale-lock failure, Dependabot updates, and reviewed resolved commits before lockfile enforcement? See [[indexes/gaps]].
+
+
+## 2026-11-01: Agentic Workflows graduate with separate execution and model-budget controls
+
+### Typed entities
+
+project: GitHub Agentic Workflows; project: GitHub Copilot; concept: safe outputs; concept: integrity filter; concept: model budget. file: raw/2026-10-31-rss-github-agentic-workflows-generally-available.md.
+
+### Claims and evidence
+
+- GitHub announces Agentic Workflows GA on github.com Free, Team, and Enterprise, compiling Markdown definitions into Actions YAML and retaining runner-group/policy controls. The default Copilot CLI engine requires a Copilot license. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-github-agentic-workflows-generally-available.md)
+- The announcement describes read-only defaults, integrity filtering, sandbox/firewall execution, validated safe outputs, and threat detection before applying changes. GA additions include ARC/Docker-in-Docker, model routing, additional isolation options, and nonexperimental forecasting including threat-detection credits and monthly ranges. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-github-agentic-workflows-generally-available.md)
+
+### Explicit relationships
+
+GA supersedes the June preview status; agent execution depends-on Actions policy and distinct model/license budgets; proposed writes use safe-output validation. See [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Official announcement; customer productivity testimony is not controlled HoneyDrunk evidence. Named safeguards do not establish complete containment or authorize enabling automation. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which agentic workflow pilot proves generated-config review, write authority, integrity filtering, runner isolation, threat-output handling, and total forecast-versus-actual spend? See [[indexes/gaps]].
+
+
+## 2026-11-01: Multi-cloud runners change outbound-network assumptions without changing labels
+
+### Typed entities
+
+project: GitHub Actions; project: AWS; project: Azure; concept: hosted runner; concept: outbound allowlist; concept: Conditional Access. file: raw/2026-11-01-rss-github-actions-adds-multi-cloud-compute-to-improve-reliability.md.
+
+### Claims and evidence
+
+- GitHub announces broader compute scheduling for eligible standard and compatible larger 2/4-core Linux runners, including AWS alongside Azure. Windows, private-networked, and specialized configurations are excluded; Free/Pro/Team are automatic while Enterprise Cloud can opt in. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-rss-github-actions-adds-multi-cloud-compute-to-improve-reliability.md)
+- Labels and workflow syntax stay unchanged, but outbound IPs can expand. GitHub points to the actions array in its metadata endpoint; Azure-only IP rules or Entra Conditional Access assumptions can block network/authentication despite unchanged YAML. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-rss-github-actions-adds-multi-cloud-compute-to-improve-reliability.md)
+
+### Explicit relationships
+
+Hosted-runner connectivity depends-on current published network ranges and organization policy; label identity does not determine cloud placement.
+
+### Decision and quality notes
+
+Official rolling-change announcement, not proof of a particular job cloud or guaranteed queue reduction. No allowlist or tenant policy was expanded; any adoption must retain the intended security boundary. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which hosted Linux jobs depend on Azure-only egress or Conditional Access, and what reviewed network policy proves connectivity without broadening access unintentionally? See [[indexes/gaps]].

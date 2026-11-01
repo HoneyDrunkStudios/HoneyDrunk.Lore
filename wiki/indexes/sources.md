@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-10-31
+## Compile coverage: 2026-11-01
 
-Reconciled 1367 raw documents against 1367 unique entries; ingested 0 new sources in this pass. Existing records and dates are preserved. All 13 query outputs repeat compiled evidence and add no independent support.
+Reconciled 1397 raw documents against 1397 unique entries; ingested 30 new sources in this pass. Existing records and dates are preserved. All 13 historical query outputs repeat compiled evidence and add no independent support.
 
 ## Entry format
 
@@ -1748,3 +1748,41 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [Reuse workflows](../../raw/2026-10-28-web-reuse-workflows.md) - Reusable workflows pass authority and secrets at explicit boundaries. Canonical page: [[github-actions-platform-operations]]. - ingested 2026-10-28
 - [Secure use reference](../../raw/2026-10-28-web-secure-use-reference.md) - Workflow dependency locking complements isolation and secret controls. Canonical page: [[github-actions-platform-operations]]. - ingested 2026-10-28
 - [Understanding Memory Management in Unity](../../raw/2026-10-28-web-understanding-memory-management-in-unity.md) - Unity logical collection differs from resident-memory reclamation. Canonical page: [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-10-28
+
+
+## 2026-10-31 sources (compiled 2026-11-01)
+
+- [Azure SDK Release (October 2026)](../../raw/2026-10-31-rss-azure-sdk-release-october-2026.md) - October SDK identity fixes have package-specific migration boundaries. Canonical pages: [[azure-agent-automation-and-identity]], [[azure-sdk-for-rust]]. - ingested 2026-11-01
+- [Blazor Welcomes Open-Source Contributions from Syncfusion](../../raw/2026-10-31-rss-blazor-welcomes-open-source-contributions-from-syncfusion.md) - Syncfusion toolkit licensing is separate from the commercial suite and pending setup tooling. Canonical pages: [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-11-01
+- [Droid 1.0: Building a Frontier Harness](../../raw/2026-10-31-rss-droid-1-0-building-a-frontier-harness.md) - Droid separates programmatic tool execution from benchmark and recovery claims. Canonical pages: [[ai-agent-harnesses]]. - ingested 2026-11-01
+- [Everything released in October 2026 for Azure Developer CLI](../../raw/2026-10-31-rss-everything-released-in-october-2026-for-azure-developer-cli.md) - azd previews deployment while extension and Express limits remain explicit. Canonical pages: [[azure-agent-automation-and-identity]]. - ingested 2026-11-01
+- [GitHub Actions workflow lockfiles are generally available](../../raw/2026-10-31-rss-github-actions-workflow-lockfiles-are-generally-available.md) - Workflow lockfiles reach GA without making locked code trustworthy. Canonical pages: [[github-actions-platform-operations]]. - ingested 2026-11-01
+- [GitHub Agentic Workflows generally available](../../raw/2026-10-31-rss-github-agentic-workflows-generally-available.md) - Agentic Workflows graduate with separate execution and model-budget controls. Canonical pages: [[github-actions-platform-operations]]. - ingested 2026-11-01
+- [GitHub package firewall in public preview](../../raw/2026-10-31-rss-github-package-firewall-in-public-preview.md) - Package firewall preview is an npm install-time policy layer. Canonical pages: [[ai-coding-agent-security]]. - ingested 2026-11-01
+- [Hill-Climbing Agent Quality with Agents CLI Evaluation](../../raw/2026-10-31-rss-hill-climbing-agent-quality-with-agents-cli-evaluation.md) - Agent eval hill-climbing needs per-case artifacts and coherent arithmetic. Canonical pages: [[agent-evaluation-and-benchmarks]]. - ingested 2026-11-01
+- [How the Bot in Mushroom Wars 2 Works: Forecasting, Openings and Honest Difficulty](../../raw/2026-10-31-rss-how-the-bot-in-mushroom-wars-2-works-forecasting-openings-and-honest-d.md) - Utility AI forecasting and authored openings tune play experience. Canonical pages: [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-11-01
+- [Local-First Means Three Different Things](../../raw/2026-10-31-rss-local-first-means-three-different-things.md) - Local-first separates responsiveness, offline operation, and ownership. Canonical pages: [[distributed-systems-patterns]]. - ingested 2026-11-01
+- [One Forgotten Field Out of a Hundred: Hunting a Desync in Mushroom Wars 2](../../raw/2026-10-31-rss-one-forgotten-field-out-of-a-hundred-hunting-a-desync-in-mushroom-wars.md) - Rollback snapshot completeness is a testable simulation invariant. Canonical pages: [[realtime-game-network-protocol-design]]. - ingested 2026-11-01
+- [OpenTelemetry eBPF Instrumentation reaches v1.0.0](../../raw/2026-10-31-rss-opentelemetry-ebpf-instrumentation-reaches-v1-0-0.md) - OBI 1.0 stability has configuration and telemetry scope boundaries. Canonical pages: [[opentelemetry-genai-observability-and-ecosystem]]. - ingested 2026-11-01
+- [Running neural networks in a Unity editor tool with compute shaders](../../raw/2026-10-31-rss-running-neural-networks-in-a-unity-editor-tool-with-compute-shaders.md) - Editor inference trades package isolation against GPU lifecycle and memory work. Canonical pages: [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-11-01
+- [Throttling vs. Rate Limiting: Backoff Strategies for Workflows](../../raw/2026-10-31-rss-throttling-vs-rate-limiting-backoff-strategies-for-workflows.md) - Backoff complements proactive pacing and operation-specific retry safety. Canonical pages: [[distributed-systems-patterns]]. - ingested 2026-11-01
+- [Test retries and timeouts in .NET apps that use Microsoft.Extensions.Http.Resilience](../../raw/2026-10-31-web-test-retries-and-timeouts-in-net-apps-that-use-microsoft-extensions-ht.md) - Dev Proxy exercises real HTTP resilience paths and exhausted outcomes. Canonical pages: [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-11-01
+
+
+## 2026-11-01 sources (compiled 2026-11-01)
+
+- [1M Durable Workflows per Second on Postgres](../../raw/2026-11-01-rss-1m-durable-workflows-per-second-on-postgres.md) - DBOS scaling benchmark depends on shard-local work and bounded dequeue contention. Canonical pages: [[cloud-data-platforms-and-analytics]]. - ingested 2026-11-01
+- [220,000 Units Instead of 4,000 and Other Production Stories from Mushroom Wars 2](../../raw/2026-11-01-rss-220-000-units-instead-of-4-000-and-other-production-stories-from-mushr.md) - Production limits need real content and weakest-device validation. Canonical pages: [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-11-01
+- [A Little Determinism](../../raw/2026-11-01-rss-a-little-determinism.md) - Junior routes enforced behavior through egress policy and event watches. Canonical pages: [[ai-agent-harnesses]]. - ingested 2026-11-01
+- [GitHub Actions adds multi-cloud compute to improve reliability](../../raw/2026-11-01-rss-github-actions-adds-multi-cloud-compute-to-improve-reliability.md) - Multi-cloud runners change outbound-network assumptions without changing labels. Canonical pages: [[github-actions-platform-operations]]. - ingested 2026-11-01
+- [Making agents fast - what I've learnt over the last 12 months](../../raw/2026-11-01-rss-making-agents-fast-what-i-ve-learnt-over-the-last-12-months.md) - Agent speed needs full-session profiling rather than inference-only comparisons. Canonical pages: [[ai-agent-harnesses]]. - ingested 2026-11-01
+- [Only include resource detectors you need by building your own Collector](../../raw/2026-11-01-rss-only-include-resource-detectors-you-need-by-building-your-own-collecto.md) - Collector dependency reduction requires compile-time detector selection. Canonical pages: [[opentelemetry-genai-observability-and-ecosystem]]. - ingested 2026-11-01
+- [Ten Years of Rollback Netcode in a Cross-Platform RTS, Without Fixed-Point](../../raw/2026-11-01-rss-ten-years-of-rollback-netcode-in-a-cross-platform-rts-without-fixed-po.md) - Cross-platform rollback needs reproducible state and bounded history. Canonical pages: [[realtime-game-network-protocol-design]]. - ingested 2026-11-01
+- [The Pwn Request Reckoning: What Still Works Against GitHub Actions](../../raw/2026-11-01-rss-the-pwn-request-reckoning-what-still-works-against-github-actions.md) - Actions defenses leave input, artifact, and persistent-runner trust boundaries. Canonical pages: [[ai-coding-agent-security]]. - ingested 2026-11-01
+- [The surprising leadership dynamics in agent swarms](../../raw/2026-11-01-rss-the-surprising-leadership-dynamics-in-agent-swarms.md) - Swarm leadership claims require counterfactual influence and prompt-order controls. Canonical pages: [[multi-agent-architectures]]. - ingested 2026-11-01
+- [Blender 5.3: Rendering](../../raw/2026-11-01-web-blender-5-3-rendering.md) - Blender 5.3 splat notes describe upcoming import and rendering with material limits. Canonical pages: [[technical-art-community-and-talent-signals]]. - ingested 2026-11-01
+- [Do the Math: How We Took Over ChatGPT Accounts](../../raw/2026-11-01-web-do-the-math-how-we-took-over-chatgpt-accounts.md) - Cross-frame feature composition can defeat an otherwise isolated preview. Canonical pages: [[ai-coding-agent-security]]. - ingested 2026-11-01
+- [Ingress in Azure Container Apps](../../raw/2026-11-01-web-ingress-in-azure-container-apps.md) - Container Apps ingress visibility is relative to the environment boundary. Canonical pages: [[azure-agent-automation-and-identity]]. - ingested 2026-11-01
+- [Reliability in Azure Container Apps](../../raw/2026-11-01-web-reliability-in-azure-container-apps.md) - Container Apps zone recovery is separate from data durability and regional failover. Canonical pages: [[azure-agent-automation-and-identity]]. - ingested 2026-11-01
+- [Testing with 'dotnet test'](../../raw/2026-11-01-web-testing-with-dotnet-test.md) - dotnet test modes and extension arguments must match the actual test host. Canonical pages: [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-11-01
+- [What's new in the SDK and tooling for .NET 11](../../raw/2026-11-01-web-what-s-new-in-the-sdk-and-tooling-for-net-11.md) - The .NET 11 SDK snapshot adds versioned CLI and test capabilities without reverting RC3. Canonical pages: [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-11-01

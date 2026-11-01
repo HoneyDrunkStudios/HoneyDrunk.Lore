@@ -1625,3 +1625,86 @@ Dapr components depend-on scoped app identity and backend permissions; unsupport
 ### Decision and quality notes
 
 Official configuration reference, not a deployed connection test. Inline secret examples and sample identities are omitted. Managed identity removes particular stored credential paths, not every application or administration risk. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which app identities and component scopes have only required backend and Key Vault permissions, and do negative access, role-based secret listing, rotation, and failure tests pass? See [[indexes/gaps]].
+
+
+## 2026-11-01: October SDK identity fixes have package-specific migration boundaries
+
+### Typed entities
+
+library: Azure.Core; library: azure-identity; concept: managed identity; concept: credential chain; concept: account-scoped cache. file: raw/2026-10-31-rss-azure-sdk-release-october-2026.md.
+
+### Claims and evidence
+
+- Microsoft reports Azure.Core 1.63.0 adds certificate mTLS proof-of-possession and managed-identity federation support, fixes unavailable IMDS/identity-source handling in DefaultAzureCredential, and renames the experimental bearer-forcing option to EnableMtlsProofOfPossession=false. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-azure-sdk-release-october-2026.md)
+- The release reports Python Identity 1.26.0 adds Azure Arc user-assigned identity selection with identity-response checks and fixes shared-cache cross-account returns in the named credential paths. Java Identity 1.18.7 adds Arc identity support and timeout/native-image fixes. These are different language/package contracts. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-azure-sdk-release-october-2026.md)
+
+### Explicit relationships
+
+Credential-chain behavior depends-on exact SDK and host identity support; account isolation uses cache and returned-identity checks. See [[azure-sdk-for-rust]].
+
+### Decision and quality notes
+
+Official release roundup; listed beta packages remain beta. No credential, host, or account was inspected. Package notices establish captured release scope, not a HoneyDrunk upgrade result. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned SDK and host tests verify IMDS fallback, requested-identity matching, cross-account cache isolation, and the renamed proof-of-possession option? See [[indexes/gaps]].
+
+
+## 2026-11-01: azd previews deployment while extension and Express limits remain explicit
+
+### Typed entities
+
+project: Azure Developer CLI; project: Container Apps Express; concept: deployment preview; concept: environment state; concept: extension API. file: raw/2026-10-31-rss-everything-released-in-october-2026-for-azure-developer-cli.md.
+
+### Claims and evidence
+
+- The October azd 1.35-1.37.2 roundup describes deploy --preview as inspection without deployment and stable v1 extension preview, usage, and principal contracts. Other service-save, completion-guidance, and deployment-message APIs retain preview/beta status. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-everything-released-in-october-2026-for-azure-developer-cli.md)
+- For Express, host: containerapp uses image deployment without custom revision suffixes or traffic weights; Express does not support multiple revisions or traffic splitting. env unset removes exact case-sensitive stored keys, protects the environment name, and requires force for noninteractive removal. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-everything-released-in-october-2026-for-azure-developer-cli.md)
+- Exported Go environment/state path APIs now return errors; integrations must propagate those errors and construct the state context from the project directory. The release also describes extension-upgrade rollback, cancellation propagation, output separation, and preservation of unrelated configuration. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-everything-released-in-october-2026-for-azure-developer-cli.md)
+
+### Explicit relationships
+
+Deployment preview uses resolved targets; Express deployment depends-on its narrower revision model; extension integration depends-on versioned API and explicit error handling.
+
+### Decision and quality notes
+
+Official release roundup, not an executed deployment or complete stable graduation of every API. No environment value was removed and no extension installed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned azd integration checks preview non-mutation, Express image/revision limits, path errors, cancelled extension upgrades, and preservation of unrelated YAML and environments? See [[indexes/gaps]].
+
+
+## 2026-11-01: Container Apps ingress visibility is relative to the environment boundary
+
+### Typed entities
+
+project: Azure Container Apps; concept: environment accessibility; concept: app ingress; concept: HTTP route; concept: forwarded header; concept: TCP port. file: raw/2026-11-01-web-ingress-in-azure-container-apps.md.
+
+### Claims and evidence
+
+- The Microsoft reference separates environment accessibility from app ingress visibility. External app ingress in an internal environment publishes at its internal load balancer rather than the public internet; internal app ingress normally restricts the app FQDN to the same environment, including hiding it from the wider VNet. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-web-ingress-in-azure-container-apps.md)
+- An internal app can still be targeted by an environment-level HTTP route, so its ingress flag alone does not establish isolation. The reference also warns that only the rightmost forwarded-for address is provided by Container Apps; earlier values require validation. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-web-ingress-in-azure-container-apps.md)
+- Additional TCP ports require distinct environment-wide external ports and appropriate VNet/external configuration; main-port HTTP features such as CORS and affinity do not extend to HTTP carried over extra TCP ports. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-web-ingress-in-azure-container-apps.md)
+
+### Explicit relationships
+
+Reachability depends-on environment boundary, app ingress, and HTTP routes; trusted client-IP interpretation depends-on validated proxy chains.
+
+### Decision and quality notes
+
+Official snapshot, not a tested private network. Avoid interpreting external as necessarily internet-facing or internal as an absolute route deny. No network, app, DNS, or port configuration changed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which reachability tests cover public/internal environments, app visibility, environment HTTP routes, wider-VNet clients, spoofed forwarded headers, and extra-port protocol limits? See [[indexes/gaps]].
+
+
+## 2026-11-01: Container Apps zone recovery is separate from data durability and regional failover
+
+### Typed entities
+
+project: Azure Container Apps; concept: zone redundancy; concept: readiness; concept: ephemeral state; concept: regional failover; concept: job idempotency. file: raw/2026-11-01-web-reliability-in-azure-container-apps.md.
+
+### Claims and evidence
+
+- The reliability reference enables zone redundancy at environment creation and recommends at least two minimum replicas for multi-zone distribution plus sufficient surviving capacity. Lost replicas need detection, startup, and healthy readiness before serving; failover timing is configuration-dependent. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-web-reliability-in-azure-container-apps.md)
+- The service is stateless: local replica data can be lost, failed-zone jobs are aborted/failed, and safe retries require idempotency or resumable progress. Zone redundancy does not supply application backups or cross-region data replication. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-web-reliability-in-azure-container-apps.md)
+- Regional recovery requires separately deployed environments, routing/failover, available images, and replicated external state. Broad revision rollout guidance must also respect the Express single-revision limitation in the azd capture. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-web-reliability-in-azure-container-apps.md)
+
+### Explicit relationships
+
+Application availability depends-on capacity, health checks, dependencies, and client recovery; durable state depends-on external storage; regional recovery uses a separately designed topology.
+
+### Decision and quality notes
+
+Official reference last updated August 11, not fresher merely because clipped today. Scaling down is not proof of selecting a specific failed zone, and the approximate reroute time is not an SLA. No failover, deployment, paid capacity, or backup was created. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which failure tests establish surviving-zone capacity, readiness/retry timing, job replay safety, external-state recovery, and regional RTO/RPO with pinned routing and images? See [[indexes/gaps]].

@@ -1699,3 +1699,23 @@ Document-wide correctness depends-on aggregation semantics, category coverage, a
 ### Decision and quality notes
 
 Small practitioner experiment using generated and selected documents; model revision, hardware, repetitions, representative sampling, and independent probability calibration are not established. Keep all numerical results provisional. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which held-out long-document cases test rare violations, mixed domains, chunk boundaries, calibrated abstention, out-of-domain inputs, and full classification latency? See [[indexes/gaps]].
+
+
+## 2026-11-01: Agent eval hill-climbing needs per-case artifacts and coherent arithmetic
+
+### Typed entities
+
+project: Google Agents CLI; library: GEPA; concept: regression dataset; concept: fixed judge; concept: prompt overfitting. file: raw/2026-10-31-rss-hill-climbing-agent-quality-with-agents-cli-evaluation.md.
+
+### Claims and evidence
+
+- Google separates trace generation, grading, run comparison, failure analysis, and ADK-only prompt optimization; the LangChain walkthrough does not support eval optimize. A fixed judge and retained result files allow per-case comparisons across prompt/model changes. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-hill-climbing-agent-quality-with-agents-cli-evaluation.md)
+- The four-case walkthrough illustrates tool-use regressions that ordinary compilation can miss, but its closing summary contains inconsistent arithmetic: the shown model-swap rows total 11 versus a baseline total of 16, a 1.25-point mean drop; the closing prose calls it half a point. The baseline's displayed standard deviation is consistent with the sample standard deviation of its listed scores. Treat the tutorial as illustrative rather than a coherent benchmark result. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-31-rss-hill-climbing-agent-quality-with-agents-cli-evaluation.md)
+
+### Explicit relationships
+
+Reliable hill-climbing depends-on versioned datasets, judge/config provenance, per-case evidence, and held-out validation; optimization can overfit its metric. See [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Official tutorial flagged for numerical inconsistency. Compare output excerpt omits the full diff, and the alert example assumes a fixed result schema. Preserve error/missing-case counts and fail closed on malformed or absent scores rather than copying the example as a production gate. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which eval gate validates result-schema and arithmetic consistency, all expected cases, calibrated judges, held-out performance, and actionable regression evidence? See [[indexes/gaps]].

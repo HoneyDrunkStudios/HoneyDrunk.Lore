@@ -337,3 +337,23 @@ Transaction locality depends-on shared routing keys and query shape; alternate-k
 ### Decision and quality notes
 
 Vendor product architecture, not a proposal to shard HoneyDrunk or alter SQL Server schemas. Hashing, reference replication, and GSI semantics are Neki-specific; do not generalize them to full distributed PostgreSQL transaction equivalence. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which transaction/query inventory justifies colocation, and which cross-shard failure, reference-table update, GSI backfill, stale lookup, and reshard tests establish acceptable semantics? See [[indexes/gaps]].
+
+
+## 2026-11-01: DBOS scaling benchmark depends on shard-local work and bounded dequeue contention
+
+### Typed entities
+
+project: DBOS; project: PostgreSQL; project: PgDog; concept: workflow shard key; concept: advisory lock; concept: metastability. file: raw/2026-11-01-rss-1m-durable-workflows-per-second-on-postgres.md.
+
+### Claims and evidence
+
+- DBOS reports scaling from about 20,000 to one million no-op zero-step workflows per second using 1-50 Postgres shards. Each shard uses a 16-core/64-GB RDS instance and 48 worker processes, with uniform random workflow routing; this is not a single-server or representative multi-step throughput result. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-rss-1m-durable-workflows-per-second-on-postgres.md)
+- Workflow and dependent state share a routing key to keep operations shard-local. The account attributes collapse under a slow shard to concurrent SKIP LOCKED dequeue scans and reports bounded advisory-lock dequeue slots with nonblocking skip-to-next-shard behavior as the repair. confidence: 1 source, last-confirmed 2026-11-01 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-01-rss-1m-durable-workflows-per-second-on-postgres.md)
+
+### Explicit relationships
+
+Linear scaling depends-on locality and balanced keys; bounded dequeue concurrency fixed the reported contention feedback loop. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Vendor benchmark with linked code, not independently reproduced. No universal recovery/fairness/transaction guarantee or reason to shard HoneyDrunk follows. Failure recovery, skew, real steps, and total infrastructure cost need separate tests. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which workload benchmarks include real steps, key skew, shard slowdown, lock release after failure, queue fairness, durability, and complete worker/router/database cost? See [[indexes/gaps]].
