@@ -100,3 +100,24 @@ Composition testing uses real service graphs; validity depends-on resource isola
 ### Decision and quality notes
 
 The source calls the design per-test isolation, but fixture lifetime and resource uniqueness must be checked in an actual suite. Its illustrative readiness call checks a named resource, not automatically every service. Local fault scenarios do not establish live cloud identity, regional outage, or provider acceptance. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which HoneyDrunk scenario verifies fixture lifetime, unique state, all required readiness checks, cleanup after failure, and explicit emulator/stub assumptions before provider validation? See [[indexes/gaps]].
+
+
+## 2026-11-02: JiTTests turn risky diffs into executable behavioral evidence
+
+### Typed entities
+
+project: Meta JiTTesting; project: RubFake; concept: mutation-guided testing; concept: weak catch; concept: human-on-the-loop. file: raw/2026-11-02-rss-catching-bugs-before-they-land-jittesting-s-human-on-the-loop-approach.md.
+
+### Claims and evidence
+
+- Meta describes overnight risk-targeted generation using spare capacity. The dodgy-diff path treats the change as a mutant and generates tests distinguishing it from its parent; the intent-aware path infers intent, constructs risk mutants, then runs generated tests on the real diff. Behavioral difference is only a weak catch until assessed against intended behavior. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-catching-bugs-before-they-land-jittesting-s-human-on-the-loop-approach.md)
+- An LLM judge ensemble combines test code, failure traces, diff, and inferred intent; deterministic RubFake checks complement the ranking before selected engineer outreach. Human criteria and aggregate review reduce per-result inspection without making model judgment deterministic or eliminating human oversight. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-catching-bugs-before-they-land-jittesting-s-human-on-the-loop-approach.md)
+- Meta reports engagement by 589 engineers (64% of outreach), 60% true positives among the engaged feedback described, and 74 serious privacy bugs caught in the first half of 2026 with a reported 20% reduction in privacy SEVs. These are deployment-account outcomes, not a controlled causal estimate or a guaranteed catch rate for all diffs. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-catching-bugs-before-they-land-jittesting-s-human-on-the-loop-approach.md)
+
+### Explicit relationships
+
+JiTTesting uses mutation-guided executable evidence and depends-on intent validation, false-positive filtering, and human policy. See [[agent-evaluation-and-benchmarks]] and [[ai-assisted-software-practice]].
+
+### Decision and quality notes
+
+First-party deployment account. Preserve the outreach/feedback denominator and note that overnight risky-diff selection is not necessarily a synchronous pre-merge gate. The article mixes an over-the-last-year narrative with a five-month deployment phrase; no precise rollout chronology is inferred. Images and the linked paper were not independently assessed. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which local diff-testing pilot measures generated-test validity, parent/child behavior, intended-change false positives, risk-selection coverage, engineer feedback denominators, latency, and compute cost? See [[indexes/gaps]].

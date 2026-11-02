@@ -1425,3 +1425,24 @@ LFM3 variants depend-on a shared backbone and modality adapters; specialization 
 ### Decision and quality notes
 
 First-party model announcement; performance, calibration, and single-GPU claims remain provisional outside the reported setup. Open weights do not establish unrestricted licensing. Do not run sample code or infer HoneyDrunk device acceptance from this ingest. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which pinned LFM3 weights, license, reviewed loader, device memory/latency measurements, and held-out task/calibration tests justify a specific local deployment? See [[indexes/gaps]].
+
+
+## 2026-11-02: Token sourcing depends on workload quality and utilization
+
+### Typed entities
+
+project: Thoughtworks; project: Agent/works; concept: token sourcing; concept: utilization; concept: workload routing; concept: forecast uncertainty. file: raw/2026-11-02-rss-renting-the-frontier-owning-the-core-ip.md.
+
+### Claims and evidence
+
+- Thoughtworks describes replaying measured gateway traffic across frontier APIs, serverless open-weight serving, managed dedicated inference, and rented GPUs. Workload differentiation, sensitivity, regional constraints, achieved quality, demand shape, and operator capacity determine the proposed mix; a lower listed token price alone does not establish lower task cost. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-renting-the-frontier-owning-the-core-ip.md)
+- The account says centralized tiers meter requests, attribute usage and budgets, enforce approved model/region choices, and allow provider changes behind a stable user interface. Dedicated capacity is justified by sustained utilization or isolation needs; bursty interactive use can favor serverless because idle capacity remains a cost. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-renting-the-frontier-owning-the-core-ip.md)
+- The 2027/2028 reductions and 70–90% confidence language describe modeled future spend against a do-nothing forecast, not realized savings or a statistical guarantee of budget compliance. The article does not supply enough simulation assumptions and raw traffic to reproduce those projections. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-renting-the-frontier-owning-the-core-ip.md)
+
+### Explicit relationships
+
+Token sourcing uses measured workload traces and depends-on quality thresholds, utilization, operator cost, privacy, and regional controls. See [[cloud-sovereignty-and-platform-governance]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+First-party strategy and services narrative. Regional/legal statements and supplier-information concerns are the author framing, not independently verified legal or contractual conclusions. Open weights do not by themselves guarantee IP rights, privacy, quality, or low cost. Traffic replay must use authorized sanitized data; no procurement, capacity reservation, or model route was changed. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which sanitized workload replay establishes task quality, burst/idle demand, full serving and operations cost, license/privacy constraints, and reproducible forecast sensitivity before changing token sourcing? See [[indexes/gaps]].

@@ -1719,3 +1719,24 @@ Reliable hill-climbing depends-on versioned datasets, judge/config provenance, p
 ### Decision and quality notes
 
 Official tutorial flagged for numerical inconsistency. Compare output excerpt omits the full diff, and the alert example assumes a fixed result schema. Preserve error/missing-case counts and fail closed on malformed or absent scores rather than copying the example as a production gate. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which eval gate validates result-schema and arithmetic consistency, all expected cases, calibrated judges, held-out performance, and actionable regression evidence? See [[indexes/gaps]].
+
+
+## 2026-11-02: Novelty judges need prompt sensitivity checks and label provenance
+
+### Typed entities
+
+project: Ai2; project: Old Ideas, Novel Problems; project: novelty-judge-bench; concept: weak label; concept: prompt sensitivity; concept: macro-F1. file: raw/2026-11-02-rss-can-we-trust-llms-to-judge-whether-a-research-idea-is-novel.md.
+
+### Claims and evidence
+
+- Ai2 constructs human novelty pools using explicit ICLR review signals and extreme paper-rating strata: 154 higher-novelty and 145 lower-novelty ideas. Human+Generated pairs the 154 higher-novelty ideas with simple generated proposals assumed less novel. That assumption is a weak label; expert preference on 30 deliberately selected pairs does not validate every generated label or represent an unbiased random sample. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-can-we-trust-llms-to-judge-whether-a-research-idea-is-novel.md)
+- For the same Human+Generated pairs, changing the GPT-5.4 prompt moves reported accuracy from 93.5% to 40.9%, a 52.6 percentage-point difference. Prompt sensitivity also appears on human-only and generator-versus-generator comparisons; verdict disagreement can demonstrate instability without assuming a true ordering for two generators. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-can-we-trust-llms-to-judge-whether-a-research-idea-is-novel.md)
+- Additional retrieval/reasoning and specialized evaluators did not consistently beat simple baselines in the reported configurations. The agentic-search comparison and three-vote dedicated-system comparison use different protocols; their macro-F1 and cost figures should not be pooled into a universal model or retrieval ranking. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-can-we-trust-llms-to-judge-whether-a-research-idea-is-novel.md)
+
+### Explicit relationships
+
+Novelty evaluation depends-on label provenance, representative proposal distributions, prompt/model configuration, and repeated stability checks. Literature retrieval uses external evidence but does not guarantee a correct novelty verdict. See [[ai-research-automation-and-recursive-self-improvement]].
+
+### Decision and quality notes
+
+First-party benchmark announcement; linked paper, code, and data were not separately inspected. Extreme-stratum selection, weak labels, selected expert checks, and protocol differences limit transfer to ordinary proposals. Treat novelty scores as decision support with human and literature checks, not as an originality certificate. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which representative novelty evaluation independently labels generated ideas, controls prompt/order/model/retrieval choices, repeats trials, and records disagreement, calibration, and complete decision cost? See [[indexes/gaps]].

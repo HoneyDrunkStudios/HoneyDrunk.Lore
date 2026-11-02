@@ -1708,3 +1708,45 @@ Application availability depends-on capacity, health checks, dependencies, and c
 ### Decision and quality notes
 
 Official reference last updated August 11, not fresher merely because clipped today. Scaling down is not proof of selecting a specific failed zone, and the approximate reroute time is not an SLA. No failover, deployment, paid capacity, or backup was created. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which failure tests establish surviving-zone capacity, readiness/retry timing, job replay safety, external-state recovery, and regional RTO/RPO with pinned routing and images? See [[indexes/gaps]].
+
+
+## 2026-11-02: Custom container sessions have pool-specific lifecycle and observability
+
+### Typed entities
+
+project: Azure Container Apps; project: custom container session pool; concept: Hyper-V sandbox; concept: ready-session capacity; concept: session expiration. file: raw/2026-11-02-web-azure-container-apps-custom-container-sessions.md.
+
+### Claims and evidence
+
+- The Microsoft snapshot scopes these features to custom container pools, not built-in code interpreter pools unless explicitly stated. Images run in Hyper-V sandboxes with optional network isolation. Startup and liveness probes require API 2025-02-02-preview or later; unhealthy sessions are removed and healthy readySessionInstances replenished. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-web-azure-container-apps-custom-container-sessions.md)
+- Management APIs stop allocated sessions, retrieve identifiers/expiration/ETags, and list sessions with skip-based pagination of up to 300 by default. A returned nextLink is pagination metadata, not an authorization grant or safe destination for blindly forwarding a bearer token. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-web-azure-container-apps-custom-container-sessions.md)
+- Application logs require stdout/stderr output and the configured Monitor/Log Analytics route. Session console, lifecycle, and pool-event tables differ from ordinary app logs; direct Log Analytics table names add _CL. Executing, creating, and ready counts are separate pool metrics, not proof of session-level authorization or successful work. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-web-azure-container-apps-custom-container-sessions.md)
+
+### Explicit relationships
+
+Custom session pools use Hyper-V and depend-on lifecycle/probe configuration, explicit network policy, authorized session routing, and capacity observability. See [[ai-coding-agent-security]] and [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Official documentation updated May 10, captured November 2; capture date is not feature-release date. This extends rather than replaces earlier code-interpreter and shell-pool guidance. The pagination sample has minimal error/token-destination handling and an example nextLink without api-version; validate the actual contract. No pool, image, logging destination, or Azure resource was created. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which custom-pool API tests verify tenant-bound session access, stop/expiry races, healthy ready-capacity recovery, authorized pagination links, network policy, console-log redaction, and pool metric semantics? See [[indexes/gaps]].
+
+
+## 2026-11-02: Container start diagnosis separates launch failure from routing and readiness
+
+### Typed entities
+
+project: Azure Container Apps; concept: revision state; concept: image pull identity; concept: startup probe; concept: ingress scope; concept: scaler connectivity. file: raw/2026-11-02-web-troubleshoot-start-failures-in-azure-container-apps.md.
+
+### Claims and evidence
+
+- Microsoft recommends starting with revision running state and separate platform/system versus application stdout/stderr logs. Image-pull, volume, entrypoint/process crash, startup/probe timeout, scaler, network, and resource symptoms have different owners; an HTTP 403 or missing ingress route does not by itself prove the application process failed to launch. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-web-troubleshoot-start-failures-in-azure-container-apps.md)
+- Reproducing the same image/configuration locally helps isolate application errors, but registry access by the actual app identity, environment DNS/egress, secret references, target listener ports, and scale-signal reachability require environment-specific evidence. A successful workstation pull is not proof that the Container Apps identity can pull. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-web-troubleshoot-start-failures-in-azure-container-apps.md)
+- Probe settings should reflect real startup and health behavior, and non-HTTP workers need appropriate ingress/probe choices. Internal app ingress remains relative to environment visibility as clarified in the newer ingress capture; changing public visibility alone is not evidence that HTTP probes disappear or restart causes are fixed. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-web-troubleshoot-start-failures-in-azure-container-apps.md)
+
+### Explicit relationships
+
+Revision readiness depends-on launch, configuration, health, and routing evidence; app reachability depends-on app plus environment ingress scope. See [[container-supply-chain-and-compliance]] and [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Official guide updated September 14. Resolve its oversimplified internal-ingress/probe advice in favor of the newer specific ingress documentation already compiled on November 1; existing canonical claims need no supersession. CPU throttling is distinct from demonstrated OOM termination. Do not weaken exposure or health checks from generic suggestions. No deployment, configuration dump, or infrastructure mutation occurred. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which revision diagnosis captures correlate image digest and app identity, system/app logs, exit/OOM state, configuration presence without values, startup/readiness probes, environment-relative ingress, DNS, and scaler reachability? See [[indexes/gaps]].

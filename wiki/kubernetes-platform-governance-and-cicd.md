@@ -164,3 +164,24 @@ Release promotion uses version identity, cohort state, and retained evidence; sa
 ### Decision and quality notes
 
 Practitioner/vendor-associated contributed guidance. Do not infer that a new promotion product is necessary if existing tooling satisfies the contract. Halt behavior is distinct from restoring databases, secrets, and in-flight effects after a failed wave. No cluster or release configuration was changed. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which release workflow records immutable version/cohort identity and verification history, proves failed-wave halting, and validates shared-state compatibility and recovery? See [[indexes/gaps]].
+
+
+## 2026-11-02: GitOps fleet contracts need rendered diffs and reversible reconciliation
+
+### Typed entities
+
+project: Argo CD; library: ApplicationSet; library: Cluster API; library: Helm; concept: spoke-owned identity; concept: no-prune; concept: control-plane outage. file: raw/2026-11-02-rss-one-hub-34-clusters-lessons-from-a-gitops-control-plane-at-scale.md.
+
+### Claims and evidence
+
+- The practitioner describes one hub managing 34 clusters from a small per-cluster contract that derives applications, roles, DNS, and tags. Spokes control admission and workload identity; AWS uses short-lived cross-account access, while the Oracle registration still requires a vaulted stored credential. The second-provider exception is part of the model. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-one-hub-34-clusters-lessons-from-a-gitops-control-plane-at-scale.md)
+- CI renders individual charts, app-of-apps against every cluster contract, cluster definitions, and referenced charts with exact values, then presents a target-branch manifest diff. Resource-preservation settings and no-prune cluster objects restrict destructive propagation; existing spoke workloads can continue during hub/Git outages while deployment changes stop. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-one-hub-34-clusters-lessons-from-a-gitops-control-plane-at-scale.md)
+- Drift averages of 24.3 and 0.9 incidents per month use different measurement methods. Onboarding comparisons of 4.0 days across eight earlier clusters and 1.7 hours across eleven later clusters use different windows and also remove approvals. Neither supports a clean percentage improvement attributable solely to GitOps. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-one-hub-34-clusters-lessons-from-a-gitops-control-plane-at-scale.md)
+
+### Explicit relationships
+
+Fleet reconciliation depends-on explicit cluster contracts, spoke authority, whole-graph rendering, and deletion safeguards. A hub compromise inherits managed-fleet reach. See [[container-supply-chain-and-compliance]] and [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Contributed first-person account with small, non-comparable samples. Useful design evidence for blast-radius limits and reviewable rendered changes; it does not establish a fleet-size threshold or that no-prune replaces backups or release promotion. No clusters, credentials, or infrastructure were touched. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which fleet tests render every effective cluster contract, verify spoke-owned identity and provider exceptions, bound deletion blast radius, and measure outage/onboarding/drift outcomes with consistent methods? See [[indexes/gaps]].

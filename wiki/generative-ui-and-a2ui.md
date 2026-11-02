@@ -124,3 +124,24 @@ Express uses a catalog-derived compiler; rendering depends-on standard A2UI mess
 ### Decision and quality notes
 
 Official vendor post, dated October 27. Preserve catalog constraints and measure first useful screen separately from completion. Structural validity does not guarantee safe actions, correct data, accessibility, or semantic correctness. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which UI workload benefits from Direct JSON streaming, complete-reply Express, or predefined decisions after measuring first useful screen, completion, validation failures, accessibility, and action authorization? See [[indexes/gaps]].
+
+
+## 2026-11-02: CopilotKit transports catalog-based A2UI through AG-UI
+
+### Typed entities
+
+project: A2UI; project: CopilotKit; library: AG-UI; library: Google ADK; library: Zod; concept: component catalog; concept: surface identity. file: raw/2026-11-02-rss-build-generative-ui-apps-with-a2ui-copilotkit-agents.md.
+
+### Claims and evidence
+
+- The Google/CopilotKit walkthrough separates A2UI declarations from AG-UI typed-event transport and client rendering. A client catalog maps component definitions and prop schemas to trusted renderers; dynamic configuration can supply the generation tool to the backend. The shown in-memory ADK service is a demonstration configuration. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-build-generative-ui-apps-with-a2ui-copilotkit-agents.md)
+- Bound input paths and button action context carry user values back to the agent, which updates the same surfaceId. Client validation can avoid a model call for invalid input. This does not establish server authorization, durable booking, duplicate-action safety, or a complete application transaction. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-build-generative-ui-apps-with-a2ui-copilotkit-agents.md)
+- The integration describes isolated generation context, validation feedback with retries, and a message fallback when retries exhaust. Incremental rendering depends on the actual generation/transport path and does not reverse the existing Direct JSON versus complete-reply Express distinction. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-build-generative-ui-apps-with-a2ui-copilotkit-agents.md)
+
+### Explicit relationships
+
+CopilotKit uses AG-UI to carry A2UI; declarative generation depends-on a trusted catalog and compatible renderer. Action safety depends-on server validation and authorization beyond prop schemas. See [[mcp-tool-governance-and-app-surfaces]].
+
+### Decision and quality notes
+
+Official joint tutorial, correlated with earlier A2UI vendor guidance. Keep the October 28 streaming supersession in force. Broad portability, security, and self-healing wording is product scope to test, not a guarantee that any AG-UI backend or schema-valid action is safe. No packages or starter app were installed. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which pinned A2UI/AG-UI/CopilotKit matrix verifies catalog negotiation, streaming latency, exhausted retries, surface continuity, server validation, and authorized idempotent actions? See [[indexes/gaps]].

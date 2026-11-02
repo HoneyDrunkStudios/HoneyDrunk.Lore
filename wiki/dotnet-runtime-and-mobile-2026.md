@@ -1227,3 +1227,47 @@ SDK behavior depends-on exact SDK, runner, platform, and extension versions. The
 ### Decision and quality notes
 
 Official feature snapshot flagged for a stale release-stage label relative to the dated OOB announcement. Telemetry/server statements need pinned behavior checks, not assumptions of no export or global opt-in. xUnit v3 template availability does not change HoneyDrunk test policy; no SDK or test framework changed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which SDK/device/CI checks verify AOT fallback, build-server environment precedence, actual test discovery/artifacts, affected-test exclusions, reproducible digests, and cooldown failure behavior? See [[indexes/gaps]].
+
+
+## 2026-11-02: MTP extensions distinguish queued data from lifecycle and coverage results
+
+### Typed entities
+
+library: Microsoft.Testing.Platform; library: IDataConsumer; library: ITestCoverageResult; concept: extension UID; concept: artifact lifetime; concept: full-trust loading. file: raw/2026-11-02-web-build-extensions-for-microsoft-testing-platform-mtp.md.
+
+### Claims and evidence
+
+- The snapshot separates in-process test-host extensions from out-of-process controllers and requires compatible registration order and lifecycle. Regular IDataConsumer delivery is queued and serialized per consumer; awaiting PublishAsync is not proof that a result consumer has processed the message. MTP 2.3 experimental blocking consumers run inline and must avoid cross-UID reentrant delivery that deadlocks. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-web-build-extensions-for-microsoft-testing-platform-mtp.md)
+- The bus excludes same-UID producer-to-consumer delivery. Producer declarations list exact runtime data types; standalone FileArtifact/SessionFileArtifact paths retain producer-owned file lifetimes, while per-test files use FileArtifactProperty. Custom consumers have public registration only on TestHost, and a custom IData payload without a matching consumer has no automatic output. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-web-build-extensions-for-microsoft-testing-platform-mtp.md)
+- MTP 2.4 coverage messages preserve producer identity, scope, counts, reports, and threshold outcomes. Counts obey 0 <= covered <= coverable; absent measurements differ from no coverable data and measured zero coverage. The collector computes aggregation and thresholds; a failed threshold changes otherwise successful execution to exit 14. Application-end ITestCoverageResult access occurs after session bus processing in the sample. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-web-build-extensions-for-microsoft-testing-platform-mtp.md)
+- Builder-hook auto-registration requires a public static void hook, an MSBuild integration entry point, and a uniquely identified buildMultiTargeting props item. Dynamic manifest loading is explicit opt-in and full trust. Experimental filter providers exclude server requests; experimental orchestrator middleware invokes next at most once and preserves its result/exception/cancellation rather than implementing retry loops. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-web-build-extensions-for-microsoft-testing-platform-mtp.md)
+
+### Explicit relationships
+
+Extension correctness depends-on process placement, unique registration/producer identities, cancellation, message completion, and idempotent cleanup. Coverage reporting uses correlated results; artifact discovery depends-on producer-owned file lifetime. See [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+Official snapshot updated October 28 with several versioned and experimental APIs, plus a synthetic .NET 10/MTP 2.5.1 coverage sample rather than real instrumentation. Flag two internal documentation hazards: HasExitedGracefully prose says true means not graceful, and older snippets spell AddTestSessionLifetimeHandle while later ones use AddTestSessionLifetimeHandler. Do not infer behavior or copy those snippets without pinned API/source tests. No test framework or extension was installed. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which pinned MTP extension tests cover registration deduplication, UID routing, queued versus blocking delivery, cancellation/deadlock, artifact retention, coverage no-data/aggregation/exit codes, and actual lifecycle API names and graceful-exit semantics? See [[indexes/gaps]].
+
+
+## 2026-11-02: MSTest profiles separate package inclusion from runtime activation
+
+### Typed entities
+
+library: MSTest.Sdk; library: Microsoft.Testing.Platform; library: MSTest.SourceGeneration; concept: extension profile; concept: test discovery; concept: reflection fallback. file: raw/2026-11-02-web-mstest-sdk-configuration.md.
+
+### Claims and evidence
+
+- MSTest.Sdk defaults to MTP with EnableMSTestRunner and TestingPlatformDotnetTestSupport enabled, supports UseVSTest opt-out, and marks test utility libraries IsTestApplication=false. Runner mode changes CLI/runsettings expectations; installing the SDK is not a drop-in guarantee for existing CI. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-web-mstest-sdk-configuration.md)
+- None, Default, and AllMicrosoft select version-dependent extension package sets; AllMicrosoft still excludes opt-in/experimental or API-configured features and can include restrictive licenses. Azure DevOps/GitHub reporting packages in the default profile from 4.3 require explicit runtime flags, and GitHub reporting additionally requires the Actions environment. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-web-mstest-sdk-configuration.md)
+- The snapshot places MSTest source-generation graduation at 4.4 and aligns framework/adapter/generator versions. Reflection-free support requires direct TestClass declarations and respects unsupported-shape diagnostics; richer/async cases retain fallback paths, which are not a promise of reflection availability under Native AOT. .NET Standard lacks the required runtime hooks. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-web-mstest-sdk-configuration.md)
+- Experimental ITestFilter can be invoked concurrently and distinguishes Drop with no result from Skip with a result. Existing CLI/explorer selection precedes it, while Ignore follows it. This configuration evidence does not authorize migrating the local HoneyDrunk xUnit test standard. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-web-mstest-sdk-configuration.md)
+
+### Explicit relationships
+
+MSTest configuration depends-on pinned SDK/MTP versions, runner mode, package profile, runtime activation, test shape, and actual discovery counts. See [[agent-evaluation-and-benchmarks]] and [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+Official October 1 update captured November 2, including 4.5/preview scope and older 4.1.0 example project versions. Align actual versions instead of treating every example as enabling the newest feature. Earlier Windows-hosting and Native AOT records remain valid in their scopes. No test project or CI invocation was migrated. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which SDK/MTP/runner/profile matrix verifies actual package versions, runtime report flags, helper-library exclusion, generated versus fallback discovery, Native AOT failures, concurrent filters, and Drop versus Skip counts? See [[indexes/gaps]].

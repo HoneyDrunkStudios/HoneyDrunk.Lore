@@ -885,3 +885,24 @@ Collector distribution uses compile-time detector selection to bound size and de
 ### Decision and quality notes
 
 Official implementation article flagged for mixed example versions: dist version 0.199.0 alongside v0.163.x component references. Pin compatible builder/components and inspect the actual binary and telemetry; fewer dependencies alone is not a security proof. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned ocb manifest proves required internal/application resource attributes, compatible module versions, actual dependency removal, startup, and telemetry behavior? See [[indexes/gaps]].
+
+
+## 2026-11-02: Filelog protobuf checkpoints improve serialization with migration limits
+
+### Typed entities
+
+project: OpenTelemetry Collector Contrib; library: File Log receiver; library: protobuf; concept: checkpoint migration; concept: restart offset. file: raw/2026-11-02-rss-faster-smaller-checkpoints-the-file-log-receiver-now-uses-protobuf.md.
+
+### Claims and evidence
+
+- The OpenTelemetry account says Contrib v0.164.0 always writes filelog checkpoints as protobuf when storage is configured, while reading existing JSON checkpoints and rewriting them on the next save. polls_to_archive shares the encoding. Forward migration preserves recorded offsets according to the source; old-binary rollback compatibility is not established. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-faster-smaller-checkpoints-the-file-log-receiver-now-uses-protobuf.md)
+- Interleaved same-binary microbenchmarks used in-memory storage, 1 to 1,000 files, 1,000-byte fingerprints, five attributes, and ten runs per encoding. For 1,000 files, encode time was 15.38 ms versus 3.21 ms, decode 28.18 ms versus 5.01 ms, and stored size 1.740 MiB versus 1.139 MiB. These isolate checkpoint serialization, not total Collector throughput or real disk latency. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-faster-smaller-checkpoints-the-file-log-receiver-now-uses-protobuf.md)
+- Allocated bytes per save fell roughly by half while allocation count rose about 10–13%. The default 200 ms poll interval repeats writes five times per second, making save cost more relevant than the once-at-start load cost. A checkpoint alone does not prove end-to-end exactly-once log delivery. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-faster-smaller-checkpoints-the-file-log-receiver-now-uses-protobuf.md)
+
+### Explicit relationships
+
+Filelog uses persistent checkpoints for restart position; protobuf supersedes JSON as the documented writer format in v0.164.0. Safe rollout depends-on storage, crash/restart, rotation, archive, and downgrade tests. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+First-party engineering benchmark with explicit fixtures and shared-VM context. No general fivefold pipeline speedup is inferred, and no old wiki claim required supersession. JSON read support is not bidirectional migration evidence. Collector binaries and live storage were not changed. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which pinned filelog upgrade/downgrade tests preserve offsets across JSON/protobuf migration, rotation, truncation, archives, storage failure, and crashes while measuring real disk CPU and duplicate/loss behavior? See [[indexes/gaps]].

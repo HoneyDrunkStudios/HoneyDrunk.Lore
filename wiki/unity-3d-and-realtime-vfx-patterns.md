@@ -2087,3 +2087,45 @@ Content growth caused a capacity failure; runtime stability depends-on measured 
 ### Decision and quality notes
 
 Single developer retrospective; reported capacities and timing are project-specific. Do not treat GC disabling as a default, Keychain persistence as guaranteed across lifecycle/transfer, or a stored identifier as proof of authentication. Native platform evidence is still required. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which weakest-device/content checks verify computed capacities, active draw counts, battle allocations, baked-path validity, and guest recovery across reinstall and account transfer? See [[indexes/gaps]].
+
+
+## 2026-11-02: Memory diagnosis must retain metric and sampling boundaries
+
+### Typed entities
+
+project: GameOptim GOT Online; project: Unity; concept: GPU PSS; concept: resource snapshot; concept: reserved managed heap; concept: sampling overhead. file: raw/2026-11-02-rss-how-can-you-tell-whether-a-unity-crash-is-from-gpu-memory-resource-foo.md.
+
+### Claims and evidence
+
+- GameOptim describes separate views for driver-reported GPU memory, resource inventory, and reserved managed-heap capacity. These are diagnostic views with potentially overlapping accounting, not proven disjoint quantities to sum; reserved capacity alone does not establish a retained-object leak. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-how-can-you-tell-whether-a-unity-crash-is-from-gpu-memory-resource-foo.md)
+- The vendor says Android 10/11 GPU PSS refreshes on a five-minute cadence and detailed Resource-mode totals are a simulated 60-frame-step sum. Manual Dumps claim full current-frame resource detail, while periodic samples are partial. These tool/platform claims need validation before attributing a spike to one frame. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-how-can-you-tell-whether-a-unity-crash-is-from-gpu-memory-resource-foo.md)
+- The account describes managed-heap collection for IL2CPP builds on Unity 2019.4+ with Script Debugging, using retained-object/allocation-path views. Resource mode combined with Overview adds stutter and lower frame rate, so diagnostic runs are unsuitable as unqualified gameplay-performance baselines. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-how-can-you-tell-whether-a-unity-crash-is-from-gpu-memory-resource-foo.md)
+
+### Explicit relationships
+
+Memory diagnosis uses metric provenance and depends-on sampling resolution, retained-object evidence, build mode, and device crash logs. See [[technical-art-community-and-talent-signals]].
+
+### Decision and quality notes
+
+Promotional vendor tutorial flagged for overly absolute independent-pool and crash-cause language. Its Mono terminology on IL2CPP is a reporting label, not proof of the actual backend/runtime. The five-minute OS assertion and allocation details were not independently verified. No SDK installation, device test, dump upload, or crash reproduction occurred. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which device/build/driver tests correlate GPU accounting, resource snapshots, reserved versus live managed memory, kill logs, sample cadence, and diagnostic overhead without double-counting or treating capacity as a leak? See [[indexes/gaps]].
+
+
+## 2026-11-02: Unity import presets are profiling hypotheses with platform constraints
+
+### Typed entities
+
+project: Unity; library: Addressables; concept: import preset; concept: CPU-readable asset copy; concept: mip streaming; concept: upload buffer. file: raw/2026-11-02-web-configuring-your-unity-project-for-stronger-performance.md.
+
+### Claims and evidence
+
+- Unity recommends platform-specific import overrides, Presets, and AssetPostprocessor audits for textures, meshes, and audio, plus pruning unsupported graphics APIs, architectures, quality levels, and unused hierarchy/mesh data. IL2CPP trades potential runtime gains against slower builds; frame targets trade responsiveness against device power and thermal limits. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-web-configuring-your-unity-project-for-stronger-performance.md)
+- The guide distinguishes mesh import compression, primarily affecting disk size, from vertex compression that can affect runtime data, and notes override interactions. Read/Write asset copies, excess texture dimensions, unnecessary mipmaps, and large resource sets are candidates to measure rather than unconditional settings to disable for every runtime use. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-web-configuring-your-unity-project-for-stronger-performance.md)
+- Texture/mip streaming and async upload buffering trade memory, CPU, and loading stalls; Addressables can separate initial download from later content delivery. Those mechanisms require measured lifetime/budget behavior and do not automatically guarantee fewer total resident bytes or a single draw call. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-web-configuring-your-unity-project-for-stronger-performance.md)
+
+### Explicit relationships
+
+Import policy uses platform presets and depends-on actual asset access, target format support, renderer batching, and measured memory/loading. See [[ai-assisted-game-development-pipelines]].
+
+### Decision and quality notes
+
+Official evergreen guide with no publication/version baseline. Flag its ATSC spelling, dated device examples, broad power-of-two and atlas claims, and absolute ring-buffer lifetime wording as requiring version/platform verification. Treat recommendations as profiling candidates; no universal compression support, 26-fold saving, or IL2CPP speedup is inferred. No Unity settings or assets changed. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which target-device captures compare import presets, readable-copy needs, compression overrides, actual batching, upload-buffer lifetime, mip budgets, Addressables unload behavior, thermals, and visual quality? See [[indexes/gaps]].

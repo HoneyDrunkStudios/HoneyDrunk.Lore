@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-11-01
+## Compile coverage: 2026-11-02
 
-Reconciled 1397 raw documents against 1397 unique entries; ingested 30 new sources in this pass. Existing records and dates are preserved. All 13 historical query outputs repeat compiled evidence and add no independent support.
+Reconciled 1412 raw documents against 1412 unique entries; ingested 15 new sources in this pass. Existing records and dates are preserved. All 13 historical query outputs repeat compiled evidence and add no independent support.
 
 ## Entry format
 
@@ -1786,3 +1786,22 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [Reliability in Azure Container Apps](../../raw/2026-11-01-web-reliability-in-azure-container-apps.md) - Container Apps zone recovery is separate from data durability and regional failover. Canonical pages: [[azure-agent-automation-and-identity]]. - ingested 2026-11-01
 - [Testing with 'dotnet test'](../../raw/2026-11-01-web-testing-with-dotnet-test.md) - dotnet test modes and extension arguments must match the actual test host. Canonical pages: [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-11-01
 - [What's new in the SDK and tooling for .NET 11](../../raw/2026-11-01-web-what-s-new-in-the-sdk-and-tooling-for-net-11.md) - The .NET 11 SDK snapshot adds versioned CLI and test capabilities without reverting RC3. Canonical pages: [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-11-01
+
+
+## 2026-11-02 sources (compiled 2026-11-02)
+
+- [AI can turn security fixes into working exploits before users receive an update](../../raw/2026-11-02-rss-ai-can-turn-security-fixes-into-working-exploits-before-users-receive.md) - Patch-gap evaluation separates marginal exploit cost from research cost. Canonical page: [[ai-coding-agent-security]]. - ingested 2026-11-02
+- [Build Generative UI Apps with A2UI & CopilotKit Agents](../../raw/2026-11-02-rss-build-generative-ui-apps-with-a2ui-copilotkit-agents.md) - CopilotKit transports catalog-based A2UI through AG-UI. Canonical page: [[generative-ui-and-a2ui]]. - ingested 2026-11-02
+- [Can we trust LLMs to judge whether a research idea is novel?](../../raw/2026-11-02-rss-can-we-trust-llms-to-judge-whether-a-research-idea-is-novel.md) - Novelty judges need prompt sensitivity checks and label provenance. Canonical page: [[agent-evaluation-and-benchmarks]]. - ingested 2026-11-02
+- [Catching Bugs Before They Land: JiTTesting’s Human-on-the-Loop Approach at Full Scale](../../raw/2026-11-02-rss-catching-bugs-before-they-land-jittesting-s-human-on-the-loop-approach.md) - JiTTests turn risky diffs into executable behavioral evidence. Canonical page: [[api-testing-and-verification]]. - ingested 2026-11-02
+- [Coding Agent Horror Stories: The CVE That Did Not Exist](../../raw/2026-11-02-rss-coding-agent-horror-stories-the-cve-that-did-not-exist.md) - Read-only reviewers still create an output trust boundary. Canonical page: [[ai-coding-agent-security]]. - ingested 2026-11-02
+- [Faster, smaller checkpoints: the File Log receiver now uses protobuf](../../raw/2026-11-02-rss-faster-smaller-checkpoints-the-file-log-receiver-now-uses-protobuf.md) - Filelog protobuf checkpoints improve serialization with migration limits. Canonical page: [[opentelemetry-genai-observability-and-ecosystem]]. - ingested 2026-11-02
+- [How Can You Tell Whether a Unity Crash Is From GPU Memory, Resource Footprint, or Mono Heap Retention?](../../raw/2026-11-02-rss-how-can-you-tell-whether-a-unity-crash-is-from-gpu-memory-resource-foo.md) - Memory diagnosis must retain metric and sampling boundaries. Canonical page: [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-11-02
+- [One Hub, 34 Clusters: Lessons From a GitOps Control Plane at Scale](../../raw/2026-11-02-rss-one-hub-34-clusters-lessons-from-a-gitops-control-plane-at-scale.md) - GitOps fleet contracts need rendered diffs and reversible reconciliation. Canonical page: [[kubernetes-platform-governance-and-cicd]]. - ingested 2026-11-02
+- [Renting the frontier, owning the core IP](../../raw/2026-11-02-rss-renting-the-frontier-owning-the-core-ip.md) - Token sourcing depends on workload quality and utilization. Canonical page: [[edge-ai-and-ai-infrastructure-2026]]. - ingested 2026-11-02
+- [Azure Container Apps custom container sessions](../../raw/2026-11-02-web-azure-container-apps-custom-container-sessions.md) - Custom container sessions have pool-specific lifecycle and observability. Canonical page: [[azure-agent-automation-and-identity]]. - ingested 2026-11-02
+- [Blender 5.3: Core](../../raw/2026-11-02-web-blender-5-3-core.md) - Upcoming Blender project context changes linked-asset handling. Canonical page: [[technical-art-community-and-talent-signals]]. - ingested 2026-11-02
+- [Build extensions for Microsoft.Testing.Platform (MTP)](../../raw/2026-11-02-web-build-extensions-for-microsoft-testing-platform-mtp.md) - MTP extensions distinguish queued data from lifecycle and coverage results. Canonical page: [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-11-02
+- [Configuring your Unity project for stronger performance](../../raw/2026-11-02-web-configuring-your-unity-project-for-stronger-performance.md) - Unity import presets are profiling hypotheses with platform constraints. Canonical page: [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-11-02
+- [MSTest SDK configuration](../../raw/2026-11-02-web-mstest-sdk-configuration.md) - MSTest profiles separate package inclusion from runtime activation. Canonical page: [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-11-02
+- [Troubleshoot start failures in Azure Container Apps](../../raw/2026-11-02-web-troubleshoot-start-failures-in-azure-container-apps.md) - Container start diagnosis separates launch failure from routing and readiness. Canonical page: [[azure-agent-automation-and-identity]]. - ingested 2026-11-02

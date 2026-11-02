@@ -2768,3 +2768,45 @@ Preview containment depends-on every privileged message bridge; safe receivers u
 ### Decision and quality notes
 
 Primary disclosure; retain control-level facts only. Payloads, account/session data, API extraction routes, and exfiltration details are excluded. The root issue is browser trust composition rather than proof that a model ignored instructions; source headline overstates what was directly exercised beyond demonstrated data access. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which cross-feature browser tests reject wrong-origin/window messages, unsafe markup and child documents, and unauthorized same-origin actions across all deployed frontend variants? See [[indexes/gaps]].
+
+
+## 2026-11-02: Patch-gap evaluation separates marginal exploit cost from research cost
+
+### Typed entities
+
+project: Epoch AI; project: GLM 5.3; project: Firefox; concept: patch gap; concept: sandbox boundary; concept: responsible disclosure. file: raw/2026-11-02-rss-ai-can-turn-security-fixes-into-working-exploits-before-users-receive.md.
+
+### Claims and evidence
+
+- Epoch reports successful local-file exfiltration chains against six Firefox releases from September 17 through October 26 on Ubuntu 26.04. The offline harness supplied release-time public information and allowed up to 48 hours per attempt; the fastest reported success took 12 hours. These are evaluated file-access outcomes, not demonstrated arbitrary code execution on recent releases. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-ai-can-turn-security-fixes-into-working-exploits-before-users-receive.md)
+- The recent-release chains also required a previously unpublished sandbox vulnerability, reportedly fixed in Firefox 159.0 on October 27. The authors had not confirmed whether equivalent attacks still succeed on 159.0. A public patch alone was not the entire chain. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-ai-can-turn-security-fixes-into-working-exploits-before-users-receive.md)
+- Reported marginal API cost was about $1,000 per compromised version after more than $100,000 of Firefox research/setup spend. Roughly $100,000 of Chrome attempts did not produce an equivalent exploit at writing; failure in that setup is not evidence of Chrome immunity. Monitoring also paused runs after broken environments permitted out-of-sandbox actions, limiting claims of perfect evaluation containment. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-ai-can-turn-security-fixes-into-working-exploits-before-users-receive.md)
+
+### Explicit relationships
+
+Patch-gap exploitation uses public pre-release fixes and depends-on exploit-chain reach and update latency; execution safety depends-on verified containment, monitoring, and stopping authority. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+First-party research account with bounded targets and no independent replication in this pass. Useful for prioritizing patch delivery and controlled evaluation, without declaring all open models or all browsers equally vulnerable. Payloads, file-extraction routes, and private-session details are omitted. No exploit was run or browser version checked. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which independently reproduced patch-gap evaluation separates setup from marginal cost, validates containment, and measures post-fix outcomes and time from public fix to user deployment? See [[indexes/gaps]].
+
+
+## 2026-11-02: Read-only reviewers still create an output trust boundary
+
+### Typed entities
+
+project: BuaJi; project: Docker Sandboxes; library: Ollama; concept: fabricated security finding; concept: output trust; concept: CVE applicability. file: raw/2026-11-02-rss-coding-agent-horror-stories-the-cve-that-did-not-exist.md.
+
+### Claims and evidence
+
+- Docker recounts a contest-submitted incident in which a reviewer fabricated a vulnerability and operational findings while reviewing a PostgreSQL patch bump. The engineer rejected it; the reported incident did not involve actual remediation or a cluster outage. The linked minimal reviewer for Go files is explicitly not a reproduction of every free-form behavior in the story. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-coding-agent-horror-stories-the-cve-that-did-not-exist.md)
+- The proposed design moves the reviewer to an isolated environment with a read-only checkout, no operational credentials, and an explicit model-network exception, while keeping output as untrusted text. Containment restricts execution reach; it cannot make a report accurate or prevent a privileged reader from following false advice. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-coding-agent-horror-stories-the-cve-that-did-not-exist.md)
+- The example registry lookup checks identifier presence rather than affected versions or exploitability, and allow_failure makes it advisory. Its curl/jq loop does not robustly distinguish transport, rate-limit, malformed-response, and missing-record outcomes. The pipeline also triggers only on Go-file changes and compares HEAD to its parent, so it is not complete review coverage for every dependency/configuration diff. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-rss-coding-agent-horror-stories-the-cve-that-did-not-exist.md)
+
+### Explicit relationships
+
+A reviewer output becomes an input to humans and automation; safe remediation depends-on independent evidence and authorization. Sandbox policy restricts tool reach but does not supersede factual review. See [[dotnet-dependency-security-and-nuget]] and [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Vendor narrative plus illustrative pipeline, not independently reproduced incident evidence. Flag the CVE checker as incomplete: a real identifier alone never proves applicability, and the sample is not a blocking security gate. Verify runner policy, mount behavior, model endpoint authority, readiness, pipeline status propagation, and cleanup before adoption. No incident scripts, fake resource identifiers, or credentials are copied. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which reviewer-output gate verifies source and CVE applicability, handles registry/transport failures explicitly, covers the intended diff, and requires reviewed remediation while enforcing read-only mounts and bounded network access? See [[indexes/gaps]].

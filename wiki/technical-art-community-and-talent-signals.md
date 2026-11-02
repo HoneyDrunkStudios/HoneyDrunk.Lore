@@ -1543,3 +1543,24 @@ Splat appearance depends-on point attributes, transforms, render space, and prod
 ### Decision and quality notes
 
 Official development notes explicitly captured before final release. Treat features as upcoming, preserve limitations, and validate a pinned build; no installed Blender or engine round trip was exercised. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned Blender 5.3 build and splat fixtures verify PLY/SPZ orientation, attribute-preserving transforms, low-opacity/high-radiance color, performance, and the lack of export? See [[indexes/gaps]].
+
+
+## 2026-11-02: Upcoming Blender project context changes linked-asset handling
+
+### Typed entities
+
+project: Blender 5.3; concept: project root; concept: linked packed ID; concept: color configuration; concept: stable saving. file: raw/2026-11-02-web-blender-5-3-core.md.
+
+### Claims and evidence
+
+- The captured upcoming Blender 5.3 notes describe an opt-in project root identified by .blender_project, project-relative path templates/custom variables, asset libraries, and project-selected OpenColorIO including default and ACES choices. These are pre-release notes, not proof of a shipped stable baseline. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-web-blender-5-3-core.md)
+- A packed linked ID used by another directly linked packed ID is now considered directly linked; only directly linked packed IDs are written to the current blend file. The append option is renamed Make Linked Local, and packed dependencies are not automatically localized just because that option is enabled. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-web-blender-5-3-core.md)
+- Other notes include mixed global/editor undo, timeline-marker batch rename, and initial stable-saving support. Initial support is narrower than guaranteed byte-for-byte reproducibility across all files, edits, versions, and plugins. confidence: 1 source, last-confirmed 2026-11-02 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-02-web-blender-5-3-core.md)
+
+### Explicit relationships
+
+Project context uses root-relative assets and color configuration; multi-stage linking depends-on packed-ID dependency semantics and append policy. See [[creative-tool-extension-packaging]] and [[ai-assisted-game-development-pipelines]].
+
+### Decision and quality notes
+
+Official upcoming-release notes with no original publication date. Preserve the earlier Blender 5.3 pre-release posture and test pinned builds before asset-pipeline changes. No project files, plugins, or asset references were migrated. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which pinned Blender 5.3 fixtures validate project relocation, variables, color configuration, nested packed links, append localization, undo, and stable-save limits across the actual production asset chain? See [[indexes/gaps]].
