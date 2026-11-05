@@ -2232,3 +2232,51 @@ Practitioner heuristics and illustrative timings, not controlled provider or har
 The seven authored accounts in the October 27 consolidation are reinforced by Factory's reviewed cross-model changes/bounded recovery and Junior's operation policy/event watches. confidence: 9 sources, last-confirmed 2026-11-01 (archived authored design accounts; no independent execution). [Earlier seven-source synthesis](#2026-10-27-consolidation-complete-gates-strengthen-the-explicit-control-design-rationale), [Factory](../raw/2026-10-31-rss-droid-1-0-building-a-frontier-harness.md), [Junior](../raw/2026-11-01-rss-a-little-determinism.md).
 
 This gives moderate support to the shared design rationale that reliability depends-on explicit state, authority, recovery, and verification outside model reasoning. It is not nine replications, a pooled benchmark, or proof of complete containment. Martin Alderson's heuristics are consistent context rather than another measured replication. Unreinforced product claims retain provisional confidence; no existing claim date is refreshed by bibliography growth.
+
+
+## 2026-11-05: Harness ownership includes versioned evaluation and reversible self-improvement
+
+### Typed entities
+
+project: Thoughtworks; concept: harness product owner; concept: versioned task evaluation; concept: plugin provenance; decision: reviewed self-improvement proposals. file: raw/2026-11-05-rss-the-harness-is-a-product.md.
+
+### Claims and evidence
+
+- Thoughtworks frames the harness as instructions, tools, permissions, sandbox, context policy, state, orchestration, evaluation, and telemetry. Treating these as one maintained product gives users a version, dependency lifecycle, support policy, and accountable owner. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-the-harness-is-a-product.md)
+- The article proposes representative real-work task suites versioned with the harness, with quality, total cost, latency, and sampled human judgment. Tokens, accepted suggestions, and test passes alone are insufficient outcome measures; its suggested 20-30 tasks is an example rather than a validated universal sample size. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-the-harness-is-a-product.md)
+- Self-improvement requires measurable evaluation, attributed/reviewable changes, and rollback. The proposed boundary automates suggestions while preserving approval, and enterprise operation adds scoped identity, provenance checks, enforced sandbox defaults, residency/routing policy, and version-linked telemetry. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-the-harness-is-a-product.md)
+
+### Explicit relationships
+
+Harness change acceptance depends-on owned outcome evaluation and reversible provenance; plugin reuse depends-on compatibility and lifecycle management. See [[agent-evaluation-and-benchmarks]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Practitioner strategy article, not measured proof of a standard plugin format or that any cost increase rules out improvement. Cost/quality tradeoffs need explicit local targets. This supports existing harness vocabulary without establishing a new HoneyDrunk process. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which owner and versioned task set judge harness changes using accepted outcomes, latency, full cost, human review, provenance, permission tests, and rollback evidence? See [[indexes/gaps]].
+
+
+## 2026-11-05: Sandbox checkout placement changes Git access, dependency isolation, and handoff
+
+### Typed entities
+
+project: Docker Sandboxes; project: sbx; concept: host mount; concept: linked Git worktree; concept: independent clone; concept: mountless project; decision: preserve work before sandbox removal. file: raw/2026-11-05-rss-where-should-your-code-live-in-a-docker-sandbox.md.
+
+### Claims and evidence
+
+- Docker distinguishes direct writable host mounts, separate host worktrees, clone mode, and mountless repositories. Direct mounts expose agent edits to the host editor but also share branch state and dependency files; native dependencies can conflict across Linux and Windows/macOS. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-where-should-your-code-live-in-a-docker-sandbox.md)
+- Mounting only a linked worktree can leave its external Git metadata unavailable inside the sandbox: editing remains possible while Git operations belong on the host. Clone mode instead mounts host source read-only and creates an independent agent clone with Git, branch, and dependency state; committed results need an explicit fetch/push handoff. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-where-should-your-code-live-in-a-docker-sandbox.md)
+- Mountless project sandboxes can persist across sessions and contain internal worktrees. Those tasks still share tools and services, so branches isolate file histories only when paired with separate working directories, and independent environments require separate sandboxes. Removing a sandbox deletes work stored only there. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-where-should-your-code-live-in-a-docker-sandbox.md)
+
+### Explicit relationships
+
+Git availability depends-on reachable metadata; safe concurrency depends-on working-directory plus service isolation; durable handoff uses committed/copied results before environment deletion. See [[git-storage-and-version-control-infrastructure]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Official workflow account, not a containment audit or guarantee that host-visible edits/dependencies are isolated. Preview port publication is an explicit network exposure choice. No sandbox, mount, port, branch, or dependency installation was created from source instructions. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which sandbox workflow validates linked metadata access, host dependency separation, concurrent service ownership, branch handoff, preview exposure, and recovery of unpushed work before deletion? See [[indexes/gaps]].
+
+### Consolidation: versioned guidance and explicit execution boundaries
+
+Three captures from Thoughtworks, Microsoft, and Docker reinforce the design rationale that guidance delivery, task execution, and change validation need explicit ownership and artifacts. Thoughtworks describes harness lifecycle/evaluation, Microsoft describes version-matched package guidance with model-specific evaluation, and Docker describes checkout/environment tradeoffs. confidence: 3 sources, last-confirmed 2026-11-05 (moderate confidence for a shared design rationale; archived accounts synthesized). [Thoughtworks](../raw/2026-11-05-rss-the-harness-is-a-product.md), [Microsoft](../raw/2026-11-05-rss-delivering-skills-in-nuget-packages.md), [Docker](../raw/2026-11-05-rss-where-should-your-code-live-in-a-docker-sandbox.md).
+
+This strengthens rationale-level support, not source-specific benchmark, interoperability, or containment claims. The earlier Thoughtworks guide is related same-organization evidence rather than independent replication. Unreinforced product claims above remain provisional. Harness lifecycle depends-on versioned guidance, execution-state boundaries, and outcome evidence; no new HoneyDrunk process is established by this synthesis.

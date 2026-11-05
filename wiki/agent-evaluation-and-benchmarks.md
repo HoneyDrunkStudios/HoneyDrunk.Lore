@@ -1740,3 +1740,45 @@ Novelty evaluation depends-on label provenance, representative proposal distribu
 ### Decision and quality notes
 
 First-party benchmark announcement; linked paper, code, and data were not separately inspected. Extreme-stratum selection, weak labels, selected expert checks, and protocol differences limit transfer to ordinary proposals. Treat novelty scores as decision support with human and literature checks, not as an originality certificate. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which representative novelty evaluation independently labels generated ideas, controls prompt/order/model/retrieval choices, repeats trials, and records disagreement, calibration, and complete decision cost? See [[indexes/gaps]].
+
+
+## 2026-11-05: Evaluation repairs change the measured system and need leakage-aware grading
+
+### Typed entities
+
+project: Prime Intellect; project: AutomationBench; project: OfficeQA Pro v2; project: HLE-Diamond; library: verifiers; concept: grader validity; concept: answer contamination; concept: sequence-aware monitor. file: raw/2026-11-05-rss-learnings-from-auditing-public-evaluations.md.
+
+### Claims and evidence
+
+- Prime Intellect replaces prose tool-body descriptions with JSON Schemas and adjusts ambiguous AutomationBench tasks/graders. Public-set partial scores, strict scores, direct registered tools, and Zapier api_fetch runs use different contracts and are not directly comparable. Higher repaired public scores do not prove private-set saturation. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-learnings-from-auditing-public-evaluations.md)
+- The audit reports OfficeQA false negatives from number extraction and response-length rules, then replaces grading with a reference-answer model judge. The modified corpus, prompt, task subset, and disabled web access change the evaluation setting; judge calibration remains necessary rather than becoming infallible through replacement. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-learnings-from-auditing-public-evaluations.md)
+- HLE examples retrieve leaked answers through mirrors or public rollout records. The authors report that domain blocklists and per-call monitors can miss encoded or split-call access and can expose answer-dependent blocking signals. A monitor needs relevant sequence context and a termination path; the demonstrated runs are single-agent, while cross-agent coordination is a proposed risk. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-learnings-from-auditing-public-evaluations.md)
+
+### Explicit relationships
+
+Reported capability depends-on task contract, tool schema, grader, allowed evidence, and aggregation; contamination control uses sandbox and monitoring policy. See [[ai-coding-agent-security]] and [[multi-agent-architectures]].
+
+### Decision and quality notes
+
+Vendor-authored audit and repaired benchmark variants, not independently replicated model rankings. Dashboard trajectory identifiers and evasion recipes are omitted; no answer corpus or trace was fetched. Monitor accuracy, false positives, and altered-task comparability remain gaps. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which immutable eval bundle pins tasks, schemas, grader/judge calibration, scoring mode, corpus access, monitor history, and termination criteria while separately reporting public and held-out results? See [[indexes/gaps]].
+
+
+## 2026-11-05: Long-context retrieval success does not establish dependent state-tracking accuracy
+
+### Typed entities
+
+project: Ai2; project: StateBench; library: Gated DeltaNet; concept: immutable assignment; concept: latest-value retrieval; concept: dependent state update; concept: fixed entity set. file: raw/2026-11-05-rss-statebench-testing-how-language-models-track-state-changes-over-long-d.md.
+
+### Claims and evidence
+
+- StateBench distinguishes r-trivial immutable assignments, aperiodic latest-value updates, soluble self-dependent updates, and general finite cross-variable dependencies. Matched problems keep variables, values, and update locations aligned while varying update operations; multiple surface formats expose presentation sensitivity. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-statebench-testing-how-language-models-track-state-changes-over-long-d.md)
+- The authors report frontier accuracy dropping on longer soluble/general finite tasks, reaching 13% or lower on the longest general finite cases. Pretrained hybrid/recurrent models also struggle; the stronger extrapolation results come from separate models trained directly on StateBench, not an automatic property of a pretrained recurrent product. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-statebench-testing-how-language-models-track-state-changes-over-long-d.md)
+- Directly trained 275-million-parameter variants saw at most 256 assignments and were tested up to 64,000. Broad easier-level extrapolation is distinct from roughly tenfold hardest-level extrapolation for the flexible Gated DeltaNet variant. The framework fixes the variable set and does not yet cover entities introduced over time; precise capability bounds depend on the paper arithmetic assumptions. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-statebench-testing-how-language-models-track-state-changes-over-long-d.md)
+
+### Explicit relationships
+
+State tracking depends-on operation complexity, dependency length, presentation, training, and numeric assumptions; retrieval tests cover only part of agent state correctness. See [[agent-context-management-and-session-continuity]] and [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Ai2 research-team summary; figures and formal proofs were not independently reproduced or read from the linked report. Do not generalize a toy assignment benchmark to all conversations or interpret theory as a universal practical impossibility result. No model choice changed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which replay suite tests immutable, overwritten, accumulated, and cross-entity state across formats and lengths, including newly introduced entities, against a deterministic reference state? See [[indexes/gaps]].

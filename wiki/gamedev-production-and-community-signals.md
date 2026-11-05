@@ -724,3 +724,24 @@ Readable combat depends-on tuned perception and response timing. Objective varia
 ### Decision and quality notes
 
 One developer interview supports design hypotheses. Validate readability and useful unpredictability through playtests, not implementation complexity. New source-specific claims remain provisional single-source evidence; repeated citations and derived summaries add no independent corroboration. Open question: Which enemy perception, rally range, reaction-time, and objective-priority variations improve combat readability in HoneyDrunk playtests? See [[indexes/gaps]].
+
+
+## 2026-11-05: Localization correctness includes grammar, typography, tone, and narrow layouts
+
+### Typed entities
+
+project: Gift Club; library: Intl.NumberFormat; concept: locale grammar; concept: plural category; concept: nonbreaking typography; concept: constrained mobile layout. file: raw/2026-11-05-rss-we-translated-our-game-into-9-languages-these-7-things-didn-t-translat.md.
+
+### Claims and evidence
+
+- Gift Club reports nine-language browser-game localization failures caused by grammar attached to dynamic names, gender assumptions, and concatenated fragments. Rewording complete messages can avoid unavailable player metadata, but the examples do not prove grammatical inflection is never appropriate. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-we-translated-our-game-into-9-languages-these-7-things-didn-t-translat.md)
+- The account uses locale-aware percent formatting, nonbreaking French punctuation spacing, an informal-tone glossary/check, and plural-base normalization for missing-key checks. Collapsing plural suffixes can help compare base keys but cannot prove every locale-required plural form exists or is grammatically correct. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-we-translated-our-game-into-9-languages-these-7-things-didn-t-translat.md)
+- Long labels displaced prices and overlapped score/clock rows. The team shortened copy and chose which label could shrink while preserving key values; rendered review in long locales on small screens found issues that key lint could not. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-we-translated-our-game-into-9-languages-these-7-things-didn-t-translat.md)
+
+### Explicit relationships
+
+Localization quality depends-on full-message semantics, locale formatting, plural rules, terminology, and rendered context; narrow-screen usability depends-on explicit layout priorities. See [[mobile-ai-and-react-native-2026]] and [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+First-person browser-game report, not Unity-specific implementation or a universal language-style guide. Formal-word regexes are heuristics; font scaling, accessibility, screen-reader meaning, and native-speaker review remain necessary beyond truncation. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which locale checks validate required plural forms, dynamic-name grammar, percent/spacing rules, tone, terminology, and readable critical values on narrow screens with larger text? See [[indexes/gaps]].

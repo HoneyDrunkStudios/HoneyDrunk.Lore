@@ -357,3 +357,24 @@ Linear scaling depends-on locality and balanced keys; bounded dequeue concurrenc
 ### Decision and quality notes
 
 Vendor benchmark with linked code, not independently reproduced. No universal recovery/fairness/transaction guarantee or reason to shard HoneyDrunk follows. Failure recovery, skew, real steps, and total infrastructure cost need separate tests. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which workload benchmarks include real steps, key skew, shard slowdown, lock release after failure, queue fairness, durability, and complete worker/router/database cost? See [[indexes/gaps]].
+
+
+## 2026-11-05: Storage locality reduces one latency path while durability still needs replication
+
+### Typed entities
+
+project: PlanetScale Metal; project: Amazon EBS; concept: local NVMe; concept: replica acknowledgement; concept: cache hit ratio; decision: measure storage-bound latency. file: raw/2026-11-05-rss-the-hidden-latency-inside-your-database.md.
+
+### Claims and evidence
+
+- PlanetScale contrasts network-attached block storage with local NVMe: local cache-miss disk access avoids the storage-network hop, while capacity, host loss, and replication become explicit operating concerns. Local disk speed alone does not establish durability. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-the-hidden-latency-inside-your-database.md)
+- The vendor describes Metal primaries plus at least two local-disk replicas across availability zones, acknowledging commits after at least one replica acknowledges. Cross-zone replication still uses a network; the statement that reads never cross a network is scoped to local storage access rather than client traffic, replica routing, or all distributed queries. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-the-hidden-latency-inside-your-database.md)
+- The article acknowledges that mostly RAM-resident read workloads with few writes may not benefit. Its instance-price/IOPS example, generic 3,000 EBS baseline, and low-CPU/high-latency heuristic are not universal storage limits, current quotes, or a sufficient bottleneck diagnosis. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-the-hidden-latency-inside-your-database.md)
+
+### Explicit relationships
+
+Storage performance depends-on cache misses, I/O path, and workload; durable acknowledgement depends-on replication and recovery behavior. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Vendor architecture and sales account. No pricing or performance estimate is adopted; CPU can be low for lock, network, or application reasons too. Local NVMe remains finite and constrained even without a separately provisioned EBS IOPS cap. Recovery and replica semantics need measured failure tests. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which representative replay and failure tests compare cache misses, storage latency, replication acknowledgement, recovery/RPO, capacity changes, and complete cost before choosing local NVMe? See [[indexes/gaps]].

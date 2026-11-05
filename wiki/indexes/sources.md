@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-11-04
+## Compile coverage: 2026-11-05
 
-Reconciled 1412 raw documents against 1412 unique entries; ingested 0 new sources in this pass. Existing records and dates are preserved. All 13 historical query outputs repeat compiled evidence and add no independent support.
+Reconciled 1427 raw documents against 1427 unique entries; ingested 15 new sources in this pass. Existing records and dates are preserved. All 13 historical query outputs repeat compiled evidence and add no independent support.
 
 ## Entry format
 
@@ -1805,3 +1805,22 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [Configuring your Unity project for stronger performance](../../raw/2026-11-02-web-configuring-your-unity-project-for-stronger-performance.md) - Unity import presets are profiling hypotheses with platform constraints. Canonical page: [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-11-02
 - [MSTest SDK configuration](../../raw/2026-11-02-web-mstest-sdk-configuration.md) - MSTest profiles separate package inclusion from runtime activation. Canonical page: [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-11-02
 - [Troubleshoot start failures in Azure Container Apps](../../raw/2026-11-02-web-troubleshoot-start-failures-in-azure-container-apps.md) - Container start diagnosis separates launch failure from routing and readiness. Canonical page: [[azure-agent-automation-and-identity]]. - ingested 2026-11-02
+
+
+## 2026-11-05 sources
+
+- [Delivering Skills in NuGet packages](../../raw/2026-11-05-rss-delivering-skills-in-nuget-packages.md) - Package-resident skills align guidance with binaries but need trusted discovery, synchronization, and model-specific evaluation. Canonical page: [[microsoft-dotnet-ai-stack]]. - ingested 2026-11-05
+- [Detect when your AI agent copies a self-replicating prompt injection](../../raw/2026-11-05-rss-detect-when-your-ai-agent-copies-a-self-replicating-prompt-injection.md) - Synthetic injection study separates copied instructions, missed destructive calls, final-message classification, and enforcement. Canonical page: [[ai-coding-agent-security]]. - ingested 2026-11-05
+- [Go beyond the basics: Explore specialized Azure plugins for your AI agent](../../raw/2026-11-05-rss-go-beyond-the-basics-explore-specialized-azure-plugins-for-your-ai-age.md) - Specialized Azure plugins divide service workflows while retaining client, identity, and approval requirements. Canonical page: [[azure-agent-automation-and-identity]]. - ingested 2026-11-05
+- [How Ares Interactive runs live ops without waiting on client updates](../../raw/2026-11-05-rss-how-ares-interactive-runs-live-ops-without-waiting-on-client-updates.md) - Two Unity teams distinguish reversible live configuration from client code/art and test compatibility, lifetimes, and devices. Canonical page: [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-11-05
+- [Keycloak's observability journey: a guide for project maintainers](../../raw/2026-11-05-rss-keycloak-s-observability-journey-a-guide-for-project-maintainers.md) - Keycloak account separates native telemetry startup, explicit signal enablement, correlation, and push-origin concerns. Canonical page: [[opentelemetry-genai-observability-and-ecosystem]]. - ingested 2026-11-05
+- [Learnings from Auditing Public Evaluations](../../raw/2026-11-05-rss-learnings-from-auditing-public-evaluations.md) - Public-eval audit identifies schema/grader defects and contamination while preserving comparability and monitor limits. Canonical page: [[agent-evaluation-and-benchmarks]]. - ingested 2026-11-05
+- [pull_request_target blocked by default December 2](../../raw/2026-11-05-rss-pull-request-target-blocked-by-default-december-2.md) - Official notice moves default public pull_request_target enforcement to December 2 with November brownouts. Canonical page: [[github-actions-platform-operations]]. - ingested 2026-11-05
+- [StateBench: Testing how language models track state changes over long documents](../../raw/2026-11-05-rss-statebench-testing-how-language-models-track-state-changes-over-long-d.md) - StateBench separates retrieval from dependent state updates and qualifies pretrained versus task-trained extrapolation. Canonical page: [[agent-evaluation-and-benchmarks]]. - ingested 2026-11-05
+- [The harness is a product](../../raw/2026-11-05-rss-the-harness-is-a-product.md) - Harness product guidance connects ownership, dependency lifecycle, representative evaluation, and reviewed rollback-capable change. Canonical page: [[ai-agent-harnesses]]. - ingested 2026-11-05
+- [The hidden latency inside your database](../../raw/2026-11-05-rss-the-hidden-latency-inside-your-database.md) - PlanetScale storage-locality rationale retains replication, cache-fit, bottleneck, recovery, and pricing limits. Canonical page: [[cloud-data-platforms-and-analytics]]. - ingested 2026-11-05
+- [We translated our game into 9 languages. These 7 things didn't translate.](../../raw/2026-11-05-rss-we-translated-our-game-into-9-languages-these-7-things-didn-t-translat.md) - Nine-language game account shows why key parity needs grammatical, typographic, tone, and rendered-layout checks. Canonical page: [[gamedev-production-and-community-signals]]. - ingested 2026-11-05
+- [Where should your code live in a Docker Sandbox?](../../raw/2026-11-05-rss-where-should-your-code-live-in-a-docker-sandbox.md) - Docker checkout modes separate host collaboration, Git metadata, native dependencies, service isolation, and durable handoff. Canonical page: [[ai-agent-harnesses]]. - ingested 2026-11-05
+- [Blender 5.3: EEVEE & Viewport](../../raw/2026-11-05-web-blender-5-3-eevee-viewport.md) - Blender pre-release notes flag sun-disc appearance changes, panoramic limitations, backend defaults, and device-specific measurements. Canonical page: [[technical-art-community-and-talent-signals]]. - ingested 2026-11-05
+- [Code coverage](../../raw/2026-11-05-web-code-coverage.md) - MTP coverage reference separates collector activation, licensing, inclusion scope, version compatibility, and threshold enforcement. Canonical page: [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-11-05
+- [Collect and read OpenTelemetry data in Azure Container Apps](../../raw/2026-11-05-web-collect-and-read-opentelemetry-data-in-azure-container-apps.md) - Managed telemetry requires instrumentation and environment-level routing while retaining single-replica, buffer, transport, and secret-delivery limits. Canonical page: [[azure-agent-automation-and-identity]]. - ingested 2026-11-05

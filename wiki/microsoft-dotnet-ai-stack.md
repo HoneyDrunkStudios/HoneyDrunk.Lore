@@ -1089,3 +1089,24 @@ Copilot SDK uses a local runtime and a separately configured model provider; cap
 ### Decision and quality notes
 
 Vendor learning sample, not a verified production integration or a HoneyDrunk credential policy. User Secrets and Azure CLI login describe this sample only. No SDK was installed and no endpoint was contacted. Pin SDK/CLI compatibility and verify auth refresh, cancellation, provider protocol, and least privilege before adoption. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which pinned Copilot SDK and CLI combination proves provider compatibility, token refresh, cancellation, reasoning-budget behavior, and capability restrictions under HoneyDrunk credential policy? See [[indexes/gaps]].
+
+
+## 2026-11-05: NuGet can distribute version-matched skills with package binaries
+
+### Typed entities
+
+project: NuGet; project: dotnet-inspect; project: dotnet-package-skills; library: Markout; concept: package-resident skill; decision: evaluate skill quality and cost. file: raw/2026-11-05-rss-delivering-skills-in-nuget-packages.md.
+
+### Claims and evidence
+
+- The .NET team describes placing ordinary SKILL.md documents inside NuGet packages so restore co-delivers guidance and binaries. The assets file/cache exposes these files; dotnet-inspect discovers and prints them, while dotnet-package-skills copies discovered skills into a repository with a manifest. Its shown install scans direct packages. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-delivering-skills-in-nuget-packages.md)
+- Copied repository skills need updates when package references change. The capture says NuGet MCP has not yet added skill support; that is a dated tool limitation and planned work, not a claim that package delivery is unavailable. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-delivering-skills-in-nuget-packages.md)
+- The authors evaluate efficacy and efficiency separately and report that poorly tuned skills can increase frontier-model costs. Their observations do not establish a universal skill benefit or that a cheap-model improvement transfers to other models. Package text becoming agent instructions introduces a supply-chain trust boundary. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-delivering-skills-in-nuget-packages.md)
+
+### Explicit relationships
+
+Package guidance uses versioned distribution; copied skill freshness depends-on package-reference synchronization and review. See [[ai-agent-harnesses]] and [[dotnet-dependency-security-and-nuget]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Official exploratory delivery account, not a standardized NuGet auto-loading contract or an independent skill benchmark. Package provenance does not make embedded instructions authoritative. No package or skill was installed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned package/skill workflow verifies direct versus transitive discovery, copied-skill freshness, provenance, instruction trust, and task quality/cost across the actual models? See [[indexes/gaps]].

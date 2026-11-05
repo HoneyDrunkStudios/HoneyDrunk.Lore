@@ -2129,3 +2129,24 @@ Import policy uses platform presets and depends-on actual asset access, target f
 ### Decision and quality notes
 
 Official evergreen guide with no publication/version baseline. Flag its ATSC spelling, dated device examples, broad power-of-two and atlas claims, and absolute ring-buffer lifetime wording as requiring version/platform verification. Treat recommendations as profiling candidates; no universal compression support, 26-fold saving, or IL2CPP speedup is inferred. No Unity settings or assets changed. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which target-device captures compare import presets, readable-copy needs, compression overrides, actual batching, upload-buffer lifetime, mip budgets, Addressables unload behavior, thermals, and visual quality? See [[indexes/gaps]].
+
+
+## 2026-11-05: Live game configuration needs compatibility, rollback, and bounded asset delivery
+
+### Typed entities
+
+project: Ares Interactive; project: Baseball Hits 26; project: The Walking Dead Aftermath; library: Unity Addressables; library: AssetBundles; concept: versioned remote configuration; concept: save migration. file: raw/2026-11-05-rss-how-ares-interactive-runs-live-ops-without-waiting-on-client-updates.md.
+
+### Claims and evidence
+
+- The Baseball Hits 26 team describes validated, logged, versioned configuration domains with staging, rollback, segmentation, and scheduled events. Addressables deliver optional stadium bundles while a default stadium ships locally; shared assets avoid repeated download data. These are reported team practices rather than measured universal live-ops gains. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-how-ares-interactive-runs-live-ops-without-waiting-on-client-updates.md)
+- Swift Games separates client-compatible remote configuration bundles, versioned saves with migration chains, and server time from code/art that require a build. Its Addressables groups handle feature loading and memory; remote live data instead uses a separate platform-specific AssetBundles pipeline with hashes, checksums, and a minimum compatible client version. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-how-ares-interactive-runs-live-ops-without-waiting-on-client-updates.md)
+- Scoped contexts own assets/subscriptions and release them at teardown; plain C# logic enables tests outside the Engine. CI distinguishes development/live identities and fails uploads on missing configuration. Both accounts combine simulator layout checks with physical-device and connectivity testing. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-how-ares-interactive-runs-live-ops-without-waiting-on-client-updates.md)
+
+### Explicit relationships
+
+Safe live updates depend-on version compatibility, reversible configuration, save migration, and environment identity; feature lifetime uses explicit asset ownership. See [[gamedev-production-and-community-signals]] and [[realtime-game-network-protocol-design]].
+
+### Decision and quality notes
+
+Unity-published team interviews. Stadium delivery and Swift live-data delivery are different pipelines; neither proves arbitrary remote code/art updates. Reported turnaround times do not establish an SLA. Checksums alone are not evidence of authenticated content. Simulator results do not replace devices. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which live-update tests prove client-version rejection, authenticated bundles, rollback and feature shutdown, save migrations, environment separation, teardown, and weakest-device offline recovery? See [[indexes/gaps]].

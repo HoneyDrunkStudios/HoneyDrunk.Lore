@@ -1564,3 +1564,24 @@ Project context uses root-relative assets and color configuration; multi-stage l
 ### Decision and quality notes
 
 Official upcoming-release notes with no original publication date. Preserve the earlier Blender 5.3 pre-release posture and test pinned builds before asset-pipeline changes. No project files, plugins, or asset references were migrated. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which pinned Blender 5.3 fixtures validate project relocation, variables, color configuration, nested packed links, append localization, undo, and stable-save limits across the actual production asset chain? See [[indexes/gaps]].
+
+
+## 2026-11-05: Upcoming EEVEE lighting and backend changes need renderer-specific regression scenes
+
+### Typed entities
+
+project: Blender 5.3; project: EEVEE; project: Workbench; concept: Material Lighting nodes; concept: panoramic camera; concept: Sky Texture sun disc; concept: Vulkan backend. file: raw/2026-11-05-web-blender-5-3-eevee-viewport.md.
+
+### Claims and evidence
+
+- Upcoming Blender 5.3 notes add Material Lighting nodes and EEVEE panoramic camera modes, with depth of field, raytracing, and viewport volumetric temporal reprojection still unsupported for panoramic rendering. The capture explicitly identifies release-candidate status, not a final stable release. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-web-blender-5-3-eevee-viewport.md)
+- Sky Texture Sun Disc now contributes to lighting, changing the look of existing scenes when enabled. The notes say disabling Sun Disc restores the prior look; this is a documented visual migration condition rather than a silent rendering fix. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-web-blender-5-3-eevee-viewport.md)
+- The notes make Vulkan default on Windows excluding ARM and on Linux, lowering the stated minimum to Vulkan 1.1 with some optional features. Workbench hardware raytraced shadows require supported Metal/Vulkan hardware and expose capability detection. The shown three-run Linux/NVIDIA measurements vary by scene and include regressions, so they do not establish universal gains. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-web-blender-5-3-eevee-viewport.md)
+
+### Explicit relationships
+
+Scene migration depends-on lighting, camera-mode feature coverage, backend, driver, and capability tests; backend defaults do not supersede production validation. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Official pre-release notes with empty extracted visual comparison cells. Performance table is one system; no render, driver, Blender install, or asset was modified. Retain earlier release history and distinguish Workbench shadows from unsupported panoramic EEVEE raytracing. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned Blender 5.3 scenes compare sun-disc appearance, panoramic limitations, Material Lighting graphs, ARM/backend fallback, ray-query capability, and visual/performance regressions on production hardware? See [[indexes/gaps]].

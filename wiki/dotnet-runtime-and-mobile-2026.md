@@ -1271,3 +1271,24 @@ MSTest configuration depends-on pinned SDK/MTP versions, runner mode, package pr
 ### Decision and quality notes
 
 Official October 1 update captured November 2, including 4.5/preview scope and older 4.1.0 example project versions. Align actual versions instead of treating every example as enabling the newest feature. Earlier Windows-hosting and Native AOT records remain valid in their scopes. No test project or CI invocation was migrated. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which SDK/MTP/runner/profile matrix verifies actual package versions, runtime report flags, helper-library exclusion, generated versus fallback discovery, Native AOT failures, concurrent filters, and Drop versus Skip counts? See [[indexes/gaps]].
+
+
+## 2026-11-05: MTP coverage needs collector-specific flags, version checks, and threshold semantics
+
+### Typed entities
+
+library: Microsoft.Testing.Platform; library: Microsoft.Testing.Extensions.CodeCoverage; library: coverlet.MTP; concept: coverage result model; concept: threshold exit code; concept: native instrumentation. file: raw/2026-11-05-web-code-coverage.md.
+
+### Claims and evidence
+
+- The reference describes MSBuild integration auto-registering coverage extensions when their packages are installed. Microsoft coverage supports managed/native and static/dynamic instrumentation, but native instrumentation is disabled by default. Its closed-source free-use licensing differs from an open-source license. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-web-code-coverage.md)
+- Microsoft coverage uses coverage-specific options and defaults to binary coverage output; Coverlet MTP uses its own package, activation/options, and JSON output with additional formats. Microsoft coverage excludes test assemblies by default, unlike the cited historical VSTest default; installing an extension alone is not evidence it collected data. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-web-code-coverage.md)
+- From MTP 2.4, compatible collectors may publish correlated measurements, thresholds, and report references. Collector participation and configuration remain explicit; a failed published threshold gives exit 14 on an otherwise successful run. Ignoring that code deliberately removes process-failure enforcement and is not adopted here. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-web-code-coverage.md)
+
+### Explicit relationships
+
+Coverage interpretation depends-on pinned collector/MTP compatibility, activation, included assemblies, measurement semantics, and exit-code policy. See [[api-testing-and-verification]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Official reference updated October 28; its compatibility table ends at MTP 2.0 although the prose describes 2.4 features, so the table does not validate a 2.4 collector pairing. Reinforces existing extension documentation without independent behavioral execution. Coverage percentage is not test adequacy; no packages, runner, threshold, or framework changed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned MTP/collector runs verify auto-registration versus activation, native/test-assembly scope, supported outputs, no-data results, and threshold exit 14 with the actual CI runner? See [[indexes/gaps]].

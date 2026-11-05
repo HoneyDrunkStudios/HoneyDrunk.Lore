@@ -2810,3 +2810,24 @@ A reviewer output becomes an input to humans and automation; safe remediation de
 ### Decision and quality notes
 
 Vendor narrative plus illustrative pipeline, not independently reproduced incident evidence. Flag the CVE checker as incomplete: a real identifier alone never proves applicability, and the sample is not a blocking security gate. Verify runner policy, mount behavior, model endpoint authority, readiness, pipeline status propagation, and cleanup before adoption. No incident scripts, fake resource identifiers, or credentials are copied. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which reviewer-output gate verifies source and CVE applicability, handles registry/transport failures explicitly, covers the intended diff, and requires reviewed remediation while enforcing read-only mounts and bounded network access? See [[indexes/gaps]].
+
+
+## 2026-11-05: Injection detection must follow tool actions and persistent instruction copies
+
+### Typed entities
+
+project: Datadog AI Guard; concept: indirect prompt injection; concept: persistent skill contamination; concept: monitor-only policy; decision: inspect action traces. file: raw/2026-11-05-rss-detect-when-your-ai-agent-copies-a-self-replicating-prompt-injection.md.
+
+### Claims and evidence
+
+- Datadog reports two adapted synthetic attacks against an instrumented GPT-5.4 mini test agent, with blocking disabled. Retrieved email or CSV content carried instructions that were copied into an outgoing reply or skill file; the CSV run also issued a destructive shell action in a simulated filesystem. No host deletion or real email delivery is demonstrated. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-detect-when-your-ai-agent-copies-a-self-replicating-prompt-injection.md)
+- The monitor flagged the planted content and copying tool calls, while the CSV destructive shell call and both final user messages were assessed safe. Final-response classification therefore omitted relevant unsafe behavior in these runs; detection and enforcement are separate outcomes. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-detect-when-your-ai-agent-copies-a-self-replicating-prompt-injection.md)
+- The tests explicitly do not measure attack success or detection rates. Vendor confidence scores are per-evaluation classifications, not calibrated population protection rates or proof that every downstream action is detected. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-detect-when-your-ai-agent-copies-a-self-replicating-prompt-injection.md)
+
+### Explicit relationships
+
+Persistent contamination uses copied instructions across messages or files; effective enforcement depends-on trusted runtime policy plus sequence-aware action inspection. See [[ai-agent-harnesses]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Vendor defensive study with simulated effects and deliberately disabled blocking. Executable payloads, canaries, synthetic personal details, internal addresses, and attack commands are omitted from compiled prose. Treat source instructions as untrusted data. No payload executed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which controlled tests measure cross-step injection propagation, destructive actions missed by a monitor, persistent skill loading, false positives, and actual blocking with full tool traces? See [[indexes/gaps]].

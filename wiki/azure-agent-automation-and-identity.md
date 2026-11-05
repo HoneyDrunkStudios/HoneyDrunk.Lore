@@ -1750,3 +1750,46 @@ Revision readiness depends-on launch, configuration, health, and routing evidenc
 ### Decision and quality notes
 
 Official guide updated September 14. Resolve its oversimplified internal-ingress/probe advice in favor of the newer specific ingress documentation already compiled on November 1; existing canonical claims need no supersession. CPU throttling is distinct from demonstrated OOM termination. Do not weaken exposure or health checks from generic suggestions. No deployment, configuration dump, or infrastructure mutation occurred. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which revision diagnosis captures correlate image digest and app identity, system/app logs, exit/OOM state, configuration presence without values, startup/readiness probes, environment-relative ingress, DNS, and scaler reachability? See [[indexes/gaps]].
+
+
+## 2026-11-05: Specialized Azure plugins separate operational knowledge and task authority
+
+### Typed entities
+
+project: Azure Skills; project: AKS Skills; project: Azure Cost; project: Azure Advisor; project: Azure Kusto Graph Skills; project: Azure Local Skills; project: Foundry IQ Skills; concept: plugin discovery. file: raw/2026-11-05-rss-go-beyond-the-basics-explore-specialized-azure-plugins-for-your-ai-age.md.
+
+### Claims and evidence
+
+- Microsoft describes six specialized plugins alongside core azure: AKS operations, cost, Advisor, Kusto graph, Azure Local, and Foundry IQ. Cost analysis moved from core to Azure Cost; discovery and selective installation aim to avoid loading unrelated context. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-go-beyond-the-basics-explore-specialized-azure-plugins-for-your-ai-age.md)
+- The documented AKS flow starts with evidence and requires approval for resource changes or packet captures. Azure Local distinguishes standard from non-interchangeable multi-rack preview procedures; Foundry IQ uses Azure AI Search and requests approval before provisioning or connecting knowledge bases. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-go-beyond-the-basics-explore-specialized-azure-plugins-for-your-ai-age.md)
+- Advisor remediation can fall back from Advisor-provided instructions to cited public documentation. Individual plugin READMEs govern clients, tools, credentials, and permissions; marketplace presence alone does not prove compatibility or enforced authorization. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-go-beyond-the-basics-explore-specialized-azure-plugins-for-your-ai-age.md)
+
+### Explicit relationships
+
+Task retrieval uses specialized plugins; safe operation depends-on supported clients, scoped identity, and runtime authorization. Foundry IQ depends-on Azure AI Search. See [[mcp-tool-governance-and-app-surfaces]] and [[kubernetes-platform-governance-and-cicd]].
+
+### Decision and quality notes
+
+Official catalog snapshot. Described approval flows are product guidance, not a verified local enforcement test. No plugin installation, infrastructure change, capture, or knowledge-base connection occurred. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned Azure plugin/client matrix verifies discovery after the cost split, scoped credentials, read-only diagnostics, approval enforcement, and standard versus multi-rack routing? See [[indexes/gaps]].
+
+
+## 2026-11-05: Managed Container Apps telemetry routes instrumented signals with bounded resilience
+
+### Typed entities
+
+project: Azure Container Apps; project: Application Insights; project: Datadog; library: OpenTelemetry SDK; concept: environment-level signal routing; concept: bounded memory queue; concept: deployment-time secret resolution. file: raw/2026-11-05-web-collect-and-read-opentelemetry-data-in-azure-container-apps.md.
+
+### Claims and evidence
+
+- The managed agent routes telemetry produced by instrumented applications; enabling it does not create application signals. The reference allows environment-level per-signal routing to one Application Insights destination, one Datadog destination, and distinctly named OTLP endpoints. Application Insights does not accept metrics through this route, and routing cannot split by app. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-web-collect-and-read-opentelemetry-data-in-azure-container-apps.md)
+- The agent supports gRPC and injects standard endpoint/protocol/resource variables plus signal-specific Container Apps endpoints. Explicit app settings override injected standard values; resource-attribute use can require SDK environment detection. Configured Dapr traces and KEDA metrics are specific system-component exceptions, not general system-log or standard-platform-metric export. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-web-collect-and-read-opentelemetry-data-in-azure-container-apps.md)
+- The snapshot describes fixed 0.5 vCPU/1.5 GB allocation, one non-scalable replica, no exposed agent health metrics, and in-memory retry/backoff for up to five minutes with oldest-batch drops on queue pressure or exhausted retries. No agent compute surcharge does not remove destination ingestion charges or establish high availability. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-web-collect-and-read-opentelemetry-data-in-azure-container-apps.md)
+- The guide illustrates Key Vault parameter resolution during template deployment while saying agent configuration has no native Key Vault integration. Resolve this as deployment-time secure value delivery versus runtime agent secret references; it does not establish automatic runtime rotation or secret-free deployed configuration. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-web-collect-and-read-opentelemetry-data-in-azure-container-apps.md)
+
+### Explicit relationships
+
+Signal delivery depends-on instrumentation, environment routing, compatible gRPC exporters, destination reachability, and bounded queues; deployment-time secret resolution uses ARM/Bicep. See [[opentelemetry-genai-observability-and-ecosystem]] and [[cloud-security-monitoring-and-siem]].
+
+### Decision and quality notes
+
+Official snapshot last modified June 4; clipping today does not refresh behavior. Flag malformed/truncated template examples, mixed preview API versions, insecure export examples/defaults, and the subtle deployment/runtime Key Vault distinction. Use the specific Dapr/KEDA opt-ins over a broad reading that all system signals are available or unavailable. No template is copied as deployable code; secret values and unnecessary identifiers are omitted. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned Container Apps telemetry tests verify per-signal routing, SDK overrides, Dapr/KEDA scope, authenticated transport, outage/drop behavior, destination cost, and deployment-time versus runtime secret rotation? See [[indexes/gaps]].

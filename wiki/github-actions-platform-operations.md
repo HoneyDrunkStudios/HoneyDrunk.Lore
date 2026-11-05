@@ -951,6 +951,7 @@ project: GitHub Actions; concept: workflow execution protection; concept: actor/
 
 - The September 17 GitHub announcement promotes workflow execution protections to general availability at enterprise, organization, and repository scopes. Actor/event allowlists run before execution; added controls target individual workflow files and provide policy insights and REST management. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-github-workflow-execution-protections-ga.md)
 - Evaluate mode exposes would-be blocked runs before enforcement. The source announces a default pull_request_target restriction for public repositories without an applicable event policy, initially evaluated without blocking, with November 2, 2026 enforcement scheduled for affected repositories using the prior default policy. Private/internal repositories are excluded from this default. confidence: 1 source, last-confirmed 2026-09-19 (archived attributed summary reviewed; no live refresh). [captured source](../raw/2026-09-18-rss-github-workflow-execution-protections-ga.md)
+  - superseded-by: [[github-actions-platform-operations#2026-11-05: GitHub reschedules default public pull_request_target enforcement to December]]; timestamp: 2026-11-05T09:06:16-05:00; reason: the newer November 2 GitHub notice explicitly replaces the November 2 enforcement date with December 2 and gives revised brownout windows. Only the schedule is superseded; public/private and event-policy scope remains as recorded. [new source](../raw/2026-11-05-rss-pull-request-target-blocked-by-default-december-2.md)
 
 ### Explicit relationships
 
@@ -959,6 +960,8 @@ The September GA announcement supersedes June preview status. Workflow admission
 ### Decision and quality notes
 
 Official changelog capture. November enforcement is an announced future schedule, not an observed rollout. This pass did not inspect HoneyDrunk organization policies or change any workflow configuration. Source-specific claims remain provisional single-source evidence; related articles and derived summaries add no independent support. Open question: Which public HoneyDrunk workflows use pull_request_target without an applicable event policy, and which evaluate-mode results justify retaining the default block or an explicit workflow exception before the announced November enforcement? See [[indexes/gaps]].
+
+Historical schedule/action wording in this paragraph is superseded-by: [[github-actions-platform-operations#2026-11-05: GitHub reschedules default public pull_request_target enforcement to December]]; timestamp: 2026-11-05T09:06:16-05:00; reason: the November 2 official notice replaces that deadline. Use the current dated section for action timing.
 
 
 ## 2026-09-19: Ubuntu runner migrations need explicit image trials
@@ -1345,3 +1348,24 @@ Hosted-runner connectivity depends-on current published network ranges and organ
 ### Decision and quality notes
 
 Official rolling-change announcement, not proof of a particular job cloud or guaranteed queue reduction. No allowlist or tenant policy was expanded; any adoption must retain the intended security boundary. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which hosted Linux jobs depend on Azure-only egress or Conditional Access, and what reviewed network policy proves connectivity without broadening access unintentionally? See [[indexes/gaps]].
+
+
+## 2026-11-05: GitHub reschedules default public pull_request_target enforcement to December
+
+### Typed entities
+
+project: GitHub Actions; concept: Actions event policy; concept: evaluate mode; concept: brownout; decision: retain the default block or review a workflow exception. file: raw/2026-11-05-rss-pull-request-target-blocked-by-default-december-2.md.
+
+### Claims and evidence
+
+- The November 2 official notice reschedules default public-repository pull_request_target blocking from November 2 to December 2, 2026, unless an applicable Actions event policy allows it. Private/internal repositories and GitHub Enterprise Server are excluded; affected offerings are Free, Team, and Enterprise Cloud. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-pull-request-target-blocked-by-default-december-2.md)
+- The notice schedules brownouts on November 9 and November 16, 16:00-18:00 UTC. Blocked attempts create failed annotated runs without executing workflows; outside these windows the rule returns to evaluate mode until permanent enforcement. These remain announced dates, not observed local policy behavior. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-pull-request-target-blocked-by-default-december-2.md)
+- Insights exposes would-be blocked runs. A workflow-scoped allow policy can preserve selected triggers but does not make untrusted code safe: the base-context trigger can expose repository secrets. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-pull-request-target-blocked-by-default-december-2.md)
+
+### Explicit relationships
+
+The November notice supersedes the September enforcement date; workflow admission uses applicable event policy and safe execution depends-on the trusted/untrusted code boundary. See [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Official archived announcement; higher authority and recency resolve the old schedule. The November 1 security account already cited December and is consistent, not independent rollout evidence. No organization policy or workflow changed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which public HoneyDrunk workflows would the evaluate-mode rule block, and which reviewed exceptions or migrations are justified before the November brownouts and announced December 2 enforcement? See [[indexes/gaps]].

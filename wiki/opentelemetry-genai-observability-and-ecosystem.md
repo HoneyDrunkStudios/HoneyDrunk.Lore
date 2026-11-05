@@ -906,3 +906,24 @@ Filelog uses persistent checkpoints for restart position; protobuf supersedes JS
 ### Decision and quality notes
 
 First-party engineering benchmark with explicit fixtures and shared-VM context. No general fivefold pipeline speedup is inferred, and no old wiki claim required supersession. JSON read support is not bidirectional migration evidence. Collector binaries and live storage were not changed. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which pinned filelog upgrade/downgrade tests preserve offsets across JSON/protobuf migration, rotation, truncation, archives, storage failure, and crashes while measuring real disk CPU and duplicate/loss behavior? See [[indexes/gaps]].
+
+
+## 2026-11-05: Native identity telemetry trades instrumentation cost against signal and trust design
+
+### Typed entities
+
+project: Keycloak; library: Quarkus; library: OpenTelemetry Java agent; project: Prometheus; concept: exemplar; concept: telemetry origin; concept: semantic convention. file: raw/2026-11-05-rss-keycloak-s-observability-journey-a-guide-for-project-maintainers.md.
+
+### Claims and evidence
+
+- The maintainer interview reports that Java-agent instrumentation added startup time and that native Quarkus integration preserved the desired startup behavior. This is a Keycloak deployment account, not a universal claim that native instrumentation is faster for every JVM workload. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-keycloak-s-observability-journey-a-guide-for-project-maintainers.md)
+- Metrics began the integration; traces added database/LDAP diagnosis, and exemplars connect aggregate spikes to individual traces. OpenTelemetry support being present by default does not activate export: at least a component such as tracing must be enabled. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-keycloak-s-observability-journey-a-guide-for-project-maintainers.md)
+- Maintainers raise origin-verification and overload concerns for push telemetry and identify missing identity-provider conventions as a source of custom prefixes. Pull from a known endpoint also requires authenticated, protected transport; neither transport direction proves truthful data or automatic backpressure. confidence: 1 source, last-confirmed 2026-11-05 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-05-rss-keycloak-s-observability-journey-a-guide-for-project-maintainers.md)
+
+### Explicit relationships
+
+Useful identity observability depends-on explicit signal activation, correlation, origin controls, and bounded export; schema evolution uses deliberate names and validation. See [[ai-agent-identity-and-workload-auth]] and [[azure-agent-automation-and-identity]].
+
+### Decision and quality notes
+
+OpenTelemetry-hosted maintainer interview without an independent startup benchmark. Retain the concerns as design questions rather than absolute push/pull guarantees. No tracing was enabled or telemetry exported. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned identity-service measurements validate native versus agent startup, enabled signals, exemplar correlation, origin authentication, overload behavior, and semantic-convention migration? See [[indexes/gaps]].
