@@ -2,9 +2,9 @@
 
 Questions the wiki cannot currently answer. Populated by the Query operation when synthesis falls short, and by the Lint operation when entities are referenced but lack a backing page.
 
-## Compile status: 2026-11-05
+## Compile status: 2026-11-06
 
-Cataloged 963 dated gap entries alongside the current 67-page catalog. Added 15 questions and closed 0 gaps in this pass. Existing questions and their history are preserved below. The earlier November-enforcement question is historical; use the November 5 question and canonical supersession for the revised schedule.
+Cataloged 963 dated gap entries alongside the current 67-page catalog. Added 0 questions and closed 0 gaps in this pass. Existing questions and their history are preserved below. The earlier November-enforcement question is historical; use the November 5 question and canonical supersession for the revised schedule.
 
 ## Entry format
 
