@@ -251,3 +251,22 @@ Generated asset admission depends-on human art direction, DCC cleanup, and targe
 ### Decision and quality notes
 
 Vendor interview, not licensed production acceptance or a reproducible speed comparison. superseded-by: [qualified asset-readiness interpretation](#2026-10-25-generated-3d-parts-require-reviewed-dcc-and-engine-handoffs), 2026-10-25T10:07:03-04:00; the universal production-ready interpretation is superseded by the same source’s narrower production-stage answer and explicit cleanup caveats, with the earlier wording preserved above. No asset was generated, purchased, imported, or admitted. Fan-game examples establish neither redistribution rights nor project suitability. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which generated asset passes provenance/licensing, silhouette, topology, UV/material, scale/pivot, rig deformation, animation, and target-device performance review before admission? See [[indexes/gaps]].
+
+## 2026-11-07: Solo-studio operations benefit from bounded automation and explicit evidence status
+
+### Typed entities
+
+person: wabiplant (public author); project: Muse; project: Acid Rogue Shooting; concept: private metrics dashboard; concept: reversible automation; decision: human playtest. file: raw/2026-11-07-rss-running-a-one-person-game-studio-with-ai-agents-what-actually-works.md.
+
+### Claims and evidence
+
+- The author describes scheduled private consolidation of store/ad/search metrics, anomaly detection, and bounded store-page experiments, with titles/build changes retaining human approval. This is an operations account rather than evidence that generated games meet quality or commercial targets. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-running-a-one-person-game-studio-with-ai-agents-what-actually-works.md)
+- Reported examples include discovering an absent tracking-permission API in an ad plugin, verifying a refusal path on a phone, and archiving unreferenced Unity assets before rebuild/playtesting. The author also reports shared-desktop input collisions, limited GUI visibility, and the need to separate verified, failed, and unchecked results. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-running-a-one-person-game-studio-with-ai-agents-what-actually-works.md)
+
+### Explicit relationships
+
+Unattended operations depend-on scoped authority and honest evidence status; asset cleanup uses recoverable archives and behavioral checks; game feel depends-on human play. See [[gamedev-production-and-community-signals]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Single self-reported practitioner account; no plugin source, financial data, phone acceptance, size reduction, or store outcome was independently verified. Omitted personal location, contact/portfolio details, and private dashboard data. The source's rebuilding-version-control example is not adopted as a safe cleanup procedure here. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which bounded studio-operations pilot verifies data-source freshness, reversible changes, approval scope, recoverable asset archives, device refusal paths, GUI ownership, and honest unchecked-result reporting? See [[indexes/gaps]].

@@ -927,3 +927,22 @@ Useful identity observability depends-on explicit signal activation, correlation
 ### Decision and quality notes
 
 OpenTelemetry-hosted maintainer interview without an independent startup benchmark. Retain the concerns as design questions rather than absolute push/pull guarantees. No tracing was enabled or telemetry exported. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned identity-service measurements validate native versus agent startup, enabled signals, exemplar correlation, origin authentication, overload behavior, and semantic-convention migration? See [[indexes/gaps]].
+
+## 2026-11-07: JavaScript SDK 3 migration spans package families and signal-specific attributes
+
+### Typed entities
+
+project: OpenTelemetry JavaScript; library: @opentelemetry/api; library: @opentelemetry/sdk-trace; concept: dual ESM/CommonJS exports; concept: complex attributes. file: raw/2026-11-07-rss-announcing-the-opentelemetry-javascript-sdk-3-0.md.
+
+### Claims and evidence
+
+- The November 5 announcement reports stable SDK 3.0.0, experimental 0.300.0, and API 1.10.0, with contrib packages upgraded and minimum Node.js 22.15.0. API and semantic-convention versions are outside the SDK major-version family; the API is described as nonbreaking and stable SDK 2.x support as one year from the 3.0 release. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-announcing-the-opentelemetry-javascript-sdk-3-0.md)
+- The release adds dual ESM/CommonJS exports, stabilizes Logs with api-logs folded into api, consolidates tracing SDKs into sdk-trace, and removes deprecated packages. Complex values are supported for some span/log attributes while resource and metric attributes remain simple. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-announcing-the-opentelemetry-javascript-sdk-3-0.md)
+
+### Explicit relationships
+
+SDK migration depends-on Node runtime, package compatibility, module loading, and per-signal attribute semantics. Logs stability does not supersede the separate GenAI semantic-convention version or privacy policy.
+
+### Decision and quality notes
+
+Official release snapshot; no package was installed or app migrated. Its zero-code no-change statement is not proof that an older Node runtime remains supported. Pin and read the linked migration guide before implementation; removed APIs and exporter compatibility still need tests. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned Node/SDK/API/contrib/exporter matrix verifies ESM and CommonJS loading, Logs migration, tracing changes, complex-value rejection, and zero-code startup? See [[indexes/gaps]].

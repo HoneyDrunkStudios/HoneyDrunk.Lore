@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-11-06
+## Compile coverage: 2026-11-07
 
-Reconciled 1427 raw documents against 1427 unique entries; ingested 0 new sources in this pass. Existing records and dates are preserved. All 13 historical query outputs repeat compiled evidence and add no independent support.
+Reconciled 1442 raw documents against 1442 unique entries; ingested 15 new sources in this pass. Existing records and dates are preserved. All 13 historical query outputs repeat compiled evidence and add no independent support.
 
 ## Entry format
 
@@ -1824,3 +1824,22 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [Blender 5.3: EEVEE & Viewport](../../raw/2026-11-05-web-blender-5-3-eevee-viewport.md) - Blender pre-release notes flag sun-disc appearance changes, panoramic limitations, backend defaults, and device-specific measurements. Canonical page: [[technical-art-community-and-talent-signals]]. - ingested 2026-11-05
 - [Code coverage](../../raw/2026-11-05-web-code-coverage.md) - MTP coverage reference separates collector activation, licensing, inclusion scope, version compatibility, and threshold enforcement. Canonical page: [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-11-05
 - [Collect and read OpenTelemetry data in Azure Container Apps](../../raw/2026-11-05-web-collect-and-read-opentelemetry-data-in-azure-container-apps.md) - Managed telemetry requires instrumentation and environment-level routing while retaining single-replica, buffer, transport, and secret-delivery limits. Canonical page: [[azure-agent-automation-and-identity]]. - ingested 2026-11-05
+
+
+## 2026-11-07 sources (compiled 2026-11-07)
+
+- [Agent Distraction](../../raw/2026-11-07-rss-agent-distraction.md) - Stale bug references can cause unrequested detours; cleanup needs history and review. Canonical page: [[agent-context-management-and-session-continuity]]. - ingested 2026-11-07
+- [Announcing the OpenTelemetry JavaScript SDK 3.0](../../raw/2026-11-07-rss-announcing-the-opentelemetry-javascript-sdk-3-0.md) - OTel JavaScript 3 changes runtime and package contracts; attribute support remains signal-specific. Canonical page: [[opentelemetry-genai-observability-and-ecosystem]]. - ingested 2026-11-07
+- [CodeQL 2.27.4 improves accuracy and query metadata](../../raw/2026-11-07-rss-codeql-2-27-4-improves-accuracy-and-query-metadata.md) - CodeQL changes query metadata and enforces resolved-path pack containment. Canonical page: [[ai-coding-agent-security]]. - ingested 2026-11-07
+- [Context rot in AI agents: How to recognize and fix it](../../raw/2026-11-07-rss-context-rot-in-ai-agents-how-to-recognize-and-fix-it.md) - Context rot and poisoning need different safeguards; summaries must preserve constraints and evidence. Canonical page: [[agent-context-management-and-session-continuity]]. - ingested 2026-11-07
+- [CWE-bench v2: More coverage, quality, and transparency](../../raw/2026-11-07-rss-cwe-bench-v2-more-coverage-quality-and-transparency.md) - CWE-bench v2 adds defensive tasks; deterministic grading and pass-at-k remain separate claims. Canonical page: [[agent-evaluation-and-benchmarks]]. - ingested 2026-11-07
+- [Docker Sandboxes vs. Containers: Choosing the Right Isolation for AI Agents](../../raw/2026-11-07-rss-docker-sandboxes-vs-containers-choosing-the-right-isolation-for-ai-age.md) - Docker microVM isolation complements policy; shared workspaces, MCP, and skills retain authority. Canonical page: [[ai-coding-agent-security]]. - ingested 2026-11-07
+- [How SEED renders a world players never stop building](../../raw/2026-11-07-rss-how-seed-renders-a-world-players-never-stop-building.md) - SEED uses real-world snapshots to expose batching and mobile-memory bottlenecks. Canonical page: [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-11-07
+- [Microsoft Foundry extension for Azure Developer CLI is generally available](../../raw/2026-11-07-rss-microsoft-foundry-extension-for-azure-developer-cli-is-generally-avail.md) - Foundry azd bundle reaches GA; local runs, provisioning, CI, and cleanup have distinct effects. Canonical page: [[azure-agent-automation-and-identity]]. - ingested 2026-11-07
+- [Modernize your .NET apps for Windows Arm64 with GitHub Copilot](../../raw/2026-11-07-rss-modernize-your-net-apps-for-windows-arm64-with-github-copilot.md) - Copilot-assisted Arm64 portability still requires native runtime validation. Canonical page: [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-11-07
+- [Running a One-Person Game Studio With AI Agents: What Actually Works](../../raw/2026-11-07-rss-running-a-one-person-game-studio-with-ai-agents-what-actually-works.md) - Solo-studio account favors bounded operations, recoverable assets, and honest verification status. Canonical page: [[ai-assisted-game-development-pipelines]]. - ingested 2026-11-07
+- [The Data Product Platform Navigator](../../raw/2026-11-07-rss-the-data-product-platform-navigator.md) - Data-product platforms need integrated abstractions and balanced adoption/measurement investment. Canonical page: [[cloud-data-platforms-and-analytics]]. - ingested 2026-11-07
+- [Transformers Model Integration Contracts](../../raw/2026-11-07-rss-transformers-model-integration-contracts.md) - MIC fixtures combine pinned inputs and reviewed outputs while retaining full-model coverage gaps. Canonical page: [[api-testing-and-verification]]. - ingested 2026-11-07
+- [Understanding Lazy&lt;T&gt; thread safety modes](../../raw/2026-11-07-rss-understanding-lazy-t-thread-safety-modes.md) - Lazy factory modes couple publication and failure behavior; overload and side-effect scope matter. Canonical page: [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-11-07
+- [Blender 5.3: Compositor](../../raw/2026-11-07-web-blender-5-3-compositor.md) - Blender 5.3 compositor notes add stacks with changed viewer/output and caching behavior. Canonical page: [[technical-art-community-and-talent-signals]]. - ingested 2026-11-07
+- [Introducing the Microsoft Copilot harness in Foundry Agent Service](../../raw/2026-11-07-web-introducing-the-microsoft-copilot-harness-in-foundry-agent-service.md) - Foundry Copilot harness remains preview while hosted resilience reaches GA with application-owned recovery. Canonical page: [[azure-agent-automation-and-identity]]. - ingested 2026-11-07

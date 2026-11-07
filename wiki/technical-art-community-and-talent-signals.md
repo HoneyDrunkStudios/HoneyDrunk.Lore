@@ -1585,3 +1585,23 @@ Scene migration depends-on lighting, camera-mode feature coverage, backend, driv
 ### Decision and quality notes
 
 Official pre-release notes with empty extracted visual comparison cells. Performance table is one system; no render, driver, Blender install, or asset was modified. Retain earlier release history and distinguish Workbench shadows from unsupported panoramic EEVEE raytracing. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned Blender 5.3 scenes compare sun-disc appearance, panoramic limitations, Material Lighting graphs, ARM/backend fallback, ray-query capability, and visual/performance regressions on production hardware? See [[indexes/gaps]].
+
+## 2026-11-07: Upcoming compositor stacks change preview and output semantics
+
+### Typed entities
+
+project: Blender 5.3; concept: compositor effects stack; concept: Group Output viewer; concept: playback cache; concept: Bloom asset; concept: bundle nodes. file: raw/2026-11-07-web-blender-5-3-compositor.md.
+
+### Claims and evidence
+
+- The captured release-candidate notes replace a single scene compositor group with sequential effect groups, use Group Output for viewing when no Viewer exists, and default the tree to Group Input/Output without Render Layers. Scenes referenced within groups render; File Output defaults to the blend-name template. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-web-blender-5-3-compositor.md)
+- The notes add playback caching, transform gizmos, a built-in Bloom asset, and 17 Geometry Nodes including bundle utilities. Preview no longer updates Render Result; final rendering no longer writes Viewer images, with interactive execution afterward when the viewer is visible. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-web-blender-5-3-compositor.md)
+- Reported playback and Kuwahara speedups are hardware/path-specific: the changelog separates CPU, NVIDIA, and Apple cases. These are upper or test-system claims rather than a general tenfold compositor improvement. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-web-blender-5-3-compositor.md)
+
+### Explicit relationships
+
+Compositor migration depends-on stack order, node IO, preview/final-result semantics, output names, and backend tests. See [[ai-assisted-game-development-pipelines]].
+
+### Decision and quality notes
+
+Official upcoming-release notes with unknown original publication date; retain the existing Blender 5.3 pre-release posture. Built-in compositor Bloom is distinct from restoring every legacy EEVEE pipeline. No blend file, installed version, node graph, render, or image was modified. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned Blender 5.3 scenes verify effect order, nested scene inputs, Group Output/Viewer fallbacks, final versus preview images, output filenames, cache invalidation, and per-backend performance? See [[indexes/gaps]].

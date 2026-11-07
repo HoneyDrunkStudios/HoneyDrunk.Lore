@@ -2150,3 +2150,23 @@ Safe live updates depend-on version compatibility, reversible configuration, sav
 ### Decision and quality notes
 
 Unity-published team interviews. Stadium delivery and Swift live-data delivery are different pipelines; neither proves arbitrary remote code/art updates. Reported turnaround times do not establish an SLA. Checksums alone are not evidence of authenticated content. Simulator results do not replace devices. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which live-update tests prove client-version rejection, authenticated bundles, rollback and feature shutdown, save migrations, environment separation, teardown, and weakest-device offline recovery? See [[indexes/gaps]].
+
+## 2026-11-07: SEED profiles player-built scenes and separates PC batching from mobile memory
+
+### Typed entities
+
+project: SEED; project: Klang Games; project: Unity 6.3; library: URP; library: Addressables; concept: GPU Resident Drawer; concept: Mesh LOD. file: raw/2026-11-07-rss-how-seed-renders-a-world-players-never-stop-building.md.
+
+### Claims and evidence
+
+- The Unity interview describes a server-authoritative simulation with a rendering client, modular buildings batched through BatchRendererGroup/jobs/Burst, and custom features within URP. Close-up object-ID render-target picking adds nearby tap choices on mobile; wider views switch to physics queries. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-how-seed-renders-a-world-players-never-stop-building.md)
+- Restored live-world snapshots exposed PC render-thread costs: animated LOD cross-fading kept objects off GPU Resident Drawer instancing in the reported setup. Disabling the animated transition while retaining manually set cross-fades restored the intended path; SRP batching and instanced draws are different mechanisms. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-how-seed-renders-a-world-players-never-stop-building.md)
+- Mobile work instead found duplicated textures/material dependencies and oversized collections via memory snapshot diffs. Per-platform Addressables provide simpler assets under the same load code; the team reports replacing mobile LOD Groups with Mesh LOD to reduce resident geometry and authoring work. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-how-seed-renders-a-world-players-never-stop-building.md)
+
+### Explicit relationships
+
+Rendering capacity depends-on realistic content, actual draw paths, platform-specific memory, and picking behavior; profiling uses restored world snapshots. See [[procedural-world-persistence]] and [[realtime-game-network-protocol-design]].
+
+### Decision and quality notes
+
+Vendor-published team interview. Specific version/scene findings do not establish universal LOD incompatibility or guaranteed savings. Restored player data needs privacy controls before reuse; no snapshot, Editor session, device test, or asset change occurred. Gameplay feel and memory limits still require target hardware. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which sanitized world fixtures verify actual instancing under LOD transitions, picking at both zoom levels, mobile tap disambiguation, duplicate dependencies, resident geometry, and weakest-device frame/memory budgets? See [[indexes/gaps]].

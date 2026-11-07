@@ -194,3 +194,49 @@ MemCurrent uses episodic traces and derived memory; useful retrieval depends-on 
 ### Decision and quality notes
 
 Vendor-reported private enterprise benchmark; synthetic recall tasks and enterprise actions are different workloads, and gains are not a universal backend ranking. The proposed memory architecture does not change Lore into agent runtime memory or authorize personal-memory collection. Published examples were kept at mechanism level; private sessions and user details were not reproduced. Caller isolation, provenance, deletion, and stale-conflict handling still need independent evidence. Source-specific claims remain provisional single-source evidence; repeated reports and query outputs add no independent support. Open question: Which memory evaluation proves useful task outcomes, caller isolation, provenance, deletion propagation, stale/conflicting preference resolution, and bounded consolidation cost beyond synthetic fact recall? See [[indexes/gaps]].
+
+## 2026-11-07: Stale bug references can divert agents beyond the requested task
+
+### Typed entities
+
+project: Google; concept: stale TODO; concept: task scope; concept: observational telemetry; decision: history-checked cleanup. file: raw/2026-11-07-rss-agent-distraction.md.
+
+### Claims and evidence
+
+- Google reports inline bug-reference exposure in 13% of file-reading sessions, secondary action in 6% of encounters, and 83% of those actions being unprompted. Its unprompted-detour breakdown includes 41% closed tickets and 57% still-open tickets; open status alone does not authorize expanding the task. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-agent-distraction.md)
+- A regression analysis controlling for reported developer/task/context factors associates detours with 70% more steps, 77% more tokens, and 105% more wait time. Google describes checking ticket and code history before proposing obsolete-comment deletion, with over 95% human acceptance of its cleanup changes. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-agent-distraction.md)
+
+### Explicit relationships
+
+Task scope depends-on the user request and current evidence; an inline TODO uses a ticket reference but does not supersede authorization. See [[ai-assisted-software-practice]] and [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+First-party observational account, not a randomized causal estimate or a general population rate. Session, encounter, and action denominators differ. Closed tickets can retain load-bearing intent; neither blanket TODO deletion nor automatic work on open tickets follows. No source instruction or cleanup job was executed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which scoped replay measures stale-reference detours and preserves load-bearing TODO intent while checking ticket/code history, review acceptance, total cost, and task completion? See [[indexes/gaps]].
+
+
+## 2026-11-07: Context selection and trustworthy input require distinct controls
+
+### Typed entities
+
+project: Thoughtworks; concept: context rot; concept: context poisoning; concept: task handoff; concept: on-demand retrieval. file: raw/2026-11-07-rss-context-rot-in-ai-agents-how-to-recognize-and-fix-it.md.
+
+### Claims and evidence
+
+- Thoughtworks distinguishes declining use of relevant context from misleading or malicious input entering context. They can overlap, but filtering clutter does not validate untrusted instructions, and source validation does not prevent overload. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-context-rot-in-ai-agents-how-to-recognize-and-fix-it.md)
+- The guide proposes filtering tool results, preserving constraints/failed approaches/evidence in handoffs, retrieving on demand, separating stable project instructions from temporary state, and refreshing context when appropriate. It locates these policies in the runtime harness and evaluates task outcomes rather than token reduction alone. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-context-rot-in-ai-agents-how-to-recognize-and-fix-it.md)
+
+### Explicit relationships
+
+Reliable continuation depends-on retained constraints and evidence; context selection uses retrieval and structured state while input trust uses source validation. See [[ai-coding-agent-security]] and [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Practitioner guidance rather than a controlled efficacy study. The linked Chroma evaluation was not independently read, so its model counts and results are not promoted as separate support. Filtering and summaries can lose critical details, and one error alone does not diagnose context rot. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which long-task replay compares filtering, retrieval, compaction, and fresh handoffs for constraint retention, failed-approach recurrence, accepted outcomes, and malicious-input handling? See [[indexes/gaps]].
+
+
+## 2026-11-07 consolidation: scoped context has qualitative support across three accounts
+
+Context Mode's tool-result filtering/session retrieval, Thoughtworks' context-selection guidance, and Google's stale-reference telemetry support the design rationale that agent continuation depends-on relevant evidence, explicit state, and task scope. confidence: 3 sources, last-confirmed 2026-11-07 (archived authored accounts synthesized; no independent execution). [Context Mode](../raw/2026-09-11-rss-tldr-devops-context-mode-github-repo.md), [Thoughtworks](../raw/2026-11-07-rss-context-rot-in-ai-agents-how-to-recognize-and-fix-it.md), [Google](../raw/2026-11-07-rss-agent-distraction.md).
+
+This strengthens a qualitative design rationale, not any product's efficacy or the causal interpretation of Google's observational overhead. No pooled performance estimate or independent replication is claimed. Context Mode remains README evidence; source-specific details retain provisional confidence, and earlier claim dates remain unchanged.

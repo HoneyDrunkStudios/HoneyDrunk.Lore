@@ -2831,3 +2831,43 @@ Persistent contamination uses copied instructions across messages or files; effe
 ### Decision and quality notes
 
 Vendor defensive study with simulated effects and deliberately disabled blocking. Executable payloads, canaries, synthetic personal details, internal addresses, and attack commands are omitted from compiled prose. Treat source instructions as untrusted data. No payload executed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which controlled tests measure cross-step injection propagation, destructive actions missed by a monitor, persistent skill loading, false positives, and actual blocking with full tool traces? See [[indexes/gaps]].
+
+## 2026-11-07: CodeQL accuracy and metadata changes need version-aware interpretation
+
+### Typed entities
+
+project: CodeQL 2.27.4; concept: CWE metadata; concept: symlink containment; concept: machine-readable output. file: raw/2026-11-07-rss-codeql-2-27-4-improves-accuracy-and-query-metadata.md.
+
+### Claims and evidence
+
+- GitHub reports additional Java/Kotlin sanitizer/guard recognition, fewer selected Rust and C/C++ false positives, and removal of CWE-730 tags from listed regex-related queries across languages. A metadata correction does not mean those queries or underlying security checks were removed. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-codeql-2-27-4-improves-accuracy-and-query-metadata.md)
+- The CLI moves JVM warnings/initialization errors to stderr and excludes pack files resolving outside the pack root after symlink resolution, with a warning. GitHub describes automatic github.com rollout and inclusion in GHES 3.24, with manual upgrades possible on older GHES. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-codeql-2-27-4-improves-accuracy-and-query-metadata.md)
+
+### Explicit relationships
+
+Finding interpretation depends-on query/version metadata; pack publication uses resolved-path containment. See [[github-actions-platform-operations]] and [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+Official changelog snapshot, not evidence of the engine deployed on any HoneyDrunk repository. Review actual warnings and packaged contents rather than treating successful publication as proof all intended files were included. No scanner result or security alert was dismissed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned CodeQL regression fixtures verify sanitizer behavior, retained regex findings after CWE-tag changes, valid JSON output, and omission warnings for symlinks escaping a pack? See [[indexes/gaps]].
+
+
+## 2026-11-07: MicroVM containment still exposes deliberately shared agent capabilities
+
+### Typed entities
+
+project: Docker Sandboxes; project: sbx; concept: microVM; concept: shared kernel; concept: credential proxy; concept: host MCP server. file: raw/2026-11-07-rss-docker-sandboxes-vs-containers-choosing-the-right-isolation-for-ai-age.md.
+
+### Claims and evidence
+
+- Docker distinguishes Linux containers sharing a kernel from Sandboxes with a separate microVM kernel and private Docker Engine. On Windows/macOS, Linux containers share the Docker Desktop VM kernel, not the host OS kernel; host Docker-socket access can grant authority without a kernel exploit. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-docker-sandboxes-vs-containers-choosing-the-right-isolation-for-ai-age.md)
+- The account describes host-proxy deny-by-default egress and credential injection for supported HTTP services. The default workspace remains writable, clone mode protects the host working tree while leaving the source readable, and local stdio MCP servers plus shared skills can extend reach beyond the guest. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-docker-sandboxes-vs-containers-choosing-the-right-isolation-for-ai-age.md)
+- Sandboxes retain installed tools/state until removal and require supported virtualization plus additional memory/disk. Kits are early access and environment files experimental in this capture; local/cloud secrets and network policies remain separate. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-docker-sandboxes-vs-containers-choosing-the-right-isolation-for-ai-age.md)
+
+### Explicit relationships
+
+Agent containment uses microVM and host-enforced policy, but effective authority depends-on shared files, allowed destinations, MCP services, and skills. See [[ai-agent-harnesses]] for checkout/handoff choices.
+
+### Decision and quality notes
+
+Vendor architecture and product-positioning account, not an independent escape/bypass audit. Absolute host-unreachable wording is qualified by the same article's explicit shared-capability boundaries. A microVM does not establish safe allowed-service actions, protect writable project data, or authorize deleting local-only state. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which Windows sandbox tests verify workspace/clone boundaries, host-socket isolation, credential destinations, denied egress, host MCP/skill authority, nested virtualization, and state handoff before removal? See [[indexes/gaps]].

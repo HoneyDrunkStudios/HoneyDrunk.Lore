@@ -1,6 +1,6 @@
 # Topics
 
-Auto-maintained catalog rebuilt from all concept pages on 2026-11-06. Each page appears once; follow its relationships for related topics.
+Auto-maintained catalog rebuilt from all concept pages on 2026-11-07. Each page appears once; follow its relationships for related topics.
 
 Coverage: 67 concept pages. Counts below are distinct, explicitly named existing raw files cited anywhere on a page, including historical claims. Grouped date ranges and wildcard citations are excluded. These counts are retrieval metadata, not independent supporting-source counts for every claim. A large page bibliography does not strengthen an unrelated single-source claim.
 
@@ -11,31 +11,31 @@ The previous topic index is preserved verbatim in [topic history](../../output/t
 | Concept page | Explicit raw-file citations | Latest recorded confirmation |
 | --- | ---: | --- |
 | [[dotnet-dependency-security-and-nuget\|.NET Dependency Security and NuGet]] | 10 | 2026-10-27 |
-| [[dotnet-runtime-and-mobile-2026\|.NET Runtime and Mobile 2026]] | 63 | 2026-11-05 |
-| [[agent-context-management-and-session-continuity\|Agent Context Management and Session Continuity]] | 8 | 2026-10-23 |
-| [[agent-evaluation-and-benchmarks\|Agent Evaluation and Benchmarks]] | 115 | 2026-11-05 |
+| [[dotnet-runtime-and-mobile-2026\|.NET Runtime and Mobile 2026]] | 65 | 2026-11-07 |
+| [[agent-context-management-and-session-continuity\|Agent Context Management and Session Continuity]] | 10 | 2026-11-07 |
+| [[agent-evaluation-and-benchmarks\|Agent Evaluation and Benchmarks]] | 116 | 2026-11-07 |
 | [[agentic-commerce-and-machine-payments\|Agentic Commerce and Machine Payments]] | 3 | 2026-10-16 |
 | [[agentic-retrieval-and-search\|Agentic Retrieval and Search]] | 8 | 2026-10-27 |
 | [[ai-agent-harnesses\|AI Agent Harnesses]] | 211 | 2026-11-05 |
 | [[ai-agent-identity-and-workload-auth\|AI Agent Identity and Workload Auth]] | 14 | 2026-10-25 |
-| [[ai-coding-agent-security\|AI Coding Agent Security]] | 206 | 2026-11-05 |
+| [[ai-coding-agent-security\|AI Coding Agent Security]] | 208 | 2026-11-07 |
 | [[ai-for-financial-research-and-investment\|AI for Financial Research and Investment]] | 1 | 2026-08-22 |
 | [[ai-for-science-and-chemistry\|AI for Science and Chemistry]] | 3 | 2026-10-04 |
 | [[ai-hardware-and-companion-devices-2026\|AI Hardware and Companion Devices 2026]] | 2 | 2026-06-21 |
 | [[ai-policy-and-governance-2026\|AI Policy and Governance 2026]] | 9 | 2026-09-12 |
 | [[ai-research-automation-and-recursive-self-improvement\|AI Research Automation and Recursive Self-Improvement]] | 3 | 2026-10-27 |
-| [[ai-assisted-game-development-pipelines\|AI-Assisted Game Development Pipelines]] | 13 | 2026-10-25 |
+| [[ai-assisted-game-development-pipelines\|AI-Assisted Game Development Pipelines]] | 14 | 2026-11-07 |
 | [[ai-assisted-software-practice\|AI-Assisted Software Practice]] | 105 | 2026-10-27 |
-| [[api-testing-and-verification\|API Testing and Verification]] | 6 | 2026-11-02 |
+| [[api-testing-and-verification\|API Testing and Verification]] | 7 | 2026-11-07 |
 | [[apple-platform-security-and-memory-safety\|Apple Platform Security and Memory Safety]] | 1 | 2026-05-26 |
-| [[azure-agent-automation-and-identity\|Azure Agent Automation and Identity]] | 90 | 2026-11-05 |
+| [[azure-agent-automation-and-identity\|Azure Agent Automation and Identity]] | 92 | 2026-11-07 |
 | [[azure-sdk-for-rust\|Azure SDK for Rust]] | 4 | 2026-11-01 |
 | [[azure-service-bus-and-functions-messaging\|Azure Service Bus and Azure Functions Messaging]] | 2 | 2026-05-17 |
 | [[browser-snapshot-source-quality\|Browser Snapshot Source Quality]] | 62 | 2026-08-24 |
 | [[browser-native-gpu-creative-tools\|Browser-Native GPU Creative Tools]] | 5 | 2026-10-05 |
 | [[csharp-memory-safety-and-unsafe-code\|C# Memory Safety and Unsafe Code]] | 3 | 2026-10-23 |
 | [[claude-platform-2026\|Claude Platform 2026]] | 35 | 2026-08-23 |
-| [[cloud-data-platforms-and-analytics\|Cloud Data Platforms and Analytics]] | 18 | 2026-11-05 |
+| [[cloud-data-platforms-and-analytics\|Cloud Data Platforms and Analytics]] | 19 | 2026-11-07 |
 | [[cloud-security-monitoring-and-siem\|Cloud Security Monitoring and SIEM]] | 4 | 2026-10-18 |
 | [[cloud-sovereignty-and-platform-governance\|Cloud Sovereignty and Platform Governance]] | 2 | 2026-08-17 |
 | [[cloud-vector-storage-security\|Cloud Vector Storage Security]] | 1 | 2026-08-12 |
@@ -65,15 +65,15 @@ The previous topic index is preserved verbatim in [topic history](../../output/t
 | [[mobile-ai-and-react-native-2026\|Mobile AI and React Native 2026]] | 2 | 2026-06-18 |
 | [[multi-agent-architectures\|Multi-Agent Architectures]] | 16 | 2026-11-01 |
 | [[openai-frontier-models-and-codex-2026\|OpenAI Frontier Models and Codex 2026]] | 16 | 2026-09-08 |
-| [[opentelemetry-genai-observability-and-ecosystem\|OpenTelemetry GenAI Observability and Ecosystem Mapping]] | 43 | 2026-11-05 |
+| [[opentelemetry-genai-observability-and-ecosystem\|OpenTelemetry GenAI Observability and Ecosystem Mapping]] | 44 | 2026-11-07 |
 | [[pipeline-template-contracts\|Pipeline Template Contracts]] | 1 | 2026-09-19 |
 | [[post-quantum-security-and-cryptography\|Post-Quantum Security and Cryptography]] | 4 | 2026-10-04 |
 | [[procedural-world-persistence\|Procedural World Persistence]] | 6 | 2026-10-25 |
 | [[realtime-chat-service-contracts\|Realtime Chat Service Contracts]] | 1 | 2026-09-22 |
 | [[realtime-game-network-protocol-design\|Realtime Game Network Protocol Design]] | 9 | 2026-11-01 |
 | [[robotics-foundation-models-and-embodied-ai\|Robotics Foundation Models and Embodied AI]] | 2 | 2026-09-22 |
-| [[technical-art-community-and-talent-signals\|Technical Art Community and Talent Signals]] | 92 | 2026-11-05 |
-| [[unity-3d-and-realtime-vfx-patterns\|Unity 3D and Realtime VFX Patterns]] | 120 | 2026-11-05 |
+| [[technical-art-community-and-talent-signals\|Technical Art Community and Talent Signals]] | 93 | 2026-11-07 |
+| [[unity-3d-and-realtime-vfx-patterns\|Unity 3D and Realtime VFX Patterns]] | 121 | 2026-11-07 |
 | [[voice-agent-platforms-2026\|Voice Agent Platforms 2026]] | 7 | 2026-10-27 |
 | [[web-3d-runtime-tradeoffs\|Web 3D Runtime Tradeoffs]] | 3 | 2026-10-28 |
 | [[windows-component-registration-and-service-boundaries\|Windows Component Registration and Service Boundaries]] | 1 | 2026-09-22 |

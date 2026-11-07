@@ -1231,6 +1231,8 @@ project: Microsoft Foundry; library: Microsoft Agent Framework; concept: voice a
 
 The September 24 roundup describes voice agents, hosted long-running resilience, and Insights as public previews; hosted Toolboxes, tool search, A2A, and Routines are described as GA, with prompt-agent Toolboxes in preview. Rubric evaluator, trace/synthetic dataset generation, and Agent optimizer GA are announced for later that month; Foundry Toolkit voice support and October AI Gateway integration remain forthcoming in the capture. confidence: 1 source, last-confirmed 2026-10-03 (archived capture reviewed; no live refresh). [captured source](../raw/2026-10-03-rss-ship-agents-faster-with-expanded-model-choice-voice-agents-and-continu.md)
 
+superseded-by: [hosted resilience GA announcement](#2026-11-07-foundry-managed-harness-preview-and-hosted-recovery-have-different-contracts), 2026-11-07T09:06:49-05:00; only the hosted long-running resilience preview status is superseded by the more recent October 28 first-party announcement. The September claim remains above as history; voice/Insights and other capabilities retain their separately evidenced status.
+
 ### Explicit relationships
 
 Optimization uses production traces and held-out evaluation; long-running work depends-on checkpoint recovery and runtime controls. See [[microsoft-dotnet-ai-stack]].
@@ -1793,3 +1795,44 @@ Signal delivery depends-on instrumentation, environment routing, compatible gRPC
 ### Decision and quality notes
 
 Official snapshot last modified June 4; clipping today does not refresh behavior. Flag malformed/truncated template examples, mixed preview API versions, insecure export examples/defaults, and the subtle deployment/runtime Key Vault distinction. Use the specific Dapr/KEDA opt-ins over a broad reading that all system signals are available or unavailable. No template is copied as deployable code; secret values and unnecessary identifiers are omitted. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned Container Apps telemetry tests verify per-signal routing, SDK overrides, Dapr/KEDA scope, authenticated transport, outage/drop behavior, destination cost, and deployment-time versus runtime secret rotation? See [[indexes/gaps]].
+
+## 2026-11-07: Foundry azd bundle GA separates local execution from Azure resource lifecycle
+
+### Typed entities
+
+project: Microsoft Foundry; project: Azure Developer CLI; library: microsoft.foundry 1.0; library: azure.ai.evaluations; file: azure.yaml; concept: code deployment. file: raw/2026-11-07-rss-microsoft-foundry-extension-for-azure-developer-cli-is-generally-avail.md.
+
+### Claims and evidence
+
+- Microsoft announces the microsoft.foundry bundle 1.0 as GA with azd 1.37.0 or later. Its sample requires current uv and Python 3.13+, Azure permissions, regional model quota, and paid resources. Source-controlled azure.yaml keeps agent/runtime/compute and resource dependencies together; local Agent Inspector execution still calls the Azure model deployment. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-microsoft-foundry-extension-for-azure-developer-cli-is-generally-avail.md)
+- Code deployment uploads source for a remote build without requiring a local image build. Generated evaluation data/rubrics and optimizer candidates need review; the evaluation extension is installed separately. Deployment preview, doctor, and log streaming cover distinct checks rather than a single acceptance gate. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-microsoft-foundry-extension-for-azure-developer-cli-is-generally-avail.md)
+- Provisioning can create missing deployments even within a reused project. The source distinguishes deleting a demo resource group from cleanup of a reused project that azd down leaves in place; its pipeline excerpt omits required sign-in and environment setup by design. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-microsoft-foundry-extension-for-azure-developer-cli-is-generally-avail.md)
+
+### Explicit relationships
+
+Hosted-agent deployment depends-on explicit subscription/region/identity/quota and reviewed configuration; local testing uses remote inference. Bundle GA does not supersede individual feature preview limits. See [[microsoft-dotnet-ai-stack]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Official announcement with malformed continued-shell formatting already noted in the raw capture. No snippets are promoted as turnkey deployment scripts, and a generated judge dataset is not a held-out quality guarantee. No Azure resources, authentication, skill install, evaluation, or cleanup command was run. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned azd/bundle workflow verifies identity and region, local model charges, remote-build inputs, authenticated CI, reviewed eval thresholds, preview limits, and cleanup behavior for new versus reused projects? See [[indexes/gaps]].
+
+
+## 2026-11-07: Foundry managed harness preview and hosted recovery have different contracts
+
+### Typed entities
+
+project: Microsoft Copilot harness; project: Foundry Agent Service; concept: prompt agent; concept: hosted agent; concept: checkpoint; concept: idempotent side effect. file: raw/2026-11-07-web-introducing-the-microsoft-copilot-harness-in-foundry-agent-service.md.
+
+### Claims and evidence
+
+- The October 28 announcement makes the Copilot harness for declarative prompt agents a public preview with managed context, sandbox/code/file execution, reusable skills, connected tools, and bounded built-in subagents. Model/tool/region support is constrained; harness choice occurs at creation and cannot yet be switched, while CPU/memory/idle settings are service-managed. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-web-introducing-the-microsoft-copilot-harness-in-foundry-agent-service.md)
+- The same announcement identifies hosted-agent long-running resilience as GA. Foundry detects interruptions and restarts original input; application code must save progress, resume safely, and prevent duplicate external actions. Conversation history alone is insufficient recovery state. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-web-introducing-the-microsoft-copilot-harness-in-foundry-agent-service.md)
+- The capture distinguishes plain prompt agents, managed-harness prompt agents, and hosted agents owning their framework/loop. Its announced December 1 harness-runtime billing excludes model inference and separately billed tools/services from the earlier free-runtime period; region/agreement and current terms require refresh before budgeting. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-web-introducing-the-microsoft-copilot-harness-in-foundry-agent-service.md)
+
+### Explicit relationships
+
+Hosted recovery depends-on durable checkpoints and idempotent actions; managed prompt execution uses a distinct preview contract. See [[ai-agent-harnesses]], [[agent-context-management-and-session-continuity]], and [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Official October announcement captured November 7. GA hosted resilience supersedes only its older preview label, not every Foundry preview. Example YAML is an authoring illustration, not validated provisioning/authentication. No prices are adopted as current quotes, no agent or subagent was launched, and no service was deployed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned Foundry tests verify preview limits, tool approvals, creation-time harness choice, checkpoint replay, atomic duplicate-action prevention, original-input restart, and complete runtime/model/tool cost? See [[indexes/gaps]].

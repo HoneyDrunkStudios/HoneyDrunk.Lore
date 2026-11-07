@@ -378,3 +378,22 @@ Storage performance depends-on cache misses, I/O path, and workload; durable ack
 ### Decision and quality notes
 
 Vendor architecture and sales account. No pricing or performance estimate is adopted; CPU can be low for lock, network, or application reasons too. Local NVMe remains finite and constrained even without a separately provisioned EBS IOPS cap. Recovery and replica semantics need measured failure tests. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which representative replay and failure tests compare cache misses, storage latency, replication acknowledgement, recovery/RPO, capacity changes, and complete cost before choosing local NVMe? See [[indexes/gaps]].
+
+## 2026-11-07: Data product self-service needs integrated contracts and adoption feedback
+
+### Typed entities
+
+person: Tom De Wolf (public author); project: CNCF Platform Engineering Maturity Model; concept: data mesh; concept: data product; concept: data contract; concept: platform adoption. file: raw/2026-11-07-rss-the-data-product-platform-navigator.md.
+
+### Claims and evidence
+
+- De Wolf applies four maturity levels (provisional, operational, scalable, optimizing) across investment, adoption, interfaces, operations, and measurement. Individual dimensions can progress unevenly; the method prioritizes friction and iterates rather than prescribing a uniform technology rollout. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-the-data-product-platform-navigator.md)
+- The article distinguishes provisioning separate standardized components from providing an integrated data-product abstraction that wires contracts, storage, pipelines, access, and policy. Scalable self-service emphasizes a product team and voluntary adoption; optimizing adds IDE/CLI integration, federated contributions, lifecycle migrations, and pruning unused capabilities. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-the-data-product-platform-navigator.md)
+
+### Explicit relationships
+
+Data mesh autonomy depends-on usable product/contract abstractions and feedback; provisioning uses integrated backend capabilities rather than assuming a portal alone fixed adoption. See [[enterprise-agent-business-semantics]] and [[kubernetes-platform-governance-and-cicd]].
+
+### Decision and quality notes
+
+Authored practitioner framework based on the CNCF model, not measured proof of a universal maturity threshold or a mandate for HoneyDrunk infrastructure. The source's minimum-Level-3 success claim and adoption curve are heuristic, not independently validated causal laws. No new platform, governance process, or data schema is implemented. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which actual domain-team friction and adoption measurements justify integrated data-product capabilities, and which maturity dimension should improve before adding portal or IDE infrastructure? See [[indexes/gaps]].

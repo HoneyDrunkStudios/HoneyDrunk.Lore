@@ -1782,3 +1782,22 @@ State tracking depends-on operation complexity, dependency length, presentation,
 ### Decision and quality notes
 
 Ai2 research-team summary; figures and formal proofs were not independently reproduced or read from the linked report. Do not generalize a toy assignment benchmark to all conversations or interpret theory as a universal practical impossibility result. No model choice changed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which replay suite tests immutable, overwritten, accumulated, and cross-entity state across formats and lengths, including newly introduced entities, against a deterministic reference state? See [[indexes/gaps]].
+
+## 2026-11-07: CWE-bench distinguishes deterministic grading from model and verifier validity
+
+### Typed entities
+
+project: Collinear AI; project: CWE-bench v2; library: Harbor; concept: deterministic verifier; concept: public/held-out split; concept: pass-at-k. file: raw/2026-11-07-rss-cwe-bench-v2-more-coverage-quality-and-transparency.md.
+
+### Claims and evidence
+
+- The authors publish 100 defensive repository tasks spanning 91 CWEs, with instructions, Dockerized Harbor environments, and programmatic verifiers. They report checking task realism, behavior rather than patch structure, failing starters, passing references, preserved functionality, and resistance to memorized upstream fixes, with manual review and LLM panels assisting curation. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-cwe-bench-v2-more-coverage-quality-and-transparency.md)
+- The public benchmark and separately held-out set are different evaluation surfaces. The shown four-attempt command reports mean reward across 400 trials; that aggregation is distinct from a pass@4 estimate. Deterministic verifier execution does not make stochastic model runs deterministic or validate every security property. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-cwe-bench-v2-more-coverage-quality-and-transparency.md)
+
+### Explicit relationships
+
+Defensive evaluation depends-on verifier validity, pinned tasks/harness, allowed network access, repeated trials, and separate held-out reporting. See [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+First-party benchmark report. Public leaderboard model rankings and cost frontier were not independently reproduced or promoted as current recommendations. Dataset access is gated and execution/model calls have costs despite the article's no-extra-cost grading wording. Existing email redaction was preserved by omission; no contact information, credential command, or executable task was copied. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned defensive benchmark run audits verifier adequacy, functional regressions, task leakage, network containment, pass-at-k versus mean reward, and full repeated-trial cost? See [[indexes/gaps]].

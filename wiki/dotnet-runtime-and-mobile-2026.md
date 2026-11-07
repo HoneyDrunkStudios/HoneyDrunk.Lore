@@ -1292,3 +1292,43 @@ Coverage interpretation depends-on pinned collector/MTP compatibility, activatio
 ### Decision and quality notes
 
 Official reference updated October 28; its compatibility table ends at MTP 2.0 although the prose describes 2.4 features, so the table does not validate a 2.4 collector pairing. Reinforces existing extension documentation without independent behavioral execution. Coverage percentage is not test adequacy; no packages, runner, threshold, or framework changed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned MTP/collector runs verify auto-registration versus activation, native/test-assembly scope, supported outputs, no-data results, and threshold exit 14 with the actual CI runner? See [[indexes/gaps]].
+
+## 2026-11-07: Arm64 migration assessment does not establish native runtime acceptance
+
+### Typed entities
+
+project: GitHub Copilot upgrade agent; project: Windows Arm64; concept: native dependency; concept: architecture-specific build; decision: portability validation. file: raw/2026-11-07-rss-modernize-your-net-apps-for-windows-arm64-with-github-copilot.md.
+
+### Claims and evidence
+
+- The Microsoft announcement describes assessment and migration planning for x86/x64 .NET applications moving to Windows Arm64, including architecture assumptions, native binary availability, compatible package versions, code, and project configuration. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-modernize-your-net-apps-for-windows-arm64-with-github-copilot.md)
+- The workflow can build migrated components and run tests when matching hardware or CI is available. The source explicitly requires Windows Arm64 runtime validation and scopes the scenario to compatibility/correctness rather than Arm-specific performance tuning. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-modernize-your-net-apps-for-windows-arm64-with-github-copilot.md)
+
+### Explicit relationships
+
+Portability acceptance depends-on native dependencies and execution on the target architecture; successful cross-builds do not supersede runtime tests. See [[ai-assisted-software-practice]].
+
+### Decision and quality notes
+
+Vendor capability announcement, not a completed HoneyDrunk migration or a cost/performance benchmark. No upgrade tool, package, project target, or runner changed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which Windows Arm64 hardware/CI run validates native dependencies, architecture-specific loading, application behavior, packaging, and measured performance after a reviewed migration? See [[indexes/gaps]].
+
+
+## 2026-11-07: Lazy initialization separates publication, repeated side effects, and exception caching
+
+### Typed entities
+
+library: `System.Lazy<T>`; library: LazyInitializer; concept: PublicationOnly; concept: ExecutionAndPublication; concept: cached factory exception; decision: initialization policy. file: raw/2026-11-07-rss-understanding-lazy-t-thread-safety-modes.md.
+
+### Claims and evidence
+
+- For the factory-taking overloads discussed by Andrew Lock, None is unsafe for concurrent access, PublicationOnly permits concurrent factories but publishes one successful value, and ExecutionAndPublication serializes the factory. Losing PublicationOnly results are discarded, so publication safety does not make duplicate side effects safe. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-understanding-lazy-t-thread-safety-modes.md)
+- In that factory-overload scope, None and ExecutionAndPublication cache factory exceptions; PublicationOnly does not. A factory already in flight can still throw to its caller after another thread publishes success. LazyInitializer overloads differ in synchronization and do not cache exceptions in the described examples. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-understanding-lazy-t-thread-safety-modes.md)
+- The author reports an approved cacheExceptions proposal as not implemented, with .NET 12 only a hoped-for target. That statement does not establish a released API or a committed ship date. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-understanding-lazy-t-thread-safety-modes.md)
+
+### Explicit relationships
+
+Initialization choice depends-on concurrency, factory side effects, duplicate allocation, failure policy, and exact overload; safe value publication does not imply exactly-once external effects. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Practitioner explanation limited to supplied factories; do not generalize its exception table to every constructor overload. The locked LazyInitializer snippet declares _lock but passes _synclock, so it is flagged as inconsistent and not copied as buildable code. No proposed runtime API or performance advantage was validated. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which exact-overload concurrency tests verify factory invocation count, cached failures, retry behavior, in-flight exceptions, duplicate disposable results, and side effects before choosing lazy initialization? See [[indexes/gaps]].

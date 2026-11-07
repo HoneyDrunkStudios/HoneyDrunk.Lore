@@ -121,3 +121,23 @@ JiTTesting uses mutation-guided executable evidence and depends-on intent valida
 ### Decision and quality notes
 
 First-party deployment account. Preserve the outreach/feedback denominator and note that overnight risky-diff selection is not necessarily a synchronous pre-merge gate. The article mixes an over-the-last-year narrative with a five-month deployment phrase; no precise rollout chronology is inferred. Images and the linked paper were not independently assessed. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which local diff-testing pilot measures generated-test validity, parent/child behavior, intended-change false positives, risk-selection coverage, engineer feedback denominators, latency, and compute cost? See [[indexes/gaps]].
+
+## 2026-11-07: Pinned small-model contracts catch integration regressions within explicit coverage limits
+
+### Typed entities
+
+project: Transformers Model Integration Contracts; library: transformers-mic; project: UMT5; project: Whisper; concept: pinned fixture; concept: human-reviewed baseline; concept: attention-path coverage. file: raw/2026-11-07-rss-transformers-model-integration-contracts.md.
+
+### Claims and evidence
+
+- Hugging Face proposes a Model Integration Contract comprising a reduced pinned model, runnable usage path, and human-reviewed baselines. Fixtures preserve layer kinds, preprocessing files, vocabulary, input shape, and weight format; a frozen fleet revision and package versions make replay possible. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-transformers-model-integration-contracts.md)
+- The UMT5 replay caught a causal-attention regression with the SDPA path, while eager-only testing missed it. The reported 13.4-second CPU runner step excludes setup. Generation tokens, loss, finite gradients, and changed weights after optimization test more than successful forward execution. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-transformers-model-integration-contracts.md)
+- Overfit Whisper fixtures caught more injected faults than random fixtures in the reported study, but both missed a real assisted-decoding bug exposed by the full checkpoint. As of November 1, the MIC CI job reports failures without blocking PRs; real pre-merge catch rate, false alarms, baseline-review cost, and coverage remain open. confidence: 1 source, last-confirmed 2026-11-07 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-07-rss-transformers-model-integration-contracts.md)
+
+### Explicit relationships
+
+Regression sensitivity depends-on representative layer/input/runtime paths and reviewed expectations; small-model contracts complement full-weight integration tests. See [[agent-evaluation-and-benchmarks]] and [[edge-ai-and-ai-infrastructure-2026]].
+
+### Decision and quality notes
+
+First-party proposed testing standard with replay and synthetic-fault evidence, not universal equivalence to real checkpoints. The LLM drafts contracts but does not approve changed expectations. No fixture was downloaded, model executed, paid inference invoked, or CI gate changed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned small-model contracts catch broken/fixed behavior on production attention and preprocessing paths while measuring false alarms, review cost, setup time, and regressions requiring full weights? See [[indexes/gaps]].
