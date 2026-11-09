@@ -1447,3 +1447,22 @@ MCP tool exposure depends-on server mode and tool selection; actual data authori
 ### Decision and quality notes
 
 Official release notes without local invocation. Stable server packaging does not promote preview dependent services. Metadata classifications assist policy but do not prove enforcement or safe arbitrary SQL. Source-specific claims remain provisional; derived queries add no independent support. Open question: Which pinned Azure MCP 3.0 client tests cover renamed tools, output formats, read-only exclusions, database grants, and federated identity before an upgrade? See [[indexes/gaps]].
+
+## 2026-11-09: OpenTofu registry retrieval and infrastructure execution have separate authority
+
+### Typed entities
+
+project: OpenTofu MCP Server; project: Terraform MCP Server; project: Spacelift; concept: registry documentation; concept: execution authority; file: raw/2026-11-08-rss-what-is-the-opentofu-mcp-server-and-how-to-use-it.md.
+
+### Source-backed claims
+
+- Spacelift describes the official OpenTofu MCP server as public-registry search/documentation retrieval for providers, modules, resources and data sources. The described design does not execute tofu commands, access state, authenticate to cloud providers or query private registries. This is a vendor account, not an audited implementation. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-what-is-the-opentofu-mcp-server-and-how-to-use-it.md)
+- The article separately describes HCP/Enterprise Terraform operations, third-party CLI servers and Spacelift mutation/intent tools. A documentation server does not constrain the assistant's other filesystem, shell or deployment tools; generated HCL is an illustration rather than a validated plan. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-what-is-the-opentofu-mcp-server-and-how-to-use-it.md)
+
+### Explicit relationships
+
+Configuration generation uses versioned registry evidence; provisioning depends-on separately authorized execution, credentials, state access, plan review and policy. See [[container-supply-chain-and-compliance]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+The source claims zero blast radius and no need for security review while acknowledging assistant access through other tools. Retain the zero-risk assertion as rejected. superseded-by: [bounded authority interpretation](#2026-11-09-opentofu-registry-retrieval-and-infrastructure-execution-have-separate-authority), 2026-11-09T09:22:16-05:00; read-only operations narrow write authority but do not remove retrieved-content, tool-composition, query-disclosure or dependency risk. A malformed filesystem bullet and inconsistent tool name also limit the examples. No package/endpoint was installed/connected. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which pinned OpenTofu MCP implementation and client configuration verify read-only capabilities, version-specific retrieval, query privacy, untrusted-content handling and separation from execution tools? See [[indexes/gaps]].

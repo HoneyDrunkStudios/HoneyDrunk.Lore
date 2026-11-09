@@ -1836,3 +1836,45 @@ Hosted recovery depends-on durable checkpoints and idempotent actions; managed p
 ### Decision and quality notes
 
 Official October announcement captured November 7. GA hosted resilience supersedes only its older preview label, not every Foundry preview. Example YAML is an authoring illustration, not validated provisioning/authentication. No prices are adopted as current quotes, no agent or subagent was launched, and no service was deployed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned Foundry tests verify preview limits, tool approvals, creation-time harness choice, checkpoint replay, atomic duplicate-action prevention, original-input restart, and complete runtime/model/tool cost? See [[indexes/gaps]].
+
+## 2026-11-09: Container Apps provisioning capacity is distinct from quota and runtime failures
+
+### Typed entities
+
+project: Azure Container Apps; concept: regional capacity; concept: quota; concept: zone redundancy; concept: bounded retry; file: raw/2026-11-08-web-troubleshoot-environment-capacity-errors-in-azure-container-apps.md.
+
+### Source-backed claims
+
+- The guide addresses creation of the managed environment, not image-pull/app-start failures. Regional capacity differs from subscription quota; increasing quota does not resolve regional allocation shortages. Confirm deployment errors before choosing a response. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-web-troubleshoot-environment-capacity-errors-in-azure-container-apps.md)
+- A validated alternate region or bounded delayed retries after the current attempt finishes may help. Off-hours windows and support escalation do not guarantee capacity; early provisioning does not reserve future scale, and listing regions does not implement failover. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-web-troubleshoot-environment-capacity-errors-in-azure-container-apps.md)
+- Zone redundancy is a creation-time choice requiring a new environment to change. Regional redundancy protects against different failures and cannot automatically replace required zone protection. Dependencies, residency, availability, quota and cost constrain regional alternatives. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-web-troubleshoot-environment-capacity-errors-in-azure-container-apps.md)
+
+### Explicit relationships
+
+Recovery depends-on error classification and actual regional availability; redundancy uses explicit traffic failover/data replication. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Official captured guidance without original publication date or live subscription verification. Operational identifiers belong in private support records; none were copied. No resource, quota, redundancy setting or deployment was changed. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which environment-provisioning drill verifies capacity-versus-quota classification, bounded retries, approved alternate regions and preserved zone/data-residency requirements? See [[indexes/gaps]].
+
+
+## 2026-11-09: Foundry roundup distinguishes tool GA, typed routing, and SDK compatibility
+
+### Typed entities
+
+project: Microsoft Foundry; project: Browser Automation; project: Decisions API; project: Foundry Local; library: Agent Server Core; library: Responses adapter; file: raw/2026-11-08-web-what-s-new-in-microsoft-foundry-october-2026.md.
+
+### Source-backed claims
+
+- The November 5 roundup dates Browser Automation GA to October 19 through a separately provisioned Playwright Workspace and Toolbox remote MCP endpoint. It supports prompt/hosted agents; sensitive-content trace protection remains preview. Copilot harness preview and hosted-resilience GA retain the prior canonical distinction. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-web-what-s-new-in-microsoft-foundry-october-2026.md)
+- Decisions API GA is dated October 22 for GPT-6 Luna: predicate probabilities, fixed choices and rubric scores. Its resource-level model endpoint differs from project endpoints. The small refund demo supports routing, not calibrated authorization or proof of injection immunity. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-web-what-s-new-in-microsoft-foundry-october-2026.md)
+- Foundry Local SDK/runtime 2.2.1 and separate CLI preview 0.12.1 have different maturity; GPU dependencies are separately installed. Python Core 2.3.0 needs Responses 2.4.0 or later, and task-runtime activation is protocol-scoped. Stable Projects package numbers can still expose preview/breaking APIs. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-web-what-s-new-in-microsoft-foundry-october-2026.md)
+- Agents extension beta.22 changes toolbox to a toolboxes list and relocates evaluation commands; beta.23 adds harness selection. Model-pool/image/audio/regional updates are dated catalog leads rather than fresh access/pricing confirmation. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-web-what-s-new-in-microsoft-foundry-october-2026.md)
+
+### Explicit relationships
+
+Browser workflows depend-on workspace identity, approvals and private traces; recovery depends-on checkpoints plus idempotent side effects. Upgrade safety depends-on language/protocol-specific compatible sets. Typed routing uses application policy; see [[microsoft-dotnet-ai-stack]].
+
+### Decision and quality notes
+
+Official roundup restates some compiled announcements and adds no independent support for them. Its Decisions code contains an existing redaction marker that breaks the snippet; do not copy as runnable code. Service, client and deployment maturity stay separate. No current price, quota, event schedule or availability recommendation is made. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which pinned Foundry matrix verifies Browser Automation trace privacy, Decisions calibration/refusal handling, Core/Responses compatibility and protocol-scoped recovery before deployment? See [[indexes/gaps]].

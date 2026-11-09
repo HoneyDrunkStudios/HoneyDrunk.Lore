@@ -295,3 +295,23 @@ person: John Torrey; project: 1Password for Agents; concept: credential autofill
 ### Decision and quality notes
 
 Vendor announcement with partner-specific rollout statements. Verify destination binding, model-visible DOM/screenshots, OTP handling, disconnect behavior, and already-created sessions before reliance. Disconnecting a vault integration is not proof that destination sessions or downstream grants are revoked. No vault, login, integration, or account setting was accessed. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which supported credential integration verifies destination binding, model-visible data, OTP isolation, task-scoped session actions, and disconnect versus destination-session revocation? See [[indexes/gaps]].
+
+## 2026-11-09: Trusted Agent Delegation separates operator identity from user accountability
+
+### Typed entities
+
+project: Cloudflare; project: Trusted Agent Delegation; concept: Web Bot Auth; concept: MOLE; concept: graduated identity disclosure; file: raw/2026-11-08-rss-agents-aren-t-humans-but-they-kinda-are.md.
+
+### Source-backed claims
+
+- Cloudflare's November 5 paper announces the Trusted Agent Delegation coalition for remotely hosted agents. It distinguishes operator/agent, represented user and destination site; its initial focus excludes local/on-device agents. Web Bot Auth signs agent requests but does not alone prove user delegation or resolve chains of intermediaries. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-agents-aren-t-humans-but-they-kinda-are.md)
+- The paper proposes context-dependent disclosure from anonymous access through session, account and unique identity, alongside claims and machine-readable action policies. Privacy-preserving reputation and account attribution are distinct mechanisms. These are standards/design directions rather than one completed interoperable delegation protocol. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-agents-aren-t-humans-but-they-kinda-are.md)
+- The capture reports a Personal Assistants traffic category and per-agent access policies; Account Abuse Protection user attribution is early access. Its login/signup hashed-user controls address shared-agent abuse at account level, not every subsequent action or legal responsibility. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-agents-aren-t-humans-but-they-kinda-are.md)
+
+### Explicit relationships
+
+Agent access depends-on task authority, operator identity, necessary user attribution and destination policy; WBA uses request signatures, while OAuth/MOLE address other trust functions. See [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+First-party policy/product snapshot. Verify actual protocol chains, eligibility, revocation and destination enforcement before adoption. Preserve data minimization; no new identity collection is authorized. Contact/dashboard details and unnecessary identities are omitted. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which hosted-agent flow proves operator identity, scoped user delegation, multi-hop attribution, revocation and privacy-preserving abuse controls without assuming a WBA signature proves user authorization? See [[indexes/gaps]].

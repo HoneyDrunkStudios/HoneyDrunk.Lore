@@ -300,3 +300,23 @@ Registry trust depends-on credential lifecycle and consent; reassigned credentia
 ### Decision and quality notes
 
 First-party dated incident report. No HoneyDrunk exposure conclusion follows from this capture or an absent notification. Attack steps, account identifiers, and contact details are omitted; current incident guidance requires a separate refresh before response work. Source-specific claims remain provisional; derived queries add no independent support. Open question: Do HoneyDrunk registry records show converted accounts or transferred credentials, and do ownership-change tests prove consent, credential replacement, and audit coverage? See [[indexes/gaps]].
+
+## 2026-11-09: Clean reputation lookups do not establish package safety
+
+### Typed entities
+
+project: OpenSourceMalware; project: VirusTotal; concept: lifecycle hook; concept: provenance; concept: unknown reputation; file: raw/2026-11-08-rss-why-conventional-reputation-feeds-miss-software-supply-chain-attacks.md.
+
+### Source-backed claims
+
+- OpenSourceMalware reports 450 network indicators queried at ingestion and 174 historical indicators across ten campaigns. The retrospective includes 107 payload hashes and 13 shared-service indicators; those populations/timing must stay separate from day-zero network findings. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-why-conventional-reputation-feeds-miss-software-supply-chain-attacks.md)
+- The retrospective reports 124/174 unseen-or-zero-detection results and 131/174 when one/two detections also fall below the study threshold. Unknown/404 and scanned-clean have different evidentiary meaning. Selected-cohort results do not establish a universal SOC threshold or population-wide miss rate. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-why-conventional-reputation-feeds-miss-software-supply-chain-attacks.md)
+- Proposed triage inspects lifecycle execution, release/publisher provenance, unexpected egress and accessible credentials rather than reputation alone. Shared legitimate hosting establishes neither maliciousness nor safety; authorized network activity requires context. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-why-conventional-reputation-feeds-miss-software-supply-chain-attacks.md)
+
+### Explicit relationships
+
+Package admission depends-on provenance and execution context; reputation enriches evidence rather than superseding behavior analysis. See [[ai-coding-agent-security]] and [[dotnet-dependency-security-and-nuget]].
+
+### Decision and quality notes
+
+Platform-authored selected-cohort study, not an independent test of all scanners. No benign control/false-positive comparison supports categorical scanner/perimeter wording. Scan-coverage discussion mixes 35 web endpoints with 27 domains; those denominators are distinct. Blanket install-time network-anomaly wording is treated as an investigation hypothesis. IOC destinations, payload hashes, account identities and runnable incident details are omitted. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which dependency-admission evaluation separates unknown from scanned-clean reputation, pins cohort/time/thresholds, includes benign controls and correlates provenance with lifecycle egress and credential exposure? See [[indexes/gaps]].

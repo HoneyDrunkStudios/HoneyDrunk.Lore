@@ -946,3 +946,23 @@ SDK migration depends-on Node runtime, package compatibility, module loading, an
 ### Decision and quality notes
 
 Official release snapshot; no package was installed or app migrated. Its zero-code no-change statement is not proof that an older Node runtime remains supported. Pin and read the linked migration guide before implementation; removed APIs and exporter compatibility still need tests. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned Node/SDK/API/contrib/exporter matrix verifies ESM and CommonJS loading, Logs migration, tracing changes, complex-value rejection, and zero-code startup? See [[indexes/gaps]].
+
+## 2026-11-09: Alloy OTel engine reaches public preview with experimental bridges
+
+### Typed entities
+
+project: Grafana Alloy; library: OpenTelemetry Collector; concept: OpAMP supervisor; concept: alloyengine extension; file: raw/2026-11-08-rss-bridging-alloy-and-opentelemetry-the-otel-engine-is-now-in-public-prev.md.
+
+### Source-backed claims
+
+- Grafana dates the native OTel engine public preview to Alloy 1.21.0. It consumes standard Collector YAML through alloy otel; the default engine retains Alloy syntax and Prometheus/Loki ecosystem integration. Service installation and Collector deployment integrations are separate compatibility surfaces. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-bridging-alloy-and-opentelemetry-the-otel-engine-is-now-in-public-prev.md)
+- The embedded OpAMP supervisor is experimental even though Fleet Management integration dates to 1.19.0. The alloyengine extension is also experimental; engines share a process but exchange telemetry over the network rather than directly passing pipeline data. Database/Cloud Provider Observability examples are explicitly unsupported production experiments. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-bridging-alloy-and-opentelemetry-the-otel-engine-is-now-in-public-prev.md)
+- The OTel engine lacks the default engine's support-bundle equivalent in this snapshot. Native component extraction, default-engine remote-write improvements and delivery-aware Loki pipelines/WAL GA are future work rather than completed OTel-preview guarantees. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-bridging-alloy-and-opentelemetry-the-otel-engine-is-now-in-public-prev.md)
+
+### Explicit relationships
+
+Engine migration depends-on component/stability parity, diagnostics and deployment integration. The extension uses network transfer rather than a direct in-process data bridge.
+
+### Decision and quality notes
+
+Vendor release account. The incomplete exporter example is not runnable configuration. Support bundles can contain configuration/logs/profiles and need inspection before sharing. No credentials, endpoints or bundle contents were copied. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which pinned Alloy/Collector/Operator deployment verifies component parity, experimental bridge transport, shutdown delivery, remote configuration and diagnostics before OTel-engine migration? See [[indexes/gaps]].

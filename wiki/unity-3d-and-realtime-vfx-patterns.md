@@ -2170,3 +2170,22 @@ Rendering capacity depends-on realistic content, actual draw paths, platform-spe
 ### Decision and quality notes
 
 Vendor-published team interview. Specific version/scene findings do not establish universal LOD incompatibility or guaranteed savings. Restored player data needs privacy controls before reuse; no snapshot, Editor session, device test, or asset change occurred. Gameplay feel and memory limits still require target hardware. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which sanitized world fixtures verify actual instancing under LOD transitions, picking at both zoom levels, mobile tap disambiguation, duplicate dependencies, resident geometry, and weakest-device frame/memory budgets? See [[indexes/gaps]].
+
+## 2026-11-09: Stutter diagnosis needs correlated GPU and thread evidence
+
+### Typed entities
+
+project: Unity; project: GameOptim GOT Online; concept: cycles per pixel; concept: memory traffic; concept: thread wait; file: raw/2026-11-08-rss-how-do-you-tell-whether-a-unity-stutter-is-from-gpu-shader-cost-bandwi.md.
+
+### Source-backed claims
+
+- GameOptim combines cycles/pixel, per-frame GPU read/write volume and a CPU timeline to distinguish candidate shader, memory-traffic and blocking bottlenecks. Its GPU counters require supported Mali chips; missing data means unavailable rather than zero. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-how-do-you-tell-whether-a-unity-stutter-is-from-gpu-shader-cost-bandwi.md)
+- The described timeline covers the main thread plus at most four subthreads. Same-frame correlation and repeated scene measurements guide controlled optimization, but averaged counters and a limited timeline cannot establish causation or rule out other threads, compilation, CPU work or I/O. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-how-do-you-tell-whether-a-unity-stutter-is-from-gpu-shader-cost-bandwi.md)
+
+### Explicit relationships
+
+Stutter attribution depends-on supported counters, shared timing, representative workload and before/after experiments. Timeline waits can coexist with GPU backpressure; see [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Promotional vendor tutorial, not a HoneyDrunk trace. Decisive high-cycles/idle-thread wording and the claim that Timeline is the only way to see blocking are retained only as limited heuristics. Per-frame bytes need a time denominator to become a bandwidth rate. No universal threshold, battery result or device acceptance follows. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which supported-device capture correlates GPU counters, byte/time units, complete thread waits, thermals and a controlled change to distinguish shader cost from memory traffic and blocking? See [[indexes/gaps]].

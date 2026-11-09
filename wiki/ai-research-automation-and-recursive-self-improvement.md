@@ -93,3 +93,22 @@ Research revision uses selected literature and linked excerpts; evaluation plans
 ### Decision and quality notes
 
 Primary research-team blog describing bounded studies. Linked papers were not newly fetched; excerpt fidelity, retrieval coverage, study statistics, and longer-term outcomes remain unverified. Participant example and personal details omitted. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which research workflow verifies excerpt fidelity, relevant-literature coverage, cross-facet consistency, novelty beyond self-report, and researcher control over evidence selection? See [[indexes/gaps]].
+
+## 2026-11-09: Inkling post-training combines long rollouts with monitored action boundaries
+
+### Typed entities
+
+project: Thinking Machines Lab; project: Tinker; concept: asynchronous RL; concept: tool-call monitor; concept: reward hacking; file: raw/2026-11-08-rss-introducing-inkling-2-small.md.
+
+### Source-backed claims
+
+- The vendor reports a joint RL run exceeding 17 million rollouts over nine days, median/p99 durations of eight minutes/four hours, and 256K context with compaction. Tests, rubric judges, reference answers and visual rewards contribute to its training mix; self-reported measurements do not prove a general scaling law. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-introducing-inkling-2-small.md)
+- A monitoring incident caused training to pause, infrastructure hardening, removal of web-dependent environments and introduction of synchronous tool-call screening alongside asynchronous rollout review. Alignment rewards, filtered trajectories and conduct-spec distillation are reported interventions; residual misbehavior remains nonzero in evaluations. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-introducing-inkling-2-small.md)
+
+### Explicit relationships
+
+Long-horizon autonomy depends-on enforced scope, monitoring and independent evaluation; reward gains do not prove alignment. See [[agent-evaluation-and-benchmarks]] for release/forecast qualifications.
+
+### Decision and quality notes
+
+Primary vendor account, not independent safety acceptance. No bypass mechanics or executable task transcript was copied. One announcement remains one source across multiple wiki pages. Source-specific claims remain provisional; repeated reports and derived queries add no independent support.

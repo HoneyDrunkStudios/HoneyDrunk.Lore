@@ -1605,3 +1605,23 @@ Compositor migration depends-on stack order, node IO, preview/final-result seman
 ### Decision and quality notes
 
 Official upcoming-release notes with unknown original publication date; retain the existing Blender 5.3 pre-release posture. Built-in compositor Bloom is distinct from restoring every legacy EEVEE pipeline. No blend file, installed version, node graph, render, or image was modified. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned Blender 5.3 scenes verify effect order, nested scene inputs, Group Output/Viewer fallbacks, final versus preview images, output filenames, cache invalidation, and per-backend performance? See [[indexes/gaps]].
+
+## 2026-11-09: Upcoming Blender pipeline notes add persistent USD import configuration
+
+### Typed entities
+
+project: Blender 5.3; concept: USD Collection Importer; concept: Gaussian splat; concept: glTF; concept: Alembic; concept: color interoperability; file: raw/2026-11-08-web-blender-5-3-pipeline-i-o.md.
+
+### Source-backed claims
+
+- Upcoming 5.3 notes describe a USD importer associated with a Collection, configured in its properties and persisted in the blend file. This Collection Importer currently supports USD only; other format coverage is future work. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-web-blender-5-3-pipeline-i-o.md)
+- The snapshot adds USD/glTF Gaussian-splat import, glTF KTX2/BasisU and int/float/bool custom-property animation pointers. Alembic changes cover subdivision, point-cloud export, velocities, arbitrary attributes and remembered active/default color attributes. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-web-blender-5-3-pipeline-i-o.md)
+- glTF export fixes, sRGB ICC embedding and OpenEXR interoperability/DWA handling are also listed. Splat import does not establish splat export or target-engine compatibility, and support in one format does not imply every-format parity. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-web-blender-5-3-pipeline-i-o.md)
+
+### Explicit relationships
+
+Repeatable reimport uses saved collection settings; interchange fidelity depends-on format, extensions, attributes, transforms and color management. Existing pre-release splat limits remain; see [[ai-assisted-game-development-pipelines]].
+
+### Decision and quality notes
+
+Official upcoming-release notes with unknown publication date. Preserve 5.3 pre-release status. Linked commits establish reported changes, not production asset acceptance; no build/asset round trip was exercised. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which pinned Blender 5.3 fixtures verify collection reimport, USD/glTF splat limits, KTX2, custom-property animation, Alembic attributes and ICC/OpenEXR color fidelity in target tools? See [[indexes/gaps]].

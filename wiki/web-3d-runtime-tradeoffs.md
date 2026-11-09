@@ -92,3 +92,22 @@ First useful UI depends-on overlay removal and boot dependencies; playable time 
 ### Decision and quality notes
 
 Small practitioner experiment, not a general engine benchmark or deployed public-build change. Several changes were combined, so the extra playable-time gain is not causally isolated. The durable finding is measurement separation, not a promised speedup. Source-specific claims remain provisional; derived summaries add no independent support. Open question: Which target browsers, real GPUs, constrained networks, and repeated cold/warm runs validate UI visibility, input responsiveness, pack completeness, and playable time for the actual game? See [[indexes/gaps]].
+
+## 2026-11-09: Responsive sprite placement uses image-space foot anchors
+
+### Typed entities
+
+project: OreSpark; concept: normalized image coordinates; concept: sprite foot anchor; concept: animation wrapper; file: raw/2026-11-08-rss-pinning-animated-characters-to-a-background-s-ground-line-in-a-respons.md.
+
+### Source-backed claims
+
+- An authored browser-game example stores foot positions as fractions of an illustration, keeps the scene at its native aspect ratio without cropping, sizes sprites relative to the scene and places their bottom centers at measured points. Depth order is approximated from vertical position. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-pinning-animated-characters-to-a-background-s-ground-line-in-a-respons.md)
+- A placement wrapper owns position/scale while an inner element owns animation, preventing animation transforms from replacing placement transforms. This assumes matching image/scene coordinates and consistent foot pivots across frames. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-pinning-animated-characters-to-a-background-s-ground-line-in-a-respons.md)
+
+### Explicit relationships
+
+Responsive placement depends-on shared coordinates, aspect ratio and pivot; animation uses a separate inner transform. Cropped cover layouts require coordinate remapping. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Single self-reported browser case despite the Unity feed category. Transparent padding, depth ties and intentional foot motion need asset-specific checks. No verified mobile result, engine integration or game-economy claim is inferred. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which responsive-scene fixtures verify foot pivots, transparent padding, animation transforms, overlap ordering and coordinate remapping when a background must crop? See [[indexes/gaps]].

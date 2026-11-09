@@ -167,3 +167,23 @@ Practitioner strategy guidance. Its secondary incident narrative and executive s
 The recommendation that business agents need verified definitions, relationships, and accountable context ownership beyond data access is reinforced by a fourth Thoughtworks article. confidence: 4 sources, last-confirmed 2026-10-12 (archived sources reviewed, including two attributed-summary captures; no live refresh). [Databricks meaning layer](../raw/2026-08-22-rss-thoughtworks-insights-agents-on-databricks-the-platform-is-ready-your-.md); [AI-ready data](../raw/2026-09-14-rss-thoughtworks-insights-ai-ready-data-the-anthology-part-1.md); [semantic guidance and sensors](../raw/2026-09-14-rss-thoughtworks-insights-harnessing-the-agent-semantic-reliability-at-sca.md); [context lifecycle](../raw/2026-10-12-rss-why-context-is-the-real-bottleneck-for-ai-agents.md).
 
 This strengthens repeated practitioner guidance at moderate confidence, while all four documents remain publisher-correlated and do not establish measured HoneyDrunk outcomes. The earlier three-source assessment remains a dated historical record. Specific product features, survey figures, and incident narratives do not inherit this support count. Acceptance depends-on approved definitions and local semantic regression evidence; no contradictory claim is replaced.
+
+## 2026-11-09: Transaction sequences and relationship graphs provide different fraud context
+
+### Typed entities
+
+project: Thoughtworks; concept: transaction foundation model; concept: graph neural network; concept: semantic data layer; concept: decision audit; file: raw/2026-11-08-rss-why-a-language-model-misses-fraud-in-your-transaction-data.md.
+
+### Source-backed claims
+
+- Thoughtworks distinguishes temporal/behavioral transaction models from GNNs connecting customers, cards, devices and merchants. One models an entity's sequence; the other can expose coordinated patterns across entities. The proposed combination depends on shared field definitions and governed access. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-why-a-language-model-misses-fraud-in-your-transaction-data.md)
+- A demonstration uses the same Claude model with/without transaction context and reports a more structured risk breakdown after grounding. It supports a context-quality hypothesis, not a proof that LLMs cannot interpret transactions or that specialized training is always necessary. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-why-a-language-model-misses-fraud-in-your-transaction-data.md)
+- Recall/recommendation gains and reduced manual-rule counts come from separate external examples. A participant's twenty-five-month history suggestion is a starting heuristic rather than a universal sample-size or retention requirement. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-why-a-language-model-misses-fraud-in-your-transaction-data.md)
+
+### Explicit relationships
+
+Fraud decision quality depends-on temporal/relational context, semantics, labels and auditability; sequence models and GNNs complement each other. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Industry/practitioner commentary with secondary proof points and no controlled fraud benchmark. No causal performance, production readiness or legal-retention claim is promoted. No transactions, customer identifiers or private financial data were copied. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which consented labeled transaction benchmark compares semantic grounding, sequence models and GNNs at fixed false-positive cost, with leakage controls, drift evaluation and reconstructable decisions? See [[indexes/gaps]].

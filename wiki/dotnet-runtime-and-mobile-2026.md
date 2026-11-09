@@ -1332,3 +1332,47 @@ Initialization choice depends-on concurrency, factory side effects, duplicate al
 ### Decision and quality notes
 
 Practitioner explanation limited to supplied factories; do not generalize its exception table to every constructor overload. The locked LazyInitializer snippet declares _lock but passes _synclock, so it is flagged as inconsistent and not copied as buildable code. No proposed runtime API or performance advantage was validated. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which exact-overload concurrency tests verify factory invocation count, cached failures, retry behavior, in-flight exceptions, duplicate disposable results, and side effects before choosing lazy initialization? See [[indexes/gaps]].
+
+## 2026-11-09: RC2 library documentation expands contracts without changing release status
+
+### Typed entities
+
+project: .NET 11; library: System.Text.Json; library: System.IO.Compression; library: MemoryCache; concept: structural union classifier; file: raw/2026-11-08-web-what-s-new-in-net-libraries-for-net-11.md.
+
+### Source-backed claims
+
+- The library page explicitly describes an RC2 snapshot, expanding Process launch/capture/lifetime/handle APIs and memory-backed stream adapters. OS-specific controls and exact cancellation/lifetime behavior still need tests. This older snapshot does not replace newer RC3 servicing evidence. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-web-what-s-new-in-net-libraries-for-net-11.md)
+- System.Text.Json distinguishes C# active-case union output/structural classification from F# discriminated unions. Structural classification uses root property names/required properties and rejects zero/ambiguous matches. F# support is reflection-only without source generation, trimming or Native AOT; JSONL requires topLevelValues true. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-web-what-s-new-in-net-libraries-for-net-11.md)
+- The page requires closed hierarchies for inferred polymorphism and states non-closed per-type opt-in fails. Retained inconsistent example: a later snippet opts in public abstract record Shape without closed. That snippet contradicts the explicit eligibility rule. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-web-what-s-new-in-net-libraries-for-net-11.md)
+- ZIP CRC32 validation can reject corrupt/truncated entries; empty GZip/Deflate streams write format headers/footers. Decimal/BigInteger floating-point conversions deliberately change results without a compatibility switch. Stored-data and interoperability fixtures matter. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-web-what-s-new-in-net-libraries-for-net-11.md)
+- MemoryCache metrics require TrackStatistics, use dotnet.cache.request.result and report estimated size in application-defined units rather than bytes. Async validation/change callbacks, factory-aware HybridCache options, DNS/HTTP APIs and observable HTTP metrics add integration surfaces rather than proven host integration. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-web-what-s-new-in-net-libraries-for-net-11.md)
+
+### Explicit relationships
+
+Serialization depends-on precise type shape, classifier and generator metadata; upgrade safety depends-on stored-format/numeric compatibility and metric semantics. See [[post-quantum-security-and-cryptography]] and [[csharp-memory-safety-and-unsafe-code]].
+
+### Decision and quality notes
+
+Official RC2 snapshot. superseded-by: [closed-type eligibility rule](#2026-11-09-rc2-library-documentation-expands-contracts-without-changing-release-status), 2026-11-09T09:22:16-05:00; the non-closed example above is superseded for implementation by the explicit constraint/failure behavior in the same source. Existing redaction placeholders damage some snippets; examples were not compiled. No general unsafe-project-setting relaxation, preview-crypto adoption or throughput promise is inferred. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which .NET 11 fixtures verify union/closed-hierarchy metadata, AOT limits, corrupt/empty archives, numeric conversion changes, async validation hosts and cache/HTTP metric semantics? See [[indexes/gaps]].
+
+
+## 2026-11-09: RC2 runtime notes separate minimum CPU support, async preview, and mobile locking
+
+### Typed entities
+
+project: .NET 11; concept: CPU baseline; concept: ReadyToRun target; concept: Runtime Async; concept: ExecutionContext; concept: advisory locking; file: raw/2026-11-08-web-what-s-new-in-the-net-11-runtime.md.
+
+### Source-backed claims
+
+- The RC2 snapshot raises the x86/x64 minimum to v2 and Windows/Linux ReadyToRun targets to v3. A supported CPU below the R2R target may incur JIT startup overhead rather than being unsupported. Arm64 changes differ by OS: Linux minimum unchanged, Windows requires LSE. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-web-what-s-new-in-the-net-11-runtime.md)
+- Runtime Async remains preview. The page distinguishes runtime-async compilation, project opt-out via UseRuntimeAsync and removed environment switches. Cleaner live stacks differ from exception-stack cleanup. Reduced ExecutionContext overhead is not permission to discard AsyncLocal correlation/security state. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-web-what-s-new-in-the-net-11-runtime.md)
+- iOS/tvOS advisory locking is off by default, including same-process FileShare restrictions; Mac Catalyst retains defaults. Restoring locks can reintroduce suspension-termination risk. This does not establish identical behavior across every Mono/CoreCLR deployment. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-web-what-s-new-in-the-net-11-runtime.md)
+- JIT/intrinsic, NativeAOT dispatch, CoreCLR WebAssembly, crash reporting and ConcurrentQueue fixes are also described. Up-to microbenchmark gains remain pattern/platform-specific; removal of the machine processor limit retains the GC's 1024-heap limit. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-web-what-s-new-in-the-net-11-runtime.md)
+
+### Explicit relationships
+
+Runtime adoption depends-on OS/CPU/runtime/compilation mode; state concurrency must not depend on unavailable advisory locks. Telemetry correctness depends-on preserved ambient context.
+
+### Decision and quality notes
+
+Official documentation last updated for RC2, not a final-release/latest-RC claim. Preview and platform limits remain explicit. No upgrade, profiler run, device test or unsafe-code change was performed. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which pinned runtime/device matrix verifies CPU/R2R fallback, Runtime Async diagnostics/ambient context, iOS/tvOS FileShare behavior, suspension safety and WebAssembly/AOT recovery? See [[indexes/gaps]].

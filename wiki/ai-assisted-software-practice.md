@@ -1525,3 +1525,22 @@ Review confidence depends-on executed checks, change risk, reviewer calibration,
 ### Decision and quality notes
 
 Primary team process account, not HoneyDrunk policy or authorization for automatic merging. Public product availability and internal low-risk merge rules are separate claims; no service plan or review setting was changed. Anecdotal productivity estimates are not promoted. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which review workflow proves exact-head gates, risk and trusted-author rules, sensitive-path human approval, calibrated incident/clean-PR tests, bounded rounds, and rollback with measured human repair time? See [[indexes/gaps]].
+
+## 2026-11-09: Agentic throughput requires trustworthy delivery feedback
+
+### Typed entities
+
+person: Rachel Laycock; project: Thoughtworks; concept: agent harness; concept: CI signal; concept: batch size; file: raw/2026-11-08-rss-why-are-good-developers-so-wary-of-agentic-development.md.
+
+### Source-backed claims
+
+- Laycock's October 29 essay reports agent-only coding experiments where experienced staff concentrated on domain design, boundaries, tests/contracts and harness feedback. The approximate two-thirds whiteboard/one-third harness split is an experiment observation rather than a staffing prescription. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-why-are-good-developers-so-wary-of-agentic-development.md)
+- The application ran locally while builds were frequently red. Agent interference, modularity and changes arriving faster than checks remain unresolved explanations. Code produced and local execution do not establish delivery stability or maintainability through later changes. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-why-are-good-developers-so-wary-of-agentic-development.md)
+
+### Explicit relationships
+
+Production confidence depends-on meaningful CI, controlled batches, boundary checks and operational experience; harness refinement uses experienced judgment. See [[multi-agent-architectures]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Practitioner interpretation of small experiments; linked DORA findings are secondhand. Reinforces existing guardrail principles without independent production measurements or a diagnosis of red builds. No throughput ratio or causal stability claim is promoted. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which agentic delivery experiment measures CI reliability, integration collisions, batch size, repair time and post-deployment failures with fixed acceptance criteria? See [[indexes/gaps]].

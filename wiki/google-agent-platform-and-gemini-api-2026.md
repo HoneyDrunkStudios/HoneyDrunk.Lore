@@ -430,3 +430,23 @@ Agents CLI uses pinned extension code and command vectors; mandatory deployment 
 ### Decision and quality notes
 
 Official tutorial for an experimental system, not an installed or tested integration. superseded-by: [bypass-aware policy interpretation](#2026-10-25-agents-cli-extensions-pin-command-replacements-but-permit-native-bypass), 2026-10-25T10:07:03-04:00; the source’s broad enterprise-enforcement framing is superseded as an unavoidable security guarantee by its explicit native-bypass mechanism and demo-only scan verification, both preserved above. Pin CLI and extension versions; local code, project precedence, mutable dependencies, and shared temporary output paths need separate review. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which extension pilot verifies pinned restoration, project/user precedence, unsupported-command refusals, target compatibility, real scanner failure, and policy enforcement outside the documented native bypass? See [[indexes/gaps]].
+
+## 2026-11-09: Routing economics depend on thinking effort and cache locality
+
+### Typed entities
+
+project: Gemini; project: Jev; concept: atomic classifier; concept: cost per successful task; concept: model-specific context cache; file: raw/2026-11-08-rss-cost-per-task-using-cheap-classifiers-to-route-across-gemini-models-an.md.
+
+### Source-backed claims
+
+- Google's single-run 50-question study uses an atomic multi-step predicate after a broad simple/complex choice failed. It reports 48/50 classifier agreement and 34/34 held-out agreement, while a frozen keyword/length heuristic fell to 70.6% on the held-out questions. Hand-label agreement is separate from verified task success. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-cost-per-task-using-cheap-classifiers-to-route-across-gemini-models-an.md)
+- Lowering maxOutputTokens alone reportedly did not lower easy-task thinking cost and truncated or degraded hard answers. Flash low thinking solved all 50; Flash-Lite/low-thinking escalation also solved all 50 and reportedly reduced cost/latency. These are sample-specific results rather than production routing guarantees. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-cost-per-task-using-cheap-classifiers-to-route-across-gemini-models-an.md)
+- Model-specific prefix caches can erase routing savings for repeated long contexts. Complete task cost, retries, thinking tokens, refusals and latency matter; short standalone tasks and context-heavy turns need different baselines. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-cost-per-task-using-cheap-classifiers-to-route-across-gemini-models-an.md)
+
+### Explicit relationships
+
+Routing depends-on calibrated predicates, workload labels, model effort and cache locality; task verification uses final answers rather than classifier confidence alone. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Primary vendor experiment, explicitly not a TypeSafe partnership/endorsement. The capture alternates between 27 SIMPLE tasks and 25 hard tasks in a 50-question suite; these strata cannot be reconciled from supplied text. Subgroup comparisons are flagged pending unpublished benchmark code. Cost tables are absent, timing spans two rounds and self-hosted economics differ. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Can a reproducible routing evaluation reconcile the 50-task strata and compare low-thinking, classifier escalation, retry/refusal rates and model-specific cache costs on representative workloads? See [[indexes/gaps]].

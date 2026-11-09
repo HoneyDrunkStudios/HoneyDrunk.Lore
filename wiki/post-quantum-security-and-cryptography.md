@@ -103,3 +103,22 @@ MTC authentication depends-on trusted cosigners and inclusion proofs; landmark e
 ### Decision and quality notes
 
 Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Which clients, independent mirrors, monitoring, landmark freshness, and fallback tests would qualify MTCs for HoneyDrunk? See [[indexes/gaps]].
+
+## 2026-11-09: .NET 11 RC2 crypto APIs retain experimental and platform boundaries
+
+### Typed entities
+
+library: .NET 11; concept: CompositeMLKem; concept: HPKE; concept: CMS KEM recipient; file: raw/2026-11-08-web-what-s-new-in-net-libraries-for-net-11.md.
+
+### Source-backed claims
+
+- CompositeMLKem and Hpke are experimental with separate SYSLIB5006/SYSLIB5009 diagnostics. CompositeMLKem requires supported ML-KEM platforms/combinations; the described HPKE supports classical DHKEM suites, not ML-KEM or hybrid suites. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-web-what-s-new-in-net-libraries-for-net-11.md)
+- EnvelopedCms KEM recipients are limited to pure ML-KEM on non-Windows platforms. Separately added X25519/AES key-wrap surfaces do not remove protocol, key-lifecycle or platform validation. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-web-what-s-new-in-net-libraries-for-net-11.md)
+
+### Explicit relationships
+
+Crypto integration depends-on algorithm/suite support, platform and protocol compatibility. See [[dotnet-runtime-and-mobile-2026]] for snapshot/migration limits.
+
+### Decision and quality notes
+
+Official RC2 documentation, not a crypto review or production recommendation. No diagnostic suppression, key generation or crypto migration was performed. The same document is not independent corroboration. Source-specific claims remain provisional; repeated reports and derived queries add no independent support.

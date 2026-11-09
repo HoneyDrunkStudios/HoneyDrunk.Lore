@@ -1801,3 +1801,23 @@ Defensive evaluation depends-on verifier validity, pinned tasks/harness, allowed
 ### Decision and quality notes
 
 First-party benchmark report. Public leaderboard model rankings and cost frontier were not independently reproduced or promoted as current recommendations. Dataset access is gated and execution/model calls have costs despite the article's no-extra-cost grading wording. Existing email redaction was preserved by omission; no contact information, credential command, or executable task was copied. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned defensive benchmark run audits verifier adequacy, functional regressions, task leakage, network containment, pass-at-k versus mean reward, and full repeated-trial cost? See [[indexes/gaps]].
+
+## 2026-11-09: Inkling 2 Small separates release plans, benchmark budgets, and forecasting measures
+
+### Typed entities
+
+project: Thinking Machines Lab; project: Tinker; library: Inkling 2 Small; concept: trajectory budget; concept: forecasting baseline; file: raw/2026-11-08-rss-introducing-inkling-2-small.md.
+
+### Source-backed claims
+
+- The November 5 announcement describes a 594B-total/17B-active MoE with image inputs and variable effort, initially closed-weight on Tinker. Apache-2.0 weights are planned after further external safety testing; audio is unsupported. This is a different generation from older Inkling records, not evidence that planned weights have shipped. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-introducing-inkling-2-small.md)
+- The vendor specifies effort 0.99, temperature 1.0 and a 1M-token maximum evaluation trajectory, increased from the previous Small model's 256K budget. A trajectory budget is distinct from a training context window. PMPP-Hard separates four-attempt mean solved, pass@4 and area under a 10-hour curve; kernel speedups are not end-to-end training gains. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-introducing-inkling-2-small.md)
+- The forecasting narrative says the score more than doubled. Retained as a rejected quantitative reading: the replay corrects a seed bug and records base skill about 0.191 versus selected SFT about 0.289 on 100 examples, plus about 15% less error than base on unseen data. These use distinct baselines/metrics; corrected skill values are about 1.51 times apart. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-introducing-inkling-2-small.md)
+
+### Explicit relationships
+
+Model comparison depends-on matched harness, effort, budget, grading and held-out data. Forecasting evaluation uses seed-correct sampling. See [[edge-ai-and-ai-infrastructure-2026]] and [[ai-research-automation-and-recursive-self-improvement]].
+
+### Decision and quality notes
+
+Primary vendor report with mixed internal/external scores and selected demos. superseded-by: [corrected forecasting interpretation](#2026-11-09-inkling-2-small-separates-release-plans-benchmark-budgets-and-forecasting-measures), 2026-11-09T09:22:16-05:00; the broad doubling claim above is superseded for decision use by the corrected seed baseline and separate unseen-error measure. Superlatives, planned licensing and demo spend are not adoption evidence. Private run identifiers, executable transcripts and unnecessary personal examples are omitted. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which released Inkling 2 Small artifact, license and model card can be verified, and can matched-budget held-out evaluations reproduce tool use, visual work, forecast quality and failure behavior? See [[indexes/gaps]].
