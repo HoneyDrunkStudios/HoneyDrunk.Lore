@@ -111,3 +111,23 @@ The account says embedding OCSF in Go types guarantees correctness and prevents 
 <a id="ocsf-mapping-interpretation-2026-10-18"></a>
 
 Selected interpretation: The same account requires local regression tests, review, canary validation, and soak. Typed representation is the supported narrow claim; correct timestamps, identity mapping, and event meaning still need validation. confidence: 1 source, last-confirmed 2026-10-18. [captured source](../raw/2026-10-18-rss-reducing-the-noise-how-atlassian-built-an-ocsf-security-lakehouse-on-d.md)
+
+## 2026-11-11: Agentic intrusion attribution depends on transitions and alternative explanations
+
+### Typed entities
+
+concept: dependent permutation; concept: tooling epoch; concept: behavioral morphology; concept: event-time correlation; decision: evidence-based containment. file: raw/2026-11-11-rss-detecting-responding-to-ai-aided-or-agentic-attacks.md.
+
+### Claims and evidence
+
+- The practitioner proposes six investigation lenses: adaptation to newly acquired information, software-version mismatches, parallel discovery/convergence, pacing, changing implementation conventions and structured input/output. These are hypotheses to compare against human tradecraft and prepared automation, not standalone AI detectors. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-detecting-responding-to-ai-aided-or-agentic-attacks.md)
+- Tooling epochs and behavioral objectives are separate dimensions. Use event timestamps and operation start/end semantics to distinguish execution speed from the time available to interpret results and prepare a changed action. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-detecting-responding-to-ai-aided-or-agentic-attacks.md)
+- Several indicators describing one adaptation are one event, not independent confirmations. Once malicious access is established, containment can act on that evidence while attribution continues; all parallel activity and post-containment adaptations need observation. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-detecting-responding-to-ai-aided-or-agentic-attacks.md)
+
+### Explicit relationships
+
+Attribution depends-on correlated transitions and alternative hypotheses; response depends-on unauthorized behavior rather than proof of model involvement. See [[ai-coding-agent-security]] and [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Practitioner analysis with illustrative cases, no measured sensitivity, specificity or universal timing threshold. Preserve useful raw event fields under retention/privacy controls; avoid collecting sensitive content merely to strengthen attribution. No detection rule or response action was deployed. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which labeled human, scripted and agentic intrusion traces calibrate transition-based indicators, timestamp semantics and false positives without counting correlated observations as independent evidence? See [[indexes/gaps]].

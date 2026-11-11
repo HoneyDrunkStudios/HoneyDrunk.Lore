@@ -2871,3 +2871,23 @@ Agent containment uses microVM and host-enforced policy, but effective authority
 ### Decision and quality notes
 
 Vendor architecture and product-positioning account, not an independent escape/bypass audit. Absolute host-unreachable wording is qualified by the same article's explicit shared-capability boundaries. A microVM does not establish safe allowed-service actions, protect writable project data, or authorize deleting local-only state. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which Windows sandbox tests verify workspace/clone boundaries, host-socket isolation, credential destinations, denied egress, host MCP/skill authority, nested virtualization, and state handoff before removal? See [[indexes/gaps]].
+
+## 2026-11-11: Interview repositories can execute malicious dependencies during ordinary builds
+
+### Typed entities
+
+project: npm; project: Visual Studio Code; concept: interview-repository trust; concept: build-time execution; concept: recruiter impersonation; decision: isolate untrusted assignments. file: raw/2026-11-11-rss-contagious-interview-one-interview-away-from-infection.md.
+
+### Claims and evidence
+
+- JFrog traces a recruiting operation to rotating look-alike packages loaded by a take-home project. The reported loader executes during CSS compilation rather than an install lifecycle script, so the absence of install scripts does not establish build safety. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-contagious-interview-one-interview-away-from-infection.md)
+- The investigation reports a second delivery route through a scripted camera failure and purported setup download, plus an extension/native-host route whose observed payload slot was empty. A complete delivery path does not prove every route was observed delivering a payload. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-contagious-interview-one-interview-away-from-infection.md)
+- The researchers compare account and package provenance, immutable identifiers and package-publication versus commit dates. Public-facing company pages or profile verification do not authenticate the assignment as safe; the report explicitly finds no link between this operation and the separately discussed exchange intrusion. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-contagious-interview-one-interview-away-from-infection.md)
+
+### Explicit relationships
+
+Untrusted assignments depend-on an execution boundary covering editor tasks, builds, plugins and network access; package removal does not supersede provenance review. See [[container-supply-chain-and-compliance]].
+
+### Decision and quality notes
+
+Security-vendor investigation. Preserve attribution and distinguish observed code from inferred operator identity. Persona photos/names may belong to uninvolved people; no persona identifiers, email addresses, loader commands, keys or actionable payloads are promoted into the wiki. Use disposable, credential-free review environments and verify allowed egress before executing third-party assignments. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which untrusted-repository checks cover editor auto-tasks, build-time plugins, package provenance and renamed dependencies inside a disposable environment without host credentials or browser profiles? See [[indexes/gaps]].

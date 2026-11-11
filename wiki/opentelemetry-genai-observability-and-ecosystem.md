@@ -966,3 +966,44 @@ Engine migration depends-on component/stability parity, diagnostics and deployme
 ### Decision and quality notes
 
 Vendor release account. The incomplete exporter example is not runnable configuration. Support bundles can contain configuration/logs/profiles and need inspection before sharing. No credentials, endpoints or bundle contents were copied. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which pinned Alloy/Collector/Operator deployment verifies component parity, experimental bridge transport, shutdown delivery, remote configuration and diagnostics before OTel-engine migration? See [[indexes/gaps]].
+
+## 2026-11-11: Collector batching migration changes queue capacity and acknowledgement boundaries
+
+### Typed entities
+
+project: OpenTelemetry Collector; concept: exporter-level batching; concept: queue admission; concept: backpressure; library: queue_batch processor. file: raw/2026-11-11-rss-deprecating-the-collector-batch-processor.md.
+
+### Claims and evidence
+
+- The November 11 announcement deprecates the batch processor, plans default exporter batching for v0.171.0 in February 2027 and removal for v0.177.0 in May 2027. These are announced plans; availability depends on the exporter adopting sending_queue behavior. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-deprecating-the-collector-batch-processor.md)
+- Exporter-level batching happens after queue admission. Keeping the same request-count capacity after removing the old processor can hold much less telemetry because the queue now contains unbatched requests. Item/byte sizing reduces that ambiguity but adds sizing CPU cost. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-deprecating-the-collector-batch-processor.md)
+- Queue admission success is distinct from downstream delivery: block_on_overflow, wait_for_result, consumer concurrency and optional persistent storage control different behaviors. Export timeout/retry handling follows queue/batch processing. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-deprecating-the-collector-batch-processor.md)
+- The replacement queue_batch processor supports cases such as batching before aggregation or sharing work across exporters. Metadata partitioning and its capacity limits need explicit checks; running both old and exporter batching can produce a diagnostic warning. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-deprecating-the-collector-batch-processor.md)
+
+### Explicit relationships
+
+Exporter batching supersedes the old processor for supported pipelines; queue durability depends-on storage and acknowledgement semantics. See [[distributed-systems-patterns]] and [[cloud-security-monitoring-and-siem]].
+
+### Decision and quality notes
+
+Official migration guidance, no Collector deployment tested. The bytes example sets queue sizer but omits batch sizer despite numeric byte comments; do not assume queue sizing sets batch units. Pin exporter/version behavior and explicitly verify both units, backend limits, crash loss and overload behavior before migration. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which pinned Collector/exporter replay verifies queue and batch units, capacity, metadata partitions, overload/backpressure, persistent recovery and delivery acknowledgement before removing batch? See [[indexes/gaps]].
+
+## 2026-11-11: Telemetry completeness needs expected activity and independent path checks
+
+### Typed entities
+
+concept: telemetry completeness; concept: cross-stage reconciliation; concept: synthetic event; project: OpenTelemetry Collector; decision: distinguish quiet from blind. file: raw/2026-11-11-rss-when-missing-telemetry-is-the-signal.md.
+
+### Claims and evidence
+
+- The guidance starts from explicit expected activity windows, allowing scheduled quiet periods. Accepted work should reconcile with completed, rejected and still-processing work after accounting for filtering, retries, deduplication and batching. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-when-missing-telemetry-is-the-signal.md)
+- Low-cardinality boundary counters detect missing flow; sampled traces and correlated logs help locate gaps but missing sampled traces alone do not prove loss. Asynchronous relationships may use span links rather than forcing a synchronous trace tree. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-when-missing-telemetry-is-the-signal.md)
+- Safe synthetic events through the real path and Collector receiver/exporter/queue telemetry provide different failure signals. Observe that health path independently where practical, because a Collector process can be alive while delivery is broken. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-when-missing-telemetry-is-the-signal.md)
+
+### Explicit relationships
+
+Completeness assessment depends-on expected activity, reconciled counts and independent probes; sampled traces do not supersede accounting. See [[cloud-security-monitoring-and-siem]] and [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+Official educational guidance, not evidence that current HoneyDrunk telemetry is complete. Define count boundaries, time windows and permitted drops before alerting. Avoid event/user IDs as metric labels and avoid sensitive synthetic payloads; missing signals alone are not an incident verdict. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which critical workflow has delay-aware count reconciliation, safe end-to-end synthetic events and independently visible Collector flow health that distinguishes quiet traffic from observation failure? See [[indexes/gaps]].

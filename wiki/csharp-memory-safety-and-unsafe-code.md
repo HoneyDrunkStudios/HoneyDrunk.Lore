@@ -79,6 +79,8 @@ project: C# 15; project: .NET 11 SDK; concept: union type; concept: closed hiera
 - Memory-safety syntax/pointer relaxations use preview language mode, while requires-unsafe caller rules additionally need the updated-memory-safety-rules feature flag. Pointer declarations/address-taking are separated from pointed-to access; unsafe expressions also require AllowUnsafeBlocks. Assembly metadata records updated rules. A safety annotation is a caller contract, not proof that an extern implementation is safe. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-web-what-s-new-in-c-15.md)
 - Closed hierarchies fix direct descendants within the declaring assembly, but a non-closed descendant can still be derived elsewhere. Older-runtime support for ordinary static interface helpers does not imply support for default instance implementations or static abstract/virtual dispatch. confidence: 1 source, last-confirmed 2026-10-23 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-23-web-what-s-new-in-c-15.md)
 
+superseded-by: [2026-11-11-released-c-15-does-not-graduate-the-memory-safety-preview](#2026-11-11-released-c-15-does-not-graduate-the-memory-safety-preview); timestamp: 2026-11-11T08:39:34-05:00; reason: The November release announcement supersedes only the general prerelease SDK status; memory safety remains preview.
+
 ### Explicit relationships
 
 Memory-safety behavior depends-on language mode and feature flag; exhaustiveness depends-on case/hierarchy boundaries. See [[dotnet-runtime-and-mobile-2026]] and [[ai-coding-agent-security]].
@@ -86,3 +88,21 @@ Memory-safety behavior depends-on language mode and feature flag; exhaustiveness
 ### Decision and quality notes
 
 Official captured overview, unknown publication date, no compiler execution. Extends the already preserved May/August timing history; later clipping does not mean a newly released stable SDK. Shared Microsoft publication does not provide independent safety validation. Exact syntax, runtime targets, and diagnostics require pinned toolchain tests before code or analyzer changes. Source-specific claims remain provisional; repeated summaries add no independent support. Open question: Which pinned compiler tests separate default C# 15 features from memory-safety preview switches and verify caller obligations, closed descendants, serialization, and older-runtime interface limits? See [[indexes/gaps]].
+
+## 2026-11-11: Released C# 15 does not graduate the memory-safety preview
+
+### Typed entities
+
+project: C# 15; project: .NET 11; concept: closed hierarchy; concept: memory-safety preview; decision: separate feature maturity. file: raw/2026-11-11-rss-announcing-net-11.md.
+
+### Claims and evidence
+
+- The November release announcement establishes C# 15 as the net11.0 default with unions, closed hierarchies, extension indexers and labeled loop control, while explicitly retaining memory safety as a separate preview. It does not establish a final caller-unsafe deployment default. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-announcing-net-11.md)
+
+### Explicit relationships
+
+Released language features supersede the older general prerelease framing; memory-safety adoption depends-on explicit preview requirements. See [[dotnet-runtime-and-mobile-2026]].
+
+### Decision and quality notes
+
+Official announcement, no compiler or analyzer policy change. Preserve May/August design history and avoid upgrading the safety redesign merely because its host runtime is released. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which compiler fixtures verify released C# 15 versus memory-safety preview behavior in the selected production toolchain? See [[indexes/gaps]].

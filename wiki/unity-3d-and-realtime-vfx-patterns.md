@@ -2189,3 +2189,23 @@ Stutter attribution depends-on supported counters, shared timing, representative
 ### Decision and quality notes
 
 Promotional vendor tutorial, not a HoneyDrunk trace. Decisive high-cycles/idle-thread wording and the claim that Timeline is the only way to see blocking are retained only as limited heuristics. Per-frame bytes need a time denominator to become a bandwidth rate. No universal threshold, battery result or device acceptance follows. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which supported-device capture correlates GPU counters, byte/time units, complete thread waits, thermals and a controlled change to distinguish shader cost from memory traffic and blocking? See [[indexes/gaps]].
+
+## 2026-11-11: Long-lived 3D assets need provenance, variants and dependency ownership
+
+### Typed entities
+
+project: Unity Asset Manager; library: Unity Addressables; concept: digital twin; concept: asset provenance; concept: component variant; decision: reuse eligibility. file: raw/2026-11-11-rss-10-teams-3-programs-and-7-years-efficiently-managing-3d-assets-in-defe.md.
+
+### Claims and evidence
+
+- The i3 Corps account describes maintaining equipment models across many applications and years of CAD/photogrammetry revisions. Common component baselines plus variant-specific changes reduce repeated modeling and validation; provenance is needed to identify what a new engineering input supersedes. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-10-teams-3-programs-and-7-years-efficiently-managing-3d-assets-in-defe.md)
+- The team reports using Addressables catalogs, on-demand loading and local caching to share models across applications on constrained classroom machines. This is an account of their configured pipeline, not proof that arbitrary catalogs or builds automatically deduplicate every asset. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-10-teams-3-programs-and-7-years-efficiently-managing-3d-assets-in-defe.md)
+- Asset ownership and data classification govern reuse and permitted storage. The team moved from a bespoke catalog toward Unity Asset Manager, while precise change propagation through volatile dependency chains remains work in progress. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-10-teams-3-programs-and-7-years-efficiently-managing-3d-assets-in-defe.md)
+
+### Explicit relationships
+
+Asset reuse depends-on provenance, ownership and variant compatibility; training applications use shared catalogs. See [[technical-art-community-and-talent-signals]] and [[ai-assisted-game-development-pipelines]].
+
+### Decision and quality notes
+
+Vendor-hosted customer account, not an independent storage benchmark or compliance certification. Government-specific controls are context, not a HoneyDrunk deployment requirement. Preserve license/ownership and dependency evidence before adopting a shared library; no protected model or personal contact detail is copied. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which representative asset catalog verifies source provenance, ownership, classification, variant dependencies, actual cross-build deduplication and rollback when shared components change? See [[indexes/gaps]].

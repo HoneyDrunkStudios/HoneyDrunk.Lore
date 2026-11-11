@@ -1446,3 +1446,24 @@ Token sourcing uses measured workload traces and depends-on quality thresholds, 
 ### Decision and quality notes
 
 First-party strategy and services narrative. Regional/legal statements and supplier-information concerns are the author framing, not independently verified legal or contractual conclusions. Open weights do not by themselves guarantee IP rights, privacy, quality, or low cost. Traffic replay must use authorized sanitized data; no procurement, capacity reservation, or model route was changed. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which sanitized workload replay establishes task quality, burst/idle demand, full serving and operations cost, license/privacy constraints, and reproducible forecast sensitivity before changing token sourcing? See [[indexes/gaps]].
+
+## 2026-11-11: BotPsy narrows on-device agent work without establishing autonomous safety
+
+### Typed entities
+
+project: BotPsy-0.8B; project: Qwen3.5-0.8B; library: llama.cpp; concept: on-policy distillation; concept: device-local inference; decision: bounded tool authority. file: raw/2026-11-11-rss-botpsy-on-device-personal-assistant-with-a-sub-billion-parameter-agent.md.
+
+### Claims and evidence
+
+- Tether describes a 0.8B Qwen-based model trained through supervised fine-tuning, three specialist teachers for on-policy distillation, and two RL stages with verifiable rewards. The account targets low-to-medium difficulty tool tasks and links safetensors/GGUF artifacts while also using future-tense release wording. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-botpsy-on-device-personal-assistant-with-a-sub-billion-parameter-agent.md)
+- The reported six-benchmark mean rises from 24.7 to 45.0, but the larger Qwen comparator wins Claw-Eval; BotPsy scores only 4.5 on BrowseComp-Plus and 4.1 on banking. These distinct benchmark aggregates do not establish reliable performance for every personal-assistant workflow. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-botpsy-on-device-personal-assistant-with-a-sub-billion-parameter-agent.md)
+- Reported unsafe responses remain 21% in automated red-teaming and 31% under prompt injection. English is the recommended language; later-turn accumulation and Hindi/Russian performance are weaker. The source excludes high-stakes and sensitive automated decisions despite broad illustrative application categories. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-botpsy-on-device-personal-assistant-with-a-sub-billion-parameter-agent.md)
+- Reasoning-token and turn savings use the common subset all five models solved, with each tokenizer counting its own tokens. That conditional comparison is separate from full-set accuracy and does not measure device latency, energy or total deployment cost. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-botpsy-on-device-personal-assistant-with-a-sub-billion-parameter-agent.md)
+
+### Explicit relationships
+
+BotPsy depends-on Qwen weights and post-training; safe local assistance depends-on tool permissions and data-flow controls beyond model location. See [[agent-evaluation-and-benchmarks]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Model-author evaluation, not independent replication. Treat state-of-the-art wording as limited to the tested comparators. Verify artifact availability and actual license text: the capture combines Apache 2.0 language with research/educational intended-use wording. Local inference alone does not prove remote tools or future P2P features keep all data local. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which pinned BotPsy artifacts and license, target-device measurements, multi-turn multilingual tasks and adversarial tool tests establish a safe bounded workload with explicit sensitive-action refusal? See [[indexes/gaps]].

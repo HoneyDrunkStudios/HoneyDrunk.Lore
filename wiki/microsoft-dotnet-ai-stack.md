@@ -1110,3 +1110,22 @@ Package guidance uses versioned distribution; copied skill freshness depends-on 
 ### Decision and quality notes
 
 Official exploratory delivery account, not a standardized NuGet auto-loading contract or an independent skill benchmark. Package provenance does not make embedded instructions authoritative. No package or skill was installed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned package/skill workflow verifies direct versus transitive discovery, copied-skill freshness, provenance, instruction trust, and task quality/cost across the actual models? See [[indexes/gaps]].
+
+## 2026-11-11: .NET 11 ships the MCP template while AI integration packages retain separate maturity
+
+### Typed entities
+
+project: .NET 11 SDK; library: MCP C# SDK; library: Microsoft.Extensions.AI; library: Microsoft Agent Framework; concept: AG-UI. file: raw/2026-11-11-rss-announcing-net-11.md.
+
+### Claims and evidence
+
+- The .NET 11 release announcement includes the MCP server template, while MEAI abstractions remain independently distributed NuGet packages. MAF agent/workflow composition does not require treating every AI integration as part of the stable runtime. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-announcing-net-11.md)
+- Blazor AI components remain experimental/prerelease throughout .NET 11 and AG-UI hosting is prerelease. Runtime release status does not establish stable UI/tool-approval protocol behavior. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-announcing-net-11.md)
+
+### Explicit relationships
+
+The SDK uses the MCP C# SDK; agent applications use MEAI and MAF. See [[generative-ui-and-a2ui]] and [[dotnet-runtime-and-mobile-2026]].
+
+### Decision and quality notes
+
+One release summary, no sample compiled or integration exercised. Prior Preview 4 template history remains; the latest release-stage assessment is in the runtime page. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which pinned .NET AI package set verifies MCP tools, MEAI composition and prerelease AG-UI approval/state flows independently of the released SDK? See [[indexes/gaps]].

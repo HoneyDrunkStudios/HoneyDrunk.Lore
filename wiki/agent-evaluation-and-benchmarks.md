@@ -1821,3 +1821,25 @@ Model comparison depends-on matched harness, effort, budget, grading and held-ou
 ### Decision and quality notes
 
 Primary vendor report with mixed internal/external scores and selected demos. superseded-by: [corrected forecasting interpretation](#2026-11-09-inkling-2-small-separates-release-plans-benchmark-budgets-and-forecasting-measures), 2026-11-09T09:22:16-05:00; the broad doubling claim above is superseded for decision use by the corrected seed baseline and separate unseen-error measure. Superlatives, planned licensing and demo spend are not adoption evidence. Private run identifiers, executable transcripts and unnecessary personal examples are omitted. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which released Inkling 2 Small artifact, license and model card can be verified, and can matched-budget held-out evaluations reproduce tool use, visual work, forecast quality and failure behavior? See [[indexes/gaps]].
+
+## 2026-11-11: Fable and Mythos comparisons require benchmark and safeguard scope
+
+### Typed entities
+
+project: Claude Fable 5.2; project: Claude Mythos 5.2; concept: evaluation budget; concept: benchmark comparability; concept: safeguard configuration. file: raw/2026-11-11-rss-introducing-claude-fable-5-2-and-claude-mythos-5-2.md.
+
+### Claims and evidence
+
+- The launch table reports Mythos 5.2 CVE Rediscovery at 89.6% versus Opus 5.5 at 81.3% without safeguards. The 8.3 percentage-point difference is about 10.2% relative; it is not a ten-point gain or a measured gain on all security tasks. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-introducing-claude-fable-5-2-and-claude-mythos-5-2.md)
+- The release narrative presents Mythos 5.2 as finding more vulnerabilities than earlier models; its footnote says vulnerability identification is roughly on par with Opus 5.5 and identifies tester counts as raw findings from one audit. Use the named benchmark numbers only for that setup; general superiority is not established by combining incompatible scopes. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-introducing-claude-fable-5-2-and-claude-mythos-5-2.md)
+- The advertised physics, hardware and robotics results and single-run thousand-agent formalization are demonstrations with specific budgets and verification paths. Different labs use different CyScenarioBench tasks; simulated robotics is separate from physical-device acceptance. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-introducing-claude-fable-5-2-and-claude-mythos-5-2.md)
+
+superseded-by: [2026-11-11-fable-and-mythos-comparisons-require-benchmark-and-safeguard-scope](#2026-11-11-fable-and-mythos-comparisons-require-benchmark-and-safeguard-scope); timestamp: 2026-11-11T08:39:34-05:00; reason: For decision use, the broad superiority narrative is superseded by the narrower benchmark-scoped reading above. The capture supports specific scores plus a parity caveat, not universal cyber superiority.
+
+### Explicit relationships
+
+Evaluation depends-on tasks, effort, safeguards, repetitions and verification; vendor reports do not supersede matched local tests. See [[claude-platform-2026]].
+
+### Decision and quality notes
+
+The source contains a broad cyber improvement narrative alongside a narrower parity footnote. Both are retained above; the defensible resolution is benchmark-specific improvement and no general vulnerability-discovery advantage. The linked system card and external reports need separate sourcing. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Can matched-task, matched-budget repetitions and the system card reconcile cyber headline versus parity footnote while separating simulation, real hardware and human-verified outcomes? See [[indexes/gaps]].

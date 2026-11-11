@@ -157,6 +157,8 @@ project: .NET; project: .NET Framework; concept: runtime servicing; concept: sec
 
 - Microsoft lists .NET 10.0.13, 9.0.21, and 8.0.32 in the October servicing announcement, covering security and non-security fixes. The capture links detailed release/security information and separate .NET Framework updates without including enough advisory detail to establish severity or affected configurations. confidence: 1 source, last-confirmed 2026-10-16 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-16-rss-net-and-net-framework-october-2026-servicing-releases-updates.md)
 
+superseded-by: [2026-11-11-november-servicing-distinguishes-runtime-package-and-generated-code-remediation](#2026-11-11-november-servicing-distinguishes-runtime-package-and-generated-code-remediation); timestamp: 2026-11-11T08:39:34-05:00; reason: The newer November 10 release matrix advances captured patch levels and distinguishes package/generated-code remediation. Earlier October history remains, including its intervening out-of-band update.
+
 ### Explicit relationships
 
 Patch assessment depends-on deployed runtime/package inventory and primary advisories; local SDK updates do not establish deployment remediation. See [[dotnet-runtime-and-mobile-2026]].
@@ -205,3 +207,23 @@ Runtime exposure depends-on untrusted-input reachability and the loaded decoder.
 ### Decision and quality notes
 
 Security-vendor synthesis. Cloud prevalence percentages describe Wiz observations, not HoneyDrunk exposure. Exact downstream patch tables are a dated discovery lead requiring vendor-specific confirmation before action; no patch or exploit was run. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which deployed artifacts actually decompress untrusted Brotli input, and which loaded-library, rebuild, restart, and regression evidence closes each affected path? See [[indexes/gaps]].
+
+## 2026-11-11: November servicing distinguishes runtime, package and generated-code remediation
+
+### Typed entities
+
+project: .NET servicing; library: System.Formats.Cbor; concept: Identity scaffolding; concept: generated application; decision: packaging-specific security remediation. file: raw/2026-11-11-rss-net-and-net-framework-november-2026-servicing-updates.md.
+
+### Claims and evidence
+
+- The November 10 Microsoft capture lists .NET 11.0.0, 10.0.15, 9.0.23 and 8.0.34, with version-specific security advisories and separate .NET Framework resources. The table spans runtime, ASP.NET and Visual Studio components; a version appearing there does not establish that every deployment has every listed exposure. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-net-and-net-framework-november-2026-servicing-updates.md)
+- For CVE-2026-118747 the capture requires a separate System.Formats.Cbor package update; the .NET 9 package fix is 9.0.24 rather than runtime 9.0.23. Runtime installation alone is insufficient for an application carrying the affected package. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-net-and-net-framework-november-2026-servicing-updates.md)
+- For CVE-2026-118741 the source requires updated Identity scaffolding/templates or their SDK and correction, rebuild and redeployment of previously generated applications. Updating templates or the host runtime does not retroactively repair generated code. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-net-and-net-framework-november-2026-servicing-updates.md)
+
+### Explicit relationships
+
+November servicing supersedes older captured patch-level guidance; remediation depends-on deployed packages and generated source as well as runtime. See [[dotnet-runtime-and-mobile-2026]].
+
+### Decision and quality notes
+
+Official servicing summary, not an advisory-by-advisory exposure assessment or live package inventory. No severity, exploitability or fix completeness is inferred beyond the capture. The existence of final .NET 8/9 servicing artifacts does not extend their captured end-of-support date. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which deployed artifact inventory verifies November runtime patches, explicit Cbor package fixes and repaired Identity-generated code across framework-dependent, self-contained and container releases? See [[indexes/gaps]].

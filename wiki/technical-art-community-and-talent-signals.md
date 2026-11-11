@@ -1625,3 +1625,23 @@ Repeatable reimport uses saved collection settings; interchange fidelity depends
 ### Decision and quality notes
 
 Official upcoming-release notes with unknown publication date. Preserve 5.3 pre-release status. Linked commits establish reported changes, not production asset acceptance; no build/asset round trip was exercised. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which pinned Blender 5.3 fixtures verify collection reimport, USD/glTF splat limits, KTX2, custom-property animation, Alembic attributes and ICC/OpenEXR color fidelity in target tools? See [[indexes/gaps]].
+
+## 2026-11-11: Blender geometry nodes add low-level grid and curve building blocks
+
+### Typed entities
+
+project: Blender 5.3; concept: volume grid; concept: Construct Curves; concept: curve offsets; concept: Miter Scale; concept: negative-determinant normals. file: raw/2026-11-11-web-blender-5-3-geometry-nodes.md.
+
+### Claims and evidence
+
+- The captured 5.3 notes add Rasterize Points, Poisson Solver, topology Boolean, voxel deactivation and grid-name nodes, plus sampling improvements. These are building blocks aimed toward custom fluid simulations, not a claim of a complete fluid workflow. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-web-blender-5-3-geometry-nodes.md)
+- Construct Curves consumes positions and offsets describing exclusive curve ranges: offsets 0, 3, 10, 12 define curves of 3, 7 and 2 points. Miter Scale and NURBS/Grease Pencil inputs expand curve and drawing control. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-web-blender-5-3-geometry-nodes.md)
+- Utility nodes add short lists, indexed vector components and geometry material lists. Realize Instances gains Preserve Normals for negative-determinant transforms, Bake gains path templates, and node-search usability changes accompany the feature set. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-web-blender-5-3-geometry-nodes.md)
+
+### Explicit relationships
+
+Procedural asset construction uses grid/curve topology; production migration depends-on pinned scene and export tests. See [[ai-assisted-game-development-pipelines]] and [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Official release-note capture with unknown publication date; clipping does not establish installed version or final release readiness. No scene, bake or simulation was run. Validate offsets, interpolation, normals and artifact paths before production use. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which pinned Blender scenes verify curve offset boundaries, grid sampling/topology, miter appearance, mirrored-instance normals and bake path templates across production exports? See [[indexes/gaps]].

@@ -187,3 +187,23 @@ Godot's 2026 signal is mobile maturity plus active 4.7 stabilization and renderi
 ### HoneyDrunk implications
 - If Godot prototypes need bullets, particles, crowds, projectiles, pooled enemies, or VFX emitters, profile allocation churn before reaching for C++ pooling.
 - Prefer engine-native/simple pooling first; consider ZeroAllocPool or a custom GDExtension only when GDScript pooling is proven hot.
+
+## 2026-11-11: Godot load profiling favors less geometry work and correct preload lifetimes
+
+### Typed entities
+
+project: Planet Wanderer; library: Godot WorkerThreadPool; library: Godot ResourceLoader; concept: MultiMesh; concept: footprint proxy; decision: profile individual load stages. file: raw/2026-11-11-rss-my-godot-level-load-fell-from-34-5-s-to-2-7-s-and-the-best-fix-removed.md.
+
+### Claims and evidence
+
+- One developer reports reducing a landing load from 34.5 seconds to 2.7 on one Windows machine. Frame slicing kept UI responsive, MultiMesh reduced plant overhead, and worker jobs operated on arrays collected from scene data on the main thread. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-my-godot-level-load-fell-from-34-5-s-to-2-7-s-and-the-best-fix-removed.md)
+- Using a low-detail far mesh for ground masks reduced the reported triangle walk from 8.3 seconds to 0.3. The observed plant counts changed slightly, so the evidence supports approximate footprint preservation rather than identical output. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-my-godot-level-load-fell-from-34-5-s-to-2-7-s-and-the-best-fix-removed.md)
+- Early ResourceLoader requests removed later blocking reads, while freeing those resources before the final consumer caused another disk read. A proposed duplicate-material cache did not help because the initial props were unique; finer-grained timing identified disk access instead. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-my-godot-level-load-fell-from-34-5-s-to-2-7-s-and-the-best-fix-removed.md)
+
+### Explicit relationships
+
+Load time depends-on measured work and resource lifetime; proxy geometry supersedes unnecessary full-detail traversal for an accepted mask tolerance. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Single-PC runs with changing baselines; the source treats sub-half-second changes as noisy and leaves a Windows/Linux gap unexplained. Do not add the individual timings as if from one controlled run, generalize a 13x gain, or turn this Godot 4 account into an engine release-status update. Verify visual and placement tolerances alongside speed. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which repeatable cold/warm target-device loads verify frame responsiveness, proxy-mask tolerance, worker ownership, preload release timing and the unexplained Windows/Linux difference? See [[indexes/gaps]].

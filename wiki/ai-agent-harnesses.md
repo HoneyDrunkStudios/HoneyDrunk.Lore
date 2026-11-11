@@ -2280,3 +2280,44 @@ Official workflow account, not a containment audit or guarantee that host-visibl
 Three captures from Thoughtworks, Microsoft, and Docker reinforce the design rationale that guidance delivery, task execution, and change validation need explicit ownership and artifacts. Thoughtworks describes harness lifecycle/evaluation, Microsoft describes version-matched package guidance with model-specific evaluation, and Docker describes checkout/environment tradeoffs. confidence: 3 sources, last-confirmed 2026-11-05 (moderate confidence for a shared design rationale; archived accounts synthesized). [Thoughtworks](../raw/2026-11-05-rss-the-harness-is-a-product.md), [Microsoft](../raw/2026-11-05-rss-delivering-skills-in-nuget-packages.md), [Docker](../raw/2026-11-05-rss-where-should-your-code-live-in-a-docker-sandbox.md).
 
 This strengthens rationale-level support, not source-specific benchmark, interoperability, or containment claims. The earlier Thoughtworks guide is related same-organization evidence rather than independent replication. Unreinforced product claims above remain provisional. Harness lifecycle depends-on versioned guidance, execution-state boundaries, and outcome evidence; no new HoneyDrunk process is established by this synthesis.
+
+## 2026-11-11: Long-horizon recovery needs domain state and authority beyond durable replay
+
+### Typed entities
+
+project: Temporal; project: Cloudflare Workflows; concept: entity workflow; concept: process workflow; concept: durable log; decision: bounded action authorization. file: raw/2026-11-11-rss-long-horizon-agents-and-durable-execution.md.
+
+### Claims and evidence
+
+- The Stock Replenisher example records model and external-tool results as durable steps while deterministic local state logic replays. Durable waits and timers survive process loss; an entity owns stable addressing and serializes finite process workflows for its business object. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-long-horizon-agents-and-durable-execution.md)
+- Unrecorded external actions may execute again. Stable business idempotency keys and receiver deduplication are required; a failed call can still have changed the provider, so uncertain outcomes need reconciliation or domain compensation rather than an assumed rollback. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-long-horizon-agents-and-durable-execution.md)
+- The harness filters allowed tools and checks approval provenance and current facts at execution. Expiry, re-reading before commitment and explicitly approved ranges handle stale decisions; supplier text cannot grant manager authority. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-long-horizon-agents-and-durable-execution.md)
+- Recorded history is a compatibility contract: rules and state/step schemas need versioned replay and planned retirement. A fresh history bounds replay work, but carried business state and the separate context shown to the model still need retention and relevance policies. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-long-horizon-agents-and-durable-execution.md)
+
+### Explicit relationships
+
+Durable agents depend-on replay, idempotent receivers and current authorization; memory retrieval uses a separate context policy. See [[distributed-systems-patterns]] and [[agent-context-management-and-session-continuity]].
+
+### Decision and quality notes
+
+Practitioner design with Temporal and Cloudflare examples, not a turnkey implementation. The shown relay only forwards to an active workflow; late approvals and ownership must bind to the intended immutable operation. Splitting cancellation messaging and cancellation effects needs separate reconciliation. Measured local/deployed wake times are not general SLAs, and carrying an ever-growing outcomes list does not bound all state. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which durable-agent fault tests bind late messages to operation identity, reconcile lost acknowledgements, preserve approvals across code versions, bound retained state and prevent duplicate effects after retries or compensation? See [[indexes/gaps]].
+
+## 2026-11-11: An AI gateway needs semantic cache isolation and policy-aware budget fallback
+
+### Typed entities
+
+project: Heimdall; library: Microsoft Presidio; library: spaCy; concept: semantic cache; concept: budget guard; concept: complexity router; decision: explicit fallback policy. file: raw/2026-11-11-rss-we-built-an-ai-control-plane-to-reduce-llm-expenses-and-prevent-data-l.md.
+
+### Claims and evidence
+
+- The Thoughtworks hackathon account describes a proxy combining fail-closed PII scrubbing, semantic caching, complexity routing, budget-driven model fallback and OpenTelemetry. Scrubbing and complexity scoring are reported as parallel work, while outbound transmission must still depend on successful scrubbing. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-we-built-an-ai-control-plane-to-reduce-llm-expenses-and-prevent-data-l.md)
+- A four-week pilot with six people reports 36.4% of requests reaching paid APIs, 34.2% cache hits and 4,170 prevented leaks. These are author-reported counters with no supplied detector ground truth or task-quality control; avoided paid requests are not measured total-cost savings. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-we-built-an-ai-control-plane-to-reduce-llm-expenses-and-prevent-data-l.md)
+- The cache strips IDE metadata and budget fallback can change providers/models, including local inference. Whether a path or cursor is irrelevant depends on the task, and a cheaper/local route does not prove equivalent authorization, privacy, correctness or zero operating cost. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-we-built-an-ai-control-plane-to-reduce-llm-expenses-and-prevent-data-l.md)
+
+### Explicit relationships
+
+Gateway policy depends-on identity, task context and approved model/data destinations; budget fallback does not supersede hard spending or security constraints. See [[enterprise-agent-business-semantics]], [[ai-coding-agent-security]] and [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Small author-operated pilot. Treat the 14 ms overhead, price ratios and prevention counts as scoped observations, not guarantees. A fail-closed scrubber must gate every cache/provider path; sensitive cache keys, content isolation, stale answers and fallback quality need tests. No gateway or routing policy was installed. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which gateway replay verifies tenant/task-aware cache keys, scrubber fail-closed behavior, detector precision/recall, full local/cloud cost, quality-preserving fallback and enforceable hard budget limits? See [[indexes/gaps]].

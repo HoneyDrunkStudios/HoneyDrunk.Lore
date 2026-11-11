@@ -1878,3 +1878,44 @@ Browser workflows depend-on workspace identity, approvals and private traces; re
 ### Decision and quality notes
 
 Official roundup restates some compiled announcements and adds no independent support for them. Its Decisions code contains an existing redaction marker that breaks the snippet; do not copy as runnable code. Service, client and deployment maturity stay separate. No current price, quota, event schedule or availability recommendation is made. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which pinned Foundry matrix verifies Browser Automation trace privacy, Decisions calibration/refusal handling, Core/Responses compatibility and protocol-scoped recovery before deployment? See [[indexes/gaps]].
+
+## 2026-11-11: Dapr component resiliency has directional policies and ambiguous breaker prose
+
+### Typed entities
+
+project: Azure Container Apps; library: Dapr; concept: outbound component operation; concept: inbound delivery; concept: resiliency policy; decision: verify effective configuration. file: raw/2026-11-11-web-dapr-component-resiliency-preview.md.
+
+### Claims and evidence
+
+- The preview document separates outbound sidecar-to-component calls from inbound sidecar-to-application deliveries. It describes timeouts, HTTP retries and circuit breakers for these component paths; this is not the same policy surface as service discovery. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-web-dapr-component-resiliency-preview.md)
+- The capture says partial CLI create/update settings can receive recommended defaults, the portal currently exposes only timeout/retry configuration, and Dapr applications need restart after policy application. Loaded configuration can be inspected in daprd console logs. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-web-dapr-component-resiliency-preview.md)
+- The breaker property table describes timeoutInSeconds as an open-state period and intervalInSeconds as a counter-reset interval, but the process prose describes half-open waiting and unconditional closing. This capture does not establish a coherent exact state machine. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-web-dapr-component-resiliency-preview.md)
+
+### Explicit relationships
+
+Dapr component resilience depends-on operation direction, effective defaults and restarted sidecars. It complements, rather than supersedes, service-discovery policies. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Official preview snapshot with unknown publication date. Table/prose conflicts, outbound versus outboundPolicy example shapes and parent placeholders make the examples unsuitable as validated templates. Prefer the narrow field descriptions for conceptual modeling, with exact breaker transitions explicitly unresolved until pinned runtime/API tests; no guessed state machine or Azure change was made. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which pinned Dapr/Container Apps tests verify effective defaulting, restart/load evidence, policy schema, inbound/outbound retries and exact breaker open/half-open/reset behavior under faults? See [[indexes/gaps]].
+
+## 2026-11-11: Service discovery policies attach to the destination and exclude Dapr invocation
+
+### Typed entities
+
+project: Azure Container Apps; concept: destination policy; concept: replica ejection; concept: connection pool; concept: retry match; decision: bound retry amplification. file: raw/2026-11-11-web-service-discovery-resiliency-preview.md.
+
+### Claims and evidence
+
+- The preview documentation permits one service-discovery resiliency policy per destination container app. It applies to requests to that app, not automatically to requests from it, and explicitly excludes Dapr Service Invocation API requests. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-web-service-discovery-resiliency-preview.md)
+- The surface includes connection/response timeouts, HTTP match-based retries, TCP connection attempts, replica-ejection breakers and connection-pool limits. Partial CLI settings may acquire recommended defaults, so a narrow-looking update can change more behavior than its explicit flag. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-web-service-discovery-resiliency-preview.md)
+- The captured ejection rule removes at least one host regardless of maxEjectionPercent; a small percentage is not a no-ejection guarantee for a small pool. The document states a default TCP maxConnections of 10,240 when omitted. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-web-service-discovery-resiliency-preview.md)
+- Resiliency system logs and metrics can show retries and failures. The examples contain create/update mismatches, non-ASCII flag dashes and inconsistent field descriptions; they require schema and runtime verification before execution. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-web-service-discovery-resiliency-preview.md)
+
+### Explicit relationships
+
+Service discovery uses destination policy; safe retrying depends-on idempotency and a total attempt budget across layers. See [[distributed-systems-patterns]] and [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Official preview capture, not verified production behavior. Do not equate pending HTTP/1 request limits with open connections or assume every 4xx is retryable from the table wording. Keep Dapr component policies separate and test low-replica ejection, overlapping retries and client deadlines before adoption. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which destination-policy tests verify Dapr exclusion, effective defaults, HTTP/TCP matching, pool-limit semantics, small-pool ejection and bounded total retries with the actual Container Apps API and CLI? See [[indexes/gaps]].

@@ -519,3 +519,24 @@ Anthropic's 2026 platform direction is enterprise/workflow-heavy: Claude Opus 4.
 
 ### Quality notes
 - AWS is authoritative for its availability announcement. Live Bedrock regional availability, quotas, pricing, model IDs, and retention terms are time-sensitive.
+
+## 2026-11-11: Fable and Mythos 5.2 separate model capability, safeguards and access
+
+### Typed entities
+
+project: Claude Fable 5.2; project: Claude Mythos 5.2; concept: verified model access; concept: preserved thinking; concept: Enterprise Frontier Safeguards. file: raw/2026-11-11-rss-introducing-claude-fable-5-2-and-claude-mythos-5-2.md.
+
+### Claims and evidence
+
+- Anthropic announces Fable 5.2 and Mythos 5.2 as the same underlying model with different cyber/biology safeguards and access rules. The capture positions Opus 5.5 as the general daily model and Fable/Mythos for harder technical work; this is vendor positioning, not a HoneyDrunk routing decision. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-introducing-claude-fable-5-2-and-claude-mythos-5-2.md)
+- The release reports speed/price changes and an optional fast mode with platform-specific availability. Mythos requires applicable verification access; Fable can transparently fall back to other models on blocked topics. A requested model identifier does not by itself prove every response used that model. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-introducing-claude-fable-5-2-and-claude-mythos-5-2.md)
+- Preserved thinking expands across API accounts. Enterprise Frontier Safeguards is described as private beta with eligible zero-retention paths and otherwise 30-day safety retention; tenant eligibility, monitoring location and integration compatibility require direct confirmation before sensitive use. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-introducing-claude-fable-5-2-and-claude-mythos-5-2.md)
+- The vendor reports improved coding, scientific and robotics evaluations, but CyScenarioBench tasks differ by lab, RoboDojo benchmark results are internal simulation runs and the 1,000-agent formalization comparison is one run per model. The system card and external evaluators were not independently inspected in this ingest. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-introducing-claude-fable-5-2-and-claude-mythos-5-2.md)
+
+### Explicit relationships
+
+Fable and Mythos use a shared model with different safeguards; adoption depends-on actual access, fallback, retention and evaluation contracts. See [[agent-evaluation-and-benchmarks]], [[robotics-foundation-models-and-embodied-ai]] and [[formal-methods-and-agent-verification]].
+
+### Decision and quality notes
+
+First-party launch capture, not proof of general autonomy, physical-device reliability or independent safety. Preserve the earlier model history; release prices and promotional quotas are not evergreen quotes. The source itself says external evaluators did not review the blog/system-card contents. Its cyber headline and narrower footnote are reconciled in the benchmark page. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which matched-budget local tasks and tenant checks verify Fable/Mythos 5.2 access, fallback identity, preserved-thinking compatibility, retention, safety failures and full orchestration cost? See [[indexes/gaps]].

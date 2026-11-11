@@ -5,6 +5,8 @@
 
 Release-stage reconciliation: the summary above retains the May preview perspective. superseded-by: [RC2 capture assessment](#2026-10-16-net-11-rc2-advances-the-captured-release-stage), 2026-10-16T16:55:15-04:00; newer first-party release evidence establishes RC2 with go-live support as the latest stage represented here. This supersedes the release-stage framing only, not the historical feature claims or the need for validation.
 
+superseded-by: [2026-11-11-net-11-release-supersedes-rc-status-while-feature-previews-remain](#2026-11-11-net-11-release-supersedes-rc-status-while-feature-previews-remain); timestamp: 2026-11-11T08:39:34-05:00; reason: The November 10 official release announcement is newer than the RC2/RC3 captures. Only latest-release framing is superseded; dated preview observations and still-preview features remain.
+
 ## Claims
 - Starting in .NET 11 Preview 4, CoreCLR is the default runtime for .NET MAUI apps on Android, iOS, Mac Catalyst, and tvOS; Blazor WebAssembly remains on Mono. confidence: 1 source, last-confirmed 2026-05-17. [source: raw/2026-05-16-rss-net-blog-net-maui-moves-to-coreclr-in-net-11.md]
 - The MAUI/CoreCLR move is intended to unify mobile with server/desktop runtime behavior and unlock tiered JIT, ReadyToRun, PGO, and a clearer NativeAOT path, but Microsoft reports community regressions in larger Android app startup/package size and recommends app-specific measurement. confidence: 1 source, last-confirmed 2026-05-17. [source: raw/2026-05-16-rss-net-blog-net-maui-moves-to-coreclr-in-net-11.md]
@@ -1035,6 +1037,8 @@ project: .NET 8; project: .NET 9; project: .NET 10; project: .NET 11 RC3; concep
 - The post identifies Brotli memory-corruption exposure through request decompression, automatic HttpClient response decompression, and Brotli APIs; the two middleware/client decompression options are not enabled by default. It states .NET Framework is unaffected. Linux tarball ownership exposure differs: source-build artifacts on .NET 10/11, also ASP.NET Core runtime tarballs on .NET 8/9. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-rss-net-october-2026-out-of-band-security-updates.md)
 - Framework-dependent deployments need the updated targeted runtime and restart. Self-contained applications need rebuild/republish; containers need rebuilt redeployment; source-build and affected tarball consumers need refreshed artifacts. A host runtime listing alone does not verify bundled deployments. confidence: 1 source, last-confirmed 2026-10-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-10-26-rss-net-october-2026-out-of-band-security-updates.md)
 
+superseded-by: [2026-11-11-net-11-release-supersedes-rc-status-while-feature-previews-remain](#2026-11-11-net-11-release-supersedes-rc-status-while-feature-previews-remain); timestamp: 2026-11-11T08:39:34-05:00; reason: The final .NET 11 release replaces RC3 as the captured release stage; November servicing versions are recorded in the dependency-security page. Earlier fix-specific evidence is preserved.
+
 ### Explicit relationships
 
 OOB servicing supersedes earlier captured patch levels and RC2 for these fixes. Remediation depends-on deployment packaging and loaded runtime. See [[dotnet-dependency-security-and-nuget]].
@@ -1376,3 +1380,24 @@ Runtime adoption depends-on OS/CPU/runtime/compilation mode; state concurrency m
 ### Decision and quality notes
 
 Official documentation last updated for RC2, not a final-release/latest-RC claim. Preview and platform limits remain explicit. No upgrade, profiler run, device test or unsafe-code change was performed. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which pinned runtime/device matrix verifies CPU/R2R fallback, Runtime Async diagnostics/ambient context, iOS/tvOS FileShare behavior, suspension safety and WebAssembly/AOT recovery? See [[indexes/gaps]].
+
+## 2026-11-11: .NET 11 release supersedes RC status while feature previews remain
+
+### Typed entities
+
+project: .NET 11; library: .NET MAUI; library: System.Text.Json; concept: Runtime Async; concept: Native AOT; decision: versioned upgrade validation. file: raw/2026-11-11-rss-announcing-net-11.md.
+
+### Claims and evidence
+
+- The November 10 Microsoft announcement states that .NET 11 is released with two years of Standard Term Support, while .NET 10 remains an LTS option. It states that .NET 8 and 9 reach end of support on November 10. These are captured lifecycle statements, not a verified inventory of any deployed application. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-announcing-net-11.md)
+- C# 15 is the net11.0 default; the release includes an AOT CLI host, warm MSBuild server, expanded Process APIs, Zstandard compression and memory-backed stream adapters. Runtime Async for application compilation remains preview even though the runtime libraries use it. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-announcing-net-11.md)
+- MAUI uses CoreCLR by default; Apple platforms that prohibit JIT use precompiled code and the interpreter. Native AOT remains opt-in, Android Native AOT and DevFlow are experimental, incremental XAML Hot Reload is preview, and MAUI has a separate support lifecycle. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-announcing-net-11.md)
+- ASP.NET union support covers JSON bodies rather than all binding sources; ambiguous shapes require classification. OpenAPI 3.2 defaults can require generator compatibility checks. F# union JSON support excludes source generation, trimming and Native AOT; EF Core 11 requires .NET 11 and its SQL Server vector features remain experimental. confidence: 1 source, last-confirmed 2026-11-11 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-11-rss-announcing-net-11.md)
+
+### Explicit relationships
+
+.NET 11 release supersedes the RC3 release-stage record; migration depends-on SDK, workloads, native dependencies, publishing mode and compatibility tests. See [[microsoft-dotnet-ai-stack]], [[csharp-memory-safety-and-unsafe-code]] and [[dotnet-dependency-security-and-nuget]].
+
+### Decision and quality notes
+
+Official release announcement. General availability does not graduate every optional feature or verify a HoneyDrunk upgrade. No SDK, database schema, project target or installed package was changed. Performance and support statements stay tied to the captured date. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which pinned .NET 11 upgrade matrix verifies SDK/workload compatibility, CPU and native dependencies, JSON/OpenAPI consumers, MAUI handlers and publishing modes while keeping experimental features explicitly opt-in? See [[indexes/gaps]].

@@ -557,3 +557,21 @@ Overload recovery uses pacing and bounded backoff; repeatability depends-on oper
 ### Decision and quality notes
 
 Vendor educational framing; providers use throttling terminology differently. Built-in Retry On Fail is not evidence of automatic exponential backoff or a globally shared quota. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which workflow tests honor provider delays, cap total attempts/time across workers, avoid duplicate effects, and route exhausted or permanent failures visibly? See [[indexes/gaps]].
+
+## 2026-11-11: Durable recovery reinforces separate external-effect reconciliation
+
+### Typed entities
+
+concept: durable replay; concept: uncertain side effect; concept: idempotent receiver; decision: reconcile authoritative outcomes.
+
+### Claims and evidence
+
+- Microsoft Durable Task guidance, Vercel durable-harness design and the Thoughtworks long-horizon example all separate replayed history from uncertain external effects. Together they strengthen the qualitative design principle that durable coordination still needs application idempotency, external receipts and current authorization. confidence: 3 sources, last-confirmed 2026-11-11; stronger conceptual support, not three independent implementation tests. [source 1](../raw/2026-10-13-rss-durable-task-in-the-real-world-what-problems-does-it-actually-solve.md) [source 2](../raw/2026-10-21-rss-making-every-harness-durable.md) [source 3](../raw/2026-11-11-rss-long-horizon-agents-and-durable-execution.md)
+
+### Explicit relationships
+
+Durable replay depends-on recorded history; safe side effects depend-on authoritative reconciliation and operation identity. See [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Retain vendor-specific replay differences and the distinction between unknown and failed. The new example's deterministic policy checks, versioned rules and domain compensation reinforce this existing canonical concept; they do not establish global exactly-once effects or authorize a new workflow runtime. Open question: Which worker-crash, late-event and version-migration fixtures prove reconciliation for the selected HoneyDrunk workflow? See [[indexes/gaps]].
