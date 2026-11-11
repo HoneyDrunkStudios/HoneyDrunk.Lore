@@ -4,7 +4,7 @@ Questions the wiki cannot currently answer. Populated by the Query operation whe
 
 ## Compile status: 2026-11-11
 
-Cataloged 1011 dated gap entries alongside the current 67-page catalog. Added 18 questions and closed 0 gaps in the follow-up pass after concurrent sourcing completed. Existing questions and their history are preserved below. The earlier November-enforcement question is historical; use the November 5 question and canonical supersession for the revised schedule.
+Reconciled 1011 dated gap entries alongside the current 67-page catalog at 2026-11-11T09:08:23-05:00. This pass added 0 questions and closed 0 gaps; the earlier November 11 pass added 18 questions. Existing questions and their history are preserved below. The earlier November-enforcement question is historical; use the November 5 question and canonical supersession for the revised schedule.
 
 ## Entry format
 

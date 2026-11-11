@@ -4,7 +4,7 @@ Auto-maintained by the Ingest and Compile operations. Every file added to `raw/`
 
 ## Compile coverage: 2026-11-11
 
-Reconciled 1472 raw documents against 1472 unique entries; ingested 15 new sources in the follow-up pass after concurrent sourcing completed. Existing records and dates are preserved. All 13 historical query outputs repeat compiled evidence and add no independent support.
+Reconciled 1472 raw documents against 1472 unique entries at 2026-11-11T09:08:23-05:00; no unprocessed sources remain. This pass ingested 0 sources; the earlier November 11 pass ingested 15. Existing records and dates are preserved. All 13 historical query outputs repeat compiled evidence and add no independent support.
 
 ## Entry format
 
