@@ -2,9 +2,9 @@
 
 Questions the wiki cannot currently answer. Populated by the Query operation when synthesis falls short, and by the Lint operation when entities are referenced but lack a backing page.
 
-## Compile status: 2026-11-11
+## Compile status: 2026-11-12
 
-Reconciled 1011 dated gap entries alongside the current 67-page catalog at 2026-11-11T09:08:23-05:00. This pass added 0 questions and closed 0 gaps; the earlier November 11 pass added 18 questions. Existing questions and their history are preserved below. The earlier November-enforcement question is historical; use the November 5 question and canonical supersession for the revised schedule.
+Reconciled 1021 dated gap entries alongside the current 67-page catalog at 2026-11-12T09:05:18-05:00. This pass added 10 questions and closed 0 gaps; all 1011 prior entries and their history remain. Six recaptures retain their existing validation gaps. Historical rollout questions remain historical; follow canonical supersession notes for current captured assessments.
 
 ## Entry format
 
@@ -1323,3 +1323,17 @@ Reconciled 1011 dated gap entries alongside the current 67-page catalog at 2026-
 - Which pinned .NET AI package set verifies MCP tools, MEAI composition and prerelease AG-UI approval/state flows independently of the released SDK? - surfaced 2026-11-11 - context: [[microsoft-dotnet-ai-stack]]; [source](../../raw/2026-11-11-rss-announcing-net-11.md).
 - Which compiler fixtures verify released C# 15 versus memory-safety preview behavior in the selected production toolchain? - surfaced 2026-11-11 - context: [[csharp-memory-safety-and-unsafe-code]]; [source](../../raw/2026-11-11-rss-announcing-net-11.md).
 - Can matched-task, matched-budget repetitions and the system card reconcile cyber headline versus parity footnote while separating simulation, real hardware and human-verified outcomes? - surfaced 2026-11-11 - context: [[agent-evaluation-and-benchmarks]]; [source](../../raw/2026-11-11-rss-introducing-claude-fable-5-2-and-claude-mythos-5-2.md).
+
+
+## 2026-11-12 compile gaps
+
+- Which rollout rehearsal verifies old/new cache-key compatibility, cold-cache load, feature-toggle reversal and downstream recovery before relying on rollback? - surfaced 2026-11-12 - context: [[distributed-systems-patterns]]; [source](../../raw/2026-11-12-rss-7-production-habits-we-learned-at-wix-the-hard-way.md).
+- Which pinned A2UI 1.0 renderer/host matrix verifies negotiation with 0.9 clients, SDK package identity, first useful render, accessibility, data minimization and authorized idempotent actions? - surfaced 2026-11-12 - context: [[generative-ui-and-a2ui]]; [source](../../raw/2026-11-12-rss-a2ui-1-0-build-delightful-fast-reliable-agentic-experiences.md).
+- Which seeded arrow-puzzle corpus verifies body geometry, blocking-edge direction, full removal, generation budgets, structural duplicates and player-calibrated difficulty under the exact rules? - surfaced 2026-11-12 - context: [[procedural-world-persistence]]; [source](../../raw/2026-11-12-rss-how-to-generate-arrow-puzzles-7-algorithms-behind-procedural-level-gen.md).
+- Which representative behavior suite verifies DSL parser/printer fidelity, mutation sensitivity, independent expected-output oracles, protected runner/data changes and provider-simulator limits before relying on tests as data? - surfaced 2026-11-12 - context: [[api-testing-and-verification]]; [source](../../raw/2026-11-12-rss-tests-as-data.md).
+- Which pinned Lore retrieval corpus and engine compare independent recall/ranking judgments, repeated seeds, pooling calibration drift, full index memory and end-to-end latency before compressed multi-vector adoption? - surfaced 2026-11-12 - context: [[agentic-retrieval-and-search]]; [source](../../raw/2026-11-12-rss-token-pooling-aware-training-for-multi-vector-embedding-models.md).
+- Which pinned Blender 5.3 rig fixtures verify preview/scene range, constrained-target rejection, rotation conversion fidelity, shape-key selection and exported animation across target tools? - surfaced 2026-11-12 - context: [[technical-art-community-and-talent-signals]]; [source](../../raw/2026-11-12-web-blender-5-3-animation-rigging.md).
+- Which licensed repositories are eligible for workflow-log scanning, and which synthetic post-enable runs verify supported patterns, exclusions, alert retention and explicit review without notifications? - surfaced 2026-11-12 - context: [[github-actions-platform-operations]]; [source](../../raw/2026-11-12-web-secret-scanning-detects-secrets-in-github-actions-workflow-logs.md).
+- Which same-cluster cost replay reconciles workload ownership, 24-hour sync lag, sparse hours, actual pricing, external estimates and effective platform-page RBAC before trusting Argo cost attribution? - surfaced 2026-11-12 - context: [[kubernetes-platform-governance-and-cicd]]; [source](../../raw/2026-11-12-web-see-what-your-argo-cd-applications-cost.md).
+- Which pinned ASP.NET Core 11 upgrade fixtures verify OpenAPI consumers/SSE, union protocols, QuickGrid bookmarks and multi-grid isolation, SSR/session/CSRF behavior, async cancellation and identity-refresh refusal paths? - surfaced 2026-11-12 - context: [[dotnet-runtime-and-mobile-2026]]; [source](../../raw/2026-11-12-web-what-s-new-in-asp-net-core-in-net-11.md).
+- Which pinned Blazor AI component flow verifies streaming block updates, renderer precedence, approval identity binding, cancellation and rejection/replay behavior with the experimental backend packages? - surfaced 2026-11-12 - context: [[microsoft-dotnet-ai-stack]]; [source](../../raw/2026-11-12-web-what-s-new-in-asp-net-core-in-net-11.md).

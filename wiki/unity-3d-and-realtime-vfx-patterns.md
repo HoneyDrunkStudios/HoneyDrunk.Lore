@@ -2209,3 +2209,22 @@ Asset reuse depends-on provenance, ownership and variant compatibility; training
 ### Decision and quality notes
 
 Vendor-hosted customer account, not an independent storage benchmark or compliance certification. Government-specific controls are context, not a HoneyDrunk deployment requirement. Preserve license/ownership and dependency evidence before adopting a shared library; no protected model or personal contact detail is copied. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which representative asset catalog verifies source provenance, ownership, classification, variant dependencies, actual cross-build deduplication and rollback when shared components change? See [[indexes/gaps]].
+
+
+## 2026-11-12: SEED recapture preserves scene-specific rendering evidence
+
+### Typed entities
+
+project: SEED; project: Klang Games; project: Unity 6.3; library: URP; library: Addressables; concept: GPU Resident Drawer; concept: Mesh LOD. file: raw/2026-11-12-rss-how-seed-renders-a-world-players-never-stop-building.md.
+
+### Claims and evidence
+
+- The November 12 recapture repeats the same Unity interview: restored player-built scenes exposed animated LOD-crossfade instancing loss on PC, while mobile work emphasized duplicate dependencies and resident geometry. The team's per-platform Addressables and Mesh LOD choices remain workload-specific evidence, not universal compatibility or savings guarantees. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-rss-how-seed-renders-a-world-players-never-stop-building.md)
+
+### Explicit relationships
+
+Profiling uses realistic restored worlds; platform acceptance depends-on actual draw paths, picking behavior and device memory. See [[procedural-world-persistence]].
+
+### Decision and quality notes
+
+Same publisher/interview as November 7; extra images, captions and marketing do not add independent confirmation. Existing sanitized-scene/device validation gap retained. No player snapshot, Editor or device was accessed. Source-specific claims remain provisional; recaptures and derived queries add no independent support.

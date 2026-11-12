@@ -1645,3 +1645,24 @@ Procedural asset construction uses grid/curve topology; production migration dep
 ### Decision and quality notes
 
 Official release-note capture with unknown publication date; clipping does not establish installed version or final release readiness. No scene, bake or simulation was run. Validate offsets, interpolation, normals and artifact paths before production use. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which pinned Blender scenes verify curve offset boundaries, grid sampling/topology, miter appearance, mirrored-instance normals and bake path templates across production exports? See [[indexes/gaps]].
+
+
+## 2026-11-12: Blender animation transfer has explicit constraint and range boundaries
+
+### Typed entities
+
+project: Blender 5.3; library: Rigify; concept: world-space animation; concept: rotation-mode conversion; concept: constrained bone; concept: Spline IK. file: raw/2026-11-12-web-blender-5-3-animation-rigging.md.
+
+### Claims and evidence
+
+- The captured 5.3 notes add multi-object/bone world-space animation copy/paste, using the preview range or scene range fallback. Pasting to constrained objects or bones is explicitly unsupported. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-web-blender-5-3-animation-rigging.md)
+- The new anim.rotation_mode_convert operator replaces the deprecated Rigify pose.convert_rotation path, supports selected objects/bones and is exposed through Python. Notes also describe multi-selection shape-key duplication and a pose-paste influence slider. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-web-blender-5-3-animation-rigging.md)
+- Playback scrubbing pauses/resumes playback and wrap-playhead is configurable. Rigify spine/head B-Bone segment settings preserve prior defaults; forward-compatible Spline IK reads cap future chains at 255 bones rather than importing all future behavior. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-web-blender-5-3-animation-rigging.md)
+
+### Explicit relationships
+
+Animation transfer depends-on selected targets, copy range, constraints and rotation representation. Rigify conversion is superseded by the new operator in the captured 5.3 notes. See [[ai-assisted-game-development-pipelines]].
+
+### Decision and quality notes
+
+Official release-note capture with unknown publication date; release availability and exact build are not established. No animation, rig, Blender instance or asset was edited. Test transforms and exports against the production toolchain. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which pinned Blender 5.3 rig fixtures verify preview/scene range, constrained-target rejection, rotation conversion fidelity, shape-key selection and exported animation across target tools? See [[indexes/gaps]].

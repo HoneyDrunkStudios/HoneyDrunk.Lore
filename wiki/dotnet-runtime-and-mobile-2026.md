@@ -1401,3 +1401,56 @@ project: .NET 11; library: .NET MAUI; library: System.Text.Json; concept: Runtim
 ### Decision and quality notes
 
 Official release announcement. General availability does not graduate every optional feature or verify a HoneyDrunk upgrade. No SDK, database schema, project target or installed package was changed. Performance and support statements stay tied to the captured date. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which pinned .NET 11 upgrade matrix verifies SDK/workload compatibility, CPU and native dependencies, JSON/OpenAPI consumers, MAUI handlers and publishing modes while keeping experimental features explicitly opt-in? See [[indexes/gaps]].
+
+
+## 2026-11-12: Arm64 recapture retains target-architecture validation
+
+### Typed entities
+
+project: GitHub Copilot upgrade agent; project: Windows Arm64; concept: native binary; concept: portability acceptance. file: raw/2026-11-12-web-modernize-your-net-apps-for-windows-arm64-with-github-copilot.md.
+
+### Claims and evidence
+
+- The November 12 web capture repeats the November 5 upgrade-agent announcement: assess architecture assumptions and native/package compatibility, review the plan and changes, then validate on Windows Arm64 hardware or matching CI. A cross-build remains a checkpoint; performance tuning and measured savings are outside the migration scenario. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-web-modernize-your-net-apps-for-windows-arm64-with-github-copilot.md)
+
+### Explicit relationships
+
+Migration acceptance depends-on runtime execution and native dependencies. See [[ai-assisted-software-practice]].
+
+### Decision and quality notes
+
+Same announcement as the November 7 RSS capture; no independent support added and the existing hardware/CI gap remains. No migration, SDK installation or hardware test was performed. Source-specific claims remain provisional; recaptures and derived queries add no independent support.
+
+
+## 2026-11-12: ASP.NET Core 11 contracts require feature-specific compatibility checks
+
+### Typed entities
+
+project: ASP.NET Core 11; library: QuickGrid; library: SignalR; library: Microsoft.AspNetCore.OpenApi; library: Microsoft.Extensions.Validation; concept: JSON union; concept: automatic CSRF protection. file: raw/2026-11-12-web-what-s-new-in-asp-net-core-in-net-11.md.
+
+### Claims and evidence
+
+- The captured notes describe OpenAPI 3.2 as the default, changed OpenAPI.NET dependency contracts and per-event itemSchema for SSE. TypedResults.ServerSentEvents selects SSE; returning IAsyncEnumerable<SseItem<T>> directly produces JSON. HTTP QUERY has native 3.2 representation and an extension for older document formats. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-web-what-s-new-in-asp-net-core-in-net-11.md)
+- C# unions apply to System.Text.Json bodies and the JSON SignalR protocol, not route/query/header/form binding or MessagePack/Newtonsoft hub protocols. Union OpenAPI cases use anyOf without the polymorphic discriminator; ambiguous JSON shapes need a classifier. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-web-what-s-new-in-asp-net-core-in-net-11.md)
+- QuickGrid URL state uses column titles and query parameters, so title renames break bookmarks. Multiple grids need distinct parameter names and PaginationState instances. The navigation switch restores button markup but the documented sort/page methods still read/write URLs. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-web-what-s-new-in-asp-net-core-in-net-11.md)
+- Blazor static-SSR client validation complements server validation, while asynchronous validators have cancellation/progress paths. Session-backed streaming SSR issues its session cookie before streaming; automatic CSRF middleware can remove the need for a manual UseAntiforgery call without removing CSRF protection. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-web-what-s-new-in-asp-net-core-in-net-11.md)
+- General SignalR authentication refresh is enabled per hub, with server identity acceptance hooks and .NET/TypeScript client support; Blazor enables its integrated circuit refresh automatically. Updated UI claims do not by themselves prove safe identity continuity, revocation or downstream authorization. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-web-what-s-new-in-asp-net-core-in-net-11.md)
+- The notes include native HTTP server tracing from the Microsoft.AspNetCore activity source, Vary: Accept-Encoding for compression-enabled responses, trailer-header timeout protection and default zstd when the compression/decompression middleware is configured. Application Runtime Async compilation, experimental DBSC and experimental UI features retain their separate maturity. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-web-what-s-new-in-asp-net-core-in-net-11.md)
+
+### Explicit relationships
+
+Migration depends-on generated clients, protocol/binding choices, middleware order, authorization and UI state contracts. See [[microsoft-dotnet-ai-stack]], [[opentelemetry-genai-observability-and-ecosystem]] and [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+Official versioned documentation capture, but publication date is unknown and it retains preview boilerplate and inconsistent historical labels. The November 10 release announcement remains the release-stage authority; this page does not revert .NET 11 to preview. QuickGrid AnchorMode/ItemComparer and DBSC are explicitly experimental. No sample was built, SDK changed, service deployed or authentication path tested. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which pinned ASP.NET Core 11 upgrade fixtures verify OpenAPI consumers/SSE, union protocols, QuickGrid bookmarks and multi-grid isolation, SSR/session/CSRF behavior, async cancellation and identity-refresh refusal paths? See [[indexes/gaps]].
+
+### Resolved source contradictions: navigation switch and union version
+
+Preserved source framing: the QuickGrid subsection calls its switch a way to disable URL-based navigation.
+
+- superseded-by: [switch scope](#2026-11-12-aspnet-core-11-contracts-require-feature-specific-compatibility-checks); timestamp: 2026-11-12T09:05:18-05:00; reason: the same subsection explicitly says the switch changes anchor/button rendering while sort/page methods still navigate and retain URL state. Prefer that detailed contract over the broad heading. [captured source](../raw/2026-11-12-web-what-s-new-in-asp-net-core-in-net-11.md)
+
+Preserved source framing: the SSE subsection labels discriminated unions a preview C# 14 feature.
+
+- superseded-by: [released C# 15 assessment](#2026-11-11-net-11-release-supersedes-rc-status-while-feature-previews-remain); timestamp: 2026-11-12T09:05:18-05:00; reason: the newer November 10 release announcement and this capture's main union section identify the .NET 11/C# 15 context. Treat the isolated SSE label as stale; do not infer that every union-shaped SSE example is a validated released API. [release source](../raw/2026-11-11-rss-announcing-net-11.md) [captured source](../raw/2026-11-12-web-what-s-new-in-asp-net-core-in-net-11.md)

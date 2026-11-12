@@ -2891,3 +2891,22 @@ Untrusted assignments depend-on an execution boundary covering editor tasks, bui
 ### Decision and quality notes
 
 Security-vendor investigation. Preserve attribution and distinguish observed code from inferred operator identity. Persona photos/names may belong to uninvolved people; no persona identifiers, email addresses, loader commands, keys or actionable payloads are promoted into the wiki. Use disposable, credential-free review environments and verify allowed egress before executing third-party assignments. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which untrusted-repository checks cover editor auto-tasks, build-time plugins, package provenance and renamed dependencies inside a disposable environment without host credentials or browser profiles? See [[indexes/gaps]].
+
+
+## 2026-11-12: Docker Sandbox recapture retains the same shared-capability boundary
+
+### Typed entities
+
+project: Docker Sandboxes; project: sbx; concept: microVM; concept: host credential proxy; concept: shared workspace. file: raw/2026-11-12-rss-docker-sandboxes-vs-containers-choosing-the-right-isolation-for-ai-age.md.
+
+### Claims and evidence
+
+- The November 12 capture repeats the November 5 vendor architecture: a private Linux kernel and Docker Engine, host-proxy egress and supported credential injection, with writable workspace, host stdio MCP and shared skills still explicitly reachable. It is the same publisher/article as the November 7 capture, not independent reinforcement. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-rss-docker-sandboxes-vs-containers-choosing-the-right-isolation-for-ai-age.md)
+
+### Explicit relationships
+
+Containment depends-on deliberately shared capabilities as well as kernel isolation. See [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+The recapture adds promotional material and formatting differences without establishing a stronger containment guarantee. Keep the November 7 qualifications and existing Windows validation gap. No sandbox, host policy or credential was changed. Source-specific claims remain provisional; recaptures and derived queries add no independent support.

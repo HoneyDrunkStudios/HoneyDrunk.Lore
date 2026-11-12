@@ -1369,3 +1369,23 @@ The November notice supersedes the September enforcement date; workflow admissio
 ### Decision and quality notes
 
 Official archived announcement; higher authority and recency resolve the old schedule. The November 1 security account already cited December and is consistent, not independent rollout evidence. No organization policy or workflow changed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which public HoneyDrunk workflows would the evaluate-mode rule block, and which reviewed exceptions or migrations are justified before the November brownouts and announced December 2 enforcement? See [[indexes/gaps]].
+
+
+## 2026-11-12: Actions workflow-log secret scanning is a limited opt-in preview
+
+### Typed entities
+
+project: GitHub Actions; project: GitHub Enterprise Cloud; project: GitHub Secret Protection; concept: workflow-log scanning; concept: secret alert retention. file: raw/2026-11-12-web-secret-scanning-detects-secrets-in-github-actions-workflow-logs.md.
+
+### Claims and evidence
+
+- The November 9 changelog describes public-preview provider-pattern scanning after workflow completion, enabled by an enterprise owner for licensed Enterprise Cloud repositories with secret scanning. It is disabled by default and includes GHE.com data-residency enterprises within that stated scope. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-web-secret-scanning-detects-secrets-in-github-actions-workflow-logs.md)
+- Only runs completing after enablement are scanned; old logs are not backfilled. Generic/custom patterns, AI-detected values and already masked secrets are excluded. Alerts link to the workflow log, can outlive deleted logs and receive supported-type validity checks, but generate no notifications during this preview. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-web-secret-scanning-detects-secrets-in-github-actions-workflow-logs.md)
+
+### Explicit relationships
+
+Detection depends-on enterprise policy, license, repository scanning and supported patterns. Alert review uses the repository alert list; deleting logs does not supersede credential rotation. See [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Official changelog snapshot, not proof of HoneyDrunk eligibility, enablement or coverage. A quiet inbox or zero alerts cannot establish absence of leaked secrets. No enterprise settings were changed and no captured credential was validated against a provider. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which licensed repositories are eligible for workflow-log scanning, and which synthetic post-enable runs verify supported patterns, exclusions, alert retention and explicit review without notifications? See [[indexes/gaps]].

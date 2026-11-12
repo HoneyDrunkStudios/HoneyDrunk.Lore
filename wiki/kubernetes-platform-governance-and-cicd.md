@@ -185,3 +185,25 @@ Fleet reconciliation depends-on explicit cluster contracts, spoke authority, who
 ### Decision and quality notes
 
 Contributed first-person account with small, non-comparable samples. Useful design evidence for blast-radius limits and reviewable rendered changes; it does not establish a fleet-size threshold or that no-prune replaces backups or release promotion. No clusters, credentials, or infrastructure were touched. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which fleet tests render every effective cluster contract, verify spoke-owned identity and provider exceptions, bound deletion blast radius, and measure outage/onboarding/drift outcomes with consistent methods? See [[indexes/gaps]].
+
+
+## 2026-11-12: Argo cost attribution lags syncs and depends on workload and price scope
+
+### Typed entities
+
+project: Cost Intelligence for Argo CD; project: OpenCost; project: Infracost; library: Helm; concept: application cost attribution; concept: lookback window; concept: platform RBAC. file: raw/2026-11-12-web-see-what-your-argo-cd-applications-cost.md.
+
+### Claims and evidence
+
+- The Octopus release account describes a community Apache-2.0 project that receives successful-sync notifications, queries the preceding 24 hours of managed-workload OpenCost data and projects observed hours onto a 30-day month. The measurement immediately after a sync mostly describes the previous version; full change exposure arrives later. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-web-see-what-your-argo-cd-applications-cost.md)
+- Daily history is retained separately, with a stated 400-day default. OpenCost's same-cluster workload view excludes external cloud services unless separate Infracost estimates are supplied; shared/carbon figures sit outside the total and provider versus list pricing is visible. Mock OpenCost uses invented prices, not billing evidence. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-web-see-what-your-argo-cd-applications-cost.md)
+- The early 0.1.0 release lists Argo CD 3.4-3.6, OpenCost 1.121.1+ and Helm 3.8+ requirements, only the local Argo/OpenCost cluster and potentially changing Helm values/schema. Git-managed Argo settings need committed configuration rather than relying on auto-patches that reconciliation can undo. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-web-see-what-your-argo-cd-applications-cost.md)
+- The platform page exposes cross-team spend through a placeholder Application's visibility, potentially including a default readonly role; its access differs from the initially admin-only application tab. Rightsizing suggestions concern requests, not limits, and do not prove a safe reduction. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-web-see-what-your-argo-cd-applications-cost.md)
+
+### Explicit relationships
+
+Application attribution uses Argo resource ownership and OpenCost measurements; interpretation depends-on window, pricing and external-service scope. Access depends-on effective RBAC. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Vendor-maintained early community project, explicitly unaffiliated with Argo/CNCF/OpenCost. Monthly projections and linear forecasts are estimates, not invoice reconciliation or causal proof of a release impact. No Helm install, database, cluster or permissions were changed; password-bearing shell examples are not copied. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which same-cluster cost replay reconciles workload ownership, 24-hour sync lag, sparse hours, actual pricing, external estimates and effective platform-page RBAC before trusting Argo cost attribution? See [[indexes/gaps]].

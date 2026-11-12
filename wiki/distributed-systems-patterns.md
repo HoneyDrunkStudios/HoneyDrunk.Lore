@@ -575,3 +575,23 @@ Durable replay depends-on recorded history; safe side effects depend-on authorit
 ### Decision and quality notes
 
 Retain vendor-specific replay differences and the distinction between unknown and failed. The new example's deterministic policy checks, versioned rules and domain compensation reinforce this existing canonical concept; they do not establish global exactly-once effects or authorize a new workflow runtime. Open question: Which worker-crash, late-event and version-migration fixtures prove reconciliation for the selected HoneyDrunk workflow? See [[indexes/gaps]].
+
+
+## 2026-11-12: Rollback safety includes cache and dependency behavior
+
+### Typed entities
+
+project: Wix; concept: incident learning; concept: cache-key migration; concept: rollback; decision: staged exposure. file: raw/2026-11-12-rss-7-production-habits-we-learned-at-wix-the-hard-way.md.
+
+### Claims and evidence
+
+- The Wix production account describes incremental completed on-call improvements, repeated causal questions, blameless incident reviews and shared handovers as ways to retain operational learning. It recommends encoding reviewed lessons for coding assistants, without delegating incident authority to them. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-rss-7-production-habits-we-learned-at-wix-the-hard-way.md)
+- In the author's cache-key incident, immediate rollback removed gradual cache warming and increased downstream pressure. The proposed lesson is to design reversible exposure and feature controls before rollout; reverting a binary does not automatically restore the previous effective state. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-rss-7-production-habits-we-learned-at-wix-the-hard-way.md)
+
+### Explicit relationships
+
+Rollback uses change-specific recovery knowledge and depends-on cache, data and downstream compatibility. Incident learning uses reviewed follow-through. See [[ai-assisted-software-practice]] and [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+First-person production experience, without a controlled reliability comparison. A feature toggle is not sufficient evidence of safe rollback; test the actual key transition, cold-cache load and dependency behavior. No incident or production configuration was changed. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which rollout rehearsal verifies old/new cache-key compatibility, cold-cache load, feature-toggle reversal and downstream recovery before relying on rollback? See [[indexes/gaps]].

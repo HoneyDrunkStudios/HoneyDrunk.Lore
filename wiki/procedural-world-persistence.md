@@ -126,3 +126,30 @@ Puzzle acceptance depends-on completed uniqueness checking; daily reconstruction
 ### Decision and quality notes
 
 Practitioner implementation account with partial code. The removal heuristic is not proof of a globally minimum clue count, uniform random sampling, guaranteed phone latency, or unbounded-date correctness. Test unknown versus unique outcomes and pin generator, PRNG, date/time-zone, and rule versions before using shared dailies. Source-specific claims remain provisional; repeated reports and query outputs add no independent support. Open question: Which puzzle corpus verifies path validity, completed uniqueness proofs, node-cap unknown states, deterministic date/time-zone behavior across pinned runtimes, and phone latency? See [[indexes/gaps]].
+
+
+## 2026-11-12: Arrow removal puzzles separate solvability from difficulty
+
+### Typed entities
+
+concept: arrow-removal puzzle; concept: reverse construction; concept: dependency DAG; concept: monotone removal; library: OR-Tools CP-SAT; decision: validate generated geometry. file: raw/2026-11-12-rss-how-to-generate-arrow-puzzles-7-algorithms-behind-procedural-level-gen.md.
+
+### Claims and evidence
+
+- The tutorial surveys reverse construction, randomized backtracking, constraint solving, dependency graphs, generate-and-test, templates and evolutionary search. Reverse construction can retain a known removal sequence only when placement checks enforce connected non-overlapping geometry and a clear exit for each newly placed arrow. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-rss-how-to-generate-arrow-puzzles-7-algorithms-behind-procedural-level-gen.md)
+- For the stated removal-only rules, removing an available arrow cannot introduce a blocker, so repeated greedy removal can verify complete clearance. A dependency graph must represent all actual geometric blockers; an abstract DAG alone does not prove that a realizable board exists. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-rss-how-to-generate-arrow-puzzles-7-algorithms-behind-procedural-level-gen.md)
+- Initial availability, dependency depth, unlock patterns and visual density are suggested difficulty proxies. The article explicitly calls for player calibration; more arrows, high fitness or a valid solution do not establish enjoyable or unique gameplay. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-rss-how-to-generate-arrow-puzzles-7-algorithms-behind-procedural-level-gen.md)
+
+### Explicit relationships
+
+Generation uses constraints and reverse construction; solvability depends-on final geometry and exact removal rules. Difficulty depends-on player evidence. See [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+Single-author instructional proposal with incomplete pseudocode and inconsistent introductory edge direction. No generator, solver or player study was executed. The monotonicity argument does not generalize to mechanics that move, rotate or introduce blockers. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which seeded arrow-puzzle corpus verifies body geometry, blocking-edge direction, full removal, generation budgets, structural duplicates and player-calibrated difficulty under the exact rules? See [[indexes/gaps]].
+
+### Resolved source contradiction: blocking direction
+
+Preserved source wording, paraphrased: after saying A blocks B, the introduction says B must leave before A.
+
+- superseded-by: [geometry-derived blocking order](#2026-11-12-arrow-removal-puzzles-separate-solvability-from-difficulty); timestamp: 2026-11-12T09:05:18-05:00; reason: under the article's own clear-exit rule, if A occupies B's exit ray, A must leave before B. Prefer the explicit mechanic and later dependency-list definition over the reversed sentence. The diagram and dependency-list example also disagree, so neither is copied as a verified fixture. [captured source](../raw/2026-11-12-rss-how-to-generate-arrow-puzzles-7-algorithms-behind-procedural-level-gen.md)

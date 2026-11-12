@@ -141,3 +141,28 @@ Regression sensitivity depends-on representative layer/input/runtime paths and r
 ### Decision and quality notes
 
 First-party proposed testing standard with replay and synthetic-fault evidence, not universal equivalence to real checkpoints. The LLM drafts contracts but does not approve changed expectations. No fixture was downloaded, model executed, paid inference invoked, or CI gate changed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which pinned small-model contracts catch broken/fixed behavior on production attention and preprocessing paths while measuring false alarms, review cost, setup time, and regressions requiring full weights? See [[indexes/gaps]].
+
+
+## 2026-11-12: Tests as data separates behavioral examples from runner code
+
+### Typed entities
+
+person: Matteo Vaccari (public author); concept: customer test; concept: external test DSL; concept: approved scenario; concept: oracle; concept: mutation testing. file: raw/2026-11-12-rss-tests-as-data.md.
+
+### Claims and evidence
+
+- Vaccari proposes black-box customer examples stored as tables or structured scenarios, interpreted by a smaller runner. The purpose is to make inputs, expected results and state changes easier to review across refactors, with service/component entry points available when full UI tests are slow or fragile. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-rss-tests-as-data.md)
+- The article separates expected changes to production code, test data and runner code by task type. It recommends external controls or CI checks for protected files and warns that agent hooks alone are not bypass-proof. A DSL with mandatory assertions still depends on a correct parser, printer, runner and expected outcome. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-rss-tests-as-data.md)
+- Mutation testing tests sensitivity to injected faults, while domain experts, authoritative documents or an alternate implementation validate expected behavior. Local dependency simulators support repeatable feedback but need fidelity checks; property-based and human exploratory testing remain complementary. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-rss-tests-as-data.md)
+
+### Explicit relationships
+
+Behavioral verification uses reviewed examples; assurance depends-on trustworthy runners, oracles and protected expectations. See [[ai-assisted-software-practice]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Practitioner proposal with an interview anecdote from 26 developers, not causal evidence that AI degrades all tests or that a DSL guarantees correctness. The source itself limits the added machinery for early prototypes and acknowledges review/maintenance costs. No testing policy or framework was changed. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which representative behavior suite verifies DSL parser/printer fidelity, mutation sensitivity, independent expected-output oracles, protected runner/data changes and provider-simulator limits before relying on tests as data? See [[indexes/gaps]].
+
+### Consolidated confidence: reviewed expectations are separate from observed behavior
+
+Meta JiTTesting distinguishes a behavioral difference from an intended bug; Hugging Face model integration contracts require reviewed baselines and production execution paths; Vaccari separates mutation sensitivity from independent expected-output oracles. Together they reinforce the qualitative need to validate test expectations independently of generated implementation. confidence: 3 sources, last-confirmed 2026-11-12; stronger conceptual support, not three independent implementation replications. [Meta](../raw/2026-11-02-rss-catching-bugs-before-they-land-jittesting-s-human-on-the-loop-approach.md) [Hugging Face](../raw/2026-11-07-rss-transformers-model-integration-contracts.md) [Vaccari](../raw/2026-11-12-rss-tests-as-data.md)

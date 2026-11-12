@@ -181,3 +181,25 @@ Multimodal retrieval uses shared embeddings; index compatibility depends-on chec
 ### Decision and quality notes
 
 Official developer guide; benchmark percentages remain vendor-reported. Image-only tables are not transcribed or inferred. No runtime, model download, license audit, or index migration was performed. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which pinned multimodal retrieval corpus verifies query/document prompts, preprocessing, dimensions, recall, device memory, and migration compatibility before choosing encoder and truncation settings? See [[indexes/gaps]].
+
+
+## 2026-11-12: Pooling-aware training optimizes quality at a document-vector budget
+
+### Typed entities
+
+library: Sentence Transformers; library: HierarchicalTokenPooling; library: MultiVectorTokenPoolingLoss; project: ModernBERT; concept: MaxSim; concept: Ward clustering; concept: adaptive pooling. file: raw/2026-11-12-rss-token-pooling-aware-training-for-multi-vector-embedding-models.md.
+
+### Claims and evidence
+
+- The tutorial merges document token vectors using Ward clustering and normalized group means, leaving query embeddings unchanged by default. Fixed caps, proportional pooling and calibrated distance thresholds express different budgets; a threshold calibrated for an average can yield a different average on another corpus. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-rss-token-pooling-aware-training-for-multi-vector-embedding-models.md)
+- Pooling-aware training averages full and compressed retrieval losses while reusing encoder embeddings. A straight-through estimator passes gradients to token members without differentiating cluster assignments; extra pooling/scoring still incurs work. Optional kernel support depends on the actual CUDA/Triton/backend configuration. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-rss-token-pooling-aware-training-for-multi-vector-embedding-models.md)
+- The author's matched one-epoch runs use 120,000 MS MARCO triplets, one seed and NanoBEIR@13. Factor-four pooling reports 48.68 versus 193.22 mean document vectors and nDCG@10 of 51.23 versus the ordinary pooled model's 49.03. Reported 97.8% retention divides 51.23 by the pooling-aware model's own 52.39 unpooled score; it is not 97.8% absolute retrieval accuracy. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-rss-token-pooling-aware-training-for-multi-vector-embedding-models.md)
+- Pooling reduces vector count, quantization reduces coordinate storage and Matryoshka truncation reduces dimensions. Their combined effects must be evaluated in the chosen engine; vector payload arithmetic excludes the rest of the index and serving system. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-rss-token-pooling-aware-training-for-multi-vector-embedding-models.md)
+
+### Explicit relationships
+
+Compressed retrieval uses trained token representations; deployment quality depends-on corpus, pooling budget, scorer and engine. See [[llm-wiki-and-knowledge-formats]] and [[edge-ai-and-ai-infrastructure-2026]].
+
+### Decision and quality notes
+
+First-party technical tutorial with a single matched experiment, no repeated-seed uncertainty or HoneyDrunk corpus run. Benchmark and 30-150x kernel wording remain reported scoped results. No checkpoint download, training, index migration or cloud GPU job was launched. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which pinned Lore retrieval corpus and engine compare independent recall/ranking judgments, repeated seeds, pooling calibration drift, full index memory and end-to-end latency before compressed multi-vector adoption? See [[indexes/gaps]].

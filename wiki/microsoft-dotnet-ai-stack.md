@@ -1129,3 +1129,23 @@ The SDK uses the MCP C# SDK; agent applications use MEAI and MAF. See [[generati
 ### Decision and quality notes
 
 One release summary, no sample compiled or integration exercised. Prior Preview 4 template history remains; the latest release-stage assessment is in the runtime page. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which pinned .NET AI package set verifies MCP tools, MEAI composition and prerelease AG-UI approval/state flows independently of the released SDK? See [[indexes/gaps]].
+
+
+## 2026-11-12: Blazor AI content blocks have independently experimental UI contracts
+
+### Typed entities
+
+library: Microsoft.AspNetCore.Components.AI; library: Microsoft.Extensions.AI; concept: UIAgent; concept: content block; concept: FunctionApprovalBlock; concept: UI action. file: raw/2026-11-12-web-what-s-new-in-asp-net-core-in-net-11.md.
+
+### Claims and evidence
+
+- The ASP.NET Core 11 notes describe UIAgent mapping streamed IChatClient content to mutable UI-facing blocks. RichContentBlock and FunctionApprovalBlock receive default rendering; other/custom block types use registered renderers, with the latest matching registration taking precedence. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-web-what-s-new-in-asp-net-core-in-net-11.md)
+- The package's components cover chat, tool/result display, approval and shared/predictive state, while remaining experimental. Rendering an approval block is UI state; it does not establish server-side permission, durable approval identity or exactly-once execution. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-web-what-s-new-in-asp-net-core-in-net-11.md)
+
+### Explicit relationships
+
+Blazor agent UI uses MEAI content and renderer registration; action safety depends-on an authorized backend contract. See [[generative-ui-and-a2ui]] and [[dotnet-runtime-and-mobile-2026]].
+
+### Decision and quality notes
+
+Official release-note detail, correlated with the already compiled release announcement. No package, renderer, UI or tool approval flow was executed. Runtime GA does not supersede the existing experimental package assessment. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which pinned Blazor AI component flow verifies streaming block updates, renderer precedence, approval identity binding, cancellation and rejection/replay behavior with the experimental backend packages? See [[indexes/gaps]].

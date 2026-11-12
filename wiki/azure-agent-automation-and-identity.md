@@ -1919,3 +1919,42 @@ Service discovery uses destination policy; safe retrying depends-on idempotency 
 ### Decision and quality notes
 
 Official preview capture, not verified production behavior. Do not equate pending HTTP/1 request limits with open connections or assume every 4xx is retryable from the table wording. Keep Dapr component policies separate and test low-replica ejection, overlapping retries and client deadlines before adoption. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which destination-policy tests verify Dapr exclusion, effective defaults, HTTP/TCP matching, pool-limit semantics, small-pool ejection and bounded total retries with the actual Container Apps API and CLI? See [[indexes/gaps]].
+
+
+## 2026-11-12: Hosted Skills recapture retains preview and external-approval limits
+
+### Typed entities
+
+project: Azure Functions Hosted Skills; project: Durable Functions; library: azurefunctions-agents-runtime; concept: typed DAG; concept: at-least-once activity; concept: session policy. file: raw/2026-11-12-rss-dynamic-workflows-in-azure-functions-hosted-skills-durable-ai-led-work.md.
+
+### Claims and evidence
+
+- The October 8 article recaptured November 12 still describes public-preview Dynamic Workflows with one fixed validated DAG, runtime task authorization, Python synchronous/asynchronous workflow tools, leaf subagents, explicit result retrieval/delivery and at-least-once effects. Decorator retry/timeout policy overrides generated policy and stable per-task keys require receiver-side deduplication. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-rss-dynamic-workflows-in-azure-functions-hosted-skills-durable-ai-led-work.md)
+- Its deterministic synthetic benchmark compares median results from three paired runs at each of four sizes, excludes host startup and reports 24 matching outputs. Its separate eight-output judge result has a different denominator; this is bounded structured-work evidence, not a general cost or quality guarantee. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-rss-dynamic-workflows-in-azure-functions-hosted-skills-durable-ai-led-work.md)
+
+### Explicit relationships
+
+DAG execution uses Durable Functions; reliable external effects depend-on idempotent receivers and current authorization. Timer waits do not implement an approval protocol. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Same October article as the prior capture; no independent support added. The prior synchronous-only supersession and no-human-in-the-loop resolution remain in force. Preserve Python-only direct tasks, fixed plan/limits and chargeable subagent/inference/storage boundaries. The onboarding approval example cannot override the explicit lack of interactive suspension. Source-specific claims remain provisional; recaptures and derived queries add no independent support.
+
+
+## 2026-11-12: Foundry azd recapture adds coverage without independent confirmation
+
+### Typed entities
+
+project: Microsoft Foundry; project: Azure Developer CLI; library: microsoft.foundry; file: azure.yaml; concept: remote build; concept: environment cleanup. file: raw/2026-11-12-rss-microsoft-foundry-extension-for-azure-developer-cli-is-generally-avail.md.
+
+### Claims and evidence
+
+- The November 12 recapture of the November 5 GA announcement retains bundle 1.0, azd 1.37.0+, paid Azure inference during local Agent Inspector runs, source upload for remote build and environment-specific deployment configuration. It also retains distinct cleanup behavior for new versus reused projects. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-rss-microsoft-foundry-extension-for-azure-developer-cli-is-generally-avail.md)
+
+### Explicit relationships
+
+Local execution uses an Azure model deployment; deployment and cleanup depend-on target identity, subscription and project ownership. See [[microsoft-dotnet-ai-stack]].
+
+### Decision and quality notes
+
+Same article already compiled November 7; formatting differences do not add independent support or graduate individual preview features. Blank lines inside continued-shell examples remain unsuitable for verbatim reuse. Existing identity, evaluation, cost and cleanup gaps remain. No Azure command was executed. Source-specific claims remain provisional; recaptures and derived queries add no independent support.

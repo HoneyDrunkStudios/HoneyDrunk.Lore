@@ -5,6 +5,8 @@ A2UI v0.9 is Google's framework-agnostic generative UI standard for letting agen
 
 > superseded-by: [format-specific streaming guidance](#2026-10-28-inference-format-is-separate-from-a2ui-transport-and-streaming); 2026-10-28T10:19:08-04:00. The earlier general streaming recommendation is narrowed by the newer official SDK description: Direct JSON streams incrementally, while Express compilation waits for a complete reply. The prior statement is preserved as historical guidance.
 
+> superseded-by: [A2UI 1.0 release-stage assessment](#2026-11-12-a2ui-10-separates-stable-protocol-from-renderer-and-host-versions); timestamp: 2026-11-12T09:05:18-05:00; reason: the November 11 official announcement supersedes the earlier summary's 0.9 release-stage framing. Preserve its version-specific claims and format-specific streaming limitation; clients are still on mixed versions. [captured source](../raw/2026-11-12-rss-a2ui-1-0-build-delightful-fast-reliable-agentic-experiences.md)
+
 ## Claims
 - A2UI v0.9 defines a framework-agnostic way for local or remote agents to communicate UI intent to client applications, allowing generated UI to use an existing component catalog/design system across web, mobile, and other clients. confidence: 1 source, last-confirmed 2026-05-08. [source: raw/2026-05-08-rss-google-developers-blog-a2ui-v0-9-the-new-standard-for-portable-framewo.md]
 - A2UI v0.9 includes an Agent SDK for Python, shared web-core client library, official renderers/version bumps for React, Flutter, Lit, and Angular, and a community-renderer path. confidence: 1 source, last-confirmed 2026-05-08. [source: raw/2026-05-08-rss-google-developers-blog-a2ui-v0-9-the-new-standard-for-portable-framewo.md]
@@ -145,3 +147,24 @@ CopilotKit uses AG-UI to carry A2UI; declarative generation depends-on a trusted
 ### Decision and quality notes
 
 Official joint tutorial, correlated with earlier A2UI vendor guidance. Keep the October 28 streaming supersession in force. Broad portability, security, and self-healing wording is product scope to test, not a guarantee that any AG-UI backend or schema-valid action is safe. No packages or starter app were installed. Source-specific claims remain provisional; repeated summaries and derived queries add no independent support. Open question: Which pinned A2UI/AG-UI/CopilotKit matrix verifies catalog negotiation, streaming latency, exhausted retries, surface continuity, server validation, and authorized idempotent actions? See [[indexes/gaps]].
+
+
+## 2026-11-12: A2UI 1.0 separates stable protocol from renderer and host versions
+
+### Typed entities
+
+project: A2UI 1.0; library: A2UI Agent SDK; library: Jetpack Compose renderer; project: Gemini Enterprise; project: Lynx; concept: catalog negotiation. file: raw/2026-11-12-rss-a2ui-1-0-build-delightful-fast-reliable-agentic-experiences.md.
+
+### Claims and evidence
+
+- Google's November 11 announcement calls A2UI 1.0 the first stable protocol release, adding bidirectional function calls, accessibility support and metadata extensions. This updates the release-stage summary; existing 0.9 behavior remains historical version-specific evidence. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-rss-a2ui-1-0-build-delightful-fast-reliable-agentic-experiences.md)
+- The same post lists React, Angular, Lit, Flutter and SwiftUI renderers but explicitly keeps Jetpack Compose and Gemini at 0.9.1 and Lynx at 0.9 while upgrades are pending. Protocol stability therefore does not imply every client already implements 1.0. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-rss-a2ui-1-0-build-delightful-fast-reliable-agentic-experiences.md)
+- The announcement describes Python, TypeScript and Dart agent SDKs and Python macros for programmatic expansion/data binding, while official decision-model support remains roadmap work. The Dart hyperlink points to the Python package page, so it does not establish a usable Dart package installation path. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-rss-a2ui-1-0-build-delightful-fast-reliable-agentic-experiences.md)
+
+### Explicit relationships
+
+A2UI uses registered component catalogs; portability depends-on protocol/renderer/host version negotiation. MCP Apps uses an embedded renderer, which does not supersede server authorization. See [[mcp-tool-governance-and-app-surfaces]].
+
+### Decision and quality notes
+
+Official release account. Broad native-fidelity, security and sensitive-data language is a design claim, not an audit. Keep the October 28 Direct JSON versus complete-reply Express distinction until a pinned implementation proves a change. Examples illustrate flows rather than establish confirmed external actions. Package availability, accessibility and server authorization remain untested. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which pinned A2UI 1.0 renderer/host matrix verifies negotiation with 0.9 clients, SDK package identity, first useful render, accessibility, data minimization and authorized idempotent actions? See [[indexes/gaps]].

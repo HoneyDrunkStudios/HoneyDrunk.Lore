@@ -397,3 +397,22 @@ Data mesh autonomy depends-on usable product/contract abstractions and feedback;
 ### Decision and quality notes
 
 Authored practitioner framework based on the CNCF model, not measured proof of a universal maturity threshold or a mandate for HoneyDrunk infrastructure. The source's minimum-Level-3 success claim and adoption curve are heuristic, not independently validated causal laws. No new platform, governance process, or data schema is implemented. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which actual domain-team friction and adoption measurements justify integrated data-product capabilities, and which maturity dimension should improve before adding portal or IDE infrastructure? See [[indexes/gaps]].
+
+
+## 2026-11-12: Data-product navigator recapture preserves the same heuristic model
+
+### Typed entities
+
+person: Tom De Wolf (public author); project: CNCF Platform Engineering Maturity Model; concept: data product; concept: data contract; concept: voluntary adoption. file: raw/2026-11-12-rss-the-data-product-platform-navigator.md.
+
+### Claims and evidence
+
+- The November 12 recapture repeats the November 5 navigator: assess investment, adoption, interfaces, operations and measurement independently; improve actual friction; distinguish integrated product/contract self-service from isolated provisioning scripts. The minimum-scalable-level claim remains an authored heuristic, not an independently measured success threshold. confidence: 1 source, last-confirmed 2026-11-12 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-12-rss-the-data-product-platform-navigator.md)
+
+### Explicit relationships
+
+Data-product autonomy depends-on integrated capabilities and adoption feedback. See [[enterprise-agent-business-semantics]].
+
+### Decision and quality notes
+
+Same article compiled November 7. Repeated publication metadata does not add support; earlier platform-friction/adoption gap retained. No new platform or schema is proposed as an obligation. Source-specific claims remain provisional; recaptures and derived queries add no independent support.
