@@ -191,3 +191,23 @@ Rollback correctness depends-on complete state, stable input ordering, bounded h
 ### Decision and quality notes
 
 Single developer retrospective. The sample silently drops too-old input and leaves initialization/missing snapshots, duplicate commands, trust, bounded storage, and resimulation budget incomplete. Do not promote its cost numbers or raw-byte hashing as universal: padding, layout, endianness, floats, and schema need canonicalization. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which cross-device replay tests cover input deduplication, same-tick order, old-input recovery, snapshot boundaries, canonical hashes/RNG, arithmetic bounds, and bounded catch-up cost? See [[indexes/gaps]].
+
+
+## 2026-11-14: Reconnect event logs still require deterministic state and authority
+
+### Typed entities
+
+project: Cannon King: Wind Tank Battle; concept: per-match sequence; concept: acknowledged replay; concept: idempotent input; decision: reconnect validation.
+file: raw/2026-11-14-rss-i-built-a-worms-like-mobile-game-alone-48-tanks-destructible-terrain-a.md.
+
+### Claims and evidence
+
+- The developer describes an ordered per-match event log with shot sequence numbers, duplicate-safe application and replay after the last acknowledged sequence. Inputs plus a seed are said to drive deterministic simulation; replay reuse is a design claim, not independently observed cross-device behavior. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-i-built-a-worms-like-mobile-game-alone-48-tanks-destructible-terrain-a.md)
+
+### Explicit relationships
+
+Reconnect uses ordered acknowledged events; correctness depends-on complete deterministic state, duplicate handling and input authority. See [[gamedev-production-and-community-signals]] and the existing rollback/snapshot evidence on this page.
+
+### Decision and quality notes
+
+No implementation or failure trace is supplied. A log alone does not define authoritative ordering, concurrent turn admission, snapshot/version restoration, timeouts or cheating resistance. Existing cross-device replay gaps apply; this account adds no independent validation of another game's netcode. Source-specific claims remain provisional; recaptures and derived queries add no independent support.

@@ -315,3 +315,34 @@ Agent access depends-on task authority, operator identity, necessary user attrib
 ### Decision and quality notes
 
 First-party policy/product snapshot. Verify actual protocol chains, eligibility, revocation and destination enforcement before adoption. Preserve data minimization; no new identity collection is authorized. Contact/dashboard details and unnecessary identities are omitted. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which hosted-agent flow proves operator identity, scoped user delegation, multi-hop attribution, revocation and privacy-preserving abuse controls without assuming a WBA signature proves user authorization? See [[indexes/gaps]].
+
+
+## 2026-11-14: Mailbox containment must distinguish clients, protocols and token lifetime
+
+### Typed entities
+
+project: Microsoft Entra; project: Exchange Online; library: Microsoft Graph; concept: session revocation; concept: critical-event evaluation; decision: incident containment verification.
+file: raw/2026-11-14-rss-how-attackers-keep-reading-mail-after-m365-session-revocation.md.
+
+### Claims and evidence
+
+- Eye Security reports that tested Outlook clients and IMAP lose mail access promptly after revocation/reset, while existing Graph, EWS and ActiveSync access tokens can retain mailbox access until expiry. The account reports prompt mailbox denial while an account is disabled and renewed acceptance of an unexpired token if re-enabled. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-how-attackers-keep-reading-mail-after-m365-session-revocation.md)
+- The same account says some non-mail Graph endpoints can still respond while the account is disabled. Its proposed 90-minute disabling interval is tied to its reported access-token window, not a universal maximum or a guarantee of blocking every resource/protocol. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-how-attackers-keep-reading-mail-after-m365-session-revocation.md)
+
+### Source interpretation resolution
+
+Prior framing retained: Disabling the account is the only full block of all access.
+
+superseded-by: [qualified interpretation](#resolution-2026-11-14-ai-agent-identity-and-workload-auth); timestamp: 2026-11-14T09:06:22-05:00; reason: The article's explicit Graph endpoint caveat contradicts the universal wording.
+
+<a id="resolution-2026-11-14-ai-agent-identity-and-workload-auth"></a>
+
+Selected interpretation: The reported immediate block concerns tested mailbox access; the source itself reports remaining non-mail Graph access.
+
+### Explicit relationships
+
+Containment depends-on resource/protocol enforcement and token lifetime; refresh-token revocation does not itself prove every access token is rejected. See [[cloud-security-monitoring-and-siem]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Single security-research account without reproduced token/client/tenant configuration or timestamps. Its broad CAE prevalence and universal lifetime claims are not adopted. Determine actual resource, token and policy behavior from authoritative documentation and authorized tests before using it as an incident runbook. No account was disabled, token tested or mail accessed. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which authorized client/protocol/resource matrix verifies post-revocation and post-reset access, disabled-account behavior, re-enable timing and actual token expiry under the tenant's CAE policies? See [[indexes/gaps]].

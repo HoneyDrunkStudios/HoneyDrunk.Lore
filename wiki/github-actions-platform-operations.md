@@ -1389,3 +1389,26 @@ Detection depends-on enterprise policy, license, repository scanning and support
 ### Decision and quality notes
 
 Official changelog snapshot, not proof of HoneyDrunk eligibility, enablement or coverage. A quiet inbox or zero alerts cannot establish absence of leaked secrets. No enterprise settings were changed and no captured credential was validated against a provider. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which licensed repositories are eligible for workflow-log scanning, and which synthetic post-enable runs verify supported patterns, exclusions, alert retention and explicit review without notifications? See [[indexes/gaps]].
+
+
+## 2026-11-14: Ephemeral ACA runners retain bootstrap and workflow trust boundaries
+
+### Typed entities
+
+project: Azure Container Apps Jobs; project: KEDA; project: GitHub App; concept: bootstrap identity; concept: deployment identity; concept: private Key Vault; decision: runner admission.
+file: raw/2026-11-14-web-building-secure-ephemeral-github-actions-runners-on-azure-container-ap.md.
+
+### Claims and evidence
+
+- The Microsoft-hosted field guide describes repository/label-matched KEDA event jobs registering one ephemeral runner per queued job. Its runtime UAMI retrieves GitHub App material from a private vault; a distinct federated deployment identity authorizes Azure workflow operations. Queue polling and runner registration are separate GitHub authentication consumers. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-web-building-secure-ephemeral-github-actions-runners-on-azure-container-ap.md)
+- Runtime installation on an MCR base image reduces the custom-image lifecycle but adds download availability and cold-start costs. The guide calls for tested versions, checksum verification, bounded retries and retained phase logs; measured queue-to-ready stages determine whether to pre-bake an image. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-web-building-secure-ephemeral-github-actions-runners-on-azure-container-ap.md)
+- The bootstrap is explicitly abbreviated, and manifest properties depend on the actual ACA API. Review inference from the depicted identity topology: removing a temporary PEM and shell variables does not prove workflow code cannot use the still-attached managed identity to retrieve the App key again. One-job ephemerality is a lifetime property, not a credential isolation boundary. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-web-building-secure-ephemeral-github-actions-runners-on-azure-container-ap.md)
+- The sample binds deployment federation to a branch, with protected environments suggested for approvals. Contributor at resource-group scope is called a starting point rather than the least-privilege target. Matching labels, App permissions, private DNS/RBAC, Azure control/data-plane rights and post-job deregistration need separate verification. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-web-building-secure-ephemeral-github-actions-runners-on-azure-container-ap.md)
+
+### Explicit relationships
+
+Queue scale-up uses repository/label contracts; registration depends-on GitHub App credentials; deployment uses a separate OIDC principal. Safe workflow execution depends-on effective credential/network boundaries. See [[ai-coding-agent-security]] and [[azure-agent-automation-and-identity]].
+
+### Decision and quality notes
+
+Implementation guide, not complete tested deployment code. Do not run untrusted PR code with App-key retrieval rights; the root-runner override and inherited identity need explicit design review. The example uses mutable action tags and unimplemented bootstrap steps, so it is retained as research rather than a production recipe. No runner, App, secret, workflow or Azure resource was created. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which ACA runner pilot proves trusted-job admission, denial of workflow-time App-key retrieval, pinned bootstrap/action artifacts, matching scaler labels, bounded queue costs and complete runner/credential cleanup? See [[indexes/gaps]].

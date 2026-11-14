@@ -1007,3 +1007,26 @@ Completeness assessment depends-on expected activity, reconciled counts and inde
 ### Decision and quality notes
 
 Official educational guidance, not evidence that current HoneyDrunk telemetry is complete. Define count boundaries, time windows and permitted drops before alerting. Avoid event/user IDs as metric labels and avoid sensitive synthetic payloads; missing signals alone are not an incident verdict. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which critical workflow has delay-aware count reconciliation, safe end-to-end synthetic events and independently visible Collector flow health that distinguishes quiet traffic from observation failure? See [[indexes/gaps]].
+
+
+## 2026-11-14: Instrumentation agents need registry checks and reviewed lifecycle mappings
+
+### Typed entities
+
+project: LoongSuite; project: OpenTelemetry Weaver; library: opentelemetry-util-genai; concept: semantic registry pin; concept: live-check; decision: instrumentation conformance.
+file: raw/2026-11-14-rss-building-an-agent-harness-for-otel-instrumentation-with-genai-semantic.md.
+
+### Claims and evidence
+
+- The OTel-hosted contributor report describes research, reviewed planning, coding, unit review, Kubernetes integration and soak loops. Research prefers public hooks; method wrapping is a version-specific fallback when hooks cannot observe the required lifecycle. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-building-an-agent-harness-for-otel-instrumentation-with-genai-semantic.md)
+- The illustrated upstream invoke_local_agent context manager starts and ends an internal span, propagates exceptions and guards instruction-content capture with should_capture_content. It is an adaptation, not the original generated LoongSuite plugin; migrating fork-specific APIs upstream remains work in progress. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-building-an-agent-harness-for-otel-instrumentation-with-genai-semantic.md)
+- The conformance wrapper pins registry/advice inputs and fails live-check violations; report-only downgrades semantic findings but still fails crashed or empty scenarios. Coverage matrices measure emitted registry-defined attributes and are not equivalent to conformance gates. Expected violations require IDs/reasons and fail when stale. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-building-an-agent-harness-for-otel-instrumentation-with-genai-semantic.md)
+- The report identifies instrumentation-set OK status and custom gen_ai.crewai.* names as problems. Registry validation cannot decide whether framework objects semantically represent agent invocations, and closed CLI internals remain outside the plugin's observable boundary. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-building-an-agent-harness-for-otel-instrumentation-with-genai-semantic.md)
+
+### Explicit relationships
+
+Instrumentation uses a pinned registry and framework lifecycle; conformance depends-on emitted OTLP and executable policies. Semantic mapping depends-on human review. See [[ai-agent-harnesses]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Primary contributor implementation account, with a public OpenInference runner example separate from the LoongSuite measurements and matrix. The original judging-model-only check reportedly accepted violations. No conformance scenario, Kubernetes deployment or upstream package was exercised; retain content minimization and explicit version compatibility. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which pinned framework/plugin/registry replay verifies hooks, span lifecycle, exception propagation, content opt-in, violation exits, empty/crashed scenarios and stale expected violations before instrumentation admission? See [[indexes/gaps]].

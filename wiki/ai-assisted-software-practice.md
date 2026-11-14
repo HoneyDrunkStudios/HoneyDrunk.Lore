@@ -1544,3 +1544,24 @@ Production confidence depends-on meaningful CI, controlled batches, boundary che
 ### Decision and quality notes
 
 Practitioner interpretation of small experiments; linked DORA findings are secondhand. Reinforces existing guardrail principles without independent production measurements or a diagnosis of red builds. No throughput ratio or causal stability claim is promoted. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which agentic delivery experiment measures CI reliability, integration collisions, batch size, repair time and post-deployment failures with fixed acceptance criteria? See [[indexes/gaps]].
+
+
+## 2026-11-14: Design-system checks complement rendered product review
+
+### Typed entities
+
+project: DriftSense; project: DESIGN.md; concept: design token; concept: component contract; concept: semantic drift; decision: human-approved remediation.
+file: raw/2026-11-14-rss-how-we-built-driftsense-to-solve-ai-era-design-drift.md.
+
+### Claims and evidence
+
+- The Thoughtworks hackathon team describes two loops: PR/local checks against design tokens, accessible components and typography constraints; and repository scans that prioritize existing drift and propose remediation PRs. Version-controlled design intent is the stated baseline. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-how-we-built-driftsense-to-solve-ai-era-design-drift.md)
+- The authors describe AI-assisted scaffolding and adversarial critique with cross-functional planning and mentorship, and characterize deeper integrations and evaluation-engine refinements as ongoing work. They provide no reproducible accuracy, accessibility or false-positive measurements in this capture. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-how-we-built-driftsense-to-solve-ai-era-design-drift.md)
+
+### Explicit relationships
+
+Design conformance uses versioned tokens/component contracts; remediation depends-on human review and rendered behavior. Semantic checks complement visual regression and accessibility testing. See [[generative-ui-and-a2ui]] and [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+Self-reported hackathon prototype. Claims that all existing tools lack continuous governance or that automated checking preserves every accessibility/brand property exceed the demonstrated evidence. No product, design artifact or PR was modified. Omitted personal background and promotional detail. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which versioned design-system fixtures measure token/component drift detection, justified exceptions, accessibility regressions and remediation safety alongside rendered visual review? See [[indexes/gaps]].

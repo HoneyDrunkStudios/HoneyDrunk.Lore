@@ -450,3 +450,35 @@ Routing depends-on calibrated predicates, workload labels, model effort and cach
 ### Decision and quality notes
 
 Primary vendor experiment, explicitly not a TypeSafe partnership/endorsement. The capture alternates between 27 SIMPLE tasks and 25 hard tasks in a 50-question suite; these strata cannot be reconciled from supplied text. Subgroup comparisons are flagged pending unpublished benchmark code. Cost tables are absent, timing spans two rounds and self-hosted economics differ. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Can a reproducible routing evaluation reconcile the 50-task strata and compare low-thinking, classifier escalation, retry/refusal rates and model-specific cache costs on representative workloads? See [[indexes/gaps]].
+
+
+## 2026-11-14: Closed-set Gemini decisions require workload-specific calibration
+
+### Typed entities
+
+project: Gemini Decision 1; project: Decisions API; concept: closed-set decision; concept: calibrated confidence; concept: routing fallback; decision: classification evaluation.
+file: raw/2026-11-14-rss-gemini-decisions-api-fast-calibrated-multimodal-decisions.md.
+
+### Claims and evidence
+
+- Google announces gemini-decision-1 for shared multimodal input up to 256K tokens and up to 1,000 independent questions. Types include noul yes/no, choice with 2-255 options, and an ordered score rubric. Candidate probabilities are a bounded-choice output, not proof that the candidate set includes a correct action. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-gemini-decisions-api-fast-calibrated-multimodal-decisions.md)
+- The vendor reports 150-250 ms end-to-end latency with nearly flat behavior for 1-100 questions and contexts up to 16K tokens. That measured scope is narrower than the maximum 256K/1,000-question request envelope. Pricing is announced as $0.10 per million input tokens with no output charge; shared input is billed once while question instructions/criteria add input tokens. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-gemini-decisions-api-fast-calibrated-multimodal-decisions.md)
+- The announcement positions confidence for fallback/human routing and lists rolling ecosystem integrations, with Google Cloud support coming later. Benchmark calibration and claimed savings are vendor-reported; SDK/package compatibility, tail latency and accuracy for a particular routing or safety decision remain unmeasured. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-gemini-decisions-api-fast-calibrated-multimodal-decisions.md)
+
+### Source interpretation resolution
+
+Prior framing retained: The opening 150-250 ms language appears alongside support for 256K tokens and 1,000 questions.
+
+superseded-by: [qualified interpretation](#resolution-2026-11-14-google-agent-platform-and-gemini-api-2026); timestamp: 2026-11-14T09:06:22-05:00; reason: The detailed performance paragraph supplies narrower limits than the opening feature envelope.
+
+<a id="resolution-2026-11-14-google-agent-platform-and-gemini-api-2026"></a>
+
+Selected interpretation: The reported low-latency measurements cover up to 16K context and 1-100 questions; maximum request support is separate.
+
+### Explicit relationships
+
+Closed-set routing uses candidate definitions and confidence thresholds; adoption depends-on held-out calibration, abstention and current integration availability. See [[agent-evaluation-and-benchmarks]] and [[mcp-tool-governance-and-app-surfaces]].
+
+### Decision and quality notes
+
+Official archived announcement, no live pricing, SDK or endpoint verification. The broad opening performance wording is narrowed by the detailed measurement envelope. Do not elevate model confidence into authorization or treat a multiple-choice router as a free-form task-success benchmark. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which held-out multimodal decision suite measures class coverage, calibration drift, abstention, false approvals, total billed input and p95 latency across the actual context/question envelope? See [[indexes/gaps]].

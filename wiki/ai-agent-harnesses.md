@@ -2321,3 +2321,23 @@ Gateway policy depends-on identity, task context and approved model/data destina
 ### Decision and quality notes
 
 Small author-operated pilot. Treat the 14 ms overhead, price ratios and prevention counts as scoped observations, not guarantees. A fail-closed scrubber must gate every cache/provider path; sensitive cache keys, content isolation, stale answers and fallback quality need tests. No gateway or routing policy was installed. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which gateway replay verifies tenant/task-aware cache keys, scrubber fail-closed behavior, detector precision/recall, full local/cloud cost, quality-preserving fallback and enforceable hard budget limits? See [[indexes/gaps]].
+
+
+## 2026-11-14: Reviewed instrumentation plans connect agent work to executable feedback
+
+### Typed entities
+
+project: LoongSuite; concept: execution-plan.md; concept: framework extension point; concept: feedback loop; decision: human plan review.
+file: raw/2026-11-14-rss-building-an-agent-harness-for-otel-instrumentation-with-genai-semantic.md.
+
+### Claims and evidence
+
+- The LoongSuite account locates human review before implementation and at the resulting PR. A registry violation returns work to coding; a clean conformance run proceeds to runtime soak. Engineers can interrupt the lead to revise the plan, while framework-specific mapping and unobservable internals remain explicit limits. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-building-an-agent-harness-for-otel-instrumentation-with-genai-semantic.md)
+
+### Explicit relationships
+
+Agent implementation depends-on a reviewed plan and executable evidence; additional workers do not supersede framework expertise. Canonical telemetry contracts and the source are maintained in [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Same report as the telemetry page, not a second corroborating source or evidence that a multi-agent arrangement beats a single agent. No harness was implemented or operated. Source-specific claims remain provisional; recaptures and derived queries add no independent support.

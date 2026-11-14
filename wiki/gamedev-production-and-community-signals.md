@@ -745,3 +745,24 @@ Localization quality depends-on full-message semantics, locale formatting, plura
 ### Decision and quality notes
 
 First-person browser-game report, not Unity-specific implementation or a universal language-style guide. Formal-word regexes are heuristics; font scaling, accessibility, screen-reader meaning, and native-speaker review remain necessary beyond truncation. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which locale checks validate required plural forms, dynamic-name grammar, percent/spacing rules, tone, terminology, and readable critical values on narrow screens with larger text? See [[indexes/gaps]].
+
+
+## 2026-11-14: A solo artillery-game account emphasizes readability and store operations
+
+### Typed entities
+
+person: Youngjun Yoon (public author); project: Cannon King: Wind Tank Battle; library: Flutter; concept: trajectory preview; concept: terrain readability; decision: player observation.
+file: raw/2026-11-14-rss-i-built-a-worms-like-mobile-game-alone-48-tanks-destructible-terrain-a.md.
+
+### Claims and evidence
+
+- The author reports a Flutter artillery game with 48 tanks, destructible maps and live turn-based matches, emphasizing wind-aware trajectory previews, understandable control ranges and shell visuals consistent with mechanics. Layered maps are evaluated after destructive exchanges rather than only at initial layout. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-i-built-a-worms-like-mobile-game-alone-48-tanks-destructible-terrain-a.md)
+- The author describes versatility as a design goal for tank grades but explicitly leaves top-ladder balance unproven pending match data. Store localization, device-specific screenshots and separate review processes remain work beyond shared application code; future prioritization uses player drop-off and map readability. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-i-built-a-worms-like-mobile-game-alone-48-tanks-destructible-terrain-a.md)
+
+### Explicit relationships
+
+Game readability depends-on preview/mechanic agreement and evolving terrain; balance decisions depend-on actual match data. Reconnect claims are scoped in [[realtime-game-network-protocol-design]].
+
+### Decision and quality notes
+
+Single launch/devlog account; store availability, performance, fairness and commercial outcomes were not verified. Feed categorization as Unity is not evidence of a Unity implementation: the body says Flutter. Omitted coupon, referral invitation and unnecessary personal detail. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which device playtests and match/drop-off data verify trajectory readability, destructible-map evolution, reconnect fairness and viable lower-grade tanks before adding content? See [[indexes/gaps]].

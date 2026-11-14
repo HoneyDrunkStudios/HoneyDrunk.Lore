@@ -2910,3 +2910,35 @@ Containment depends-on deliberately shared capabilities as well as kernel isolat
 ### Decision and quality notes
 
 The recapture adds promotional material and formatting differences without establishing a stronger containment guarantee. Keep the November 7 qualifications and existing Windows validation gap. No sandbox, host policy or credential was changed. Source-specific claims remain provisional; recaptures and derived queries add no independent support.
+
+
+## 2026-11-14: CodeMender reference automation separates evidence from merge enforcement
+
+### Typed entities
+
+project: CodeMender; project: Google Cloud Run; concept: exploit verification; concept: inconclusive result; concept: workload identity federation; decision: patch approval.
+file: raw/2026-11-14-rss-don-t-just-flag-it-fix-it-how-to-run-codemender-in-your-pull-requests.md.
+
+### Claims and evidence
+
+- The reference architecture returns findings, sandbox verification traces and proposed diffs to a PR. It explicitly distinguishes a clean negative from a crash or timeout; an incomplete exploit run is inconclusive. Approval applies a patch and posts security/codemender-gate, which blocks merging only when branch protection requires it. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-don-t-just-flag-it-fix-it-how-to-run-codemender-in-your-pull-requests.md)
+- The depicted GitHub-to-Google federation constrains repository_id beyond the shared issuer. Verification jobs need their own minimal identity, network restrictions and isolated process execution; avoiding a stored Google federation key does not establish the separate GitHub source-write credential path. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-don-t-just-flag-it-fix-it-how-to-run-codemender-in-your-pull-requests.md)
+- The article says ephemeral exploit artifacts are streamed to Cloud Storage for auditing. Its later claim that only the verdict survives cannot describe all retained data. Evidence retention therefore includes protected artifacts as well as the verdict, with access and retention requirements still to verify. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-don-t-just-flag-it-fix-it-how-to-run-codemender-in-your-pull-requests.md)
+
+### Source interpretation resolution
+
+Prior framing retained: Only the verdict leaves or outlives the sandbox.
+
+superseded-by: [qualified interpretation](#resolution-2026-11-14-ai-coding-agent-security); timestamp: 2026-11-14T09:06:22-05:00; reason: The same source explicitly streams exploit artifacts to Cloud Storage before describing verdict-only persistence.
+
+<a id="resolution-2026-11-14-ai-coding-agent-security"></a>
+
+Selected interpretation: Verdict and deliberately exported audit artifacts can persist; sandbox destruction is not artifact deletion.
+
+### Explicit relationships
+
+Verification depends-on isolated execution and explicit failure classification; merge enforcement depends-on branch rules. Federation uses immutable identity claims but does not authorize arbitrary PR commands. See [[github-actions-platform-operations]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Vendor reference design, not a deployed HoneyDrunk control. Slash-command actor authorization, immutable finding/head binding, fork handling, artifact privacy, credential access and tested network/metadata denial are not established here. Do not treat container ephemerality or removal of environment variables as isolation proof. No attack code, account or infrastructure was executed. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which reviewed CodeMender integration binds authorized slash commands to an immutable PR head/finding and verifies crash classification, GitHub write credentials, sandbox egress/metadata denial and protected artifact retention? See [[indexes/gaps]].

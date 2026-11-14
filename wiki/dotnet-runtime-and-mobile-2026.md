@@ -1454,3 +1454,44 @@ Preserved source framing: the QuickGrid subsection calls its switch a way to dis
 Preserved source framing: the SSE subsection labels discriminated unions a preview C# 14 feature.
 
 - superseded-by: [released C# 15 assessment](#2026-11-11-net-11-release-supersedes-rc-status-while-feature-previews-remain); timestamp: 2026-11-12T09:05:18-05:00; reason: the newer November 10 release announcement and this capture's main union section identify the .NET 11/C# 15 context. Treat the isolated SSE label as stale; do not infer that every union-shaped SSE example is a validated released API. [release source](../raw/2026-11-11-rss-announcing-net-11.md) [captured source](../raw/2026-11-12-web-what-s-new-in-asp-net-core-in-net-11.md)
+
+
+## 2026-11-14: Lazy factory recapture retains overload-specific exception semantics
+
+### Typed entities
+
+library: System.Lazy<T>; library: LazyInitializer; concept: factory exception cache; concept: publication race; decision: initialization policy.
+file: raw/2026-11-14-rss-understanding-lazy-t-thread-safety-modes.md.
+
+### Claims and evidence
+
+- The November 14 recapture repeats Andrew Lock's November 3 supplied-factory explanation: None and ExecutionAndPublication cache factory failures; PublicationOnly can run duplicate factories and does not cache failures, including failures completing after another caller published success. The proposed cacheExceptions option is described as approved but unimplemented, not a shipped .NET 12 capability. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-understanding-lazy-t-thread-safety-modes.md)
+
+### Explicit relationships
+
+Initialization policy depends-on overload, side effects and exception handling; recapture does not strengthen independent support. See the November 7 canonical treatment above.
+
+### Decision and quality notes
+
+Same article as the November 7 capture. The locked LazyInitializer example still declares _lock while passing _synclock; no corrected runnable snippet is inferred. Retain the existing overload/concurrency gap rather than adding a duplicate. No runtime or proposal status was refreshed. Source-specific claims remain provisional; recaptures and derived queries add no independent support.
+
+
+## 2026-11-14: PowerShell 7.7 announcement includes script compatibility changes
+
+### Typed entities
+
+project: PowerShell 7.7; project: .NET 11; concept: STS release; concept: version 7 UUID; concept: external schema fetch; decision: script migration review.
+file: raw/2026-11-14-web-announcing-powershell-7-7-ga-release.md.
+
+### Claims and evidence
+
+- The November 10 announcement describes PowerShell 7.7 GA as an STS release built on .NET 11, adding New-TemporaryDirectory and command improvements plus Constrained Language Mode, remoting and help hardening. A release announcement does not establish the installed workstation version or exact lifecycle dates. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-web-announcing-powershell-7-7-ga-release.md)
+- Documented behavior changes include New-Guid defaulting to UUID v7 instead of v4, stricter formatting-property/null argument validation, explicit-false switch handling, opt-in external Test-Json references, incompatible Export-Csv Append/NoHeader use, and broader recursive wildcard enumeration. Existing scripts may depend on the prior behavior. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-web-announcing-powershell-7-7-ga-release.md)
+
+### Explicit relationships
+
+Automation compatibility depends-on actual shell/runtime and argument behavior; external schema access uses an explicit opt-in. See [[github-actions-platform-operations]].
+
+### Decision and quality notes
+
+Official archived release announcement, no shell upgraded or compatibility suite run. Time-sortable identifiers have different ordering/randomness expectations; do not infer authorization or secrecy from a UUID. Verify pinned production scripts and module behavior before adopting. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which pinned PowerShell 7.7 script suite verifies UUID expectations, false switches, null validation, CSV flags, external-schema refusal and recursive enumeration before automation migration? See [[indexes/gaps]].

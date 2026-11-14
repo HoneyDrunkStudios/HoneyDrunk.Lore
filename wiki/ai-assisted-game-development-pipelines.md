@@ -270,3 +270,24 @@ Unattended operations depend-on scoped authority and honest evidence status; ass
 ### Decision and quality notes
 
 Single self-reported practitioner account; no plugin source, financial data, phone acceptance, size reduction, or store outcome was independently verified. Omitted personal location, contact/portfolio details, and private dashboard data. The source's rebuilding-version-control example is not adopted as a safe cleanup procedure here. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which bounded studio-operations pilot verifies data-source freshness, reversible changes, approval scope, recoverable asset archives, device refusal paths, GUI ownership, and honest unchecked-result reporting? See [[indexes/gaps]].
+
+
+## 2026-11-14: Simulation balance needs both random teams and adversarial lineups
+
+### Typed entities
+
+project: EQUAL HEROES ARENA; project: Ant Games (public studio author); concept: per-hero tuning dial; concept: seeded simulation; concept: lineup search; decision: balance audit.
+file: raw/2026-11-14-rss-auto-battler-without-rarity-tuning-100-heroes-to-equal-win-rates-by-si.md.
+
+### Claims and evidence
+
+- The developer describes one bounded multiplier per hero applied from authored baselines to stats and skill values, with generated skill text. Standard six-skill builds are selected before power tuning; random-team measurements and best-team search then feed log-space updates with normalization. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-auto-battler-without-rarity-tuning-100-heroes-to-equal-win-rates-by-si.md)
+- The self-reported 400,000-battle comparison narrows random-team hero win rates from 30.4-71.4% to 42.7-55.3%, but 12 heroes still lie outside 45-55%. The reported ladder rating-scale error persists independently of hero tuning; stored best-team scores are against the searched league, not proof of global optimality. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-auto-battler-without-rarity-tuning-100-heroes-to-equal-win-rates-by-si.md)
+
+### Explicit relationships
+
+Balance evaluation uses seeded scenarios and searched opponents; perceived roster viability depends-on lineup distribution and build choice. Hero tuning does not fix ladder calibration. See [[agent-evaluation-and-benchmarks]] and [[gamedev-production-and-community-signals]].
+
+### Decision and quality notes
+
+Single promotional developer account with an agent-authored audit, not independent reproduction. The title's equality goal is not an achieved exact 50% result. Sampling uncertainty, held-out teams, exploitative strategies and player data remain necessary before using the procedure as a balance guarantee. No game or simulation was run. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which held-out seeded teams, adversarial lineup searches and live pick/win data separate build quality, hero balance and ladder calibration without reusing the tuning distribution as the only oracle? See [[indexes/gaps]].

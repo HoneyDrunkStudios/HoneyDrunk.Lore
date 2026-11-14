@@ -595,3 +595,26 @@ Rollback uses change-specific recovery knowledge and depends-on cache, data and 
 ### Decision and quality notes
 
 First-person production experience, without a controlled reliability comparison. A feature toggle is not sufficient evidence of safe rollback; test the actual key transition, cold-cache load and dependency behavior. No incident or production configuration was changed. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which rollout rehearsal verifies old/new cache-key compatibility, cold-cache load, feature-toggle reversal and downstream recovery before relying on rollback? See [[indexes/gaps]].
+
+
+## 2026-11-14: Trigger-based database migration requires cutover and recovery evidence
+
+### Typed entities
+
+project: Heroku Migrator; project: PlanetScale Postgres; library: Bucardo; concept: trigger-based replication; concept: DDL freeze; concept: cutover backlog; decision: migration verification.
+file: raw/2026-11-14-rss-how-we-migrate-tbs-from-heroku-without-logical-replication.md.
+
+### Claims and evidence
+
+- PlanetScale describes Bucardo triggers recording changes before an initial COPY, then applying deltas to catch up. It distinguishes standard Heroku tiers without logical replication from Advanced support announced in October. Replicated tables require a primary key or unique index, and schema changes including scheduled partition maintenance must pause. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-how-we-migrate-tbs-from-heroku-without-logical-replication.md)
+- The v2 approach saves and removes target secondary/unique index definitions, preserves primary keys, then pauses replication to rebuild indexes and validate affected foreign keys before catch-up. This moves index failures into a retriable rebuild phase; it does not establish that the initial single-transaction COPY itself is resumable. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-how-we-migrate-tbs-from-heroku-without-logical-replication.md)
+- Reported fixes include disabling the migration connection transaction timeout, tuning TCP keepalives for silent drops, and adding a txntime index for delta-check anti-joins. The cited copy-throughput and total-time improvements are case-specific; the provided keepalive settings do not establish an exact one-minute failure deadline. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-how-we-migrate-tbs-from-heroku-without-logical-replication.md)
+- The described switch blocks source writes, verifies schema/constraints/sequences and pending deltas, then repoints the application. Revert Switch makes the source writable; the account does not demonstrate synchronization of writes made at the new target back to the source. Sampled row counts and zero backlog are separate from full data equivalence. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-how-we-migrate-tbs-from-heroku-without-logical-replication.md)
+
+### Explicit relationships
+
+Migration depends-on stable schema, identifiable rows and converged change capture; target-index rebuild fixes one restart path. Safe rollback depends-on post-cutover write reconciliation. See [[cloud-data-platforms-and-analytics]].
+
+### Decision and quality notes
+
+Vendor migration retrospective, not tested tool behavior or an instruction to operate databases. Discovery metadata and cloud inventory may still be sensitive even when row values are excluded. Index/constraint recovery, trigger overhead, long-copy failures and target-write rollback require a rehearsal; no database or schema was changed. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which migration rehearsal proves source-only unique-key support, COPY failure recovery, index/FK rebuild, backlog convergence, full data checks and lossless rollback after writes reach the new target? See [[indexes/gaps]].

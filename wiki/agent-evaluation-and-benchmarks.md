@@ -1843,3 +1843,26 @@ Evaluation depends-on tasks, effort, safeguards, repetitions and verification; v
 ### Decision and quality notes
 
 The source contains a broad cyber improvement narrative alongside a narrower parity footnote. Both are retained above; the defensible resolution is benchmark-specific improvement and no general vulnerability-discovery advantage. The linked system card and external reports need separate sourcing. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Can matched-task, matched-budget repetitions and the system card reconcile cyber headline versus parity footnote while separating simulation, real hardware and human-verified outcomes? See [[indexes/gaps]].
+
+
+## 2026-11-14: XYBench separates mentioning a solution from acting on user intent
+
+### Typed entities
+
+project: XYBench; project: Allen Institute for AI; concept: XY problem; concept: pragmatic emphasis; concept: misconception identification; decision: goal-focused evaluation.
+file: raw/2026-11-14-rss-xybench-helping-with-the-problem-behind-the-question.md. file: raw/2026-11-14-rss-building-an-agent-harness-for-otel-instrumentation-with-genai-semantic.md. file: raw/2026-11-14-rss-don-t-just-flag-it-fix-it-how-to-run-codemender-in-your-pull-requests.md.
+
+### Claims and evidence
+
+- The release describes 8,115 questions: 1,557 Stack Overflow, 184 Stack Exchange, 102 manually curated and 6,272 WikiHow-derived generated questions. Thus the opening real-world characterization includes a large synthetic procedural component. The benchmark measures solution presence, answer emphasis and misconception redirection separately. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-xybench-helping-with-the-problem-behind-the-question.md)
+- Sonnet 4.5 serves as judge. Two humans assessed 500 model responses; reported judge agreement is 97.5-100% for solution presence, 84.6-93.3% for misconception identification and 74.2-79.8% for pragmatic emphasis. These dimensions have different measurement reliability. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-xybench-helping-with-the-problem-behind-the-question.md)
+- The single-turn, one-response evaluation reports models emphasizing the underlying goal on 35-41% of Stack Overflow cases, while a separate answer-choice experiment selected goal-focused answers at 71-84%. Oracle-provided intent improved some solution-presence results without consistently improving redirection. Recognition and free-form production are different tasks. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-xybench-helping-with-the-problem-behind-the-question.md)
+- Synthesis: objective conformance, completed verification and useful goal-oriented output require separate evidence. OTel reports judge-approved convention violations; CodeMender guidance distinguishes exploit negatives from failed execution; XYBench separates selecting helpful advice from writing it. These independent reports strengthen this qualitative evaluation principle, not any shared benchmark score or local implementation result. confidence: 3 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-building-an-agent-harness-for-otel-instrumentation-with-genai-semantic.md) [captured source](../raw/2026-11-14-rss-don-t-just-flag-it-fix-it-how-to-run-codemender-in-your-pull-requests.md) [captured source](../raw/2026-11-14-rss-xybench-helping-with-the-problem-behind-the-question.md)
+
+### Explicit relationships
+
+Goal-focused evaluation depends-on justified intent inference and distinct scoring dimensions; multiple-choice success does not supersede free-form assistance evidence. See [[ai-agent-harnesses]] and [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Primary benchmark-team blog, not an independent paper/code replication. English procedural tasks, synthetic generation, selected forum answers, a model judge and single-turn sampling limit transfer. Inferred intent must remain revisable; this is not authority to override explicit user scope. Original opening wording and dataset breakdown are preserved in the source. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which representative multi-turn evaluation separates intent inference, justified redirection, solution presence and pragmatic emphasis with independent human labels and controls for synthetic-data and judge bias? See [[indexes/gaps]].

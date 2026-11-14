@@ -1958,3 +1958,45 @@ Local execution uses an Azure model deployment; deployment and cleanup depend-on
 ### Decision and quality notes
 
 Same article already compiled November 7; formatting differences do not add independent support or graduate individual preview features. Blank lines inside continued-shell examples remain unsuitable for verbatim reuse. Existing identity, evaluation, cost and cleanup gaps remain. No Azure command was executed. Source-specific claims remain provisional; recaptures and derived queries add no independent support.
+
+
+## 2026-11-14: Connector recapture preserves preview boundaries and source redactions
+
+### Typed entities
+
+project: Azure Functions; project: Azure Connector Namespace; library: Connector SDK; concept: connector trigger; decision: code-first integration.
+file: raw/2026-11-14-rss-connect-azure-functions-to-more-services-with-managed-connectors.md.
+
+### Claims and evidence
+
+- The November 14 capture repeats the October 5 article already compiled on October 10: preview support for .NET isolated, Python and Node.js; triggers supply file properties, typed clients retrieve content, and deterministic application rules route results to Teams. Connection management belongs to Connector Namespace; processing and failure handling remain application responsibilities. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-rss-connect-azure-functions-to-more-services-with-managed-connectors.md)
+
+### Explicit relationships
+
+Functions uses managed connectors; implementation depends-on supported language, region, plan and connection consent. See [[azure-service-bus-and-functions-messaging]].
+
+### Decision and quality notes
+
+Same article and publisher as the October 8 capture: independent support remains one. The cancellation-argument example retains a pre-existing secret-like redaction marker and is not buildable guidance. No attempt was made to reconstruct it. Existing connector availability/delivery/failure questions remain open; no duplicate gap added. Source-specific claims remain provisional; recaptures and derived queries add no independent support.
+
+
+## 2026-11-14: ACA application rollout separates app capacity from model capacity
+
+### Typed entities
+
+project: Azure Container Apps; project: Azure Container Registry; project: Azure OpenAI; concept: deployment handoff; concept: revision; concept: durable session state; decision: rollout verification.
+file: raw/2026-11-14-web-deploying-an-ai-application-on-azure-container-apps.md.
+
+### Claims and evidence
+
+- The infrastructure guide separates a deployment-ready app handoff from hosting operations: image, listening port, dependencies, configuration, health checks and resource/auth requirements must be explicit. Registry pull, Key Vault access and model invocation each need the relevant identity, network path and scoped permissions. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-web-deploying-an-ai-application-on-azure-container-apps.md)
+- ACA replicas and model deployment quota/token throughput are separate capacity layers. Scaling the app cannot by itself fix Azure OpenAI throttling. Interactive sessions and WebSockets need multi-replica validation, and restart-surviving state must not rely only on container memory/storage. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-web-deploying-an-ai-application-on-azure-container-apps.md)
+- The guide describes traceable image versions, controlled revision traffic, rollback planning and monitoring of replicas, ingress, resource use and downstream failures. The capture has missing diagram content and flattened CLI continuation syntax; it does not supply a fully executable production deployment. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-web-deploying-an-ai-application-on-azure-container-apps.md)
+
+### Explicit relationships
+
+Rollout depends-on image, identity, ingress and state validation; throughput depends-on both app and model capacity. Revisions use versioned artifacts and operational evidence. See [[distributed-systems-patterns]] and [[edge-ai-and-ai-infrastructure-2026]].
+
+### Decision and quality notes
+
+Microsoft-hosted educational account, no deployment or load test performed. Named roles remain service/operation-specific, and version tags alone do not prove immutable image identity. Do not infer a complete production security baseline, session durability or safe database rollback from revision support. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which ACA rollout rehearsal verifies image identity, scoped model/vault/registry access, ingress and WebSocket sessions, durable state, model throttling and traffic reversal under representative load? See [[indexes/gaps]].

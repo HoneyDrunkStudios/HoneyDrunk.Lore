@@ -1666,3 +1666,25 @@ Animation transfer depends-on selected targets, copy range, constraints and rota
 ### Decision and quality notes
 
 Official release-note capture with unknown publication date; release availability and exact build are not established. No animation, rig, Blender instance or asset was edited. Test transforms and exports against the production toolchain. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which pinned Blender 5.3 rig fixtures verify preview/scene range, constrained-target rejection, rotation conversion fidelity, shape-key selection and exported animation across target tools? See [[indexes/gaps]].
+
+
+## 2026-11-14: Blender Python changes require identity, ordering and color-aware fixtures
+
+### Typed entities
+
+project: Blender 5.3; library: OpenEXR; library: OpenTimelineIO; concept: color interop ID; concept: extension asset library; concept: stable data ordering; decision: script compatibility.
+file: raw/2026-11-14-web-blender-5-3-python-api.md.
+
+### Claims and evidence
+
+- The captured 5.3 notes add Image.colorspace_settings.interop_id while retaining name compatibility, and describe built-in OpenEXR and opentimelineio modules. Interop IDs allow color-space remapping across OCIO configurations; names and rendering results still need cross-config checks. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-web-blender-5-3-python-api.md)
+- Extension asset-library APIs expose extension identity, availability and repository-token use. bpy.data.all_ids order changes and is explicitly an implementation detail; scripts must not use that enumeration order as persistent identity or deterministic export ordering. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-web-blender-5-3-python-api.md)
+- Other listed APIs include object/pose-bone rotation conversion, named constraints, context markers, storage buffers, 2D KDTree support, node root panels, viewport depth writing, multiline labels and read-only undo history. Listed APIs do not establish extension compatibility or release readiness. confidence: 1 sources, last-confirmed 2026-11-14 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-14-web-blender-5-3-python-api.md)
+
+### Explicit relationships
+
+Asset interoperability uses color IDs and supported modules; reproducible scripts depend-on explicit identity/order and pinned API capabilities. Extension access depends-on repository and library availability. See [[ai-assisted-game-development-pipelines]].
+
+### Decision and quality notes
+
+Official release notes with unknown publication date, separate from the already compiled animation/rigging page. Retain the existing 5.3 pre-release/availability caveat; no Blender instance, asset or extension was changed. Token-enabled libraries need a separate credential/authorization review. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which pinned Blender 5.3 fixtures verify OCIO interop mapping, module availability, stable ID-based export ordering, extension-library access and rotation/GPU/UI compatibility without exposing repository tokens? See [[indexes/gaps]].

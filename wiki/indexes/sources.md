@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-11-12
+## Compile coverage: 2026-11-14
 
-Reconciled 1487 raw documents against 1487 unique source entries at 2026-11-12T09:05:18-05:00; no unprocessed sources remain in this snapshot. This pass ingested 15 captures, including six recaptures of existing articles. Capture count does not establish independent support. Existing entries and ingest dates are preserved. All 13 historical query outputs repeat compiled evidence.
+Reconciled 1502 raw documents against 1502 unique source entries at 2026-11-14T09:06:22-05:00; no unprocessed sources remain in this snapshot. This pass ingested 15 captures, including two recaptures of existing articles. Capture count does not establish independent support. Prior source entries and ingest dates are retained. All 13 historical query outputs repeat compiled evidence.
 
 ## Entry format
 
@@ -1888,3 +1888,22 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [Secret scanning detects secrets in GitHub Actions workflow logs](../../raw/2026-11-12-web-secret-scanning-detects-secrets-in-github-actions-workflow-logs.md) - Workflow-log scanning is an opt-in licensed preview with coverage exclusions. Canonical pages: [[github-actions-platform-operations]]. - ingested 2026-11-12
 - [See what your Argo CD applications cost](../../raw/2026-11-12-web-see-what-your-argo-cd-applications-cost.md) - Argo cost attribution has lookback, pricing, cluster and RBAC limits. Canonical pages: [[kubernetes-platform-governance-and-cicd]]. - ingested 2026-11-12
 - [What's new in ASP.NET Core in .NET 11](../../raw/2026-11-12-web-what-s-new-in-asp-net-core-in-net-11.md) - ASP.NET Core 11 has feature-specific JSON, OpenAPI, UI and auth contracts. Canonical pages: [[dotnet-runtime-and-mobile-2026]], [[microsoft-dotnet-ai-stack]]. - ingested 2026-11-12
+
+
+## 2026-11-14 captures
+
+- [Auto battler without rarity: tuning 100 heroes to equal win rates by simulation](../../raw/2026-11-14-rss-auto-battler-without-rarity-tuning-100-heroes-to-equal-win-rates-by-si.md) - Seeded hero/build tuning, searched lineups and limits of random-team win-rate equality. - ingested 2026-11-14
+- [Building an Agent Harness for OTel Instrumentation with GenAI Semantic Conventions and Weaver](../../raw/2026-11-14-rss-building-an-agent-harness-for-otel-instrumentation-with-genai-semantic.md) - Reviewed instrumentation plans, pinned Weaver validation, privacy and framework-mapping limits. - ingested 2026-11-14
+- [Connect Azure Functions to more services with managed connectors](../../raw/2026-11-14-rss-connect-azure-functions-to-more-services-with-managed-connectors.md) - Same-article managed-connector recapture; preview limits and pre-existing redaction retained. - ingested 2026-11-14
+- [Don't just flag it, fix it: How to run CodeMender in your pull requests](../../raw/2026-11-14-rss-don-t-just-flag-it-fix-it-how-to-run-codemender-in-your-pull-requests.md) - CodeMender PR evidence, inconclusive verification, identity isolation and artifact-retention limits. - ingested 2026-11-14
+- [Gemini Decisions API: Fast, calibrated multimodal decisions](../../raw/2026-11-14-rss-gemini-decisions-api-fast-calibrated-multimodal-decisions.md) - Closed-set multimodal decisions with bounded latency evidence and calibration/adoption gaps. - ingested 2026-11-14
+- [How attackers keep reading mail after M365 session revocation](../../raw/2026-11-14-rss-how-attackers-keep-reading-mail-after-m365-session-revocation.md) - Research account of protocol-specific mailbox revocation and disabled-account scope limits. - ingested 2026-11-14
+- [How we built DriftSense to solve AI-era design drift](../../raw/2026-11-14-rss-how-we-built-driftsense-to-solve-ai-era-design-drift.md) - Hackathon design-system conformance prototype; semantic checks and human-reviewed remediation. - ingested 2026-11-14
+- [How we migrate TBs from Heroku without logical replication](../../raw/2026-11-14-rss-how-we-migrate-tbs-from-heroku-without-logical-replication.md) - Bucardo migration, copy/index recovery, cutover verification and target-write rollback gaps. - ingested 2026-11-14
+- [I built a Worms-like mobile game alone: 48 tanks, destructible terrain, and the parts that actually took the time](../../raw/2026-11-14-rss-i-built-a-worms-like-mobile-game-alone-48-tanks-destructible-terrain-a.md) - Flutter artillery devlog: readability, terrain, reconnect claims and store operations. - ingested 2026-11-14
+- [Understanding Lazy<T> thread safety modes](../../raw/2026-11-14-rss-understanding-lazy-t-thread-safety-modes.md) - Same-article Lazy factory recapture; overload scope and inconsistent sample remain explicit. - ingested 2026-11-14
+- [XYBench: Helping with the problem behind the question](../../raw/2026-11-14-rss-xybench-helping-with-the-problem-behind-the-question.md) - Goal-oriented benchmark separates solution presence, emphasis, redirection and judge reliability. - ingested 2026-11-14
+- [Announcing PowerShell 7.7 GA Release](../../raw/2026-11-14-web-announcing-powershell-7-7-ga-release.md) - PowerShell 7.7 STS announcement and script-breaking behavior changes. - ingested 2026-11-14
+- [Blender 5.3: Python API](../../raw/2026-11-14-web-blender-5-3-python-api.md) - Blender Python color interop, modules, asset libraries and non-contractual ID ordering. - ingested 2026-11-14
+- [Building Secure, Ephemeral GitHub Actions Runners on Azure Container Apps](../../raw/2026-11-14-web-building-secure-ephemeral-github-actions-runners-on-azure-container-ap.md) - ACA ephemeral-runner guide with separate identities and unresolved workflow credential exposure. - ingested 2026-11-14
+- [Deploying an AI Application on Azure Container Apps](../../raw/2026-11-14-web-deploying-an-ai-application-on-azure-container-apps.md) - ACA deployment handoff, state/revision controls and separate app/model capacity. - ingested 2026-11-14
