@@ -211,3 +211,22 @@ Reconnect uses ordered acknowledged events; correctness depends-on complete dete
 ### Decision and quality notes
 
 No implementation or failure trace is supplied. A log alone does not define authoritative ordering, concurrent turn admission, snapshot/version restoration, timeouts or cheating resistance. Existing cross-device replay gaps apply; this account adds no independent validation of another game's netcode. Source-specific claims remain provisional; recaptures and derived queries add no independent support.
+
+
+## 2026-11-15: Deterministic battle replay requires authoritative inputs and reward settlement
+
+### Typed entities
+
+project: Seraph Legion; library: TypeScript game-core; concept: seeded simulation; concept: authoritative reward ledger. file: raw/2026-11-15-rss-how-we-made-battles-deterministic-and-server-verified-in-a-telegram-mi.md.
+
+### Claims and evidence
+
+- The developer describes a pure TypeScript simulator shared by client and server, with a battle-start seed, teams and data tables determining the turn log. The server replays battle/finish reports and computes ledger rewards. A prototype migration importer accepting clamped client progress was reportedly exploited; the account says it was sealed by default and supplemented with anomaly review. confidence: 1 source, last-confirmed 2026-11-15 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-15-rss-how-we-made-battles-deterministic-and-server-verified-in-a-telegram-mi.md)
+
+### Explicit relationships
+
+Server settlement uses deterministic replay and depends-on server-owned battle inputs and versioned rules. See [[procedural-world-persistence]] and [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Preserved source assertion: replay verification defeats result forgery completely at almost no cost. superseded-by: [[realtime-game-network-protocol-design#2026-11-15: Deterministic battle replay requires authoritative inputs and reward settlement]], 2026-11-15T09:12:44-05:00; reasoning: replay only checks supplied simulation inputs, while the same account documents a separate reward-writing bypass. Treat replay as one control, with authorization, expiry, duplicate settlement and ledger integrity still unproved. Shared-IP signals alone do not establish abuse; do not copy player identifiers. Open question: Which adversarial battle suite verifies immutable server-owned seeds/teams/rules, replay cost, expiration, concurrent finish calls, duplicate-safe rewards and migration-route authorization? See [[indexes/gaps]].

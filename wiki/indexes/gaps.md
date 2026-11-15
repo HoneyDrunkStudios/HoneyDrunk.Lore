@@ -2,6 +2,10 @@
 
 Questions the wiki cannot currently answer. Populated by the Query operation when synthesis falls short, and by the Lint operation when entities are referenced but lack a backing page.
 
+## Compile status: 2026-11-15
+
+Reconciled 1046 dated gap entries with 67 canonical pages. Added 12 questions and closed 0; all 1034 prior entries remain. Three article recaptures retain existing gaps. This status supersedes the dated coverage snapshot below; source-specific questions remain open pending acceptance evidence.
+
 ## Compile status: 2026-11-14
 
 Reconciled 1034 dated gap entries alongside the current 67-page catalog at 2026-11-14T09:06:22-05:00. This pass added 13 questions and closed 0 gaps; all 1021 prior entries and their history remain. Two same-article recaptures retain existing gaps. Historical rollout questions remain historical; follow canonical supersession notes for captured assessments.
@@ -1354,3 +1358,19 @@ Reconciled 1034 dated gap entries alongside the current 67-page catalog at 2026-
 - Which pinned Blender 5.3 fixtures verify OCIO interop mapping, module availability, stable ID-based export ordering, extension-library access and rotation/GPU/UI compatibility without exposing repository tokens? - surfaced 2026-11-14 - context: [[technical-art-community-and-talent-signals]]; [source](../../raw/2026-11-14-web-blender-5-3-python-api.md).
 - Which ACA runner pilot proves trusted-job admission, denial of workflow-time App-key retrieval, pinned bootstrap/action artifacts, matching scaler labels, bounded queue costs and complete runner/credential cleanup? - surfaced 2026-11-14 - context: [[github-actions-platform-operations]]; [source](../../raw/2026-11-14-web-building-secure-ephemeral-github-actions-runners-on-azure-container-ap.md).
 - Which ACA rollout rehearsal verifies image identity, scoped model/vault/registry access, ingress and WebSocket sessions, durable state, model throttling and traffic reversal under representative load? - surfaced 2026-11-14 - context: [[azure-agent-automation-and-identity]]; [source](../../raw/2026-11-14-web-deploying-an-ai-application-on-azure-container-apps.md).
+
+
+## 2026-11-15 compile gaps
+
+- Which pinned Dev Kit build and cold/warm HoneyDrunk solutions verify readiness, incremental correctness, total process memory and cache portability/privacy? - surfaced 2026-11-15 - context: [[dotnet-runtime-and-mobile-2026]].
+- Which replayable seeded character evaluation verifies provenance, false-memory correction, belief revision, memory decay, sensory limits and bounded model cost over long runs? - surfaced 2026-11-15 - context: [[ai-assisted-game-development-pipelines]].
+- Which installed and bundled Git inventory verifies distributor fixes for recursive clone, merge/tag, binary-patch and fast-import paths used by agents and CI? - surfaced 2026-11-15 - context: [[ai-coding-agent-security]].
+- Which adversarial battle suite verifies immutable server-owned seeds/teams/rules, replay cost, expiration, concurrent finish calls, duplicate-safe rewards and migration-route authorization? - surfaced 2026-11-15 - context: [[realtime-game-network-protocol-design]].
+- Which pinned llama.cpp/ggml artifacts, bindings and dynamic backends verify ABI upgrades, model compatibility, provenance and target-device performance? - surfaced 2026-11-15 - context: [[edge-ai-and-ai-infrastructure-2026]].
+- Which private-beta deployment verifies provider egress, retention scope, credential-proxy coverage, firewall denial, session isolation, upgrades and scrubbed audit export? - surfaced 2026-11-15 - context: [[claude-platform-2026]].
+- Which pinned sibling-adapter pilot verifies authentication parity, schema evolution, elicitation/task negotiation, cancellation, replay and reversible forwarding migration? - surfaced 2026-11-15 - context: [[mcp-tool-governance-and-app-surfaces]].
+- Which pinned licensed asset/adapter/container set verifies the sparse-versus-shape config identity, unseen-category geometry, material preservation, rotation alignment and full training cost? - surfaced 2026-11-15 - context: [[technical-art-community-and-talent-signals]].
+- Which authorized incident evidence distinguishes probes from executed payloads, reconciles campaign counts and checks cloud persistence plus required-check source binding after credential rotation? - surfaced 2026-11-15 - context: [[ai-coding-agent-security]].
+- Which pinned .NET/Python fault suite verifies session-reference storage, restart/replay, graph upgrades, late or duplicate approvals, lost acknowledgements and idempotent external effects? - surfaced 2026-11-15 - context: [[microsoft-dotnet-ai-stack]].
+- Which pinned extension and sandbox configuration verify RBAC, snapshot consistency/retention, stop-versus-billing behavior, resume recovery and complete cleanup? - surfaced 2026-11-15 - context: [[azure-agent-automation-and-identity]].
+- Which delegated-user MCP pilot verifies tenant/RBAC denial, resource/time scope, result truncation, query-data privacy and validation-only/stale-version dashboard updates? - surfaced 2026-11-15 - context: [[azure-agent-automation-and-identity]].

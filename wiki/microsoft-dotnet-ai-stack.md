@@ -1149,3 +1149,23 @@ Blazor agent UI uses MEAI content and renderer registration; action safety depen
 ### Decision and quality notes
 
 Official release-note detail, correlated with the already compiled release announcement. No package, renderer, UI or tool approval flow was executed. Runtime GA does not supersede the existing experimental package assessment. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which pinned Blazor AI component flow verifies streaming block updates, renderer precedence, approval identity binding, cancellation and rejection/replay behavior with the experimental backend packages? See [[indexes/gaps]].
+
+
+## 2026-11-15: Durable Task extension GA distinguishes saved results from exactly-once external effects
+
+### Typed entities
+
+project: Microsoft Agent Framework; library: Microsoft.Agents.AI.DurableTask; library: agent-framework-durabletask; project: Durable Task Scheduler; concept: durable session reference; concept: replay. file: raw/2026-11-15-web-durable-task-extension-for-microsoft-agent-framework-is-now-generally-.md.
+
+### Claims and evidence
+
+- The November 9 announcement marks the Durable Task extension generally available for .NET/Python in Azure Functions or self-hosted apps. Durable agents restore session state from a backend; applications must separately persist the lightweight session reference. Graph registration creates supporting orchestration/executor activities. confidence: 1 source, last-confirmed 2026-11-15 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-15-web-durable-task-extension-for-microsoft-agent-framework-is-now-generally-.md)
+- Orchestration replay reuses completed agent/activity results already recorded in history. External-event waits release the worker; the dashboard exposes session/workflow history with the Scheduler backend. Examples require configured task hub, endpoint, authentication and compatible workers; C# shows an approval timeout while the Python snippet does not. confidence: 1 source, last-confirmed 2026-11-15 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-15-web-durable-task-extension-for-microsoft-agent-framework-is-now-generally-.md)
+
+### Explicit relationships
+
+Durable agents depend-on persisted session references and backend state; recovery uses recorded results. See [[ai-agent-harnesses]] and [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Official GA announcement, distinct from earlier capability reports and from experimental adjacent packages. Saved results do not establish exactly-once external publication after lost acknowledgements. Approval endpoints still need authorization, operation binding, expiration and replay protection; snippets are not a complete production recipe. Open question: Which pinned .NET/Python fault suite verifies session-reference storage, restart/replay, graph upgrades, late or duplicate approvals, lost acknowledgements and idempotent external effects? See [[indexes/gaps]].

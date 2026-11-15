@@ -2942,3 +2942,41 @@ Verification depends-on isolated execution and explicit failure classification; 
 ### Decision and quality notes
 
 Vendor reference design, not a deployed HoneyDrunk control. Slash-command actor authorization, immutable finding/head binding, fork handling, artifact privacy, credential access and tested network/metadata denial are not established here. Do not treat container ephemerality or removal of environment variables as isolation proof. No attack code, account or infrastructure was executed. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which reviewed CodeMender integration binds authorized slash commands to an immutable PR head/finding and verifies crash classification, GitHub write credentials, sandbox egress/metadata denial and protected artifact retention? See [[indexes/gaps]].
+
+
+## 2026-11-15: Git advisory capture covers repository-processing boundaries beyond clone
+
+### Typed entities
+
+project: Git; concept: recursive clone; concept: protocol-v2 reference validation; concept: untrusted patch; concept: fast-import. file: raw/2026-11-15-rss-git-security-vulnerabilities-announced.md.
+
+### Claims and evidence
+
+- The November 10 GitHub advisory article reports six fixes in Git 2.56.1 with maintenance backports: recursive-clone path truncation/code execution, advertised HEAD traversal, signature-removal stack corruption, binary-patch expanded-size reads, large-merge allocation overflow and unsafe fast-import filesystem features. Applications bundling Git and services processing repositories have separate deployed copies to inventory. confidence: 1 source, last-confirmed 2026-11-15 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-15-rss-git-security-vulnerabilities-announced.md)
+
+### Explicit relationships
+
+Agent repository processing depends-on patched Git and trust boundaries for clones, merges, tags, patches and import streams. See [[git-storage-and-version-control-infrastructure]] and [[container-supply-chain-and-compliance]].
+
+### Decision and quality notes
+
+Attributed advisory snapshot, not a live vulnerability or installation audit. No hostile input or payload was executed; exact distributor patches and bundled-tool coverage require verification before remediation decisions. Open question: Which installed and bundled Git inventory verifies distributor fixes for recursive clone, merge/tag, binary-patch and fast-import paths used by agents and CI? See [[indexes/gaps]].
+
+
+## 2026-11-15: wfx-loot illustrates CI credential persistence beyond a reverted workflow
+
+### Typed entities
+
+project: wfx-loot; project: Aikido; concept: compromised GitHub account; concept: workflow injection; concept: federated identity persistence. file: raw/2026-11-15-rss-wfx-loot-campaign-pushes-ci-secret-stealer-to-tens-of-thousands-of-rep.md.
+
+### Claims and evidence
+
+- Aikido reports stolen-account probes followed by workflow, install-hook or throwaway-branch payloads, rapid reverts and deleted run logs. The report distinguishes payload capabilities from this wave’s enabled HTTP exfiltration. It describes credential theft, possible cloud escalation and persistent trust/federated-identity changes, so reverting a file or rotating one token alone may not close the incident. confidence: 1 source, last-confirmed 2026-11-15 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-15-rss-wfx-loot-campaign-pushes-ci-secret-stealer-to-tens-of-thousands-of-rep.md)
+
+### Explicit relationships
+
+CI compromise uses existing write authority; containment depends-on workflow history, credential exposure, cloud trust and identity review. See [[github-actions-platform-operations]] and [[cloud-security-monitoring-and-siem]].
+
+### Decision and quality notes
+
+Campaign counts differ within the capture (1,835 versus 1,806 executions; probe populations also differ), so no exact prevalence is promoted. The blanket status-check-spoofing claim needs repository rule/app-source context; do not generalize it to every protected branch. Account overlap with GhostAction does not prove common attribution. No HoneyDrunk compromise inferred, payload reproduced, endpoint contacted or secret reconstructed. Open question: Which authorized incident evidence distinguishes probes from executed payloads, reconciles campaign counts and checks cloud persistence plus required-check source binding after credential rotation? See [[indexes/gaps]].

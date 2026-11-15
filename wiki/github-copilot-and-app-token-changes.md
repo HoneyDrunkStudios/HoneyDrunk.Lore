@@ -503,3 +503,22 @@ Token compatibility depends-on opaque variable-length handling; completed rollou
 ### Decision and quality notes
 
 Official rollout snapshot supersedes pending rollout posture. The April notice also says lengths vary and clients must not validate or depend on JWT contents; retain opaque handling rather than replacing 40-character validation with exactly 520. No real credential values copied. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Do HoneyDrunk token stores, proxies, validators, redactors, and override-header removal pass variable-length installation-token tests? See [[indexes/gaps]].
+
+
+## 2026-11-15: Installation-token rollout recapture retains opaque handling and the header deadline
+
+### Typed entities
+
+project: GitHub Apps; concept: opaque installation token; concept: override-header retirement. file: raw/2026-11-15-rss-stateless-github-app-installation-tokens-rolled-out.md.
+
+### Claims and evidence
+
+- The October 2 notice repeats the completed stateless rollout, roughly 520-character ghs_APPID_JWT tokens, unchanged permissions/scopes/one-hour expiry and November 30 override-header retirement. Token stores, proxies and redactors must support variable length rather than enforce either 40 or exactly 520 characters. confidence: 1 source, last-confirmed 2026-11-15 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-15-rss-stateless-github-app-installation-tokens-rolled-out.md)
+
+### Explicit relationships
+
+This recaptures the article in the October 3 section; token compatibility depends-on opaque handling. It adds no independent support.
+
+### Decision and quality notes
+
+URL fragment/capture variation does not create a new source authority. Existing rollout supersession stands; no token values, live integration tests or current remediation completion are recorded.

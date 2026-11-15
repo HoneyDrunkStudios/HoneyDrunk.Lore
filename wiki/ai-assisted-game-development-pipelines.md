@@ -291,3 +291,23 @@ Balance evaluation uses seeded scenarios and searched opponents; perceived roste
 ### Decision and quality notes
 
 Single promotional developer account with an agent-authored audit, not independent reproduction. The title's equality goal is not an achieved exact 50% result. Sampling uncertainty, held-out teams, exploitative strategies and player data remain necessary before using the procedure as a balance guarantee. No game or simulation was run. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which held-out seeded teams, adversarial lineup searches and live pick/win data separate build quality, hero balance and ladder calibration without reusing the tuning distribution as the only oracle? See [[indexes/gaps]].
+
+
+## 2026-11-15: Capybara Island treats memory provenance and world records as separate authorities
+
+### Typed entities
+
+project: Capybara Island; library: three.js; library: Ollama; concept: sourced memory; concept: belief revision; concept: event-driven cognition. file: raw/2026-11-15-rss-building-ai-characters-with-memory-feelings-and-beliefs-that-change-in.md.
+
+### Claims and evidence
+
+- The developer describes six characters driven by weighted events, a short-lived between-thought note, fast/deep model routing and hybrid recall over memories labeled by origin. Remembered material can be strengthened or marked faded; dreams and self-reports retain their provenance. Nightly reconciliation compares memories and beliefs against world records rather than making narration authoritative. confidence: 1 source, last-confirmed 2026-11-15 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-15-rss-building-ai-characters-with-memory-feelings-and-beliefs-that-change-in.md)
+- The account reports repeated opening ideas falling from 48% to 30% in short same-start thought sequences with continuity notes, and 24 of 24 rendered look requests succeeding at roughly ten seconds each. These are small developer tests, not evidence of sentience or long-term autonomous reliability. confidence: 1 source, last-confirmed 2026-11-15 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-15-rss-building-ai-characters-with-memory-feelings-and-beliefs-that-change-in.md)
+
+### Explicit relationships
+
+Capybara Island uses sourced memory and world-state checks; belief revision depends-on observed evidence. See [[agent-context-management-and-session-continuity]], [[procedural-world-persistence]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Single self-report. A replayable world record and deeper physics remain planned in the article; do not promote them to shipped features. Spending ceilings, sealed execution and stream failover are described but not independently tested. Omit residents’ personal-style narrative details from general design claims. Open question: Which replayable seeded character evaluation verifies provenance, false-memory correction, belief revision, memory decay, sensory limits and bounded model cost over long runs? See [[indexes/gaps]].

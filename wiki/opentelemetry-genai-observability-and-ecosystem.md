@@ -1030,3 +1030,22 @@ Instrumentation uses a pinned registry and framework lifecycle; conformance depe
 ### Decision and quality notes
 
 Primary contributor implementation account, with a public OpenInference runner example separate from the LoongSuite measurements and matrix. The original judging-model-only check reportedly accepted violations. No conformance scenario, Kubernetes deployment or upstream package was exercised; retain content minimization and explicit version compatibility. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which pinned framework/plugin/registry replay verifies hooks, span lifecycle, exception propagation, content opt-in, violation exits, empty/crashed scenarios and stale expected violations before instrumentation admission? See [[indexes/gaps]].
+
+
+## 2026-11-15: JavaScript SDK 3 recapture retains package and signal boundaries
+
+### Typed entities
+
+project: OpenTelemetry JavaScript; library: @opentelemetry/api; library: @opentelemetry/sdk-trace; concept: complex attributes. file: raw/2026-11-15-rss-announcing-the-opentelemetry-javascript-sdk-3-0.md.
+
+### Claims and evidence
+
+- The November 5 article again reports SDK 3.0.0, experimental 0.300.0, API 1.10.0 and minimum Node.js 22.15.0. It describes dual ESM/CommonJS exports, Logs stabilization, tracing-package consolidation and removal of deprecated packages. Complex span/log values do not imply complex resource/metric attributes; API and semantic conventions have separate version families. confidence: 1 source, last-confirmed 2026-11-15 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-15-rss-announcing-the-opentelemetry-javascript-sdk-3-0.md)
+
+### Explicit relationships
+
+This capture uses the same article as the November 7 section and adds no independent support. SDK migration depends-on package-family and runtime compatibility.
+
+### Decision and quality notes
+
+Recapture only; no migration or current package inspection. The article also asserts Node 20 end-of-life in April 2026; that lifecycle assertion is not adopted here without an authoritative lifecycle check. Existing migration gap remains.

@@ -540,3 +540,23 @@ Fable and Mythos use a shared model with different safeguards; adoption depends-
 ### Decision and quality notes
 
 First-party launch capture, not proof of general autonomy, physical-device reliability or independent safety. Preserve the earlier model history; release prices and promotional quotas are not evergreen quotes. The source itself says external evaluators did not review the blog/system-card contents. Its cyber headline and narrower footnote are reconciled in the benchmark page. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which matched-budget local tasks and tenant checks verify Fable/Mythos 5.2 access, fallback identity, preserved-thinking compatibility, retention, safety failures and full orchestration cost? See [[indexes/gaps]].
+
+
+## 2026-11-15: Full self-hosted Managed Agents differs from self-hosted sandboxes
+
+### Typed entities
+
+project: Claude Managed Agents; concept: self-hosted control plane; concept: credential proxy; concept: session event log. file: raw/2026-11-15-rss-operate-claude-managed-agents-inside-your-security-perimeter.md.
+
+### Claims and evidence
+
+- The November 12 article describes full self-hosted Managed Agents as private beta: the harness/server, database, workers, sandboxes, credential handling and session history run in the customer environment. This differs from hosting only the sandbox. Model requests still go to the chosen provider or gateway; existing Anthropic ZDR applies within its stated request scope. confidence: 1 source, last-confirmed 2026-11-15 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-15-rss-operate-claude-managed-agents-inside-your-security-perimeter.md)
+- The design separates harness and sandbox, keeps session history and vault secrets outside agent code, injects credentials through an external proxy for supported calls, supports host allowlists and exports session activity through OpenTelemetry. Self-hosted sandbox network enforcement remains the operator’s firewall responsibility. confidence: 1 source, last-confirmed 2026-11-15 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-15-rss-operate-claude-managed-agents-inside-your-security-perimeter.md)
+
+### Explicit relationships
+
+Self-hosted Managed Agents uses separate control and execution planes; privacy depends-on model routing, retention scope, proxy coverage and operator policy. See [[ai-coding-agent-security]] and [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Vendor architecture/private-beta availability, no HoneyDrunk entitlement or isolation verification. Self-hosting does not mean all model data stays on premises. Session/tool telemetry itself needs minimization and retention controls. Open question: Which private-beta deployment verifies provider egress, retention scope, credential-proxy coverage, firewall denial, session isolation, upgrades and scrubbed audit export? See [[indexes/gaps]].

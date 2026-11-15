@@ -1466,3 +1466,22 @@ Configuration generation uses versioned registry evidence; provisioning depends-
 ### Decision and quality notes
 
 The source claims zero blast radius and no need for security review while acknowledging assistant access through other tools. Retain the zero-risk assertion as rejected. superseded-by: [bounded authority interpretation](#2026-11-09-opentofu-registry-retrieval-and-infrastructure-execution-have-separate-authority), 2026-11-09T09:22:16-05:00; read-only operations narrow write authority but do not remove retrieved-content, tool-composition, query-disclosure or dependency risk. A malformed filesystem bullet and inconsistent tool name also limit the examples. No package/endpoint was installed/connected. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which pinned OpenTofu MCP implementation and client configuration verify read-only capabilities, version-specific retrieval, query privacy, untrusted-content handling and separation from execution tools? See [[indexes/gaps]].
+
+
+## 2026-11-15: Sibling MCP and REST adapters can share flows without proving protocol exclusivity
+
+### Typed entities
+
+project: Ikanos; project: Naftiko; concept: shared capability flow; concept: MCP elicitation; concept: durable task. file: raw/2026-11-15-rss-put-mcp-next-to-your-api-not-on-top-of-it.md.
+
+### Claims and evidence
+
+- The author proposes REST and MCP as sibling adapters referencing one aggregate flow, with REST forwarding for resources not yet migrated. This can reduce duplicated mappings and a wrapper hop. Elicitation and durable-task support are described as in review; REST returns 501 for the demonstrated interaction requiring input, rather than automatically reproducing MCP semantics. confidence: 1 source, last-confirmed 2026-11-15 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-15-rss-put-mcp-next-to-your-api-not-on-top-of-it.md)
+
+### Explicit relationships
+
+Ikanos adapters use shared flows; migration depends-on compatible authentication, action semantics and client behavior. See [[legacy-modernization-and-ai-ready-systems]].
+
+### Decision and quality notes
+
+Preserved source assertion: a stacked MCP server cannot offer elicitation or tasks. superseded-by: [[mcp-tool-governance-and-app-surfaces#2026-11-15: Sibling MCP and REST adapters can share flows without proving protocol exclusivity]], 2026-11-15T09:12:44-05:00; reasoning: lacking those primitives in an underlying REST API does not prevent an adapter from supplying its own state/interaction layer. The useful distinction is ownership and cost of orchestration, not impossibility. This is compile reasoning, not a protocol conformance test; no PR merge or feature availability inferred. Open question: Which pinned sibling-adapter pilot verifies authentication parity, schema evolution, elicitation/task negotiation, cancellation, replay and reversible forwarding migration? See [[indexes/gaps]].

@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-11-14
+## Compile coverage: 2026-11-15
 
-Reconciled 1502 raw documents against 1502 unique source entries at 2026-11-14T09:06:22-05:00; no unprocessed sources remain in this snapshot. This pass ingested 15 captures, including two recaptures of existing articles. Capture count does not establish independent support. Prior source entries and ingest dates are retained. All 13 historical query outputs repeat compiled evidence.
+Reconciled 1517 raw documents against 1517 unique source entries at 2026-11-15T09:12:44-05:00; no unprocessed sources remain in this snapshot. This pass ingested 15 captures, including three recaptures of existing articles. Capture count does not establish independent support. Prior source entries and ingest dates are retained. All 13 historical query outputs repeat compiled evidence.
 
 ## Entry format
 
@@ -1907,3 +1907,19 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [Blender 5.3: Python API](../../raw/2026-11-14-web-blender-5-3-python-api.md) - Blender Python color interop, modules, asset libraries and non-contractual ID ordering. - ingested 2026-11-14
 - [Building Secure, Ephemeral GitHub Actions Runners on Azure Container Apps](../../raw/2026-11-14-web-building-secure-ephemeral-github-actions-runners-on-azure-container-ap.md) - ACA ephemeral-runner guide with separate identities and unresolved workflow credential exposure. - ingested 2026-11-14
 - [Deploying an AI Application on Azure Container Apps](../../raw/2026-11-14-web-deploying-an-ai-application-on-azure-container-apps.md) - ACA deployment handoff, state/revision controls and separate app/model capacity. - ingested 2026-11-14
+
+- [A faster, lighter C# Dev Kit](../../raw/2026-11-15-rss-a-faster-lighter-c-dev-kit.md) - C# Dev Kit 11 preview separates server gains from total editor cost. - ingested 2026-11-15
+- [Announcing the OpenTelemetry JavaScript SDK 3.0](../../raw/2026-11-15-rss-announcing-the-opentelemetry-javascript-sdk-3-0.md) - JavaScript SDK 3 recapture retains package and signal boundaries. - ingested 2026-11-15
+- [Building AI characters with memory, feelings and beliefs that change: inside Capybara Island's minds (dev log #1)](../../raw/2026-11-15-rss-building-ai-characters-with-memory-feelings-and-beliefs-that-change-in.md) - Capybara Island treats memory provenance and world records as separate authorities. - ingested 2026-11-15
+- [Git security vulnerabilities announced](../../raw/2026-11-15-rss-git-security-vulnerabilities-announced.md) - Git advisory capture covers repository-processing boundaries beyond clone. - ingested 2026-11-15
+- [How we made battles deterministic and server-verified in a Telegram mini-game](../../raw/2026-11-15-rss-how-we-made-battles-deterministic-and-server-verified-in-a-telegram-mi.md) - Deterministic battle replay requires authoritative inputs and reward settlement. - ingested 2026-11-15
+- [llama.cpp v1.0.0 : A stronger foundation for the local AI ecosystem](../../raw/2026-11-15-rss-llama-cpp-v1-0-0-a-stronger-foundation-for-the-local-ai-ecosystem.md) - llama.cpp and ggml version library compatibility boundaries. - ingested 2026-11-15
+- [Operate Claude Managed Agents inside your security perimeter](../../raw/2026-11-15-rss-operate-claude-managed-agents-inside-your-security-perimeter.md) - Full self-hosted Managed Agents differs from self-hosted sandboxes. - ingested 2026-11-15
+- [Put MCP Next to Your API, Not on Top of It](../../raw/2026-11-15-rss-put-mcp-next-to-your-api-not-on-top-of-it.md) - Sibling MCP and REST adapters can share flows without proving protocol exclusivity. - ingested 2026-11-15
+- [Stateless GitHub App installation tokens rolled out](../../raw/2026-11-15-rss-stateless-github-app-installation-tokens-rolled-out.md) - Installation-token rollout recapture retains opaque handling and the header deadline. - ingested 2026-11-15
+- [The Definitive Fine-Tuning Guide for 3D Generation Models](../../raw/2026-11-15-rss-the-definitive-fine-tuning-guide-for-3d-generation-models.md) - TRELLIS.2 geometry LoRA aligns adaptation targets with available asset labels. - ingested 2026-11-15
+- [UWP and WinUI 3 apps: UI testing with MSTest](../../raw/2026-11-15-rss-uwp-and-winui-3-apps-ui-testing-with-mstest.md) - MSTest UI-host recapture refines version pins without adding independent support. - ingested 2026-11-15
+- [wfx-loot campaign pushes CI secret stealer to tens of thousands of repositories](../../raw/2026-11-15-rss-wfx-loot-campaign-pushes-ci-secret-stealer-to-tens-of-thousands-of-rep.md) - wfx-loot illustrates CI credential persistence beyond a reverted workflow. - ingested 2026-11-15
+- [Durable Task extension for Microsoft Agent Framework is now Generally Available](../../raw/2026-11-15-web-durable-task-extension-for-microsoft-agent-framework-is-now-generally-.md) - Durable Task extension GA distinguishes saved results from exactly-once external effects. - ingested 2026-11-15
+- [Introducing Azure Container Apps Sandboxes in Visual Studio Code](../../raw/2026-11-15-web-introducing-azure-container-apps-sandboxes-in-visual-studio-code.md) - Container Apps sandbox editor controls describe lifecycle operations, not acceptance. - ingested 2026-11-15
+- [Introducing Azure Monitor dashboards with Grafana MCP: Telemetry for AI Agents, Signed In as You](../../raw/2026-11-15-web-introducing-azure-monitor-dashboards-with-grafana-mcp-telemetry-for-ai.md) - Global Grafana MCP uses delegated user access rather than an instance data-source identity. - ingested 2026-11-15

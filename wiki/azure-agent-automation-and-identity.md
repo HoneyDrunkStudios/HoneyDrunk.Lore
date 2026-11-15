@@ -2000,3 +2000,42 @@ Rollout depends-on image, identity, ingress and state validation; throughput dep
 ### Decision and quality notes
 
 Microsoft-hosted educational account, no deployment or load test performed. Named roles remain service/operation-specific, and version tags alone do not prove immutable image identity. Do not infer a complete production security baseline, session durability or safe database rollback from revision support. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which ACA rollout rehearsal verifies image identity, scoped model/vault/registry access, ingress and WebSocket sessions, durable state, model throttling and traffic reversal under representative load? See [[indexes/gaps]].
+
+
+## 2026-11-15: Container Apps sandbox editor controls describe lifecycle operations, not acceptance
+
+### Typed entities
+
+project: Azure Container Apps Sandboxes; project: Visual Studio Code; concept: sandbox group; concept: named snapshot. file: raw/2026-11-15-web-introducing-azure-container-apps-sandboxes-in-visual-studio-code.md.
+
+### Claims and evidence
+
+- The November 13 announcement adds sandbox groups and instances to the Container Apps VS Code extension resource tree, with create, execute, named snapshot, stop/resume/delete and status/output visibility. The article asks users to select an extension release containing support but supplies no exact version or security/retention contract. confidence: 1 source, last-confirmed 2026-11-15 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-15-web-introducing-azure-container-apps-sandboxes-in-visual-studio-code.md)
+
+### Explicit relationships
+
+Editor sandbox management uses Azure lifecycle APIs; production selection depends-on explicit identity, region, isolation and snapshot semantics. See [[edge-ai-and-ai-infrastructure-2026]].
+
+### Decision and quality notes
+
+Editor UX announcement only. Do not infer crash recovery, snapshot-consistent application state, egress denial or cost ceilings from the menu operations. No Azure resource was created or changed. Open question: Which pinned extension and sandbox configuration verify RBAC, snapshot consistency/retention, stop-versus-billing behavior, resume recovery and complete cleanup? See [[indexes/gaps]].
+
+
+## 2026-11-15: Global Grafana MCP uses delegated user access rather than an instance data-source identity
+
+### Typed entities
+
+project: Azure Monitor dashboards with Grafana MCP; project: Azure Managed Grafana; project: Microsoft Entra ID; concept: delegated telemetry access; concept: optimistic concurrency. file: raw/2026-11-15-web-introducing-azure-monitor-dashboards-with-grafana-mcp-telemetry-for-ai.md.
+
+### Claims and evidence
+
+- The November 10 announcement describes the global mcp.dashboard.azure.com endpoint with 21 tools: 20 readers and one saved-dashboard updater. Calls use the signed-in Entra user and existing resource permissions, with no Grafana resource/data-source provisioning. The update tool can validate without saving and reject stale-version writes when the read version is supplied. confidence: 1 source, last-confirmed 2026-11-15 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-15-web-introducing-azure-monitor-dashboards-with-grafana-mcp-telemetry-for-ai.md)
+- The global endpoint accepts user sign-in only, cannot create dashboards or modify built-in ones, and has no Grafana alerting/Loki/SQL/ClickHouse tools. The per-instance Managed Grafana endpoint has different identity/data-source and dashboard capabilities and remains the article’s service-agent option. The demonstration profiles schemas, joins and truncation metadata, but its population table lacks a year for the historical storm comparison. confidence: 1 source, last-confirmed 2026-11-15 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-15-web-introducing-azure-monitor-dashboards-with-grafana-mcp-telemetry-for-ai.md)
+
+### Explicit relationships
+
+Delegated telemetry uses user RBAC; result interpretation depends-on explicit resource/time scope and data quality. Global MCP and per-instance MCP have different authority boundaries. See [[mcp-tool-governance-and-app-surfaces]] and [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Vendor demonstration, not verified tenant availability or unattended identity support. Dashboard-write permission remains sensitive despite predominantly read-only tools. Do not copy sample subscription/cluster identifiers or access tokens; query outputs and tool traces may contain operational data. Open question: Which delegated-user MCP pilot verifies tenant/RBAC denial, resource/time scope, result truncation, query-data privacy and validation-only/stale-version dashboard updates? See [[indexes/gaps]].

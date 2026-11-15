@@ -1688,3 +1688,23 @@ Asset interoperability uses color IDs and supported modules; reproducible script
 ### Decision and quality notes
 
 Official release notes with unknown publication date, separate from the already compiled animation/rigging page. Retain the existing 5.3 pre-release/availability caveat; no Blender instance, asset or extension was changed. Token-enabled libraries need a separate credential/authorization review. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which pinned Blender 5.3 fixtures verify OCIO interop mapping, module availability, stable ID-based export ordering, extension-library access and rotation/GPU/UI compatibility without exposing repository tokens? See [[indexes/gaps]].
+
+
+## 2026-11-15: TRELLIS.2 geometry LoRA aligns adaptation targets with available asset labels
+
+### Typed entities
+
+project: TRELLIS.2; library: PEFT; project: Google Scanned Objects; concept: geometry LoRA; concept: object-level holdout. file: raw/2026-11-15-rss-the-definitive-fine-tuning-guide-for-3d-generation-models.md.
+
+### Claims and evidence
+
+- The authors adapt sparse-structure and shape flow DiTs while freezing original weights and texture generation. GSO diffuse maps contain baked lighting rather than separate material labels, so they are unsuitable targets for texture adaptation. The workflow caches latents, renders 16 views per object and holds out nine of 188 footwear objects. confidence: 1 source, last-confirmed 2026-11-15 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-15-rss-the-definitive-fine-tuning-guide-for-3d-generation-models.md)
+- On those nine held-out objects, the report gives mean F-score at a 2%-of-scan-bounding-box-diagonal threshold of 0.276 to 0.803, Chamfer distance 0.174 to 0.033 and normal consistency 0.530 to 0.804. Training uses separate A100 80 GB runs of 7.2 and 3.6 hours; training loss alone is not geometry acceptance. Custom forward behavior requires direct PEFT adapter injection in the illustrated approach. confidence: 1 source, last-confirmed 2026-11-15 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-15-rss-the-definitive-fine-tuning-guide-for-3d-generation-models.md)
+
+### Explicit relationships
+
+TRELLIS.2 uses geometry adapters; trustworthy adaptation depends-on material-label validity, object-level holdouts and geometry evaluation. See [[ai-assisted-game-development-pipelines]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Small category-specific author experiment. The results section links the sparse-structure config label to the shape config URL, so resolve artifact identity before execution. Containers use mutable latest tags; gated DINOv3 access, licenses, secrets and cloud budget need review. No commands, jobs, assets or training were run; placeholder credentials are omitted. Open question: Which pinned licensed asset/adapter/container set verifies the sparse-versus-shape config identity, unseen-category geometry, material preservation, rotation alignment and full training cost? See [[indexes/gaps]].

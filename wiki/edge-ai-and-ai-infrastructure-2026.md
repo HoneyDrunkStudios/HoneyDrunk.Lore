@@ -1467,3 +1467,22 @@ BotPsy depends-on Qwen weights and post-training; safe local assistance depends-
 ### Decision and quality notes
 
 Model-author evaluation, not independent replication. Treat state-of-the-art wording as limited to the tested comparators. Verify artifact availability and actual license text: the capture combines Apache 2.0 language with research/educational intended-use wording. Local inference alone does not prove remote tools or future P2P features keep all data local. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which pinned BotPsy artifacts and license, target-device measurements, multi-turn multilingual tasks and adversarial tool tests establish a safe bounded workload with explicit sensitive-action refusal? See [[indexes/gaps]].
+
+
+## 2026-11-15: llama.cpp and ggml version library compatibility boundaries
+
+### Typed entities
+
+project: llama.cpp; library: libllama; library: libggml; concept: public C API; concept: ABI compatibility. file: raw/2026-11-15-rss-llama-cpp-v1-0-0-a-stronger-foundation-for-the-local-ai-ecosystem.md.
+
+### Claims and evidence
+
+- The project authors announce llama.cpp and ggml libraries v1.0.0, with API/ABI incompatibilities reflected in major versions. The stated semver table assigns major to public C API breaks, minor to compatible features/backends/model support and patch to fixes without API changes. Backends can be dynamically loaded, making library/plugin compatibility relevant to downstream packaging. confidence: 1 source, last-confirmed 2026-11-15 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-15-rss-llama-cpp-v1-0-0-a-stronger-foundation-for-the-local-ai-ecosystem.md)
+
+### Explicit relationships
+
+Local inference uses libllama/libggml and depends-on pinned API/ABI, backend and model support. See [[container-supply-chain-and-compliance]].
+
+### Decision and quality notes
+
+First-party release statement, not a guarantee for every binding, model or hardware combination. Distribution channels and CI expansion are reported intentions/capabilities; no artifact, license, accelerator or performance test was performed. Open question: Which pinned llama.cpp/ggml artifacts, bindings and dynamic backends verify ABI upgrades, model compatibility, provenance and target-device performance? See [[indexes/gaps]].

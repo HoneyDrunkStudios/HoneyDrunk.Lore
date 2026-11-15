@@ -1,83 +1,78 @@
-# Lore daily ingest/compile run
+# Lore ingest/compile — 2026-11-15
 
-- Timestamp: 2026-11-14T09:06:22-05:00.
-- Operator: Codex executing the authorized Honeyclaw daily ingest/compile prompt.
-- Result: **15 raw captures ingested; 15 existing canonical pages updated; 0 pages created; 0 new query crystallizations.**
-- Catalog: **1,502 raw documents; 67 concept pages; 1,034 dated gaps.**
-- Blockers: **None for this scoped research compile and publication.** Implementation limitations are recorded below and on the source-backed pages.
+- Timestamp: 2026-11-15T09:12:44-05:00
+- Operator: Codex executing the authorized Honeyclaw daily workflow.
+- Raw sources ingested: **15**; source coverage: **1517/1517** documents, excluding `.gitkeep`.
+- Canonical pages created: **0**; updated: **12**. Existing concepts reused; no competing entity pages needed merging.
+- Indexes: source coverage reconciled, all 67 topic rows rebuilt from explicit citations, prior gaps retained with **12** new questions; audit entry appended.
+- Crystallization: read all 13 historical query outputs. Their durable facts already have canonical coverage; no new exploration facts or independent support added.
 
-## Raw sources ingested
+## Inputs ingested
 
-Count: **15**: thirteen newly represented articles and two same-article recaptures. All captures were read fully. No raw file was edited, deleted, renamed or created by this pass. The fifteen already-present untracked captures are included in publication so new citations resolve remotely.
+- [2026-11-15-rss-a-faster-lighter-c-dev-kit.md](../raw/2026-11-15-rss-a-faster-lighter-c-dev-kit.md)
+- [2026-11-15-rss-announcing-the-opentelemetry-javascript-sdk-3-0.md](../raw/2026-11-15-rss-announcing-the-opentelemetry-javascript-sdk-3-0.md)
+- [2026-11-15-rss-building-ai-characters-with-memory-feelings-and-beliefs-that-change-in.md](../raw/2026-11-15-rss-building-ai-characters-with-memory-feelings-and-beliefs-that-change-in.md)
+- [2026-11-15-rss-git-security-vulnerabilities-announced.md](../raw/2026-11-15-rss-git-security-vulnerabilities-announced.md)
+- [2026-11-15-rss-how-we-made-battles-deterministic-and-server-verified-in-a-telegram-mi.md](../raw/2026-11-15-rss-how-we-made-battles-deterministic-and-server-verified-in-a-telegram-mi.md)
+- [2026-11-15-rss-llama-cpp-v1-0-0-a-stronger-foundation-for-the-local-ai-ecosystem.md](../raw/2026-11-15-rss-llama-cpp-v1-0-0-a-stronger-foundation-for-the-local-ai-ecosystem.md)
+- [2026-11-15-rss-operate-claude-managed-agents-inside-your-security-perimeter.md](../raw/2026-11-15-rss-operate-claude-managed-agents-inside-your-security-perimeter.md)
+- [2026-11-15-rss-put-mcp-next-to-your-api-not-on-top-of-it.md](../raw/2026-11-15-rss-put-mcp-next-to-your-api-not-on-top-of-it.md)
+- [2026-11-15-rss-stateless-github-app-installation-tokens-rolled-out.md](../raw/2026-11-15-rss-stateless-github-app-installation-tokens-rolled-out.md)
+- [2026-11-15-rss-the-definitive-fine-tuning-guide-for-3d-generation-models.md](../raw/2026-11-15-rss-the-definitive-fine-tuning-guide-for-3d-generation-models.md)
+- [2026-11-15-rss-uwp-and-winui-3-apps-ui-testing-with-mstest.md](../raw/2026-11-15-rss-uwp-and-winui-3-apps-ui-testing-with-mstest.md)
+- [2026-11-15-rss-wfx-loot-campaign-pushes-ci-secret-stealer-to-tens-of-thousands-of-rep.md](../raw/2026-11-15-rss-wfx-loot-campaign-pushes-ci-secret-stealer-to-tens-of-thousands-of-rep.md)
+- [2026-11-15-web-durable-task-extension-for-microsoft-agent-framework-is-now-generally-.md](../raw/2026-11-15-web-durable-task-extension-for-microsoft-agent-framework-is-now-generally-.md)
+- [2026-11-15-web-introducing-azure-container-apps-sandboxes-in-visual-studio-code.md](../raw/2026-11-15-web-introducing-azure-container-apps-sandboxes-in-visual-studio-code.md)
+- [2026-11-15-web-introducing-azure-monitor-dashboards-with-grafana-mcp-telemetry-for-ai.md](../raw/2026-11-15-web-introducing-azure-monitor-dashboards-with-grafana-mcp-telemetry-for-ai.md)
 
-| Raw capture | Canonical pages updated |
-| --- | --- |
-| [Auto battler without rarity: tuning 100 heroes to equal win rates by simulation](../raw/2026-11-14-rss-auto-battler-without-rarity-tuning-100-heroes-to-equal-win-rates-by-si.md) | [ai-assisted-game-development-pipelines](../wiki/ai-assisted-game-development-pipelines.md) |
-| [Building an Agent Harness for OTel Instrumentation with GenAI Semantic Conventions and Weaver](../raw/2026-11-14-rss-building-an-agent-harness-for-otel-instrumentation-with-genai-semantic.md) | [opentelemetry-genai-observability-and-ecosystem](../wiki/opentelemetry-genai-observability-and-ecosystem.md), [ai-agent-harnesses](../wiki/ai-agent-harnesses.md), [agent-evaluation-and-benchmarks](../wiki/agent-evaluation-and-benchmarks.md) |
-| [Connect Azure Functions to more services with managed connectors](../raw/2026-11-14-rss-connect-azure-functions-to-more-services-with-managed-connectors.md) | [azure-agent-automation-and-identity](../wiki/azure-agent-automation-and-identity.md) |
-| [Don't just flag it, fix it: How to run CodeMender in your pull requests](../raw/2026-11-14-rss-don-t-just-flag-it-fix-it-how-to-run-codemender-in-your-pull-requests.md) | [ai-coding-agent-security](../wiki/ai-coding-agent-security.md), [agent-evaluation-and-benchmarks](../wiki/agent-evaluation-and-benchmarks.md) |
-| [Gemini Decisions API: Fast, calibrated multimodal decisions](../raw/2026-11-14-rss-gemini-decisions-api-fast-calibrated-multimodal-decisions.md) | [google-agent-platform-and-gemini-api-2026](../wiki/google-agent-platform-and-gemini-api-2026.md) |
-| [How attackers keep reading mail after M365 session revocation](../raw/2026-11-14-rss-how-attackers-keep-reading-mail-after-m365-session-revocation.md) | [ai-agent-identity-and-workload-auth](../wiki/ai-agent-identity-and-workload-auth.md) |
-| [How we built DriftSense to solve AI-era design drift](../raw/2026-11-14-rss-how-we-built-driftsense-to-solve-ai-era-design-drift.md) | [ai-assisted-software-practice](../wiki/ai-assisted-software-practice.md) |
-| [How we migrate TBs from Heroku without logical replication](../raw/2026-11-14-rss-how-we-migrate-tbs-from-heroku-without-logical-replication.md) | [distributed-systems-patterns](../wiki/distributed-systems-patterns.md) |
-| [I built a Worms-like mobile game alone: 48 tanks, destructible terrain, and the parts that actually took the time](../raw/2026-11-14-rss-i-built-a-worms-like-mobile-game-alone-48-tanks-destructible-terrain-a.md) | [gamedev-production-and-community-signals](../wiki/gamedev-production-and-community-signals.md), [realtime-game-network-protocol-design](../wiki/realtime-game-network-protocol-design.md) |
-| [Understanding Lazy<T> thread safety modes](../raw/2026-11-14-rss-understanding-lazy-t-thread-safety-modes.md) | [dotnet-runtime-and-mobile-2026](../wiki/dotnet-runtime-and-mobile-2026.md) |
-| [XYBench: Helping with the problem behind the question](../raw/2026-11-14-rss-xybench-helping-with-the-problem-behind-the-question.md) | [agent-evaluation-and-benchmarks](../wiki/agent-evaluation-and-benchmarks.md) |
-| [Announcing PowerShell 7.7 GA Release](../raw/2026-11-14-web-announcing-powershell-7-7-ga-release.md) | [dotnet-runtime-and-mobile-2026](../wiki/dotnet-runtime-and-mobile-2026.md) |
-| [Blender 5.3: Python API](../raw/2026-11-14-web-blender-5-3-python-api.md) | [technical-art-community-and-talent-signals](../wiki/technical-art-community-and-talent-signals.md) |
-| [Building Secure, Ephemeral GitHub Actions Runners on Azure Container Apps](../raw/2026-11-14-web-building-secure-ephemeral-github-actions-runners-on-azure-container-ap.md) | [github-actions-platform-operations](../wiki/github-actions-platform-operations.md) |
-| [Deploying an AI Application on Azure Container Apps](../raw/2026-11-14-web-deploying-an-ai-application-on-azure-container-apps.md) | [azure-agent-automation-and-identity](../wiki/azure-agent-automation-and-identity.md) |
+## Canonical pages updated
 
-The managed-connectors and Lazy factory captures repeat articles already represented by October 8 and November 7 inputs respectively. They retain one independent supporting source each. The Blender Python API page is a distinct release-note section, even though the earlier animation/rigging capture links to it; a backlink is not a prior full ingest.
+- [[ai-assisted-game-development-pipelines]]
+- [[ai-coding-agent-security]]
+- [[azure-agent-automation-and-identity]]
+- [[claude-platform-2026]]
+- [[dotnet-runtime-and-mobile-2026]]
+- [[edge-ai-and-ai-infrastructure-2026]]
+- [[github-copilot-and-app-token-changes]]
+- [[mcp-tool-governance-and-app-surfaces]]
+- [[microsoft-dotnet-ai-stack]]
+- [[opentelemetry-genai-observability-and-ecosystem]]
+- [[realtime-game-network-protocol-design]]
+- [[technical-art-community-and-talent-signals]]
 
-## Wiki pages and index rebuild
+## Reconciliation and quality
 
-Updated the 15 canonical pages linked above with **42 claim bullets**, typed entities, explicit relationships, citations, confidence dates and decision/quality notes. All prior concept prose is preserved. No duplicate entity required a new page or canonical merge. One narrow three-source synthesis strengthens the qualitative principle that conformance, execution completion and goal-focused usefulness need separate evidence; it does not pool their numerical results. Other source-specific claims remain provisional and are not strengthened by capture count.
+Three article recaptures (OTel JavaScript SDK 3, MSTest UI testing and stateless installation tokens) refresh archival coverage without increasing independent support. The existing token-rollout supersession remains. No new evidence warrants upgrading a claim to three independent sources; single-source empirical and security claims remain provisional. Existing cross-source harness guidance is retained.
 
-Rebuilt all **67** topic rows from current pages; reconciled **1,502** unique source entries and **1,034** dated gaps; appended the audit trail. Prior source entries, ingest dates, gap questions and supersession records remain. Topic citation counts are retrieval metadata, not independent support for every claim. This scoped compile does not certify the entire historical corpus as fresh or replace a comprehensive Lint pass.
+Resolved two overbroad source assertions, preserved with timestamped `superseded-by:` notes on their canonical pages: replay as complete anti-cheat, and stacked MCP as categorically incapable of tasks/elicitation. These are reasoned scope corrections, not tested protocol or game behavior. New durable-extension GA does not establish GA of adjacent experimental packages or exactly-once external effects.
 
-## Contradictions resolved
+Pages rewritten: 0. Source-quality limitations flagged in relevant new sections: small character/geometry tests; Dev Kit server-only memory and preview scope; TRELLIS sparse-config link mismatch and mutable images; wfx-loot inconsistent counts, capability-versus-enabled behavior and check-source binding; OTel Node lifecycle assertion not adopted; versionless sandbox extension announcement; telemetry demo population-year mismatch. No unqualified performance, isolation or security guarantee promoted.
 
-Three source-interpretation conflicts were resolved, retaining the prior framing and adding a timestamped `superseded-by:` pointer with reasoning:
+Privacy: no raw edits/deletions. Existing source redactions retained; no secret reconstruction or credential testing. Omitted placeholder tokens, payload excerpts/callback addresses, sample cloud identifiers, player/IP data and unnecessary personal narratives from generated prose. Public project names and necessary source attribution retained. Best-effort secret scan and manual privacy review cover intended new raw additions and generated changes.
 
-1. **CodeMender retention:** verdict-only persistence conflicts with explicit export of exploit artifacts to Cloud Storage. Prefer the specific export contract: both verdict and protected audit artifacts can persist after sandbox destruction.
-2. **Gemini latency:** the opening combines a maximum 256K-token/1,000-question envelope with low-latency language; the detailed measurements cover up to 16K tokens and 1-100 questions. Keep capability limits separate from measured performance scope.
-3. **M365 containment:** the universal “full block” wording is narrowed to the reported mailbox tests; the same source says some non-mail Graph endpoints still answer. A fixed 90-minute recommendation is retained as source-specific, not a universal containment guarantee.
+Decision usefulness: archived source claims are distinguished from compile inference and local acceptance. Read dates indicate archival review, not current provider behavior. No live source refresh, runtime migration, deployment, paid jobs, native UI/device test, security remediation or HoneyDrunk compromise is asserted.
 
-Additional qualifications preserve uncertainty without claiming resolved implementation behavior: exact hero equality is a goal rather than a result; most XYBench questions are WikiHow-derived generated examples; COPY index-rebuild recovery is not proof of resumable COPY or lossless post-cutover rollback. The existing Dapr ambiguity receives no new evidence and remains open.
+## Gaps logged
 
-## Crystallization and gaps
-
-Reviewed all **13** historical `output/query-*.md` files. Their **75** distinct explicit raw citations exist and already appear on canonical pages. They recap compiled evidence; no new durable fact or independent reinforcement warrants crystallization. Historical model/version recommendations are not refreshed or promoted as current guidance.
-
-Added **13** questions, closed **0**, retained all **1,021** prior entries. New questions cover simulation balance, OTel conformance, CodeMender command/credential/artifact boundaries, classifier calibration, protocol-specific token revocation, design-system conformance, migration recovery/rollback, mobile-game readability, PowerShell compatibility, goal-focused evaluation, Blender scripting, ephemeral-runner trust and ACA rollout. Same-article recaptures retain their existing gaps. See [gap index](../wiki/indexes/gaps.md#2026-11-14-compile-gaps).
-
-## Quality and privacy posture
-
-- Pages rewritten: **0**. Pages blocked by unresolved publication-quality defects: **0**. Source/API/implementation limitations are explicitly flagged in page quality notes and the gap index.
-- Weak claims remain labeled: vendor speed/cost/calibration and security guarantees, author-reported game balance and cross-device determinism, hackathon readiness, preview/release-note features and migration throughput. The three-source consolidation is a qualitative inference, not replicated HoneyDrunk acceptance.
-- Source-quality flags: the connector code has a pre-existing redacted cancellation argument; LazyInitializer declares one lock name and passes another; the runner bootstrap omits implementation and the manifest is API-dependent; the ACA app capture omits diagram content and flattens CLI continuations. These fragments are not reproduced as runnable implementation guidance.
-- The runner guide's removal of a temporary key file and variables does not establish denial of subsequent App-key retrieval through the attached UAMI. Ephemerality, private networking and OIDC each address different boundaries. This is flagged for validation rather than adopted as a secure deployment recipe.
-- Blender 5.3 availability/pre-release caveats remain; no release date or installed capability is inferred from clipping. The artillery devlog says Flutter despite its Unity feed category.
-- Privacy: **0 new redactions required** by the best-effort repository secret filter across fifteen inputs and generated additions. One existing secret-like redaction marker in the connector capture is retained unchanged. Public author attribution is kept only where useful; contact/referral, coupon and personal-background details are omitted from wiki prose. No credentials were reconstructed, tested or printed. No raw redaction was authorized or performed.
-- Decision usefulness: pages distinguish archived source claims, inference, uncertainty and needed acceptance evidence. No live external refresh, infrastructure deployment, schema change, agent implementation, provider validation, native-device test, store acceptance or product purchase is claimed.
+- Which pinned Dev Kit build and cold/warm HoneyDrunk solutions verify readiness, incremental correctness, total process memory and cache portability/privacy? Context: [[dotnet-runtime-and-mobile-2026]].
+- Which replayable seeded character evaluation verifies provenance, false-memory correction, belief revision, memory decay, sensory limits and bounded model cost over long runs? Context: [[ai-assisted-game-development-pipelines]].
+- Which installed and bundled Git inventory verifies distributor fixes for recursive clone, merge/tag, binary-patch and fast-import paths used by agents and CI? Context: [[ai-coding-agent-security]].
+- Which adversarial battle suite verifies immutable server-owned seeds/teams/rules, replay cost, expiration, concurrent finish calls, duplicate-safe rewards and migration-route authorization? Context: [[realtime-game-network-protocol-design]].
+- Which pinned llama.cpp/ggml artifacts, bindings and dynamic backends verify ABI upgrades, model compatibility, provenance and target-device performance? Context: [[edge-ai-and-ai-infrastructure-2026]].
+- Which private-beta deployment verifies provider egress, retention scope, credential-proxy coverage, firewall denial, session isolation, upgrades and scrubbed audit export? Context: [[claude-platform-2026]].
+- Which pinned sibling-adapter pilot verifies authentication parity, schema evolution, elicitation/task negotiation, cancellation, replay and reversible forwarding migration? Context: [[mcp-tool-governance-and-app-surfaces]].
+- Which pinned licensed asset/adapter/container set verifies the sparse-versus-shape config identity, unseen-category geometry, material preservation, rotation alignment and full training cost? Context: [[technical-art-community-and-talent-signals]].
+- Which authorized incident evidence distinguishes probes from executed payloads, reconciles campaign counts and checks cloud persistence plus required-check source binding after credential rotation? Context: [[ai-coding-agent-security]].
+- Which pinned .NET/Python fault suite verifies session-reference storage, restart/replay, graph upgrades, late or duplicate approvals, lost acknowledgements and idempotent external effects? Context: [[microsoft-dotnet-ai-stack]].
+- Which pinned extension and sandbox configuration verify RBAC, snapshot consistency/retention, stop-versus-billing behavior, resume recovery and complete cleanup? Context: [[azure-agent-automation-and-identity]].
+- Which delegated-user MCP pilot verifies tenant/RBAC denial, resource/time scope, result truncation, query-data privacy and validation-only/stale-version dashboard updates? Context: [[azure-agent-automation-and-identity]].
 
 ## Validation and explicit author review
 
-Passed: SHA-256 equality for **1,503** raw files including the placeholder; **1,502** unique real source entries with complete coverage; all **67** independently reconstructed topic rows; **1,034** dated gaps with prior history retained; **75** distinct query citations with canonical coverage; typed-entity/relationship/quality sections; claim-level citations and dates; new local links, explicit supersession anchors and wikilinks; strict UTF-8; added-prose privacy checks; historical concept/source/gap preservation; and exact intended staging. The link validator excludes the fenced index-format example. Final receipt and audit links are included in validation.
+Passed: SHA-256 equality for all 1,518 raw files including the placeholder; 1,517 unique source entries with complete coverage; 67 independently reconstructed topic citation counts; all 75 explicit raw citations across 13 queries have canonical coverage; 1,046 dated gaps with 1,034 prior gaps retained; historical canonical prose/source entries retained; UTF-8, generated links/supersession headings, entity/relationship/confidence sections and generated whitespace validation. Best-effort secret scan: zero flags across fifteen inputs and generated additions. Seven inherited source trailing-whitespace findings are retained rather than rewritten.
 
-Generated-content staged whitespace validation passes. Immutable raw inputs retain **7** inherited trailing-whitespace findings; these are source formatting, not generated-content defects, and were not rewritten under the raw directory contract.
+Explicit author review: Approved, low risk for this documentation scope. Reviewed the final intended diff against all fifteen captures, Lore AGENTS, the Studio working agreement and defect-first review rubric. Checked evidence fidelity, measurement scope, correlated recaptures, maturity distinctions, source availability, privacy/data leakage, supersession/history preservation, broken links and concurrent work. Refined the geometry F-score threshold and explicit source-file entities before final validation. No unresolved Block or Request Changes findings. Research remains within Lore; runtime, public API, schema, CI/deployment and cross-Node contracts are unchanged. No new runtime tests are warranted. Existing unrelated work is excluded from staging. Hosted CI, Sonar and native PR review are not claimed.
 
-Explicit author review: **Approved; Low risk; High confidence for this scoped compile.** Reviewed the intended/staged wiki, indexes and receipt against all fifteen complete raw captures, Lore AGENTS, Discovery ownership/declarations, the Studio charter/invariants, working agreement and author-review rubric. The defect pass checked evidence fidelity, numerical/measurement scope, claim independence, contradiction resolution, history/data loss, source availability, privacy, misleading security guarantees, broken links, concurrent work and publication scope. Corrected a studio entity type and made the runner credential inference explicit; removed an unverified statement about the installed shell before final review. No Block, Request Changes or Suggest findings remain.
+## Blockers and publication scope
 
-Architecture/domain/dependencies: research remains in Lore; no governance, runtime, API, package, schema, workflow, deployment or cross-Node contract changes. Observability/provenance: the audit and receipt identify inputs, source limitations and decisions. Failure/concurrency safety: source bytes and prior knowledge are retained, existing local work is excluded, and publication uses a normal push after checking branch divergence. Performance/cost: no deployed execution or service changes; qualitative research is not a performance guarantee. Backward compatibility: canonical pages and earlier claims remain intact. Maintainability/reuse: existing pages are extended with graph-ready links; no new ingestion infrastructure or speculative helper is added to the repository.
-
-Auth path: the user explicitly authorized scoped commit/push; no credential inspection, account modification or message to another person was needed. Apply a Conventional Commit with `Authorship: agent-codex` and the final staged-diff review gate. The current working agreement supersedes the publishing skill's older Greptile and retired bypass-label guidance. No PR creation, update or merge is requested.
-
-Documentation/source-capture changes require content, link, privacy, hash and scope validation; runtime tests are not needed because executable behavior is unchanged. Hosted CI, Sonar and native PR reviews were not run or claimed. No live implementation acceptance is inferred from this author review.
-
-## Publication scope
-
-**35 intended files:** 15 existing untracked raw captures, 15 canonical pages, four index files and this receipt, on `docs/lore-ingest-2026-10-10`. Both pre-existing modified sourcing receipts and all untracked signal reviews are excluded. Existing query outputs and unrelated files remain unchanged.
-
-Commit/push is explicitly authorized. Before editing, the current branch was fetched and matched origin. Use a Conventional Commit with `Authorship: agent-codex`, a final staged-diff review marker and a normal fast-forward push; check local/remote commit equality afterwards. No PR creation, update or merge is requested.
+Blockers: none after local content validation and explicit author review. Hosted CI/Sonar/native PR review were not exercised for this direct documentation push. Scope: the 15 untracked input captures (added without changing bytes), updated canonical pages, four index files and this receipt on the existing docs/lore-ingest-2026-10-10 branch. Existing sourcing receipts and signal-review outputs are excluded. User authorized commit/push; no PR creation or merge requested. Current Studio agreement supersedes older skill guidance about Greptile and retired bypass labels. A normal fast-forward push will be verified against the remote head.

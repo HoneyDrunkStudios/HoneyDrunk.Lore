@@ -1495,3 +1495,43 @@ Automation compatibility depends-on actual shell/runtime and argument behavior; 
 ### Decision and quality notes
 
 Official archived release announcement, no shell upgraded or compatibility suite run. Time-sortable identifiers have different ordering/randomness expectations; do not infer authorization or secrecy from a UUID. Verify pinned production scripts and module behavior before adopting. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which pinned PowerShell 7.7 script suite verifies UUID expectations, false switches, null validation, CSV flags, external-schema refusal and recursive enumeration before automation migration? See [[indexes/gaps]].
+
+
+## 2026-11-15: C# Dev Kit 11 preview separates server gains from total editor cost
+
+### Typed entities
+
+project: C# Dev Kit; library: .NET Native AOT; concept: project cache; concept: incremental build. file: raw/2026-11-15-rss-a-faster-lighter-c-dev-kit.md.
+
+### Claims and evidence
+
+- Microsoft describes version 11.0 as pre-release in this October 6 article, replacing six managed services with one Native AOT server, caching project models and prioritizing the active file. Its Aspire comparison reports active-file readiness of 0.47 seconds versus up to 84.1 seconds, with whole-solution readiness at 3.0 seconds; cache construction occurs on first load. confidence: 1 source, last-confirmed 2026-11-15 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-15-rss-a-faster-lighter-c-dev-kit.md)
+- Reported server-memory reductions of about 81–85% exclude Roslyn and VS Code. Incremental-build gains use up-to-date checks and Build Acceleration. MSBuild editing and C# Doctor add package/environment diagnostics; these are tooling features, separate from .NET runtime release maturity. confidence: 1 source, last-confirmed 2026-11-15 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-15-rss-a-faster-lighter-c-dev-kit.md)
+
+### Explicit relationships
+
+C# Dev Kit uses Native AOT and project caches; observed readiness depends-on cache state and solution shape. See [[ai-assisted-software-practice]].
+
+### Decision and quality notes
+
+Single vendor benchmark; no HoneyDrunk solution was measured. Stable .NET 11 does not establish stable Dev Kit 11 availability. Committing caches is a source suggestion requiring portability/privacy review, not an adopted repository policy. Open question: Which pinned Dev Kit build and cold/warm HoneyDrunk solutions verify readiness, incremental correctness, total process memory and cache portability/privacy? See [[indexes/gaps]].
+
+
+## 2026-11-15: MSTest UI-host recapture refines version pins without adding independent support
+
+### Typed entities
+
+library: MSTest.Sdk; library: Microsoft.Testing.Platform; project: UWP; project: WinUI 3; concept: UI dispatcher; concept: AppContainer. file: raw/2026-11-15-rss-uwp-and-winui-3-apps-ui-testing-with-mstest.md.
+
+### Claims and evidence
+
+- This capture specifies MSTest.Sdk 4.5.1 and MTP 2.5.1. UITestMethod runs initialization, asynchronous test and cleanup on the app dispatcher; STA alone is insufficient. Unpackaged WinUI starts directly; packaged hosts use registration/AUMID activation through a full-trust sidecar, with exact package-SID pipe access for AppContainer. confidence: 1 source, last-confirmed 2026-11-15 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-15-rss-uwp-and-winui-3-apps-ui-testing-with-mstest.md)
+- The generated RunAsync helper must propagate the test result to Environment.ExitCode. UWP still needs the desktop MSBuild/UWP build toolchain; packaged CI requires its actual user context, sideloading policy and runtime dependencies. UWP/AppContainer examples use InvokeTestingPlatform non-elevated. confidence: 1 source, last-confirmed 2026-11-15 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-15-rss-uwp-and-winui-3-apps-ui-testing-with-mstest.md)
+
+### Explicit relationships
+
+UI verification depends-on dispatcher ownership, packaging, trust and failure exit propagation. This recaptures the article discussed in the October 10 section; it adds no independent evidence. See [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+No native UI or CI agent was exercised. Keep packaging separate from sandbox trust. Existing target-machine acceptance gaps remain; the later capture is not a second author or an independent test.
