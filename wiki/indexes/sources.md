@@ -2,9 +2,9 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
-## Compile coverage: 2026-11-15
+## Compile coverage: 2026-11-16
 
-Reconciled 1517 raw documents against 1517 unique source entries at 2026-11-15T09:12:44-05:00; no unprocessed sources remain in this snapshot. This pass ingested 15 captures, including three recaptures of existing articles. Capture count does not establish independent support. Prior source entries and ingest dates are retained. All 13 historical query outputs repeat compiled evidence.
+Reconciled 1517 raw documents against 1517 unique source entries at 2026-11-16T15:40:18-05:00; no unprocessed sources remain in this snapshot. This pass ingested 0 captures. Prior source entries and ingest dates are retained. All 13 historical query outputs repeat compiled evidence; no new crystallization or independent support was added. This is archival coverage verification, not a live refresh of source claims.
 
 ## Entry format
 

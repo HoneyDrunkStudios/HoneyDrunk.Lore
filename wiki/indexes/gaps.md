@@ -2,6 +2,10 @@
 
 Questions the wiki cannot currently answer. Populated by the Query operation when synthesis falls short, and by the Lint operation when entities are referenced but lack a backing page.
 
+## Compile status: 2026-11-16
+
+Reconciled 1046 dated gap entries with 67 canonical pages at 2026-11-16T15:40:18-05:00. Added 0 questions and closed 0; all existing gaps and dated history remain. No new raw or query evidence resolves an open question. This coverage check does not refresh claim confidence or establish local acceptance.
+
 ## Compile status: 2026-11-15
 
 Reconciled 1046 dated gap entries with 67 canonical pages. Added 12 questions and closed 0; all 1034 prior entries remain. Three article recaptures retain existing gaps. This status supersedes the dated coverage snapshot below; source-specific questions remain open pending acceptance evidence.
