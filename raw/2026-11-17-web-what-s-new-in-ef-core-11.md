@@ -1,0 +1,904 @@
+---
+"source": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew"
+"title": "What's New in EF Core 11"
+"author": "SamMonoRT"
+"date_published": "unknown"
+"date_clipped": "2026-11-17"
+"category": ".NET Ecosystem"
+"source_type": "web"
+---
+
+# What's New in EF Core 11
+
+EF Core 11.0 (EF11) is the next release after EF Core 10.0 and is currently in development.
+
+Tip
+
+You can run and debug into the samples by [downloading the sample code from GitHub](https://github.com/dotnet/EntityFramework.Docs). Each section below links to the source code specific to that section.
+
+EF11 requires the .NET 11 SDK to build and requires the .NET 11 runtime to run. EF11 will not run on earlier .NET versions, and will not run on .NET Framework.
+
+## Complex types
+
+Tip
+
+For comprehensive documentation on complex types, see [Complex types](https://learn.microsoft.com/en-us/ef/core/modeling/complex-types).
+
+### Complex types and JSON columns on entity types with TPT/TPC inheritance
+
+EF Core has supported complex types and JSON columns for several versions, allowing you to model and persist nested, structured data within your entities. However, until now these features could not be used on entities with TPT (table-per-type) or TPC (table-per-concrete-type) inheritance.
+
+Starting with EF 11, you can now use complex types and JSON columns on entity types with TPT and TPC inheritance mappings. For example, consider the following entity types with a TPT inheritance strategy:
+
+```
+public abstract class Animal
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public required AnimalDetails Details { get; set; }
+}
+
+public class Dog : Animal
+{
+    public string Breed { get; set; }
+}
+
+public class Cat : Animal
+{
+    public bool IsIndoor { get; set; }
+}
+
+[ComplexType]
+public class AnimalDetails
+{
+    public DateTime BirthDate { get; set; }
+    public string? Veterinarian { get; set; }
+}
+```
+
+With the following TPT mapping configuration:
+
+```
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Animal>().UseTptMappingStrategy();
+}
+```
+
+EF 11 now properly supports this scenario, creating the `Details_BirthDate` and `Details_Veterinarian` columns on the `Animal` table for the complex type properties.
+
+Similarly, JSON columns are now supported with TPT/TPC. The following configuration maps the `Details` property to a JSON column:
+
+```
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Animal>()
+        .UseTptMappingStrategy()
+        .ComplexProperty(a => a.Details, b => b.ToJson());
+}
+```
+
+This enhancement removes a significant limitation when modeling complex domain hierarchies, allowing you to combine the flexibility of TPT/TPC inheritance with the power of complex types and JSON columns.
+
+For more information on inheritance mapping strategies, see [Inheritance](https://learn.microsoft.com/en-us/ef/core/modeling/inheritance).
+
+### Complex types in Azure Cosmos DB
+
+Complex types are now fully supported in the Azure Cosmos DB provider, embedded as nested JSON objects or arrays. For more information, [see the Cosmos DB section below](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#cosmos-complex-types).
+
+### Configuring complex type properties via lambda chaining
+
+Previously, configuring a property on a complex type required first calling `ComplexProperty` to get the complex type builder, and then calling `Property` on it:
+
+```
+modelBuilder.Entity<MyEntity>()
+    .ComplexProperty(e => e.Details)
+    .Property(d => d.Description)
+    .HasMaxLength(500);
+```
+
+EF Core 11 now allows configuring complex type properties directly by chaining member access in the lambda expression passed to `Property`:
+
+```
+modelBuilder.Entity<MyEntity>()
+    .Property(e => e.Details.Description)
+    .HasMaxLength(500);
+```
+
+This simplifies model configuration by removing the need to explicitly navigate through intermediate complex type builders to reach the property you want to configure.
+
+### Keys and indexes on complex type properties
+
+Keys and indexes can now use scalar properties nested inside non-collection complex types:
+
+```
+modelBuilder.Entity<Customer>()
+    .HasKey(c => c.CustomerId.Value);
+
+modelBuilder.Entity<Customer>()
+    .HasIndex(c => c.Address.PostalCode);
+```
+
+The same paths can be configured by name:
+
+```
+modelBuilder.Entity<Customer>()
+    .HasIndex("Address.PostalCode");
+```
+
+For relational providers, indexes can also target paths inside complex types mapped to JSON columns. Complex collection paths use `[]` for all elements or a numeric indexer for a specific element:
+
+```
+modelBuilder.Entity<Order>()
+    .ComplexCollection(o => o.Items, b => b.ToJson());
+
+modelBuilder.Entity<Order>()
+    .HasIndex("Items[].Sku");
+```
+
+For more information, see [Keys](https://learn.microsoft.com/en-us/ef/core/modeling/keys#keys-on-complex-type-properties) and [Indexes](https://learn.microsoft.com/en-us/ef/core/modeling/indexes#indexes-on-complex-type-properties).
+
+### Stabilization and bug fixes
+
+Significant effort has gone into making sure that complex type support is stable and bug-free, to unblock using complex types as an alternative to the owned entity mapping approach. Bugs fixed include:
+
+- [Error querying on complex type whose container is mapped to a table and a view](https://github.com/dotnet/efcore/issues/34706)
+- [Problem with ComplexProperty in EF9, when using the TPT approach](https://github.com/dotnet/efcore/issues/35392)
+- [Comparison of complex types does not compare properties within nested complex types](https://github.com/dotnet/efcore/issues/37391)
+- [Assignment of complex type does not assign nested properties correctly (ExecuteUpdate)](https://github.com/dotnet/efcore/issues/37395)
+- [Map two classes with same nullable complex properties to same column → NullReferenceException](https://github.com/dotnet/efcore/issues/37335)
+- [Complex property stored as JSON marked non-nullable in TPH class hierarchy](https://github.com/dotnet/efcore/issues/37404)
+- [EntityEntry.ReloadAsync throws when nullable complex property is null](https://github.com/dotnet/efcore/issues/37559)
+- [Unnecessary columns in SQL with Complex Types + object closures in projections](https://github.com/dotnet/efcore/issues/37551)
+
+## LINQ and SQL translation
+
+### Better SQL for to-one joins
+
+EF Core 11 generates better SQL when querying with to-one (reference) navigation includes in two ways.
+
+First, when using split queries (`AsSplitQuery()`), EF previously added unnecessary joins to reference navigations in the SQL generated for collection queries. For example, consider the following query:
+
+```
+var blogs = context.Blogs
+    .Include(b => b.BlogType)
+    .Include(b => b.Posts)
+    .AsSplitQuery()
+    .ToList();
+```
+
+EF Core previously generated a split query for `Posts` that unnecessarily joined `BlogType`:
+
+```
+-- Before EF Core 11
+SELECT [p].[Id], [p].[BlogId], [p].[Title], [b].[Id], [b0].[Id]
+FROM [Blogs] AS [b]
+INNER JOIN [BlogType] AS [b0] ON [b].[BlogTypeId] = [b0].[Id]
+INNER JOIN [Post] AS [p] ON [b].[Id] = [p].[BlogId]
+ORDER BY [b].[Id], [b0].[Id]
+```
+
+In EF Core 11, the unneeded join is pruned:
+
+```
+-- EF Core 11
+SELECT [p].[Id], [p].[BlogId], [p].[Title], [b].[Id]
+FROM [Blogs] AS [b]
+INNER JOIN [Post] AS [p] ON [b].[Id] = [p].[BlogId]
+ORDER BY [b].[Id]
+```
+
+Second, EF no longer adds redundant keys from reference navigations to `ORDER BY` clauses. Because a reference navigation's key is functionally determined by the parent entity's key (via the foreign key), it does not need to appear separately. For example:
+
+```
+var blogs = context.Blogs
+    .Include(b => b.Owner)
+    .Include(b => b.Posts)
+    .ToList();
+```
+
+EF Core previously included `[p].[PersonId]` in the `ORDER BY`, even though `[b].[BlogId]` already uniquely identifies the row:
+
+```
+-- Before EF Core 11
+ORDER BY [b].[BlogId], [p].[PersonId]
+```
+
+In EF Core 11, the redundant column is omitted:
+
+```
+-- EF Core 11
+ORDER BY [b].[BlogId]
+```
+
+Both optimizations can have a significant positive impact on query performance, especially when multiple reference navigations are included. A simple, common split query scenario showed a **29% improvement in querying performance**, as the database no longer has to perform the to-one join; single queries are also significantly improved by the removal of the ORDER BY, even if a bit less: one scenario showed a **22% improvement**.
+
+More details on the benchmark are available [here](https://github.com/dotnet/efcore/issues/29182#issuecomment-4231140289), and as always, actual performance in your application will vary based on your schema, data and a variety of other factors.
+
+### GroupBy enhancements
+
+EF Core 11 improves the translation and materialization of `GroupBy` queries. Queries can now compose navigation access and joins over a per-group top result, and aggregates over reference navigations are translated using joins before grouping rather than correlated subqueries. Left-joined non-entity projections, including anonymous types and DTOs, are also correctly materialized through joins and grouping. For more information, see [#38479](https://github.com/dotnet/efcore/pull/38479), [#38499](https://github.com/dotnet/efcore/pull/38499), [#38555](https://github.com/dotnet/efcore/pull/38555), [#38577](https://github.com/dotnet/efcore/pull/38577), [#38668](https://github.com/dotnet/efcore/pull/38668), and [#38687](https://github.com/dotnet/efcore/pull/38687).
+
+### Support for the new .NET 11 `FullJoin` operator
+
+.NET 11 adds first-class LINQ support for `FullJoin`, which keeps rows from both input collections and matches them when keys are equal. EF Core 11 translates this operator to `FULL JOIN` on relational databases:
+
+```
+var results = await context.Customers
+    .FullJoin(
+        context.Orders,
+        c => c.Id,
+        o => o.CustomerId,
+        (c, o) => new { Customer = c, Order = o })
+    .ToListAsync();
+```
+
+This generates SQL similar to the following:
+
+```
+SELECT [c].[Id], [c].[Name], [o].[Id], [o].[CustomerId], [o].[OrderDate]
+FROM [Customers] AS [c]
+FULL JOIN [Orders] AS [o] ON [c].[Id] = [o].[CustomerId]
+```
+
+### Stripping of no-op CASTs
+
+EF Core sometimes generated SQL `CAST` expressions that converted a column to the type it already stores — for example, `CAST([u].[Name] AS nvarchar(max))` on a column that is already `nvarchar(max)`. This commonly occurred with [value-converted](https://learn.microsoft.com/en-us/ef/core/modeling/value-conversions) properties whose CLR type has an implicit conversion to the provider type, but could also happen in other scenarios. Such redundant casts produce unnecessary work and can prevent the database from using indexes on the column.
+
+EF Core 11 now detects and strips these no-op `CAST` expressions during SQL post-processing. For example, the following query:
+
+```
+SELECT [u].[Id], [u].[Name]
+FROM [Users] AS [u]
+WHERE CAST([u].[Name] AS nvarchar(max)) LIKE N'Name%'
+```
+
+Now generates cleaner SQL:
+
+```
+SELECT [u].[Id], [u].[Name]
+FROM [Users] AS [u]
+WHERE [u].[Name] LIKE N'Name%'
+```
+
+This allows the database to use any index defined on the column, which can significantly improve query performance.
+
+### MaxBy and MinBy
+
+EF Core now supports translating the LINQ `MaxByAsync` and `MinByAsync` methods (and their sync counterparts). These methods allow you to find the element with the maximum or minimum value for a given key selector, rather than just the maximum or minimum value itself.
+
+For example, to find the blog with the most posts:
+
+```
+var blogWithMostPosts = await context.Blogs.MaxByAsync(b => b.Posts.Count());
+```
+
+This translates to the following SQL:
+
+```
+SELECT TOP(1) [b].[Id], [b].[Name]
+FROM [Blogs] AS [b]
+ORDER BY (
+    SELECT COUNT(*)
+    FROM [Posts] AS [p]
+    WHERE [b].[Id] = [p].[BlogId]) DESC
+```
+
+Similarly, `MinByAsync` orders ascending and returns the element with the minimum value for the key selector.
+
+### EF.Functions.JsonPathExists()
+
+EF Core 11 introduces `EF.Functions.JsonPathExists()`, which checks whether a given JSON path exists in a JSON document. On SQL Server, this translates to the [`JSON_PATH_EXISTS`](https://learn.microsoft.com/en-us/sql/t-sql/functions/json-path-exists-transact-sql) function (available since SQL Server 2022).
+
+The following query filters blogs to those whose JSON data contains an `OptionalInt` property:
+
+```
+var blogs = await context.Blogs
+    .Where(b => EF.Functions.JsonPathExists(b.JsonData, "$.OptionalInt"))
+    .ToListAsync();
+```
+
+This generates the following SQL:
+
+```
+SELECT [b].[Id], [b].[Name], [b].[JsonData]
+FROM [Blogs] AS [b]
+WHERE JSON_PATH_EXISTS([b].[JsonData], N'$.OptionalInt') = 1
+```
+
+`EF.Functions.JsonPathExists()` accepts a JSON value and a JSON path to check for. It can be used with scalar string properties, complex types, and owned entity types mapped to JSON columns.
+
+For the full `JSON_PATH_EXISTS` SQL Server documentation, see [`JSON_PATH_EXISTS`](https://learn.microsoft.com/en-us/sql/t-sql/functions/json-path-exists-transact-sql).
+
+## SQL Server
+
+### VECTOR\_SEARCH() and vector indexes
+
+Warning
+
+`VECTOR_SEARCH()` and vector indexes are currently experimental features in SQL Server and are subject to change. The APIs in EF Core for these features are also subject to change.
+
+In EF Core 10, we introduced translation for `EF.Functions.VectorDistance()`, which is a scalar function that computes the distance between two vectors. This function can be used in LINQ queries for vector similarity search, allowing you to find the most similar embeddings to a given embedding. However, `VectorDistance()` computes an *exact* distance between the given vectors.
+
+When querying large datasets, SQL Server 2025 also supports performing *approximate* search over a [vector index](https://learn.microsoft.com/en-us/sql/t-sql/statements/create-vector-index-transact-sql), which provides much better performance at the expense of returning items that are approximately similar - rather than exactly similar - to the query. EF 11 now supports creating vector indexes through migrations:
+
+```
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Blog>()
+        .HasVectorIndex(b => b.Embedding, "cosine");
+}
+```
+
+Once you have a vector index, you can use the `VectorSearch()` extension method on your `DbSet`, and chain `Take()` and `WithApproximate()` to perform an approximate search:
+
+```
+var blogs = await context.Blogs
+    .VectorSearch(b => b.Embedding, embedding, "cosine")
+    .OrderBy(r => r.Distance)
+    .Take(5)
+    .WithApproximate()
+    .ToListAsync();
+```
+
+This translates to the SQL Server [`VECTOR_SEARCH()`](https://learn.microsoft.com/en-us/sql/t-sql/functions/vector-search-transact-sql) table-valued function. `Take()` specifies the number of results to return, and `WithApproximate()` instructs SQL Server to use the vector index for approximate nearest neighbor (ANN) search, adding `WITH APPROXIMATE` to the SQL `TOP` clause. Without `WithApproximate()`, an exact k-nearest neighbor (kNN) search is performed instead.
+
+`VectorSearch()` returns `VectorSearchResult<TEntity>`, allowing you to access the distance alongside the entity.
+
+For more information, see the [full documentation on vector search](https://learn.microsoft.com/en-us/ef/core/providers/sql-server/vector-search).
+
+### Vector properties not loaded by default
+
+EF Core 11 changes how vector properties are loaded: `SqlVector<T>` columns are no longer included in `SELECT` statements when materializing entities. Since vectors can be quite large—containing hundreds or thousands of floating-point numbers—this avoids unnecessary data transfer in the common case where vectors are ingested and used for search but not read back.
+
+```
+// Vector column is excluded from the projected entity
+var blogs = await context.Blogs.OrderBy(b => b.Name).ToListAsync();
+// Generates: SELECT [b].[Id], [b].[Name] FROM [Blogs] AS [b] ...
+
+// Explicit projection still loads the vector
+var embeddings = await context.Blogs
+    .Select(b => new { b.Id, b.Embedding })
+    .ToListAsync();
+```
+
+Vector properties can still be used in `WHERE` and `ORDER BY` clauses—including with `VectorDistance()` and `VectorSearch()`—and EF will correctly include them in the SQL, just not in the entity projection.
+
+This optimization can have a dramatic impact on application speed: a minimal benchmark showed an almost 9x (that's nine-fold) increase in performance, and that's while running against a local database. The optimization is even more impactful as latency to the database grows: when executing against a remote Azure SQL database, an improvement of around 22x was observed. More details on the benchmark are available [here](https://github.com/dotnet/efcore/issues/37279#issuecomment-4232243062), and as always, actual performance in your application will vary based on your entity, vector properties and latency.
+
+### Full-text search improvements
+
+#### Full-text search catalog and index creation
+
+SQL Server's [full-text search](https://learn.microsoft.com/en-us/sql/relational-databases/search/full-text-search) requires a full-text catalog and index to be set up on your database before you can use it. EF 11 now allows configuring full-text catalogs and indexes in your model, so that [EF migrations](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/) can automatically create and manage them for you:
+
+```
+// In your OnModelCreating:
+modelBuilder.HasFullTextCatalog("ftCatalog");
+
+modelBuilder.Entity<Blog>()
+    .HasFullTextIndex(b => b.FullName)
+    .UseKeyIndex("PK_Blogs")
+    .UseCatalog("ftCatalog");
+```
+
+This generates the following SQL in a migration:
+
+```
+CREATE FULLTEXT CATALOG [ftCatalog];
+CREATE FULLTEXT INDEX ON [Blogs]([FullName]) KEY INDEX [PK_Blogs] ON [ftCatalog];
+```
+
+Previously, full-text catalog and index creation had to be managed manually by adding SQL to migrations. For full details on setting up full-text catalogs and indexes, see the [full-text search documentation](https://learn.microsoft.com/en-us/ef/core/providers/sql-server/full-text-search#setting-up-full-text-search).
+
+#### Full-text search table-valued functions
+
+EF Core has long provided support for SQL Server's full-text search predicates `FREETEXT()` and `CONTAINS()`, via `EF.Functions.FreeText()` and `EF.Functions.Contains()`. These predicates can be used in LINQ `Where()` clauses to filter results based on search criteria.
+
+However, SQL Server also has table-valued function versions of these functions, [`FREETEXTTABLE()`](https://learn.microsoft.com/en-us/sql/relational-databases/system-functions/freetexttable-transact-sql) and [`CONTAINSTABLE()`](https://learn.microsoft.com/en-us/sql/relational-databases/system-functions/containstable-transact-sql), which also return a ranking score along with the results, providing additional flexibility over the predicate versions. EF 11 now supports these table-valued functions:
+
+```
+// Using FreeTextTable with a search query
+var results = await context.Blogs
+    .FreeTextTable("John", b => b.FullName)
+    .Select(r => new { Blog = r.Value, Rank = r.Rank })
+    .OrderByDescending(r => r.Rank)
+    .ToListAsync();
+
+// Using ContainsTable with a search query
+var results = await context.Blogs
+    .ContainsTable("John", b => b.FullName)
+    .Select(r => new { Blog = r.Value, Rank = r.Rank })
+    .OrderByDescending(r => r.Rank)
+    .ToListAsync();
+```
+
+Both methods return `FullTextSearchResult<TEntity>`, giving you access to both the entity and the ranking value from SQL Server's full-text engine. This allows for more sophisticated result ordering and filtering based on relevance scores.
+
+For more information, see the [full documentation on full-text search](https://learn.microsoft.com/en-us/ef/core/providers/sql-server/full-text-search).
+
+#### Hybrid search
+
+SQL Server vector search can be combined with full-text table-valued functions to implement *hybrid search*: full-text search finds exact linguistic matches, vector search finds semantically similar results, and the two rankings are merged. EF Core 11's `FullJoin` support makes this pattern more complete, since highly-ranked rows from either side can contribute to the final results:
+
+```
+var results = await context.Articles
+    .FreeTextTable<Article, int>(textualQuery, topN: k)
+    .Join(
+        context.Articles,
+        fts => fts.Key,
+        a => a.Id,
+        (fts, a) => new { Article = a, fts.Rank })
+    .FullJoin(
+        context.Articles.VectorSearch(a => a.Embedding, queryEmbedding, "cosine")
+            .OrderBy(r => r.Distance)
+            .Take(k)
+            .WithApproximate(),
+        fts => fts.Article.Id,
+        vs => vs.Value.Id,
+        (fts, vs) => new
+        {
+            Article = fts != null ? fts.Article : vs.Value,
+            FullTextRank = fts == null ? null : (int?)fts.Rank,
+            VectorDistance = vs == null ? null : (double?)vs.Distance
+        })
+    .Select(x => new
+    {
+        x.Article,
+        RrfScore = (x.FullTextRank == null ? 0.0 : 1.0 / (k + x.FullTextRank.Value))
+            + (x.VectorDistance == null ? 0.0 : 1.0 / (k + x.VectorDistance.Value))
+    })
+    .OrderByDescending(x => x.RrfScore)
+    .Take(10)
+    .Select(x => x.Article)
+    .ToListAsync();
+```
+
+For more information, see the [SQL Server vector search documentation](https://learn.microsoft.com/en-us/ef/core/providers/sql-server/vector-search#hybrid-search).
+
+### Contains operations using JSON\_CONTAINS
+
+SQL Server 2025 introduced the [`JSON_CONTAINS`](https://learn.microsoft.com/en-us/sql/t-sql/functions/json-contains-transact-sql) function, which checks whether a value exists in a JSON document. Starting with EF Core 11, when targeting SQL Server 2025, LINQ `Contains` queries over primitive (or scalar) collections stored as JSON are translated to use this function, replacing the previous, less efficient `OPENJSON`-based translation.
+
+The following query checks whether a blog's `Tags` collection contains a specific tag:
+
+```
+var blogs = await context.Blogs
+    .Where(b => b.Tags.Contains("ef-core"))
+    .ToListAsync();
+```
+
+Before EF 11 - or when targeting older SQL Server versions - this generates the following SQL:
+
+```
+SELECT [b].[Id], [b].[Name], [b].[Tags]
+FROM [Blogs] AS [b]
+WHERE N'ef-core' IN (
+    SELECT [t].[value]
+    FROM OPENJSON([b].[Tags]) WITH ([value] nvarchar(max) '$') AS [t]
+)
+```
+
+With EF 11, configure EF to target SQL Server 2025 by setting the compatibility level as follows:
+
+```
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    => optionsBuilder
+        .UseSqlServer("<CONNECTION STRING>", o => o.UseCompatibilityLevel(170));
+```
+
+At that point, EF will instead generate the following SQL:
+
+```
+SELECT [b].[Id], [b].[Name], [b].[Tags]
+FROM [Blogs] AS [b]
+WHERE JSON_CONTAINS([b].[Tags], 'ef-core') = 1
+```
+
+`JSON_CONTAINS()` can notably make use of a [JSON index](https://learn.microsoft.com/en-us/sql/t-sql/statements/create-json-index-transact-sql), if one is defined.
+
+Note
+
+`JSON_CONTAINS` does not support searching for null values. As a result, this translation is only applied when EF can determine that at least one side is non-nullable — either the item being searched for (e.g. a non-null constant or a non-nullable column), or the collection's elements. When this cannot be determined, EF falls back to the previous `OPENJSON`-based translation.
+
+#### EF.Functions.JsonContains()
+
+In the section above, EF Core automatically translates LINQ `Contains` queries over primitive collections to use the SQL Server `JSON_CONTAINS` function. In some cases, however, you may want to directly invoke `JSON_CONTAINS` yourself, for example to search for a value at a specific path, or to specify a search mode. For these cases, EF Core 11 introduces `EF.Functions.JsonContains()`.
+
+The following query checks whether a blog's JSON data contains a specific value at a given path:
+
+```
+var blogs = await context.Blogs
+    .Where(b => EF.Functions.JsonContains(b.JsonData, 8, "$.Rating") == 1)
+    .ToListAsync();
+```
+
+This generates the following SQL:
+
+```
+SELECT [b].[Id], [b].[Name], [b].[JsonData]
+FROM [Blogs] AS [b]
+WHERE JSON_CONTAINS([b].[JsonData], 8, N'$.Rating') = 1
+```
+
+`EF.Functions.JsonContains()` accepts the JSON value to search in, the value to search for, and optionally a JSON path and a search mode. It can be used with scalar string properties, complex types, and owned entity types mapped to JSON columns.
+
+For the full `JSON_CONTAINS` SQL Server documentation, see [`JSON_CONTAINS`](https://learn.microsoft.com/en-us/sql/t-sql/functions/json-contains-transact-sql).
+
+### JSON indexes
+
+EF Core 11 can create and scaffold [SQL Server JSON indexes](https://learn.microsoft.com/en-us/sql/t-sql/statements/create-json-index-transact-sql) for paths inside complex types mapped to JSON columns:
+
+```
+modelBuilder.Entity<Customer>()
+    .ComplexProperty(c => c.Contact, b => b.ToJson().HasColumnType("json"));
+
+modelBuilder.Entity<Customer>()
+    .HasIndex("Contact.Address.City");
+```
+
+This generates SQL similar to:
+
+```
+CREATE JSON INDEX [IX_Customers_Contact_Address_City]
+ON [Customers]([Contact]) FOR (N'$.Address.City');
+```
+
+For more information, see [JSON indexes](https://learn.microsoft.com/en-us/ef/core/providers/sql-server/#json-indexes).
+
+### Temporal period properties mapped to CLR properties
+
+Previously, the period properties (`PeriodStart`/`PeriodEnd`) on temporal tables were required to be [shadow properties](https://learn.microsoft.com/en-us/ef/core/modeling/shadow-properties), meaning they existed only in the EF model and not as CLR properties on your .NET entity types. Starting with EF Core 11, period properties can now be mapped to regular CLR properties on the entity type, making it easier to access their values directly without using `EF.Property`.
+
+To map period columns to CLR properties, add `DateTime` properties to your entity type and configure them with the lambda-based `HasPeriodStart`/`HasPeriodEnd` overloads:
+
+```
+public class Employee
+{
+    public Guid EmployeeId { get; set; }
+    public string Name { get; set; }
+    public string Position { get; set; }
+    public DateTime PeriodStart { get; set; }
+    public DateTime PeriodEnd { get; set; }
+}
+
+modelBuilder
+    .Entity<Employee>()
+    .ToTable(
+        "Employees",
+        b => b.IsTemporal(
+            b =>
+            {
+                b.HasPeriodStart(e => e.PeriodStart);
+                b.HasPeriodEnd(e => e.PeriodEnd);
+            }));
+```
+
+Once period properties are mapped to CLR properties, you can reference them directly in LINQ queries — for example, in `OrderBy`, `Select`, or `Where` clauses — without needing `EF.Property`:
+
+```
+var history = context.Employees
+    .TemporalAll()
+    .OrderBy(e => e.PeriodStart)
+    .Select(e => new { e.Name, e.PeriodStart, e.PeriodEnd })
+    .ToList();
+```
+
+Period properties remain configured with `ValueGenerated.OnAddOrUpdate`, so their values are always generated by SQL Server and excluded from INSERT and UPDATE statements.
+
+For more information, see the [full documentation on temporal tables](https://learn.microsoft.com/en-us/ef/core/providers/sql-server/temporal-tables#mapping-period-columns-to-clr-properties).
+
+### Additional DateTimeOffset and date/time translations
+
+EF Core 11 adds several new SQL Server translations for `DateTimeOffset`. Properties such as `DateTime`, `UtcDateTime`, and `LocalDateTime` are now translated, allowing you to access the `DateTime` component directly in your queries: `DateTime` returns the date and time component without converting the offset, while `UtcDateTime` and `LocalDateTime` represent UTC and server-local conversions, respectively. `Offset.TotalMinutes` is also translated, giving access to the offset component, and `ToOffset(offset)` allows converting a `DateTimeOffset` to a different offset via SQL Server's `SWITCHOFFSET`.
+
+You can also now construct a `DateTimeOffset` from a `DateTime` directly in LINQ queries, using `new DateTimeOffset(dateTime)` or `new DateTimeOffset(dateTime, offset)`, which translates to SQL Server's `TODATETIMEOFFSET` function.
+
+In addition, `EF.Functions.DateTrunc()` is now available for truncating `DateTime`, `DateTimeOffset`, `DateOnly` and `TimeOnly` values to a specified precision (e.g. day, hour, minute), translating to SQL Server's [`DATETRUNC`](https://learn.microsoft.com/en-us/sql/t-sql/functions/datetrunc-transact-sql) function.
+
+For the complete list of date/time function translations, see the [SQL Server function mappings page](https://learn.microsoft.com/en-us/ef/core/providers/sql-server/functions).
+
+### Other changes
+
+- [UseSqlServer](https://learn.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.sqlserverdbcontextoptionsextensions.usesqlserver) now defaults to compatibility level 160 (SQL Server 2022), enabling SQL Server 2022-specific translations such as `LEAST` and `GREATEST` by default; see the [breaking change note](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes#sqlserver-compatibility-level-160) for more information.
+
+## SQLite
+
+### Ordering in string aggregation
+
+EF Core can translate `string.Join` and `string.Concat` over a grouping to SQLite's `group_concat` aggregate function. Starting with EF 11, these translations also support ordering the aggregated values, by applying `OrderBy`/`OrderByDescending` inside the aggregate. Previously, queries that ordered the values fell back to client evaluation.
+
+For example, the following query concatenates each blog's post titles, ordered by descending post `Id`:
+
+```
+var blogs = await context.Blogs
+    .Select(b => new
+    {
+        b.Name,
+        Posts = string.Join(
+            ", ",
+            b.Posts.OrderByDescending(p => p.Id).Select(p => p.Title))
+    })
+    .ToListAsync();
+```
+
+This translates to the following SQL, which uses `group_concat` with an `ORDER BY` clause:
+
+```
+SELECT "b"."Name", COALESCE(group_concat("p"."Title", ', ' ORDER BY "p"."Id" DESC), '') AS "Posts"
+FROM "Blogs" AS "b"
+LEFT JOIN "Posts" AS "p" ON "b"."Id" = "p"."BlogId"
+GROUP BY "b"."Id", "b"."Name"
+```
+
+Ordering inside `group_concat` requires SQLite 3.44.0 or later.
+
+### UInt128 support
+
+`Microsoft.Data.Sqlite` can now bind [UInt128](https://learn.microsoft.com/en-us/dotnet/api/system.uint128) parameter values. The value is stored as a zero-padded, 39-digit text representation, which preserves correct ordering and comparison of values directly in the database.
+
+Note
+
+Reading [UInt128](https://learn.microsoft.com/en-us/dotnet/api/system.uint128) values from data readers is not yet supported.
+
+## Cosmos DB
+
+### Complex types
+
+EF Core [complex types](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-10.0/whatsnew#complex-types) are now fully supported in the Azure Cosmos DB provider; they are embedded as nested JSON objects (or arrays, for collections) within the owning document, with support for queries, inserts, and updates.
+
+For example, the following configures `ShippingAddress` as a complex type:
+
+- [Fluent API](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#tabpanel_1_fluent-api)
+- [Data Annotations](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#tabpanel_1_data-annotations)
+
+```
+modelBuilder.Entity<Order>()
+    .ComplexProperty(o => o.ShippingAddress);
+```
+
+Complex types are generally a better fit than owned types when mapping to JSON documents: unlike owned types, complex types have value semantics and no identity, which means they work better in scenarios such as comparing two embedded objects within the same document.
+
+This feature was contributed by [@JoasE](https://github.com/JoasE) - many thanks!
+
+### Indexes and indexing policy
+
+EF Core 11 adds support for more Azure Cosmos DB indexing policy configuration. You can now disable automatic indexing, exclude individual paths when automatic indexing is enabled, and emit explicit single-property, composite, vector, and full-text indexes:
+
+```
+modelBuilder.Entity<Order>(b =>
+{
+    b.HasAutomaticIndexing()
+        .Except("/InternalNotes/?");
+
+    b.HasIndex(o => new { o.CustomerId, o.OrderDate });
+});
+```
+
+Indexes can also traverse complex type properties and complex collections:
+
+```
+modelBuilder.Entity<Order>()
+    .HasIndex(o => o.Items.Select(i => i.Sku));
+```
+
+For more information, see [Indexing policy](https://learn.microsoft.com/en-us/ef/core/providers/cosmos/modeling#indexing-policy).
+
+### Transactional batches
+
+Azure Cosmos DB supports [transactional batches](https://learn.microsoft.com/en-us/azure/cosmos-db/transactional-batch), which allow multiple operations to be executed atomically and in a single roundtrip against a single partition. Starting with EF Core 11, the provider leverages transactional batches by default, providing best-effort atomicity and improved performance when saving changes.
+
+The batching behavior can be controlled via the [AutoTransactionBehavior](https://learn.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.autotransactionbehavior) property:
+
+- **Auto** (default): Operations are grouped into transactional batches by container and partition. Batches are executed sequentially; if a batch fails, subsequent batches are not executed.
+- **Never**: All operations are performed individually and sequentially (the pre-11 behavior).
+- **Always**: Requires all operations to fit in a single transactional batch; throws if they cannot.
+
+For more information, [see the documentation](https://learn.microsoft.com/en-us/ef/core/providers/cosmos/saving#transactionality-and-transactional-batches).
+
+This feature was contributed by [@JoasE](https://github.com/JoasE) - many thanks!
+
+### Bulk execution
+
+Azure Cosmos DB supports *bulk execution*, which allows multiple document operations to be executed in parallel and across DbContext instances, significantly improving throughput when saving many entities at once. EF Core now supports enabling bulk execution:
+
+```
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    => optionsBuilder.UseCosmos(
+        "<connection string>",
+        databaseName: "OrdersDB",
+        options => options.BulkExecutionEnabled());
+```
+
+For more information, [see the documentation](https://learn.microsoft.com/en-us/ef/core/providers/cosmos/saving#bulk-execution).
+
+This feature was contributed by [@JoasE](https://github.com/JoasE) - many thanks!
+
+### Session token management
+
+Azure Cosmos DB uses session tokens to track read-your-writes consistency within a session. When running in an environment with multiple instances (e.g., with round-robin load balancing), you may need to manually manage session tokens to ensure consistency across requests.
+
+EF Core now provides APIs to retrieve and set session tokens on a `DbContext`. To enable manual session token management, configure the `SessionTokenManagementMode()`:
+
+```
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    => optionsBuilder.UseCosmos(
+        "<connection string>",
+        databaseName: "OrdersDB",
+        options => options.SessionTokenManagementMode(SessionTokenManagementMode.SemiAutomatic));
+```
+
+You can then retrieve and use session tokens:
+
+```
+// After performing operations, retrieve the session token
+var sessionToken = context.Database.GetSessionToken();
+
+// Later, in a different context instance, apply the session token before reading
+context.Database.UseSessionToken(sessionToken);
+var result = await context.Documents.FindAsync(id);
+```
+
+For more information, [see the documentation](https://learn.microsoft.com/en-us/ef/core/providers/cosmos/saving#session-token-management).
+
+This feature was contributed by [@JoasE](https://github.com/JoasE) - many thanks!
+
+### Modernized JSON serializer
+
+EF Core 11 modernizes the Azure Cosmos DB provider's document serialization and deserialization to use `System.Text.Json` (`Utf8JsonReader`/`Utf8JsonWriter`) internally, replacing the previous `Newtonsoft.Json`-based approach. This improves performance and removes the dependency on `Newtonsoft.Json`.
+
+As part of this change, the `__jObject` shadow property (of type `JObject`) that was previously added to every entity type has been removed, and unmapped JSON properties in documents are no longer preserved on round-trip.
+
+Important
+
+These are breaking changes. See the [breaking changes documentation](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes#cosmos-jObject-removed) and [Cosmos: Unmapped properties are no longer preserved](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes#cosmos-unmapped-properties) for details and mitigations.
+
+### Consistent behavior for undefined values in projections
+
+Previously, when projecting scalar properties via optional navigations where a document path was absent (resulting in an `undefined` value in Cosmos DB), behavior was inconsistent: single-property anonymous type projections silently dropped those results, while multi-property projections threw a cryptic exception.
+
+EF Core 11 now consistently throws an `InvalidOperationException` when any part of a projection evaluates to `undefined`. Use [IsDefined](https://learn.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.cosmosdbfunctionsextensions.isdefined) to filter or [CoalesceUndefined](https://learn.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.cosmosdbfunctionsextensions.coalesceundefined) to provide fallbacks:
+
+```
+var results = await context.Entities
+    .Where(x => EF.Functions.IsDefined(x.Associate!.NestedAssociate!.Id))
+    .Select(x => new { x.Associate!.NestedAssociate!.Id })
+    .ToListAsync();
+```
+
+For more information, see the [breaking changes documentation](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes#cosmos-undefined-projection).
+
+This feature was contributed by [@JoasE](https://github.com/JoasE) - many thanks!
+
+## Migrations
+
+### Excluding foreign key constraints from migrations
+
+It is now possible to configure a foreign key relationship in the EF model while preventing the corresponding database constraint from being created by migrations. This is useful for legacy databases without existing constraints, or in data synchronization scenarios where referential integrity constraints might conflict with the synchronization order:
+
+```
+modelBuilder.Entity<Blog>()
+    .HasMany(e => e.Posts)
+    .WithOne(e => e.Blog)
+    .HasForeignKey(e => e.BlogId)
+    .ExcludeForeignKeyFromMigrations();
+```
+
+The relationship is fully supported in EF for queries, change tracking, etc. Only the foreign key constraint in the database is suppressed; a database index is still created on the foreign key column.
+
+For more information, see [Excluding foreign key constraints from migrations](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/foreign-and-principal-keys#excluding-foreign-key-constraints-from-migrations).
+
+### Latest migration ID recorded in model snapshot
+
+When working in team environments, it's common for multiple developers to create migrations on separate branches. When these branches are merged, the migration trees can diverge, leading to issues that are sometimes difficult to detect.
+
+Starting with EF Core 11, the model snapshot now records the ID of the latest migration. When two developers create migrations on divergent branches, both branches will modify this value in the model snapshot, causing a source control merge conflict. This conflict alerts the team that they need to resolve the divergence - typically by discarding one of the migration trees and creating a new, unified migration.
+
+For more information on managing migrations in team environments, see [Migrations in Team Environments](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/teams).
+
+### Create and apply migrations in one step
+
+The `dotnet ef database update` command now supports creating and applying a migration in a single step using the new `--add` option. This uses Roslyn to compile the migration at runtime, enabling scenarios like .NET Aspire and containerized applications where recompilation isn't possible:
+
+```
+dotnet ef database update InitialCreate --add
+```
+
+This command scaffolds a new migration named `InitialCreate`, compiles it using Roslyn, and immediately applies it to the database. The migration files are still saved to disk for source control and future recompilation. The same options available for `dotnet ef migrations add` can be used:
+
+```
+dotnet ef database update AddProducts --add --output-dir Migrations/Products --namespace MyApp.Migrations
+```
+
+In PowerShell, use the `-Add` parameter:
+
+```
+Update-Database -Migration InitialCreate -Add
+```
+
+### Connection and offline options for migrations remove
+
+The `dotnet ef migrations remove` and `database drop` commands now accept `--connection` parameters, allowing you to specify the database connection string directly without needing to configure a default connection in your `DbContext`. Additionally, `migrations remove` supports the new `--offline` option to remove a migration without connecting to the database:
+
+```
+# Remove migration with specific connection
+dotnet ef migrations remove --connection "Server=prod;Database=MyDb;..."
+
+# Remove migration without connecting to database (offline mode)
+dotnet ef migrations remove --offline
+
+# Revert and remove applied migration
+dotnet ef migrations remove --force
+
+# Drop specific database by connection string
+dotnet ef database drop --connection "Server=test;Database=MyDb;..." --force
+```
+
+The `--offline` option skips the database connection check entirely, which is useful when the database is inaccessible or when you're certain the migration hasn't been applied. Note that `--offline` and `--force` cannot be used together, since `--force` requires a database connection to check if the migration has been applied before reverting it.
+
+In PowerShell, use the `-Connection` and `-Offline` parameters:
+
+```
+Remove-Migration -Connection "Server=prod;Database=MyDb;..."
+Remove-Migration -Offline
+Drop-Database -Connection "Server=test;Database=MyDb;..." -Force
+```
+
+### Configuration file for dotnet ef
+
+The `dotnet ef` command-line tool now supports loading default option values from a `.config/dotnet-ef.json` configuration file. This eliminates the need to repeatedly specify the same options — such as `--project` and `--startup-project` — across every command invocation.
+
+When you run `dotnet ef`, the tool searches for a `.config/dotnet-ef.json` file by walking up the directory tree from the current working directory. The first file found is used. Here's an example configuration file:
+
+```
+{
+  "project": "src/App.Infrastructure",
+  "startupProject": "src/App.Api",
+  "framework": "net11.0",
+  "configuration": "Debug",
+  "context": "AppDbContext",
+  "runtime": "win-x64",
+  "verbose": true,
+  "noColor": false,
+  "prefixOutput": false
+}
+```
+
+Explicit command-line options always take precedence over configuration file values. Path values for `project` and `startupProject` are resolved relative to the parent of the `.config` directory containing the file.
+
+For more information, see [Configuration file](https://learn.microsoft.com/en-us/ef/core/cli/dotnet#configuration-file).
+
+### `-NoBuild` for PMC migrations commands
+
+Starting with EF Core 11, the Package Manager Console `Add-Migration` and `Update-Database` commands support the `-NoBuild` switch, which skips the project build step before running the command.
+
+This is useful when a build succeeds but produces warnings that Visual Studio's Package Manager Console treats as errors (such as NuGet vulnerability warnings), which would otherwise block the commands from running:
+
+```
+Add-Migration MyMigration -NoBuild
+Update-Database -NoBuild
+```
+
+Only use `-NoBuild` when the project is already up-to-date, since running with a stale build may produce unexpected results.
+
+For more information, see the [PMC tools reference](https://learn.microsoft.com/en-us/ef/core/cli/powershell).
+
+### Wildcard context support for migration commands
+
+When a project defines multiple `DbContext` types, several `dotnet ef` commands accept a wildcard (`*`) as the value of the `--context` option to target all contexts at once, instead of running the command separately for each one. The commands that support the wildcard are:
+
+- `dotnet ef migrations list` — lists the migrations for every context.
+- `dotnet ef migrations script` — generates and concatenates a script for every context.
+- `dotnet ef database update` — applies migrations to the database of every context (migration bundles are covered as well).
+- `dotnet ef database drop` — drops the database for every context.
+
+For example, the following command lists the migrations for all contexts in the project:
+
+```
+dotnet ef migrations list --context "*"
+```
+
+## Other improvements
+
+- The EF command-line tool now writes all logging and status messages to standard error, reserving standard output only for the command's actual expected output. For example, when generating a migration SQL script with `dotnet ef migrations script`, only the SQL is written to standard output.
+- An analyzer and code fix now warn when `ToAsyncEnumerable` is used instead of `AsAsyncEnumerable` on EF queries ([#37670](https://github.com/dotnet/efcore/issues/37670), many thanks to [@m-x-shokhzod](https://github.com/m-x-shokhzod)).

@@ -1412,3 +1412,44 @@ Queue scale-up uses repository/label contracts; registration depends-on GitHub A
 ### Decision and quality notes
 
 Implementation guide, not complete tested deployment code. Do not run untrusted PR code with App-key retrieval rights; the root-runner override and inherited identity need explicit design review. The example uses mutable action tags and unimplemented bootstrap steps, so it is retained as research rather than a production recipe. No runner, App, secret, workflow or Azure resource was created. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which ACA runner pilot proves trusted-job admission, denial of workflow-time App-key retrieval, pinned bootstrap/action artifacts, matching scaler labels, bounded queue costs and complete runner/credential cleanup? See [[indexes/gaps]].
+
+
+## 2026-11-19: Actions blob allowlists add inclusive host ranges
+
+### Typed entities
+
+project: GitHub Actions; project: GitHub Meta API; concept: blob storage endpoint; concept: network allowlist; file: raw/2026-11-17-rss-meta-api-endpoints-updated-for-actions-blob-storage.md.
+
+### Claims and evidence
+
+- GitHub adds productionresultssa30 through productionresultssa49 and productionresultssa100 through productionresultssa199 under blob.core.windows.net to the Actions endpoint set, inclusive, for job-log/summary access. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-meta-api-endpoints-updated-for-actions-blob-storage.md)
+- An existing productionresultssa*.blob.core.windows.net rule covers the additions; individually listed hosts need review. The live Meta API, not this dated capture, is the current endpoint inventory. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-meta-api-endpoints-updated-for-actions-blob-storage.md)
+
+### Explicit relationships
+
+Log/summary delivery depends-on effective allowlists and endpoint discovery. See [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Official October 22 change captured November 17. No firewall or runner/network test changed; this note does not authorize broader access. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which current Meta inventory and restricted-runner test verify log/summary access through the approved Actions blob-host allowlist? See [[indexes/gaps]].
+
+
+## 2026-11-19: Provider recovery includes reconnect control and backlog drainage
+
+### Typed entities
+
+project: GitHub; project: GitHub Actions; concept: reconnect storm; concept: database routing; concept: regional recovery; concept: backlog; file: raw/2026-11-19-rss-github-availability-report-october-2026.md.
+
+### Claims and evidence
+
+- GitHub attributes October incidents to partial network failures, waiting-call accumulation, cache reconnect storms, overloaded event brokers, stale routing leaders and held database connections. Reported fixes include bounded reconnects/jitter, smaller batches, routing validation and safer maintenance. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-github-availability-report-october-2026.md)
+- The report distinguishes hosted-runner assignment from self-hosted runners, feature recovery from audit/event backlog drainage and credential failures from model capability. Successful webhook delivery can coexist with missing delivery-history records. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-github-availability-report-october-2026.md)
+- The capture has conflicting duration headings and body figures for several incidents, plus an overview of an October 29 regional event without a matching detailed section. Preserve these limits rather than computing a single downtime total. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-github-availability-report-october-2026.md)
+
+### Explicit relationships
+
+Recovery depends-on spare capacity, isolated dependencies and drained backlogs; platform status does not supersede artifact/check evidence. See [[distributed-systems-patterns]] and [[github-copilot-and-app-token-changes]].
+
+### Decision and quality notes
+
+First-party retrospective, not complete incident telemetry or current service status. Outcome counts are operator reports; duration discrepancies are unresolved source gaps. No status checks bypassed. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which authoritative incident timeline reconciles status-window versus customer-impact durations and verifies backlog, delivery-history and regional-recovery completeness? See [[indexes/gaps]].

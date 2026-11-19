@@ -106,3 +106,23 @@ Released language features supersede the older general prerelease framing; memor
 ### Decision and quality notes
 
 Official announcement, no compiler or analyzer policy change. Preserve May/August design history and avoid upgrading the safety redesign merely because its host runtime is released. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which compiler fixtures verify released C# 15 versus memory-safety preview behavior in the selected production toolchain? See [[indexes/gaps]].
+
+
+## 2026-11-19: Union exhaustiveness and allocation behavior are separate contracts
+
+### Typed entities
+
+project: C# 15; project: .NET 11 SDK; concept: union declaration; concept: nullable union; concept: custom union; library: IUnion; file: raw/2026-11-16-web-tutorial-explore-c-union-types.md.
+
+### Claims and evidence
+
+- The captured tutorial uses C# 15 as the net11.0 default without preview mode. Union switches unwrap case contents; nullable/default contents need appropriate null handling, and constrained nonnullable cases have different exhaustiveness requirements. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-web-tutorial-explore-c-union-types.md)
+- Union declarations store an object field and box value-type cases. A custom Union-attributed IUnion type can expose HasValue/TryGetValue accessors to avoid boxing in matching; calling its object-valued Value accessor is a different path. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-web-tutorial-explore-c-union-types.md)
+
+### Explicit relationships
+
+Union handling depends-on case types and nullability; allocation depends-on representation and access path. See [[dotnet-runtime-and-mobile-2026]].
+
+### Decision and quality notes
+
+Official tutorial snapshot with unknown publication date, not compiled output or allocation evidence. The custom numeric Value conditional and reporter setup need code review before copying; no blanket nonallocation claim. Existing pinned-compiler gap remains. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation.

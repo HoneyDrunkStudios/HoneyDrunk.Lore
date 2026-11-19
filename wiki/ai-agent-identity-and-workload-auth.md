@@ -346,3 +346,38 @@ Containment depends-on resource/protocol enforcement and token lifetime; refresh
 ### Decision and quality notes
 
 Single security-research account without reproduced token/client/tenant configuration or timestamps. Its broad CAE prevalence and universal lifetime claims are not adopted. Determine actual resource, token and policy behavior from authoritative documentation and authorized tests before using it as an incident runbook. No account was disabled, token tested or mail accessed. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which authorized client/protocol/resource matrix verifies post-revocation and post-reset access, disabled-account behavior, re-enable timing and actual token expiry under the tenant's CAE policies? See [[indexes/gaps]].
+
+
+## 2026-11-19: Approved autofill separates credential delivery from later actions
+
+### Typed entities
+
+project: 1Password for Agents; concept: integration key; concept: sign-in approval; concept: destination matching; concept: authenticated session; file: raw/2026-11-16-rss-how-1password-for-agents-preserves-security-and-privacy.md.
+
+### Claims and evidence
+
+- 1Password describes encrypted connection keys, an integration key held by the agent developer and user-approved delivery of a selected login to its browser extension. Matching-page fill/submit, clearing failed fills and disconnect revocation are vendor-stated controls. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-how-1password-for-agents-preserves-security-and-privacy.md)
+- Its guarantees cover credential storage, approval, delivery and fill. The agent developer holds connection authorization material and controls the receiving environment; subsequent actions depend on integration safeguards and destination-session permissions. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-how-1password-for-agents-preserves-security-and-privacy.md)
+
+### Explicit relationships
+
+Approved sign-in uses matched autofill; later authority depends-on session permissions. See [[ai-coding-agent-security]] and [[mcp-tool-governance-and-app-surfaces]].
+
+### Decision and quality notes
+
+First-party security-model description, not verified browser isolation. The earlier October availability snapshot remains dated; this security article does not refresh all region/plan/integration availability. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which integration-specific test verifies matching-page fill, failed-submit clearing, approval scope, disconnect revocation and post-login action boundaries? See [[indexes/gaps]].
+
+
+## 2026-11-19: Consolidation of externally brokered credentials
+
+### Typed entities and relationships
+
+project: Docker Sandboxes; project: Agent Substrate; project: Anthropic; concept: credential proxy; decision: separate raw secrets from permitted actions. Brokered execution uses an external credential holder and depends-on destination/action policy.
+
+### Reinforced claim
+
+Docker, Solo.io and Anthropic independently describe a proxy/gateway holding supported upstream credentials outside the agent environment and adding them to outgoing calls. Together they strengthen this architectural pattern, while browser autofill and Shopify's readable test-shop credentials have different boundaries. Secret separation does not prove that every permitted authenticated action is safe. confidence: 3 sources, last-confirmed 2026-11-19 (archived design descriptions reviewed; no live validation). [source](../raw/2026-11-16-rss-give-sandboxed-agents-live-web-access-with-the-firecrawl-kit-for-docke.md) [source](../raw/2026-11-17-rss-agent-substrate-in-production-announcing-kagent-1-0.md) [source](../raw/2026-11-17-rss-building-always-on-agents.md)
+
+### Quality notes
+
+Three originating organizations, not three independent implementation audits. Strengthened qualitative design support only; no common protocol, measured containment or HoneyDrunk deployment is established. See [[ai-agent-harnesses]] and [[ai-coding-agent-security]].

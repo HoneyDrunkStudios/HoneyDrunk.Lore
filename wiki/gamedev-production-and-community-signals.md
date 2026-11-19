@@ -766,3 +766,23 @@ Game readability depends-on preview/mechanic agreement and evolving terrain; bal
 ### Decision and quality notes
 
 Single launch/devlog account; store availability, performance, fairness and commercial outcomes were not verified. Feed categorization as Unity is not evidence of a Unity implementation: the body says Flutter. Omitted coupon, referral invitation and unnecessary personal detail. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which device playtests and match/drop-off data verify trajectory readability, destructible-map evolution, reconnect fairness and viable lower-grade tanks before adding content? See [[indexes/gaps]].
+
+
+## 2026-11-19: Economy models connect progression to sources and sinks
+
+### Typed entities
+
+project: A Plus Games Studio; concept: game economy; concept: currency source; concept: currency sink; concept: progression model; file: raw/2026-11-16-rss-game-economy-design-currencies-sources-and-sinks.md.
+
+### Claims and evidence
+
+- The studio guide models currencies, creation/removal rates and progression targets, estimates affordability for casual, engaged and paying profiles, then compares assumptions with earn/spend telemetry. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-game-economy-design-currencies-sources-and-sinks.md)
+- Few currencies, repeatable late-game sinks and controlled tuning are suggested heuristics. Currency counts, monetization tactics and cost curves are not causal retention/revenue findings; premium games also use economies for pacing. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-game-economy-design-currencies-sources-and-sinks.md)
+
+### Explicit relationships
+
+Progression depends-on rates and content volume; economy tuning uses player telemetry. See [[procedural-world-persistence]] and [[realtime-game-network-protocol-design]].
+
+### Decision and quality notes
+
+Commercial practitioner guide without controlled player evidence. Legal/store statements are not adopted as current requirements or product decisions. No pricing or economy changed. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which player profiles, content targets and earn/spend events validate an economy without progress stalls, inflation or pressure to purchase? See [[indexes/gaps]].

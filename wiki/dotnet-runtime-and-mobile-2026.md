@@ -1535,3 +1535,87 @@ UI verification depends-on dispatcher ownership, packaging, trust and failure ex
 ### Decision and quality notes
 
 No native UI or CI agent was exercised. Keep packaging separate from sandbox trust. Existing target-machine acceptance gaps remain; the later capture is not a second author or an independent test.
+
+
+## 2026-11-19: Functions changes the build SDK while retaining the worker runtime
+
+### Typed entities
+
+project: Azure Functions; library: Azure.Functions.Sdk; library: Microsoft.Azure.Functions.Worker; concept: isolated worker; concept: chiseled image; file: raw/2026-11-16-rss-net-11-is-now-generally-available-in-azure-functions.md.
+
+### Claims and evidence
+
+- Microsoft announces C# .NET 11 Functions in the isolated worker model. Azure.Functions.Sdk replaces Microsoft.Azure.Functions.Worker.Sdk build integration; explicit Microsoft.Azure.Functions.Worker runtime and applicable binding packages remain. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-net-11-is-now-generally-available-in-azure-functions.md)
+- The capture specifies SDK 1.0.1 or later and recommends Worker 2.50.0 or later, distinguishing template examples from minimums. It lists chiseled-only .NET 11 images, temporary F# unavailability, no .NET 10+ on Linux Consumption and ended in-process support as of November 10. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-net-11-is-now-generally-available-in-azure-functions.md)
+- The build-SDK change alone need not rewrite Program.cs/functions/host.json on a current worker. Framework retargeting separately requires dependency, trigger, binding and deployment validation. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-net-11-is-now-generally-available-in-azure-functions.md)
+
+### Explicit relationships
+
+Functions hosting depends-on worker model, runtime packages, build SDK and plan. See [[azure-agent-automation-and-identity]] and [[microsoft-dotnet-ai-stack]].
+
+### Decision and quality notes
+
+First-party dated release statement, no restore, host, container or deployment test. Versions and plan restrictions are archival observations rather than a live deployment recipe. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which pinned Functions project verifies retained runtime/bindings, tooling startup, chiseled-image assumptions and hosting-plan/language compatibility? See [[indexes/gaps]].
+
+
+## 2026-11-19: The .NET compatibility catalog is deliberately incomplete
+
+### Typed entities
+
+project: .NET 11; concept: binary compatibility; concept: source compatibility; concept: behavioral compatibility; concept: migration inventory; file: raw/2026-11-17-web-breaking-changes-in-net-11.md.
+
+### Claims and evidence
+
+- Microsoft distinguishes binary, source and behavioral incompatibility and labels the catalog a work in progress rather than a complete migration list. ASP.NET changes live in a separate catalog. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-web-breaking-changes-in-net-11.md)
+- Listed surfaces include writable VSTest container artifacts, throwing host shutdown after BackgroundService failure, aggregated DI disposal exceptions, chained empty-string configuration precedence, archive checksums and Unix mutex/pipe behavior. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-web-breaking-changes-in-net-11.md)
+- Mobile CoreCLR/debugger/traces, Android x86 removal, NativeAOT ABI changes and package/template validation have different compatibility dimensions. Index titles alone do not establish exact triggers or mitigations. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-web-breaking-changes-in-net-11.md)
+
+### Explicit relationships
+
+Migration confidence depends-on exercised APIs/platforms; successful build does not supersede behavioral checks. See [[csharp-memory-safety-and-unsafe-code]] and [[dotnet-dependency-security-and-nuget]].
+
+### Decision and quality notes
+
+Official index with unknown publication date; linked detail pages were not fetched. No compiler, migration or device validation. Existing runtime gaps remain; actual upgrades need detailed owning notes. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation.
+
+
+## 2026-11-19: EF11 features and retained-data compatibility need separate checks
+
+### Typed entities
+
+project: EF Core 11; project: SQL Server; project: Azure Cosmos DB; project: SQLite; concept: vector projection; concept: transactional batch; concept: unmapped JSON loss; file: raw/2026-11-17-web-what-s-new-in-ef-core-11.md.
+
+### Claims and evidence
+
+- The EF11 snapshot still calls the release in development and requires .NET 11. It describes TPT/TPC complex/JSON mappings, nested-property keys/indexes and FullJoin/MaxBy/MinBy plus pruned joins/casts; benchmark gains are scenario-dependent vendor results. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-web-what-s-new-in-ef-core-11.md)
+- SQL Server features include experimental vector indexes/search, explicit approximate search and vector properties omitted from normal entity materialization unless projected. Full-text/JSON features depend on server/version compatibility; unloaded vectors are not populated values. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-web-what-s-new-in-ef-core-11.md)
+- Cosmos batches group by container/partition rather than making every SaveChanges globally atomic; Always requires one fitting batch. The serializer drops __jObject and no longer preserves unmapped JSON on round-trip, creating a data-loss boundary; undefined projections now throw unless handled. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-web-what-s-new-in-ef-core-11.md)
+- SQLite ordered aggregation needs 3.44.0+ and UInt128 parameter support does not imply reader support. EF CLI combined create/apply, offline removal, config defaults and selected all-context commands are capabilities, not a migration plan or execution authority. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-web-what-s-new-in-ef-core-11.md)
+
+### Explicit relationships
+
+EF upgrade depends-on provider/server compatibility and retained-data tests; batches depend-on partition and vectors on projection. See [[cloud-data-platforms-and-analytics]] and [[agentic-retrieval-and-search]].
+
+### Decision and quality notes
+
+Official development snapshot without SQL/Cosmos/migration validation. Runtime GA does not establish EF11 GA. The hybrid-search sample has a ranking issue discussed in [[agentic-retrieval-and-search]]. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which provider-pinned EF11 corpus checks unmapped-JSON preservation, partition batch failure, vector projection, SQL compatibility and reversible reviewed migration scripts? See [[indexes/gaps]].
+
+
+## 2026-11-19: Numeric conversion compatibility can change on rebuild without retargeting
+
+### Typed entities
+
+project: .NET 11; library: Decimal; library: BigInteger; concept: correctly rounded conversion; concept: constant folding; concept: significant digits; file: raw/2026-11-19-web-decimal-and-biginteger-floating-point-conversions-are-correctly-rounde.md.
+
+### Claims and evidence
+
+- The captured compatibility note says Decimal/binary-floating conversions and BigInteger-to-floating conversions now round the exact source once to the destination. Rebuilt constants hosted by .NET 11 SDK or later can embed new values even when targeting an older framework. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-web-decimal-and-biginteger-floating-point-conversions-are-correctly-rounde.md)
+- It distinguishes decimal literals from conversions of approximate binary literals, significant-digit legacy rounding from truncation and bit-pattern protocol requirements from numeric equality. It documents no compatibility switch and recommends updating expected serialized values/tests. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-web-decimal-and-biginteger-floating-point-conversions-are-correctly-rounde.md)
+
+### Explicit relationships
+
+Numeric compatibility depends-on source value, compiler host, rebuild and runtime path. See [[dotnet-dependency-security-and-nuget]] and [[csharp-memory-safety-and-unsafe-code]].
+
+### Decision and quality notes
+
+Official detailed note includes an authorization banner but substantive body is captured; no compiler or numeric boundary tests run. Legacy conversion helpers still have range/nonfinite constraints; do not infer all rounding APIs changed. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which SDK/runtime/target matrix verifies positive/negative midpoint and boundary conversions, folded constants, serialized expectations and explicit legacy protocol bit patterns? See [[indexes/gaps]].

@@ -57,3 +57,23 @@ Simulation-to-real work depends-on sensor timing, packet behavior, and measured 
 ### Decision and quality notes
 
 Vendor early-access release and case studies, not independent sensor-validation results. Verify licensing, runtime support, replay consistency, and actual sensor fidelity before adoption. Source-specific claims remain provisional single-source evidence; related articles and derived queries add no independent support. Open question: Which sensor packet, timing, shared-clock, deterministic-replay, headless-runtime, and license checks would qualify Simulation Pro for a specific HoneyDrunk simulation workload? See [[indexes/gaps]].
+
+
+## 2026-11-19: SimReady validates asset properties separately from task behavior
+
+### Typed entities
+
+project: SimReady Central; project: Isaac Sim 6.2; library: OpenUSD; concept: profile validation; concept: contact-based grasp; file: raw/2026-11-16-rss-build-a-robot-pick-and-place-simulation-with-simready-assets.md.
+
+### Claims and evidence
+
+- The NVIDIA/Hugging Face walkthrough separates profile, feature and requirement checks from assembled-scene testing. Joints/drives plus collision/mass properties are a baseline; movement, contact, grasp, lift and placement need task tests. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-build-a-robot-pick-and-place-simulation-with-simready-assets.md)
+- The example uses fixed positions, scripted waypoints, no vision, limited collision checks and an uncalibrated simulation drive-effort cap. It does not establish uncertain-pose robustness, deformable-object handling or hardware safety. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-build-a-robot-pick-and-place-simulation-with-simready-assets.md)
+
+### Explicit relationships
+
+Task validation depends-on both asset properties and controller behavior; Isaac Sim uses OpenUSD assets. See [[technical-art-community-and-talent-signals]].
+
+### Decision and quality notes
+
+Primary vendor walkthrough, not an independently reproduced task. Links labelled Robotiq 2F-140 point to 2F-85 asset paths while validation/example paths name 2F-140. Actual package identity is unresolved; neither gripper is assumed interchangeable. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which pinned arm/gripper/can packages reconcile the 2F-140 versus 2F-85 links and verify profile checks, contact grasp, placement error and repeatability? See [[indexes/gaps]].

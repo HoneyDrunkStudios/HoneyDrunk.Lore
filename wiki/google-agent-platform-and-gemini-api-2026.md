@@ -482,3 +482,24 @@ Closed-set routing uses candidate definitions and confidence thresholds; adoptio
 ### Decision and quality notes
 
 Official archived announcement, no live pricing, SDK or endpoint verification. The broad opening performance wording is narrowed by the detailed measurement envelope. Do not elevate model confidence into authorization or treat a multiple-choice router as a free-form task-success benchmark. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which held-out multimodal decision suite measures class coverage, calibration drift, abstention, false approvals, total billed input and p95 latency across the actual context/question envelope? See [[indexes/gaps]].
+
+
+## 2026-11-19: Anomaly detection needs active content telemetry and is separate from enforcement
+
+### Typed entities
+
+project: Gemini Enterprise Agent Platform; concept: Agent Anomaly Detection; concept: private preview; concept: content telemetry; concept: monitoring coverage; file: raw/2026-11-17-rss-securing-your-agents-a-hands-on-guide-to-agent-anomaly-detection.md.
+
+### Claims and evidence
+
+- Google describes private-preview ADK-based detection using logging and observability data in matching supported US/EU multi-regions. Discovery needs emitted telemetry and a served request; only sessions starting after Active monitoring are analyzed. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-securing-your-agents-a-hands-on-guide-to-agent-anomaly-detection.md)
+- The in-memory demo deliberately grants excessive tool access and compares benign/out-of-scope sessions with later findings. Setup/detection delays, severity and probabilities are illustrative and model-dependent; detection does not prevent the first unauthorized read. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-securing-your-agents-a-hands-on-guide-to-agent-anomaly-detection.md)
+- Detected-events/monitored-agent metrics support alerts; Security Command Center can receive AGENT_SESSION_ANOMALY findings. Exporting prompts, responses and tool data requires its own access/retention/privacy decision. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-securing-your-agents-a-hands-on-guide-to-agent-anomaly-detection.md)
+
+### Explicit relationships
+
+Detection depends-on active coverage and content telemetry; enforcement depends-on tool authorization. See [[ai-coding-agent-security]] and [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+First-party synthetic demo, not measured accuracy, prevention or local acceptance. Omitted the internal-only console URL/project metadata and synthetic person/customer details from wiki content. No IAM or logging enabled. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which approved synthetic evaluation measures coverage loss, post-activation scope, false positives/negatives and alert delay while enforcing content-retention/access limits? See [[indexes/gaps]].

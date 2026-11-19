@@ -1708,3 +1708,43 @@ TRELLIS.2 uses geometry adapters; trustworthy adaptation depends-on material-lab
 ### Decision and quality notes
 
 Small category-specific author experiment. The results section links the sparse-structure config label to the shape config URL, so resolve artifact identity before execution. Containers use mutable latest tags; gated DINOv3 access, licenses, secrets and cloud budget need review. No commands, jobs, assets or training were run; placeholder credentials are omitted. Open question: Which pinned licensed asset/adapter/container set verifies the sparse-versus-shape config identity, unseen-category geometry, material preservation, rotation alignment and full training cost? See [[indexes/gaps]].
+
+
+## 2026-11-19: Blender UI notes alter ordering and automation-visible controls
+
+### Typed entities
+
+project: Blender 5.3; library: bpy UILayout; concept: Outliner sorting; concept: sidebar search; concept: Markdown comment node; concept: keymap; file: raw/2026-11-17-web-blender-5-3-user-interface.md.
+
+### Claims and evidence
+
+- The captured notes describe default custom Outliner ordering, hierarchy-preserving parent drag, sidebar search, Markdown Comment nodes, multiline/Markdown layout widgets and warnings on collapsed nodes. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-web-blender-5-3-user-interface.md)
+- Node Cut moves to Ctrl+X and Dissolve to Shift+X; named theme properties are removed and macOS background Dock behavior changes. Such controls affect shortcuts/add-ons independently of rendering. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-web-blender-5-3-user-interface.md)
+
+### Explicit relationships
+
+UI automation depends-on versioned keymaps and ordering; add-on layouts use versioned bpy widgets. See [[creative-tool-extension-packaging]] and [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Official snapshot with unknown publication date; not proof of installed or generally available 5.3. No Blender instance or add-on tested. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which exact Blender build validates Outliner order/drag, changed shortcuts, sidebar search and add-on layout/theme compatibility? See [[indexes/gaps]].
+
+
+## 2026-11-19: Maya auditing complements viewport evidence but does not sandbox Python
+
+### Typed entities
+
+project: mcp-for-maya; project: Maya; concept: inspect-compute-execute-verify; concept: deterministic validator; concept: dirty-scene guard; concept: checkpoint; file: raw/2026-11-19-rss-mcp-for-maya-an-mcp-server-that-makes-llm-agents-inspect-audit-a-maya.md.
+
+### Claims and evidence
+
+- The author describes batched scene inspection, eleven deterministic validators and separate viewport-buffer versus playblast captures. A validator error is recorded while others continue; batch mode reports a GUI-session requirement rather than silently substituting a renderer image. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-mcp-for-maya-an-mcp-server-that-makes-llm-agents-inspect-audit-a-maya.md)
+- Camera restoration and dirty-scene guards aim to preserve artist work. Checkpoints flatten references and rollback reopens/rebinds a path; arbitrary Python remains available, so audit scores are not a security sandbox or lossless scene-history proof. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-mcp-for-maya-an-mcp-server-that-makes-llm-agents-inspect-audit-a-maya.md)
+
+### Explicit relationships
+
+Scene editing depends-on inspection and post-edit evidence; safe recovery depends-on actual checkpoint semantics. See [[mcp-tool-governance-and-app-surfaces]] and [[ai-assisted-game-development-pipelines]].
+
+### Decision and quality notes
+
+Single author forum account with no package/code execution. Public README images and scores are not independent verification; no Maya state changed. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which disposable Maya scene suite verifies GUI/batch errors, camera restoration, dirty-file denial, validator exceptions and reference-aware rollback before accepting edits? See [[indexes/gaps]].

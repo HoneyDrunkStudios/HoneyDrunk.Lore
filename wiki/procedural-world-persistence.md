@@ -153,3 +153,23 @@ Single-author instructional proposal with incomplete pseudocode and inconsistent
 Preserved source wording, paraphrased: after saying A blocks B, the introduction says B must leave before A.
 
 - superseded-by: [geometry-derived blocking order](#2026-11-12-arrow-removal-puzzles-separate-solvability-from-difficulty); timestamp: 2026-11-12T09:05:18-05:00; reason: under the article's own clear-exit rule, if A occupies B's exit ray, A must leave before B. Prefer the explicit mechanic and later dependency-list definition over the reversed sentence. The diagram and dependency-list example also disagree, so neither is copied as a verified fixture. [captured source](../raw/2026-11-12-rss-how-to-generate-arrow-puzzles-7-algorithms-behind-procedural-level-gen.md)
+
+
+## 2026-11-19: Solvable generation preserves a solution under reversible moves
+
+### Typed entities
+
+project: Lantern Links; concept: spanning tree; concept: growing-tree generator; concept: seed identity; concept: rotation symmetry; file: raw/2026-11-19-rss-how-we-generate-endless-always-solvable-pipe-puzzles-in-under-60-lines.md.
+
+### Claims and evidence
+
+- The author builds a connected N-cell/N-minus-one-edge grid tree before rotating tiles, preserving a reachable solution. The generator mixes newest-frontier and random-frontier extension rather than pure depth-first search. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-how-we-generate-endless-always-solvable-pipe-puzzles-in-under-60-lines.md)
+- Reproduction depends on level seed and board dimensions; restart uses a fresh time seed, and responsive shape is frozen after the first move. Par is rotations back to the chosen solution, not a proven minimum across all valid solutions. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-how-we-generate-endless-always-solvable-pipe-puzzles-in-under-60-lines.md)
+
+### Explicit relationships
+
+Puzzle identity depends-on seed, dimensions and generator version; reversible rotations preserve solvability. See [[gamedev-production-and-community-signals]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Single JavaScript devlog, not Unity implementation despite feed category. Difficulty constants and par optimality lack player/solver evidence. No game executed. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which property tests verify connectivity, reciprocal edges, border safety, rotational solvability and replay identity across viewport shapes, restarts and generator revisions? See [[indexes/gaps]].

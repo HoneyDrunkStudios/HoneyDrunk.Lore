@@ -203,3 +203,33 @@ Compressed retrieval uses trained token representations; deployment quality depe
 ### Decision and quality notes
 
 First-party technical tutorial with a single matched experiment, no repeated-seed uncertainty or HoneyDrunk corpus run. Benchmark and 30-150x kernel wording remain reported scoped results. No checkpoint download, training, index migration or cloud GPU job was launched. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which pinned Lore retrieval corpus and engine compare independent recall/ranking judgments, repeated seeds, pooling calibration drift, full index memory and end-to-end latency before compressed multi-vector adoption? See [[indexes/gaps]].
+
+
+## 2026-11-19: EF hybrid search needs ranks rather than incomparable raw scores
+
+### Typed entities
+
+project: EF Core 11; project: SQL Server; concept: full-text score; concept: vector distance; concept: reciprocal rank fusion; decision: review sample ranking semantics; file: raw/2026-11-17-web-what-s-new-in-ef-core-11.md.
+
+### Claims and evidence
+
+- The captured development notes expose full-text table-valued results, vector search and FullJoin to combine lexical/semantic candidates, with experimental SQL Server vector features and explicit approximate-search selection. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-17-web-what-s-new-in-ef-core-11.md)
+- Static-review inference from the shown expression: its field named RrfScore takes reciprocals of the raw full-text Rank score and vector Distance. Those are neither per-list ordinal positions nor on a common scale; increasing a positive full-text score reduces its displayed contribution. Treat this as an unvalidated fusion example, not a verified reciprocal-rank implementation. confidence: 1 source, last-confirmed 2026-11-19 (static expression review; no database execution). [sample](../raw/2026-11-17-web-what-s-new-in-ef-core-11.md)
+
+### Source interpretation resolution
+
+Prior source framing retained (paraphrased): the hybrid-search example combines the results with an RrfScore.
+
+superseded-by: [reviewed fusion interpretation](#resolution-2026-11-19-ef-fusion); timestamp: 2026-11-19T07:32:28-05:00; reason: The expression uses score/distance rather than independently computed ordinal ranks, and its full-text contribution reverses higher-score preference.
+
+<a id="resolution-2026-11-19-ef-fusion"></a>
+
+Selected interpretation: the FullJoin candidate union is a feature illustration; fusion needs separately established ranks or a justified score-normalization method and relevance tests before adoption. This is a bounded static-review inference from the source, not a tested replacement query.
+
+### Explicit relationships
+
+Hybrid retrieval uses candidate union; trustworthy fusion depends-on ordinal rank or justified comparable scoring and held-out relevance judgments. See [[dotnet-runtime-and-mobile-2026]], [[llm-wiki-and-knowledge-formats]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Official development snapshot, not executed SQL or a retrieval benchmark. Existing source claims remain; the raw sample is immutable. Do not import the displayed ranking formula into a retrieval contract. Open question: Which pinned SQL/EF retrieval fixture verifies candidate inclusion, score direction, ordinal-rank fusion, approximate recall and judged relevance? See [[indexes/gaps]].

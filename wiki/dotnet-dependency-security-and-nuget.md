@@ -227,3 +227,24 @@ November servicing supersedes older captured patch-level guidance; remediation d
 ### Decision and quality notes
 
 Official servicing summary, not an advisory-by-advisory exposure assessment or live package inventory. No severity, exploitability or fix completeness is inferred beyond the capture. The existence of final .NET 8/9 servicing artifacts does not extend their captured end-of-support date. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which deployed artifact inventory verifies November runtime patches, explicit Cbor package fixes and repaired Identity-generated code across framework-dependent, self-contained and container releases? See [[indexes/gaps]].
+
+
+## 2026-11-19: Staged publication separates artifact upload from public release
+
+### Typed entities
+
+project: NuGet.org; project: NuGet Trusted Publishing; concept: staging-only permission; concept: promotion; concept: non-atomic group; file: raw/2026-11-19-rss-introducing-staged-publishing-on-nuget-org.md.
+
+### Claims and evidence
+
+- Microsoft describes staging-only keys or Trusted Publishing policies that can submit artifacts but cannot normal-push them publicly. An authorized two-factor-enabled web session promotes validated packages; this is not a fresh two-factor challenge per action. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-introducing-staged-publishing-on-nuget-org.md)
+- Staging is not a private restore feed, and group promotion is not atomic across package distribution. Owner-scoped visibility, expiration, independent failures and dependency availability need release planning. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-introducing-staged-publishing-on-nuget-org.md)
+- The article shows basic stage push support in .NET 11 RC2; listing/group command examples are roadmap syntax, while promotion remains a website action. These are captured version claims, not proof of current SDK commands. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-introducing-staged-publishing-on-nuget-org.md)
+
+### Explicit relationships
+
+Release preparation uses staging; publication depends-on explicit promotion and artifact validation. See [[github-actions-platform-operations]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Primary announcement, no package upload, permission or promotion test. No registry, account or workflow settings changed; external review guidance does not override local publishing rules. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which staging rehearsal verifies owner/permission denial, immutable artifacts, expiration, individual failures and dependency restore timing before group promotion? See [[indexes/gaps]].

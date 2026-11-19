@@ -1169,3 +1169,23 @@ Durable agents depend-on persisted session references and backend state; recover
 ### Decision and quality notes
 
 Official GA announcement, distinct from earlier capability reports and from experimental adjacent packages. Saved results do not establish exactly-once external publication after lost acknowledgements. Approval endpoints still need authorization, operation binding, expiration and replay protection; snippets are not a complete production recipe. Open question: Which pinned .NET/Python fault suite verifies session-reference storage, restart/replay, graph upgrades, late or duplicate approvals, lost acknowledgements and idempotent external effects? See [[indexes/gaps]].
+
+
+## 2026-11-19: Pydantic durability records completed activities without exactly-once effects
+
+### Typed entities
+
+project: Azure Durable Task Scheduler; library: pydantic-ai-harness; library: AzureDurableTaskDurability; concept: checkpointed activity; concept: idempotent effect; file: raw/2026-11-17-web-introducing-azure-durable-task-for-pydantic-ai-agents.md.
+
+### Claims and evidence
+
+- Microsoft describes a Pydantic AI Capability checkpointing model, function-tool and MCP calls as Durable Task activities using a standalone Python SDK orchestrator without requiring Functions. Worker registration/hosting are separate from the scheduler. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-web-introducing-azure-durable-task-for-pydantic-ai-agents.md)
+- Recorded responses/results are reused; work interrupted before recording can run again. External writes still need idempotency. Approval waits hold no activity open but do not eliminate hosting costs; the synthetic screenshot run demonstrates normal completion, not retries/crash recovery. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-web-introducing-azure-durable-task-for-pydantic-ai-agents.md)
+
+### Explicit relationships
+
+Recovery depends-on recorded results and durable orchestration; external correctness depends-on idempotent tools. See [[ai-agent-harnesses]] and [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+First-party guide, not reproduced failure recovery. Minimum package/Python versions and mutable latest emulator images are not a tested production matrix. MAF is a different integration rather than independent verification of this Capability. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which pinned Capability/worker/emulator fault suite verifies recorded versus unrecorded calls, authorized delayed approvals, restart and duplicate-safe effects? See [[indexes/gaps]].

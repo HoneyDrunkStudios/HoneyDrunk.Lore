@@ -618,3 +618,65 @@ Migration depends-on stable schema, identifiable rows and converged change captu
 ### Decision and quality notes
 
 Vendor migration retrospective, not tested tool behavior or an instruction to operate databases. Discovery metadata and cloud inventory may still be sensitive even when row values are excluded. Index/constraint recovery, trigger overhead, long-copy failures and target-write rollback require a rehearsal; no database or schema was changed. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which migration rehearsal proves source-only unique-key support, COPY failure recovery, index/FK rebuild, backlog convergence, full data checks and lossless rollback after writes reach the new target? See [[indexes/gaps]].
+
+
+## 2026-11-19: An AI feature needs an exercised useful fallback
+
+### Typed entities
+
+project: incident.io; project: Skyscanner; concept: graceful degradation; concept: quality regression; decision: define a deterministic feature floor; file: raw/2026-11-16-rss-degrade-gracefully-designing-ai-features-that-keep-working-when-the-mo.md.
+
+### Claims and evidence
+
+- The practitioner account distinguishes availability from quality: successful responses can degrade after provider failover. Traces, judge scores and user feedback provide different signals; judges can miss new failure modes. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-degrade-gracefully-designing-ai-features-that-keep-working-when-the-mo.md)
+- Provider substitution depends on prompt behavior, latency, cost, sensitivity and customer subprocessor constraints. A deterministic or manual feature floor preserves a useful outcome; partial failure and regularly exercised fallbacks matter. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-degrade-gracefully-designing-ai-features-that-keep-working-when-the-mo.md)
+
+### Explicit relationships
+
+Graceful degradation depends-on acceptable outcomes and permitted routing; availability does not supersede quality evidence. See [[agent-evaluation-and-benchmarks]] and [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Single interview-based practitioner source, not controlled failover results. Invisible failover and visibly slower manual recovery are alternative examples. No provider policy changed. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which outage and low-quality-response drill measures user recovery, permitted provider routes, fallback freshness and the minimum useful deterministic outcome? See [[indexes/gaps]].
+
+
+## 2026-11-19: Lazy routing reduces state while adding cold-contact failure modes
+
+### Typed entities
+
+project: Fly.io 6PN; project: Corrosion; project: VXLAN; project: WireGuard; project: udp-xdp; project: s6pnforwarderd; concept: lazy lookup; file: raw/2026-11-17-rss-throwing-out-the-phonebook.md.
+
+### Claims and evidence
+
+- Fly.io replaces fleet-wide migration maps with demand-loaded routes using VXLAN miss events, local Corrosion lookup and periodic/per-row refresh. The account reports roughly 100-200 routes on most hosts versus hundreds of thousands of old map entries. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-throwing-out-the-phonebook.md)
+- Stateless same-network validation precedes a routing mark; absent validation means no mark and fails closed. Existing routes survive control-daemon failure; new destinations and recent migrations can fail. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-throwing-out-the-phonebook.md)
+- The retrospective acknowledges about one-second cold TCP contact due to first-packet loss/retransmission and a temporary regional rollout problem. Buffering first packets is planned; dual-path coexistence enabled staged migration. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-throwing-out-the-phonebook.md)
+
+### Explicit relationships
+
+Lazy routing depends-on observable misses and refresh; isolation depends-on validation before admission. See [[kubernetes-platform-governance-and-cicd]].
+
+### Decision and quality notes
+
+Primary retrospective without replication. Route counts are per host, not a fleet-wide total. TCP retries do not prove UDP delivery or zero outage. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which routing replay measures cold TCP/UDP delivery, daemon loss, moved destinations, stale forwarding and fail-closed admission during mixed-version rollout? See [[indexes/gaps]].
+
+
+## 2026-11-19: Seed replay requires controlling execution as well as fault randomness
+
+### Typed entities
+
+person: Unmesh Joshi; project: Tickloom; project: Jepsen; concept: deterministic simulation; concept: tick loop; concept: durable write; concept: architectural seam; file: raw/2026-11-19-rss-deterministic-simulation-testing.md.
+
+### Claims and evidence
+
+- The Tickloom teaching implementation models clock, scheduling, messages and storage progress through an explicit single-threaded tick loop. A fault seed alone cannot reproduce real OS/network/disk interleavings. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-deterministic-simulation-testing.md)
+- The proposed seam permits production adapters to use threads and real I/O while returning completions only on the core thread. Simulated visible writes and synced durable bytes are separate; client histories and bounded post-heal progress test safety and liveness separately. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-deterministic-simulation-testing.md)
+- Static rules and runtime thread-confinement checks complement seed/fault logs. Application-level simulation covers only its modeled boundary; it does not validate every serialization, OS, hardware or production-adapter behavior. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-deterministic-simulation-testing.md)
+
+### Explicit relationships
+
+Replayability depends-on controlled nondeterminism, ordering and pinned artifacts; correctness uses client-visible history. See [[agent-evaluation-and-benchmarks]] and [[formal-methods-and-agent-verification]].
+
+### Decision and quality notes
+
+Primary teaching-library article, not a universal distributed-system architecture or executed correctness result. Snippets reference multiple commits and show unordered maps before later insertion-order rules; pin a coherent implementation before relying on replay. No simulator installed. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which pinned simulator/core/adapter suite proves seed replay, thread confinement, crash durability, client-history safety and post-heal liveness, alongside real-adapter tests? See [[indexes/gaps]].

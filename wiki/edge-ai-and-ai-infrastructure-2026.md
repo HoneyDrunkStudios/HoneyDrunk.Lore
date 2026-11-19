@@ -1486,3 +1486,66 @@ Local inference uses libllama/libggml and depends-on pinned API/ABI, backend and
 ### Decision and quality notes
 
 First-party release statement, not a guarantee for every binding, model or hardware combination. Distribution channels and CI expansion are reported intentions/capabilities; no artifact, license, accelerator or performance test was performed. Open question: Which pinned llama.cpp/ggml artifacts, bindings and dynamic backends verify ABI upgrades, model compatibility, provenance and target-device performance? See [[indexes/gaps]].
+
+
+## 2026-11-19: Spending caps enforce asynchronously and can interrupt products
+
+### Typed entities
+
+project: Cloudflare Spend Management; project: Workers; project: Durable Objects; project: Quicksilver; concept: asynchronous cap; concept: billing cycle; file: raw/2026-11-16-rss-introducing-spend-management-spending-limits-and-alerts-for-cloudflare.md.
+
+### Claims and evidence
+
+- Cloudflare announces a PayGo beta initially for Workers and Durable Objects with alerts and usage-block policies. Blocking pauses billable customer-code invocations, including Worker cron/queue consumers; static assets continue. Raising/removing the cap or a new cycle can resume service. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-introducing-spend-management-spending-limits-and-alerts-for-cloudflare.md)
+- Usage aggregation, pending subscription data, allowance/rounding and asynchronous configuration propagation precede local rejection. Under-ten-minute near-real-time visibility is not instantaneous enforcement or a zero-overshoot guarantee. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-introducing-spend-management-spending-limits-and-alerts-for-cloudflare.md)
+- AI Gateway budgets cover routed inference requests. Cross-product agent/application attribution and sub-minute enforcement are roadmap items, not the initial Spend Management scope. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-introducing-spend-management-spending-limits-and-alerts-for-cloudflare.md)
+
+### Explicit relationships
+
+Enforcement depends-on metering and asynchronous propagation; product caps can cause outages. See [[distributed-systems-patterns]] and [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+First-party beta account without an enforcement experiment. Product-wide interruption can affect unrelated applications. No billing policy or notification recipient changed. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which budget drill measures observed overshoot, propagation, billing-cycle reset, cron/queue interruption and recovery before relying on a product cap? See [[indexes/gaps]].
+
+
+## 2026-11-19: Language inference routing changes the provider-key boundary
+
+### Typed entities
+
+project: Hugging Face Inference Providers; project: OpenRouter; concept: provider routing; concept: cache affinity; concept: custom provider key; file: raw/2026-11-17-rss-hugging-face-and-openrouter-join-forces-to-make-open-weight-models-eas.md.
+
+### Claims and evidence
+
+- Hugging Face announces OpenRouter routing for language models with provider failover, provider/fastest/cheapest suffixes and optional stable session-ID cache affinity. Account/organization provider-exclusion settings remain controls. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-hugging-face-and-openrouter-join-forces-to-make-open-weight-models-eas.md)
+- Custom provider keys no longer work for language models on this billed route; image/video custom keys remain supported, while image/video/audio retain the non-OpenRouter path. This is a breaking credential/billing boundary despite unchanged client API wording. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-hugging-face-and-openrouter-join-forces-to-make-open-weight-models-eas.md)
+- Token shares, price averages, routing gains and model comparisons are dated provider measurements. OpenRouter account linking and more routed tasks are roadmap items rather than shipped scope. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-hugging-face-and-openrouter-join-forces-to-make-open-weight-models-eas.md)
+
+### Explicit relationships
+
+Language inference uses routed providers; permitted destinations/billing depend-on settings and account ownership. See [[distributed-systems-patterns]] and [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+First-party announcement, no request, bill or retention verification. Redacted media paths stay redacted; rankings and prices are not promoted as current advice. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which consented request/billing test verifies custom-key removal, excluded-provider denial, retry destinations, cache affinity and unchanged non-language routing? See [[indexes/gaps]].
+
+
+### Source interpretation resolution: spending caps
+
+Prior source framing retained (paraphrased): a hard spending limit pauses the product when reached.
+
+superseded-by: [asynchronous cap interpretation](#resolution-2026-11-19-spend-caps); timestamp: 2026-11-19T07:32:28-05:00; reason: The same article details delayed metering, configuration propagation and periodic runtime refresh, narrowing the shorthand.
+
+<a id="resolution-2026-11-19-spend-caps"></a>
+
+Selected interpretation: these product limits interrupt new billable work after asynchronous evaluation and propagation; the capture does not guarantee instantaneous blocking or no overspend. Detailed implementation evidence takes precedence over introductory hard-cap shorthand. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [source](../raw/2026-11-16-rss-introducing-spend-management-spending-limits-and-alerts-for-cloudflare.md)
+
+### Source interpretation resolution: unchanged inference API
+
+Prior source framing retained (paraphrased): code stays the same when language inference moves to OpenRouter.
+
+superseded-by: [credential-aware interpretation](#resolution-2026-11-19-inference-keys); timestamp: 2026-11-19T07:32:28-05:00; reason: The article explicitly documents removal of custom language-provider keys despite the compatibility shorthand.
+
+<a id="resolution-2026-11-19-inference-keys"></a>
+
+Selected interpretation: ordinary token-billed client calls can keep the same API, while custom-key language workflows face a breaking authorization/billing change. The explicit breaking-change section wins over the broad introduction. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [source](../raw/2026-11-17-rss-hugging-face-and-openrouter-join-forces-to-make-open-weight-models-eas.md)

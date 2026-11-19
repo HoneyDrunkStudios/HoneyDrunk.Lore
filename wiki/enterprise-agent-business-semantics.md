@@ -187,3 +187,64 @@ Fraud decision quality depends-on temporal/relational context, semantics, labels
 ### Decision and quality notes
 
 Industry/practitioner commentary with secondary proof points and no controlled fraud benchmark. No causal performance, production readiness or legal-retention claim is promoted. No transactions, customer identifiers or private financial data were copied. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which consented labeled transaction benchmark compares semantic grounding, sequence models and GNNs at fixed false-positive cost, with leakage controls, drift evaluation and reconstructable decisions? See [[indexes/gaps]].
+
+
+## 2026-11-19: Generated glossaries preserve bounded-context differences
+
+### Typed entities
+
+person: Martin Fowler; concept: generated glossary; concept: bounded context; concept: deprecated term; decision: expert-reviewed vocabulary; file: raw/2026-11-16-rss-generated-glossary.md.
+
+### Claims and evidence
+
+- Fowler proposes extracting unfamiliar terms and familiar terms used unusually, followed by domain-expert correction of concise definitions. Conflicting contextual meanings should remain explicit rather than forcing one enterprise definition. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-generated-glossary.md)
+- Versioned refresh, term-to-definition indexes and contextual deprecated-term guidance make glossaries retrievable. Customer vocabulary can differ from internal code/operations names. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-generated-glossary.md)
+
+### Explicit relationships
+
+Domain language depends-on context and expert review; generated terminology uses source evidence. See [[llm-wiki-and-knowledge-formats]] and [[ai-assisted-software-practice]].
+
+### Decision and quality notes
+
+Practitioner technique without measured accuracy/productivity gains. Suggested email/chat inputs are not permission to ingest private material; no internal correspondence copied. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which source-attributed glossary review preserves bounded-context meanings, expert corrections, deprecated periods and appropriate customer-facing vocabulary? See [[indexes/gaps]].
+
+
+## 2026-11-19: Data ownership requires measurable product responsibilities
+
+### Typed entities
+
+project: Thoughtworks; concept: domain data ownership; concept: data product; concept: federated computational governance; concept: quality SLO; file: raw/2026-11-17-rss-ai-readiness-starts-with-data-ownership.md.
+
+### Claims and evidence
+
+- Thoughtworks proposes domain accountability for quality, context and availability with a central self-service platform supplying reusable infrastructure. Product blueprints include interfaces, metadata, policies and operating responsibilities. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-ai-readiness-starts-with-data-ownership.md)
+- Discoverability, quality/SLO attainment, reuse, onboarding time and handoffs are proposed readiness measures. Publishing trusted products in hours is an intended experience, not a measured client result. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-ai-readiness-starts-with-data-ownership.md)
+
+### Explicit relationships
+
+Trustworthy answers depend-on owned semantics and quality; platform policy uses classification and access controls. See [[cloud-data-platforms-and-analytics]] and [[llm-wiki-and-knowledge-formats]].
+
+### Decision and quality notes
+
+Consultancy proposal without reported before/after results. Neither central BI unsuitability nor AI readiness follows universally from this example. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which owner-approved definitions and measured discoverability, freshness, SLOs, reuse and onboarding times establish agent readiness beyond platform migration? See [[indexes/gaps]].
+
+
+## 2026-11-19: Data contracts describe promises while access agreements grant permission
+
+### Typed entities
+
+person: Simon Harrer; person: Arif Wider; project: ODCS; project: ODPS; concept: data contract; concept: access agreement; concept: semantic definition; file: raw/2026-11-19-rss-data-contracts.md.
+
+### Claims and evidence
+
+- The authors describe versioned machine-readable provider contracts containing schema, semantics, quality rules, ownership, use terms and service levels. ODCS describes interfaces; ODPS links data-product ports to contracts and ontology references connect meanings across datasets. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-data-contracts.md)
+- A published contract is distinct from an approved consumer/purpose/time access agreement. Documentation and AI context do not enforce authorization; platform controls grant access, and observed tests establish whether promises hold. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-data-contracts.md)
+- The proposed lifecycle keeps contracts beside pipeline code, tests compatibility in CI and data quality over time, and offers breaking major versions in parallel. Start at painful shared boundaries rather than every dataset; generated metadata is only a draft until reviewed. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-data-contracts.md)
+
+### Explicit relationships
+
+Trusted data depends-on owned contracts and runtime quality evidence; access depends-on separately approved agreements. See [[cloud-data-platforms-and-analytics]] and [[llm-wiki-and-knowledge-formats]].
+
+### Decision and quality notes
+
+Practitioner/standard-participant article, not an adopted HoneyDrunk standard. Adoption forecasts and broad statements about how all agents behave are not established facts. SQL/YAML examples are not tested recipes; synthetic contacts and infrastructure identifiers omitted. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which owner-reviewed contract and independent runtime tests verify semantics, compatibility, freshness and purpose/time-bound access without treating AI guidance as enforcement? See [[indexes/gaps]].

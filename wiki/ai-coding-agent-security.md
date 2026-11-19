@@ -2980,3 +2980,65 @@ CI compromise uses existing write authority; containment depends-on workflow his
 ### Decision and quality notes
 
 Campaign counts differ within the capture (1,835 versus 1,806 executions; probe populations also differ), so no exact prevalence is promoted. The blanket status-check-spoofing claim needs repository rule/app-source context; do not generalize it to every protected branch. Account overlap with GhostAction does not prove common attribution. No HoneyDrunk compromise inferred, payload reproduced, endpoint contacted or secret reconstructed. Open question: Which authorized incident evidence distinguishes probes from executed payloads, reconciles campaign counts and checks cloud persistence plus required-check source binding after credential rotation? See [[indexes/gaps]].
+
+
+## 2026-11-19: Security supervision must stop when its judge disappears
+
+### Typed entities
+
+project: Shopify Cyber Chaos Monkey; project: Kubernetes; concept: positive control; concept: rules of engagement; decision: fail closed on supervision loss; file: raw/2026-11-16-rss-cyber-chaos-monkey-staying-ahead-of-security-threats-with-ai-agents.md.
+
+### Claims and evidence
+
+- Shopify describes a Discovery/Sandbox loop using source, logs and test-shop credentials to investigate authorized production hypotheses. Reported engagement counts and no-outage experience are operator claims, not independent safety measurements. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-cyber-chaos-monkey-staying-ahead-of-security-threats-with-ai-agents.md)
+- A Kubernetes Job contains an orchestrator and executor/judge sidecars. A separate model reviews executor events and can terminate it; lost adjudication or heartbeat ends the run, with no restart leaving the executor alive. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-cyber-chaos-monkey-staying-ahead-of-security-threats-with-ai-agents.md)
+- The executor can read seeded ephemeral Shopify test credentials; separate knowledge/model credentials are injected by a domain/header-constrained proxy. Egress is allowlisted. The design does not hide every credential from the executor. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-cyber-chaos-monkey-staying-ahead-of-security-threats-with-ai-agents.md)
+
+### Explicit relationships
+
+Positive control depends-on live supervision and pod-local teardown; injection complements scoped identity and egress controls. See [[ai-agent-identity-and-workload-auth]] and [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Primary operator account, no reproduced containment or judge false-negative result. Rules and a second model do not prove alignment. No production probing, payload execution or credentials copied. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which isolated positive-control rehearsal proves teardown on judge timeout, crash, delayed events, eviction and orchestrator loss, without a surviving executor? See [[indexes/gaps]].
+
+
+## 2026-11-19: Developer tool provenance and recovery are delivery responsibilities
+
+### Typed entities
+
+project: Thoughtworks; concept: developer tool supply chain; concept: staged update; concept: endpoint persistence; concept: short-lived credential; file: raw/2026-11-17-rss-attackers-are-targeting-the-ai-tools-that-produce-our-software.md.
+
+### Claims and evidence
+
+- Thoughtworks treats editors, agent extensions, MCP servers and update paths as supply-chain components. It recommends delivery-team ownership, provenance checks, staged/pinned updates with an urgent patch lane and scoped execution/access. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-attackers-are-targeting-the-ai-tools-that-produce-our-software.md)
+- The account recommends correlating endpoint, identity, repository and cloud signals, rehearsing revocation/evidence preservation and addressing persistence beyond extension removal. Incident timings, counts and campaign details remain secondary reporting. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-attackers-are-targeting-the-ai-tools-that-produce-our-software.md)
+
+### Explicit relationships
+
+Tool trust depends-on build, marketplace and update provenance; containment uses endpoint and identity evidence. See [[github-actions-platform-operations]] and [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+Practitioner synthesis, no local incident or exploit verification. Existing tooling-inventory/incident gaps remain; no payloads or unnecessary affected-user detail copied and no software removed. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation.
+
+
+## 2026-11-19: Trusted build provenance does not imply reviewed package contents
+
+### Typed entities
+
+project: WPPConnect; project: StepSecurity; concept: import-time payload; concept: trusted publishing; concept: mutable release tag; concept: artifact digest; file: raw/2026-11-19-rss-wppconnect-compromised-malicious-releases-steal-secrets-and-whatsapp-s.md.
+
+### Claims and evidence
+
+- StepSecurity reports malicious WPPConnect library/server artifacts distributed through project publishing workflows, including a library provenance attestation that correctly identifies malicious source. Provenance authenticates origin, not source review or benign behavior. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-wppconnect-compromised-malicious-releases-steal-secrets-and-whatsapp-s.md)
+- The report distinguishes import/startup execution from install scripts, npm availability from build-log evidence, package/image digests from rewritten tags and download floors from affected hosts. Account identity does not establish who controlled it. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-wppconnect-compromised-malicious-releases-steal-secrets-and-whatsapp-s.md)
+- Environment/config and messaging-session exposure are reported separately from other credential files. Prior-incident product screenshots are illustrative, not proof of blocking this event; actual blocking depends on configured egress policy. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-wppconnect-compromised-malicious-releases-steal-secrets-and-whatsapp-s.md)
+
+### Explicit relationships
+
+Supply-chain response depends-on immutable artifact/execution evidence; trusted publishing does not supersede review. See [[github-actions-platform-operations]] and [[dotnet-dependency-security-and-nuget]].
+
+### Decision and quality notes
+
+Primary vendor investigation, not local exposure verification. Original bot credential fragments are already redacted in raw; no reconstruction, contact, package import or credential testing. Omitted payload, bot/chat identifiers and unnecessary account attribution from wiki. Claimed safe versions are not current remediation advice. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which artifact/lockfile/digest and execution inventory establishes actual WPPConnect exposure, source-versus-tarball divergence and scoped credential/session recovery? See [[indexes/gaps]].

@@ -1866,3 +1866,23 @@ Goal-focused evaluation depends-on justified intent inference and distinct scori
 ### Decision and quality notes
 
 Primary benchmark-team blog, not an independent paper/code replication. English procedural tasks, synthetic generation, selected forum answers, a model judge and single-turn sampling limit transfer. Inferred intent must remain revisable; this is not authority to override explicit user scope. Original opening wording and dataset breakdown are preserved in the source. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which representative multi-turn evaluation separates intent inference, justified redirection, solution presence and pragmatic emphasis with independent human labels and controls for synthetic-data and judge bias? See [[indexes/gaps]].
+
+
+## 2026-11-19: Workflow comparisons separate retries from independent repetitions
+
+### Typed entities
+
+project: SpecBench; concept: controlled workflow comparison; concept: artifact quality; concept: resource measurement; decision: preserve execution conditions; file: raw/2026-11-16-rss-specbench-a-tool-to-evaluate-ai-enabled-software-development-workflows.md.
+
+### Claims and evidence
+
+- Thoughtworks describes varying workflow while holding task, model, harness and execution conditions fixed, then independently evaluating artifacts and records. Retries are not independent repetitions; isolating a practice requires preserving the other variables. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-specbench-a-tool-to-evaluate-ai-enabled-software-development-workflows.md)
+- Historical examples report 92.25 versus 95.00 mean correctness, almost doubled time and substantially higher tokens. Matching a model label does not establish matched conditions. Current coverage excludes brownfield modification/maintenance. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-specbench-a-tool-to-evaluate-ai-enabled-software-development-workflows.md)
+
+### Explicit relationships
+
+Workflow evidence depends-on controlled inputs, independent scoring and resource/status provenance. See [[ai-assisted-software-practice]] and [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Primary tool-author account with limited data and scoring sensitivity. Descriptive examples do not prove specification-heavy workflows causally improve delivery. No benchmark executed. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which repeated matched-condition experiment reports scenario correctness, failed attempts, retries, uncertainty, resources and brownfield transfer separately? See [[indexes/gaps]].

@@ -701,6 +701,8 @@ An agent is best treated as `model + harness`: the model supplies probabilistic 
 ### Source-backed claims
 - Solo.io describes Agent Substrate as a Kubernetes-adjacent control layer that schedules, suspends, snapshots, and resumes agent actors inside pre-provisioned worker pods, avoiding Kubernetes API writes in the hot path for agent deploy/suspend/resume operations. Source: `raw/2026-06-14-rss-solo-io-agent-substrate-can-power-agents-on-kubernetes-with-kagent-sol.md`. confidence: 1 vendor/community source, last-confirmed 2026-06-14.
 - Solo.io reports kagent can run OpenClaw-style harnesses on Agent Substrate, with agent workers isolated through gVisor or Firecracker and network traffic routed through agentgateway for future fine-grained ingress/egress controls and credential injection. Source: `raw/2026-06-14-rss-solo-io-agent-substrate-can-power-agents-on-kubernetes-with-kagent-sol.md`. confidence: 1 source, last-confirmed 2026-06-14.
+
+superseded-by: [qualified current scope](#resolution-2026-11-19-kagent-scope); timestamp: 2026-11-19T07:32:28-05:00; reason: The November 10 first-party 1.0 announcement describes ingress/egress policy and credential injection as release capabilities. Supersedes future-only availability, not the historical isolation-backend list or local-validation requirement.
 - Google Colab CLI exposes remote Colab runtimes from a local terminal, including GPU provisioning, package installation, remote script execution, notebook logs, download, REPL/console use, and cleanup; Google explicitly frames it as usable by terminal-based agents. Source: `raw/2026-06-14-web-google-developers-blog-introducing-the-google-colab-cli-google-develop.md`. confidence: 1 Google Developers source, last-confirmed 2026-06-14.
 - InfoQ's Microsoft Foundry Build recap says hosted agents provide managed sandboxed sessions with state, filesystem access, Responses API, invocations protocol, and scheduled routines for long-running or recurring agents such as overnight triage and daily reporting. Source: `raw/2026-06-14-web-infoq-microsoft-foundry-adds-runtime-tooling-and-governance-for-produc.md`. confidence: 1 secondary article summarizing Microsoft sources, last-confirmed 2026-06-14.
 - Foundry Toolboxes are described as managed endpoints for tools, skills, MCP clients, and enterprise integrations, with runtime tool search intended to expose a small relevant set of tools instead of dumping every possible tool into context. Source: `raw/2026-06-14-web-infoq-microsoft-foundry-adds-runtime-tooling-and-governance-for-produc.md`. confidence: 1 secondary source, last-confirmed 2026-06-14.
@@ -2341,3 +2343,104 @@ Agent implementation depends-on a reviewed plan and executable evidence; additio
 ### Decision and quality notes
 
 Same report as the telemetry page, not a second corroborating source or evidence that a multi-agent arrangement beats a single agent. No harness was implemented or operated. Source-specific claims remain provisional; recaptures and derived queries add no independent support.
+
+
+## 2026-11-19: Sandbox web access can be brokered through one service
+
+### Typed entities
+
+project: Docker Sandboxes; project: Firecrawl; library: firecrawl-py; concept: sandbox kit; concept: credential proxy; concept: egress policy; file: raw/2026-11-16-rss-give-sandboxed-agents-live-web-access-with-the-firecrawl-kit-for-docke.md.
+
+### Claims and evidence
+
+- Docker describes an experimental Early Access mixin with install, credential, network-policy and context capabilities, pinning firecrawl-py 4.44.0 and separating registry install access from runtime api.firecrawl.dev access. A host proxy injects the real service key. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-give-sandboxed-agents-live-web-access-with-the-firecrawl-kit-for-docke.md)
+- The kit adds allow rules without narrowing existing ones. Organization policy can deny the service; media storage hosts are excluded; exhausted-credit HTTP 402 stops retries. Unattended creation needs a preapproved credential binding. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-give-sandboxed-agents-live-web-access-with-the-firecrawl-kit-for-docke.md)
+
+### Explicit relationships
+
+Brokered retrieval depends-on effective global/organization policy and credential bindings. See [[ai-agent-identity-and-workload-auth]] and [[agentic-retrieval-and-search]].
+
+### Decision and quality notes
+
+Vendor walkthrough, not a tested install. Its displayed latest-release scrape is historical. One allowed service host can fetch arbitrary third-party content and does not establish content trust or confidentiality. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which pinned kit verifies inherited allow rules, organization denial, placeholder-only secrets, unattended binding, retrieval privacy, blocked media and stop-on-credit-exhaustion? See [[indexes/gaps]].
+
+
+## 2026-11-19: kagent 1.0 separates conversation lifecycle from worker placement
+
+### Typed entities
+
+project: kagent 1.0; project: Agent Substrate; project: agentgateway; project: Kubernetes; concept: actor identity; concept: sandbox snapshot; file: raw/2026-11-17-rss-agent-substrate-in-production-announcing-kagent-1-0.md.
+
+### Claims and evidence
+
+- Solo.io announces kagent/Substrate 1.0 with actors on warm workers, idle snapshots/resume, per-actor identity and gVisor or microVM isolation. Substrate handles placement; kagent adds users, ownership, conversations, revisions and approval resume. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-agent-substrate-in-production-announcing-kagent-1-0.md)
+- Ingress/egress gateways authenticate and enforce policy, injecting supported upstream credentials outside the sandbox. The announcement calls 0.x to 1.0 a new API/runtime needing a fresh install; the Managed Agents self-hosted integration remains experimental. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-agent-substrate-in-production-announcing-kagent-1-0.md)
+- No idle actor compute is not zero platform/storage cost. Gateway-held credentials reduce raw-secret exposure but do not stop every malicious use of permitted authenticated APIs. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-agent-substrate-in-production-announcing-kagent-1-0.md)
+
+### Explicit relationships
+
+kagent uses Substrate; isolation depends-on sandbox, identity and gateway policy. See [[ai-agent-identity-and-workload-auth]] and [[kubernetes-platform-governance-and-cicd]].
+
+### Decision and quality notes
+
+First-party release/customer account, not independent scale or isolation acceptance. June capability reports remain historical; no cluster installed. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which pinned 1.0 pilot verifies revision-bound conversations, snapshot recovery, identity continuity, approval resume, egress denial and total fleet/storage cost? See [[indexes/gaps]].
+
+
+## 2026-11-19: Always-on experience uses short durable event-driven runs
+
+### Typed entities
+
+project: Anthropic; concept: event inbox; concept: timer; concept: durable memory; concept: deferred tool call; concept: outbox; file: raw/2026-11-17-rss-building-always-on-agents.md.
+
+### Claims and evidence
+
+- Anthropic describes a durable inbox with status/source-ID deduplication, one active worker per inbox and batched events. Timers live separately; a scheduler enqueues due work, and agents sleep between runs. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-building-always-on-agents.md)
+- Durable memory preserves instructions, notes, reported messages and progress across workers, using pointers for retrievable external facts. Deferred calls save a session awaiting user input; a formal outbox is optional for pacing and recoverable delivery. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-building-always-on-agents.md)
+- The permission design keeps credentials in a proxy and retains human decisions for sensitive actions. Its illustrative timer sequence does not itself prove atomic advancement/enqueue, exactly-once tool effects or duplicate-safe delivery. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-building-always-on-agents.md)
+
+### Explicit relationships
+
+Continuity depends-on durable event/state ownership; quiet delivery uses outcome evaluation. See [[distributed-systems-patterns]], [[agent-context-management-and-session-continuity]] and [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+First-party architecture guidance, not complete recovery/concurrency code. Vendor model-cost examples are not current model recommendations. No schedule, agent, memory policy or message changed. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which crash/concurrency suite proves worker ownership, atomic timer enqueue, duplicate-safe effects, bound deferred approvals and quiet recoverable delivery? See [[indexes/gaps]].
+
+
+<a id="resolution-2026-11-19-kagent-scope"></a>
+
+### Release scope resolution
+
+Select the newer 1.0 announcement for reported policy/injection availability; retain June as history. The release remains untested here and the self-hosted Managed Agents path is explicitly experimental. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [release capture](../raw/2026-11-17-rss-agent-substrate-in-production-announcing-kagent-1-0.md)
+
+
+## 2026-11-19: eve 1.0 separates durable harness state from tenant authority
+
+### Typed entities
+
+project: eve 1.0; project: Workflow SDK; project: Vercel Sandbox; concept: tenant scope; concept: durable step; concept: trace privacy; file: raw/2026-11-19-rss-introducing-eve-1-0.md.
+
+### Claims and evidence
+
+- Vercel announces eve 1.0 with an owned model/tool harness, durable steps, resumable tools, multiplayer approvals, dynamic capabilities and optional managed Workflow/Sandbox hosting. Applications still authenticate users and define tenant memory, credentials and approval policy. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-introducing-eve-1-0.md)
+- The capture distinguishes transient in-memory fileMemory in local development from configured private Blob persistence. Trace collection, per-destination redaction and metadata-only private production conversations have distinct scopes. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-introducing-eve-1-0.md)
+- The linked hosted stress table reports a 414ms median and 633ms p95 for a 100-turn immediate mock-model/no-tool workload, not real-model task latency. A nearby 626ms sentence conflicts with the table; estimated workflow storage cost excludes general model/tool totals. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-introducing-eve-1-0.md)
+
+### Explicit relationships
+
+Durable agents use Workflow state; isolation depends-on tenant/session mappings and configured credentials. See [[agent-context-management-and-session-continuity]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Vendor GA/customer account, no deployment or upgrade validation. Stable/experimental APIs have different change rules; beta migration covers saved history as well as code. Reported productivity and cost savings remain scoped claims. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which pinned eve upgrade rehearsal verifies saved history, tenant memory/approval isolation, restart recovery, trace redaction and real-model end-to-end cost/latency? See [[indexes/gaps]].
+
+
+### Source interpretation resolution: eve latency
+
+Prior source value retained: an accompanying caption gives a 626ms median.
+
+superseded-by: [scoped table interpretation](#resolution-2026-11-19-eve-latency); timestamp: 2026-11-19T07:37:01-05:00; reason: The dated linked stress-run table and main paragraph agree on 414ms, while the isolated caption conflicts.
+
+<a id="resolution-2026-11-19-eve-latency"></a>
+
+Selected interpretation: 414ms is the reported median for the described mock-model/no-tool workload, with 633ms p95. The 626ms caption remains a preserved source discrepancy, not a second independently measured result. confidence: 1 source, last-confirmed 2026-11-19 (archived table/caption review; no benchmark execution). [capture](../raw/2026-11-19-rss-introducing-eve-1-0.md)

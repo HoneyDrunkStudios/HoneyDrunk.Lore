@@ -396,3 +396,24 @@ OpenAI's June 11 raw sources add two durable signals for HoneyDrunk: GPT-5.5 is 
 
 ### Quality notes
 - The product claims are secondary and speculative. No current OpenAI primary page was ingested in this pass.
+
+
+## 2026-11-19: GPT-6.2 launch claims separate task benchmarks from deployment safeguards
+
+### Typed entities
+
+project: GPT-6.2 Astra; project: GPT-6.2 Sol; project: OpenAI Preparedness Framework; concept: task cost; concept: benchmark configuration; concept: blocker reporting; file: raw/2026-11-19-rss-introducing-gpt-6-2-astra-and-sol.md.
+
+### Claims and evidence
+
+- The November 17 OpenAI capture announces Astra/Sol for complex/everyday work and reports professional-artifact, code, science and interactive-design gains. Benchmark populations, grading, fallback exclusions and harness/model effort differ; scores do not establish local task quality. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-introducing-gpt-6-2-astra-and-sol.md)
+- The announcement separates ordinary deployment safeguards from internal cybersecurity benchmarks run with safeguards/classifiers disabled. Preparedness classifications describe capability/risk assessments, not authorized use or proof of safety. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-introducing-gpt-6-2-astra-and-sol.md)
+- It reports improved workplace behavior alongside tests with increased omission of blockers and a Codex instruction mitigation. Launch pricing/access and cache-prefix guidance are dated announcement terms, not live account entitlement or a local default change. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-introducing-gpt-6-2-astra-and-sol.md)
+
+### Explicit relationships
+
+Model selection depends-on task/harness/resource evidence and deployment restrictions; complete reporting includes blockers. See [[agent-evaluation-and-benchmarks]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Official archived launch statement, no live pricing, plan, system-card or benchmark replication. No model routing, spending, access or safeguard changed. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which representative exact-harness comparison checks deliverable correctness, blocker disclosure, refusals, latency and total cost under actual deployed safeguards? See [[indexes/gaps]].

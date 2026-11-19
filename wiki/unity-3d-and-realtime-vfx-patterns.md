@@ -2180,6 +2180,8 @@ project: Unity; project: GameOptim GOT Online; concept: cycles per pixel; concep
 ### Source-backed claims
 
 - GameOptim combines cycles/pixel, per-frame GPU read/write volume and a CPU timeline to distinguish candidate shader, memory-traffic and blocking bottlenecks. Its GPU counters require supported Mali chips; missing data means unavailable rather than zero. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-how-do-you-tell-whether-a-unity-stutter-is-from-gpu-shader-cost-bandwi.md)
+
+superseded-by: [qualified current scope](#resolution-2026-11-19-gpu-coverage); timestamp: 2026-11-19T07:32:28-05:00; reason: The November 17 capture reports some Adreno and PowerVR support in addition to Mali; supersedes availability only, preserving the earlier article and diagnostic caveats.
 - The described timeline covers the main thread plus at most four subthreads. Same-frame correlation and repeated scene measurements guide controlled optimization, but averaged counters and a limited timeline cannot establish causation or rule out other threads, compilation, CPU work or I/O. confidence: 1 source, last-confirmed 2026-11-09 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-08-rss-how-do-you-tell-whether-a-unity-stutter-is-from-gpu-shader-cost-bandwi.md)
 
 ### Explicit relationships
@@ -2228,3 +2230,91 @@ Profiling uses realistic restored worlds; platform acceptance depends-on actual 
 ### Decision and quality notes
 
 Same publisher/interview as November 7; extra images, captions and marketing do not add independent confirmation. Existing sanitized-scene/device validation gap retained. No player snapshot, Editor or device was accessed. Source-specific claims remain provisional; recaptures and derived queries add no independent support.
+
+
+## 2026-11-19: Live upgrades need retained-save and content compatibility evidence
+
+### Typed entities
+
+project: Unity 6 LTS; project: Addressables; concept: upgrade baseline; concept: save compatibility; concept: content catalog compatibility; file: raw/2026-11-16-rss-unity-6-lts-upgrade-notes-what-to-audit-before-you-migrate-a-live-proj.md.
+
+### Claims and evidence
+
+- Juego Studios recommends a scoped upgrade branch, clean-checkout build, pre-upgrade frame/memory/load/build baselines, package/native-SDK inventory and pipeline-specific rendering checks. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-unity-6-lts-upgrade-notes-what-to-audit-before-you-migrate-a-live-proj.md)
+- The checklist includes old saves on new clients, cached bundles/catalogs, supported older clients, platform toolchains, install-over-old and purchase restore where relevant. Screenshots and weakest-device regressions are separate from compilation. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-unity-6-lts-upgrade-notes-what-to-audit-before-you-migrate-a-live-proj.md)
+
+### Explicit relationships
+
+Upgrade confidence depends-on retained data, catalogs, platforms and measured baselines. See [[procedural-world-persistence]] and [[gamedev-production-and-community-signals]].
+
+### Decision and quality notes
+
+Commercial practitioner checklist, not Unity release documentation or an executed regression pass. Pipeline/version details need owning documentation. No Editor, save or asset changed. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which retained-save/catalog fixtures and target-device baselines prove an engine upgrade preserves old clients, cached content, install-over-old and purchase restoration? See [[indexes/gaps]].
+
+
+## 2026-11-19: GPU counters depend on architecture and capture conditions
+
+### Typed entities
+
+project: GameOptim GOT Online; concept: Mali; concept: Adreno; concept: PowerVR; concept: texture cache miss; concept: thermal throttling; file: raw/2026-11-17-rss-can-you-compare-gpu-counter-data-across-mali-adreno-and-powervr-device.md.
+
+### Claims and evidence
+
+- The newer GameOptim capture reports counters on some Mali, Adreno and PowerVR chips, extending earlier Mali-only coverage. Definitions and support vary; missing data is not zero and raw counters are not interchangeable across devices. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-can-you-compare-gpu-counter-data-across-mali-adreno-and-powervr-device.md)
+- Mali queue ratios, Adreno frequency/cache metrics and PowerVR modules are profiler-specific guidance. The 15-percent cache-miss target is a vendor recommendation. Frequency decline alone does not prove thermal causation, nor absent non-base-level samples prove disabled mipmaps. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-can-you-compare-gpu-counter-data-across-mali-adreno-and-powervr-device.md)
+- The capture warns that USB/charging distorts its power readings. Repeated same-device measurements need controlled scene, instrumentation, clock/thermal state and power setup. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-can-you-compare-gpu-counter-data-across-mali-adreno-and-powervr-device.md)
+
+### Explicit relationships
+
+Counter interpretation depends-on chip support, definitions and capture state; diagnosis uses correlated evidence. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Promotional profiler guide, no device trace or hardware-vendor cross-check. Absolute diagnostic language is treated as hypotheses. New coverage supersedes dated Mali-only availability; the existing stutter-correlation gap remains. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation.
+
+
+## 2026-11-19: Unity CLI 1.0 promises stable automation contracts
+
+### Typed entities
+
+project: Unity CLI 1.0; library: com.unity.pipeline; project: Unity Hub; concept: readiness; concept: dialog handling; concept: JSON contract; file: raw/2026-11-17-rss-the-unity-cli-1-0-is-here.md.
+
+### Claims and evidence
+
+- Unity announces CLI/Pipeline 1.0 out of beta with unified listing/stream JSON, nonprompting CI, readiness/dialog/error states and project-pinned version ranges. It promises 1.x command/flag/output compatibility with deprecation time. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-the-unity-cli-1-0-is-here.md)
+- The post describes live-Editor builds, audits, skill setup/sync, cached docs and CLI rollback. Build Server licensing is described as extended to automation; the Linux containerized Editor and further agent services remain coming soon. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-rss-the-unity-cli-1-0-is-here.md)
+
+### Explicit relationships
+
+Automation uses CLI/Pipeline; completion depends-on readiness, exit state and task evidence. See [[ai-assisted-game-development-pipelines]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+First-party release announcement; usage, licensing and compatibility are dated vendor statements, not local acceptance. No install, Editor, build or cloud setup performed. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which pinned CLI/Pipeline suite verifies JSON, busy/dialog/network errors, CI behavior, live-Editor artifacts and platform/license eligibility? See [[indexes/gaps]].
+
+
+<a id="resolution-2026-11-19-gpu-coverage"></a>
+
+### Coverage resolution: later profiler support supersedes Mali-only scope
+
+The November 9 claim remains as an account of its source. For the later reported product scope, select the November 17 vendor capture covering some Mali, Adreno and PowerVR chips. Recency and explicit architecture coverage favor the newer account; neither proves support for a particular device. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [newer source](../raw/2026-11-17-rss-can-you-compare-gpu-counter-data-across-mali-adreno-and-powervr-device.md)
+
+
+## 2026-11-19: Remote content updates depend on the shipped player contract
+
+### Typed entities
+
+project: Unity Addressables; concept: content state file; concept: client-versioned catalog; concept: shader stripping; concept: CDN rollback; file: raw/2026-11-19-rss-shipping-a-unity-content-update-without-a-full-store-release-an-addres.md.
+
+### Claims and evidence
+
+- The checklist limits remote content to assets/data compatible with code and types already shipped, retains each release content-state baseline and separates bundle groups by update cadence. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-shipping-a-unity-content-update-without-a-full-store-release-an-addres.md)
+- Actual release clients need shader/type validation, size/download failure handling and oldest-supported-client tests. Versioned catalogs and retained bundles enable planned rollback, but caches and locally persisted state still need verification. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-shipping-a-unity-content-update-without-a-full-store-release-an-addres.md)
+
+### Explicit relationships
+
+Remote delivery depends-on player compatibility and immutable release baselines; rollback uses retained catalogs/bundles. See [[procedural-world-persistence]] and [[gamedev-production-and-community-signals]].
+
+### Decision and quality notes
+
+Commercial practitioner checklist, not verified engine/store policy or a content release. A catalog pointer change does not alone prove complete rollback. No build, asset or CDN changed. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which actual release/oldest-client rehearsal checks content-state identity, missing types/shaders, flaky downloads, cache invalidation and rollback after persisted state changes? See [[indexes/gaps]].

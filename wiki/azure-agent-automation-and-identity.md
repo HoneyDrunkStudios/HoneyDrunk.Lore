@@ -2039,3 +2039,104 @@ Delegated telemetry uses user RBAC; result interpretation depends-on explicit re
 ### Decision and quality notes
 
 Vendor demonstration, not verified tenant availability or unattended identity support. Dashboard-write permission remains sensitive despite predominantly read-only tools. Do not copy sample subscription/cluster identifiers or access tokens; query outputs and tool traces may contain operational data. Open question: Which delegated-user MCP pilot verifies tenant/RBAC denial, resource/time scope, result truncation, query-data privacy and validation-only/stale-version dashboard updates? See [[indexes/gaps]].
+
+
+## 2026-11-19: Enhanced feature flags separate management permissions in preview
+
+### Typed entities
+
+project: Azure App Configuration; concept: enhanced feature flag; concept: resource schema; concept: least privilege; file: raw/2026-11-16-rss-enhanced-feature-flags-a-new-foundation-for-feature-management-in-azur.md.
+
+### Claims and evidence
+
+- Microsoft announces Enhanced Feature Flags in public preview as dedicated resources with separate access control, CRUD APIs and server-side schema validation, separating management from configuration key-values. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-enhanced-feature-flags-a-new-foundation-for-feature-management-in-azur.md)
+- Existing key-value flags remain supported and evaluation can continue with supported provider-library versions. This preview neither requires migration nor proves compatibility with every installed SDK. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-enhanced-feature-flags-a-new-foundation-for-feature-management-in-azur.md)
+
+### Explicit relationships
+
+Feature rollout uses evaluation; management separation depends-on resource RBAC and supported libraries. See [[mcp-tool-governance-and-app-surfaces]].
+
+### Decision and quality notes
+
+First-party preview announcement. No tenant, RBAC or rollout changes; management separation does not prove business-rule correctness. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which provider versions and roles verify enhanced-flag schema rejection, least privilege, legacy coexistence and reversible rollout? See [[indexes/gaps]].
+
+
+## 2026-11-19: Migration assessment and accepted waves precede deployment
+
+### Typed entities
+
+project: Azure Migrate; project: Azure Container Apps; concept: readiness assessment; concept: migration wave; concept: hosting estimate; file: raw/2026-11-16-rss-introducing-azure-container-apps-as-a-target-workload-in-azure-migrate.md.
+
+### Claims and evidence
+
+- Microsoft adds Container Apps as an assessment target for discovered web apps, reporting readiness issues, sizing and estimated cost under selected settings. Discovery inventory alone does not establish readiness. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-introducing-azure-container-apps-as-a-target-workload-in-azure-migrate.md)
+- Committing a migration wave accepts a plan. Preparation, containerization, validation and deployment occur later through language-specific modernization workflows; assessment does not execute them. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-introducing-azure-container-apps-as-a-target-workload-in-azure-migrate.md)
+
+### Explicit relationships
+
+Migration planning uses discovered dependencies; deployment depends-on approved scope and validation. See [[legacy-modernization-and-ai-ready-systems]] and [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+First-party workflow announcement, not application readiness or invoice acceptance. No assessment, modernization command or resource mutation executed. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which app inventory and rehearsal reconcile ACA compatibility, dependencies, actual hosting cost and rollback independently of wave-plan acceptance? See [[indexes/gaps]].
+
+
+## 2026-11-19: Conversations, sandbox sessions and graph checkpoints persist different state
+
+### Typed entities
+
+project: Microsoft Foundry Hosted Agents; library: langchain-azure-ai; project: LangGraph; concept: Responses protocol; concept: user delegation; concept: graph checkpoint; file: raw/2026-11-17-web-hosting-your-langgraph-application-on-microsoft-foundry-agents.md.
+
+### Claims and evidence
+
+- Microsoft shows preview ResponsesHostServer or InvocationsHostServer around an existing graph. Responses conversation IDs preserve chat history; session IDs identify sandbox/filesystem state. Invocations needs application history, and restartable graph state requires separate durable checkpoints. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-web-hosting-your-langgraph-application-on-microsoft-foundry-agents.md)
+- Shared-backend applications require end-user delegation and separate customer mappings; downstream tools must authorize business data/actions. OBO consent, networking, egress and moderation require explicit compatible configuration. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-web-hosting-your-langgraph-application-on-microsoft-foundry-agents.md)
+- Trace Replay inspects a capture without executing tools again. Tracing, sensitive-content capture, preview metrics and evaluations are separate controls. Idle session scaling does not remove model/tool/other-service charges. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-17-web-hosting-your-langgraph-application-on-microsoft-foundry-agents.md)
+
+### Explicit relationships
+
+Hosted graphs use managed execution; safe continuity depends-on separate history, environment, checkpoint and identity mappings. See [[microsoft-dotnet-ai-stack]], [[ai-agent-harnesses]] and [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Primary explanatory workflow, not a deployed tenant. No runtime, guardrail or OBO policy tested; partial-preview status and trace access remain material. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which shared-backend rehearsal proves customer isolation, checkpoint recovery, delegated-tool denial, explicit moderation and replay without repeating effects? See [[indexes/gaps]].
+
+
+## 2026-11-19: Functions Canvas preview separates read-only scans from fixes
+
+### Typed entities
+
+project: Azure Functions Canvas; project: GitHub Copilot; project: Azure Developer CLI; concept: deterministic task; concept: trigger test; concept: modernization scan; file: raw/2026-11-19-web-azure-functions-canvas-preview-build-run-and-modernize-function-apps-w.md.
+
+### Claims and evidence
+
+- Microsoft describes preview canvases applying templates into local worktrees, supporting trigger tests and local/deploy workflows. Deterministic canvas tasks share visible state with the agent; generated code remains an ordinary project. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-web-azure-functions-canvas-preview-build-run-and-modernize-function-apps-w.md)
+- Modernization scans are read-only and fixes require approval. Opening the canvas, template/deployment prerequisites and local Core Tools execution are separate steps; the captured VS Code preview has version/harness/setting constraints. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-web-azure-functions-canvas-preview-build-run-and-modernize-function-apps-w.md)
+
+### Explicit relationships
+
+Canvas generation uses templates; runtime evidence depends-on actual trigger/host tests. See [[ai-agent-harnesses]] and [[dotnet-runtime-and-mobile-2026]].
+
+### Decision and quality notes
+
+Vendor preview announcement. Template counts and internal incident percentages are not independent quality evidence. No plugin installed, app scanned or deployment performed. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which pinned Canvas/harness/SDK setup verifies read-only scans, approval-gated fixes, generated diffs and actual trigger execution without unrequested deployment? See [[indexes/gaps]].
+
+
+## 2026-11-19: On-demand ACA SRE sessions differ from deployed automation
+
+### Typed entities
+
+project: Azure Container Apps; project: Azure SRE Agent; concept: on-demand session; concept: delegated identity; concept: read-only diagnosis; file: raw/2026-11-19-web-azure-sre-agent-brings-on-demand-ai-powered-operations-to-your-aca-wor.md.
+
+### Claims and evidence
+
+- Microsoft describes a preview portal SRE session that requests approval before reading app configuration, revisions, metrics and logs under the caller identity. It is read-only and proposes fixes; the sandbox is described as deleted when the session ends. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-web-azure-sre-agent-brings-on-demand-ai-powered-operations-to-your-aca-wor.md)
+- Deploying a persistent SRE Agent for lasting context/longer automation is a separate step. No-setup interactive diagnosis does not imply persistent automation is configured or that approved telemetry contains no sensitive data. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-web-azure-sre-agent-brings-on-demand-ai-powered-operations-to-your-aca-wor.md)
+
+### Explicit relationships
+
+Diagnosis uses approved caller-scoped evidence; persistent operations depend-on a separate deployment/authority decision. See [[ai-agent-identity-and-workload-auth]] and [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+First-party preview claim, no tenant/session isolation, deletion or data-retention verification. No Azure login, resource read or fix executed. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which least-privilege preview session verifies pre-read consent, resource scope, read-only effects, sandbox deletion and independent telemetry retention? See [[indexes/gaps]].

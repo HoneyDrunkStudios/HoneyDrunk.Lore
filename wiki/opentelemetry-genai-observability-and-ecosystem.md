@@ -1049,3 +1049,23 @@ This capture uses the same article as the November 7 section and adds no indepen
 ### Decision and quality notes
 
 Recapture only; no migration or current package inspection. The article also asserts Node 20 end-of-life in April 2026; that lifecycle assertion is not adopted here without an authoritative lifecycle check. Existing migration gap remains.
+
+
+## 2026-11-19: Collector efficiency must preserve useful evidence under backpressure
+
+### Typed entities
+
+project: OpenTelemetry Collector; project: Telemetrygen; concept: exporter batching; concept: tail sampling; concept: memory limiter; file: raw/2026-11-19-rss-is-your-opentelemetry-pipeline-becoming-a-performance-bottleneck.md.
+
+### Claims and evidence
+
+- The CNCF-hosted practitioner demo isolates Collector load with synthetic Telemetrygen and examines batching, attributes, polling, sampling and memory-limiter placement. It describes exporter sending-queue batching as the newer path and warns that example sizes/intervals are not universal tuning defaults. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-is-your-opentelemetry-pipeline-becoming-a-performance-bottleneck.md)
+- Head sampling reduces work early; tail sampling needs buffering and trace-affine routing. Early memory limiting, bounded/persistent queues and retries protect different failure modes and can still reject or lose telemetry. Real application instrumentation cost needs separate measurement. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-is-your-opentelemetry-pipeline-becoming-a-performance-bottleneck.md)
+
+### Explicit relationships
+
+Observability quality depends-on resource budgets and retained diagnostic evidence; stateful sampling depends-on affinity. See [[distributed-systems-patterns]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Practitioner experiment, not reproduced benchmark or exhaustive migration guide. Screenshot pipeline and newer batching prose differ; verify pinned Collector components/configuration before migrating. No telemetry changed. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which pinned Collector and real-application replay measures CPU, memory, latency, completeness/loss, queue recovery and trace affinity under backend failure? See [[indexes/gaps]].

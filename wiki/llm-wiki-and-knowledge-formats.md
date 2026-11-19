@@ -375,3 +375,23 @@ Central discovery uses repository topics and paths; trustworthy publication depe
 ### Decision and quality notes
 
 Single authored source; source-specific claims remain provisional. Related reports and derived queries add no independent confirmation. No HoneyDrunk integration or independently reproduced outcome is established. Open question: Which repo-owned conventions and per-repo link checks improve HoneyDrunk discovery while keeping code docs beside code? See [[indexes/gaps]].
+
+
+## 2026-11-19: LLMON instruction and data bindings remain learned behavior
+
+### Typed entities
+
+project: IBM Granite 4.1 LLMON preview; project: Mellea; library: LLMON converters; concept: reserved delimiter; concept: instruction/data separation; file: raw/2026-11-16-rss-llmon-an-llm-native-markup-language-now-in-granite-4-1-3b-and-8b.md.
+
+### Claims and evidence
+
+- IBM presents experimental 3B/8B previews trained from Granite base checkpoints with reserved structural tokens, addressable components and execution blocks binding instructions, inputs and requirements. LLMON enriches chat templates; converters can preserve structured JSON. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-llmon-an-llm-native-markup-language-now-in-granite-4-1-3b-and-8b.md)
+- Reported injection results cover static indirect attacks on selected benchmarks. IBM calls instruction/data privilege a learned behavior rather than an enforced guarantee and marks the previews unsuitable for production; general-capability parity is vendor evaluation. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-16-rss-llmon-an-llm-native-markup-language-now-in-granite-4-1-3b-and-8b.md)
+
+### Explicit relationships
+
+Structured bindings use model training; authorization depends-on external execution controls. See [[ai-coding-agent-security]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Primary research-team blog without independent replication. Adaptive multi-turn attacks remain open. No model downloaded or format adopted; benchmark improvements do not prove security. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which pinned tokenizer/converter/model evaluation tests JSON round trips, unbound decoys, adaptive multi-turn injection and external authorization? See [[indexes/gaps]].

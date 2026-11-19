@@ -1485,3 +1485,24 @@ Ikanos adapters use shared flows; migration depends-on compatible authentication
 ### Decision and quality notes
 
 Preserved source assertion: a stacked MCP server cannot offer elicitation or tasks. superseded-by: [[mcp-tool-governance-and-app-surfaces#2026-11-15: Sibling MCP and REST adapters can share flows without proving protocol exclusivity]], 2026-11-15T09:12:44-05:00; reasoning: lacking those primitives in an underlying REST API does not prevent an adapter from supplying its own state/interaction layer. The useful distinction is ownership and cost of orchestration, not impossibility. This is compile reasoning, not a protocol conformance test; no PR merge or feature availability inferred. Open question: Which pinned sibling-adapter pilot verifies authentication parity, schema evolution, elicitation/task negotiation, cancellation, replay and reversible forwarding migration? See [[indexes/gaps]].
+
+
+## 2026-11-19: Tool governance is limited by mediation and trusted metadata
+
+### Typed entities
+
+project: Docker AI Governance; project: Docker MCP Gateway; library: Cedar; concept: default deny; concept: advisory annotation; concept: audit coverage; file: raw/2026-11-19-rss-the-trust-layer-securing-agentic-ai-with-docker-ai-governance.md.
+
+### Claims and evidence
+
+- Docker describes filesystem/network sandbox policies and Cedar authorization for governed MCP calls, resources and prompts, denying unless permitted when enforcement is active. Direct remote MCP connections instead fall under network policy, outside gateway tool policy. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-the-trust-layer-securing-agentic-ai-with-docker-ai-governance.md)
+- The sample read-only rule relies on server-supplied advisory annotations rather than independently proving tool behavior. Current audit coverage is sandbox policy decisions/session events; schema extensibility does not prove every MCP action is already audited. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-the-trust-layer-securing-agentic-ai-with-docker-ai-governance.md)
+- Hardened-image provenance/SBOM/VEX evidence concerns artifact supply chain separately from runtime action authority. Governance metadata excludes prompt/response bodies but can still require operational access controls. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [capture](../raw/2026-11-19-rss-the-trust-layer-securing-agentic-ai-with-docker-ai-governance.md)
+
+### Explicit relationships
+
+MCP enforcement depends-on mediation, policy and metadata trust; artifact provenance complements authorization. See [[ai-coding-agent-security]] and [[container-supply-chain-and-compliance]].
+
+### Decision and quality notes
+
+Vendor design account, no bypass/denial test or audit coverage verification. The rendered Cedar sample has HTML-escaped operators; do not copy as tested policy. No sandbox, gateway or SIEM configured. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which policy test denies direct-path bypass and falsely read-only tools while establishing actual audit coverage, mount/network limits and governed approval behavior? See [[indexes/gaps]].
