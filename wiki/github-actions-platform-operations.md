@@ -1453,3 +1453,42 @@ Recovery depends-on spare capacity, isolated dependencies and drained backlogs; 
 ### Decision and quality notes
 
 First-party retrospective, not complete incident telemetry or current service status. Outcome counts are operator reports; duration discrepancies are unresolved source gaps. No status checks bypassed. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which authoritative incident timeline reconciles status-window versus customer-impact durations and verifies backlog, delivery-history and regional-recovery completeness? See [[indexes/gaps]].
+
+## 2026-11-20: Flaky-test quarantine must preserve evidence and a recovery path
+
+### Typed entities
+
+project: Harness CI; project: Buildkite; project: Trunk; project: Datadog; concept: flaky-test detection; concept: muted test; concept: skipped test; concept: recovery ownership; file: raw/2026-11-20-rss-the-2026-flaky-test-tooling-landscape-what-independent-reviews-actuall.md.
+
+### Claims and evidence
+
+- Harness contrasts same-commit inconsistency, historical/statistical detection and proactive reruns. The vendor-authored comparison acknowledges that it has no equivalent-condition independent accuracy benchmark across all seven listed products; linked research is secondary evidence within this capture. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-the-2026-flaky-test-tooling-landscape-what-independent-reviews-actuall.md)
+- The article distinguishes continued execution with nonblocking failures from skipping execution entirely. Continued observations can support recovery; skipped tests need a separate retest path. Rerun success alone does not establish repair or distinguish a real regression from environment-sensitive flakiness. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-the-2026-flaky-test-tooling-landscape-what-independent-reviews-actuall.md)
+- Plain JUnit ingestion, selective test execution, native instrumentation and automated lifecycle policies are different integration contracts. Runner timeouts/OOM or script failures outside reported tests can remain invisible to an add-on test dashboard. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-the-2026-flaky-test-tooling-landscape-what-independent-reviews-actuall.md)
+
+### Explicit relationships
+
+Quarantine uses explicit execution/reporting semantics; reinstatement depends-on fresh evidence and ownership. See [[api-testing-and-verification]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Competitor comparison published by a participating vendor. Product tiers, automatic recovery claims and cited study percentages are not independently verified; no universal winner or new merge bypass is inferred. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which representative flaky/broken/environment-failure corpus verifies detection misses, preserved reporting, quarantine ownership, retest/reinstatement policy and total rerun cost under equal execution budgets? See [[indexes/gaps]].
+
+## 2026-11-20: GitHub event streams wake agents without proving merge readiness
+
+### Typed entities
+
+project: GitHub CLI; concept: Event Streams; concept: subscription; concept: pull request head; concept: bounded wait; file: raw/2026-11-20-rss-wait-for-pull-request-events-with-github-cli.md.
+
+### Claims and evidence
+
+- GitHub announces preview gh event commands in CLI 2.105.0 with separately gated GitHub.com Event Streams preview access. event listen emits JSON, exits after one event by default and supports count, follow, timeout and output shaping. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-wait-for-pull-request-events-with-github-cli.md)
+- The announcement lists review, PR state/head, conflict and completed-check-suite events plus subscription management. Receipt of a change is a wake-up signal; it is not a verdict that all current-head checks/reviews pass. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-wait-for-pull-request-events-with-github-cli.md)
+
+### Explicit relationships
+
+Agent waits use bounded event subscriptions; merge readiness depends-on freshly read immutable-head evidence. See [[ai-agent-harnesses]] and [[github-copilot-and-app-token-changes]].
+
+### Decision and quality notes
+
+First-party preview scope, no stream subscription or CLI upgrade performed. Reconnect, missed-event and permission behavior need validation; the announcement does not authorize merges. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which authorized preview client verifies timeout/cleanup, reconnect and missed-event recovery, head changes and exact-head readiness refresh before replacing polling? See [[indexes/gaps]].

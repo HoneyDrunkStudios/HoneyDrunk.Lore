@@ -2140,3 +2140,44 @@ Diagnosis uses approved caller-scoped evidence; persistent operations depend-on 
 ### Decision and quality notes
 
 First-party preview claim, no tenant/session isolation, deletion or data-retention verification. No Azure login, resource read or fix executed. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which least-privilege preview session verifies pre-read consent, resource scope, read-only effects, sandbox deletion and independent telemetry retention? See [[indexes/gaps]].
+
+## 2026-11-20: Webapp target assessments retain Windows-specific migration boundaries
+
+### Typed entities
+
+project: Azure Catalyst; project: Azure Container Apps; project: Managed Instance on Azure App Service; concept: migration assessment; concept: Windows dependency; file: raw/2026-11-20-web-azure-catalyst-expands-webapp-target-coverage.md.
+
+### Claims and evidence
+
+- Microsoft describes expanded webapp assessment targets including ACA and Managed Instance on App Service alongside code/container App Service and AKS, with target-specific readiness, remediation, sizing and estimated monthly cost. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-web-azure-catalyst-expands-webapp-target-coverage.md)
+- Managed Instance is positioned for Windows .NET Framework apps needing COM, registry, GAC, services or mapped drives. That target claim does not imply ordinary ACA containers support those dependencies unchanged. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-web-azure-catalyst-expands-webapp-target-coverage.md)
+- The workflow separates dependency discovery, code insights, target design, owner-reviewed migration waves, code/build changes and deployment validation. Assessment readiness and an estimated SKU/cost do not establish a completed or behavior-preserving migration. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-web-azure-catalyst-expands-webapp-target-coverage.md)
+
+### Explicit relationships
+
+Target selection depends-on discovered OS/application dependencies and owner-approved sequencing; code modernization uses separate build and deployment evidence. See [[legacy-modernization-and-ai-ready-systems]] and [[windows-component-registration-and-service-boundaries]].
+
+### Decision and quality notes
+
+First-party overview with no assessed estate or deployed workload. No extrapolation to universal legacy compatibility, actual costs or account availability. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which owner-reviewed estate assessment and rehearsal verify Windows/COM/service dependencies, target-specific limitations, actual operating cost, behavior preservation and rollback? See [[indexes/gaps]].
+
+## 2026-11-20: ACA GA infrastructure retains separate preview and feature-parity limits
+
+### Typed entities
+
+project: Azure Container Apps Sandboxes; project: Azure Container Apps Express; project: Azure SRE Agent; concept: microVM; concept: named snapshot; concept: migration wave; file: raw/2026-11-20-web-what-s-new-in-azure-container-apps-at-ignite-26.md.
+
+### Claims and evidence
+
+- The Ignite roundup reiterates Sandboxes and Express GA, with lifecycle/snapshots, egress proxy, VNet, volumes and telemetry described for Sandboxes. Terraform provider support is still preview; cached-image startup claims do not promise cold-image or whole-agent latency. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-web-what-s-new-in-azure-container-apps-at-ignite-26.md)
+- Express runs on Sandboxes with automatic scaling and no separately provisioned environment, but the article says Consumption feature parity is still incomplete. Automatic migration applies only to eligible existing apps; stopped sandboxes avoid compute charges, not necessarily storage or other service costs. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-web-what-s-new-in-azure-container-apps-at-ignite-26.md)
+- The integrated portal SRE experience remains preview and requests consent before caller-identity read-only diagnosis. Persistent SRE deployment is separate. Azure Migrate assessments/wave plans hand off code/containerization/deployment to Copilot modernization rather than proving migration success. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-web-what-s-new-in-azure-container-apps-at-ignite-26.md)
+- The roundup links VS Code sandbox tooling and thirteen community-maintained orchestrator-to-ACA-Jobs templates. Keeping an external control plane does not transfer workflow durability, retry or duplicate-effect guarantees to ACA Jobs automatically. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-web-what-s-new-in-azure-container-apps-at-ignite-26.md)
+
+### Explicit relationships
+
+Express uses Sandboxes; governance depends-on scoped identity, egress and lifecycle controls. GA infrastructure does not supersede per-feature preview or compatibility constraints. See [[edge-ai-and-ai-infrastructure-2026]] and [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+Vendor roundup repeats earlier Microsoft announcements: GA, SRE and migration recaps are correlated evidence, not new independent confirmations. Existing Express GA history remains valid; no forced supersession is needed. No Azure resources created or migrated. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which pinned ACA workload/lifecycle rehearsal verifies actual Express feature eligibility, sandbox egress/identity, snapshot retention and noncompute costs while qualifying preview tooling separately? See [[indexes/gaps]].

@@ -3042,3 +3042,27 @@ Supply-chain response depends-on immutable artifact/execution evidence; trusted 
 ### Decision and quality notes
 
 Primary vendor investigation, not local exposure verification. Original bot credential fragments are already redacted in raw; no reconstruction, contact, package import or credential testing. Omitted payload, bot/chat identifiers and unnecessary account attribution from wiki. Claimed safe versions are not current remediation advice. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which artifact/lockfile/digest and execution inventory establishes actual WPPConnect exposure, source-versus-tarball divergence and scoped credential/session recovery? See [[indexes/gaps]].
+
+## 2026-11-20: Python startup hooks expand package-compromise exposure beyond imports
+
+### Typed entities
+
+project: Microsoft Agent Framework; project: PyPI; project: OpenSourceMalware; file: af_runtime_diag.pth; concept: interpreter startup hook; concept: workload token exposure; file: raw/2026-11-20-rss-official-microsoft-agent-framework-pypi-package-compromised.md.
+
+### Claims and evidence
+
+- OpenSourceMalware reports malicious agent-framework Python releases 1.26.1 and 1.26.2 under the legitimate publisher. Its detailed static analysis is scoped to the 1.26.2 artifact; publisher control and quarantine status are dated investigator claims, not independently verified current registry state. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-official-microsoft-agent-framework-pypi-package-compromised.md)
+- The reported executable .pth hook loads a credential collector at normal Python startup without importing the framework. Collection includes readable environments/files and attempts to obtain fresh CI OIDC or managed-identity tokens; exposure depends on actual execution and available workload authority. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-official-microsoft-agent-framework-pypi-package-compromised.md)
+- The inspected collector is described as a credential stealer without a response-to-code or secondary-payload path. Startup execution in an affected environment differs from OS service/task persistence, and project-wide download totals are not malicious-version installation or victim counts. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-official-microsoft-agent-framework-pypi-package-compromised.md)
+
+### Explicit relationships
+
+Python initialization uses executable startup hooks; incident scope depends-on immutable artifacts, execution history and readable credentials. See [[ai-agent-identity-and-workload-auth]] and [[microsoft-dotnet-ai-stack]].
+
+### Decision and quality notes
+
+Primary investigator report, no artifact acquired/imported and no local exposure established. Omitted collector code, live exfiltration URL, account identifiers and unnecessary token-request details. Framework capabilities in other languages/versions are not superseded by this package-specific report. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which immutable Python artifact/environment inventory establishes installation and interpreter-startup exposure to the reported releases, and which independently corroborated incident record guides scoped credential and identity recovery? See [[indexes/gaps]].
+
+### Consolidation: origin and benign behavior remain distinct
+
+Synthesis: trusted package origin or provenance cannot by itself establish benign code. The bounded integrity study distinguishes trusted evidence from unchecked metadata; the WPPConnect investigation describes malicious code with authentic workflow provenance; the Python investigation describes malicious artifacts under an established publisher. These three independently authored reports strengthen this qualitative principle, without independently confirming either incident or establishing local exposure. confidence: 3 sources, last-confirmed 2026-11-20 (archived captures reviewed; no live refresh). [integrity research](../raw/2026-10-23-rss-package-managers-have-an-integrity-problem.md) [WPPConnect report](../raw/2026-11-19-rss-wppconnect-compromised-malicious-releases-steal-secrets-and-whatsapp-s.md) [Python report](../raw/2026-11-20-rss-official-microsoft-agent-framework-pypi-package-compromised.md)

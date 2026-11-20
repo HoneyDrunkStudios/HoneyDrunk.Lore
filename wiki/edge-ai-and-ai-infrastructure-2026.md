@@ -1549,3 +1549,23 @@ superseded-by: [credential-aware interpretation](#resolution-2026-11-19-inferenc
 <a id="resolution-2026-11-19-inference-keys"></a>
 
 Selected interpretation: ordinary token-billed client calls can keep the same API, while custom-key language workflows face a breaking authorization/billing change. The explicit breaking-change section wins over the broad introduction. confidence: 1 source, last-confirmed 2026-11-19 (archived capture reviewed; no live refresh). [source](../raw/2026-11-17-rss-hugging-face-and-openrouter-join-forces-to-make-open-weight-models-eas.md)
+
+## 2026-11-20: AI infrastructure economics use successful tasks as the denominator
+
+### Typed entities
+
+person: Vanitha Kumar; project: Thoughtworks; concept: inference routing; concept: cost per completed task; concept: utilization; concept: rework; file: raw/2026-11-20-rss-the-ai-factory-stack.md.
+
+### Claims and evidence
+
+- Thoughtworks frames the AI factory as routing/policy, serving/scheduling, storage, network, observability, isolation, durable workflows and resilience. Token price omits idle capacity, repeated context, retries, waiting and human review. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-the-ai-factory-stack.md)
+- The essay proposes tracking GPU-hours per completed task, route/model cache hit rate, queue versus run time, cost per successful workflow and rework. Quality and completion criteria must remain explicit so a cheaper request cannot conceal a more expensive failed task. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-the-ai-factory-stack.md)
+- It recommends measuring one real workflow, identifying a constrained layer, changing that layer and measuring again. Radar labels and named tools are the author organization's adoption assessments rather than HoneyDrunk defaults or independently measured product comparisons. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-the-ai-factory-stack.md)
+
+### Explicit relationships
+
+Unit cost depends-on useful completion, infrastructure utilization and rework; routing uses quality, latency, budget and residency constraints. See [[opentelemetry-genai-observability-and-ecosystem]], [[distributed-systems-patterns]] and [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Practice essay with qualitative economic reasoning, no controlled cost study. The cost formula is conceptual; token charges and human review need explicit accounting in any local implementation. No infrastructure procured or changed. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which real workflow has an agreed success/quality denominator and attributable compute, tokens, queueing, storage/network, telemetry, retries and review costs before an infrastructure change? See [[indexes/gaps]].

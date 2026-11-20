@@ -522,3 +522,23 @@ This recaptures the article in the October 3 section; token compatibility depend
 ### Decision and quality notes
 
 URL fragment/capture variation does not create a new source authority. Existing rollout supersession stands; no token values, live integration tests or current remediation completion are recorded.
+
+## 2026-11-20: On-demand secret scanning has separate opt-in and history scope
+
+### Typed entities
+
+project: GitHub Copilot; project: Copilot SDK; concept: secret scanning; concept: opt-in detection; concept: change-only review; concept: SDK authentication; file: raw/2026-11-20-web-secret-scanning-on-demand-for-developers-and-agents.md.
+
+### Claims and evidence
+
+- GitHub announces public-preview secret-scanning detectors alongside the existing LLM security specialist in Copilot CLI/app, SDK integrations and code review. The added detectors are off until explicitly enabled; the review covers changes rather than repository history. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-web-secret-scanning-on-demand-for-developers-and-agents.md)
+- The November 18 clarification requires GitHub authentication for SDK scans; a model-provider key alone and tokens from an integration's own OAuth app are not supported. VS Code is excluded from this announced release, and scans consume Secret Protection AI credits. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-web-secret-scanning-on-demand-for-developers-and-agents.md)
+- Provider-pattern and contextual-model detection add coverage, not a guarantee of no secrets. This change-review path is distinct from the separately scoped workflow-log scanning preview in the Actions page. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-web-secret-scanning-on-demand-for-developers-and-agents.md)
+
+### Explicit relationships
+
+Secret detection depends-on explicit enablement, supported client and authentication; a clean change scan does not supersede history/log review. See [[ai-coding-agent-security]] and [[github-actions-platform-operations]].
+
+### Decision and quality notes
+
+First-party preview announcement and dated authentication correction, no feature enabled or paid scan requested. Existing author review still applies; no claim of provider scanner acceptance for this Lore commit. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which consented client/SDK authentication matrix and synthetic seeded corpus verify opt-in state, added-line scope, false negatives, unsupported OAuth denial and actual scan billing? See [[indexes/gaps]].

@@ -2318,3 +2318,43 @@ Remote delivery depends-on player compatibility and immutable release baselines;
 ### Decision and quality notes
 
 Commercial practitioner checklist, not verified engine/store policy or a content release. A catalog pointer change does not alone prove complete rollback. No build, asset or CDN changed. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which actual release/oldest-client rehearsal checks content-state identity, missing types/shaders, flaky downloads, cache invalidation and rollback after persisted state changes? See [[indexes/gaps]].
+
+## 2026-11-20: Remote touch testing preserves transitions independently of video
+
+### Typed entities
+
+project: HyperSonic Remote; project: Unity; library: HyperSonicReceiver; concept: touch phase queue; concept: input-only channel; file: raw/2026-11-20-rss-building-an-input-first-remote-for-unity-separating-the-touch-channel-.md.
+
+### Claims and evidence
+
+- The tool author separates UDP touch events from optional TCP/JPEG video. Input-only operation removes video processing and contention; the reported 3.6-4.2 ms one-way estimate comes from halved round-trip measurements on one quiet local network, not measured end-to-end finger-to-display latency. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-building-an-input-first-remote-for-unity-separating-the-touch-channel-.md)
+- A per-finger transition queue exposes Began and Ended for at least one frame so a fast tap cannot disappear between Unity updates. The author supplies a separate touch list plus uGUI/Input System bridges rather than a general public injection path into legacy Input.touches. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-building-an-input-first-remote-for-unity-separating-the-touch-channel-.md)
+- The receiver advertises Bonjour with broadcast fallback and supports a USB relay with OS prerequisites. Claimed Unity 2022.3+ compatibility and automatic startup do not establish compatibility with every input framework. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-building-an-input-first-remote-for-unity-separating-the-touch-channel-.md)
+
+### Explicit relationships
+
+Input forwarding uses ordered phase transitions; video delivery depends-on a separate channel. Adapter acceptance depends-on the UI/input stack. See [[realtime-game-network-protocol-design]] and [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+Single tool-author demonstration; no app installed or device tested. Protocol latency estimates, platform compatibility and commercial terms are not local acceptance. Omitted pricing and unnecessary packet details. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which pinned receiver/device/UI-stack tests preserve rapid taps, multi-touch ordering, cancellation and reconnect behavior while measuring true input-to-render latency with video on and off? See [[indexes/gaps]].
+
+## 2026-11-20: Indic localization depends on shaping and contextual device review
+
+### Typed entities
+
+project: Juego Studios; project: Unity; library: HarfBuzz; concept: Indic text shaping; concept: glyph atlas; concept: linguistic QA; file: raw/2026-11-20-rss-shipping-your-mobile-game-in-hindi-tamil-or-bengali-a-text-rendering-c.md.
+
+### Claims and evidence
+
+- Juego Studios distinguishes codepoint coverage from complex OpenType shaping for Indic scripts. Its checklist calls for the exact engine/UI-version text pipeline to render native-speaker-selected conjunct, vowel-mark and nukta cases across all widget types. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-shipping-your-mobile-game-in-hindi-tamil-or-bengali-a-text-rendering-c.md)
+- Shaped output glyphs, embedding rights, fallback fonts, vertical padding and line breaking need separate checks. An atlas made only from source characters can miss shaping output; number grouping, numeral choice and mixed-language terminology require an explicit glossary. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-shipping-your-mobile-game-in-hindi-tamil-or-bengali-a-text-rendering-c.md)
+- The author recommends contextual readability review and profiling font-atlas/fallback memory on representative low-end phones. Engine-level availability claims do not establish that a particular Unity TextMeshPro/UI configuration shapes correctly. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-shipping-your-mobile-game-in-hindi-tamil-or-bengali-a-text-rendering-c.md)
+
+### Explicit relationships
+
+Localization depends-on shaping, licensed glyph coverage and device-tested layout; translated strings use a shared terminology policy. See [[gamedev-production-and-community-signals]] and [[godot-2026-mobile-and-4-7-cycle]].
+
+### Decision and quality notes
+
+Commercial studio checklist, not independent engine certification. No fonts imported, shaping APIs selected or device screenshots accepted. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which native-speaker-approved Indic corpus and pinned UI/font/device matrix verifies shaping, cluster-safe wrapping, vertical clipping, numeric conventions, font rights and atlas memory? See [[indexes/gaps]].

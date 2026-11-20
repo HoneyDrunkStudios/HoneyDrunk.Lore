@@ -248,3 +248,23 @@ Release preparation uses staging; publication depends-on explicit promotion and 
 ### Decision and quality notes
 
 Primary announcement, no package upload, permission or promotion test. No registry, account or workflow settings changed; external review guidance does not override local publishing rules. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which staging rehearsal verifies owner/permission denial, immutable artifacts, expiration, individual failures and dependency restore timing before group promotion? See [[indexes/gaps]].
+
+## 2026-11-20: Template signature enforcement depends on source, SDK and platform policy
+
+### Typed entities
+
+project: .NET SDK; project: NuGet; concept: template package; concept: signatureValidationMode; concept: repository signing; concept: certificate trust; file: raw/2026-11-20-web-template-package-installation-verifies-nuget-signatures.md.
+
+### Claims and evidence
+
+- The compatibility note lists signature verification for downloaded NuGet-source templates in SDK 8.0.134/8.0.428, 9.0.124/9.0.321, 10.0.115/10.0.404 and 11.0.100. When enabled, verification failure prevents installation and force does not bypass it. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-web-template-package-installation-verifies-nuget-signatures.md)
+- Unsigned acceptance depends on signatureValidationMode and repository allRepositorySigned policy. Verification is always enabled on Windows, enabled by default with an opt-out on Linux, and disabled by default with an opt-in on macOS in this captured documentation. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-web-template-package-installation-verifies-nuget-signatures.md)
+- Installing a local nupkg or folder is outside this downloaded-package verification path. Trust-store failures differ from tamper/signature failures; a valid signature establishes neither benign template code nor permission to run it. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-web-template-package-installation-verifies-nuget-signatures.md)
+
+### Explicit relationships
+
+Template installation depends-on SDK, source, platform and signature policy; integrity verification uses trusted certificates. See [[ai-coding-agent-security]] and [[container-supply-chain-and-compliance]].
+
+### Decision and quality notes
+
+Official compatibility capture updated November 12, publication date unknown. It narrows generic NuGet assumptions without replacing the earlier bounded integrity research. No templates installed or trust settings changed. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which pinned SDK/OS/feed/local-package matrix rejects tampered or policy-disallowed templates, verifies force behavior and diagnoses certificate-store failures without weakening signature policy? See [[indexes/gaps]].

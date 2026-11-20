@@ -1619,3 +1619,22 @@ Numeric compatibility depends-on source value, compiler host, rebuild and runtim
 ### Decision and quality notes
 
 Official detailed note includes an authorization banner but substantive body is captured; no compiler or numeric boundary tests run. Legacy conversion helpers still have range/nonfinite constraints; do not infer all rounding APIs changed. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which SDK/runtime/target matrix verifies positive/negative midpoint and boundary conversions, folded constants, serialized expectations and explicit legacy protocol bit patterns? See [[indexes/gaps]].
+
+## 2026-11-20: Host shutdown surfaces BackgroundService failures in .NET 11
+
+### Typed entities
+
+project: .NET 11; library: IHost; library: BackgroundService; concept: StopHost; concept: AggregateException; concept: process exit; file: raw/2026-11-20-web-ihost-runasync-and-ihost-stopasync-throw-when-a-backgroundservice-fail.md.
+
+### Claims and evidence
+
+- The detailed compatibility note says a failed ExecuteAsync under BackgroundServiceExceptionBehavior.StopHost now faults RunAsync, StopAsync and WaitForShutdownAsync and synchronous equivalents. One failure rethrows its exception; multiple service failures produce an AggregateException. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-web-ihost-runasync-and-ihost-stopasync-throw-when-a-backgroundservice-fail.md)
+- Earlier shutdown tasks could complete successfully after a background-service failure; .NET 11 typically yields a nonzero process exit when the exception remains unhandled. Catching at the host boundary can restore zero exit, so process status depends on application handling as well as the runtime change. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-web-ihost-runasync-and-ihost-stopasync-throw-when-a-backgroundservice-fail.md)
+
+### Explicit relationships
+
+Host failure propagation uses StopHost; reliable supervision depends-on process exit handling and retained diagnostics. This refines the November 19 breaking-change inventory. See [[github-actions-platform-operations]] and [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+Official detailed documentation, last updated November 11 with unknown publication date. No host process tested; unrelated Ignore behavior or all shutdown exceptions are not generalized from this note. Preserving failure visibility remains the default interpretation. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which pinned host/process suite verifies single and simultaneous service failures, StopHost versus Ignore, synchronous/async shutdown, exception logging and observed supervisor exit status? See [[indexes/gaps]].

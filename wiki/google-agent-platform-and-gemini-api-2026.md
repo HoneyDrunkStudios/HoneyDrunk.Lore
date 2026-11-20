@@ -503,3 +503,23 @@ Detection depends-on active coverage and content telemetry; enforcement depends-
 ### Decision and quality notes
 
 First-party synthetic demo, not measured accuracy, prevention or local acceptance. Omitted the internal-only console URL/project metadata and synthetic person/customer details from wiki content. No IAM or logging enabled. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which approved synthetic evaluation measures coverage loss, post-activation scope, false positives/negatives and alert delay while enforcing content-retention/access limits? See [[indexes/gaps]].
+
+## 2026-11-20: Tool Retrieval defers schemas while preserving execution authority
+
+### Typed entities
+
+project: Gemini API; project: Interactions API; concept: Tool Retrieval; concept: deferred schema; concept: client registry; file: raw/2026-11-20-rss-introducing-tool-retrieval-in-the-gemini-api.md.
+
+### Claims and evidence
+
+- Google announces preview Tool Retrieval in the Interactions API for Gemini 3.6 and later. With tool_search and defer_loading, tool names/descriptions remain visible while parameter schemas load when selected; retrieval and function-call steps are inspectable within an interaction. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-introducing-tool-retrieval-in-the-gemini-api.md)
+- Server-side retrieval also supports deferred MCP-server tools. Client-side search can use a private registry or permission filter and introduces an application round trip; the application still executes the selected function and supplies its result. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-introducing-tool-retrieval-in-the-gemini-api.md)
+- The source describes ordinary input/output token billing, a small fixed search overhead and continued billing for loaded schemas in later context. Savings depend on unused schemas outweighing loaded context; deferred schemas also aim to preserve a stable cached prefix. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-introducing-tool-retrieval-in-the-gemini-api.md)
+
+### Explicit relationships
+
+Tool selection uses deferred schemas; execution depends-on application authorization and validation. See [[mcp-tool-governance-and-app-surfaces]] and [[agent-context-management-and-session-continuity]].
+
+### Decision and quality notes
+
+First-party preview announcement; no current model/SDK availability or cost verified. Keeping a schema out of context is not permission revocation, and returning a permitted tool does not authorize every argument. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which pinned Interactions SDK/model replay verifies deferred-schema selection, per-user authorization, revoked integrations, cache behavior and total billed latency/tokens against an eager-tool baseline? See [[indexes/gaps]].

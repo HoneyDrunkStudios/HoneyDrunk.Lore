@@ -1748,3 +1748,23 @@ Scene editing depends-on inspection and post-edit evidence; safe recovery depend
 ### Decision and quality notes
 
 Single author forum account with no package/code execution. Public README images and scores are not independent verification; no Maya state changed. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which disposable Maya scene suite verifies GUI/batch errors, camera restoration, dirty-file denial, validator exceptions and reference-aware rollback before accepting edits? See [[indexes/gaps]].
+
+## 2026-11-20: Object-space normal medians approximate bevel paint under geometric limits
+
+### Typed entities
+
+person: Rafaelito Sanchis; project: Unreal Engine; concept: object-space normal median; concept: derivative gate; concept: bevel wear; file: raw/2026-11-20-rss-hand-painted-edge-wear-in-ue5-without-baking-curvature-median-of-the-o.md.
+
+### Claims and evidence
+
+- The material author takes the middle absolute object-space normal component, scales it near the 45-degree bevel value, and thresholds the ramp for paint width/softness. World-position noise varies width, while a surface-rate gate aims to exclude sloped flat faces. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-hand-painted-edge-wear-in-ue5-without-baking-curvature-median-of-the-o.md)
+- The author requires bevels or smooth edge normals, uniform actor scale and a mesh authored in an axis-aligned orientation. Screen derivatives exclude the Path Tracer; pixel-width softness and subpixel fading address temporal flicker. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-hand-painted-edge-wear-in-ue5-without-baking-curvature-median-of-the-o.md)
+- The reported roughly 350 pixel-shader instructions describe the complete lit UE 5.5 SM6 example, not an isolated universal cost. Organic/faceted meshes need masking, and the full slope gate on internally rotated meshes remains unverified. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-hand-painted-edge-wear-in-ue5-without-baking-curvature-median-of-the-o.md)
+
+### Explicit relationships
+
+Bevel paint uses object-space normals; reliable gating depends-on mesh geometry, orientation and raster derivatives. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Primary creator forum explanation with explicit untested cases; no material downloaded or rendered. Treat the method as a bounded approximation rather than general curvature reconstruction. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which mesh/render matrix checks slope false positives, authored orientation, nonuniform scale, hard edges, temporal flicker and isolated GPU cost before adopting the bevel-paint function? See [[indexes/gaps]].

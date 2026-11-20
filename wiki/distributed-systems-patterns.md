@@ -680,3 +680,22 @@ Replayability depends-on controlled nondeterminism, ordering and pinned artifact
 ### Decision and quality notes
 
 Primary teaching-library article, not a universal distributed-system architecture or executed correctness result. Snippets reference multiple commits and show unordered maps before later insertion-order rules; pin a coherent implementation before relying on replay. No simulator installed. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which pinned simulator/core/adapter suite proves seed replay, thread confinement, crash durability, client-history safety and post-heal liveness, alongside real-adapter tests? See [[indexes/gaps]].
+
+## 2026-11-20: Workload skew changes lock contention and cache locality in opposite ways
+
+### Typed entities
+
+person: Marc Brooker; concept: traffic mix; concept: Zipf distribution; concept: lock contention; concept: LRU cache; concept: concurrency limit; file: raw/2026-11-20-rss-traffic-mix-matters.md.
+
+### Claims and evidence
+
+- Brooker uses two illustrative 16-worker models: hot-key skew increases per-key lock waiting and depresses throughput, whereas a cache/storage model can improve throughput as skew raises cache locality. Matching request volume alone therefore does not establish a representative load test. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-traffic-mix-matters.md)
+- The examples hold model-specific worker and service-time assumptions while varying key distribution. A referenced preliminary M365 incident report motivates the discussion but is not reproduced or independently investigated in the capture. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-traffic-mix-matters.md)
+
+### Explicit relationships
+
+Load-test validity depends-on workload mix, skew and resource behavior; contention and caching use different service paths. See [[api-testing-and-verification]] and [[edge-ai-and-ai-infrastructure-2026]].
+
+### Decision and quality notes
+
+Primary explanatory simulation essay, no production benchmark rerun. Interactive graph controls are text-captured without numeric curves; no quantitative scaling law or database procurement preference is promoted. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which production-derived workload replay preserves key skew, read/write mix, SKU/cache size and concurrency while measuring contention, hit rate, tail latency and saturation? See [[indexes/gaps]].

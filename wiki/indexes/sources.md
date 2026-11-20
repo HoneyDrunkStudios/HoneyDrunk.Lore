@@ -2,6 +2,10 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
+## Compile coverage: 2026-11-20
+
+Reconciled 1577 raw documents with 1577 unique source entries at 2026-11-20T09:05:50-05:00; ingested 15 captures into 12 existing canonical pages. All prior entries and dates remain. Thirteen historical query outputs yield no new crystallization or independent support. One source has unresolved dataset arithmetic, explicitly flagged without promoting its disputed totals; this is archival compilation, not live product verification.
+
 ## Compile coverage: 2026-11-19
 
 Reconciled 1562 raw documents with 1562 unique entries at 2026-11-19T07:39:14-05:00; ingested 45 captures (including 15 concurrent sourcing arrivals). Earlier entries and dates remain. Updated 24 existing canonical pages; 13 historical query outputs add no new crystallization or independent support. This is archival compilation, not live product verification.
@@ -1974,3 +1978,21 @@ Per-source authority is not tracked here; it is judged at contradiction-resoluti
 - [Azure Functions Canvas (Preview): Build, run, and modernize Function Apps with GitHub Copilot](../../raw/2026-11-19-web-azure-functions-canvas-preview-build-run-and-modernize-function-apps-w.md) - Functions Canvas preview separates read-only scans from fixes; see [[azure-agent-automation-and-identity]]. - ingested 2026-11-19
 - [Azure SRE Agent brings on-demand, AI-powered operations to your ACA workloads](../../raw/2026-11-19-web-azure-sre-agent-brings-on-demand-ai-powered-operations-to-your-aca-wor.md) - On-demand ACA SRE sessions differ from deployed automation; see [[azure-agent-automation-and-identity]]. - ingested 2026-11-19
 - [Decimal and BigInteger floating-point conversions are correctly rounded](../../raw/2026-11-19-web-decimal-and-biginteger-floating-point-conversions-are-correctly-rounde.md) - Numeric conversion compatibility can change on rebuild without retargeting; see [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-11-19
+
+## 2026-11-20 daily ingest
+
+- [Building an input-first remote for Unity: separating the touch channel from the video channel](../../raw/2026-11-20-rss-building-an-input-first-remote-for-unity-separating-the-touch-channel-.md) - Remote touch testing preserves transitions independently of video; see [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-11-20
+- [Hand-painted edge wear in UE5 without baking curvature (median of the object-space normal)](../../raw/2026-11-20-rss-hand-painted-edge-wear-in-ue5-without-baking-curvature-median-of-the-o.md) - Object-space normal medians approximate bevel paint under geometric limits; see [[technical-art-community-and-talent-signals]]. - ingested 2026-11-20
+- [Introducing harness adapters: adapt your favorite model to your harness to improve performance and cost](../../raw/2026-11-20-rss-introducing-harness-adapters-adapt-your-favorite-model-to-your-harness.md) - Harness adapters require matched evaluation and validated reward tasks; see [[agent-evaluation-and-benchmarks]]. - ingested 2026-11-20
+- [Introducing Tool Retrieval in the Gemini API](../../raw/2026-11-20-rss-introducing-tool-retrieval-in-the-gemini-api.md) - Tool Retrieval defers schemas while preserving execution authority; see [[google-agent-platform-and-gemini-api-2026]]. - ingested 2026-11-20
+- [Official Microsoft agent-framework PyPI package compromised](../../raw/2026-11-20-rss-official-microsoft-agent-framework-pypi-package-compromised.md) - Python startup hooks expand package-compromise exposure beyond imports; see [[ai-coding-agent-security]]. - ingested 2026-11-20
+- [Shipping Your Mobile Game in Hindi, Tamil or Bengali? A Text-Rendering Checklist Before Localisation Starts](../../raw/2026-11-20-rss-shipping-your-mobile-game-in-hindi-tamil-or-bengali-a-text-rendering-c.md) - Indic localization depends on shaping and contextual device review; see [[unity-3d-and-realtime-vfx-patterns]]. - ingested 2026-11-20
+- [The 2026 Flaky-Test Tooling Landscape: What Independent Reviews Actually Say](../../raw/2026-11-20-rss-the-2026-flaky-test-tooling-landscape-what-independent-reviews-actuall.md) - Flaky-test quarantine must preserve evidence and a recovery path; see [[github-actions-platform-operations]]. - ingested 2026-11-20
+- [The AI factory stack](../../raw/2026-11-20-rss-the-ai-factory-stack.md) - AI infrastructure economics use successful tasks as the denominator; see [[edge-ai-and-ai-infrastructure-2026]]. - ingested 2026-11-20
+- [Traffic mix matters](../../raw/2026-11-20-rss-traffic-mix-matters.md) - Workload skew changes lock contention and cache locality in opposite ways; see [[distributed-systems-patterns]]. - ingested 2026-11-20
+- [Wait for pull request events with GitHub CLI](../../raw/2026-11-20-rss-wait-for-pull-request-events-with-github-cli.md) - GitHub event streams wake agents without proving merge readiness; see [[github-actions-platform-operations]]. - ingested 2026-11-20
+- [Azure Catalyst expands Webapp target coverage](../../raw/2026-11-20-web-azure-catalyst-expands-webapp-target-coverage.md) - Webapp target assessments retain Windows-specific migration boundaries; see [[azure-agent-automation-and-identity]]. - ingested 2026-11-20
+- [IHost.RunAsync and IHost.StopAsync throw when a BackgroundService fails](../../raw/2026-11-20-web-ihost-runasync-and-ihost-stopasync-throw-when-a-backgroundservice-fail.md) - Host shutdown surfaces BackgroundService failures in .NET 11; see [[dotnet-runtime-and-mobile-2026]]. - ingested 2026-11-20
+- [Secret scanning on demand for developers and agents](../../raw/2026-11-20-web-secret-scanning-on-demand-for-developers-and-agents.md) - On-demand secret scanning has separate opt-in and history scope; see [[github-copilot-and-app-token-changes]]. - ingested 2026-11-20
+- [Template package installation verifies NuGet signatures](../../raw/2026-11-20-web-template-package-installation-verifies-nuget-signatures.md) - Template signature enforcement depends on source, SDK and platform policy; see [[dotnet-dependency-security-and-nuget]]. - ingested 2026-11-20
+- [What's new in Azure Container Apps at Ignite'26](../../raw/2026-11-20-web-what-s-new-in-azure-container-apps-at-ignite-26.md) - ACA GA infrastructure retains separate preview and feature-parity limits; see [[azure-agent-automation-and-identity]]. - ingested 2026-11-20

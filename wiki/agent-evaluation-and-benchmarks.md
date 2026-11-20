@@ -1886,3 +1886,24 @@ Workflow evidence depends-on controlled inputs, independent scoring and resource
 ### Decision and quality notes
 
 Primary tool-author account with limited data and scoring sensitivity. Descriptive examples do not prove specification-heavy workflows causally improve delivery. No benchmark executed. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which repeated matched-condition experiment reports scenario correctness, failed attempts, retries, uncertainty, resources and brownfield transfer separately? See [[indexes/gaps]].
+
+## 2026-11-20: Harness adapters require matched evaluation and validated reward tasks
+
+### Typed entities
+
+project: Hugging Face; library: Qwen3.8-27B; library: AsyncGRPOTrainer; project: OpenEnv; project: Harbor; concept: harness adapter; concept: verifier control; file: raw/2026-11-20-rss-introducing-harness-adapters-adapt-your-favorite-model-to-your-harness.md.
+
+### Claims and evidence
+
+- Hugging Face describes LoRA reinforcement learning inside the shipped pi, Hermes and OpenCode harnesses, using a proxy to record exact model tokens. Validation includes oracle, no-op, known-wrong canary and replay checks; training selection excludes target evaluation repositories and seeks tasks with mixed base-model outcomes. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-introducing-harness-adapters-adapt-your-favorite-model-to-your-harness.md)
+- The team reports specialist gains within each harness on coding benchmarks. Different context retention and harness defaults prevent treating cross-harness percentages as a harness ranking; efficiency comparisons on tasks both models solve condition on a selected subset. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-introducing-harness-adapters-adapt-your-favorite-model-to-your-harness.md)
+- A concatenated rank-96 adapter scales three specialist updates by one half. The merge weight was selected on Terminal-Bench, making that evaluation optimistic; separate AutomationBench results do not establish clear transfer to unrelated business automation. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-introducing-harness-adapters-adapt-your-favorite-model-to-your-harness.md)
+- Fewer safeagents-blocked calls under task-specific patterns do not prove general safety. The authors also observe reasoning-like text emerging in non-thinking mode, leaving the learned mechanism open. confidence: 1 source, last-confirmed 2026-11-20 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-20-rss-introducing-harness-adapters-adapt-your-favorite-model-to-your-harness.md)
+
+### Explicit relationships
+
+Adapter evaluation depends-on pinned model, harness, reward verifier and held-out conditions; training uses separate success and failure verifier controls. See [[ai-agent-harnesses]] and [[formal-methods-and-agent-verification]].
+
+### Decision and quality notes
+
+Primary team report, no replication. Flagged source arithmetic: qualified row values 144, 27 and 22 sum to 193 while the table total says 171; surrounding pipeline totals also differ by stage. No authoritative correction selects a single qualified count, so none is promoted as a settled dataset fact. No benchmark/model executed. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which corrected dataset manifest reconciles qualified-task totals and pipeline stages, and which repeated held-out harness/domain evaluation verifies correctness, efficiency, contamination controls and safety beyond the training filters? See [[indexes/gaps]].
