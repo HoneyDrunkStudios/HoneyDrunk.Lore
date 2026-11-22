@@ -475,3 +475,10 @@ Operator: Codex executing the authorized Honeyclaw workflow. Read and ingested 4
 - Added **15** source-specific gaps; **1103** dated questions remain, none closed. One qualitative supply-chain principle now cites three independent authors; source-specific claims remain provisional.
 - Privacy: no credential values copied; payload code, exfiltration endpoints and unnecessary person/account metadata omitted. Raw bytes remain immutable; unrelated sourcing receipts and signal reviews stay excluded.
 - Run receipt and validation/review evidence: [lore-ingest-last-run.md](../../output/lore-ingest-last-run.md). Publication is a scoped Conventional Commit and normal existing-branch push, with remote success checked separately; no PR creation or merge requested.
+
+## 2026-11-22T13:46:50-05:00 - Daily ingest/compile coverage recheck
+
+- Operator: Codex executing the authorized Honeyclaw workflow. Ingested **0** raw sources; all **1577** documents have unique source-index entries. Canonical pages explicitly name **1520** captures; **57** retain historical grouped/cluster coverage.
+- Reviewed all **13** historical query outputs and **75** explicit raw citations. New crystallizations, canonical page edits, contradictions resolved, and gaps added/closed: **0** each. Existing source-specific limitations and confidence dates remain.
+- Rebuilt/verified sources, all **67** topic rows and **1103** dated gaps. Raw files and canonical content remain byte-for-byte unchanged. No new privacy redactions or quality flags; this pass adds no substantive evidence.
+- Prior ingest receipt: [November 20 receipt](https://github.com/HoneyDrunkStudios/HoneyDrunk.Lore/blob/707b8d13c49cdc1f91eb0a09fc9d2ec6edf902d8/output/lore-ingest-last-run.md). Current validation and explicit review: [run summary](../../output/lore-ingest-last-run.md). Unrelated sourcing receipts and signal reviews are excluded from publication.

@@ -2,6 +2,10 @@
 
 Questions the wiki cannot currently answer. Populated by the Query operation when synthesis falls short, and by the Lint operation when entities are referenced but lack a backing page.
 
+## Compile status: 2026-11-22
+
+Reconciled 1103 dated gaps with 67 canonical pages at 2026-11-22T13:46:50-05:00; added 0 and closed 0. All existing questions remain. No new raw or query evidence resolves an open gap; existing source-quality and acceptance limitations are retained.
+
 ## Compile status: 2026-11-20
 
 Reconciled 1103 dated gaps with 67 canonical pages at 2026-11-20T09:05:50-05:00; added 15 and closed 0. All 1088 prior questions remain. New source-specific acceptance questions include unreconciled harness-adapter dataset arithmetic; no speculative implementation or exposure claim closes an existing gap.
