@@ -1768,3 +1768,82 @@ Bevel paint uses object-space normals; reliable gating depends-on mesh geometry,
 ### Decision and quality notes
 
 Primary creator forum explanation with explicit untested cases; no material downloaded or rendered. Treat the method as a bounded approximation rather than general curvature reconstruction. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which mesh/render matrix checks slope false positives, authored orientation, nonuniform scale, hard edges, temporal flicker and isolated GPU cost before adopting the bevel-paint function? See [[indexes/gaps]].
+
+
+## 2026-11-23: Blender modeling changes version native operator and snapping behavior
+
+### Typed entities
+
+project: Blender 5.3; concept: Quad-Sphere; concept: native Loop Tools; concept: edit selection dimensions; file: raw/2026-11-22-web-blender-5-3-modeling-uv.md.
+
+### Claims and evidence
+
+- The captured 5.3 notes add a Quad-Sphere primitive and finish moving Loop Tools into native operators, naming Relax Edge Loops, Curve Edge Loops Between Selected and Fit Edge Loops To Annotation. Edit mode exposes editable selection dimensions and origin snapping. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-web-blender-5-3-modeling-uv.md)
+
+### Explicit relationships
+
+Modeling automation depends-on versioned operator names, pivot and coordinate-space behavior. See [[creative-tool-extension-packaging]].
+
+### Decision and quality notes
+
+Versioned project release notes with unknown publication date; capture date is not a GA claim. No Blender operation executed. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which exact Blender build checks native Loop Tools names, edit dimensions, pivot space and origin snapping against existing scripts and keymaps? See [[indexes/gaps]].
+
+
+## 2026-11-23: Blender painting changes brush defaults and attribute display
+
+### Typed entities
+
+project: Blender 5.3; concept: Multires; concept: automasking; concept: Weight Paint defaults; concept: per-brush unified setting; file: raw/2026-11-22-web-blender-5-3-sculpt-paint-texture.md.
+
+### Claims and evidence
+
+- The captured notes describe Multires texture/color-attribute display in Sculpt Mode, automasking in Vertex/Weight Paint and Front Face Falloff deprecation. Unified-setting opt-ins move to individual brushes; existing paint procedures need brush-specific inspection. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-web-blender-5-3-sculpt-paint-texture.md)
+- Weight Paint defaults include Add Weight, renamed Set Weight, changed spacing/accumulation and enabled Multi-Paint, Auto-Normalize and Mirror Vertex Groups. The notes also describe high-resolution/UDIM undo improvements and a Cut Curves brush; these are not measured local performance gains. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-web-blender-5-3-sculpt-paint-texture.md)
+
+### Explicit relationships
+
+Painting results depend-on brush assets and defaults; automasking supersedes the deprecated falloff option for the documented modes. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Project release notes, no brush/material/rig exercised. Unknown publication date and build-specific behavior require qualification. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which pinned painting/rig fixture verifies Multires attributes, per-brush settings, automasking and changed weight normalization/mirroring defaults? See [[indexes/gaps]].
+
+
+## 2026-11-23: Remote Blender assets use version replacement and scoped authentication
+
+### Typed entities
+
+project: Blender 5.3; concept: remote asset library; concept: asset extension; concept: version replacement; concept: access token; file: raw/2026-11-23-web-blender-5-3-assets.md.
+
+### Claims and evidence
+
+- The captured notes allow asset libraries as extensions, optionally sharing repository authentication. The Extensions platform accepts CC0 asset libraries; that is an admission rule for that platform, not a relicensing of all remote assets. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-web-blender-5-3-assets.md)
+- Remote listings can select replacement blend files tagged with version suffixes such as @b5_3, assigning old assets to earlier releases and replacements to newer ones. External-asset rename/catalog moves and shelf diagnostics also change. Library access tokens need independent secret handling and download authorization. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-web-blender-5-3-assets.md)
+
+### Explicit relationships
+
+Remote asset selection depends-on versioned library listings and provenance; authentication does not establish license rights. See [[creative-tool-extension-packaging]].
+
+### Decision and quality notes
+
+Project release notes, unknown publication date and no remote library downloaded. No tokens, extension settings or licenses changed. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which pinned remote-library fixture verifies version replacement, token non-disclosure/revocation, cache behavior and per-asset license provenance across Blender versions? See [[indexes/gaps]].
+
+
+## 2026-11-23: Cycles dispersion and viewport denoising have distinct hardware requirements
+
+### Typed entities
+
+project: Blender 5.3; project: Cycles; concept: dispersion; concept: transmission anisotropy; library: NVIDIA DLSS; file: raw/2026-11-23-web-blender-5-3-cycles.md.
+
+### Claims and evidence
+
+- The 5.3 notes add Principled BSDF transmission dispersion and roughness anisotropy for Glass/Principled transmission. NVIDIA DLSS denoising is a viewport feature using upscaling and temporal reuse, with driver 620+ stated as a prerequisite. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-web-blender-5-3-cycles.md)
+- The notes also describe viewport pause during final renders, improved baking on small/thin triangles/margins, GPU optimizations and RTX Spark Windows 11 support. They do not quantify local speed/quality or establish that the viewport denoiser is an offline-final-render replacement. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-web-blender-5-3-cycles.md)
+
+### Explicit relationships
+
+Cycles features depend-on build, shader configuration and GPU/driver support. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Project release notes; no renderer/driver installed or scene rendered. Device names and performance claims remain source-scoped. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which exact Cycles/GPU/driver scene matrix checks dispersion correctness, transmission anisotropy, temporal denoising artifacts, bake margins and export behavior? See [[indexes/gaps]].

@@ -523,3 +523,23 @@ Tool selection uses deferred schemas; execution depends-on application authoriza
 ### Decision and quality notes
 
 First-party preview announcement; no current model/SDK availability or cost verified. Keeping a schema out of context is not permission revocation, and returning a permitted tool does not authorize every argument. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which pinned Interactions SDK/model replay verifies deferred-schema selection, per-user authorization, revoked integrations, cache behavior and total billed latency/tokens against an eager-tool baseline? See [[indexes/gaps]].
+
+
+## 2026-11-23: Cross-cloud anomaly detection exports content and remains asynchronous
+
+### Typed entities
+
+project: Agent Anomaly Detection; library: ADK Python; concept: Telemetry API; concept: Workload Identity Federation; concept: content log event; file: raw/2026-11-23-rss-agent-anomaly-detection-safeguarding-agents-across-other-clouds.md.
+
+### Claims and evidence
+
+- Google describes private-preview monitoring for agents outside Google Cloud using Telemetry API traces/logs, agent resource identity and prompts/responses as OpenTelemetry log events. The documented path uses ADK Python 2.12.0+ exporters and keyless Workload Identity Federation; discovery and enabling monitoring are separate steps. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-rss-agent-anomaly-detection-safeguarding-agents-across-other-clouds.md)
+- The synthetic AWS and Foundry demonstrations detect catalog scraping/resource exhaustion and unsafe refunds after sessions run. Analysis is out of band and does not prevent the first action. Outside-Google findings appear only in the detection console, qualifying earlier generic Security Command Center integration notes for this scope. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-rss-agent-anomaly-detection-safeguarding-agents-across-other-clouds.md)
+
+### Explicit relationships
+
+Cross-cloud detection depends-on content telemetry and enabled enrollment; action prevention depends-on inline authorization. See [[mcp-tool-governance-and-app-surfaces]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+First-party synthetic examples with intentionally permissive agents, not sensitivity/precision estimates or a runtime-independent compatibility guarantee. No content capture/export enabled; synthetic order/customer details omitted. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which consented cross-cloud ADK pilot verifies federation scope, content redaction/retention, discovery-versus-enable behavior, detection delay and console-only finding delivery? See [[indexes/gaps]].

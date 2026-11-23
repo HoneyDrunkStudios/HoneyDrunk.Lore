@@ -2181,3 +2181,85 @@ Express uses Sandboxes; governance depends-on scoped identity, egress and lifecy
 ### Decision and quality notes
 
 Vendor roundup repeats earlier Microsoft announcements: GA, SRE and migration recaps are correlated evidence, not new independent confirmations. Existing Express GA history remains valid; no forced supersession is needed. No Azure resources created or migrated. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which pinned ACA workload/lifecycle rehearsal verifies actual Express feature eligibility, sandbox egress/identity, snapshot retention and noncompute costs while qualifying preview tooling separately? See [[indexes/gaps]].
+
+
+## 2026-11-23: Functions compute separation makes readiness and retirement explicit
+
+### Typed entities
+
+project: Azure Functions; concept: WorkerProxy; concept: compute separation; concept: dispatch readiness; concept: response drain; file: raw/2026-11-22-rss-separating-compute-in-azure-functions-building-for-scale-efficiency-an.md.
+
+### Claims and evidence
+
+- Microsoft describes a platform-owned WorkerProxy bridging a runtime-initiated authenticated TLS stream to a worker-local connection, preserving worker connection behavior while keeping customer code separate from the Functions host. Configuration, metadata and extension delivery still require compatible contracts; the first preview excludes Durable Functions and Service Bus extensions. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-separating-compute-in-azure-functions-building-for-scale-efficiency-an.md)
+- Assignment, accepted link, initialized application and dispatch readiness are separate checkpoints. Planned retirement closes admission and drains buffered work plus HTTP response forwarding; a successful invocation response alone can precede completion of the response body. Unexpected runtime loss requests removal and rejects new work rather than transparently replaying invocations. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-separating-compute-in-azure-functions-building-for-scale-efficiency-an.md)
+- Independent scaling and smaller images are architectural opportunities, not measured startup gains or final billing rules. The article explicitly leaves certificate identity, shared-key authority and replay-protection limitations for qualification; host code changes do not prove end-to-end platform readiness. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-separating-compute-in-azure-functions-building-for-scale-efficiency-an.md)
+
+### Explicit relationships
+
+Compute separation uses explicit lifecycle contracts; safe retirement depends-on full response completion. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+First-party architecture/prototype account. No preview rollout, security audit or performance result reproduced. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which supported Functions preview rehearsal verifies admission/config consistency, early identity access, full-stream drain, runtime loss, cross-app isolation and full activation-tail latency? See [[indexes/gaps]].
+
+
+## 2026-11-23: Connector events retain at-least-once delivery and separate consent
+
+### Typed entities
+
+project: Azure Connectors; project: API Hub; project: Azure Functions; concept: Connector Namespace; concept: connection access policy; concept: Poll lease; file: raw/2026-11-23-rss-inside-the-architecture-how-connectors-work-with-azure-functions.md.
+
+### Claims and evidence
+
+- Microsoft describes Connector Namespace resources mapping application-facing connections to API Hub connections holding account OAuth consent. Entra access policies authorize caller identities separately from the consented account. Generated .NET/Python/Node SDKs use a shared runtime proxy; the described internals are not published in a public repository. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-rss-inside-the-architecture-how-connectors-work-with-azure-functions.md)
+- Managed trigger workflows deliver by webhook or a per-trigger Poll queue. Poll receive leases messages; acknowledgement deletes only with matching valid message/lock identity after successful invocation. Expired leases redeliver; approximate depth excludes leased messages. Large payloads can be references to workflow output, with a documented listener download cap. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-rss-inside-the-architecture-how-connectors-work-with-azure-functions.md)
+- SDK retries normally cover safe methods, but the handler must deduplicate external writes when whole events redeliver. Batch size/concurrency and target-based scaling have different semantics; type generation from connector metadata does not authorize a business action or guarantee exactly-once posts. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-rss-inside-the-architecture-how-connectors-work-with-azure-functions.md)
+
+### Explicit relationships
+
+Connectors use API Hub and managed trigger workflows; safe external effects depend-on invocation-level idempotency and scoped consent. See [[azure-service-bus-and-functions-messaging]] and [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+First-party architecture account with an ARM preview setup path; no namespace, OAuth consent, identity role or message created. Callback key details and operational examples omitted. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which connector contract suite verifies caller-versus-consented-account scope, lease expiry/redelivery, lost acknowledgements, large-payload bounds and duplicate-safe downstream writes? See [[indexes/gaps]].
+
+
+## 2026-11-23: Grafana SRE investigation and action use different identities
+
+### Typed entities
+
+project: Azure Managed Grafana; project: Azure SRE Agent; concept: dashboard context; concept: managed identity; concept: recovery verification; file: raw/2026-11-23-rss-introducing-azure-sre-agent-in-azure-managed-grafana-the-dashboard-as.md.
+
+### Claims and evidence
+
+- The preview integration supplies dashboard URL/time/variables to an embedded SRE Agent and uses Grafana MCP inspection/query tools. Reads use configured data-source identities; Azure actions use the agent managed identity and separately configured tool permissions. Standard-tier Grafana, a connector and user roles are setup prerequisites, not automatically granted by enabling the pane. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-rss-introducing-azure-sre-agent-in-azure-managed-grafana-the-dashboard-as.md)
+- The planted-cache-leak demonstration approval-gates a restart and then rechecks telemetry. Initial command success precedes actual recovery; later uptime/cache/latency/error observations support temporary mitigation. Restart does not fix the unbounded cache and recurrence remains expected. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-rss-introducing-azure-sre-agent-in-azure-managed-grafana-the-dashboard-as.md)
+
+### Explicit relationships
+
+Investigation uses dashboard semantics and telemetry; action authority depends-on agent identity and approvals; recovery depends-on observed service outcomes. See [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Synthetic first-party demo, not a production incident or local diagnosis. No connector/role/action configured; resource names, contact and exact incident timestamps omitted. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which least-privilege Grafana/SRE rehearsal verifies data-source identity limits, action approval/denial and delayed recovery checks without confusing restart success with a permanent fix? See [[indexes/gaps]].
+
+
+## 2026-11-23: Flex worker containers exclude host ownership and several preview bindings
+
+### Typed entities
+
+project: Azure Functions Flex Consumption; concept: worker-only container; concept: Registry deployment; concept: immutable image digest; file: raw/2026-11-23-rss-public-preview-os-level-dependency-support-via-containers-for-azure-fu.md.
+
+### Claims and evidence
+
+- The public-preview model packages customer code, one supported language worker and OS dependencies in a Linux amd64 image while Azure operates the host/routing/scaling. Registry deployment uses functionAppConfig deployment storage type Registry with image/authentication details and omits the runtime field; unrelated scale/concurrency settings must be preserved. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-rss-public-preview-os-level-dependency-support-via-containers-for-azure-fu.md)
+- The capture excludes Durable Functions, Service Bus trigger/output extensions and availability zones, and provides no supported local Flex worker-container execution experience. Local source testing and complete deployed-image verification are separate. Customers patch/rebuild base OS, runtime, worker and dependencies; immutable image digests support release rollback. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-rss-public-preview-os-level-dependency-support-via-containers-for-azure-fu.md)
+
+### Explicit relationships
+
+Worker containers use compute separation; compatibility depends-on supported image/worker/extension contracts. See [[container-supply-chain-and-compliance]] and [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+First-party preview announcement with rolling regional availability; no registry, image, resource or deployment changed. Arbitrary container hosting and production readiness are not inferred. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which supported-region worker-image rehearsal verifies native dependencies, registry identity, extension exclusions, full image startup, preserved app settings and digest-based rollback? See [[indexes/gaps]].

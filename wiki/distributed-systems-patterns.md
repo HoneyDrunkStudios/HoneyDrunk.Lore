@@ -699,3 +699,44 @@ Load-test validity depends-on workload mix, skew and resource behavior; contenti
 ### Decision and quality notes
 
 Primary explanatory simulation essay, no production benchmark rerun. Interactive graph controls are text-captured without numeric curves; no quantitative scaling law or database procurement preference is promoted. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which production-derived workload replay preserves key skew, read/write mix, SKU/cache size and concurrency while measuring contention, hit rate, tail latency and saturation? See [[indexes/gaps]].
+
+
+## 2026-11-23: Blobasaur trades strict durability for bounded blob-store throughput
+
+### Typed entities
+
+project: Zerodha; project: Blobasaur; library: SQLite; concept: per-shard writer; concept: pending tombstone; concept: relaxed durability; file: raw/2026-11-22-rss-distributed-high-performance-blob-storage-on-sqlite.md.
+
+### Claims and evidence
+
+- Zerodha describes Rust Blobasaur using Redis-compatible CRUD, compressed blobs and multiple SQLite WAL files. Each shard has a bounded writer queue and group commits with concurrent read connections. Expiry cleanup shares that writer in bounded batches; optional asynchronous acknowledgement needs a pending map with tombstones consulted by every read/existence/TTL path. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-distributed-high-performance-blob-storage-on-sqlite.md)
+- Production uses synchronous=NORMAL for noncritical UI preferences, allowing loss of recent commits after OS/power failure; optional async_write acknowledges even before the database commit. Cluster slots are statically assigned, live rebalancing and automatic failover are absent, and local resharding is offline. Redis protocol compatibility is not full Redis capability parity. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-distributed-high-performance-blob-storage-on-sqlite.md)
+- The 1-versus-16-shard experiment used compressed 64-KiB JSON, 64 connections, equal cache/read resources and tmpfs on one laptop; reported write scaling does not establish disk durability or general database superiority. The author reports AGPLv3 licensing and a separate three-node production deployment. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-distributed-high-performance-blob-storage-on-sqlite.md)
+
+### Explicit relationships
+
+Blobasaur uses SQLite and compression; read-your-writes depends-on pending-state coverage; cleanup serialization fixed writer contention. See [[edge-ai-and-ai-infrastructure-2026]].
+
+### Decision and quality notes
+
+Primary operational account; no storage system installed or benchmark reproduced. Alternative-store comparisons and latency are workload-specific author reports. Strictly durable financial records are outside the stated use case. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which pinned disk-backed workload and failure rehearsal verifies acknowledgement durability, pending deletes/TTL, bounded cleanup, offline resharding, static-slot recovery and license suitability? See [[indexes/gaps]].
+
+
+## 2026-11-23: AI dependency health includes response quality and generated downstream state
+
+### Typed entities
+
+project: incident.io; project: Skyscanner; concept: quality SLO; concept: deterministic fallback; concept: generated context; file: raw/2026-11-22-rss-is-ai-just-another-third-party-dependency-yes-right-up-until-it-isn-t.md.
+
+### Claims and evidence
+
+- The practitioner interview applies ordinary dependency ownership, latency/error monitoring, gateways and failover to model APIs while distinguishing response quality from HTTP availability. Judges, user feedback and evaluations provide additional signals, with their own calibration needs. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-is-ai-just-another-third-party-dependency-yes-right-up-until-it-isn-t.md)
+- Model/provider changes can affect artifacts and context consumed later by other agents, extending incident review beyond the immediate request. The article proposes deterministic code/fallbacks for portions that require repeatable outcomes; it does not establish that every AI feature can fail over safely. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-is-ai-just-another-third-party-dependency-yes-right-up-until-it-isn-t.md)
+
+### Explicit relationships
+
+AI reliability depends-on API availability and task quality; recovery uses bounded deterministic paths where suitable. See [[opentelemetry-genai-observability-and-ecosystem]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Interview-based operational guidance rather than a controlled availability study. The product-of-availabilities example needs series-dependency and independence assumptions; no universal reliability ceiling is promoted. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which quality-aware incident drill detects a healthy-HTTP degraded model, identifies generated artifacts needing review and verifies a useful authorized deterministic fallback? See [[indexes/gaps]].

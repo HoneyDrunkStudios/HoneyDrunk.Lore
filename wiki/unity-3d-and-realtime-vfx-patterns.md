@@ -2358,3 +2358,64 @@ Localization depends-on shaping, licensed glyph coverage and device-tested layou
 ### Decision and quality notes
 
 Commercial studio checklist, not independent engine certification. No fonts imported, shaping APIs selected or device screenshots accepted. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which native-speaker-approved Indic corpus and pinned UI/font/device matrix verifies shaping, cluster-safe wrapping, vertical clipping, numeric conventions, font rights and atlas memory? See [[indexes/gaps]].
+
+
+## 2026-11-23: Multiplayer Services 2.5 fixes cancellation and deployment reporting
+
+### Typed entities
+
+library: com.unity.services.multiplayer 2.5.0; concept: ServerSessionConnector; concept: matchmaker cancellation; concept: deployment status; file: raw/2026-11-22-web-changelog-multiplayer-services-2-5-0.md.
+
+### Claims and evidence
+
+- The November 16 2.5.0 changelog adds dedicated-server session connectors and CLI operations when com.unity.pipeline is installed. Direct defaults listen on all interfaces and can publish the first LAN address; internet reachability requires explicit addressing and qualification. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-web-changelog-multiplayer-services-2-5-0.md)
+- Matchmaker cancellation retries ticket deletion up to three times, suppresses status handling during deletion and treats missing tickets as cancelled. Exhausted deletion retries throw Unknown with the underlying error and can leave a live ticket. Authoring deployment now reports overall failure despite continuing remaining queue work, reads disk changes and rejects empty/null configs. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-web-changelog-multiplayer-services-2-5-0.md)
+- The historical changelog includes removed Multiplay Hosting APIs and older pre-initialization behavior. It explicitly states hosting support was removed in 2.0.0 and later; 2.4.1 restores a null pre-initialization Instance result. Historical entries are not current support promises. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-web-changelog-multiplayer-services-2-5-0.md)
+
+### Explicit relationships
+
+Session automation depends-on server authorization, environment and network setup; cancellation success depends-on remote ticket deletion. See [[realtime-game-network-protocol-design]].
+
+### Decision and quality notes
+
+Versioned package history; no Unity Editor, service or CLI operation run. Dedicated-server connectors do not imply restoration of removed Unity Multiplay Hosting. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which pinned Multiplayer Services pilot tests cancellation/delete failures, residual tickets, CLI deployment exit status, profile switches and explicit server publish addresses? See [[indexes/gaps]].
+
+
+## 2026-11-23: NGO 2.14 fixes buffer growth and late-join state consistency
+
+### Typed entities
+
+library: com.unity.netcode.gameobjects 2.14.0; concept: NetworkList; concept: FastBufferWriter; concept: observer visibility; concept: NetworkTime; file: raw/2026-11-23-web-unity-netcode-gameobjects-2-14-changelog.md.
+
+### Claims and evidence
+
+- The November 9 2.14.0 changelog fixes bitwise writes lost during FastBufferWriter growth, zero-size writer growth hangs and offset/default-length reader overrun. It also fixes tick-boundary/negative-time handling; these entries describe repaired behavior in that version, not proof of historical project exposure. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-web-unity-netcode-gameobjects-2-14-changelog.md)
+- The release fixes late-join animation transitions, duplicate pending NetworkList changes, throttled variable updates after NetworkShow, rejected-parent transform restoration, observer-scoped scene migration, hidden-object scene placement and mixed-authority nested transforms. Session-owner promotion and derived NetworkManager lifecycle initialization also receive fixes. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-web-unity-netcode-gameobjects-2-14-changelog.md)
+
+### Explicit relationships
+
+Network consistency depends-on versioned serialization, authority and visibility transitions. See [[realtime-game-network-protocol-design]].
+
+### Decision and quality notes
+
+Official cumulative package changelog; historical deprecations/removals remain version-qualified. No Unity scene, packet stream or player session tested. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which pinned NGO scene/buffer suite checks growth/offset boundaries, negative ticks, late joins with unsent collections, hidden scene moves and rejected parenting under packet loss? See [[indexes/gaps]].
+
+
+## 2026-11-23: Unity Physics 1.5 fixes incremental broadphase dependencies and queries
+
+### Typed entities
+
+library: com.unity.physics 1.5.0; library: com.unity.entities 1.5.0; concept: incremental broadphase; concept: job dependency; concept: collider blob replacement; file: raw/2026-11-23-web-unity-physics-1-5-changelog.md.
+
+### Claims and evidence
+
+- The September 8 1.5.0 notes set Entities dependency 1.5.0 and minimum Editor 6000.0. They fix a dropped dynamic-tree JobHandle during broadphase update, including manually invoked physics systems, and stale query state after in-place collider-blob replacement or static mesh sub-AABB changes. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-web-unity-physics-1-5-changelog.md)
+- The release also fixes collider casting, joint-limit authoring and switching multithreaded/single-threaded static BVH updates. Simulation type changes should use PhysicsSimulationStep rather than editing SimulationSingleton directly. These DOTS package notes are distinct from built-in GameObject physics behavior. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-web-unity-physics-1-5-changelog.md)
+
+### Explicit relationships
+
+Correct physics queries depend-on complete job dependencies and updated broadphase state. See [[procedural-world-persistence]].
+
+### Decision and quality notes
+
+Official cumulative package history; no Editor, simulation or target-device run. An empty historical Security heading is not a vulnerability advisory or zero-findings assertion. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which exact Editor/Entities/Physics suite verifies collider replacement, static mesh edits, manual system dependencies and thread-mode switching against expected collision queries? See [[indexes/gaps]].

@@ -354,3 +354,24 @@ Measured influence depends-on replay controls and leader thresholds; agent coord
 ### Decision and quality notes
 
 Single vendor experiment with small replay counts per order and a 60-post classifier check. Model rankings and percentages are provisional; explicit private notes in the study are not a requirement to capture private reasoning. No multi-agent runtime or default changed. Source-specific claims remain provisional; repeated accounts and derived queries add no independent support. Open question: Which representative swarm evaluation randomizes roster/model/order, calibrates the order classifier, measures total cost and task safety, and compares coordination against one capable agent? See [[indexes/gaps]].
+
+
+## 2026-11-23: Swarm benefits depend on task independence and coordination topology
+
+### Typed entities
+
+project: Replit; project: Optimization-Bench; project: Agent Habitat; concept: swarm board; concept: external verifier; concept: aggregate compute; file: raw/2026-11-22-rss-throwing-headcount-at-the-problem.md.
+
+### Claims and evidence
+
+- Replit compares solo and 8/16/32-agent optimization runs with a two-hour wall-clock window and 8 vCPU/16 GiB per agent. Branches freeze at the deadline; a separate evaluator rebuilds candidates, restricts editable paths, checks public/hidden/generated cases and alternates baseline/candidate timings. Equal wall time is not equal aggregate compute or cost. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-throwing-headcount-at-the-problem.md)
+- The author reports model- and repository-dependent scaling: independent NumPy workloads benefited more than Git workloads confined to 15 shared files. Some strongest-solo models degraded with larger teams. Successful runs used durable shared task ownership/results; coordinator-centric inbox traffic correlated with bottlenecks, without isolating topology as a randomized causal intervention. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-throwing-headcount-at-the-problem.md)
+- The evaluation footnote identifies the dedicated timing environment as a specified cloud VM with pinned cores and isolation. Its earlier dedicated-machine phrasing does not establish bare-metal measurement. Reported speedups remain specific to workloads, final submissions, verifier limits and resources. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-throwing-headcount-at-the-problem.md)
+
+### Explicit relationships
+
+Swarm efficiency depends-on separable work, shared evidence and merge ownership; verification uses an external process. See [[agent-evaluation-and-benchmarks]] and [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Primary prerelease benchmark account; no swarm launched or benchmark reproduced. This does not supersede the existing single-agent default without a concrete decomposition benefit. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which repeated equal-total-budget comparison measures correctness, run variance, merge conflicts, communication topology and aggregate cost for the actual candidate parallel task? See [[indexes/gaps]].

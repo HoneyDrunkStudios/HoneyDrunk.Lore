@@ -131,3 +131,23 @@ Attribution depends-on correlated transitions and alternative hypotheses; respon
 ### Decision and quality notes
 
 Practitioner analysis with illustrative cases, no measured sensitivity, specificity or universal timing threshold. Preserve useful raw event fields under retention/privacy controls; avoid collecting sensitive content merely to strengthen attribution. No detection rule or response action was deployed. Source-specific claims remain provisional; derived queries and repeated announcements add no independent support. Open question: Which labeled human, scripted and agentic intrusion traces calibrate transition-based indicators, timestamp semantics and false positives without counting correlated observations as independent evidence? See [[indexes/gaps]].
+
+
+## 2026-11-23: Kubernetes security visibility needs API, runtime and cloud evidence
+
+### Typed entities
+
+concept: Kubernetes audit policy; concept: runtime sensor; concept: ephemeral log buffer; concept: immutable retention; project: EKS; project: GKE; file: raw/2026-11-22-rss-security-logging-in-cloud-environments-kubernetes.md.
+
+### Claims and evidence
+
+- The logging design combines Kubernetes audit/control-plane logs, node/container logs, kernel/runtime events, network-policy flows and exported Kubernetes Events with cloud identity/control-plane records. API audit alone misses shell activity after exec, direct kubelet paths and node access; ephemeral node buffers need off-node delivery. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-security-logging-in-cloud-environments-kubernetes.md)
+- Audit rules are first-match, and sensitive Secrets/ConfigMaps/TokenReviews should use metadata-only capture. Managed-provider audit policies and default log collection differ; enablement, ingestion cost, buffering and immutable retention need independent review. Runtime sensors and managed detections complement API logs rather than reconstructing everything from them. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-security-logging-in-cloud-environments-kubernetes.md)
+
+### Explicit relationships
+
+Cluster investigations depend-on joined identities, pod/IP history and durable telemetry; runtime sensors complement audit logs. See [[kubernetes-platform-governance-and-cicd]] and [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Practitioner reference architecture, not a tested local deployment or verified current provider-default matrix. No logging or body capture enabled; operational identifiers and sensitive example data omitted. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which approved cluster incident rehearsal verifies secret-free audit capture, exec/runtime coverage, pod/IP identity joins, node-loss delivery, locked retention and ingestion cost? See [[indexes/gaps]].

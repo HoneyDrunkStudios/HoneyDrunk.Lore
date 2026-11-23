@@ -2444,3 +2444,24 @@ superseded-by: [scoped table interpretation](#resolution-2026-11-19-eve-latency)
 <a id="resolution-2026-11-19-eve-latency"></a>
 
 Selected interpretation: 414ms is the reported median for the described mock-model/no-tool workload, with 633ms p95. The 626ms caption remains a preserved source discrepancy, not a second independently measured result. confidence: 1 source, last-confirmed 2026-11-19 (archived table/caption review; no benchmark execution). [capture](../raw/2026-11-19-rss-introducing-eve-1-0.md)
+
+
+## 2026-11-23: Skill improvement separates evidence, proposal, verification and activation
+
+### Typed entities
+
+project: Perplexity Brain; concept: procedural skill; concept: proposal activation; concept: held-out replay; concept: control session; file: raw/2026-11-23-rss-self-improving-skills.md.
+
+### Claims and evidence
+
+- Perplexity describes session-linked skill-load/diagnostic evidence followed by reflection proposals and validation. Personal skill creation requires two independent occurrences; an existing-skill update can use one grounded occurrence. Changes are proposed rather than directly applied, scoped to one change per skill/run, and automatically created personal skills are capped at ten. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-rss-self-improving-skills.md)
+- Built-in revisions use sanitized training-eligible evidence, synthetic connector-free failure scenarios hidden from the improvement agent, paired replay including controls and human approval before canonical activation. Personalization changes instructions/context rather than model weights. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-rss-self-improving-skills.md)
+- The reported eight-week randomized production experiment separates overall tool-call failures from foreground-only failures and user dissatisfaction; a smaller offline evaluation and one built-in case study have different denominators. These author-reported results do not establish general task success or authorize another runtime to retain private sessions. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-rss-self-improving-skills.md)
+
+### Explicit relationships
+
+Procedural improvement depends-on grounded evidence and held-out verification; activation uses scope-specific authorization. See [[llm-wiki-and-knowledge-formats]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Vendor account, no independent replay or automatic memory/skill change here. Session content, personal workflows and private metadata are not imported. This is a researched mechanism, not a new Lore operating rule. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which consented skill-revision experiment verifies evidence independence, sanitized held-out/control replay, activation approval, rollback and library-size tradeoffs on real recurring tasks? See [[indexes/gaps]].

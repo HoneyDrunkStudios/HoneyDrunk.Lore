@@ -482,3 +482,12 @@ Operator: Codex executing the authorized Honeyclaw workflow. Read and ingested 4
 - Reviewed all **13** historical query outputs and **75** explicit raw citations. New crystallizations, canonical page edits, contradictions resolved, and gaps added/closed: **0** each. Existing source-specific limitations and confidence dates remain.
 - Rebuilt/verified sources, all **67** topic rows and **1103** dated gaps. Raw files and canonical content remain byte-for-byte unchanged. No new privacy redactions or quality flags; this pass adds no substantive evidence.
 - Prior ingest receipt: [November 20 receipt](https://github.com/HoneyDrunkStudios/HoneyDrunk.Lore/blob/707b8d13c49cdc1f91eb0a09fc9d2ec6edf902d8/output/lore-ingest-last-run.md). Current validation and explicit review: [run summary](../../output/lore-ingest-last-run.md). Unrelated sourcing receipts and signal reviews are excluded from publication.
+
+
+## 2026-11-23T09:06:42-05:00 - Daily ingest and compile
+
+- Operator: Codex executing the authorized Honeyclaw workflow. Ingested **30** captures into **15** existing canonical pages; **1607** raw documents now have unique source entries. Created no duplicate concepts. Rebuilt all **67** topic rows; retained **1103** prior gaps and added **30** (**1133** total).
+- Resolved **1** release-stage contradiction: RHEL larger-runner preview to GA, preserving the old claim with a timestamped supersession link. Historical package entries remain version-scoped. Strengthened one qualitative evaluation principle across three independent organizations without pooling scores.
+- Reviewed **13** query outputs; their **75** distinct explicit raw citations already have canonical coverage. New crystallizations: **0**. No confidence gain from derived queries or correlated vendor announcements.
+- Privacy filtering omitted payloads/triggers, synthetic recipients/customer data, operational identities/addresses and contact metadata. All raw bytes remain immutable. Unrelated sourcing receipts and signal reviews are excluded.
+- Run receipt, validation and final explicit author-review outcome: [lore-ingest-last-run.md](../../output/lore-ingest-last-run.md). Publication scope includes the 30 previously untracked source captures so cited inputs travel with the wiki. No PR creation, merge, code/runtime or policy changes requested.

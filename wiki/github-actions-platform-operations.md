@@ -506,6 +506,9 @@ superseded-by: [agentic-workflows-graduate-with-separate-execution-and-model-bud
 
 ### Source-backed claims
 - GitHub-hosted larger runners now support Red Hat Enterprise Linux 9 and 10 images in public preview for Linux x64 partner images, intended as bases for custom images with required tools and dependencies. Source: `raw/2026-06-29-rss-github-changelog-actions-red-hat-enterprise-linux-runner-images-are-no.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-06-29.
+
+superseded-by: [2026-11-23-rhel-larger-runner-images-move-from-preview-to-ga](#2026-11-23-rhel-larger-runner-images-move-from-preview-to-ga); timestamp: 2026-11-23T09:06:42-05:00; reason: The later first-party November 19 GA notice supersedes only this preview-stage assessment. The June preview claim and other cache claims are retained as history.
+
 - GitHub now issues read-only Actions cache tokens to default-branch cache scopes for untrusted triggers that can be initiated without repository write permission, reducing cache-poisoning paths from `pull_request_target`, `issue_comment`, and fork-PR `workflow_run` cascades. Source: `raw/2026-07-03-web-github-changelog-read-only-actions-cache-for-untrusted-triggers-github-changel.md`. confidence: 1 GitHub changelog source, last-confirmed 2026-07-03.
 - The read-only cache change preserves restores but blocks saves for affected runs; workflows that need cache writes should use trusted events such as `push`, `schedule`, or `workflow_dispatch` to seed caches. Source: `raw/2026-07-03-web-github-changelog-read-only-actions-cache-for-untrusted-triggers-github-changel.md`. confidence: 1 source, last-confirmed 2026-07-03.
 
@@ -1492,3 +1495,41 @@ Agent waits use bounded event subscriptions; merge readiness depends-on freshly 
 ### Decision and quality notes
 
 First-party preview scope, no stream subscription or CLI upgrade performed. Reconnect, missed-event and permission behavior need validation; the announcement does not authorize merges. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which authorized preview client verifies timeout/cleanup, reconnect and missed-event recovery, head changes and exact-head readiness refresh before replacing polling? See [[indexes/gaps]].
+
+
+## 2026-11-23: RHEL larger-runner images move from preview to GA
+
+### Typed entities
+
+project: GitHub Actions; concept: RHEL 9 image; concept: RHEL 10 image; decision: release-stage supersession; file: raw/2026-11-22-rss-red-hat-enterprise-linux-runner-images-now-generally-available.md.
+
+### Claims and evidence
+
+- The November 19 GitHub notice marks RHEL 9 and RHEL 10 Linux x64 larger-runner partner images generally available for Team and Enterprise Cloud plans. It says existing preview users need no migration action and supports using the images as custom-image foundations. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-red-hat-enterprise-linux-runner-images-now-generally-available.md)
+
+### Explicit relationships
+
+The GA notice supersedes the earlier RHEL preview-stage assessment above; runner selection depends-on plan eligibility and workload compatibility.
+
+### Decision and quality notes
+
+Primary dated changelog; no runner provisioned or billing/availability verified live. GA does not establish suitability or current account entitlement. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which eligible disposable RHEL runner validates required tools, deployment parity, image patching and actual cost before replacing an existing runner image? See [[indexes/gaps]].
+
+
+## 2026-11-23: ARM32 hosted execution has a dated retirement notice
+
+### Typed entities
+
+project: GitHub Actions; concept: ARM32; concept: Node 24 action runtime; decision: runner migration; file: raw/2026-11-23-rss-actions-for-arm32-linux-windows-retirement.md.
+
+### Claims and evidence
+
+- The November 12 notice says hosted ARM32 job execution on Linux and Windows, including native AArch32 userspace execution on hosted runners, ends by December 8, 2026 following the Node 20 retirement and Node 24 ARM32 limitation. It does not state that every cross-compilation target or self-hosted topology is retired. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-rss-actions-for-arm32-linux-windows-retirement.md)
+
+### Explicit relationships
+
+Hosted execution support depends-on runner/action runtime architecture; application build targets remain a separate inventory question.
+
+### Decision and quality notes
+
+Brief first-party dated notice, not a complete migration recipe. No workflow or runner changed. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which workflow inventory distinguishes native hosted ARM32 execution from cross-compilation and verifies a supported replacement before December 8? See [[indexes/gaps]].

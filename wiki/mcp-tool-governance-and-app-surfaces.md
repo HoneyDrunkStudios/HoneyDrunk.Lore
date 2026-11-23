@@ -1506,3 +1506,23 @@ MCP enforcement depends-on mediation, policy and metadata trust; artifact proven
 ### Decision and quality notes
 
 Vendor design account, no bypass/denial test or audit coverage verification. The rendered Cedar sample has HTML-escaped operators; do not copy as tested policy. No sandbox, gateway or SIEM configured. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which policy test denies direct-path bypass and falsely read-only tools while establishing actual audit coverage, mount/network limits and governed approval behavior? See [[indexes/gaps]].
+
+
+## 2026-11-23: Semantic governance evaluates covered proposed calls before execution
+
+### Typed entities
+
+project: Google Agent Gateway; concept: semantic governance policy; concept: user intent check; concept: policy enforcement point; file: raw/2026-11-22-rss-check-what-your-ai-agents-do-before-they-do-it-with-semantic-governanc.md.
+
+### Claims and evidence
+
+- Google describes Preview semantic governance through Agent Gateway: a proposed tool call must pass a natural-language policy check and a default user-intent check. An external LLM judge evaluates the conversation, system instructions and tool descriptions; a denial replaces the response, including its tool calls, before it reaches the agent. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-check-what-your-ai-agents-do-before-they-do-it-with-semantic-governanc.md)
+- Coverage requires routing model egress through the gateway. Text-only responses and streamed responses are not evaluated. Verdicts are probabilistic; dry-run logging, explicit policy facts and clear tool descriptions are part of qualification. IAM, content screening and asynchronous anomaly detection remain separate controls. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-check-what-your-ai-agents-do-before-they-do-it-with-semantic-governanc.md)
+
+### Explicit relationships
+
+Inline governance uses an external judge; enforcement depends-on complete routed coverage and independent tool authorization. See [[google-agent-platform-and-gemini-api-2026]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+First-party preview description, no measured attack-success rate or local enforcement test. No policy, logging or egress setting changed. Synthetic recipients and disclosure content omitted. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which authorized gateway pilot verifies bypass denial, streaming exclusions, multi-call denial, missing descriptions, judge false positives/negatives and private rationale logging? See [[indexes/gaps]].

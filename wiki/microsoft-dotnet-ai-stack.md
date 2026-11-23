@@ -1189,3 +1189,44 @@ Recovery depends-on recorded results and durable orchestration; external correct
 ### Decision and quality notes
 
 First-party guide, not reproduced failure recovery. Minimum package/Python versions and mutable latest emulator images are not a tested production matrix. MAF is a different integration rather than independent verification of this Capability. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which pinned Capability/worker/emulator fault suite verifies recorded versus unrecorded calls, authorized delayed approvals, restart and duplicate-safe effects? See [[indexes/gaps]].
+
+
+## 2026-11-23: LangGraph durability separates saved execution from external effects
+
+### Typed entities
+
+project: Azure Durable Task Scheduler; library: langchain-azure-compute; project: LangGraph; concept: durable call id; concept: graph checkpointer; file: raw/2026-11-22-rss-introducing-azure-durable-task-for-langgraph-agents.md.
+
+### Claims and evidence
+
+- Microsoft describes public-preview langchain-azure-compute[durabletask] 0.2.0+ attaching durability to compiled graphs, create_agent and Deep Agents. Recorded steps/results survive restart; unrecorded interrupted work can rerun. Activities are at least once, with durable_call_id offered as an external deduplication key. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-introducing-azure-durable-task-for-langgraph-agents.md)
+- The graph checkpointer and scheduler have different responsibilities. Without an explicit checkpointer, the adapter supplies InMemorySaver and carries checkpoint bundles in scheduler payloads; persistent checkpoint storage must be shared by workers. Activity inputs/outputs still pass through scheduler history. Approval events release waiting threads but require authorized resume and do not remove infrastructure costs. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-introducing-azure-durable-task-for-langgraph-agents.md)
+- The screenshot example uses a deterministic model and completes normally. Its activity timeline demonstrates execution/inspection, not crash recovery; production hosting, credentials, retention and real-model behavior need separate tests. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-introducing-azure-durable-task-for-langgraph-agents.md)
+
+### Explicit relationships
+
+Durable execution depends-on recorded results and registered workers; external effects depend-on idempotency. See [[azure-agent-automation-and-identity]] and [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+First-party preview guide, correlated with the scheduler roundup below. No package installed, real model invoked or approval resumed. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which pinned LangGraph/worker/checkpointer fault suite proves unrecorded-call recovery, duplicate-safe writes, shared checkpoint access, authorized approval resume and scheduler-history retention? See [[indexes/gaps]].
+
+
+## 2026-11-23: Scheduler release stages vary by capability and SKU
+
+### Typed entities
+
+project: Azure Durable Task Scheduler; project: Microsoft Agent Framework; project: Pydantic AI; library: Durable Task Go SDK; concept: disaster recovery; concept: dispatch-rate queue; file: raw/2026-11-23-rss-what-s-new-in-azure-functions-durable-task-scheduler-durable-agents-di.md.
+
+### Claims and evidence
+
+- The roundup distinguishes MAF Durable Extension GA, LangGraph public preview and Pydantic AI durability support. Native cross-region disaster recovery and named task queues are public previews; private endpoints are GA on Consumption and Dedicated, while customer-managed keys are GA only on Dedicated. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-rss-what-s-new-in-azure-functions-durable-task-scheduler-durable-agents-di.md)
+- Task queues pace work-item delivery within a task hub, not all downstream calls or total spend. Disaster recovery resumes replicated state after secondary promotion; the capture gives no measured RPO/RTO or exactly-once external-effect guarantee. The Go SDK is preview, needs Go 1.25+ and currently supports only DTS as runtime. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-rss-what-s-new-in-azure-functions-durable-task-scheduler-durable-agents-di.md)
+
+### Explicit relationships
+
+Scheduler security features depend-on SKU and network/key configuration; recovery depends-on replicated state and application idempotency. See [[azure-agent-automation-and-identity]] and [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Correlated first-party roundup, not independent confirmation of the framework-specific guides. Earlier MAF GA and Pydantic histories remain accurate; no broad all-capabilities-GA promotion. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which SKU/region/package rehearsal verifies private-only access, key rotation, queue-rate limits, replication lag and safe secondary promotion with duplicate effects controlled? See [[indexes/gaps]].

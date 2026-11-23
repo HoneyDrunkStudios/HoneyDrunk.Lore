@@ -3066,3 +3066,23 @@ Primary investigator report, no artifact acquired/imported and no local exposure
 ### Consolidation: origin and benign behavior remain distinct
 
 Synthesis: trusted package origin or provenance cannot by itself establish benign code. The bounded integrity study distinguishes trusted evidence from unchecked metadata; the WPPConnect investigation describes malicious code with authentic workflow provenance; the Python investigation describes malicious artifacts under an established publisher. These three independently authored reports strengthen this qualitative principle, without independently confirming either incident or establishing local exposure. confidence: 3 sources, last-confirmed 2026-11-20 (archived captures reviewed; no live refresh). [integrity research](../raw/2026-10-23-rss-package-managers-have-an-integrity-problem.md) [WPPConnect report](../raw/2026-11-19-rss-wppconnect-compromised-malicious-releases-steal-secrets-and-whatsapp-s.md) [Python report](../raw/2026-11-20-rss-official-microsoft-agent-framework-pypi-package-compromised.md)
+
+
+## 2026-11-23: Model backdoors require a separate execution authorization boundary
+
+### Typed entities
+
+library: Qwen3-8B; project: pi; project: llama.cpp; concept: context-gated tool call; concept: model provenance; concept: tokenizer template; file: raw/2026-11-23-rss-backdooring-llms-do-you-trust-your-ai-provider.md.
+
+### Claims and evidence
+
+- A researcher reports a locally poisoned fine-tune emitting an unsolicited native shell tool call only under a specific trigger and harness context. Plain JSON text was insufficient; the serving parser and exact tool-call representation determined whether the harness executed the action. The demonstration uses a benign file-write payload, not evidence that any hosted provider is compromised. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-rss-backdooring-llms-do-you-trust-your-ai-provider.md)
+- The account proposes tensor/template provenance checks, real-harness probes and sandboxed, scoped runtime tool controls. Weight differences can identify a merged adapter but do not establish malicious intent or prove the base is clean; chat-template/tokenizer changes can also affect behavior without changed weights. Benign personal adapters may share the same tensor profile. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-rss-backdooring-llms-do-you-trust-your-ai-provider.md)
+
+### Explicit relationships
+
+Tool execution depends-on harness authorization, not model trust; provenance checks complement runtime containment. See [[mcp-tool-governance-and-app-surfaces]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Single-author demonstration, no model downloaded, trained, scanned or executed. Payload commands, exact trigger and exfiltration examples omitted. General impossibility claims and quoted monitor accuracy are not promoted as universal findings. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which isolated model/harness evaluation verifies artifact/template provenance, context-gated unsolicited-call rejection and audit visibility without treating an adapter delta as proof of a backdoor? See [[indexes/gaps]].

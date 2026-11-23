@@ -1907,3 +1907,64 @@ Adapter evaluation depends-on pinned model, harness, reward verifier and held-ou
 ### Decision and quality notes
 
 Primary team report, no replication. Flagged source arithmetic: qualified row values 144, 27 and 22 sum to 193 while the table total says 171; surrounding pipeline totals also differ by stage. No authoritative correction selects a single qualified count, so none is promoted as a settled dataset fact. No benchmark/model executed. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which corrected dataset manifest reconciles qualified-task totals and pipeline stages, and which repeated held-out harness/domain evaluation verifies correctness, efficiency, contamination controls and safety beyond the training filters? See [[indexes/gaps]].
+
+
+## 2026-11-23: Stripe integration criteria are distinct from runtime correctness
+
+### Typed entities
+
+project: Stripe Forge; concept: roleplaying evaluator; concept: MUST criterion; concept: strict pass rate; concept: excluded error run; file: raw/2026-11-22-rss-stripe-evals-measuring-real-world-coding-agent-performance.md.
+
+### Claims and evidence
+
+- Stripe reports 69 public scenarios across Payments, Subscriptions and Connect, two repetitions and paired plugin/no-plugin arms for 14 model/harness pairs. Per-criterion LLM judgments inspect the visible transcript and a bounded workspace snapshot; a private frozen roleplayer-needs list drives iterative follow-ups. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-stripe-evals-measuring-real-world-coding-agent-performance.md)
+- The headline metric averages MUST and SHOULD criteria. Strict pass requires every MUST; the article contrasts 78.1% criterion performance with 29.4% strict performance. All tested pairs improve with the plugin, but neither metric verifies execution: a well-shaped nonfunctional integration can score full marks. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-stripe-evals-measuring-real-world-coding-agent-performance.md)
+- Timeouts at 45 minutes are errors excluded from score calculations. OpenCode web searches through OpenRouter are not directly observed, so the pooled search reduction is not complete cross-harness search telemetry. Cost, category mix, judge effects and excluded-run rates matter alongside scores; fewer generated tests do not establish that testing is unnecessary. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-stripe-evals-measuring-real-world-coding-agent-performance.md)
+
+### Explicit relationships
+
+Integration evaluation uses criterion evidence; deployment correctness depends-on executable end-to-end tests. See [[api-testing-and-verification]] and [[agentic-commerce-and-machine-payments]].
+
+### Decision and quality notes
+
+Vendor benchmark with two repetitions, no independent reproduction and explicit runtime/maintenance/recommendation gaps. Preserve these exclusions rather than generalizing the closing end-to-end claim. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which repeated integration evaluation includes timeouts/errors in completion rates, validates judge agreement and exercises real sandbox API/webhook/failure flows with total cost? See [[indexes/gaps]].
+
+
+## 2026-11-23: Offline ship gates need calibrated online surrogacy and ongoing audits
+
+### Typed entities
+
+project: Spotify; concept: surrogate endpoint; concept: measurement error; concept: treatment-dependent judge bias; concept: randomized audit pool; file: raw/2026-11-23-rss-when-can-you-ship-on-offline-evals-alone.md.
+
+### Claims and evidence
+
+- Spotify frames offline-only shipping as bounding harmful online treatment effects conditional on observed offline effects. Its simplified model assumes homogeneous exchangeable paired experiments, bivariate-normal true effects, known zero-centered measurement errors and treatment-independent judge error. The 24%-versus-60% explained-variation example illustrates attenuation, not a measured HoneyDrunk relationship. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-rss-when-can-you-ship-on-offline-evals-alone.md)
+- Weakly positive offline scores are insufficient with imperfect surrogacy. Proposed thresholds create ship, kill and online-test regions; pooling heterogeneous programs or treatment-dependent judge bias can invalidate the gate, even reverse signs. Bias independent of arm can cancel in treatment differences under the stated model. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-rss-when-can-you-ship-on-offline-evals-alone.md)
+- Gating removes online ground truth where it makes decisions. A randomized audit pool across gated regions restores paired observations for drift checks; middle-region tests alone cannot establish continued validity elsewhere. Spotify says it continues pairing offline evaluations with online experiments. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-rss-when-can-you-ship-on-offline-evals-alone.md)
+
+### Explicit relationships
+
+Offline shipping depends-on validated offline/online relationships; ongoing validity uses randomized audits. See [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+Primary explanatory article and referenced research, no local surrogate fit or shipping threshold selected. This does not supersede runtime or product acceptance. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which homogeneous paired experiment corpus estimates measurement/judge error, validates treatment-arm bias and maintains randomized audits across all ship/kill regions? See [[indexes/gaps]].
+
+
+## 2026-11-23: Delivery evidence separates specification, execution and verification cost
+
+### Typed entities
+
+concept: evaluation evidence; concept: runtime acceptance; decision: retain distinct outcome denominators.
+
+### Claims and evidence
+
+- Synthesis: Stripe explicitly excludes runtime verification, Replit uses a separate correctness/timing verifier, and the MAUI experiment separates implementation records from later parity/device checks. These three independent authoring organizations strengthen the qualitative need to report specification conformance, executable correctness and verification resources separately; they do not validate one another's scores or prove a local outcome. confidence: 3 sources, last-confirmed 2026-11-23 (archived accounts reviewed; no live replication). [source](../raw/2026-11-22-rss-stripe-evals-measuring-real-world-coding-agent-performance.md) [source](../raw/2026-11-22-rss-throwing-headcount-at-the-problem.md) [source](../raw/2026-11-22-rss-ai-is-changing-the-cross-platform-decision-matrix.md)
+
+### Explicit relationships
+
+Evaluation depends-on task-specific acceptance and resource accounting. See [[multi-agent-architectures]] and [[dotnet-runtime-and-mobile-2026]].
+
+### Decision and quality notes
+
+No benchmark ranking is consolidated. Single-source numerical claims remain provisional. Existing weak-claim limitations and unresolved dataset arithmetic remain; derived queries do not add support.

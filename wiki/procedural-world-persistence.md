@@ -173,3 +173,24 @@ Puzzle identity depends-on seed, dimensions and generator version; reversible ro
 ### Decision and quality notes
 
 Single JavaScript devlog, not Unity implementation despite feed category. Difficulty constants and par optimality lack player/solver evidence. No game executed. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which property tests verify connectivity, reciprocal edges, border safety, rotational solvability and replay identity across viewport shapes, restarts and generator revisions? See [[indexes/gaps]].
+
+
+## 2026-11-23: Verified seed catalogs preserve unresolved outcomes and rule identity
+
+### Typed entities
+
+concept: deterministic seed; concept: proof replay; concept: bounded solver; concept: succinct bitset; concept: select1 index; project: Solitaire Suite; file: raw/2026-11-22-web-auditing-6-76m-solitaire-deals-offline-and-packing-3-56m-verified-wins.md.
+
+### Claims and evidence
+
+- The game author reports auditing 6,759,994 deals across seven rulesets: 3,565,003 replay-verified wins, 122,911 exhaustive losses and 3,072,080 unresolved cases. Budget exhaustion is not a loss. Winning witnesses replay against production rules before entering the pool; manual FreeCell seed selection and one-suit Spider follow different policies. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-web-auditing-6-76m-solitaire-deals-offline-and-packing-3-56m-verified-wins.md)
+- The reported SSWDCAT1 catalog uses per-mode contiguous seed bitmaps with ranges/counts and validates length, padding and popcounts. Prefix sums over superblocks implement select1 after choosing a winner rank. The reported file is 845,092 bytes; selection is uniform within verified winners, not among all theoretically winnable deals. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-web-auditing-6-76m-solitaire-deals-offline-and-packing-3-56m-verified-wins.md)
+- Solver/rule correctness and hash-state equivalence remain prerequisites: Spider columns cannot be freely canonicalized while stock placement depends on column position. The author reports monotonic offline audit upgrades; changing generator or rules still requires catalog compatibility and replay checks. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-web-auditing-6-76m-solitaire-deals-offline-and-packing-3-56m-verified-wins.md)
+
+### Explicit relationships
+
+Winning catalogs depend-on rule-bound proof replay; compact lookup uses seed bitmaps and rank selection. See [[formal-methods-and-agent-verification]] and [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Self-authored implementation account, not inspected code or a reproduced exhaustive proof. Microsecond selection and mobile shipping are author claims. The arithmetic reconciles; no deployment or game acceptance inferred. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which pinned rule/generator/catalog test verifies witness replay, canonicalization, malformed-file rejection, unbiased rank selection and compatibility across catalog upgrades? See [[indexes/gaps]].

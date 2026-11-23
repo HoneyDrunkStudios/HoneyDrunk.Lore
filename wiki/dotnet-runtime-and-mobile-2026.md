@@ -1638,3 +1638,83 @@ Host failure propagation uses StopHost; reliable supervision depends-on process 
 ### Decision and quality notes
 
 Official detailed documentation, last updated November 11 with unknown publication date. No host process tested; unrelated Ignore behavior or all shutdown exceptions are not generalized from this note. Preserving failure visibility remains the default interpretation. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which pinned host/process suite verifies single and simultaneous service failures, StopHost versus Ignore, synchronous/async shutdown, exception logging and observed supervisor exit status? See [[indexes/gaps]].
+
+
+## 2026-11-23: Platform UI construction and ownership have different costs
+
+### Typed entities
+
+project: Barista Notes; library: .NET MAUI; library: .NET for iOS; library: .NET for Android; concept: verification cost; file: raw/2026-11-22-rss-ai-is-changing-the-cross-platform-decision-matrix.md.
+
+### Claims and evidence
+
+- The author compares a MauiReactor-based MAUI app with UIKit/Android Views in C# over a shared core. The first rewrite record excludes later parity fixes; the follow-up map feature used 121.2 platform-UI worker model minutes versus 87.6 for MAUI. Its coordinator used 616 minutes versus 209 combined implementation minutes, partly for the comparison harness. These are model-time records, not human hours or reliable dollar costs. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-ai-is-changing-the-cross-platform-decision-matrix.md)
+- Matched full-ReadyToRun .NET 11 builds favored platform UI for startup and package size on the two tested phones. Android defaults instead gave platform UI a faster startup but a larger APK than the MAUI default. Android startup is not fully-interactive timing; dependency graphs, routes and runtime settings differ. NativeAOT warnings and an incomplete memory attempt prevent a whole-app safety conclusion. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-rss-ai-is-changing-the-cross-platform-decision-matrix.md)
+
+### Explicit relationships
+
+UI selection depends-on platform journeys, matched build settings and device validation; shared code does not remove per-platform ownership. See [[ai-assisted-software-practice]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Primary one-app experiment with explicit accounting and sampling limits. No app, benchmark or device run here; experimental inspection tools are separate from supported framework behavior. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which representative app/device comparison includes later parity fixes, coordinator/review cost, accessibility, matched runtime settings and full user journeys before choosing separate platform UIs? See [[indexes/gaps]].
+
+
+## 2026-11-23: VSTest container artifacts need a writable base independent of test success
+
+### Typed entities
+
+library: .NET SDK; project: VSTest; concept: VSTEST_ARTIFACTS_BASE_DIRECTORY; concept: private test-session directory; file: raw/2026-11-22-web-dotnet-test-needs-a-writable-vstest-artifacts-base-directory-in-contai.md.
+
+### Claims and evidence
+
+- Microsoft documents a private per-run artifacts directory in SDK 11.0.100 plus listed .NET 8/9/10 servicing SDKs. A missing Linux default base can warn and skip attachment post-processing while tests pass; Nano Server can fail before tests. Updating Microsoft.NET.Test.Sdk alone does not fix a missing base. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-web-dotnet-test-needs-a-writable-vstest-artifacts-base-directory-in-contai.md)
+- Set writable VSTEST_ARTIFACTS_BASE_DIRECTORY, not the SDK-owned VSTEST_ARTIFACTS_DIRECTORY. Official SDK images set the base. Random per-run directories use owner-restricted modes/ACLs; these do not isolate same-user processes or administrators. Test exit zero alone is not coverage-artifact acceptance. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-22-web-dotnet-test-needs-a-writable-vstest-artifacts-base-directory-in-contai.md)
+
+### Explicit relationships
+
+Attachment processing depends-on private writable session storage; test correctness and artifact completeness require separate assertions. See [[github-actions-platform-operations]].
+
+### Decision and quality notes
+
+Official compatibility note updated November 12; no container/test run executed. Linux TMPDIR/XDG_RUNTIME_DIR do not override the documented base. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which exact SDK/custom-container CI matrix verifies base permissions, Nano Server startup and complete processed coverage artifacts independently of passing tests? See [[indexes/gaps]].
+
+
+## 2026-11-23: Async ChangeToken callbacks silently rebind after recompilation
+
+### Typed entities
+
+library: Microsoft.Extensions.Primitives; concept: ChangeToken.OnChange; concept: Func<Task>; concept: notification coalescing; file: raw/2026-11-23-web-changetoken-onchange-async-overloads-rebind-existing-task-returning-ca.md.
+
+### Claims and evidence
+
+- Microsoft documents .NET 11 Task-returning OnChange overloads. Recompiling an existing async lambda can silently rebind from Action/async void to Func<Task>/async Task without ambiguity. Re-registration then waits for the returned task; changes during execution coalesce into a later callback. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-web-changetoken-onchange-async-overloads-rebind-existing-task-returning-ca.md)
+- The change is compile-time overload selection, with no configuration/AppContext compatibility switch. An explicit Action cast retains old fire-and-forget semantics where deliberately required; it also retains async-void hazards. Timing, exception and notification expectations need versioned tests. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-web-changetoken-onchange-async-overloads-rebind-existing-task-returning-ca.md)
+
+### Explicit relationships
+
+Notification behavior depends-on compiled overload selection and callback completion. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Official compatibility note; no code recompiled or recommendation to preserve unsafe legacy behavior by default. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which recompiled .NET 11 notification tests cover long-running callbacks, rapid changes, coalescing, exceptions and any intentional Action casts? See [[indexes/gaps]].
+
+
+## 2026-11-23: DI disposal continues after failures and aggregates multiple exceptions
+
+### Typed entities
+
+library: Microsoft.Extensions.DependencyInjection; concept: reverse capture order; concept: AggregateException; concept: scope disposal; file: raw/2026-11-23-web-dependency-injection-scope-disposal-aggregates-exceptions.md.
+
+### Claims and evidence
+
+- The .NET 11 built-in container now attempts disposal of every captured service in reverse capture order for synchronous/asynchronous scopes and root providers. One failure is rethrown unchanged; multiple failures produce AggregateException after all attempts. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-web-dependency-injection-scope-disposal-aggregates-exceptions.md)
+- Code must not rely on a first disposal exception preventing later cleanup. The note provides no compatibility switch; handlers need to distinguish single failures from multiple inner exceptions. This container behavior does not guarantee resources release if an individual Dispose implementation fails. confidence: 1 source, last-confirmed 2026-11-23 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-23-web-dependency-injection-scope-disposal-aggregates-exceptions.md)
+
+### Explicit relationships
+
+Cleanup completeness depends-on each disposable implementation; failure reporting uses single or aggregated exceptions. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Official compatibility note; no host/container lifecycle test executed. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which sync/async scope/root-provider tests verify reverse-order cleanup, single/multiple failures and caller handling of AggregateException after upgrading? See [[indexes/gaps]].
