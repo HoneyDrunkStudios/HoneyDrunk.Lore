@@ -2,6 +2,10 @@
 
 Questions the wiki cannot currently answer. Populated by the Query operation when synthesis falls short, and by the Lint operation when entities are referenced but lack a backing page.
 
+## Compile status: 2026-11-24
+
+Reconciled 1133 dated questions with 67 canonical pages at 2026-11-24T16:02:42-05:00; added 0 and closed 0. Every prior question and its history remain. No new source or query evidence resolves an open question; source-quality, local validation and acceptance gaps retain their existing status.
+
 ## Compile status: 2026-11-23
 
 Reconciled 1133 dated questions with 67 canonical pages at 2026-11-23T09:06:42-05:00; added 30 and closed 0. All 1103 prior questions remain. New questions specify missing source-specific compatibility, privacy, recovery and acceptance evidence; archival ingestion does not close local validation gaps.
