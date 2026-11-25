@@ -375,3 +375,23 @@ Swarm efficiency depends-on separable work, shared evidence and merge ownership;
 ### Decision and quality notes
 
 Primary prerelease benchmark account; no swarm launched or benchmark reproduced. This does not supersede the existing single-agent default without a concrete decomposition benefit. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which repeated equal-total-budget comparison measures correctness, run variance, merge conflicts, communication topology and aggregate cost for the actual candidate parallel task? See [[indexes/gaps]].
+
+
+## 2026-11-25: Battery-passport proposal binds authority to the versioned evidence context
+
+### Typed entities
+
+project: digital battery passport prototype; project: Microsoft Foundry; library: Microsoft Agent Framework; project: Azure SQL Database; concept: decision context; concept: transactional outbox. file: raw/2026-11-25-rss-evidence-before-autonomy-designing-multi-agent-battery-passports-on-az.md.
+
+### Claims and evidence
+
+- The author explicitly presents a fictional synthetic-data architecture, not a deployment or official Microsoft product guidance. Five agent roles return typed proposals; deterministic application workflows route them, while SQL owns case/review/passport state. Evidence validity, accountable human disposition and publication eligibility are separate outcomes. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-evidence-before-autonomy-designing-multi-agent-battery-passports-on-az.md)
+- A disposition names evidence, genealogy, method and policy versions; changed context invalidates its use for publication without deleting its history. The application rechecks accepted SQL context and commits version/audit/outbox together, but that transaction does not span upstream MES/Fabric/Blob. Registry acceptance, ledger integrity and physical-stock release remain distinct statuses. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-evidence-before-autonomy-designing-multi-agent-battery-passports-on-az.md)
+
+### Explicit relationships
+
+Publication depends-on current evidence-bound decisions; agents use role-scoped tools without direct database writes. Ledger verification supports tamper evidence, not source truth. See [[distributed-systems-patterns]] and [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+Proposed architecture with companion prototype, not validated compliance or savings. Regulatory dates/requirements are not promoted to legal guidance; they need current official/legal review. Fabric analytical copies require their own permissions, and stale dashboards cannot authorize release. No schema, infrastructure or agent team created. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which synthetic evidence-change race and recovery suite verifies stale-approval rejection, genealogy currency, hold delivery, outbox duplicates, registry acknowledgement, ledger status and restricted reads? See [[indexes/gaps]].

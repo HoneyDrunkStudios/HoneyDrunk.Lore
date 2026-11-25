@@ -740,3 +740,43 @@ AI reliability depends-on API availability and task quality; recovery uses bound
 ### Decision and quality notes
 
 Interview-based operational guidance rather than a controlled availability study. The product-of-availabilities example needs series-dependency and independence assumptions; no universal reliability ceiling is promoted. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which quality-aware incident drill detects a healthy-HTTP degraded model, identifies generated artifacts needing review and verifies a useful authorized deterministic fallback? See [[indexes/gaps]].
+
+
+## 2026-11-25: App Service geo-redundancy previews hosting failover without data replication
+
+### Typed entities
+
+project: Azure App Service; project: Azure Traffic Manager; concept: regional replica; concept: DNS failover; concept: last-known-good revision. file: raw/2026-11-24-rss-introducing-geo-redundancy-in-azure-app-service-simplify-multi-region-.md.
+
+### Claims and evidence
+
+- Microsoft's November 17 public-preview announcement describes managed regional web-app/plan replicas, supported content/config synchronization and revision inspection. Active routing uses weights; passive routing uses priorities. Traffic Manager selects healthy endpoints through DNS, so cache and client behavior affect failover timing. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-introducing-geo-redundancy-in-azure-app-service-simplify-multi-region-.md)
+- Initial eligibility is Windows apps on Premium v3/v4 in supported multitenant regions. Databases, Storage, Key Vault, runtime state and external dependencies are not automatically replicated. Regional dependency validation and recovery tests remain necessary; an extra enabled-app charge and regional compute costs are described. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-introducing-geo-redundancy-in-azure-app-service-simplify-multi-region-.md)
+
+### Explicit relationships
+
+Hosting failover uses DNS health routing; application recovery depends-on independently resilient data and dependencies. See [[azure-agent-automation-and-identity]].
+
+### Decision and quality notes
+
+Preview hosting announcement, no measured recovery objective or supported-region/price refresh. Do not infer full application resilience, instant connection migration or data consistency from replica health. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which eligible App Service rehearsal verifies synchronized revisions, DNS/client failover delay, dependency/data recovery, regional configuration and last-known-good rollback? See [[indexes/gaps]].
+
+
+## 2026-11-25: Disk fault simulation distinguishes process death from power-loss durability
+
+### Typed entities
+
+project: Antithesis; project: LazyFS; project: Amnesia; project: bbolt; concept: fsync failure; concept: torn write; concept: correlated fault. file: raw/2026-11-25-rss-nightmare-mode-simulating-disk-failures.md.
+
+### Claims and evidence
+
+- Antithesis explains that killing a process leaves kernel cache/writeback alive, so it does not reproduce loss of unsynced writes. Its FUSE-based Amnesia models volatile and durable state, discards volatile writes with process termination, and injects torn writes, errors and delayed/interleaved operations at meaningful syscall boundaries. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-nightmare-mode-simulating-disk-failures.md)
+- The article's EIO/fsync example shows why a successful retry need not restore previously failed dirty pages. Its bbolt/etcd example needs an I/O failure followed by cache/power-loss effects to expose corruption that a simple restart misses. Exact filesystem and application semantics matter; the account supplies no local affected-version conclusion. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-nightmare-mode-simulating-disk-failures.md)
+
+### Explicit relationships
+
+Durability testing depends-on modeled cache, fsync and failure ordering; recovery evidence uses final persisted state. See [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+Primary fault-injection engineering account, not a local database finding. No fault injected, service interrupted or vulnerable version inferred. Power-loss equivalence is within the described storage model, not a claim to cover all hardware/filesystem failures. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which disposable storage fixture verifies persisted-state invariants under EIO, torn writes, delayed I/O and power-loss sequences rather than relying on SIGKILL-only recovery? See [[indexes/gaps]].

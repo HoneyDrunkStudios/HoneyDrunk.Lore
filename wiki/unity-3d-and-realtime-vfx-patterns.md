@@ -2419,3 +2419,43 @@ Correct physics queries depend-on complete job dependencies and updated broadpha
 ### Decision and quality notes
 
 Official cumulative package history; no Editor, simulation or target-device run. An empty historical Security heading is not a vulnerability advisory or zero-findings assertion. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which exact Editor/Entities/Physics suite verifies collider replacement, static mesh edits, manual system dependencies and thread-mode switching against expected collision queries? See [[indexes/gaps]].
+
+
+## 2026-11-25: Hyper Visor isolates clocks and physics worlds for a shared XR interaction model
+
+### Typed entities
+
+project: Hyper Visor; project: Owlchemy Labs; library: Unity PhysicsScene; library: URP; concept: world-local clock; concept: stencil portal. file: raw/2026-11-24-rss-tearing-through-reality-the-tech-behind-hyper-visor-on-xreal-aura.md.
+
+### Claims and evidence
+
+- Owlchemy describes separate player, gameplay and pause physics worlds coordinated by a GameModule, with scene-handle world lookup, world-owned spawning and clocks. FixedUpdate orders logic and explicit PhysicsScene.Simulate calls; timeScale is reserved for device-focus transitions, so pause targets can stay interactive while gameplay stops. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-tearing-through-reality-the-tech-behind-hyper-visor-on-xreal-aura.md)
+- A common energy-stream sphere/raycast targets gameplay and UI, while stencil masks separate rendered worlds. Runtime-parsed level scripts and prefab reloads shorten iteration. The team reports roughly 100 rigidbodies and about 7 ms app time on XREAL AURA, developed on Unity 6.2 and shipped on 6.5; those are case-specific observations. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-tearing-through-reality-the-tech-behind-hyper-visor-on-xreal-aura.md)
+
+### Explicit relationships
+
+Pause isolation depends-on world-local time and simulation ownership; XR legibility uses device-specific display/FOV tests. See [[procedural-world-persistence]] and [[game-camera-systems]].
+
+### Decision and quality notes
+
+Primary developer account hosted by Unity, not a reproduced performance result or generic XR recipe. Quest aspect-ratio cropping was comparatively tuned and does not replace target-glasses testing; no headset run occurred. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which target-device XR fixture verifies world clocks, pause/resume, focus recovery, multi-world queries, stencil correctness and bright-background/FOV readability? See [[indexes/gaps]].
+
+
+## 2026-11-25: Unite Tokyo recap separates CLI availability from Unity 7 and Pipeline plans
+
+### Typed entities
+
+project: Unity CLI 1.0; project: Unity 7; project: Unity Pipeline API; concept: ECS for All; concept: neural texture compression; project: Unity Fellowship. file: raw/2026-11-25-rss-unite-tokyo-2026-keynote-recap-built-for-the-speed-of-your-ideas.md.
+
+### Claims and evidence
+
+- The keynote recap reports CLI 1.0 generally available with official agent plugins, while Pipeline API remains beta with GA planned for 2027. Unity 7's ECS/GameObject integration and Inspector editing are forward-looking; neural texture compression is experimental for 6.7 LTS with fuller release planned for 7. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-unite-tokyo-2026-keynote-recap-built-for-the-speed-of-your-ideas.md)
+- Atrio demonstrations illustrate Surface Cache GI, neural texture memory savings and graphics-backend gains, but do not establish project-independent performance. Asset Library expands individual asset discovery, with materials/animations/sounds still coming soon in this recap; source-specific service stages must be checked separately. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-unite-tokyo-2026-keynote-recap-built-for-the-speed-of-your-ideas.md)
+
+### Explicit relationships
+
+Roadmap interpretation depends-on feature-specific release stages; automation uses CLI while Pipeline and engine futures retain distinct gates. See [[ai-assisted-game-development-pipelines]].
+
+### Decision and quality notes
+
+Vendor keynote recap dated November 17, retrospectively captured. Same-origin CLI coverage adds no independent support beyond existing 1.0 announcement. Fellowship funding/application and hardware schedules are dated announcements, not verified current opportunities or device acceptance. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which pinned Unity/CLI/Pipeline feature matrix verifies released versus beta/experimental capabilities and representative rendering/import behavior before relying on keynote demonstrations? See [[indexes/gaps]].

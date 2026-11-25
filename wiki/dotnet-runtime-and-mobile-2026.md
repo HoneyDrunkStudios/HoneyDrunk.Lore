@@ -1718,3 +1718,23 @@ Cleanup completeness depends-on each disposable implementation; failure reportin
 ### Decision and quality notes
 
 Official compatibility note; no host/container lifecycle test executed. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which sync/async scope/root-provider tests verify reverse-order cleanup, single/multiple failures and caller handling of AggregateException after upgrading? See [[indexes/gaps]].
+
+
+## 2026-11-25: Invariant interpolation guidance includes code defects that block copy-paste use
+
+### Typed entities
+
+person: Andrew Lock; library: DefaultInterpolatedStringHandler; library: FormattableString; concept: invariant formatting; concept: multi-target compatibility. file: raw/2026-11-25-rss-invariant-culture-string-interpolation-with-interpolatedstringhandler.md.
+
+### Claims and evidence
+
+- The article distinguishes current-culture interpolation from explicit invariant formatting: string.Create with an invariant provider on modern .NET, FormattableString.Invariant on older targets, or a custom handler to unify a multi-target API. Its measured allocations are specific to the sample and target framework. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-invariant-culture-string-interpolation-with-interpolatedstringhandler.md)
+- Static inspection finds that the shown modern handler's AppendLiteral calls itself rather than the inner handler, contradicting the prose's delegation claim and causing unbounded recursion if invoked. The minimal illustrative handler also has a constructor name that does not match its type. These examples are not safe executable guidance as captured. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-invariant-culture-string-interpolation-with-interpolatedstringhandler.md)
+
+### Explicit relationships
+
+Culture-stable output depends-on explicit formatting policy; custom handlers depend-on correct forwarding and target-specific tests. See [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+Flagged source quality: recursive method and constructor mismatch. Preserve raw text unchanged; prefer the documented built-in API path pending corrected, compiled samples. No custom handler implemented or benchmark run. This is a source defect, not a previously published wiki claim requiring supersession. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which corrected multi-target interpolation sample compiles and verifies literal forwarding, culture, formatting/alignment, nulls and allocations without the captured recursion/constructor defects? See [[indexes/gaps]].

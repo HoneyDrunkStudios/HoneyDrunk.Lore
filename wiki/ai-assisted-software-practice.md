@@ -1565,3 +1565,43 @@ Design conformance uses versioned tokens/component contracts; remediation depend
 ### Decision and quality notes
 
 Self-reported hackathon prototype. Claims that all existing tools lack continuous governance or that automated checking preserves every accessibility/brand property exceed the demonstrated evidence. No product, design artifact or PR was modified. Omitted personal background and promotional detail. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which versioned design-system fixtures measure token/component drift detection, justified exceptions, accessibility regressions and remediation safety alongside rendered visual review? See [[indexes/gaps]].
+
+
+## 2026-11-25: High PR throughput is an operational case study rather than an outcome metric
+
+### Typed entities
+
+person: Will Larson; project: Imprint fleet; concept: verification evidence; concept: event-driven orchestration; concept: deployment versus release. file: raw/2026-11-24-rss-shipping-100-prs-to-production-in-a-week.md.
+
+### Claims and evidence
+
+- Larson reports 115 merged PRs in one calendar week and 170 in a selected seven-day interval, about 150 being production deployments rather than necessarily releases. The account attributes throughput to successive bottleneck work: CI/flags, accurate context, structured work, event-driven cloud harnesses, verification and open-work triage. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-shipping-100-prs-to-production-in-a-week.md)
+- The internal MCP lets agents propose configuration drafts while task-specific humans approve through the owning UI. The author explicitly treats merged-PR volume as a prompt for questions, not a standalone productivity or quality answer; harder problem framing and verification coverage remain bottlenecks. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-shipping-100-prs-to-production-in-a-week.md)
+
+### Explicit relationships
+
+Approvable changes depend-on credible verification evidence; orchestration uses event-driven work and explicit approval boundaries. See [[ai-agent-harnesses]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Practitioner self-report; no causal productivity study or transferable throughput target. Its approval shortcuts and issue-management choices do not override HoneyDrunk review rules or authorize a work-generating loop. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which real delivery workflow measures verified user outcomes, change complexity, reviewer effort and rework alongside throughput before adopting a fleet or triage loop? See [[indexes/gaps]].
+
+
+## 2026-11-25: Kitsu maintainer reports scoped sessions and deterministic migration scripts
+
+### Typed entities
+
+person: Frank Rousseau; project: Kitsu; project: Zou; project: Servant; concept: scoped coding session; concept: dry-run migration. file: raw/2026-11-25-rss-agentic-coding-on-an-open-source-project.md.
+
+### Claims and evidence
+
+- The Kitsu/Zou maintainer reports iterative conventions, bounded module sessions, tests/security audits and incremental modernization instead of a full rewrite. For data migration, the author prefers inspectable scripts with dry-run/logging over direct agent writes; memory/skill synchronization is a separate self-hosted tool, not the Lore research wiki. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-agentic-coding-on-an-open-source-project.md)
+- The account describes product and UI iteration, contribution benefits, context/cost limits and review noise; outside researchers still found security defects missed by model audits. It cautions that extra code and throughput can overload teammates and users. Its light-change/cleanup review shortcuts are the author's practice, not an established safety result. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-agentic-coding-on-an-open-source-project.md)
+
+### Explicit relationships
+
+Maintainable agent work depends-on scoped context, executable acceptance and human product judgment; migrations use explicit scripts. See [[agent-context-management-and-session-continuity]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Single-maintainer retrospective with unverified usage/productivity/cost figures, omitted from decision guidance. No memory service, multi-agent workflow or review bypass adopted. Public author attribution retained; personal details omitted. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which bounded maintenance or dry-run migration task demonstrates preserved behavior, understandable changes and rollback while measuring reviewer/user load rather than code volume? See [[indexes/gaps]].

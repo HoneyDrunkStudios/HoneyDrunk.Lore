@@ -3086,3 +3086,43 @@ Tool execution depends-on harness authorization, not model trust; provenance che
 ### Decision and quality notes
 
 Single-author demonstration, no model downloaded, trained, scanned or executed. Payload commands, exact trigger and exfiltration examples omitted. General impossibility claims and quoted monitor accuracy are not promoted as universal findings. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which isolated model/harness evaluation verifies artifact/template provenance, context-gated unsolicited-call rejection and audit visibility without treating an adapter delta as proof of a backdoor? See [[indexes/gaps]].
+
+
+## 2026-11-25: Semantic intent checks report fixed-attack results with adaptive-attack limits
+
+### Typed entities
+
+project: Google Agent Gateway; project: AgentDojo; concept: semantic governance; concept: intent hijacking; concept: adaptive attack. file: raw/2026-11-24-rss-did-the-user-ask-for-this-securing-ai-agents-against-intent-hijacking-.md.
+
+### Claims and evidence
+
+- Google reports six repetitions per configuration of AgentDojo v1.2.2 with gemini-2.5-flash, 97 benign tasks and 949 attacked runs: default user-intent checks reduced mean attack success from 48.7% to 0.9%, with a 2.6-point benign-utility loss. These are vendor-reported results for fixed attacks and a test harness, not a general security guarantee. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-did-the-user-ask-for-this-securing-ai-agents-against-intent-hijacking-.md)
+- The source reports no successful tool-dependent attack among 929 such attacks in any repetition, while text-only hotel recommendations remained outside tool-call enforcement. It explicitly excludes adaptive attacks against the judge and notes instruction-based trusted/untrusted separation rather than a hard boundary. Safe task completion and utility under attack use the same attacked-run denominator but different success criteria. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-did-the-user-ask-for-this-securing-ai-agents-against-intent-hijacking-.md)
+
+### Explicit relationships
+
+Intent enforcement uses pre-execution tool-call evaluation; security depends-on routed coverage and separate text-response controls. See [[mcp-tool-governance-and-app-surfaces]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+First-party preview benchmark; no attack executed or gateway enabled. Synthetic payment destinations and payload wording omitted. This adds a measured claim for this capture without rewriting the earlier overview source, which had no measured result. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which authorized semantic-governance evaluation includes adaptive judge attacks, text-only manipulation, streaming bypasses, benign false positives and recovery after denial? See [[indexes/gaps]].
+
+
+## 2026-11-25: Sandbox comparison separates isolation primitives from policy and credentials
+
+### Typed entities
+
+project: nono; project: Docker Sandboxes; project: Microsandbox; project: NVIDIA OpenShell; concept: credential injection; concept: egress policy. file: raw/2026-11-24-rss-sandboxing-ai-coding-agents-nono-vs-docker-sandboxes-vs-microsandbox-v.md.
+
+### Claims and evidence
+
+- Kudelski's hands-on comparison tests nono v0.76, Docker Sandboxes v0.50.0, Microsandbox v0.7.11 and OpenShell v0.1.8. It distinguishes nono's shared-kernel OS primitives, microVMs for Docker/Microsandbox and selectable OpenShell backends. Its 4-4.5/5 ratings are feature/maturity assessments, explicitly not escape testing or a security audit. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-sandboxing-ai-coding-agents-nono-vs-docker-sandboxes-vs-microsandbox-v.md)
+- The account highlights external credential injection scoped to destinations, with endpoint scoping in nono/OpenShell versus domain-only scoping in Docker/Microsandbox, and differences in HTTP/DNS controls, resources and visibility. Writable project files and secrets inside mounted folders remain risks; sandbox containment does not validate generated output. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-sandboxing-ai-coding-agents-nono-vs-docker-sandboxes-vs-microsandbox-v.md)
+
+### Explicit relationships
+
+Containment depends-on primitive, mount scope, egress and credential routes; reviewed output complements isolation. See [[ai-agent-identity-and-workload-auth]] and [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Independent comparative account, still version/platform-specific. No sandbox installed or escape attempted. GUI claims are qualified: the article says none supported its tested use while also mentioning an untested Docker display option. Treat GUI capability as unverified, not categorically impossible; example identities/configuration omitted. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which pinned Windows/Linux sandbox matrix verifies mount isolation, endpoint-scoped injection, OAuth capture, DNS/HTTP denial, resource limits and GUI/remote-SSH exclusions with synthetic credentials? See [[indexes/gaps]].

@@ -151,3 +151,23 @@ Cluster investigations depend-on joined identities, pod/IP history and durable t
 ### Decision and quality notes
 
 Practitioner reference architecture, not a tested local deployment or verified current provider-default matrix. No logging or body capture enabled; operational identifiers and sensitive example data omitted. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which approved cluster incident rehearsal verifies secret-free audit capture, exec/runtime coverage, pod/IP identity joins, node-loss delivery, locked retention and ingestion cost? See [[indexes/gaps]].
+
+
+## 2026-11-25: Shirudo proposes operator-approved eBPF protection while patches are prepared
+
+### Typed entities
+
+project: Shirudo; project: OpenAI; project: Cisco; library: eBPF; concept: signed shield; concept: TPM-backed evidence. file: raw/2026-11-25-rss-openai-and-cisco-introduce-shirudo.md.
+
+### Claims and evidence
+
+- OpenAI/Cisco announce an open-source Linux runtime for temporary eBPF shields, with observation before enforcement, signed/verified loading and TPM-backed records of protections loaded or removed. Operators control deployment; kernel verifier acceptance is a program-safety check, not proof of policy effectiveness. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-openai-and-cisco-introduce-shirudo.md)
+- A controlled Elasticsearch/Java4Shell example reportedly blocked an exploit without restart while service continued. That is one scoped demonstration, not proof of universal live protection or a replacement for the permanent patch; fleet-scale adaptive infrastructure remains a long-term goal. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-openai-and-cisco-introduce-shirudo.md)
+
+### Explicit relationships
+
+Temporary protection uses targeted eBPF controls; trustworthy adoption depends-on exploit and legitimate-workload tests plus operator approval. See [[ai-coding-agent-security]] and [[container-supply-chain-and-compliance]].
+
+### Decision and quality notes
+
+First-party announcement, no shield generated, loaded or tested here. Payload details omitted. License terms are stated as BSD 2-Clause with BPF dual licensing in the source, not independently audited; compatibility and attestation need verification. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which isolated Shirudo evaluation verifies target-kernel compatibility, signed load/remove evidence, exploit rejection, legitimate traffic, performance and rollback before a temporary shield is used? See [[indexes/gaps]].

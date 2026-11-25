@@ -1847,3 +1847,83 @@ Cycles features depend-on build, shader configuration and GPU/driver support. Se
 ### Decision and quality notes
 
 Project release notes; no renderer/driver installed or scene rendered. Device names and performance claims remain source-scoped. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which exact Cycles/GPU/driver scene matrix checks dispersion correctness, transmission anisotropy, temporal denoising artifacts, bake margins and export behavior? See [[indexes/gaps]].
+
+
+## 2026-11-25: Blender Project Setup distinguishes 5.3 configuration from 5.4 plans
+
+### Typed entities
+
+project: Blender 5.3; concept: project root; file: .blender_project/project.toml; concept: path variable; library: OpenColorIO. file: raw/2026-11-24-rss-project-setup-what-s-in-and-what-s-next.md.
+
+### Claims and evidence
+
+- The Blender development article describes opt-in project roots discovered up the opened blend file's directory tree via .blender_project/project.toml. Project settings take precedence over preferences; 5.3 scope includes project path variables, asset libraries, color configuration and splash/recent-file context. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-project-setup-what-s-in-and-what-s-next.md)
+- Per-project extension repository/add-on settings and broader path-template coverage are 5.4 priorities, with project selection/save workflows also planned. They are not established 5.3 capabilities by this article. Text-readable configuration supports version-control review but does not prove portability of every dependency. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-project-setup-what-s-in-and-what-s-next.md)
+
+### Explicit relationships
+
+Project Setup uses explicit root/configuration discovery; portability depends-on supported path fields and retained asset/color dependencies. See [[creative-tool-extension-packaging]].
+
+### Decision and quality notes
+
+First-party development account dated November 13. Existing pre-release and subsequent build-specific notes remain scoped to their dates; this retrospective capture does not establish an installed stable version. No Blender project created. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which pinned Blender project tests verify root discovery, preference precedence, moved paths, OCIO/assets and separation of shipped project settings from planned extension-repository behavior? See [[indexes/gaps]].
+
+
+## 2026-11-25: Blender splats use distinct raster and path-tracing representations
+
+### Typed entities
+
+project: Blender 5.3; project: EEVEE; project: Cycles; concept: Gaussian splat; concept: spherical harmonics; concept: point cloud. file: raw/2026-11-24-rss-splatting-the-gaussians-into-blender.md.
+
+### Claims and evidence
+
+- Blender's October 30 article describes initial 5.3 Gaussian-splat import from PLY/SPZ and USD, represented as point clouds with position, vector scale, quaternion rotation and radiance/spherical-harmonic attributes. Workbench, EEVEE and Cycles all render splats, but the source links a 5.3 beta rather than proving stable release acceptance. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-splatting-the-gaussians-into-blender.md)
+- EEVEE's initial dithered transparency is noisy and affected by overdraw; Cycles uses stochastic ray intersections compatible with indirect lighting but may differ from the rasterized fit. Relighting estimates normals from the smallest scale and remains early; culling, editing ergonomics and albedo extraction remain improvement areas. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-splatting-the-gaussians-into-blender.md)
+
+### Explicit relationships
+
+Splat rendering uses point attributes; appearance depends-on renderer, fitted data and radiance interpretation. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Same originating project as existing Blender rendering notes, not independent corroboration. Earlier export/transform/color limitations are not removed by silence in this retrospective article; no scene rendered or export tested. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which pinned splat scene compares Cycles/EEVEE appearance, sample noise, overdraw and relighting while retaining known transform, color and export limitations? See [[indexes/gaps]].
+
+
+## 2026-11-25: Blender Layered Actions workshop describes planned animation-oriented views
+
+### Typed entities
+
+project: Blender Layered Actions; concept: animation filtering; concept: Action Slot; concept: channel pinning; concept: minimal grouping. file: raw/2026-11-25-rss-layered-actions-workshop-september-2026.md.
+
+### Claims and evidence
+
+- The workshop report proposes gathering animated channels with metadata before building an Action-oriented hierarchy, avoiding repeated shared mesh/material data. Minimal grouping hides single-child summaries; only keyed content appears in this editor hierarchy, while layer management belongs in a separate panel. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-layered-actions-workshop-september-2026.md)
+- Editor-local pinning, custom groups, stacked graph layers, Action/Slot management across editors and an Action Editor focused on viewing/editing actions are design outcomes for incremental implementation. Evaluated curves and editor consolidation remain uncertain rather than promised released features. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-layered-actions-workshop-september-2026.md)
+
+### Explicit relationships
+
+Layered Actions depends-on the filtering-system replacement; proposed views use animation relationships instead of mirroring the Outliner. See [[creative-tool-extension-packaging]].
+
+### Decision and quality notes
+
+Design-workshop account dated November 3, not a released API/UI contract. Do not infer that every proposed feature ships in 5.3 or build automation around mockups; no action or rig edited. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which released Blender revision implements each Layered Actions proposal and preserves channel visibility, pin scope and assignment behavior on shared-data rigs? See [[indexes/gaps]].
+
+
+## 2026-11-25: Maya validator separates inspection from guarded scene-changing actions
+
+### Typed entities
+
+project: Maya Asset Validator; project: Autodesk Maya; library: PySide2; library: PySide6; concept: static polygon validation; file: .validator-intent.json. file: raw/2026-11-25-web-maya-asset-validator.md.
+
+### Claims and evidence
+
+- The captured README describes ten static-mesh checks for names/transforms, topology, UVs, close vertices, short edges and small/holed faces. Running checks does not edit meshes; Selection/Hierarchy/Scene scopes differ, and an empty Selection checks nothing. Report state becomes stale after scene changes. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-web-maya-asset-validator.md)
+- The package uses Maya-provided Python/Qt/API with PySide2 for 2024 and PySide6 for 2025-2026, per the author's exercised compatibility. Overlap intent is recorded in a scene sidecar; rename/new-identity are separate undoable actions. Distance and face-area checks use centimeter-based, pre-transform mesh measurements; UV checks use map1. Unreal integration is outside this package. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-web-maya-asset-validator.md)
+
+### Explicit relationships
+
+Validation uses scoped Maya mesh inspection; trustworthy handoff depends-on transform, unit, UV and stale-report interpretation. See [[creative-tool-extension-packaging]] and [[ai-assisted-game-development-pipelines]].
+
+### Decision and quality notes
+
+Project README with unknown publication date, not independent Maya compatibility or asset/license acceptance. License is not established by this capture; verify before vendoring. No package downloaded, installer run or scene changed. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which licensed disposable Maya package test verifies 2024-2026 bindings, empty-scope behavior, units/transforms, stale results, intent sidecars and undo for the guarded fixes? See [[indexes/gaps]].

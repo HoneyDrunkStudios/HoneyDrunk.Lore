@@ -1533,3 +1533,23 @@ Hosted execution support depends-on runner/action runtime architecture; applicat
 ### Decision and quality notes
 
 Brief first-party dated notice, not a complete migration recipe. No workflow or runner changed. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which workflow inventory distinguishes native hosted ARM32 execution from cross-compilation and verifies a supported replacement before December 8? See [[indexes/gaps]].
+
+
+## 2026-11-25: GitHub Code Quality rejects non-Cobertura coverage uploads explicitly
+
+### Typed entities
+
+project: GitHub Code Quality; project: upload-code-coverage; concept: Cobertura XML; concept: coverage-report validity. file: raw/2026-11-25-rss-code-coverage-uploads-now-flag-invalid-report-formats.md.
+
+### Claims and evidence
+
+- GitHub's November 23 changelog says its Code Quality upload-code-coverage action now fails unsupported non-Cobertura input instead of appearing successful with no PR coverage. For valid Cobertura, minor structural issues are tolerated and unusable individual line records are skipped instead of rejecting the whole report. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-code-coverage-uploads-now-flag-invalid-report-formats.md)
+- The feature requires Code Quality enabled and is described for Team/Enterprise Cloud, including data residency, not Enterprise Server. This behavior belongs to the named action and is not evidence about all third-party coverage uploaders. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-code-coverage-uploads-now-flag-invalid-report-formats.md)
+
+### Explicit relationships
+
+Coverage publication depends-on supported report format and enabled Code Quality; upload success complements verification of displayed coverage. See [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+First-party changelog, no action invoked or workflow edited. Tolerating malformed individual lines can change usable coverage, so acceptance needs report and displayed-result checks. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which Code Quality workflow verifies rejection of non-Cobertura files, partial-line handling and expected PR coverage with the repository feature enabled? See [[indexes/gaps]].

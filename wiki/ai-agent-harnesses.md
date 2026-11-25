@@ -2465,3 +2465,23 @@ Procedural improvement depends-on grounded evidence and held-out verification; a
 ### Decision and quality notes
 
 Vendor account, no independent replay or automatic memory/skill change here. Session content, personal workflows and private metadata are not imported. This is a researched mechanism, not a new Lore operating rule. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which consented skill-revision experiment verifies evidence independence, sanitized held-out/control replay, activation approval, rollback and library-size tradeoffs on real recurring tasks? See [[indexes/gaps]].
+
+
+## 2026-11-25: Code Argus reports deterministic gates and evidence-backed incident repair
+
+### Typed entities
+
+project: Code Argus; library: LangGraph; library: pgvector; project: Neo4j; concept: two-pass symbol index; concept: delta SARIF. file: raw/2026-11-25-rss-building-code-argus-from-hackathon-idea-to-agentic-devsecops.md.
+
+### Claims and evidence
+
+- The hackathon team describes a typed Code Analyst boundary joining Tree-sitter symbol/call graphs with vector retrieval. Missing cross-file CALLS edges were fixed by inserting all symbols before resolving edges; agent roles receive cited retrieval results rather than database access. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-building-code-argus-from-hackathon-idea-to-agentic-devsecops.md)
+- The account reports replacing stub test/scan gates with real runners and routing failed deterministic checks before a model Critic. Fix iterations are bounded, roles have restricted tools, artifacts feed deterministic git/scan helpers and humans merge. A genuine bug with green tests replaced fictional evidence that had induced an invented source file. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-building-code-argus-from-hackathon-idea-to-agentic-devsecops.md)
+
+### Explicit relationships
+
+Code Argus uses deterministic orchestration and source-backed retrieval; safe remediation depends-on real tests/scans and human authority. See [[agentic-retrieval-and-search]], [[agent-evaluation-and-benchmarks]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Self-reported evolving prototype, not independently audited DevSecOps coverage. A clean delta SARIF shows only the scanner-observed delta, not proof of no vulnerabilities; quoted costs are not general estimates. Runtime-signal retrieval and cross-repo reasoning remain plans. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which Code Argus-style fixture verifies cross-file indexing, provenance, real gate failures, bounded repair, scanner blind spots, role restrictions and retry idempotency without fabricated incident evidence? See [[indexes/gaps]].

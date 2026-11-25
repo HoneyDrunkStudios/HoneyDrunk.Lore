@@ -1069,3 +1069,23 @@ Observability quality depends-on resource budgets and retained diagnostic eviden
 ### Decision and quality notes
 
 Practitioner experiment, not reproduced benchmark or exhaustive migration guide. Screenshot pipeline and newer batching prose differ; verify pinned Collector components/configuration before migrating. No telemetry changed. Source-specific claims remain provisional; related/derived reports add no independent confirmation. Open question: Which pinned Collector and real-application replay measures CPU, memory, latency, completeness/loss, queue recovery and trace affinity under backend failure? See [[indexes/gaps]].
+
+
+## 2026-11-25: n8n separates retained execution evidence from traces and human audit events
+
+### Typed entities
+
+project: n8n; concept: execution record; concept: traceparent; concept: resumed trace link; concept: authenticated approver. file: raw/2026-11-24-rss-production-ai-playbook-audit-trace-for-ai-agents.md.
+
+### Claims and evidence
+
+- The n8n tutorial distinguishes saved node inputs/outputs from OpenTelemetry timing/status relationships and from audit events about human changes. An empty lookup can produce a successful span and unsupported model reply; required-field checks must route incomplete evidence to review rather than treating HTTP 200 as semantic success. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-production-ai-playbook-audit-trace-for-ai-agents.md)
+- Tracing can join incoming trace context and propagate outbound context; resumed waits may create another trace linked to the earlier span and found by execution ID. The source labels tracing and workflow reviews preview, with retention/access depending on plan. Workflow reviews do not cover settings, credentials, variables, data tables or sub-workflows. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-production-ai-playbook-audit-trace-for-ai-agents.md)
+
+### Explicit relationships
+
+Audit reconstruction depends-on retained inputs, workflow versions and external configuration; tracing uses context propagation. See [[agent-evaluation-and-benchmarks]] and [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+First-party walkthrough of workflow AI Agent nodes, not blanket documentation for the separate n8n Agents product. Signed resume URLs are bearer capabilities; submitted approver text is not authenticated identity. No live endpoints, trace IDs or payment fixtures copied and no collector deployed. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which n8n rehearsal verifies saved-payload retention, cross-service and resumed traces, external-config/version evidence, authenticated approval and review exclusions without leaking prompts or resume capabilities? See [[indexes/gaps]].

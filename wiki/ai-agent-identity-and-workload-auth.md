@@ -381,3 +381,43 @@ Docker, Solo.io and Anthropic independently describe a proxy/gateway holding sup
 ### Quality notes
 
 Three originating organizations, not three independent implementation audits. Strengthened qualitative design support only; no common protocol, measured containment or HoneyDrunk deployment is established. See [[ai-agent-harnesses]] and [[ai-coding-agent-security]].
+
+
+## 2026-11-25: Object authorization needs action, tenant and authoritative relationships
+
+### Typed entities
+
+project: Microsoft Entra ID; concept: object-level authorization; concept: policy enforcement point; concept: relationship service; concept: workload grant. file: raw/2026-11-24-rss-who-can-see-this-record-designing-reusable-access-control-lists-for-az.md.
+
+### Claims and evidence
+
+- The Azure-oriented design separates gateway token validation from service-side authorization of each object/action. A small enforcement library obtains subject and tenant from validated server identity, bulk-checks every requested resource with all-of semantics and fails closed on missing context or evaluator failure. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-who-can-see-this-record-designing-reusable-access-control-lists-for-az.md)
+- Delegated OBO tokens and app-only workload identities are distinct modes. Narrow owned service grants are evaluated decisions, not header-based skips; explicit justified endpoint exemptions and NotApplied telemetry expose missing checks. A denial and evaluator error both stop access but have different operational meanings. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-who-can-see-this-record-designing-reusable-access-control-lists-for-az.md)
+
+### Explicit relationships
+
+Object access depends-on authoritative relationships and trusted subject/tenant/action context; coverage uses endpoint inventory and decision telemetry. See [[azure-agent-automation-and-identity]] and [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+Reference design rather than audited implementation. No shared authorization library or schema created. Batch bounds, revocation/caching and time-of-check races still require an implementation-specific contract; example identities/resources omitted. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which object-authorization contract suite covers cross-tenant IDs, mixed batches, token substitution, workload/OBO separation, evaluator outage, cache revocation and missing endpoint decisions? See [[indexes/gaps]].
+
+
+## 2026-11-25: OAuth operational lessons treat rotating refresh tokens as durable state
+
+### Typed entities
+
+project: Nango; concept: refresh-token rotation; concept: per-connection lock; concept: provider expiry policy; concept: semantic auth error. file: raw/2026-11-25-rss-what-we-learned-operating-auth-for-1-000-apis.md.
+
+### Claims and evidence
+
+- Nango recounts losing newly rotated tokens when a persistence bug discarded refresh responses, making some connections irrecoverable without user consent. It now prioritizes token persistence, serializes per-connection refreshes and uses provider-specific expiration buffers; duplicate or stale refreshes can have irreversible effects depending on the provider. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-what-we-learned-operating-auth-for-1-000-apis.md)
+- The account describes optional/missing expiry fields, separate introspection, changing revocation policies and HTTP-200 responses containing errors or empty unauthorized data. Provider adapters and credential-health tests need semantic checks rather than assuming interchangeable OAuth behavior or success from status alone. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-what-we-learned-operating-auth-for-1-000-apis.md)
+
+### Explicit relationships
+
+OAuth continuity depends-on durable rotated-token writes, serialized refresh and provider-specific policy; error detection uses semantic response validation. See [[distributed-systems-patterns]] and [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+Provider-operator retrospective dated August 6, newly captured November 25; not a current provider matrix. Registry/API counts use differing snapshots and are not pooled. No credentials or operational connection identities copied, requested or tested. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which synthetic rotating-token adapter tests verify atomic persistence, refresh locking, lost-response recovery, provider expiry buffers and HTTP-200 error/empty-data handling? See [[indexes/gaps]].

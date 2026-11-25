@@ -1230,3 +1230,43 @@ Scheduler security features depend-on SKU and network/key configuration; recover
 ### Decision and quality notes
 
 Correlated first-party roundup, not independent confirmation of the framework-specific guides. Earlier MAF GA and Pydantic histories remain accurate; no broad all-capabilities-GA promotion. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which SKU/region/package rehearsal verifies private-only access, key rotation, queue-rate limits, replication lag and safe secondary promotion with duplicate effects controlled? See [[indexes/gaps]].
+
+
+## 2026-11-25: DocumentExtractionClient previews a common structured extraction boundary
+
+### Typed entities
+
+library: Microsoft.Extensions.DocumentExtraction; library: DocumentExtractionClient; library: Microsoft.Extensions.DataIngestion; concept: source region; concept: nested document tree. file: raw/2026-11-24-rss-introducing-documentextractionclient-preview-extract-documents-in-net.md.
+
+### Claims and evidence
+
+- Microsoft introduces preview DocumentExtractionClient with ExtractAsync returning an ExtractionDocument tree of sections, text, tables, images and source locations. Starter providers include in-process PdfPig, vision through IChatClient, Azure Content Understanding, Document Intelligence and Mistral OCR; capabilities and document egress differ by provider. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-introducing-documentextractionclient-preview-extract-documents-in-net.md)
+- Nested content needs EnumerateContent rather than a shallow two-level loop. The sample preserves table cell spans and provenance, adds logging/fallback middleware, and maps extraction into DataIngestion through a sample reader; built-in seamless composition is future work. Scanned-PDF fallback buffers and rewinds input before OCR. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-introducing-documentextractionclient-preview-extract-documents-in-net.md)
+
+### Explicit relationships
+
+Extraction uses provider-specific parsers behind a shared client; RAG quality depends-on preserved hierarchy, tables and source coordinates. See [[agentic-retrieval-and-search]] and [[llm-wiki-and-knowledge-formats]].
+
+### Decision and quality notes
+
+Preview SDK/tutorial; provider timings are author-machine observations, not comparative guarantees. Capture contains an existing redaction marker in a code argument, so the pasted sample is not treated as runnable code. No package or ingestion runtime changed. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which pinned extraction providers correctly handle nested sections, merged tables, scans, source regions, bounded buffering and permitted document egress on representative private-safe fixtures? See [[indexes/gaps]].
+
+
+## 2026-11-25: Llama on Windows exposes local models through an OpenAI-compatible client boundary
+
+### Typed entities
+
+project: Llama on Windows; library: llama.cpp; library: Microsoft.Extensions.AI; library: IChatClient; concept: local inference. file: raw/2026-11-24-rss-run-local-models-in-your-net-apps-with-llama-on-windows.md.
+
+### Claims and evidence
+
+- The .NET tutorial describes a Windows 11 tray application built on .NET 10/WinUI 3 and llama.cpp, with models in the Hugging Face cache and hardware/context fit indicators. It manages model loading and idle unloading; the sample calls its localhost OpenAI-compatible model/chat endpoints through IChatClient. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-run-local-models-in-your-net-apps-with-llama-on-windows.md)
+- The .NET 11 file-based sample combines streaming and function invocation; tool support depends on the chosen model. An OpenAI-format client does not imply requests go to OpenAI when explicitly pointed at the local endpoint, and an SDK placeholder credential is not provider authentication. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-run-local-models-in-your-net-apps-with-llama-on-windows.md)
+
+### Explicit relationships
+
+Llama uses llama.cpp for local inference; tool execution depends-on model support and application authorization. See [[edge-ai-and-ai-infrastructure-2026]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+First-party tutorial with machine-specific examples; no installation, download, local endpoint exposure or model execution. Local prompts do not establish whole-application privacy for arbitrary tools, telemetry or future provider routing. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which Windows/model fixture verifies memory/context fit, endpoint binding, offline behavior, streaming, idle unload and restricted tool calls without exposing machine metadata? See [[indexes/gaps]].

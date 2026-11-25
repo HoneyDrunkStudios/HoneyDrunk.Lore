@@ -2263,3 +2263,23 @@ Worker containers use compute separation; compatibility depends-on supported ima
 ### Decision and quality notes
 
 First-party preview announcement with rolling regional availability; no registry, image, resource or deployment changed. Arbitrary container hosting and production readiness are not inferred. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which supported-region worker-image rehearsal verifies native dependencies, registry identity, extension exclusions, full image startup, preserved app settings and digest-based rollback? See [[indexes/gaps]].
+
+
+## 2026-11-25: Foundry improvement keeps candidate optimization separate from production adoption
+
+### Typed entities
+
+project: Microsoft Foundry; concept: golden evaluation dataset; concept: trace annotation; concept: agent optimizer; decision: controlled adoption. file: raw/2026-11-24-rss-continuous-improvement-comes-to-microsoft-foundry.md.
+
+### Claims and evidence
+
+- Microsoft describes an establish-identify-optimize-validate loop: experts annotate traces, evaluations define quality, insights group recurring failures, and agent optimizer tests candidate instruction, skill or model changes. Production changes require the team's adoption decision; versioned skills support reuse and rollback. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-continuous-improvement-comes-to-microsoft-foundry.md)
+- The announcement distinguishes GA insights and external-framework visibility from preview rubric/annotation/dataset, skill/cost-optimization and Programmed Training additions. Hosted-agent concurrency improvements are GA while faster startup and the managed Copilot harness are preview; the full bundle is not uniformly GA. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-continuous-improvement-comes-to-microsoft-foundry.md)
+
+### Explicit relationships
+
+Improvement uses observed traces and versioned evaluations; activation depends-on accepted evidence and team authority. See [[agent-evaluation-and-benchmarks]] and [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Vendor announcement dated November 17; cost savings, model comparisons and customer outcomes are not independent validation and are not adopted as local results. Related Microsoft announcements do not add independent support. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which versioned Foundry task corpus verifies annotation privacy, held-out evaluation, optimizer regressions, statistical uncertainty, adoption approval and rollback across the selected GA/preview features? See [[indexes/gaps]].

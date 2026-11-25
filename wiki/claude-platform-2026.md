@@ -560,3 +560,23 @@ Self-hosted Managed Agents uses separate control and execution planes; privacy d
 ### Decision and quality notes
 
 Vendor architecture/private-beta availability, no HoneyDrunk entitlement or isolation verification. Self-hosting does not mean all model data stays on premises. Session/tool telemetry itself needs minimization and retention controls. Open question: Which private-beta deployment verifies provider egress, retention scope, credential-proxy coverage, firewall denial, session isolation, upgrades and scrubbed audit export? See [[indexes/gaps]].
+
+
+## 2026-11-25: Claude Ship separates review, repair and approval policy
+
+### Typed entities
+
+project: Claude Ship; project: Code Review; project: PR Steward; project: Claude Approvals; concept: required GitHub check. file: raw/2026-11-24-rss-claude-ship.md.
+
+### Claims and evidence
+
+- The captured Claude documentation describes Code Review finding defects, PR Steward pushing repairs for feedback/checks/conflicts, and Claude Approvals evaluating a repository policy. Steward is designed not to approve or merge; Approvals blocks only when enforced through required GitHub checks, with observe mode normally advisory. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-claude-ship.md)
+- The source lists Code Review as GA and Steward/Approvals as public beta for eligible Team/Enterprise organizations, with token billing separate from included usage. It warns that disabling usage credits does not stop enabled agents' billing, and an approvals policy can change automatic review coverage. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-claude-ship.md)
+
+### Explicit relationships
+
+Claude Ship uses separate reviewer and repair agents; merge authority depends-on configured GitHub rules. See [[ai-assisted-software-practice]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+First-party documentation snapshot; plan eligibility, policy interactions and billing require current verification. No service enabled, policy installed or reviewer selection changed. This is descriptive research, not a change to HoneyDrunk publishing rules. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which isolated Claude Ship pilot verifies required-check enforcement, observe mode, review coverage, repair permissions, spend limits and complete shutdown before any adoption? See [[indexes/gaps]].

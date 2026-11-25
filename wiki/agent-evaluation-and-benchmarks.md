@@ -1968,3 +1968,38 @@ Evaluation depends-on task-specific acceptance and resource accounting. See [[mu
 ### Decision and quality notes
 
 No benchmark ranking is consolidated. Single-source numerical claims remain provisional. Existing weak-claim limitations and unresolved dataset arithmetic remain; derived queries do not add support.
+
+
+## 2026-11-25: Agentic evaluations need verifier controls, pinned environments and repeatability
+
+### Typed entities
+
+project: Harbor; project: Terminal-Bench; project: raman-lab; library: Terminus-2; concept: pass@k; concept: pass^k; concept: clustered uncertainty. file: raw/2026-11-24-rss-how-to-build-and-maintain-an-agentic-evaluation.md.
+
+### Claims and evidence
+
+- Hugging Face's worked evaluation reuses a task/harness but validates the reference solution, no-op agent and a shortcut before interpreting model scores. A ratio-only verifier accepted all eight shortcut outputs without actual fitting; adding fitted-peak checks rejected that shortcut. Final saved state and explicit task requirements are the grading surface. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-how-to-build-and-maintain-an-agentic-evaluation.md)
+- For eight development spectra and three rollouts each, the reported initial setup passed 11/24, with pass@3 of 7/8 and pass^3 of 1/8; a repeat passed 10/24. Provider pinning changed a separate run, so scores require model/provider, harness, dependencies, budget and traces. Task-clustered uncertainty and development-set saturation limit generalization. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-how-to-build-and-maintain-an-agentic-evaluation.md)
+
+### Explicit relationships
+
+Evaluation uses pinned environments and state verifiers; score interpretation depends-on task validity and repeated rollouts. See [[ai-assisted-software-practice]] and [[multi-agent-architectures]].
+
+### Decision and quality notes
+
+Primary worked example, not reproduced here. Six-model comparisons, contamination surveys and third-party audits in the essay are not independent replication of its eight-task result. Publish or provide controlled review of methods, corrections and traces without exposing protected items. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which local agent task suite passes oracle/no-op/shortcut controls and reports repeated, task-clustered results with pinned model providers, dependencies, traces and explicit completion artifacts? See [[indexes/gaps]].
+
+
+## 2026-11-25 consolidation: successful mechanics do not establish task correctness
+
+### Typed entities
+
+concept: semantic correctness; concept: negative control; decision: verify actual task artifacts.
+
+### Reinforced claim
+
+Synthesis: Hugging Face's shortcut passed a ratio-only grader, n8n's empty lookup could leave a successful span, and the Code Argus team's genuine bug passed its tests. These accounts from three originating organizations strengthen the need for task-specific artifact checks and negative controls alongside successful execution/test status; none proves local effectiveness or validates another account's scores. confidence: 3 sources, last-confirmed 2026-11-25 (archived accounts reviewed; no live replication). [source](../raw/2026-11-24-rss-how-to-build-and-maintain-an-agentic-evaluation.md) [source](../raw/2026-11-24-rss-production-ai-playbook-audit-trace-for-ai-agents.md) [source](../raw/2026-11-25-rss-building-code-argus-from-hackathon-idea-to-agentic-devsecops.md)
+
+### Explicit relationships and quality
+
+Acceptance depends-on observable task outcomes; negative controls challenge false-green paths. See [[api-testing-and-verification]] and [[ai-assisted-software-practice]]. This strengthens a qualitative design rationale only; every source-specific result remains provisional.

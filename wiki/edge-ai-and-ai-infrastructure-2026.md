@@ -1569,3 +1569,43 @@ Unit cost depends-on useful completion, infrastructure utilization and rework; r
 ### Decision and quality notes
 
 Practice essay with qualitative economic reasoning, no controlled cost study. The cost formula is conceptual; token charges and human review need explicit accounting in any local implementation. No infrastructure procured or changed. Source-specific claims remain provisional; related reports and derived queries add no independent confirmation. Open question: Which real workflow has an agreed success/quality denominator and attributable compute, tokens, queueing, storage/network, telemetry, retries and review costs before an infrastructure change? See [[indexes/gaps]].
+
+
+## 2026-11-25: MoE expert streaming reports a bounded-cache prototype on limited memory
+
+### Typed entities
+
+project: Transformers; project: Strata; library: PyTorch MPS; concept: routed expert; concept: slot pool; concept: disk-resident n-gram table. file: raw/2026-11-25-rss-180b-parameters-32gb-of-ram-pushing-moe-inference-to-the-limit-with-tr.md.
+
+### Claims and evidence
+
+- The Hugging Face experiment streams only selected MoE experts from SSD into a preallocated slot pool shared across layers, remaps expert indices for grouped_mm and prefetches likely future experts. On the tested large model, disk-streaming its separate n-gram embedding table is also necessary; expert offload alone does not make the full model fit. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-180b-parameters-32gb-of-ram-pushing-moe-inference-to-the-limit-with-tr.md)
+- The author reports optimized short decode of 13.9 versus Strata's 14.8 tokens/s on the same 32 GB M5 setup, using matched GGUF weights after earlier differently quantized tests. Prompt length, cache, dense-weight traffic and host synchronization affect results. The generic Transformers PR/API is still under discussion, with model-specific Metal code layered on top. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-180b-parameters-32gb-of-ram-pushing-moe-inference-to-the-limit-with-tr.md)
+
+### Explicit relationships
+
+Local MoE capacity depends-on expert and non-expert memory plus I/O; performance uses routing-aware caching and kernels. See [[microsoft-dotnet-ai-stack]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Primary engineering experiment, not a released universal Transformers feature or equal-precision comparison across every table. Personal/family/host metadata omitted; no model or PR installed. The author still judges the result too slow for their coding-agent use. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which reproducible equal-weight MoE run measures quality, peak memory, non-expert tables, SSD traffic, short/long-context throughput and host stalls before local adoption? See [[indexes/gaps]].
+
+
+## 2026-11-25: Cobalt 200 availability is a dated vendor claim with sizing-table defects
+
+### Typed entities
+
+project: Azure Cobalt 200; library: Arm Neoverse V3; project: Azure Boost; concept: deterministic processor mode; concept: workload compatibility. file: raw/2026-11-25-rss-azure-cobalt-200-vms-now-available-proven-on-real-workloads-and-built.md.
+
+### Claims and evidence
+
+- Microsoft's November 17 announcement states Cobalt 200 VM general availability in 14 regions, with expansion to 23 planned by year-end. It describes Arm-based physical-core vCPUs, Azure Boost and deterministic/opportunistic processor modes; family eligibility, OS support and regional capacity need current workload-specific checks. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-azure-cobalt-200-vms-now-available-proven-on-real-workloads-and-built.md)
+- Performance comparisons are vendor/customer observations against Cobalt 100 with workload-specific maxima; they do not predict HoneyDrunk gains. The captured high-memory row contains a malformed vCPU value and capacity figures that are not a reliable sizing contract, so those values are not used here. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-azure-cobalt-200-vms-now-available-proven-on-real-workloads-and-built.md)
+
+### Explicit relationships
+
+Cobalt deployment depends-on Arm-compatible software, family/region capacity and mode selection; throughput claims require representative benchmarks. See [[github-actions-platform-operations]].
+
+### Decision and quality notes
+
+Flagged source quality: malformed high-memory sizing table. Use an authoritative size specification before capacity calculations. No VM, runner, subscription or infrastructure changed; endorsements are not independent benchmark replication. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which authoritative Cobalt size/OS matrix corrects the malformed table and which representative Arm workload compares modes, latency, capacity and actual cost in an available region? See [[indexes/gaps]].

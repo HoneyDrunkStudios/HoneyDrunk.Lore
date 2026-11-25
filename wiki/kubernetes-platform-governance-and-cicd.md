@@ -207,3 +207,23 @@ Application attribution uses Argo resource ownership and OpenCost measurements; 
 ### Decision and quality notes
 
 Vendor-maintained early community project, explicitly unaffiliated with Argo/CNCF/OpenCost. Monthly projections and linear forecasts are estimates, not invoice reconciliation or causal proof of a release impact. No Helm install, database, cluster or permissions were changed; password-bearing shell examples are not copied. Source-specific claims remain provisional; recaptures and derived queries add no independent support. Open question: Which same-cluster cost replay reconciles workload ownership, 24-hour sync lag, sparse hours, actual pricing, external estimates and effective platform-page RBAC before trusting Argo cost attribution? See [[indexes/gaps]].
+
+
+## 2026-11-25: AKS portal exposes Gateway API controller choice and route resources
+
+### Typed entities
+
+project: AKS; project: Application Routing with Gateway API; project: Application Gateway for Containers; concept: Gateway; concept: HTTPRoute. file: raw/2026-11-25-rss-enable-and-manage-gateway-api-on-azure-portal.md.
+
+### Claims and evidence
+
+- Microsoft describes an AKS Networking/Ingress profile portal flow for Application Routing with Gateway API or Application Gateway for Containers. Enabling either installs the managed Gateway API add-on prerequisite when absent; the profile exposes enabled controllers. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-enable-and-manage-gateway-api-on-azure-portal.md)
+- Gateway and HTTPRoute resources are visible/manageable under Kubernetes resources, including listeners/backends. The portal experience helps inspection but does not prove controller equivalence, successful traffic routing or a safe migration from existing Ingress configuration. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-enable-and-manage-gateway-api-on-azure-portal.md)
+
+### Explicit relationships
+
+Portal enablement depends-on the selected controller and managed Gateway API prerequisites; application traffic uses configured listeners and routes. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+First-party portal feature article dated November 18; no AKS or routing configuration changed and no blanket GA/status assertion inferred beyond the capture. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which AKS/controller version verifies portal enablement, Gateway/HTTPRoute status, listener/backend behavior, RBAC and safe coexistence or rollback from current ingress? See [[indexes/gaps]].

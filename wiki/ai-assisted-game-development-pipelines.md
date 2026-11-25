@@ -311,3 +311,43 @@ Capybara Island uses sourced memory and world-state checks; belief revision depe
 ### Decision and quality notes
 
 Single self-report. A replayable world record and deeper physics remain planned in the article; do not promote them to shipped features. Spending ceilings, sealed execution and stream failover are described but not independently tested. Omit residents’ personal-style narrative details from general design claims. Open question: Which replayable seeded character evaluation verifies provenance, false-memory correction, belief revision, memory decay, sensory limits and bounded model cost over long runs? See [[indexes/gaps]].
+
+
+## 2026-11-25: Unity frames generated surface features separately from maintained foundations
+
+### Typed entities
+
+project: Unity CLI; project: Unity Industry; concept: C# Eval; concept: comprehension debt; decision: build-versus-buy boundary. file: raw/2026-11-24-rss-real-time-3d-with-unity-industry-what-to-vibe-code-with-unity-cli-and-.md.
+
+### Claims and evidence
+
+- Unity describes CLI Eval and Editor APIs supporting generated scene/UI/editor-tool scripts and workflow glue without the usual domain reload. Its examples keep engine behavior, proprietary CAD translation, asset governance and long-term operational responsibility in maintained infrastructure. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-real-time-3d-with-unity-industry-what-to-vibe-code-with-unity-cli-and-.md)
+- The essay argues that creation speed does not remove review, security, testing, release ownership or maintenance costs, especially for confidential assets and multi-user tools. Its build-versus-buy chart is explicitly illustrative rather than numerical ROI evidence. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-24-rss-real-time-3d-with-unity-industry-what-to-vibe-code-with-unity-cli-and-.md)
+
+### Explicit relationships
+
+AI-assisted authoring uses documented Editor surfaces; production value depends-on maintained foundations and reviewable ownership. See [[unity-3d-and-realtime-vfx-patterns]] and [[ai-assisted-software-practice]].
+
+### Decision and quality notes
+
+Vendor positioning with illustrative demos, not proof that managed products are always the best economic/security choice. No procurement, infrastructure, asset conversion or Editor action occurred. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which representative Unity workflow measures reviewed authoring effort, maintenance ownership, CAD fidelity, access control and total cost before choosing generated tooling versus managed services? See [[indexes/gaps]].
+
+
+## 2026-11-25: Unity asset CLI beta ties retrieval and generation to entitlements and spend
+
+### Typed entities
+
+project: Unity CLI; project: Unity Asset Library; concept: asset entitlement; concept: generation quote; concept: provenance. file: raw/2026-11-25-rss-access-asset-store-and-ai-generators-using-the-unity-cli.md.
+
+### Claims and evidence
+
+- Unity describes open-beta CLI access to Asset Store discovery/import and AI generation, with an Asset Library plugin fetching individual assets and their dependencies from free or already-owned packs rather than importing an entire package. It exposes metadata such as triangle counts and rigging; these are inspection inputs, not acceptance tests. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-access-asset-store-and-ai-generators-using-the-unity-cli.md)
+- The announcement describes 60+ generation models, free quotes before credit spend and per-file model/prompt/cost records. A Unity login carries the user's entitlements and spending identity; generator access is described for paid plans using included credits. Asset Store free access and generator eligibility are different scopes. confidence: 1 source, last-confirmed 2026-11-25 (archived capture reviewed; no live refresh). [captured source](../raw/2026-11-25-rss-access-asset-store-and-ai-generators-using-the-unity-cli.md)
+
+### Explicit relationships
+
+Asset automation uses the signed-in Unity identity; safe generation depends-on approved spend, license entitlement and recorded provenance. See [[creative-tool-extension-packaging]] and [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+First-party open-beta announcement. No asset purchased, downloaded, generated or imported, and no eligibility/credit balance verified. CLI 1.0 GA does not make every connected asset/generation service GA. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which Unity CLI beta fixture verifies per-asset dependency completeness, license/entitlement boundaries, quote-to-spend approval, provenance and clean removal on a disposable project? See [[indexes/gaps]].
