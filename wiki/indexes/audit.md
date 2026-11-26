@@ -508,3 +508,11 @@ Operator: Codex executing the authorized Honeyclaw workflow. Read and ingested 4
 - Quality cautions: faulty invariant-handler code, malformed Cobalt sizing and contradictory/untested GUI-support wording in the sandbox comparison. These are source limits, not a reason to omit the captures or present unreliable examples as guidance.
 - Privacy: no raw bytes changed; no credential values copied into wiki content. Omitted synthetic payment destinations, payloads, resume capabilities, operational identities and personal details. Regulatory claims in the fictional battery-passport proposal were not promoted as legal guidance.
 - Run receipt, validation and explicit author review: [lore-ingest-last-run.md](../../output/lore-ingest-last-run.md). Publication includes only compiled pages/indexes, the receipt and the 30 original new captures so cited inputs travel with the wiki. Other sourcing receipts and signal reviews remain excluded; no PR creation or merge requested.
+
+
+## 2026-11-26T12:36:35-05:00 - Daily ingest/compile coverage recheck
+
+- Operator: Codex executing the authorized Honeyclaw workflow. Ingested **0** raw sources; all **1637** documents have unique source-index entries. Canonical pages explicitly name **1580** captures; **57** retain historical grouped/cluster coverage.
+- Read **13** historical query outputs and checked **75** distinct explicit raw citations against canonical coverage. New crystallizations, canonical-page edits, contradictions resolved and gaps added/closed: **0** each. Existing source confidence dates and supersession history remain.
+- Rebuilt/verified sources, all **67** topic rows and **1163** dated gaps. Raw files and canonical pages remain byte-for-byte unchanged. No new quality flags, privacy redactions or substantive evidence.
+- Previous ingest receipt: [November 25 receipt](https://github.com/HoneyDrunkStudios/HoneyDrunk.Lore/blob/fc922a9f102988fe7a5f4e805bb85fc2345c64b7/output/lore-ingest-last-run.md). Current validation and explicit author review: [run summary](../../output/lore-ingest-last-run.md). Only the receipt and four indexes enter the scoped commit; unrelated sourcing receipts and signal-review files remain excluded. Normal existing-branch push authorized; success checked separately. No PR creation or merge requested.

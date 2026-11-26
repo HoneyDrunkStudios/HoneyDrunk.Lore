@@ -2,6 +2,10 @@
 
 Auto-maintained by the Ingest and Compile operations. Every file added to `raw/` gets an entry here once it has been ingested.
 
+## Compile coverage: 2026-11-26
+
+Reconciled 1637 raw documents with 1637 unique source entries at 2026-11-26T12:36:35-05:00; no unprocessed sources. All entries and ingest dates remain. Read 13 historical query outputs; their 75 distinct explicit raw citations and durable conclusions already have canonical coverage, so no new crystallization or independent support was added. This archival coverage check does not refresh claim confidence or establish current runtime acceptance.
+
 ## Compile coverage: 2026-11-25
 
 Reconciled 1637 raw documents with 1637 unique source entries at 2026-11-25T09:06:32-05:00; ingested 30 captures into 19 existing canonical pages. All prior entries and ingest dates remain. Thirteen historical query outputs yield no new durable crystallization or independent support. Three source-quality cautions cover malformed sizing, faulty code and untested GUI claims; no cross-page contradiction requires supersession. This is archival compilation, not current runtime acceptance.
