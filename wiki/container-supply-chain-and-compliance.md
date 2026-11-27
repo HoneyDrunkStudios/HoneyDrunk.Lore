@@ -320,3 +320,24 @@ Package admission depends-on provenance and execution context; reputation enrich
 ### Decision and quality notes
 
 Platform-authored selected-cohort study, not an independent test of all scanners. No benign control/false-positive comparison supports categorical scanner/perimeter wording. Scan-coverage discussion mixes 35 web endpoints with 27 domains; those denominators are distinct. Blanket install-time network-anomaly wording is treated as an investigation hypothesis. IOC destinations, payload hashes, account identities and runnable incident details are omitted. Source-specific claims remain provisional; repeated reports and derived queries add no independent support. Open question: Which dependency-admission evaluation separates unknown from scanned-clean reputation, pins cohort/time/thresholds, includes benign controls and correlates provenance with lifecycle egress and credential exposure? See [[indexes/gaps]].
+
+
+## 2026-11-27: Brewlet separates application artifacts from approved runtime generations
+
+### Typed entities
+
+project: Brewlet; project: Kubernetes; project: containerd; concept: RuntimeImage; concept: NodeProfile; concept: runtime rotation; file: raw/2026-11-26-rss-introducing-brewlet-manage-golden-images-at-platform-speed.md.
+
+### Claims and evidence
+
+- Microsoft introduces Brewlet as an experimental MIT-licensed project: application code/dependencies and launch metadata are packaged separately from a digest-pinned, platform-approved runtime offered on selected node pools. Admission, provisioning and a shim prepare ordinary container execution. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-introducing-brewlet-manage-golden-images-at-platform-speed.md)
+- Rotation affects new containers; existing processes keep their starting runtime generation. Automatic restarts require both workload opt-in and the operator restart feature, and paused or constrained controllers can retain old generations. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-introducing-brewlet-manage-golden-images-at-platform-speed.md)
+- A runtime change can replace interpreter or trust-store material without rebuilding the application artifact, but does not fix vulnerable libraries packaged with the application. Shared runtime files do not imply shared process heaps or writable filesystems; image volumes may be sufficient for simpler needs. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-introducing-brewlet-manage-golden-images-at-platform-speed.md)
+
+### Explicit relationships
+
+Runtime distribution uses platform-owned generations; patch completion depends-on workload replacement and compatibility verification. See [[kubernetes-platform-governance-and-cicd]].
+
+### Decision and quality notes
+
+Experimental vendor project, not a supported platform migration or demonstrated isolation assessment. No cluster changes, runtime pull or rollout occurred. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which disposable pool test verifies digest/identity admission, application compatibility, opted-in and paused rollouts, trust-store changes, app-owned dependency exposure and generation rollback? See [[indexes/gaps]].

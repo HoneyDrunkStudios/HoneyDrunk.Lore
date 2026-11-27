@@ -126,3 +126,24 @@ Union handling depends-on case types and nullability; allocation depends-on repr
 ### Decision and quality notes
 
 Official tutorial snapshot with unknown publication date, not compiled output or allocation evidence. The custom numeric Value conditional and reporter setup need code review before copying; no blanket nonallocation claim. Existing pinned-compiler gap remains. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation.
+
+
+## 2026-11-27: Union patterns distinguish contents from wrapper state
+
+### Typed entities
+
+project: C# 15; library: IUnion; concept: default struct; concept: non-boxing access pattern; concept: union member provider; file: raw/2026-11-26-web-union-types-c-reference.md.
+
+### Claims and evidence
+
+- The captured reference says generated union declarations are structs backed by object-valued contents and box value-type cases. Custom union classes/structs can use alternate storage and compiler-recognized creation/access members, subject to soundness, stability and access-consistency requirements. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-web-union-types-c-reference.md)
+- Typed patterns inspect contents, while untyped property/list patterns and var/discard inspect or capture the union instance. An empty property pattern can match a default struct with null contents; a not-null contents test is different. Exhaustiveness warnings do not guarantee default-initialized contents are non-null at runtime. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-web-union-types-c-reference.md)
+- Custom TryGetValue members support type-pattern access and HasValue supports null-pattern access independently; neither replaces the other. A nested IUnionMembers provider changes where the compiler discovers union members, so direct public members alone do not describe every custom union contract. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-web-union-types-c-reference.md)
+
+### Explicit relationships
+
+Exhaustiveness depends-on cases and tracked null state; allocation depends-on storage and matching path. See [[dotnet-runtime-and-mobile-2026]].
+
+### Decision and quality notes
+
+Official reference snapshot extends the November 19 tutorial without contradicting its representation caveat. No compiler diagnostics, allocation benchmark or interop behavior was locally verified. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which compiler fixtures cover default fields/arrays, wrapper versus contents patterns, added-case warnings, nullable class/struct unions and independent HasValue/TryGetValue providers? See [[indexes/gaps]].

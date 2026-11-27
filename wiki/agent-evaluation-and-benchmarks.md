@@ -2003,3 +2003,24 @@ Synthesis: Hugging Face's shortcut passed a ratio-only grader, n8n's empty looku
 ### Explicit relationships and quality
 
 Acceptance depends-on observable task outcomes; negative controls challenge false-green paths. See [[api-testing-and-verification]] and [[ai-assisted-software-practice]]. This strengthens a qualitative design rationale only; every source-specific result remains provisional.
+
+
+## 2026-11-27: Evidence-gated drafting separates fact checks from probabilistic judging
+
+### Typed entities
+
+concept: grounded drafting; concept: golden dataset; concept: deterministic fact checker; concept: judge drift; decision: stop on missing evidence; file: raw/2026-11-26-rss-engineering-around-non-determinism-evals-grounding-and-release-gates-f.md.
+
+### Claims and evidence
+
+- The authors explicitly describe a representative capstone architecture, not a deployed financial institution system. A planner obtains case evidence, a reranker selects context, drafting attaches evidence identifiers, and deterministic checks plus a separate judge precede human review. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-engineering-around-non-determinism-evals-grounding-and-release-gates-f.md)
+- The proposal stops drafting when necessary evidence is absent, versions models/prompts/retrieval/policies/evaluation sets, and combines golden-set regression with shadow or canary rollout and configuration rollback. Freezing a judge version does not make its outputs deterministic. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-engineering-around-non-determinism-evals-grounding-and-release-gates-f.md)
+- Suggested monitoring includes factuality, reviewer edits, latency, queue age and escalation. Accountable humans retain filing decisions; weighted rubric averages alone do not establish that each critical factuality or privacy criterion passed. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-engineering-around-non-determinism-evals-grounding-and-release-gates-f.md)
+
+### Explicit relationships
+
+Grounded drafting depends-on authoritative evidence; release gating uses factual checks, calibrated judgments and accountable review. See [[multi-agent-architectures]] and [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Design proposal with no deployed outcome or measured cost reduction. Financial reporting details are retained only as architectural context, not jurisdiction-specific legal guidance. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which synthetic case corpus verifies missing-evidence refusal, claim provenance, critical-fact gates, judge variance, reviewer edits and rollback before adopting evidence-gated drafting? See [[indexes/gaps]].

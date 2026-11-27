@@ -1927,3 +1927,45 @@ Validation uses scoped Maya mesh inspection; trustworthy handoff depends-on tran
 ### Decision and quality notes
 
 Project README with unknown publication date, not independent Maya compatibility or asset/license acceptance. License is not established by this capture; verify before vendoring. No package downloaded, installer run or scene changed. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which licensed disposable Maya package test verifies 2024-2026 bindings, empty-scope behavior, units/transforms, stale results, intent sidecars and undo for the guarded fixes? See [[indexes/gaps]].
+
+
+## 2026-11-27: Catis Town allocates detail by repetition, silhouette and focal importance
+
+### Typed entities
+
+person: Wang Yifan; project: Catis Town; project: Unreal Engine 5; library: Substance 3D Designer; concept: modular kit; concept: trim sheet; file: raw/2026-11-26-web-building-a-cozy-sunny-medieval-town-scene-using-custom-modular-assets.md.
+
+### Claims and evidence
+
+- The artist describes locking composition and a blockout before detailed assets, using reusable modules, trim sheets and tileable materials for repeated architecture and high-to-low bakes for focal props. Geometry is reserved where silhouettes need it; roof/path relief largely uses materials and displacement. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-web-building-a-cozy-sunny-medieval-town-scene-using-custom-modular-assets.md)
+- The workflow combines procedural base materials with localized hand-painted wear, using plausible exposure/use to place dirt and damage. Scene variation comes from vertex painting, decals and material states; major props are placed for composition and small clutter can use simulation followed by manual adjustment. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-web-building-a-cozy-sunny-medieval-town-scene-using-custom-modular-assets.md)
+- AI images served only as early mood references; final sunlight, fog, exposure and color were adjusted in UE5 and rendered with Movie Render Queue. The artist explicitly credits another artist as the principal composition reference, so this study is not a license to copy that composition or reuse assets. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-web-building-a-cozy-sunny-medieval-town-scene-using-custom-modular-assets.md)
+
+### Explicit relationships
+
+Environment production uses staged blockout and selective detail; convincing wear depends-on material and environmental causes. See [[gamedev-production-and-community-signals]].
+
+### Decision and quality notes
+
+Artist interview and learning project, no measured game-device budget or reusable asset license. Professional attribution retained; personal background/contact metadata omitted. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which original small-scene exercise verifies composition, modular seams, silhouette detail, material variation and target-renderer cost with independent reference and asset provenance? See [[indexes/gaps]].
+
+
+## 2026-11-27: VR architecture separates flexible authoring from final render cost
+
+### Typed entities
+
+person: Stanislav Petrushin; project: Into the Radius 2; project: Unreal Engine 5; concept: Level Instance; concept: Custom Primitive Data; concept: material LOD; file: raw/2026-11-27-rss-breakdown-designing-large-scale-soviet-era-architectural-system-for-vr.md.
+
+### Claims and evidence
+
+- The artist describes headset-tested architectural blockouts and four independent layers for essential structure, detailed rooms, configurable openings/lights and gameplay/support actors. Basic interior shells provide low-cost depth and shared wall collision while detailed rooms supply visuals and floor collision. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-breakdown-designing-large-scale-soviet-era-architectural-system-for-vr.md)
+- Finalized shells and closed-window variants reduce actor overhead; shared materials with consistent Custom Primitive Data indices vary appearance without unnecessary material-instance proliferation. Selective simpler shaders, distant material LODs, shadow choices and texture/lightmap budgets trade authoring flexibility against measured cost. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-breakdown-designing-large-scale-soviet-era-architectural-system-for-vr.md)
+- The comparison used a fixed camera and forced LOD0 in Editor scenes that also changed during production. Draw calls rose while several timing metrics improved; this is combined relative evidence, not per-technique causality or packaged VR FPS. The portfolio showcase restores full textures, Lumen and landscape-only Nanite, unlike the game lighting budget. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-breakdown-designing-large-scale-soviet-era-architectural-system-for-vr.md)
+
+### Explicit relationships
+
+Modular authoring uses independently replaceable layers; optimization depends-on representative timing and headset-scale checks. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Production interview with explicit non-identical-scene and Editor-only limits. Image-only result tables were not inferred; no asset download, license grant or target headset validation. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which packaged headset scene verifies collision/decal alignment, CPD index contracts, actor/material tradeoffs, memory and sustained frame time separately from the portfolio renderer? See [[indexes/gaps]].

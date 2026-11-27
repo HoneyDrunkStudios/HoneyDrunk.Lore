@@ -240,3 +240,24 @@ Practitioner guidance rather than a controlled efficacy study. The linked Chroma
 Context Mode's tool-result filtering/session retrieval, Thoughtworks' context-selection guidance, and Google's stale-reference telemetry support the design rationale that agent continuation depends-on relevant evidence, explicit state, and task scope. confidence: 3 sources, last-confirmed 2026-11-07 (archived authored accounts synthesized; no independent execution). [Context Mode](../raw/2026-09-11-rss-tldr-devops-context-mode-github-repo.md), [Thoughtworks](../raw/2026-11-07-rss-context-rot-in-ai-agents-how-to-recognize-and-fix-it.md), [Google](../raw/2026-11-07-rss-agent-distraction.md).
 
 This strengthens a qualitative design rationale, not any product's efficacy or the causal interpretation of Google's observational overhead. No pooled performance estimate or independent replication is claimed. Context Mode remains README evidence; source-specific details retain provisional confidence, and earlier claim dates remain unchanged.
+
+
+## 2026-11-27: Context simplification is a model-specific experiment
+
+### Typed entities
+
+person: Philipp Schmid; project: Gemini 4 Neon; concept: progressive disclosure; concept: context handoff; decision: retain essential boundaries; file: raw/2026-11-26-rss-how-my-context-engineering-changed-for-gemini-4-neon.md.
+
+### Claims and evidence
+
+- Schmid reports replacing accumulated style bans with concise repository-style cues, moving task workflows into on-demand skills, and placing tool rules once in typed interfaces. These are practitioner observations about his Gemini setup, without a published controlled evaluation. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-how-my-context-engineering-changed-for-gemini-4-neon.md)
+- He favors bounded tool outputs, visual references followed by rendered inspection, and explicit goal/decision/path handoffs between phases. His suggested large compaction threshold is a personal operating point, not a portable runtime default. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-how-my-context-engineering-changed-for-gemini-4-neon.md)
+- The article retains approval and source-verification limits while simplifying prompts. Its recommendation to remove many project instruction files does not authorize deleting Lore AGENTS or weakening required privacy, review or execution controls. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-how-my-context-engineering-changed-for-gemini-4-neon.md)
+
+### Explicit relationships
+
+Progressive disclosure uses task-selected skills; continuity depends-on verified state and exact paths. See [[ai-assisted-software-practice]] and [[ai-agent-harnesses]].
+
+### Decision and quality notes
+
+Single practitioner report; model availability, quantitative improvement and client discovery reliability were not independently verified. Treat the workflow as a bounded comparison candidate. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which pinned model/task comparison measures conflicting instructions, skill selection, tool errors, handoff loss, visual defects and safety-boundary adherence before simplifying context? See [[indexes/gaps]].

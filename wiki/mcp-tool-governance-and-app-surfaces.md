@@ -1526,3 +1526,24 @@ Inline governance uses an external judge; enforcement depends-on complete routed
 ### Decision and quality notes
 
 First-party preview description, no measured attack-success rate or local enforcement test. No policy, logging or egress setting changed. Synthetic recipients and disclosure content omitted. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which authorized gateway pilot verifies bypass denial, streaming exclusions, multi-call denial, missing descriptions, judge false positives/negatives and private rationale logging? See [[indexes/gaps]].
+
+
+## 2026-11-27: MCP outlook separates typed tools from optional client extensions
+
+### Typed entities
+
+person: Philipp Schmid; project: MCP; concept: Code Mode; concept: structuredContent; concept: skills extension; concept: events extension; concept: MCP Apps; file: raw/2026-11-27-rss-why-i-m-bullish-on-mcp-for-2027.md.
+
+### Claims and evidence
+
+- Schmid argues for typed input/output schemas and structured results so client-side code can compose/filter tool calls before returning bounded context, with separate multimodal blocks when needed. This is a harness integration pattern, not evidence that every server/client implements the same execution behavior. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-why-i-m-bullish-on-mcp-for-2027.md)
+- The outlook describes digest-addressed skill resources, async tasks, event delivery and embedded UI with extension and beta/client qualifications. Reported adoption counts, spec changes and named-client defaults remain secondary dated claims, not a verified compatibility matrix. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-why-i-m-bullish-on-mcp-for-2027.md)
+- Events introduce cursors, event identifiers, subscription lifetime and untrusted payloads; code execution and embedded UI add trust boundaries. Digests identify bytes rather than establish trust, OAuth benefits depend on scopes/client handling, and CLI use does not inherently require broadly exposed credentials. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-why-i-m-bullish-on-mcp-for-2027.md)
+
+### Explicit relationships
+
+Typed composition uses tool schemas; durable event handling depends-on delivery, deduplication and authorization contracts. See [[ai-agent-harnesses]] and [[ai-agent-identity-and-workload-auth]].
+
+### Decision and quality notes
+
+Practitioner outlook, not normative protocol verification or permission to create subscriptions. Placeholder webhook secrets, sample customer identifiers and operational endpoints omitted; no skill/plugin or schedule changed. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which pinned client/server matrix verifies extension negotiation, structured/multimodal results, skill digest trust, event replay/expiry, cancellation and UI isolation with scoped credentials? See [[indexes/gaps]].

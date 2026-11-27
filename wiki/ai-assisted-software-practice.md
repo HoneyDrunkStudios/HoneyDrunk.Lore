@@ -1605,3 +1605,45 @@ Maintainable agent work depends-on scoped context, executable acceptance and hum
 ### Decision and quality notes
 
 Single-maintainer retrospective with unverified usage/productivity/cost figures, omitted from decision guidance. No memory service, multi-agent workflow or review bypass adopted. Public author attribution retained; personal details omitted. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which bounded maintenance or dry-run migration task demonstrates preserved behavior, understandable changes and rollback while measuring reviewer/user load rather than code volume? See [[indexes/gaps]].
+
+
+## 2026-11-27: Incremental AI delivery experiments target the pacing constraint
+
+### Typed entities
+
+project: Thoughtworks; concept: path-to-production mapping; concept: theory of constraints; concept: harness engineering; decision: one bounded workflow experiment; file: raw/2026-11-27-rss-an-incremental-approach-to-ai-first-software-development.md.
+
+### Claims and evidence
+
+- The author argues that generating code faster can increase inventory at review, QA or release gates when those are the pacing constraint. He proposes mapping the full delivery path, selecting one constraint and examining where upstream defects or excess work originate. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-an-incremental-approach-to-ai-first-software-development.md)
+- Suggested interventions combine small batches and established engineering practices with AI-assisted scaffolding of tests, boundary checks, linting and delivery pipelines. The source presents a sequence of workflow experiments in which an unhelpful review agent is discarded rather than retained because it is AI. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-an-incremental-approach-to-ai-first-software-development.md)
+- A sprint is offered as a convenient experiment window, not evidence that every organization completes a full delivery cycle in one sprint. The article does not establish zero experiment cost or authorize bypassing HoneyDrunk review and release requirements. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-an-incremental-approach-to-ai-first-software-development.md)
+
+### Explicit relationships
+
+Delivery improvement depends-on the end-to-end constraint; AI scaffolding uses reviewed safety nets. See [[ai-agent-harnesses]] and [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Practitioner method and illustrative team narrative, no controlled causal trial. Referenced DORA percentages were not independently rechecked; proposed review alternatives remain external examples. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which one-constraint experiment measures queue time, batch size, rework, escaped defects and total delivery effort before retaining an AI or classical workflow intervention? See [[indexes/gaps]].
+
+
+## 2026-11-27: Engineering vitals separate throughput trends from customer defects
+
+### Typed entities
+
+person: Andrew Best; project: Octopus; concept: engineering vitals; concept: severity count; concept: Goodhart law; decision: pair flow and quality evidence; file: raw/2026-11-27-rss-engineering-vitals-in-the-age-of-ai.md.
+
+### Claims and evidence
+
+- Octopus describes per-system delivery objectives, organization-wide quality objectives and target-free trends. Its definitions include first-commit-to-full-production lead time, PR churn/review latency, detection-to-fix components, build reliability, batch size and deployed lag. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-engineering-vitals-in-the-age-of-ai.md)
+- The author tracks monthly serious-defect counts instead of relying on change failure rate: a growing change denominator can hide increasing customer defects at a constant rate. Counts also require consistent severity, deployed-defect capture and exposure context; this is an organizational choice rather than proof that rates are always useless. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-engineering-vitals-in-the-age-of-ai.md)
+- Merged PR volume is a trend proxy read alongside stability and lead time, not a target or direct measure of value. Referenced industry/company figures are secondary reports in this capture and do not isolate AI causality or demonstrate HoneyDrunk outcomes. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-engineering-vitals-in-the-age-of-ai.md)
+
+### Explicit relationships
+
+Delivery assessment uses flow and quality signals; interpretation depends-on stable definitions, reporting and customer impact. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+First-party operating approach with external evidence summaries and a product promotion. No telemetry dashboard, targets or individual performance measures were introduced. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which stable delivery cohort pairs lead/recovery time, batch/review queues, severity/exposure counts and developer experience without treating PR volume as value or a target? See [[indexes/gaps]].

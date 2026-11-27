@@ -1089,3 +1089,45 @@ Audit reconstruction depends-on retained inputs, workflow versions and external 
 ### Decision and quality notes
 
 First-party walkthrough of workflow AI Agent nodes, not blanket documentation for the separate n8n Agents product. Signed resume URLs are bearer capabilities; submitted approver text is not authenticated identity. No live endpoints, trace IDs or payment fixtures copied and no collector deployed. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which n8n rehearsal verifies saved-payload retention, cross-service and resumed traces, external-config/version evidence, authenticated approval and review exclusions without leaking prompts or resume capabilities? See [[indexes/gaps]].
+
+
+## 2026-11-27: Grafana secondary content indexing targets sparse log lookups
+
+### Typed entities
+
+project: Grafana Cloud Logs; project: Loki; project: Logline; concept: secondary index; concept: high-cardinality labels; file: raw/2026-11-26-rss-find-the-log-line-that-matters-faster-with-full-text-search-in-grafana.md.
+
+### Claims and evidence
+
+- Grafana announces generally available full-text search for its managed Cloud Logs using Logline secondary indexing to skip chunks unlikely to contain requested literals. Existing ingestion clients and LogQL remain; this is not evidence that every self-hosted Loki deployment has the feature. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-find-the-log-line-that-matters-faster-with-full-text-search-in-grafana.md)
+- The stated fast paths include exact line filters, supported literal regular expressions, structured metadata equality and post-parser literal filters. Advanced regex support is limited, so equivalent-looking queries require their own checks. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-find-the-log-line-that-matters-faster-with-full-text-search-in-grafana.md)
+- The vendor reports roughly ten percent compute and storage overhead at its scale, offset in part by reduced scans, and a customer example with sharply reduced bytes/time for newly submitted logs. Those observations do not establish universal speedup, historical backfill behavior or local total cost. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-find-the-log-line-that-matters-faster-with-full-text-search-in-grafana.md)
+
+### Explicit relationships
+
+Sparse log lookup uses secondary content indexing; efficient labels depend-on controlled cardinality. See [[agentic-retrieval-and-search]].
+
+### Decision and quality notes
+
+Vendor announcement and customer quotation, not an independent benchmark. Availability and commercial wording are dated to the capture; no account or ingestion setting changed. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which managed-log fixture checks index coverage by ingestion date, supported versus fallback query shapes, exact result equivalence and total scan/index cost? See [[indexes/gaps]].
+
+
+## 2026-11-27: DNS freshness probes expose healthy-but-stale services
+
+### Typed entities
+
+project: Cloudflare Flamingo; library: Rust; concept: DNS propagation; concept: synthetic probe; concept: error budget; file: raw/2026-11-26-rss-probing-dns-at-cloudflare.md.
+
+### Claims and evidence
+
+- Cloudflare recounts a release that left DNS record updates unpublished despite service health checks passing. Its Flamingo framework extends a setup/action/assertion DSL through typed protocol modules while reusing scheduling, resource management and reporting. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-probing-dns-at-cloudflare.md)
+- The described DNS test continuously changes a timestamped TXT record and queries three authoritative addresses and the public resolver from each data center. Its freshness assertions are 90 seconds for authoritative servers and 600 seconds for the resolver; those are this probe design, not universal DNS propagation guarantees. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-probing-dns-at-cloudflare.md)
+- End-to-end freshness SLIs feed error-budget and burn-rate decisions to promote or halt/roll back releases. Runtime health and unit tests alone do not show that customer-visible record publication is current. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-probing-dns-at-cloudflare.md)
+
+### Explicit relationships
+
+Release decisions use customer-visible freshness; DNS behavior depends-on publication and resolver caches. See [[distributed-systems-patterns]] and [[api-testing-and-verification]].
+
+### Decision and quality notes
+
+First-party production account without an independently run probe. Example IPs and hostnames omitted; no production DNS record was changed. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which owned synthetic record and canary test verifies authoritative versus resolver freshness, TTL effects, regional blind spots and rollout halt/rollback behavior? See [[indexes/gaps]].

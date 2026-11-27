@@ -2283,3 +2283,24 @@ Improvement uses observed traces and versioned evaluations; activation depends-o
 ### Decision and quality notes
 
 Vendor announcement dated November 17; cost savings, model comparisons and customer outcomes are not independent validation and are not adopted as local results. Related Microsoft announcements do not add independent support. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which versioned Foundry task corpus verifies annotation privacy, held-out evaluation, optimizer regressions, statistical uncertainty, adoption approval and rollback across the selected GA/preview features? See [[indexes/gaps]].
+
+
+## 2026-11-27: SRE collaboration preserves separate identity and action boundaries
+
+### Typed entities
+
+project: Azure SRE Agent; project: Microsoft Teams; project: Slack; project: A2A; project: Microsoft Entra Agent ID; project: Microsoft Agent 365; file: raw/2026-11-27-rss-beyond-the-pilot-scaling-azure-sre-agent-across-your-enterprise.md.
+
+### Claims and evidence
+
+- The announcement separates public-preview Teams, A2A and Entra Agent ID integration from private-preview Slack integration. Its timed cross-team incident is an explanatory scenario, not a measured customer MTTR result. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-beyond-the-pilot-scaling-azure-sre-agent-across-your-enterprise.md)
+- Chat access is granted per conversation and permitted participant; Azure resource access remains governed by each agent managed identity and RBAC. Entra Agent ID adds sponsorship and governance alongside that managed identity rather than replacing its Azure permissions. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-beyond-the-pilot-scaling-azure-sre-agent-across-your-enterprise.md)
+- A2A collaboration requires configured connections and approved Entra-identified callers. Discovering a fix through another agent does not transfer resource permission or production approval rights; action policy can allow, require approval or block the operation. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-beyond-the-pilot-scaling-azure-sre-agent-across-your-enterprise.md)
+
+### Explicit relationships
+
+Cross-team collaboration uses approved A2A connections; remediation depends-on the owning identity and authorized approval. See [[ai-agent-identity-and-workload-auth]] and [[multi-agent-architectures]].
+
+### Decision and quality notes
+
+Vendor preview announcement and fictional incident. No chat sent, agent created, connection configured or rollback executed; governance integration is not tenant acceptance evidence. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which preview-eligible rehearsal verifies chat membership changes, A2A caller denial, separate managed/agent identities, owner-scoped approval, audit and recovery after a denied action? See [[indexes/gaps]].

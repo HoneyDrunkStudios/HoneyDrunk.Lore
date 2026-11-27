@@ -1738,3 +1738,67 @@ Culture-stable output depends-on explicit formatting policy; custom handlers dep
 ### Decision and quality notes
 
 Flagged source quality: recursive method and constructor mismatch. Preserve raw text unchanged; prefer the documented built-in API path pending corrected, compiled samples. No custom handler implemented or benchmark run. This is a source defect, not a previously published wiki claim requiring supersession. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which corrected multi-target interpolation sample compiles and verifies literal forwarding, culture, formatting/alignment, nulls and allocations without the captured recursion/constructor defects? See [[indexes/gaps]].
+
+
+## 2026-11-27: Union JSON classification is part of the wire contract
+
+### Typed entities
+
+library: System.Text.Json; project: C# 15; concept: JsonUnionTypeStructuralClassifier; concept: closed hierarchy; concept: source generation; file: raw/2026-11-26-web-serialize-union-types-with-system-text-json.md.
+
+### Claims and evidence
+
+- The documentation describes .NET 11 serializing the active C# union case without a wrapper/discriminator and classifying incoming tokens by compatible cases. Web number-from-string defaults can make int/string alternatives ambiguous before either case is parsed. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-web-serialize-union-types-with-system-text-json.md)
+- Structural classification uses recognized root property names and required/unmapped-member rules, not values or nested contents. Ambiguous/empty candidates, overlapping contracts and several nested/polymorphic/non-POCO combinations are rejected; reference preservation is unsupported in this path. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-web-serialize-union-types-with-system-text-json.md)
+- A custom classifier can be registered through contract metadata, per-union attributes, options or source generation, with contract configuration taking precedence. Nullable cases and default no-active-case values have distinct null behavior; controlled object contracts may instead use an explicitly configured discriminator on a closed hierarchy. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-web-serialize-union-types-with-system-text-json.md)
+
+### Explicit relationships
+
+Union deserialization depends-on token and shape classification; wire evolution uses explicit compatibility tests. See [[csharp-memory-safety-and-unsafe-code]].
+
+### Decision and quality notes
+
+Official archived guide with unknown publication date; no sample compiled or JSON round trip executed. Related Microsoft pages are correlated documentation, not independent empirical validation. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which pinned JSON/source-generation corpus verifies web numeric strings, overlapping/required properties, null/default cases, classifier precedence and discriminator evolution? See [[indexes/gaps]].
+
+
+## 2026-11-27: EF11 migration review must protect data and provider-specific behavior
+
+### Typed entities
+
+project: EF Core 11; library: Microsoft.Data.SqlClient 7; library: Microsoft.Data.Sqlite 11; project: Cosmos DB; concept: split-query concurrency; concept: provider migration; file: raw/2026-11-27-web-breaking-changes-in-ef-core-11-ef11.md.
+
+### Claims and evidence
+
+- The breaking-change capture says Cosmos no longer round-trips unmapped document properties, removes the raw JObject shadow property and synchronous I/O escape hatch, and changes generated composite IDs and undefined projection behavior. Preserving old ID escaping retains its collision risk; read/save round trips and existing key reachability require explicit migration evidence. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-web-breaking-changes-in-ef-core-11-ef11.md)
+- SQL Server guidance moves the default compatibility to 160 and SqlClient to 7 with separate Azure authentication dependencies. Other documented changes include explicit EF Design references, changed build-generation properties and new migration class names, vector values requiring explicit projection, explicit primitive-collection configuration and owned-instance sharing checks. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-web-breaking-changes-in-ef-core-11-ef11.md)
+- The source describes split-query correlation exceptions on concurrent modification and retry or transaction approaches. Its unconditional single-query consistency wording is too broad: query count alone does not establish snapshot isolation. Its combined integer/decimal truncation wording likewise needs type-specific checks rather than a blanket decimal rule. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-web-breaking-changes-in-ef-core-11-ef11.md)
+- Microsoft.Data.Sqlite changes are separate from EF runtime targeting: the capture states net10.0-only Sqlite packages, discontinued bundle configurations and removed legacy UWP/Xamarin native targets. Encryption/provider replacement needs explicit native initialization, compatibility and license review rather than copying package examples blindly. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-web-breaking-changes-in-ef-core-11-ef11.md)
+
+### Explicit relationships
+
+Safe upgrades depend-on provider/data contracts and actual dependency graphs; query consistency depends-on transaction isolation. See [[dotnet-dependency-security-and-nuget]], [[cloud-data-platforms-and-analytics]] and [[agentic-retrieval-and-search]].
+
+### Decision and quality notes
+
+Official capture has unknown publication date, a July update label despite later examples, and a still-future vector opt-in note. Flagged overbroad numeric/isolation wording; no sample compiled, database modified, analyzer suppressed or package upgraded. The existing November release evidence remains the release-stage authority. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which provider-specific upgrade corpus verifies Cosmos unknown-field/key preservation, SQL authentication/compatibility, vector projection, concurrent split reads, numeric target types and encrypted/native SQLite recovery? See [[indexes/gaps]].
+
+
+## 2026-11-27: DevFlow experimental tooling needs release-build and platform checks
+
+### Typed entities
+
+project: .NET MAUI DevFlow; library: Microsoft.Maui.DevFlow.Agent; project: .NET MAUI CLI; concept: broker; concept: in-app HTTP agent; concept: Blazor CDP; file: raw/2026-11-27-web-devflow-overview.md.
+
+### Claims and evidence
+
+- The overview explicitly labels DevFlow experimental and separates an in-process HTTP inspection/interaction agent, the maui CLI and a background discovery/port broker. The feature set includes tree/screenshots, interaction, profiling, app-file access, Blazor CDP and MCP tooling. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-web-devflow-overview.md)
+- Its platform table lists Mac Catalyst, iOS Simulator and Linux/GTK as supported, with Android and Windows still in progress. A driver package mentioning those platforms does not override the narrower agent status; this is not physical iPhone acceptance. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-web-devflow-overview.md)
+- The example guards agent registration with DEBUG and distinguishes current GTK4 packages from superseded backend names. That guard is a registration boundary, not proof that package binaries or every listener/CDP surface are absent from release artifacts; package and release inspection remain separate. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-web-devflow-overview.md)
+
+### Explicit relationships
+
+Inspection uses an in-app agent and discovery broker; secure adoption depends-on debug/release separation and actual platform support. See [[mcp-tool-governance-and-app-surfaces]].
+
+### Decision and quality notes
+
+Official experimental overview with mixed-version links and an unpinned prerelease install example. No CLI installed, app inspected or platform capability tested; no universal device-driver support inferred. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which pinned platform/debug-release matrix verifies broker discovery, loopback/auth boundaries, listener/CDP absence in release, private-data filtering and current GTK package compatibility? See [[indexes/gaps]].

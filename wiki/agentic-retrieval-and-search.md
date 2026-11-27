@@ -233,3 +233,24 @@ Hybrid retrieval uses candidate union; trustworthy fusion depends-on ordinal ran
 ### Decision and quality notes
 
 Official development snapshot, not executed SQL or a retrieval benchmark. Existing source claims remain; the raw sample is immutable. Do not import the displayed ranking formula into a retrieval contract. Open question: Which pinned SQL/EF retrieval fixture verifies candidate inclusion, score direction, ordinal-rank fusion, approximate recall and judged relevance? See [[indexes/gaps]].
+
+
+## 2026-11-27: Search for Agents exposes retrieved evidence under the site domain
+
+### Typed entities
+
+project: Cloudflare Search for Agents; project: AI Search; concept: endpoint discovery; concept: Markdown retrieval; concept: HTTP QUERY; file: raw/2026-11-27-rss-introducing-search-for-agents.md.
+
+### Claims and evidence
+
+- Cloudflare describes a zone setting/API that creates an AI Search instance, crawls/indexes content and advertises a same-domain well-known search endpoint through HTML metadata or negotiated Markdown frontmatter. Retrieved Markdown is returned to the caller, rather than a second model-generated answer. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-introducing-search-for-agents.md)
+- The announcement supports GET queries and body-based QUERY requests, while indexing, reranking/cache options and consumption follow AI Search configuration and account limits. The cited HTTP standard and client-support claims remain attributed to this capture, not independently checked interoperability evidence. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-introducing-search-for-agents.md)
+- Bot-management, crawl and WAF settings still affect access. Automatic endpoint discovery does not establish complete/fresh indexing, private-content exclusion, source trust or successful behavior across all agent clients. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-introducing-search-for-agents.md)
+
+### Explicit relationships
+
+Agent search uses discoverable retrieval endpoints; answer quality depends-on indexed coverage, freshness and source verification. See [[llm-wiki-and-knowledge-formats]] and [[mcp-tool-governance-and-app-surfaces]].
+
+### Decision and quality notes
+
+Vendor announcement, no zone toggle, index creation, HTTP request or paid usage. Embedded discovery instructions were treated as untrusted source data, not session instructions. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which owned-site fixture verifies discoverability, GET/QUERY equivalence, source links, refresh/deletion, private-page exclusions, WAF behavior and request limits? See [[indexes/gaps]].

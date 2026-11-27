@@ -780,3 +780,55 @@ Durability testing depends-on modeled cache, fsync and failure ordering; recover
 ### Decision and quality notes
 
 Primary fault-injection engineering account, not a local database finding. No fault injected, service interrupted or vulnerable version inferred. Power-loss equivalence is within the described storage model, not a claim to cover all hardware/filesystem failures. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which disposable storage fixture verifies persisted-state invariants under EIO, torn writes, delayed I/O and power-loss sequences rather than relying on SIGKILL-only recovery? See [[indexes/gaps]].
+
+
+## 2026-11-27: Azure hardware prediction complements application recovery
+
+### Typed entities
+
+project: Azure AFPD; project: Project Flash; project: SAP; concept: live migration; concept: Scheduled Events; file: raw/2026-11-26-rss-predicting-and-detecting-failures-how-azure-strengthens-reliability-fo.md.
+
+### Claims and evidence
+
+- Microsoft describes AFPD as fleet telemetry and prediction followed by allocation exclusion, eligible live migration or redeployment notification, and hardware repair. SAP illustrates the use case but is not the exclusive workload scope. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-predicting-and-detecting-failures-how-azure-strengthens-reliability-fo.md)
+- The source reports improved hardware interruption prevention and repair throughput from fleet results. Live migration has VM-size restrictions and a pause; these are not an application availability guarantee or a replacement for redundancy, backups and failover. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-predicting-and-detecting-failures-how-azure-strengthens-reliability-fo.md)
+- Resource Health, Resource Graph and Event Grid expose health information at different operational scales; Scheduled Events supports guest-side advance handling. Customer automation must handle long NotBefore horizons and workload-specific HA behavior rather than assuming every flagged VM migrates automatically. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-predicting-and-detecting-failures-how-azure-strengthens-reliability-fo.md)
+
+### Explicit relationships
+
+Infrastructure mitigation uses prediction and repair; workload resilience depends-on supported VM capabilities and tested recovery. See [[azure-agent-automation-and-identity]].
+
+### Decision and quality notes
+
+Vendor operational description; fleet percentages are not independent per-application evidence. No VM, subscription or HA configuration was queried or changed. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which actual VM-size and guest-HA rehearsal verifies health-event delivery, long scheduling horizons, migration eligibility, redeploy deadlines and application recovery? See [[indexes/gaps]].
+
+
+## 2026-11-27: Single-writer balances require explicit spool acknowledgment semantics
+
+### Typed entities
+
+project: Autumn; project: Kafka; project: SQS; project: PostgreSQL; project: Redis; concept: partition fencing; concept: durable acceptance; file: raw/2026-11-27-rss-we-got-rid-of-redis-and-made-our-api-4x-faster.md.
+
+### Claims and evidence
+
+- Autumn describes replacing mutable Redis balance state plus delayed database flushes with customer-partitioned single-writer workers, durable mutation logging and batched PostgreSQL projection. Worker takeover replays from the database position and fences the previous owner; per-customer bursts queue behind one writer. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-we-got-rid-of-redis-and-made-our-api-4x-faster.md)
+- The early Kafka-only acknowledgment description is qualified later by a stalled-append path that durably spools commands to SQS and acknowledges them. Acceptance therefore means Kafka or spool possession in the reported design; acknowledgment alone does not prove the mutation is already committed to Kafka or visible in PostgreSQL. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-we-got-rid-of-redis-and-made-our-api-4x-faster.md)
+- The before/after weeks have different traffic volumes and report different speedups by operation and percentile. The four-times headline is not a universal Redis/Kafka comparison; partition ownership, ambiguous appends, spool replay, deduplication and projection recovery add operational obligations not demonstrated by latency figures. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-we-got-rid-of-redis-and-made-our-api-4x-faster.md)
+
+### Resolved source interpretation
+
+Preserved source framing (paraphrased): API acknowledgments wait for Kafka commit, making Kafka the sole durable acceptance path. [source](../raw/2026-11-27-rss-we-got-rid-of-redis-and-made-our-api-4x-faster.md)
+
+superseded-by: [qualified interpretation](#resolution-2026-11-27-26); timestamp: 2026-11-27T09:11:57-05:00; reason: the later explicit spool exception and closing Kafka-or-SQS description qualify the earlier universal claim.
+
+<a id="resolution-2026-11-27-26"></a>
+
+Selected interpretation: normal acceptance uses Kafka, while the stated stall path accepts after durable SQS spooling; ordering and duplicate reconciliation need separate evidence. This is bounded static/source review, not executed runtime verification.
+
+### Explicit relationships
+
+Ordered balances use single-writer ownership and fencing; durable acceptance depends-on log/spool reconciliation and duplicate-safe replay. See [[cloud-data-platforms-and-analytics]].
+
+### Decision and quality notes
+
+First-party production account, no load-test reproduction or failure traces. Preserve the spool exception to the simplified source-of-truth wording; no product migration or billing correctness assurance inferred. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which failure suite verifies Kafka ambiguous appends, SQS fallback/replay ordering, duplicate suppression, fencing during handoff and balance/projection recovery after acknowledged requests? See [[indexes/gaps]].

@@ -395,3 +395,24 @@ Publication depends-on current evidence-bound decisions; agents use role-scoped 
 ### Decision and quality notes
 
 Proposed architecture with companion prototype, not validated compliance or savings. Regulatory dates/requirements are not promoted to legal guidance; they need current official/legal review. Fabric analytical copies require their own permissions, and stale dashboards cannot authorize release. No schema, infrastructure or agent team created. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which synthetic evidence-change race and recovery suite verifies stale-approval rejection, genealogy currency, hold delivery, outbox duplicates, registry acknowledgement, ledger status and restricted reads? See [[indexes/gaps]].
+
+
+## 2026-11-27: Shared-policy training demonstrates information aggregation, not general swarm superiority
+
+### Typed entities
+
+project: Hugging Face TRL; project: Qwen3-0.6B; project: vLLM; concept: team reward; concept: private information; concept: matched compute budget; file: raw/2026-11-26-rss-swarms-flocks-gangs-how-to-build-train-and-evaluate-multi-agent-system.md.
+
+### Claims and evidence
+
+- The tutorial gives four separately contextualized agents one private integer each and trains one shared policy to communicate. Success requires at least one complete correctly sorted answer, retaining duplicates; the group reward also penalizes generated tokens. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-swarms-flocks-gangs-how-to-build-train-and-evaluate-multi-agent-system.md)
+- The reported original run reaches 26 of 32 held-out successes at update 75; its 37.4 percent token reduction describes training windows, not retained held-out efficiency. The original eight-GPU run differs from the two-GPU, 50-update walkthrough and its smaller reported success result. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-swarms-flocks-gangs-how-to-build-train-and-evaluate-multi-agent-system.md)
+- Because a lone agent lacks the other private inputs, this task cannot establish a benefit over a single fully informed agent at matched budget. Best-of-eight training attempts are an approximate training-data comparison; general coordination benefit remains a later experiment. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-swarms-flocks-gangs-how-to-build-train-and-evaluate-multi-agent-system.md)
+
+### Explicit relationships
+
+Information aggregation uses messaging and shared-policy training; a cooperation claim depends-on comparable information and compute budgets. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Educational experiment with small held-out sample and differing training recipes. No paid job launched. Related swarm incidents and mathematical results are secondary framing, not independently verified support for cooperation gains. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which repeated-seed, equal-information task compares communicating teams, independent attempts and one agent at matched total tokens, latency and held-out quality? See [[indexes/gaps]].

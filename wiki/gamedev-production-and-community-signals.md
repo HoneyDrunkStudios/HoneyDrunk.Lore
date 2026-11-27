@@ -786,3 +786,24 @@ Progression depends-on rates and content volume; economy tuning uses player tele
 ### Decision and quality notes
 
 Commercial practitioner guide without controlled player evidence. Legal/store statements are not adopted as current requirements or product decisions. No pricing or economy changed. Source-specific claims remain provisional; related reports and derived outputs are not independent confirmation. Open question: Which player profiles, content targets and earn/spend events validate an economy without progress stalls, inflation or pressure to purchase? See [[indexes/gaps]].
+
+
+## 2026-11-27: Environmental narrative prototypes need cross-discipline acceptance
+
+### Typed entities
+
+person: Thomas Pulluelo; project: 007 First Light; project: IO Interactive; project: Glacier; concept: vertical slice; concept: player agency; file: raw/2026-11-27-rss-designing-environments-that-tell-a-story-for-007-first-light.md.
+
+### Claims and evidence
+
+- The level designer describes Uninvited as an evolving prototype and vertical-slice anchor that combines authored story beats with multiple solutions and transitions between linear and open spaces. Written intentions, landmarks and repeated play informed layout iteration. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-designing-environments-that-tell-a-story-for-007-first-light.md)
+- Glacier live editing and visual scripting supported rapid set-piece prototyping; approved ideas then entered a multidisciplinary production pipeline. Large scripted events involved technical art/design, combat spaces involved combat specialists, and systemic spaces used the level-design toolset. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-designing-environments-that-tell-a-story-for-007-first-light.md)
+- Inspectable objects, ambient dialogue, passages and plausible world logic expose optional opportunities and story without prescribing one route. The account describes design practice, not an experiment demonstrating player comprehension, accessibility or engagement outcomes. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-designing-environments-that-tell-a-story-for-007-first-light.md)
+
+### Explicit relationships
+
+Environmental guidance uses spatial and narrative cues; shippable set pieces depend-on cross-discipline iteration and testing. See [[technical-art-community-and-talent-signals]].
+
+### Decision and quality notes
+
+Professional interview, not a tool-access grant or a gameplay benchmark. Public attribution retained; personal career/contact detail omitted from compiled prose. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which small vertical slice verifies route discovery, story-beat continuity, alternative solutions, accessibility and encounter stability through observed player tests? See [[indexes/gaps]].

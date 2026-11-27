@@ -2459,3 +2459,97 @@ Roadmap interpretation depends-on feature-specific release stages; automation us
 ### Decision and quality notes
 
 Vendor keynote recap dated November 17, retrospectively captured. Same-origin CLI coverage adds no independent support beyond existing 1.0 announcement. Fellowship funding/application and hardware schedules are dated announcements, not verified current opportunities or device acceptance. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which pinned Unity/CLI/Pipeline feature matrix verifies released versus beta/experimental capabilities and representative rendering/import behavior before relying on keynote demonstrations? See [[indexes/gaps]].
+
+
+## 2026-11-27: Prebaked severance trades asset memory for predictable event timing
+
+### Typed entities
+
+project: THE IRONY; project: SYLOPON; library: Unity; concept: skinned mesh; concept: Marching Cubes; concept: BVH; decision: precompute timing-sensitive geometry; file: raw/2026-11-26-rss-creating-realistic-dismemberment-gore-effects-in-unity.md.
+
+### Claims and evidence
+
+- The developers describe baking cut meshes and surface-search structures in the Editor, then pooling severed parts and copying the current bone pose before physics begins. This avoids variable runtime-cut completion latency at scripted execution moments, at the cost of authoring work and stored meshes. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-creating-realistic-dismemberment-gore-effects-in-unity.md)
+- Their spray renderer combines a decaying pressure curve with heartbeat modulation, reconstructs dense particles through a compute-shader density grid and Marching Cubes, and uses a tube surface for thin streams below grid resolution. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-creating-realistic-dismemberment-gore-effects-in-unity.md)
+- Persistent stains accumulate brush density in lightmap-UV masks; world-space brush influence and an Editor-built static-surface BVH limit affected surfaces, with per-surface batching. The account describes persistence during a playthrough, without establishing save/reload serialization. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-creating-realistic-dismemberment-gore-effects-in-unity.md)
+
+### Explicit relationships
+
+Event timing depends-on prebaked meshes; stain recording uses spatial filtering and accumulated masks. See [[technical-art-community-and-talent-signals]].
+
+### Decision and quality notes
+
+First-person production interview, no profiler traces, hardware budget or independent Unity reproduction. Rendering detail is a candidate technique rather than a universal performance claim. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which target-device scene verifies pose transfer, thin-stream continuity, UV seams, stain accumulation memory and save/reload behavior within a measured frame budget? See [[indexes/gaps]].
+
+
+## 2026-11-27: UnGodly reports a shared rendering base with platform-specific work
+
+### Typed entities
+
+project: UnGodly; project: Azra Games; library: Unity 6.3 LTS; library: URP; library: Addressables; concept: responsive combat; file: raw/2026-11-26-rss-the-gods-are-dead-but-not-forever-inside-azra-games-ungodly.md.
+
+### Claims and evidence
+
+- Azra describes Unity 6.3 LTS, URP Forward+, mixed baked/real-time lighting and Addressables as its shared technical foundation. Rendering, memory and content-delivery choices are balanced against readable real-time party combat. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-the-gods-are-dead-but-not-forever-inside-azra-games-ungodly.md)
+- The developer reports mobile, Mac, PC and spatial-device support, with adaptive fold/orientation work and up-to-60-FPS performance on selected phones. The article also says interface orientation support is still expanding; the report does not establish equivalent behavior across all devices or screens. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-the-gods-are-dead-but-not-forever-inside-azra-games-ungodly.md)
+- The design framing favors meaningful short sessions and character relationships alongside deeper play. These are product intentions and a promotional developer account, not retention, monetization fairness or user-satisfaction evidence. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-the-gods-are-dead-but-not-forever-inside-azra-games-ungodly.md)
+
+### Explicit relationships
+
+Cross-platform development uses a shared engine; acceptance depends-on device-specific controls, layouts, content and performance. See [[gamedev-production-and-community-signals]].
+
+### Decision and quality notes
+
+Developer guest post on the engine vendor site. Device/release and FPS statements remain dated source claims; no store listing, build or physical device was tested. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which supported-device build matrix verifies combat readability, sustained frame/memory cost, fold/orientation transitions, input parity and content-update recovery? See [[indexes/gaps]].
+
+
+## 2026-11-27: Stateful native workers distinguish observations from recoverable checkpoints
+
+### Typed entities
+
+project: SOKYU; project: CFAST 7.7.7; library: DASSL; library: Unity; concept: single in-flight request; concept: accepted observation; concept: worker generation; file: raw/2026-11-27-rss-cfast-unity-dev-report-4-building-a-stateful-fortran-fire-simulation-w.md.
+
+### Claims and evidence
+
+- The developer describes a pinned CFAST derivative running as a separate Fortran process, retaining solver and physical state across sequential STEP boundaries. Input changes can rebase/reinitialize numerical history while retaining accepted physical state; snapshots expose selected observations rather than a complete restart checkpoint. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-cfast-unity-dev-report-4-building-a-stateful-fortran-fire-simulation-w.md)
+- Requests carry run/generation/model identity, step sequence and time bounds; entire input batches are validated before mutation. Results are published by close-and-rename on the same filesystem, then independently validated and accepted by the Unity session owner. Atomic publication does not imply crash durability. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-cfast-unity-dev-report-4-building-a-stateful-fortran-fire-simulation-w.md)
+- The described integration allows one native request in flight, separates frame/game/solver/polling time, rejects retired-session updates and owns worker/log/workspace cleanup. Reported Stage02 tests apply to supported macOS ARM64 modes, not Windows, LAN, real-time deadlines, scientific validation or automatic full-state restoration. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-cfast-unity-dev-report-4-building-a-stateful-fortran-fire-simulation-w.md)
+
+### Explicit relationships
+
+Continuous simulation depends-on native state ownership; gameplay uses validated observations; recovery depends-on a separate checkpoint design. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Developer report with code excerpts and self-reported test/review totals. No worker compiled, process started, Unity test run or fire-engineering accuracy assessment occurred. Model hashes identify artifacts rather than physical correctness. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which pinned worker test covers malformed batches, stale generations, timeout/late results, atomic publication, shutdown, input-change continuity and explicit unsupported restart/platform paths? See [[indexes/gaps]].
+
+
+## 2026-11-27: Singleton seams improve testability without proving lifecycle safety
+
+### Typed entities
+
+project: Unity; library: NUnit; concept: adapter; concept: capability interface; concept: facade; concept: Awake order; file: raw/2026-11-27-rss-gamemanager-is-a-singleton-and-cannot-be-touched-handling-dependencies.md.
+
+### Claims and evidence
+
+- The tutorial proposes three scoped seams around a legacy GameManager: a narrow adapter for new code, small capability interfaces when the singleton may be changed, and extracted pure C# services behind compatible facade methods. These avoid requiring a full DI-framework rewrite to test domain logic. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-gamemanager-is-a-singleton-and-cannot-be-touched-handling-dependencies.md)
+- Pure calculations can use injected fakes without loading a scene. That verifies domain behavior separately from the production adapter, which still depends on singleton availability, Unity object lifetime, initialization order and event-subscription cleanup. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-gamemanager-is-a-singleton-and-cannot-be-touched-handling-dependencies.md)
+- Static-review inference: the shown ScoreService lazy property initializes a service only after a GameManager instance is reachable. Instance is assigned inside GameManager.Awake, so GameManager.Instance.AddScore from an earlier Awake can still dereference null; unchanged legacy code also does not imply zero integration regression risk. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-gamemanager-is-a-singleton-and-cannot-be-touched-handling-dependencies.md)
+
+### Resolved source interpretation
+
+Preserved source framing (paraphrased): lazy initialization guarantees safety regardless of Awake order, and no legacy edits mean zero regression risk. [source](../raw/2026-11-27-rss-gamemanager-is-a-singleton-and-cannot-be-touched-handling-dependencies.md)
+
+superseded-by: [qualified interpretation](#resolution-2026-11-27-22); timestamp: 2026-11-27T09:11:57-05:00; reason: source property and Awake assignment provide direct counterevidence to the unconditional guarantee.
+
+<a id="resolution-2026-11-27-22"></a>
+
+Selected interpretation: the lazy member cannot make the static Instance reference exist; initialization and integration still require lifecycle tests. This is bounded static/source review, not executed runtime verification.
+
+### Explicit relationships
+
+Testable domain logic uses narrow dependencies; safe facade integration depends-on explicit singleton/bootstrap lifetime. See [[ai-assisted-software-practice]].
+
+### Decision and quality notes
+
+Practitioner tutorial with illustrative tests, not executed Unity validation. Flagged misleading initialization and zero-risk wording; no production code copied or changed. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which Unity lifecycle tests cover callers before manager Awake, duplicate/destroyed managers, scene changes, domain-reload settings, adapter availability and subscription cleanup? See [[indexes/gaps]].

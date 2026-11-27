@@ -416,3 +416,24 @@ Data-product autonomy depends-on integrated capabilities and adoption feedback. 
 ### Decision and quality notes
 
 Same article compiled November 7. Repeated publication metadata does not add support; earlier platform-friction/adoption gap retained. No new platform or schema is proposed as an obligation. Source-specific claims remain provisional; recaptures and derived queries add no independent support.
+
+
+## 2026-11-27: Application sharding includes migration and transaction ownership
+
+### Typed entities
+
+project: PlanetScale Neki; project: Vitess; project: PostgreSQL; concept: routing cutover; concept: global secondary index; concept: saga; file: raw/2026-11-26-rss-why-you-shouldn-t-do-application-level-sharding.md.
+
+### Claims and evidence
+
+- PlanetScale illustrates how app-level routing expands into coordinated resharding, alternate-ID lookup, fan-out merging, hot-tenant placement, schema rollout, failover and connection management. Copying rows is insufficient when independently deployed workers disagree on routing and replication direction. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-why-you-shouldn-t-do-application-level-sharding.md)
+- Independent counters can collide across shards; UUID uniqueness does not encode location. Logical shard identifiers or maintained alternate-key indexes support routing, but cross-key queries and hot tenants still require deliberate distribution and failure handling. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-why-you-shouldn-t-do-application-level-sharding.md)
+- The vendor positions Neki, explicitly in platform preview, and Vitess as sharding layers. The capture still excludes atomic cross-shard writes in Neki; app-level sagas need transactional outboxes, duplicate-safe effects, visible pending state and compensation, while two-phase commit has coordinator and locking costs. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-26-rss-why-you-shouldn-t-do-application-level-sharding.md)
+
+### Explicit relationships
+
+Safe resharding depends-on authoritative routing and write handoff; cross-shard operations use explicit transaction semantics. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Vendor argument using an illustrative marketplace, consistent with the existing Neki colocation caveat. No schema design, sharding decision, provider comparison or migration was executed; no universal need to shard early inferred. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which workload and recovery evidence justify sharding, and which stale-router, GSI, hot-tenant, outbox-duplicate, partial-DDL and failover tests verify the selected boundary? See [[indexes/gaps]].

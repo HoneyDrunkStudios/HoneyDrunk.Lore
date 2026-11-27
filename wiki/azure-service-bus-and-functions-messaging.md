@@ -53,3 +53,24 @@ Azure Functions batch processing for Azure Service Bus now has a clearer product
 - Quality posture: decision-usable for Azure Functions/Service Bus implementation scouting; verify package/API names against current docs before coding.
 - Weak spots: source is vendor-authored and example-heavy.
 - Privacy filter: no credentials or private payload examples copied.
+
+
+## 2026-11-27: Trigger count does not determine code reuse or runtime isolation
+
+### Typed entities
+
+project: Azure Functions; project: AWS Lambda; concept: Function App; concept: event source mapping; decision: separate entry-point contracts; file: raw/2026-11-27-rss-azure-functions-and-aws-lambda-one-trigger-vs-multiple-triggers-what-c.md.
+
+### Claims and evidence
+
+- The Microsoft-hosted comparison distinguishes one trigger per Azure function from a Function App containing many functions. Lambda can accept independent invocations from several configured sources; those are not combined into a single event or a synchronized join. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-azure-functions-and-aws-lambda-one-trigger-vs-multiple-triggers-what-c.md)
+- Both arrangements can reuse one application service. HTTP, queue batches and scheduled events still require their own payload, response, retry and settlement handling; Lambda SQS integration uses a polling event source mapping rather than a generic push trigger. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-azure-functions-and-aws-lambda-one-trigger-vs-multiple-triggers-what-c.md)
+- Functions deployed in one app share app-level settings and resources; multiple sources targeting one Lambda share its configuration/concurrency constraints. Separate source-facing methods alone do not prove independent scaling or fault isolation. confidence: 1 source, last-confirmed 2026-11-27 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-27-rss-azure-functions-and-aws-lambda-one-trigger-vs-multiple-triggers-what-c.md)
+
+### Explicit relationships
+
+Code reuse uses a shared service; execution behavior depends-on source contracts and hosting boundaries. See [[azure-agent-automation-and-identity]].
+
+### Decision and quality notes
+
+Vendor-hosted design comparison, no AWS primary-document refresh or provider execution. Publication metadata and rendered date differ by a day; retained as capture provenance rather than a release claim. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which mixed-source fixture verifies payload normalization, partial-batch failure, idempotency, source-specific responses and app/function concurrency isolation? See [[indexes/gaps]].
