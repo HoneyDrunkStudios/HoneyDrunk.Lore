@@ -1969,3 +1969,24 @@ Modular authoring uses independently replaceable layers; optimization depends-on
 ### Decision and quality notes
 
 Production interview with explicit non-identical-scene and Editor-only limits. Image-only result tables were not inferred; no asset download, license grant or target headset validation. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which packaged headset scene verifies collision/decal alignment, CPD index contracts, actor/material tradeoffs, memory and sustained frame time separately from the portfolio renderer? See [[indexes/gaps]].
+
+
+## 2026-11-28: Pseudo-spherical cards preserve texture history rather than true sphere coordinates
+
+### Typed entities
+
+person: Alina Ledeneva; project: TYBALT; library: Unreal Engine 5; concept: stereographic UV projection; concept: camera-facing card; concept: accumulated 2D transform; file: raw/2026-11-28-web-faking-a-spherical-planet-with-a-tileable-texture-in-ue5.md.
+
+### Claims and evidence
+
+- The artist describes a flat camera-facing card: World Position Offset handles orientation while hemisphere-derived stereographic UVs provide apparent curvature for regular tileable textures. The geometry remains flat. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-web-faking-a-spherical-planet-with-a-tileable-texture-in-ue5.md)
+- Blueprint accumulates offset/rotation, transforms offsets in the current texture basis and rotates around a moving pole pivot. Near the pole it retains the last valid longitude direction and adjusts vertical sign. Different camera paths can reach the same viewpoint with different texture areas; this path dependence is an explicit approximation, not true spherical mapping. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-web-faking-a-spherical-planet-with-a-tileable-texture-in-ue5.md)
+- A material-only offset version omits accumulated rotation and suits constrained distant/decorative views. The full history-bearing version supports broader orbits, but needs state ownership and reset behavior beyond a single material parameter formula. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-web-faking-a-spherical-planet-with-a-tileable-texture-in-ue5.md)
+
+### Explicit relationships
+
+Continuous pseudo-sphere motion depends-on accumulated transform history; limited-view backgrounds use a simpler offset approximation. See [[unity-3d-and-realtime-vfx-patterns]].
+
+### Decision and quality notes
+
+Artist breakdown, no UE project, material graph or performance test inspected. Public professional attribution retained; unnecessary contact/profile links omitted. No geometric parallax or universal orbit correctness inferred. Source-specific claims remain provisional; repeated captures and derived queries add no independent support. Open question: Which camera-path fixture verifies pole crossings, actor rotation, resets/teleports, multi-camera state ownership and expected path dependence against the intended background-art use? See [[indexes/gaps]].

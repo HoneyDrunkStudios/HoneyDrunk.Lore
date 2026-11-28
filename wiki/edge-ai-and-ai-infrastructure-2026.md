@@ -1609,3 +1609,23 @@ Cobalt deployment depends-on Arm-compatible software, family/region capacity and
 ### Decision and quality notes
 
 Flagged source quality: malformed high-memory sizing table. Use an authoritative size specification before capacity calculations. No VM, runner, subscription or infrastructure changed; endorsements are not independent benchmark replication. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which authoritative Cobalt size/OS matrix corrects the malformed table and which representative Arm workload compares modes, latency, capacity and actual cost in an available region? See [[indexes/gaps]].
+
+
+## 2026-11-28: AMD inference dashboard distinguishes prefill, decode and context depth
+
+### Typed entities
+
+project: llama.cpp; project: ggml-org; library: llama-bench; concept: PP512; concept: TG128; concept: context scaling; concept: GGUF quantization; file: raw/2026-11-28-rss-introducing-the-llama-cpp-benchmark-dashboard-for-amd-ryzen-and-radeon.md.
+
+### Claims and evidence
+
+- ggml-org describes a public AMD dashboard over prebuilt llama.cpp binaries, with hardware/model/build/quantization selectors, build history and context sweeps. The captured hardware choices are Radeon 8060S and Radeon AI Pro R9700S. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-introducing-the-llama-cpp-benchmark-dashboard-for-amd-ryzen-and-radeon.md)
+- PP512 processes 512 prompt tokens without generation; TG128 generates 128 tokens from depth zero. Plots use mean tokens/second; workflows reportedly run weekly with Flash Attention on/off and ten repetitions. Context-scaling results are a separate workload, and public per-build JSONL permits provenance inspection. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-introducing-the-llama-cpp-benchmark-dashboard-for-amd-ryzen-and-radeon.md)
+
+### Explicit relationships
+
+Throughput comparison depends-on workload, context depth, hardware, build and quantization identity. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Project-authored benchmark-method guide; no hardware benchmark or public dataset inspected. Zero-depth throughput does not establish realistic agent latency, output quality or device memory fit. Source-specific claims remain provisional; repeated captures and derived queries add no independent support. Open question: Which pinned local workload compares PP512, TG128 and long-context generation with hardware/driver/build metadata, memory/power measurements and task-quality checks? See [[indexes/gaps]].

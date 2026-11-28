@@ -2553,3 +2553,45 @@ Testable domain logic uses narrow dependencies; safe facade integration depends-
 ### Decision and quality notes
 
 Practitioner tutorial with illustrative tests, not executed Unity validation. Flagged misleading initialization and zero-risk wording; no production code copied or changed. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which Unity lifecycle tests cover callers before manager Awake, duplicate/destroyed managers, scene changes, domain-reload settings, adapter availability and subscription cleanup? See [[indexes/gaps]].
+
+
+## 2026-11-28: Prototype boundaries separate domain rules from scene lifetime
+
+### Typed entities
+
+project: Unity; library: NUnit; concept: disposable architecture; concept: event lifetime; concept: MonoBehaviour bridge; decision: test domain and lifecycle separately; file: raw/2026-11-28-rss-2-week-deadline-where-does-clean-architecture-fit.md.
+
+### Claims and evidence
+
+- The practitioner proposes a small orchestration singleton, focused components, event-driven presentation and pure C# domain rules behind a weapon interface. A reusable base is an option for repeated needs; its timing/ROI matrix is opinion, not measured delivery evidence. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-2-week-deadline-where-does-clean-architecture-fit.md)
+- The sample constructs the model in PlayerBridge.Awake and subscribes only when UIHealthView.OnEnable finds it. Static-review inference: if the view enables before that model exists, it can remain unsubscribed until re-enabled; the example also does not publish initial health. Pure-model NUnit examples do not exercise scene initialization or destroyed-object behavior. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-2-week-deadline-where-does-clean-architecture-fit.md)
+
+### Explicit relationships
+
+UI presentation depends-on an initialized model and balanced event subscriptions; domain tests use narrow weapon dependencies. See [[ai-assisted-software-practice]].
+
+### Decision and quality notes
+
+Illustrative tutorial; no Unity or NUnit run. Flagged lifecycle assumptions and unsupported schedule guarantees. Singleton advice is a prototype tradeoff, not a new studio rule. Source-specific claims remain provisional; repeated captures and derived queries add no independent support. Open question: Which scene tests verify view-before-model initialization, initial health display, disable/re-enable, model replacement and destruction without stale subscriptions? See [[indexes/gaps]].
+
+
+## 2026-11-28: Smoke rendering reuses accepted state while preserving required updates
+
+### Typed entities
+
+project: SOKYU; project: CFAST; library: Unity; concept: accepted simulation state; concept: volumetric smoke; concept: mesh reuse; concept: component timing; file: raw/2026-11-28-rss-cfast-unity-dev-report-3-from-fire-simulation-to-real-time-smoke-rende.md.
+
+### Claims and evidence
+
+- Report #3 separates compartment smoke volumes driven by layer heights/optical density from opening particles driven by signed transport, density, geometry and source-layer optical state. Closing a transport path or setting flow to zero does not erase accumulated smoke or existing particles. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-cfast-unity-dev-report-3-from-fire-simulation-to-real-time-smoke-rende.md)
+- The author reports pixel-matching indoor smoke across three modes under matched layer/camera/stage inputs (150 images, nine executions). Earlier differing door conditions changed simulation inputs, so visible differences alone did not isolate a renderer defect. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-cfast-unity-dev-report-3-from-fire-simulation-to-real-time-smoke-rende.md)
+- The first empty-particle shortcut skipped required appearance/boundary updates and was rejected. The corrected 13-empty-opening Editor measurement fell from 0.09370 ms to 0.04965 ms (0.04405 ms saved, about 47% for that operation); it is not an overall FPS or standalone-Player result. Mesh reuse requires unchanged particle and transform inputs. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-cfast-unity-dev-report-3-from-fire-simulation-to-real-time-smoke-rende.md)
+- The renderer consumes accepted observations between native updates; a stalled worker cannot provide new physical state. CFAST compartment transport does not supply a detailed local CFD velocity field; FDS coupling remains exploration. This extends the already compiled Report #4 architecture without adding independent corroboration. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-cfast-unity-dev-report-3-from-fire-simulation-to-real-time-smoke-rende.md)
+
+### Explicit relationships
+
+Smoke visualization uses accepted simulation observations; safe empty-state optimization depends-on retained boundary/appearance updates and actual particles. Report #3 complements the Report #4 worker contract above. See [[agent-evaluation-and-benchmarks]].
+
+### Decision and quality notes
+
+Single developer account, no reproduced profiling or scientific validation. Initial candidate timings remain rejected evidence; final component timing is narrowly scoped. No certified fire-prediction or training effectiveness inferred. Source-specific claims remain provisional; repeated captures and derived queries add no independent support. Open question: Which pinned standalone capture verifies empty/unchanged/moving particles, boundary updates, stale worker state and matched-input visuals while measuring CPU, GPU and full-frame time separately? See [[indexes/gaps]].

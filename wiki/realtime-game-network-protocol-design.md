@@ -230,3 +230,34 @@ Server settlement uses deterministic replay and depends-on server-owned battle i
 ### Decision and quality notes
 
 Preserved source assertion: replay verification defeats result forgery completely at almost no cost. superseded-by: [[realtime-game-network-protocol-design#2026-11-15: Deterministic battle replay requires authoritative inputs and reward settlement]], 2026-11-15T09:12:44-05:00; reasoning: replay only checks supplied simulation inputs, while the same account documents a separate reward-writing bypass. Treat replay as one control, with authorization, expiry, duplicate settlement and ledger integrity still unproved. Shared-IP signals alone do not establish abuse; do not copy player identifiers. Open question: Which adversarial battle suite verifies immutable server-owned seeds/teams/rules, replay cost, expiration, concurrent finish calls, duplicate-safe rewards and migration-route authorization? See [[indexes/gaps]].
+
+
+## 2026-11-28: Server-owned snake ticks still need immutable collision evaluation
+
+### Typed entities
+
+project: Snake Duel; library: Socket.IO; concept: authoritative tick; concept: pending direction; concept: collision snapshot; concept: volatile full-state delivery; file: raw/2026-11-28-rss-two-snakes-one-clock-the-tick-loop-behind-my-real-time-snake-duel.md.
+
+### Claims and evidence
+
+- The developer describes server-owned ticks using self-rescheduling timeouts, a single pending input direction checked against the last committed direction, wrapping coordinates and volatile full-state snapshots. Clients render received state; this trades latency and dropped intermediate frames for server-owned movement. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-two-snakes-one-clock-the-tick-loop-behind-my-real-time-snake-duel.md)
+- Static-review inference: the displayed body loop mutates alive flags while later checks skip already-dead opponents. In a head-swap case not caught by the same-destination precheck, snake 0 can die on snake 1's current head, after which snake 1 skips snake 0's body and survives. This contradicts the claimed mutual, order-independent collision resolution. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-two-snakes-one-clock-the-tick-loop-behind-my-real-time-snake-duel.md)
+- The source allows following one's own vacating tail but not an opponent's tail, and falls back to board center after bounded random food-placement attempts. It does not prove that fallback is unoccupied; server authority alone also does not validate room admission, input ownership, rate limits or reconnect behavior. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-two-snakes-one-clock-the-tick-loop-behind-my-real-time-snake-duel.md)
+
+### Source interpretation resolution
+
+Preserved source framing (paraphrased): The source says checking both snakes before movement removes processing-order advantage and makes swapping heads mutually fatal.
+
+superseded-by: [reviewed interpretation](#resolution-2026-11-28-snake-collisions); timestamp: 2026-11-28T09:04:27-05:00; reason: The shown loop changes alive during evaluation and skips opponents killed earlier in that same loop; unchanged coordinates alone do not make the read state immutable.
+
+<a id="resolution-2026-11-28-snake-collisions"></a>
+
+Selected interpretation: Retain server authority as an architectural description, but require collision candidates from one immutable tick snapshot and apply outcomes together before asserting symmetry. confidence: 1 source, last-confirmed 2026-11-28 (static/source review, not runtime verification). [captured source](../raw/2026-11-28-rss-two-snakes-one-clock-the-tick-loop-behind-my-real-time-snake-duel.md)
+
+### Explicit relationships
+
+Authoritative ticks use server-owned state; simultaneous collisions depend-on immutable pre-tick occupancy and batched death application. Snapshot delivery depends-on eventual successful receipt. See [[distributed-systems-patterns]].
+
+### Decision and quality notes
+
+Static analysis of an abbreviated devlog excerpt, not the deployed server. No gameplay/security execution. Flagged collision-order and food fallback assumptions; unrestricted anti-cheat wording is not accepted as a security guarantee. Source-specific claims remain provisional; repeated captures and derived queries add no independent support. Open question: Which tick tests verify symmetric head swaps and body deaths, vacating/growing tails, full-board food exhaustion, invalid player input, timer drift and recovery after dropped snapshots? See [[indexes/gaps]].

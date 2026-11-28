@@ -1802,3 +1802,23 @@ Inspection uses an in-app agent and discovery broker; secure adoption depends-on
 ### Decision and quality notes
 
 Official experimental overview with mixed-version links and an unpinned prerelease install example. No CLI installed, app inspected or platform capability tested; no universal device-driver support inferred. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which pinned platform/debug-release matrix verifies broker discovery, loopback/auth boundaries, listener/CDP absence in release, private-data filtering and current GTK package compatibility? See [[indexes/gaps]].
+
+
+## 2026-11-28: SQL Server full-text setup and ranked queries are separate provider contracts
+
+### Typed entities
+
+project: EF Core 11; project: SQL Server; concept: full-text catalog; concept: full-text key index; concept: ranked table-valued function; file: raw/2026-11-28-web-full-text-search-in-the-sql-server-ef-core-provider.md.
+
+### Claims and evidence
+
+- The captured provider guide introduces model/migration management for full-text catalogs and indexes in EF Core 11. It requires a unique, non-null, single-column key index; language, change tracking and catalog accent settings are separate configuration. Earlier versions use explicit migration SQL with transaction suppression. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-web-full-text-search-in-the-sql-server-ef-core-provider.md)
+- FreeText/Contains predicates filter, while FreeTextTable/ContainsTable return keys/ranks for relevance ordering and support topN/language choices. The examples show both explicit key joins and value projections; generic key types, translated SQL and result shapes require verification against the pinned package rather than inferred interchangeability. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-web-full-text-search-in-the-sql-server-ef-core-provider.md)
+
+### Explicit relationships
+
+Ranked lexical search depends-on full-text infrastructure and matching key types; hybrid fusion uses separately ordered result lists. See [[agentic-retrieval-and-search]].
+
+### Decision and quality notes
+
+Official archived documentation, no SQL migration/query run. Table-level performance advice is qualitative and version-dependent; lexical Rank is not an ordinal rank for reciprocal rank fusion. Source-specific claims remain provisional; repeated captures and derived queries add no independent support. Open question: Which pinned SQL/EF fixture verifies catalog/index up/down migrations, unique key types, language/change tracking, result-shape translation, topN ordering and rollback behavior? See [[indexes/gaps]].

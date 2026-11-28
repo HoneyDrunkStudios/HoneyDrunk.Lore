@@ -194,3 +194,23 @@ Winning catalogs depend-on rule-bound proof replay; compact lookup uses seed bit
 ### Decision and quality notes
 
 Self-authored implementation account, not inspected code or a reproduced exhaustive proof. Microsecond selection and mobile shipping are author claims. The arithmetic reconciles; no deployment or game acceptance inferred. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which pinned rule/generator/catalog test verifies witness replay, canonicalization, malformed-file rejection, unbiased rank selection and compatibility across catalog upgrades? See [[indexes/gaps]].
+
+
+## 2026-11-28: Constructive bank-shot generation preserves a replayable witness
+
+### Typed entities
+
+project: Carom Shot; concept: solution witness; concept: fixed spatial step; concept: aim tolerance; decision: separate solvability from difficulty; file: raw/2026-11-28-rss-always-solvable-puzzle-levels-generate-the-solution-first.md.
+
+### Claims and evidence
+
+- The author generates obstacles, simulates a candidate angle, and places targets along the accepted trajectory. Generation, preview and play reportedly share one fixed-step simulation; rejection rules spread targets over bounce segments and remove trivial straight shots. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-always-solvable-puzzle-levels-generate-the-solution-first.md)
+- The author reports 500/500 generated boards verified in about 85 ms and sweeps 3,000 angles to estimate aim windows. Narrow one-shot windows motivated persistent hits over several shots with a one-shot bonus. These are self-reported tests, not proof of cross-platform floating-point identity or an indefinitely successful bounded generator. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-always-solvable-puzzle-levels-generate-the-solution-first.md)
+
+### Explicit relationships
+
+Constructive generation uses a solution witness; playable solvability depends-on replay under the same collision rules, while fairness depends-on aim tolerance and input precision. See [[realtime-game-network-protocol-design]].
+
+### Decision and quality notes
+
+AI-assisted developer post with disclosure retained at a high level. No game executed; bounded-attempt exhaustion, witness persistence and device behavior remain unverified. Related puzzle devlogs corroborate the design pattern, not this benchmark. Source-specific claims remain provisional; repeated captures and derived queries add no independent support. Open question: Which property/device tests replay stored solution angles under identical rules and cover generation exhaustion, bounce corners, target radius and touch aim tolerance? See [[indexes/gaps]].

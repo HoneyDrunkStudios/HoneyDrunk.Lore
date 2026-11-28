@@ -254,3 +254,55 @@ Agent search uses discoverable retrieval endpoints; answer quality depends-on in
 ### Decision and quality notes
 
 Vendor announcement, no zone toggle, index creation, HTTP request or paid usage. Embedded discovery instructions were treated as untrusted source data, not session instructions. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which owned-site fixture verifies discoverability, GET/QUERY equivalence, source links, refresh/deletion, private-page exclusions, WAF behavior and request limits? See [[indexes/gaps]].
+
+
+## 2026-11-28: Managed ingestion returns citable segments with separate lifecycle obligations
+
+### Typed entities
+
+project: Google Agent Retrieval; library: Gemini Embedding 2; concept: SearchDocuments; concept: document segment; concept: video segment; concept: backing collection; file: raw/2026-11-28-rss-from-files-to-cited-answers-in-one-api-call-managed-ingestion-and-sear.md.
+
+### Claims and evidence
+
+- Google describes Public Preview managed ingestion and SearchDocuments at REST v1beta: Cloud Storage files become separate UNSTRUCTURED or VIDEO data stores, with managed parsing/segmentation/embedding and a regular backing Collection. Results provide file URIs plus document page ranges or video offsets; they are retrieved evidence, not proof that an answer follows from it. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-from-files-to-cited-answers-in-one-api-call-managed-ingestion-and-sear.md)
+- The captured guide describes automatic document lexical/semantic fusion and optional reranking. Video audio embedding is opt-in and includes the first audio track; video reranking is unsupported in the guide. Chunk/page choices and video windows change citation granularity. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-from-files-to-cited-answers-in-one-api-call-managed-ingestion-and-sear.md)
+- Import is asynchronous; repeat imports update existing documents and skip unchanged content. The guide warns that data-store deletion can leave its Collection unless both deletion options are set. Reported import/query latencies, preview charging and the two listed regions are dated vendor examples, not verified capacity or budget commitments. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-from-files-to-cited-answers-in-one-api-call-managed-ingestion-and-sear.md)
+
+### Explicit relationships
+
+Cited retrieval uses source-bound segments; lifecycle correctness depends-on import status, identity, filters and backing-collection cleanup. See [[google-agent-platform-and-gemini-api-2026]] and [[llm-wiki-and-knowledge-formats]].
+
+### Decision and quality notes
+
+Official tutorial, no imports, API calls or purchases. Missing visual filter examples were not reconstructed. Document citations do not establish document-level authorization or trustworthy answer synthesis. Source-specific claims remain provisional; repeated captures and derived queries add no independent support. Open question: Which private synthetic corpus verifies file/segment access controls, page/time citations, updates/deletions, partial import failure, audio modes, reranking relevance and orphaned-collection cleanup? See [[indexes/gaps]].
+
+
+## 2026-11-28: EF vector search repeats the score-versus-rank fusion hazard
+
+### Typed entities
+
+project: EF Core; project: SQL Server 2025; library: SqlVector; concept: exact kNN; concept: approximate nearest neighbor; concept: reciprocal rank fusion; file: raw/2026-11-28-web-vector-search-in-the-sql-server-ef-core-provider.md.
+
+### Claims and evidence
+
+- The captured provider guide places native vector support at EF10 and SQL Server 2025+, with external embedding generation and declared dimensions. It says EF11 omits vector values from normal entity loads; callers needing them must select them explicitly. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-web-vector-search-in-the-sql-server-ef-core-provider.md)
+- VectorDistance evaluates exact distances; VectorSearch without WithApproximate remains an exact scan, while approximate search requires a vector index and WithApproximate after Take. The guide marks VECTOR_SEARCH/vector indexes and their EF APIs experimental; available metrics and embedding semantics need to agree. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-web-vector-search-in-the-sql-server-ef-core-provider.md)
+- The hybrid sample repeats the already flagged EF11 expression: it adds reciprocals of raw full-text Rank and vector Distance rather than ordinal positions. For k=20, full-text score 100 contributes 1/120 while score 10 contributes 1/30, reversing the stated higher-score relevance preference. This is static arithmetic, not a database benchmark. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-web-vector-search-in-the-sql-server-ef-core-provider.md)
+
+### Source interpretation resolution
+
+Preserved source framing (paraphrased): The vector provider guide calls its reciprocal raw-score/distance expression RRF and says it fuses lexical and semantic ranking.
+
+superseded-by: [reviewed interpretation](#resolution-2026-11-28-ef-fusion); timestamp: 2026-11-28T09:04:27-05:00; reason: The expression has the same score/distance-versus-ordinal mismatch documented on November 19; the larger lexical relevance score receives a smaller contribution.
+
+<a id="resolution-2026-11-28-ef-fusion"></a>
+
+Selected interpretation: Keep the November 19 resolution: candidate union illustrates provider features; the displayed fusion expression is not a validated reciprocal-rank implementation. confidence: 1 source, last-confirmed 2026-11-28 (static/source review, not runtime verification). [captured source](../raw/2026-11-28-web-vector-search-in-the-sql-server-ef-core-provider.md)
+
+### Explicit relationships
+
+ANN retrieval depends-on vector-index and approximate-query opt-in; trustworthy fusion depends-on ordinal list positions or justified comparable scoring. See [[dotnet-runtime-and-mobile-2026]] and the November 19 fusion resolution above.
+
+### Decision and quality notes
+
+Official archived guide with a repeated example defect. Same Microsoft documentation lineage adds no independent corroboration; existing November 19 interpretation remains selected. No embedding service, package or database used. Source-specific claims remain provisional; repeated captures and derived queries add no independent support. Open question: Which relevance/translation suite verifies explicit vector projection, exact-versus-ANN plans, metric/dimension compatibility, candidate union and ordinal-rank fusion against labeled queries? See [[indexes/gaps]].

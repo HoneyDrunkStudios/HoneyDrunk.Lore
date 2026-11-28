@@ -1553,3 +1553,44 @@ Coverage publication depends-on supported report format and enabled Code Quality
 ### Decision and quality notes
 
 First-party changelog, no action invoked or workflow edited. Tolerating malformed individual lines can change usable coverage, so acceptance needs report and displayed-result checks. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which Code Quality workflow verifies rejection of non-Cobertura files, partial-line handling and expected PR coverage with the repository feature enabled? See [[indexes/gaps]].
+
+
+## 2026-11-28: External checks require commit-bound evidence and separate publish authority
+
+### Typed entities
+
+project: Chainguard Checks; project: Chainguard Workspaces; concept: microVM; concept: submission validator; concept: digest comparison; concept: external attestation; file: raw/2026-11-28-rss-dogfooding-checks-and-workspaces-hard-lessons-from-3-000-repos.md.
+
+### Claims and evidence
+
+- Chainguard describes a submission tool that suspends an agent workspace while the harness runs validators, then resumes on failure. It reports operation over roughly 3,000 images and high fleet success; those percentages are vendor operational claims, not HoneyDrunk acceptance. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-dogfooding-checks-and-workspaces-hard-lessons-from-3-000-repos.md)
+- The account separates reduced-credential test builds from a publish-credential rebuild without arbitrary test execution, comparing resulting digests before publishing. Its external-check trust argument binds commit SHA, environment and verdict; isolation requires observable logs without exposing guest credentials. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-dogfooding-checks-and-workspaces-hard-lessons-from-3-000-repos.md)
+- Moving compute away from Actions still leaves source refs, webhooks and checks dependent on GitHub. The rollout used a percentage control and fallback; an end-of-October goal does not prove all Actions were disabled. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-dogfooding-checks-and-workspaces-hard-lessons-from-3-000-repos.md)
+
+### Explicit relationships
+
+Agent submission depends-on harness-run checks; release publication depends-on isolated authority and artifact identity; external merge evidence depends-on trusted commit/environment binding. See [[container-supply-chain-and-compliance]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+First-party beta-product/operations account; no inspected attestation protocol or reproduced digest pipeline. Straight-to-main behavior is descriptive source material and changes no HoneyDrunk publishing rule. Source-specific claims remain provisional; repeated captures and derived queries add no independent support. Open question: Which synthetic release fixture verifies SHA/environment/verdict binding, untrusted-test isolation, reproducible digests, rejected substitutions, fallback behavior and secret-safe diagnostics? See [[indexes/gaps]].
+
+
+## 2026-11-28: CI failure banners require cause-level logs and actual resource evidence
+
+### Typed entities
+
+project: Harness CI; concept: exit status; concept: image architecture; concept: OOM; concept: timeout; concept: resource telemetry; file: raw/2026-11-28-rss-your-ci-pipeline-just-failed-with-system-failure-again-here-s-what-tha.md.
+
+### Claims and evidence
+
+- Harness demonstrates assertion, disk exhaustion and package-index DNS failures all returning exit status 1 in a synthetic five-stage lab. A wrong-architecture image failed before tests; parallel-group/run summaries exposed only part of the failures. Diagnosis requires individual step logs, not only the final banner. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-your-ci-pipeline-just-failed-with-system-failure-again-here-s-what-tha.md)
+- The lab separates OOM termination from a proved memory limit, actual resource telemetry from a tier label, and initialization/stage duration from step timeout. Extending a timeout does not fix a nonexistent dependency. The author found unsupported memory/signal/duration claims in AI analysis and checked them against logs. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-your-ci-pipeline-just-failed-with-system-failure-again-here-s-what-tha.md)
+
+### Explicit relationships
+
+Root-cause diagnosis depends-on step logs and observed resources; AI explanations use evidence but do not supersede it. See [[opentelemetry-genai-observability-and-ecosystem]].
+
+### Decision and quality notes
+
+Vendor-authored injected-failure lab, no Harness run. Hardware variation and memory estimates are scenario observations, not service-wide guarantees; no production incident inferred. Source-specific claims remain provisional; repeated captures and derived queries add no independent support. Open question: Which CI fixture preserves all parallel failures, image architecture, disk/DNS causes, actual memory/termination evidence and stage-versus-step timing without adopting unsupported AI explanations? See [[indexes/gaps]].

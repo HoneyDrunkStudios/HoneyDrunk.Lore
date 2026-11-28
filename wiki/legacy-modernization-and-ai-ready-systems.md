@@ -42,3 +42,23 @@ AI-ready modernization is not just cloud migration or automated code conversion.
 
 - Quality posture: Thoughtworks source is vendor/practice guidance with a case study; it is decision-useful for architecture posture but not neutral procurement proof.
 - Privacy filter: no customer-private details beyond the public case-study summary were promoted.
+
+
+## 2026-11-28: App Service Managed Instance placement requires dependency-level validation
+
+### Typed entities
+
+project: Azure App Service Managed Instance; project: Azure Catalyst; project: App Service Environment v3; concept: Windows dependency assessment; decision: non-production migration validation; file: raw/2026-11-28-rss-modernize-more-windows-applications-with-managed-instance-on-azure-app.md.
+
+### Claims and evidence
+
+- Microsoft's November 17 account says Managed Instance became GA in August and adds Catalyst assessment plus Premium v3/memory-optimized availability and Isolated v4 in ASE v3. Availability is being enabled across eligible infrastructure; plan/region compatibility remains conditional. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-modernize-more-windows-applications-with-managed-instance-on-azure-app.md)
+- The source targets eligible Windows web applications with supported installers, services, registry configuration and storage mounts, plus managed identity/Key Vault and Bastion diagnostics. It explicitly excludes Linux/container hosting and arbitrary full-VM administration. Assessment identifies candidates; representative non-production validation must establish actual dependency fit. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-modernize-more-windows-applications-with-managed-instance-on-azure-app.md)
+
+### Explicit relationships
+
+Migration placement depends-on supported OS dependencies, plan/region and validated installation/network behavior; Catalyst uses assessment rather than compatibility proof. See [[windows-component-registration-and-service-boundaries]].
+
+### Decision and quality notes
+
+Vendor modernization guidance, no subscription inventory or migration executed. This complements semantic modernization evidence without claiming equivalent AWS/Azure capabilities. Source-specific claims remain provisional; repeated captures and derived queries add no independent support. Open question: Which representative Windows web app validates installer/service/registry/share dependencies, identity, private networking, restart/scale recovery and rollback on the intended supported plan/region? See [[indexes/gaps]].

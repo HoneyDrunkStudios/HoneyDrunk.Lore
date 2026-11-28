@@ -543,3 +543,24 @@ Cross-cloud detection depends-on content telemetry and enabled enrollment; actio
 ### Decision and quality notes
 
 First-party synthetic examples with intentionally permissive agents, not sensitivity/precision estimates or a runtime-independent compatibility guarantee. No content capture/export enabled; synthetic order/customer details omitted. Source-specific claims remain provisional; repeated announcements, historical changelog entries and derived queries add no independent support. Open question: Which consented cross-cloud ADK pilot verifies federation scope, content redaction/retention, discovery-versus-enable behavior, detection delay and console-only finding delivery? See [[indexes/gaps]].
+
+
+## 2026-11-28: Custom Gemini UI separates user, connector and tool identities
+
+### Typed entities
+
+project: Gemini Enterprise; project: StreamAssist; library: ADK; library: GcpAuthProvider; concept: workforce identity; concept: workload identity; concept: Keystore; concept: Token Vault; file: raw/2026-11-28-rss-how-to-handle-user-connector-and-agent-auth-in-gemini-enterprise-with-.md.
+
+### Claims and evidence
+
+- The Google guide distinguishes Google user login and Workforce Identity Federation for employee-scoped requests from Workload Identity Federation for shared machine requests. A keyless workload token does not by itself carry each employee's document ACLs, chat identity or connector consent. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-how-to-handle-user-connector-and-agent-auth-in-gemini-enterprise-with-.md)
+- A custom frontend/backend must implement connector discovery, authorization status, consent relay and final exchange against the managed Keystore, then include authorized connector data stores in queries. The managed redirect page needs a custom-origin handoff configuration for the described popup flow. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-how-to-handle-user-connector-and-agent-auth-in-gemini-enterprise-with-.md)
+- For custom ADK agents, the guide uses tool-level AuthenticatedFunctionTool/GcpAuthProvider with Agent Identity and Auth Manager Token Vault. Pending authorization must be validated for the signed-in session before finalization and retry; root-level OAuth instead gates the entire agent. Managed connector Keystore and custom-tool Token Vault are distinct flows. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-how-to-handle-user-connector-and-agent-auth-in-gemini-enterprise-with-.md)
+
+### Explicit relationships
+
+Per-user retrieval depends-on user identity; federated connectors use Keystore; protected ADK tools use Token Vault and Agent Identity. See [[ai-agent-identity-and-workload-auth]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+First-party architecture guide; linked runnable repository not inspected or executed. No tokens, authorization codes, callback states or user identifiers copied. Retry side effects, browser origin checks and tenant isolation require tests. Source-specific claims remain provisional; repeated captures and derived queries add no independent support. Open question: Which two-user/two-tenant fixture verifies ACL separation, popup origin/state validation, pending-credential ownership, token revocation, denied consent and duplicate-safe same-session retry? See [[indexes/gaps]].

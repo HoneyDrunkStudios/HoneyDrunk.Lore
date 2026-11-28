@@ -1,98 +1,81 @@
-# Lore daily ingest/compile - 2026-11-27
+# Lore daily ingest/compile - 2026-11-28
 
-- Timestamp: 2026-11-27T09:11:57-05:00
+- Timestamp: 2026-11-28T09:04:27-05:00
 - Operator: Codex executing the authorized Honeyclaw daily workflow.
-- Raw sources ingested: **30**, listed below; **1667/1667** raw documents now have unique source-index entries.
-- Canonical wiki pages created/updated: **0/18**; updated four indexes and this receipt.
-- Contradictions resolved: **2 source interpretations**; **0 existing cross-page contradictions**. Preserved original framing and all prior claims with timestamped supersession where warranted.
-- Gaps logged/closed: **30/0**; retained all **1163** earlier dated questions (**1193** total).
-- Blockers: **none for archival publication**. Source-specific quality and local acceptance gaps remain open. A temporary command-execution stall recovered before content changes.
+- Raw sources ingested: **15**; **1682/1682** raw documents now have unique source-index entries.
+- Canonical wiki pages created/updated: **0/12**; rebuilt four indexes and wrote this receipt.
+- Contradictions resolved: **3 source interpretations**; no prior cross-page claim replaced.
+- Gaps logged/closed: **15/0**; all **1193** earlier questions remain (**1208** total).
+- Blockers: **none for archival publication**. Source-specific acceptance gaps remain open.
 
 ## Raw sources ingested
 
-- [2026-11-26-rss-creating-realistic-dismemberment-gore-effects-in-unity.md](../raw/2026-11-26-rss-creating-realistic-dismemberment-gore-effects-in-unity.md) → [[unity-3d-and-realtime-vfx-patterns]]
-- [2026-11-26-rss-engineering-around-non-determinism-evals-grounding-and-release-gates-f.md](../raw/2026-11-26-rss-engineering-around-non-determinism-evals-grounding-and-release-gates-f.md) → [[agent-evaluation-and-benchmarks]]
-- [2026-11-26-rss-find-the-log-line-that-matters-faster-with-full-text-search-in-grafana.md](../raw/2026-11-26-rss-find-the-log-line-that-matters-faster-with-full-text-search-in-grafana.md) → [[opentelemetry-genai-observability-and-ecosystem]]
-- [2026-11-26-rss-how-my-context-engineering-changed-for-gemini-4-neon.md](../raw/2026-11-26-rss-how-my-context-engineering-changed-for-gemini-4-neon.md) → [[agent-context-management-and-session-continuity]]
-- [2026-11-26-rss-introducing-brewlet-manage-golden-images-at-platform-speed.md](../raw/2026-11-26-rss-introducing-brewlet-manage-golden-images-at-platform-speed.md) → [[container-supply-chain-and-compliance]]
-- [2026-11-26-rss-measuring-and-mitigating-agent-sandbox-escape-with-siren.md](../raw/2026-11-26-rss-measuring-and-mitigating-agent-sandbox-escape-with-siren.md) → [[ai-coding-agent-security]]
-- [2026-11-26-rss-predicting-and-detecting-failures-how-azure-strengthens-reliability-fo.md](../raw/2026-11-26-rss-predicting-and-detecting-failures-how-azure-strengthens-reliability-fo.md) → [[distributed-systems-patterns]]
-- [2026-11-26-rss-probing-dns-at-cloudflare.md](../raw/2026-11-26-rss-probing-dns-at-cloudflare.md) → [[opentelemetry-genai-observability-and-ecosystem]]
-- [2026-11-26-rss-swarms-flocks-gangs-how-to-build-train-and-evaluate-multi-agent-system.md](../raw/2026-11-26-rss-swarms-flocks-gangs-how-to-build-train-and-evaluate-multi-agent-system.md) → [[multi-agent-architectures]]
-- [2026-11-26-rss-the-gods-are-dead-but-not-forever-inside-azra-games-ungodly.md](../raw/2026-11-26-rss-the-gods-are-dead-but-not-forever-inside-azra-games-ungodly.md) → [[unity-3d-and-realtime-vfx-patterns]]
-- [2026-11-26-rss-what-defenders-need-to-know-about-artex-the-agentic-ai-framework-threa.md](../raw/2026-11-26-rss-what-defenders-need-to-know-about-artex-the-agentic-ai-framework-threa.md) → [[ai-coding-agent-security]]
-- [2026-11-26-rss-why-you-shouldn-t-do-application-level-sharding.md](../raw/2026-11-26-rss-why-you-shouldn-t-do-application-level-sharding.md) → [[cloud-data-platforms-and-analytics]]
-- [2026-11-26-web-building-a-cozy-sunny-medieval-town-scene-using-custom-modular-assets.md](../raw/2026-11-26-web-building-a-cozy-sunny-medieval-town-scene-using-custom-modular-assets.md) → [[technical-art-community-and-talent-signals]]
-- [2026-11-26-web-serialize-union-types-with-system-text-json.md](../raw/2026-11-26-web-serialize-union-types-with-system-text-json.md) → [[dotnet-runtime-and-mobile-2026]]
-- [2026-11-26-web-union-types-c-reference.md](../raw/2026-11-26-web-union-types-c-reference.md) → [[csharp-memory-safety-and-unsafe-code]]
-- [2026-11-27-rss-an-incremental-approach-to-ai-first-software-development.md](../raw/2026-11-27-rss-an-incremental-approach-to-ai-first-software-development.md) → [[ai-assisted-software-practice]]
-- [2026-11-27-rss-azure-functions-and-aws-lambda-one-trigger-vs-multiple-triggers-what-c.md](../raw/2026-11-27-rss-azure-functions-and-aws-lambda-one-trigger-vs-multiple-triggers-what-c.md) → [[azure-service-bus-and-functions-messaging]]
-- [2026-11-27-rss-beyond-the-pilot-scaling-azure-sre-agent-across-your-enterprise.md](../raw/2026-11-27-rss-beyond-the-pilot-scaling-azure-sre-agent-across-your-enterprise.md) → [[azure-agent-automation-and-identity]]
-- [2026-11-27-rss-breakdown-designing-large-scale-soviet-era-architectural-system-for-vr.md](../raw/2026-11-27-rss-breakdown-designing-large-scale-soviet-era-architectural-system-for-vr.md) → [[technical-art-community-and-talent-signals]]
-- [2026-11-27-rss-cfast-unity-dev-report-4-building-a-stateful-fortran-fire-simulation-w.md](../raw/2026-11-27-rss-cfast-unity-dev-report-4-building-a-stateful-fortran-fire-simulation-w.md) → [[unity-3d-and-realtime-vfx-patterns]]
-- [2026-11-27-rss-designing-environments-that-tell-a-story-for-007-first-light.md](../raw/2026-11-27-rss-designing-environments-that-tell-a-story-for-007-first-light.md) → [[gamedev-production-and-community-signals]]
-- [2026-11-27-rss-engineering-vitals-in-the-age-of-ai.md](../raw/2026-11-27-rss-engineering-vitals-in-the-age-of-ai.md) → [[ai-assisted-software-practice]]
-- [2026-11-27-rss-gamemanager-is-a-singleton-and-cannot-be-touched-handling-dependencies.md](../raw/2026-11-27-rss-gamemanager-is-a-singleton-and-cannot-be-touched-handling-dependencies.md) → [[unity-3d-and-realtime-vfx-patterns]]
-- [2026-11-27-rss-introducing-search-for-agents.md](../raw/2026-11-27-rss-introducing-search-for-agents.md) → [[agentic-retrieval-and-search]]
-- [2026-11-27-rss-prove-your-ai-agent-guardrails-work.md](../raw/2026-11-27-rss-prove-your-ai-agent-guardrails-work.md) → [[ai-coding-agent-security]]
-- [2026-11-27-rss-the-great-escape-tradecraft-insights-from-an-agentic-swarm.md](../raw/2026-11-27-rss-the-great-escape-tradecraft-insights-from-an-agentic-swarm.md) → [[ai-coding-agent-security]]
-- [2026-11-27-rss-we-got-rid-of-redis-and-made-our-api-4x-faster.md](../raw/2026-11-27-rss-we-got-rid-of-redis-and-made-our-api-4x-faster.md) → [[distributed-systems-patterns]]
-- [2026-11-27-rss-why-i-m-bullish-on-mcp-for-2027.md](../raw/2026-11-27-rss-why-i-m-bullish-on-mcp-for-2027.md) → [[mcp-tool-governance-and-app-surfaces]]
-- [2026-11-27-web-breaking-changes-in-ef-core-11-ef11.md](../raw/2026-11-27-web-breaking-changes-in-ef-core-11-ef11.md) → [[dotnet-runtime-and-mobile-2026]]
-- [2026-11-27-web-devflow-overview.md](../raw/2026-11-27-web-devflow-overview.md) → [[dotnet-runtime-and-mobile-2026]]
+- [2026-11-28-rss-2-week-deadline-where-does-clean-architecture-fit.md](../raw/2026-11-28-rss-2-week-deadline-where-does-clean-architecture-fit.md) -> [[unity-3d-and-realtime-vfx-patterns]]
+- [2026-11-28-rss-always-solvable-puzzle-levels-generate-the-solution-first.md](../raw/2026-11-28-rss-always-solvable-puzzle-levels-generate-the-solution-first.md) -> [[procedural-world-persistence]]
+- [2026-11-28-rss-architectural-patterns-for-deterministic-ai-pipelines.md](../raw/2026-11-28-rss-architectural-patterns-for-deterministic-ai-pipelines.md) -> [[ai-agent-harnesses]]
+- [2026-11-28-rss-cfast-unity-dev-report-3-from-fire-simulation-to-real-time-smoke-rende.md](../raw/2026-11-28-rss-cfast-unity-dev-report-3-from-fire-simulation-to-real-time-smoke-rende.md) -> [[unity-3d-and-realtime-vfx-patterns]]
+- [2026-11-28-rss-dogfooding-checks-and-workspaces-hard-lessons-from-3-000-repos.md](../raw/2026-11-28-rss-dogfooding-checks-and-workspaces-hard-lessons-from-3-000-repos.md) -> [[github-actions-platform-operations]]
+- [2026-11-28-rss-from-files-to-cited-answers-in-one-api-call-managed-ingestion-and-sear.md](../raw/2026-11-28-rss-from-files-to-cited-answers-in-one-api-call-managed-ingestion-and-sear.md) -> [[agentic-retrieval-and-search]]
+- [2026-11-28-rss-how-to-handle-user-connector-and-agent-auth-in-gemini-enterprise-with-.md](../raw/2026-11-28-rss-how-to-handle-user-connector-and-agent-auth-in-gemini-enterprise-with-.md) -> [[google-agent-platform-and-gemini-api-2026]]
+- [2026-11-28-rss-introducing-the-llama-cpp-benchmark-dashboard-for-amd-ryzen-and-radeon.md](../raw/2026-11-28-rss-introducing-the-llama-cpp-benchmark-dashboard-for-amd-ryzen-and-radeon.md) -> [[edge-ai-and-ai-infrastructure-2026]]
+- [2026-11-28-rss-managed-connectors-in-azure-functions-are-now-generally-available.md](../raw/2026-11-28-rss-managed-connectors-in-azure-functions-are-now-generally-available.md) -> [[azure-service-bus-and-functions-messaging]]
+- [2026-11-28-rss-modernize-more-windows-applications-with-managed-instance-on-azure-app.md](../raw/2026-11-28-rss-modernize-more-windows-applications-with-managed-instance-on-azure-app.md) -> [[legacy-modernization-and-ai-ready-systems]]
+- [2026-11-28-rss-two-snakes-one-clock-the-tick-loop-behind-my-real-time-snake-duel.md](../raw/2026-11-28-rss-two-snakes-one-clock-the-tick-loop-behind-my-real-time-snake-duel.md) -> [[realtime-game-network-protocol-design]]
+- [2026-11-28-rss-your-ci-pipeline-just-failed-with-system-failure-again-here-s-what-tha.md](../raw/2026-11-28-rss-your-ci-pipeline-just-failed-with-system-failure-again-here-s-what-tha.md) -> [[github-actions-platform-operations]]
+- [2026-11-28-web-faking-a-spherical-planet-with-a-tileable-texture-in-ue5.md](../raw/2026-11-28-web-faking-a-spherical-planet-with-a-tileable-texture-in-ue5.md) -> [[technical-art-community-and-talent-signals]]
+- [2026-11-28-web-full-text-search-in-the-sql-server-ef-core-provider.md](../raw/2026-11-28-web-full-text-search-in-the-sql-server-ef-core-provider.md) -> [[dotnet-runtime-and-mobile-2026]]
+- [2026-11-28-web-vector-search-in-the-sql-server-ef-core-provider.md](../raw/2026-11-28-web-vector-search-in-the-sql-server-ef-core-provider.md) -> [[agentic-retrieval-and-search]]
 
 ## Wiki pages updated
 
-- [agent-context-management-and-session-continuity](../wiki/agent-context-management-and-session-continuity.md)
-- [agent-evaluation-and-benchmarks](../wiki/agent-evaluation-and-benchmarks.md)
 - [agentic-retrieval-and-search](../wiki/agentic-retrieval-and-search.md)
-- [ai-assisted-software-practice](../wiki/ai-assisted-software-practice.md)
-- [ai-coding-agent-security](../wiki/ai-coding-agent-security.md)
-- [azure-agent-automation-and-identity](../wiki/azure-agent-automation-and-identity.md)
+- [ai-agent-harnesses](../wiki/ai-agent-harnesses.md)
 - [azure-service-bus-and-functions-messaging](../wiki/azure-service-bus-and-functions-messaging.md)
-- [cloud-data-platforms-and-analytics](../wiki/cloud-data-platforms-and-analytics.md)
-- [container-supply-chain-and-compliance](../wiki/container-supply-chain-and-compliance.md)
-- [csharp-memory-safety-and-unsafe-code](../wiki/csharp-memory-safety-and-unsafe-code.md)
-- [distributed-systems-patterns](../wiki/distributed-systems-patterns.md)
 - [dotnet-runtime-and-mobile-2026](../wiki/dotnet-runtime-and-mobile-2026.md)
-- [gamedev-production-and-community-signals](../wiki/gamedev-production-and-community-signals.md)
-- [mcp-tool-governance-and-app-surfaces](../wiki/mcp-tool-governance-and-app-surfaces.md)
-- [multi-agent-architectures](../wiki/multi-agent-architectures.md)
-- [opentelemetry-genai-observability-and-ecosystem](../wiki/opentelemetry-genai-observability-and-ecosystem.md)
+- [edge-ai-and-ai-infrastructure-2026](../wiki/edge-ai-and-ai-infrastructure-2026.md)
+- [github-actions-platform-operations](../wiki/github-actions-platform-operations.md)
+- [google-agent-platform-and-gemini-api-2026](../wiki/google-agent-platform-and-gemini-api-2026.md)
+- [legacy-modernization-and-ai-ready-systems](../wiki/legacy-modernization-and-ai-ready-systems.md)
+- [procedural-world-persistence](../wiki/procedural-world-persistence.md)
+- [realtime-game-network-protocol-design](../wiki/realtime-game-network-protocol-design.md)
 - [technical-art-community-and-talent-signals](../wiki/technical-art-community-and-talent-signals.md)
 - [unity-3d-and-realtime-vfx-patterns](../wiki/unity-3d-and-realtime-vfx-patterns.md)
 
 ## Compile and crystallization
 
-Read every new capture completely, checked the relevant existing canonical sections, and appended graph-ready typed entities, explicit relationships, cited claims, claim-level confidence dates and decision/quality notes. No existing article was deleted or replaced, and no duplicate entity required merging. Source-specific single-source observations remain provisional; recaptures and vendor documentation do not become independent corroboration. One qualitative enforcement principle is supported across three originating organizations, without pooling incompatible percentages or repeated incident reports.
+Read all 15 original captures completely, compared relevant existing canonical sections and appended typed entities, explicit relationships, claim-level citations/confidence dates, quality notes and decision-changing questions. No existing canonical content was deleted or rewritten; no duplicate entity required merging. Source-specific observations remain provisional. One bounded execution/authorization principle is strengthened across n8n, Chainguard and Google; their distinct product claims, mechanisms and metrics are not pooled. Repeated Microsoft documentation and related SOKYU reports add no independent support.
 
-Read all **13** historical `output/query-*.md` results and checked **75** distinct explicit raw citations against canonical coverage. Their durable conclusions are already represented; new crystallizations: **0**. Historical release/model choices remain dated evidence. Rebuilt source/topic/gap indexes from current state, preserving earlier source entries, ingest dates, gap history and confirmation dates.
+Read all **13** historical `output/query-*.md` results and checked **75** distinct explicit raw citations against canonical coverage. Their durable conclusions already have first-class coverage; new crystallizations: **0**. Old release/model statements remain historical evidence rather than current advice. Rebuilt source/topic/gap indexes while retaining previous entries, dates, supersession and gap histories.
 
 ## Contradictions resolved
 
-- Unity singleton tutorial: preserved its unconditional lazy-initialization/zero-risk framing, then selected the narrower interpretation supported by the shown Instance assignment in Awake. Lazy service creation cannot make an absent manager instance reachable.
-- Autumn balance architecture: preserved Kafka-only acknowledgment framing, then selected the later explicit Kafka-or-SQS durable acceptance path. Ordering, duplicate handling and ambiguous-append recovery remain open verification questions.
+- n8n: preserved broad deterministic-AI safety/cost framing, then selected bounded orchestration with separate semantic validation and enforceable budgets.
+- Snake Duel: preserved mutual, order-independent head-swap framing, then selected immutable collision evaluation because the shown loop changes alive flags before later checks.
+- EF vector search: preserved the guide's RRF framing, then retained the November 19 correction: raw full-text relevance and vector distance are not ordinal ranks. The repeated example does not supersede that earlier correction.
 
-Each resolution includes `superseded-by:`, a timestamp, a target and reasoning in its canonical page. EF isolation/numeric wording is flagged and not promoted as unconditional behavior. Older preview, release and supersession history remains unchanged.
+Each resolution has `superseded-by:`, timestamp, reasoning and a local target. Smoke optimization candidate rejection is faithfully recorded as source history, not counted as a fourth newly resolved contradiction.
 
-## Quality posture
+## Gaps and quality posture
 
-- Pages rewritten/flagged: **0/7**. Eight captures carry explicit interpretation/evidence cautions across seven canonical pages: Siren, swarm training, VR profiling, singleton lifecycle, Talos inference, Autumn acknowledgment, MCP outlook and EF provider wording. The two resolvable interpretations are corrected with preserved history; remaining limitations are flagged for future verification, not adopted as guarantees.
-- Weak claims: all new product, performance and incident claims retain **1 source** and explicit attribution; three-organization support strengthens only the bounded distinction between model behavior and enforced application boundaries.
-- Privacy: no raw file edited or deleted. Compiled prose omits secret values/placeholders, exploit payloads, extraction procedures, operational destinations/identifiers, personal background and unnecessary contact information. No private case data or incident victim details were copied. **0 literal privacy redactions required**; best-effort credential/private-key/credential-in-URL checks found **0 candidates** in original new captures and intended generated additions. All original captures were read and reviewed for publication; this is not certification of the historical corpus.
-- Decision usefulness: pages describe what the archived evidence says, its limitations, applicable design choices and the exact local evidence that could change a decision. No provider adoption, runtime acceptance, compliance certification, scientific validity or production readiness is established.
-- Placement: Discovery's Lore overview/boundaries agree with local AGENTS. Its November 12 repository inventory is stale; the working copy and branch were verified separately. No new feature, dependency or infrastructure was introduced.
+- Added one source-specific question per capture to [gaps](../wiki/indexes/gaps.md): model/view initialization, puzzle witness replay, bounded workflow execution, smoke rendering/profiling, release attestation, retrieval lifecycle, per-user auth, local inference workloads, connector delivery, Windows migration compatibility, collision ordering, CI diagnosis, camera-path state and EF lexical/vector translation/relevance.
+- Pages rewritten: **0**. **4** canonical pages carry explicit example/interpretation cautions: Unity lifecycle and rejected smoke shortcut, n8n guarantees, Snake collision/food fallback, and repeated EF score fusion. Other pages retain provider, evidence and local-validation limits.
+- Weak claims: new per-product, performance and availability claims remain **1 source** with dated archival posture. Only the qualitative application/runtime boundary principle has **3 originating organizations**. No universal approval policy, procurement choice or HoneyDrunk runtime acceptance is inferred.
+- Privacy: **0 literal secret redactions required**. Raw files remain byte-for-byte unchanged. Compiled prose omits callback state, credentials, private user identifiers and unnecessary contact/profile details. Best-effort credential/private-key/credential-in-URL checks found **0 candidates** in the 15 new captures and generated additions; this is not certification of the historical corpus.
+- Decision usefulness: notes distinguish source-reported implementation, static review and missing runtime evidence, and state what tests could change a decision. No cloud resources, model services, native engines or external source instructions were executed.
+- Placement: Discovery overview/boundaries confirm Lore research ownership; its November 12 inventory is stale. Live Git was checked separately. No new feature, runtime infrastructure or dependency introduced.
 
 ## Validation and explicit author review
 
-Validation passed: **1668** raw-file SHA-256 hashes unchanged (including `.gitkeep`); **1667** unique source entries with exact raw-document coverage; **67** regenerated topic rows; **1163** prior gaps retained and **30** added (**1193** total); **13** queries / **75** distinct explicit citations already covered; **356** generated local Markdown links/wikilinks resolved; strict UTF-8; source citations, confirmation dates, supersession anchors and earlier index/page history preserved. All **162** other wiki/output files, including unrelated local sourcing receipts and signal reviews, remain byte-for-byte unchanged. Best-effort privacy checks found **0** credential candidates. Runtime tests were unnecessary for these research-only Markdown changes; external URLs and current provider behavior were not verified.
+Content validation passed: **1683** original raw-file SHA-256 hashes unchanged (including `.gitkeep`); **1682** unique source entries with exact raw-document coverage; **67** topic rows regenerated from actual citations and recorded dates; **1193** prior gaps retained and **15** added; all **13** queries/**75** explicit raw citations already covered. Existing canonical text and prior index history remain. All **169** other wiki/output files remain byte-for-byte unchanged, including unrelated sourcing receipts and signal reviews. Strict UTF-8, generated Markdown links/wikilinks, supersession anchors, confidence notes and intended scope were checked.
 
-Generated wiki/index/receipt whitespace checks passed. Full staged `git diff --check` reports **26 inherited trailing-whitespace diagnostics in six original raw captures**; reviewed them as preserved source formatting, including Markdown hard breaks and sample line spacing. The immutable-raw contract requires retaining those bytes; no check configuration or raw content was changed. These formatting notices are non-blocking for archival publication and do not affect the clean generated content checks.
+Static evidence checks confirm the excerpt's head-swap order result (first snake dead, second alive), the inverse full-text score contribution and the smoke operation arithmetic (0.04405 ms saved, 47.01%). These checks do not execute deployed Snake code, SQL, Unity or provider behavior. Runtime tests were unnecessary for research-only Markdown changes.
 
-Final explicit author review: **Approved; low risk; high confidence in archival scope**. Change type: Docs; blast radius: research knowledge; operational sensitivity: low; no ADR or runtime dependency introduced. Reviewed all 53 intended files against the direct ingest request, Lore AGENTS and the current Studio working agreement, defect-first review rubric and PR review rules. Checked claim attribution and independence, source limitations, privacy, raw immutability, prior content retention, exact coverage, graph links, source-interpretation corrections, mixed-worktree isolation and complete publication of cited captures. Fixed the consolidated principle heading so it is a separate top-level section. No unresolved Block or Request Changes findings, and no remaining publication suggestion. No runtime, public API, schema, concurrency, deployment or CI behavior changed. The current agreement supersedes stale skill references to Greptile and retired bypass labels; neither was invoked. This author review is separate from hosted CI, Sonar and native GitHub PR review, which were not verified.
+Generated-content whitespace validation passes. The 15 original raw captures contain **24** inherited trailing-whitespace lines, including Markdown hard breaks and displayed equations. These source-formatting notices are non-blocking for archival publication; no raw content or check configuration was changed.
+
+Explicit author review: **Approved; low risk; high confidence in archival scope**. Reviewed all **32 intended files** against the ingest request, Lore AGENTS, current Studio working agreement, defect-first review rubric and PR review rules. Checked claim correctness/attribution, source independence, preserved history, privacy, exact coverage, graph links, source-example cautions and mixed-worktree isolation. No unresolved Block, Request Changes or Suggest findings. No runtime/API/schema/CI/deployment/concurrency behavior changed. This author review is separate from hosted CI, Sonar and native GitHub PR review, which were not verified. The current working agreement supersedes stale skill references to Greptile and retired bypass labels; neither was invoked.
 
 ## Publication scope
 
-Intended files are the 18 canonical pages, four indexes, this receipt and 30 unchanged new raw captures. Existing sourcing receipts and untracked signal reviews remain excluded. The fetched existing branch matched local HEAD at preflight; no open PR was returned for it. Delivery is a Conventional Commit and normal push to `docs/lore-ingest-2026-10-10` with completed validation and author review; remote success is verified separately. No PR creation, merge or deployment requested; hosted CI, Sonar and native GitHub PR review were not verified.
+Only the 12 canonical pages, four indexes, this receipt and 15 unchanged original captures are intended for commit/push. Existing sourcing receipts and untracked signal reviews stay excluded. Fetched branch `docs/lore-ingest-2026-10-10` matched local HEAD at preflight; GitHub search returned no open PR for it. Delivery is a Conventional Commit and normal existing-branch push; remote success is verified separately. No PR creation, merge or deployment requested.
 
-The [previous rolling receipt](https://github.com/HoneyDrunkStudios/HoneyDrunk.Lore/blob/07c2ab3e042a96e3edd7fc8c7ddcf47cb201050d/output/lore-ingest-last-run.md) remains in Git.
+Previous rolling receipt: [November 27](https://github.com/HoneyDrunkStudios/HoneyDrunk.Lore/blob/1d0660f8d375494c2dced8abfa21335693149abf/output/lore-ingest-last-run.md).

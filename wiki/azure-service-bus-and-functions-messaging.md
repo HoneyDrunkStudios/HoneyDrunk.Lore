@@ -74,3 +74,24 @@ Code reuse uses a shared service; execution behavior depends-on source contracts
 ### Decision and quality notes
 
 Vendor-hosted design comparison, no AWS primary-document refresh or provider execution. Publication metadata and rendered date differ by a day; retained as capture provenance rather than a release claim. Source-specific claims remain provisional; repeated reports, recaptures and derived queries add no independent support. Open question: Which mixed-source fixture verifies payload normalization, partial-batch failure, idempotency, source-specific responses and app/function concurrency isolation? See [[indexes/gaps]].
+
+
+## 2026-11-28: Managed connectors distinguish delivery mode from action SDK coverage
+
+### Typed entities
+
+project: Azure Functions; project: Azure Connector Namespace; library: Connector SDK; concept: polling trigger; concept: webhook trigger; concept: batch scaling; file: raw/2026-11-28-rss-managed-connectors-in-azure-functions-are-now-generally-available.md.
+
+### Claims and evidence
+
+- Microsoft's November 17 announcement states managed connectors for Functions are GA, with Connector Namespace owning connections/authentication and Functions owning event-driven execution. It describes C#, Python and TypeScript paths; generic trigger coverage across the catalog does not imply every connector has a typed action SDK. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-managed-connectors-in-azure-functions-are-now-generally-available.md)
+- The GA account adds polling delivery, pending-event-driven scaling and batching alongside webhook push. Batch size, pending-event threshold and polling interval govern the tradeoff. Its VS Code/Core Tools minimum versions are dated setup prerequisites, not verified installed tools. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-managed-connectors-in-azure-functions-are-now-generally-available.md)
+- The announcement distinguishes no extra integration fee from paid Functions hosting and connector-call usage. Provisioning required namespace/connection/trigger resources remains part of local testing; no resource setup or guaranteed delivery semantics follow from the example. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-managed-connectors-in-azure-functions-are-now-generally-available.md)
+
+### Explicit relationships
+
+Connector triggers depend-on configured namespace connections and delivery mode; action support depends-on connector/operation SDK coverage. See [[azure-agent-automation-and-identity]].
+
+### Decision and quality notes
+
+Vendor GA announcement, no provider call or deployment. Do not transfer Service Bus settlement guarantees to managed connectors without their own contract. Source-specific claims remain provisional; repeated captures and derived queries add no independent support. Open question: Which supported connector fixture verifies polling/webhook delivery, duplicate events, batch partial failure, connection expiry, scale behavior, SDK action coverage and usage cost? See [[indexes/gaps]].

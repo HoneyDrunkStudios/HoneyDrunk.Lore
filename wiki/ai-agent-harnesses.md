@@ -2485,3 +2485,52 @@ Code Argus uses deterministic orchestration and source-backed retrieval; safe re
 ### Decision and quality notes
 
 Self-reported evolving prototype, not independently audited DevSecOps coverage. A clean delta SARIF shows only the scanner-observed delta, not proof of no vulnerabilities; quoted costs are not general estimates. Runtime-signal retrieval and cross-repo reasoning remain plans. Source-specific claims remain provisional; related vendor captures and derived queries add no independent support. Open question: Which Code Argus-style fixture verifies cross-file indexing, provenance, real gate failures, bounded repair, scanner blind spots, role restrictions and retry idempotency without fabricated incident evidence? See [[indexes/gaps]].
+
+
+## 2026-11-28: Deterministic routing does not establish semantic correctness
+
+### Typed entities
+
+project: n8n; concept: deterministic shell; concept: schema validation; concept: cache identity; decision: bound model execution; file: raw/2026-11-28-rss-architectural-patterns-for-deterministic-ai-pipelines.md.
+
+### Claims and evidence
+
+- n8n describes IF/Switch routing, Code validation, structured-output parsing, purposefully placed model nodes, selected tool approvals, execution history and caching as a shell around probabilistic reasoning. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-architectural-patterns-for-deterministic-ai-pipelines.md)
+- Static/source-review inference: fixed routing and schema-valid output constrain workflow shape, not factual correctness, regulated suitability or a hard total-cost ceiling. External state, retries, tool fan-out, cache keys and validator coverage remain part of the system contract. confidence: 1 source, last-confirmed 2026-11-28 (complete archived capture reviewed; no live refresh). [captured source](../raw/2026-11-28-rss-architectural-patterns-for-deterministic-ai-pipelines.md)
+
+### Source interpretation resolution
+
+Preserved source framing (paraphrased): The source broadly associates deterministic AI with auditability, safety in regulated environments, negligible hallucination risk and firm costs.
+
+superseded-by: [reviewed interpretation](#resolution-2026-11-28-deterministic-shell); timestamp: 2026-11-28T09:04:27-05:00; reason: The same source retains probabilistic model nodes and human judgment; deterministic control flow cannot itself establish semantic truth, compliance or a total spend cap.
+
+<a id="resolution-2026-11-28-deterministic-shell"></a>
+
+Selected interpretation: Use deterministic routing as a bounded orchestration mechanism; validate semantic outcomes and enforce explicit budgets independently. confidence: 1 source, last-confirmed 2026-11-28 (static/source review, not runtime verification). [captured source](../raw/2026-11-28-rss-architectural-patterns-for-deterministic-ai-pipelines.md)
+
+### Explicit relationships
+
+Bounded model use depends-on explicit routes, validation and stop budgets; cached answers depend-on input/context identity and freshness. See [[agent-evaluation-and-benchmarks]] and [[ai-coding-agent-security]].
+
+### Decision and quality notes
+
+Vendor design guidance, no measured reliability result. Unreinforced product claims remain provisional; schema parsing is not semantic verification. Source-specific claims remain provisional; repeated captures and derived queries add no independent support. Open question: Which workflow fixture verifies total retry/tool/token budgets, semantic rejection, stale-cache invalidation, denied actions and resumable approval behavior? See [[indexes/gaps]].
+
+
+## 2026-11-28: Cross-source consolidation of execution boundaries
+
+### Typed entities
+
+project: n8n; project: Chainguard Workspaces; project: Gemini Enterprise; concept: external validation; concept: authorization boundary.
+
+### Claims and evidence
+
+- Bounded synthesis: orchestration and authorization checks belong in explicit application/runtime components rather than relying on a model's declaration of success or permission. n8n places validation/selected approvals around reasoning, Chainguard places submission checks in the harness, and Google's custom-UI flow validates session ownership before credential finalization. confidence: 3 sources from 3 originating organizations, last-confirmed 2026-11-28 (archived source comparison; stronger qualitative support, not measured security effectiveness). [n8n](../raw/2026-11-28-rss-architectural-patterns-for-deterministic-ai-pipelines.md), [Chainguard](../raw/2026-11-28-rss-dogfooding-checks-and-workspaces-hard-lessons-from-3-000-repos.md), [Google](../raw/2026-11-28-rss-how-to-handle-user-connector-and-agent-auth-in-gemini-enterprise-with-.md)
+
+### Explicit relationships
+
+Safe execution depends-on external validation and identity-bound authority. See [[github-actions-platform-operations]] and [[google-agent-platform-and-gemini-api-2026]].
+
+### Decision and quality notes
+
+Only the qualitative separation receives stronger support. The sources describe different mechanisms and do not corroborate each other's success rates, product availability, containment guarantees or local acceptance. No universal approval flow is imposed by this synthesis.
